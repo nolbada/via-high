@@ -2,7 +2,7 @@
 <html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f766e">
-<title>금천고1 3과 핵심 7문장 · H-S코스</title>
+<title>금천고1 3과 핵심 7문장 (심화)</title>
 <style>
 :root{--bg:#f4f6f8;--sf:#fff;--fg:#14202b;--mu:#566474;--ln:#d9e0e7;--ac:#0f766e;--acbg:#ccfbf1;--ok:#15803d;--okbg:#e3f4e8;--bad:#b91c1c;--badbg:#fde8e8;--warn:#b45309;--warnbg:#fef3c7;--core:#0f766e;--corefg:#fff}
 @media(prefers-color-scheme:dark){:root{--bg:#0e141b;--sf:#17212b;--fg:#e6ebf0;--mu:#9aa8b6;--ln:#2a3744;--ac:#2dd4bf;--acbg:#0f3a36;--ok:#4ade80;--okbg:#15301f;--bad:#f87171;--badbg:#3a1d1f;--warn:#fbbf24;--warnbg:#46330a;--core:#2dd4bf;--corefg:#04201d}}
@@ -178,7 +178,7 @@ const STARS=new Set([]);
 let TAB='심화';
 function home(){
   const L=S.filter(s=>s.lv==TAB),dn=L.filter(s=>R[s.id]&&R[s.id].done).length;
-  let h=wlStrip()+'<h1>3과 핵심 7문장 · H-S코스</h1><p class="sub">문장 속 동사를 먼저 찾고, 절을 한 겹씩 열어 분석합니다. '+TAB+' '+L.length+'문장.'+(TAB=='심화'?' ★는 절이 여러 겹 얽힌 도전 문장입니다.':'')+'</p><div class="wguide">밑줄 점선이 보이는 단어를 한 번 누르면 내 단어장에 담깁니다. 다시 누르면 빠집니다. 직접 입력하는 기능은 없습니다. 담긴 단어는 다음 날부터 정해진 간격으로 복습 순서가 돌아옵니다.</div>';
+  let h=wlStrip()+'<h1>3과 핵심 7문장 (심화)</h1><p class="sub">문장 속 동사를 먼저 찾고, 절을 한 겹씩 열어 분석합니다. '+TAB+' '+L.length+'문장.'+(TAB=='심화'?' ★는 절이 여러 겹 얽힌 도전 문장입니다.':'')+'</p><div class="wguide">밑줄 점선이 보이는 단어를 한 번 누르면 내 단어장에 담깁니다. 다시 누르면 빠집니다. 직접 입력하는 기능은 없습니다. 담긴 단어는 다음 날부터 정해진 간격으로 복습 순서가 돌아옵니다.</div>';
   h+='<p class="small" style="margin:10px 2px 8px">푼 문장 '+dn+' / '+L.length+'</p><div class="bgrid">';
   L.forEach((s,k)=>{const r=R[s.id]||{},d=r.done,st=STARS.has(s.id)&&s.lv=='심화';
     h+='<button class="bk'+(d?' done':'')+(st?' star':'')+'" onclick="play(\''+s.id+'\')">'+(st?'<span class="bks">\u2605</span>':'')+'<span class="bn">'+(k+1)+'</span><span class="bs">'+s.id+'</span><span class="bt">'+(d?(r.wr?'실수 '+r.wr:'완료'):'')+'</span></button>'});
