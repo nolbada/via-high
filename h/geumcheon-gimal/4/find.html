@@ -55,7 +55,7 @@ var root=document.getElementById('root'),prog=el('span','prog','');
 var nav=document.getElementById('nav');
 var secs={};
 D.parts.forEach(function(p){var b=el('button',null,p[1]);b.onclick=function(){secs[p[0]].scrollIntoView({behavior:'smooth',block:'start'})};nav.appendChild(b)});
-var bClose=el('button','closeall','답 모두 닫기');bClose.onclick=function(){S={};save();paint();window.scrollTo({top:0,behavior:'smooth'})};nav.appendChild(bClose);nav.appendChild(prog);
+var bClose=el('button','closeall','답 모두 닫기');bClose.onclick=function(){S={};save();paint();window.scrollTo({top:0,behavior:'smooth'})};nav.insertBefore(bClose,nav.firstChild);nav.appendChild(prog);
 var cards=[];
 D.parts.forEach(function(p){
   var h=el('h2',null,p[1]);root.appendChild(h);secs[p[0]]=h;
