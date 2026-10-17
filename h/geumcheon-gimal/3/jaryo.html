@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>3과 배경지식 자료</title>
+<style>
+:root{--bg:#0b0d0c;--bar:#121614;--fg:#eef3f1;--mut:#9aa8a3;--ac:#2dd4bf;--ln:#26302d}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);
+font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;overflow:hidden}
+.top{position:fixed;left:0;right:0;top:0;height:52px;padding:0 12px;display:flex;align-items:center;gap:10px;
+background:var(--bar);border-bottom:1px solid var(--ln);z-index:5}
+.top a{color:var(--fg);text-decoration:none;font-size:15px;padding:8px 10px;border-radius:10px;border:1px solid var(--ln)}
+.top .ttl{flex:1;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top .cnt{font-size:14px;color:var(--mut);font-variant-numeric:tabular-nums;min-width:52px;text-align:right}
+.stage{position:fixed;left:0;right:0;top:52px;bottom:56px;display:flex;align-items:center;justify-content:center;touch-action:pan-y}
+.stage img{max-width:100%;max-height:100%;object-fit:contain;display:block;user-select:none;-webkit-user-drag:none}
+.zone{position:absolute;top:0;bottom:0;width:22%;border:0;background:transparent;cursor:pointer;padding:0}
+.zone.l{left:0}.zone.r{right:0}
+.bot{position:fixed;left:0;right:0;bottom:0;height:56px;padding:0 12px calc(env(safe-area-inset-bottom));display:flex;align-items:center;gap:10px;
+background:var(--bar);border-top:1px solid var(--ln);z-index:5}
+.bot button{flex:0 0 auto;height:38px;min-width:76px;border-radius:10px;border:1px solid var(--ln);background:#1a211e;color:var(--fg);font-size:15px;cursor:pointer}
+.bot button:disabled{opacity:.35;cursor:default}
+.bar{flex:1;height:4px;border-radius:2px;background:var(--ln);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--ac);transition:width .2s}
+</style>
+</head>
+<body>
+<div class="top">
+<a href="../index.html">3과</a>
+<div class="ttl">3과 배경지식 자료</div>
+<div class="cnt" id="cnt"></div>
+</div>
+<div class="stage" id="stage">
+<img id="img" alt="" draggable="false">
+<button class="zone l" id="zl" aria-label="이전"></button>
+<button class="zone r" id="zr" aria-label="다음"></button>
+</div>
+<div class="bot">
+<button id="bp" type="button">이전</button>
+<div class="bar"><i id="pg"></i></div>
+<button id="bn" type="button">다음</button>
+</div>
+<script>
+(function(){
+var N=12, cur=1;
+var img=document.getElementById('img'), cnt=document.getElementById('cnt'), pg=document.getElementById('pg');
+var bp=document.getElementById('bp'), bn=document.getElementById('bn');
+function src(i){return 'jaryo/'+(i<10?'0':'')+i+'.webp';}
+function show(i){
+if(i<1)i=1; if(i>N)i=N; cur=i;
+img.src=src(i); img.alt=i+' / '+N;
+cnt.textContent=i+' / '+N;
+pg.style.width=(i/N*100)+'%';
+bp.disabled=(i===1); bn.disabled=(i===N);
+try{history.replaceState(null,'','#'+i);}catch(e){}
+if(i<N){var a=new Image(); a.src=src(i+1);}
+if(i>1){var b=new Image(); b.src=src(i-1);}
+}
+function go(d){show(cur+d);}
+document.getElementById('zl').onclick=function(){go(-1);};
+document.getElementById('zr').onclick=function(){go(1);};
+bp.onclick=function(){go(-1);}; bn.onclick=function(){go(1);};
+document.addEventListener('keydown',function(e){
+if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();go(1);}
+else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(-1);}
+else if(e.key==='Home'){show(1);} else if(e.key==='End'){show(N);}
+});
+var sx=null, sy=null, st=document.getElementById('stage');
+st.addEventListener('touchstart',function(e){var t=e.changedTouches[0];sx=t.clientX;sy=t.clientY;},{passive:true});
+st.addEventListener('touchend',function(e){
+if(sx===null)return; var t=e.changedTouches[0], dx=t.clientX-sx, dy=t.clientY-sy; sx=null;
+if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)*1.5){ if(dx<0)go(1); else go(-1); }
+},{passive:true});
+var h=parseInt((location.hash||'').replace('#',''),10);
+show(isNaN(h)?1:h);
+})();
+</script>
+</body>
+</html>
