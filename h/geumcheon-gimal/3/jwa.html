@@ -75,7 +75,7 @@ b2.onclick=function(){setMode(true);};
 L.addEventListener('click',function(e){
 var p=e.target.closest('.pair');
 if(!p||!L.classList.contains('hide'))return;
-p.querySelector('.k').classList.toggle('show');
+p.querySelector('.k').classList.toggle('show');var c=p.closest('.card'),g=c&&c.nextElementSibling;if(g&&g.classList.contains('fig'))g.classList.toggle('show',!!c.querySelector('.k.show'));
 });
 var LB=document.getElementById('lb'),LI=LB.querySelector('img');
 L.addEventListener('click',function(e){var g=e.target.closest('.fig');if(!g)return;if(e.target.closest('.fb')){g.classList.toggle('show');return;}if(e.target.tagName==='IMG'){LI.src=e.target.src;LB.classList.add('on');}});
