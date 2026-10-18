@@ -17,7 +17,7 @@ for ps in D['passages']:
     for k in ['ko','key','why','nums']:
         if len(ps[k])!=n:E(f'{pid} len({k})={len(ps[k])}!={n}')
     if len(ps['link'])!=n-1:E(f'{pid} link len {len(ps["link"])} != {n-1}')
-    if 'abc' in ps['modes'] and n<7:E(f'{pid} abc needs n>=7')
+    if 'abc' in ps['modes'] and n<6:E(f'{pid} abc needs n>=6')
     if 'mun' in ps['modes'] and n<5:E(f'{pid} mun needs n>=5')
     if 'mun' in ps['modes'] and len([i for i in ps['ins'] if 1<=i<=n-1])<1:E(f'{pid} mun but no ins')
     for i in ps['ins']:

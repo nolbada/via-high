@@ -220,7 +220,7 @@ SX.prep = function (D, app) {
   if (app === 'abc') {
     var ws = [], N = f2.en.length, ln, s;
     function zl(i) { var r = ''; f2.zones.forEach(function (z) { if (i >= z.start && i < z.start + z.len) r = z.label; }); return r; }
-    for (ln = 7; ln <= 10; ln++) for (s = 0; s + ln <= N; s++) {
+    for (ln = 6; ln <= 10; ln++) for (s = 0; s + ln <= N; s++) {
       var a = zl(s), b = zl(s + ln - 1);
       ws.push({ id: 'w' + s + '_' + ln, label: a === b ? a : a + ' ~ ' + b, taught: null, modes: ['abc'], g0: s, base: f2,
         en: f2.en.slice(s, s + ln), ko: f2.ko.slice(s, s + ln), key: f2.key.slice(s, s + ln), why: f2.why.slice(s, s + ln),

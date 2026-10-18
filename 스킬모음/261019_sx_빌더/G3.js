@@ -67,7 +67,7 @@
           for (var s = lo; s <= hi; s++) items.push({ id: id + '|mi|' + j + '|' + s, j: j, s: s, span: [g0 + s, g0 + s + Lw - 1] });
         });
       } else if (app === 'abc') {
-        if (ps.en.length >= 7) G.shapes(ps).forEach(function (c) { items.push({ id: id + '|abc|' + c.join(','), c: c, span: [g0, g0 + ps.en.length - 1] }); });
+        if (ps.en.length >= 6) G.shapes(ps).forEach(function (c) { items.push({ id: id + '|abc|' + c.join(','), c: c, span: [g0, g0 + ps.en.length - 1] }); });
       } else if (app === 'blank') {
         (ps.blanks || []).forEach(function (b, bi) {
           if (ps.en[b.s] && ps.en[b.s].indexOf(b.ans) >= 0 && b.opts && b.opts.length === 4)
