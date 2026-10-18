@@ -56,11 +56,12 @@ mark{background:#ffe3e0;color:#8a1c1c;border-radius:4px;padding:0 3px}
 .bar{font-size:14px}.bar #cnt{line-height:1.5}
 @media(prefers-color-scheme:dark){.nx{color:#06201d}}
 .ex .th{background:var(--priL);border-radius:10px;padding:8px 12px;margin:6px 0;font-size:16px}.ex .ol2{list-style:none;margin:8px 0 2px;padding:0;font-size:15px;color:var(--sub)}.ex .ol2 li{margin:5px 0}.ex .ol2 li.c{color:var(--pri);font-weight:700}
+.sent{display:block;margin:0 0 7px}.sent .kr{display:none;color:var(--sub);font-size:14.5px;line-height:1.6;margin:1px 0 3px;font-weight:400}body.kon .sent:not(.blk) .kr,.sent.open:not(.blk) .kr{display:block}.sent:not(.blk){cursor:pointer}#kt{margin-left:auto}.bar #rs{margin-left:0}
 </style></head><body><div class="wrap">
 <div class="top"><a class="back" href="../index.html">← 금천고 정답 목록</a></div>
 <h1>3과 The True Art Lovers · 빈칸 추론 연습</h1>
 <p class="lede">본문 지문 속 빈칸에 알맞은 말을 골라요. 한 번 나온 문제는 한 바퀴를 다 돌 때까지 다시 나오지 않고, 보기 순서는 매번 달라져요.</p>
-<div class="bar"><span id="cnt"></span><button id="rs">처음부터 다시</button></div>
+<div class="bar"><span id="cnt"></span><button id="kt" type="button">한글 해석 보기</button><button id="rs">처음부터 다시</button></div>
 <div id="app"></div>
 <div class="foot">비타민 영어클리닉</div>
 </div>
@@ -70,6 +71,11 @@ var DATA={"secs": [{"id": "T1", "title": "Bill Traylor ① 삶과 그림의 시�
 var SECS={},ITEMS=DATA.items,N=ITEMS.length,PER=8,KEY='gc3blank-v1';
 DATA.secs.forEach(function(s){SECS[s.id]=s});
 var app=document.getElementById('app'),cnt=document.getElementById('cnt');
+var KP='gk-blank-kr',kt=document.getElementById('kt');
+function setK(v){document.body.classList.toggle('kon',v);kt.textContent=v?'한글 해석 닫기':'한글 해석 보기';try{localStorage.setItem(KP,v?'1':'0')}catch(e){}}
+var _k=false;try{_k=localStorage.getItem(KP)==='1'}catch(e){}
+setK(_k);kt.addEventListener('click',function(){setK(!document.body.classList.contains('kon'))});
+document.addEventListener('click',function(e){var s=e.target.closest&&e.target.closest('.sent');if(s&&!s.classList.contains('blk'))s.classList.toggle('open')});
 function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 function rnd(n){return Math.floor(Math.random()*n)}
 function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=rnd(i+1),t=a[i];a[i]=a[j];a[j]=t}return a}
@@ -116,9 +122,9 @@ function render(it){
   var h='<div class="q" id="card" data-id="'+it.id+'" data-sec="'+it.sec+'" data-ans="'+(p+1)+'"><div class="qh"><span class="qn">'+R.n+'</span><span class="tg">'+esc(sec.title)+'</span></div>';
   h+='<div class="ask">다음 글의 빈칸에 들어갈 말로 가장 알맞은 것은?</div><div class="pass">';
   sec.sents.forEach(function(s){
-    var t=esc(s.en);
-    if(s.n===it.i){t=t.replace(esc(it.a),'<span class="bl" id="bl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>')}
-    h+=t+' ';
+    var t=esc(s.en),b=s.n===it.i;
+    if(b){t=t.replace(esc(it.a),'<span class="bl" id="bl">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>')}
+    h+='<span class="sent'+(b?' blk':'')+'">'+t+'<span class="kr">'+esc(s.ko)+'</span></span>';
   });
   h+='</div>';
   var nums='①②③④⑤';
@@ -132,7 +138,7 @@ function pick(i){
   var it=cur,o=it._opts,ci=o.findIndex(function(x){return x.c}),ok=i===ci;
   card.classList.add('done');if(ok)R.k++;R.log.push({id:it.id,ok:ok});progress();
   var bs=card.querySelectorAll('.ob');bs[ci].classList.add('ok');if(!ok)bs[i].classList.add('ng');
-  var bl=document.getElementById('bl');bl.className='fill';bl.textContent=it.a;
+  var bl=document.getElementById('bl');bl.className='fill';bl.textContent=it.a;var bs2=bl.closest('.sent');if(bs2)bs2.classList.remove('blk');
   var s=SECS[it.sec].sents.filter(function(x){return x.n===it.i})[0],nums='①②③④⑤';
   var sc=SECS[it.sec];
   var h='<div class="res '+(ok?'o':'x')+'">'+(ok?'정답이에요.':'아쉬워요. 정답은 '+nums[ci]+'번이에요.')+'</div>';
