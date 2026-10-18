@@ -380,6 +380,7 @@ GM.run = function (cfg) {
         '</div><button class="nx" type="button" data-act="again">새 문제로 다시 풀기</button><a class="nx sub" href="../index.html">← 목록</a></div>';
       stage.innerHTML = h; cnt.innerHTML = '<b>' + N + '</b>문제 중 <b>' + m + '</b>개';
       if (!run.hw && cfg.hw) { run.hw = 1; save(); try { GK.hw(cfg.hw); } catch (e) {} }
+      if (!run.pg) { run.pg = 1; save(); try { PG.mark(window.SXKEY); } catch (e) {} }
       return;
     }
     var i = run.cur, p = run.probs[i], st = run.st[i], ps = P[p.pid], done = cfg.done(p, st);
@@ -497,6 +498,7 @@ SX.prep = function (D, app) {
   return D;
 };
 SX.start = function (app, D, opt) {
+  window.SXKEY = D.set + ':' + app;
   document.getElementById('mockinfo').innerHTML = GM.mockInfo(D);
   SX.apps[app](SX.prep(D, app), opt || {});
 };

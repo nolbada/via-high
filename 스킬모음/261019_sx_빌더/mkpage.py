@@ -10,7 +10,7 @@ HEAD='''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="v
 <div id="stage"></div>
 <div class="foot">비타민 영어클리닉 · {school}</div></div>
 <a class="homefab" href="../index.html">⌂ 목록</a>
-{gate}<script src="../../common/sx.js?v={ver}"></script>
+{gate}<script src="../../common/prog.js?v={ver}"></script><script src="../../common/sx.js?v={ver}"></script>
 <script src="sx-data.js?v={ver}"></script>
 <script>SX.start('{app}',DATA,{{set:DATA.set,hw:DATA.hw&&DATA.hw['{app}']}});</script>
 </body></html>
