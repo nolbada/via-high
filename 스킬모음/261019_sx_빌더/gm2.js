@@ -28,43 +28,57 @@ GM.conn = function (k0) {
 };
 GM.num = function (ps, i) { return ps.nums && ps.nums[i] != null ? ps.nums[i] : i + 1; };
 
-/* ---- 전체 흐름 속 내 위치 ----
- o: {from,to: 노란 박스로 감쌀 문장 범위(이 문제 글 기준), mark: 강조할 문장, markLab, tags: {문장idx:'(A)'}, cap, title}
- 단원이면 ps.base(단원 전체 이어 붙인 글)·ps.g0(시작 위치)로 앞뒤 구역까지 보여 준다 */
+/* ---- 전체 흐름(순서도): 한글 한 줄씩 ▼로 잇고 기·승·전·결 소제목, 푼 부분은 노란 박스 ---- */
+GM.strip = function (s) { return String(s).replace(/\s*\([^()]*[A-Za-z][^()]*\)\s*$/, ''); };
 GM.ctx = function (D, ps, o) {
   o = o || {};
   var B = ps.base || ps, g0 = ps.g0 || 0, from = g0 + o.from, to = g0 + o.to, mark = o.mark == null ? null : g0 + o.mark;
-  var zones = B.zones || [{ start: 0, len: ps.en.length, label: ps.label, gist: ps.gist }];
-  var h = '<div class="ctx"><div class="wd">' + GM.esc(o.title || '전체 흐름 속 내 위치') + '</div>';
-  zones.forEach(function (z) {
+  var zones = B.zones || [{ start: 0, len: ps.en.length, label: ps.label, gist: ps.gist, stt: ps.stt }];
+  var first = -1, last = -1;
+  zones.forEach(function (z, zi) { if (z.start + z.len - 1 >= from && z.start <= to) { if (first < 0) first = zi; last = zi; } });
+  var h = '<div class="ctx"><div class="wd">' + GM.esc(o.title || '전체 흐름 · 이 순서로 기억해요') + '</div>';
+  zones.forEach(function (z, zi) {
+    if (zi < first - 1 || zi > last + 1) return;
     var z0 = z.start, z1 = z.start + z.len - 1;
-    if (z1 < from || z0 > to) {
-      h += '<div class="zc"><span class="zt">' + (z1 < from ? '앞 내용' : '뒷 내용') + '</span><b>' + GM.esc(z.label) + '</b>' + (z.gist ? ' · ' + GM.kline(z.gist) : '') + '</div>';
+    if (zi < first || zi > last) {
+      h += '<div class="zc"><span class="zt">' + (zi < first ? '앞 내용' : '뒷 내용') + '</span><b>' + GM.esc(z.label) + '</b>' + (z.gist ? ' · ' + GM.esc(GM.strip(z.gist)) : '') + '</div>';
       return;
     }
-    h += '<div class="zx"><div class="zh"><b>' + GM.esc(z.label) + '</b>' + (z.gist ? '<span class="zg">' + GM.kline(z.gist) + '</span>' : '') + '</div>';
-    var inbox = false, i;
+    h += '<div class="zx"><div class="zh"><b>' + GM.esc(z.label) + '</b>' + (z.gist ? '<span class="zg">' + GM.esc(GM.strip(z.gist)) + '</span>' : '') + '</div><div class="flw">';
+    var inbox = false, prevSt = null, i, firstNode = true;
     for (i = z0; i <= z1; i++) {
       var inr = i >= from && i <= to;
       if (inr && !inbox) { h += '<div class="hlbox"><div class="hlt">' + GM.esc(o.cap || '지금 푼 부분') + '</div>'; inbox = true; }
       if (!inr && inbox) { h += '</div>'; inbox = false; }
+      var st = B.st && B.st[i];
+      if (st && st !== prevSt) { h += '<div class="stg"><b>' + GM.esc(st) + '</b>' + (z.stt && z.stt[st] ? ' ' + GM.esc(z.stt[st]) : '') + '</div>'; prevSt = st; firstNode = true; }
       var mk = mark === i, tg = o.tags && o.tags[i - g0];
-      h += '<div class="cr' + (mk ? ' mk1' : '') + '"><span class="cn">' + (B.nums && B.nums[i] != null ? B.nums[i] : i + 1) + '</span><div class="cb">' +
-        (tg ? '<span class="tgl">' + GM.esc(tg) + '</span>' : '') + (mk && o.markLab ? '<span class="tgl y">' + GM.esc(o.markLab) + '</span>' : '') +
-        GM.chip(B.key[i][0]) + '<span class="cl">' + GM.kline(B.key[i][1]) + '</span></div></div>';
+      if (!firstNode) h += '<div class="far">▼</div>';
+      firstNode = false;
+      h += '<div class="fd' + (mk ? ' mk1' : '') + '">' + (tg ? '<span class="tgl">' + GM.esc(tg) + '</span>' : '') + (mk && o.markLab ? '<span class="tgl y">' + GM.esc(o.markLab) + '</span>' : '') +
+        GM.chip(B.key[i][0]) + '<span class="cl">' + GM.esc(GM.strip(B.key[i][1])) + '</span></div>';
     }
     if (inbox) h += '</div>';
-    h += '</div>';
+    h += '</div></div>';
   });
   return h + '</div>';
 };
-/* ---- 왜 이 순서/자리인가: 단서 목록 ---- items: [{lab, i}] i = "i번 문장이 바로 앞과 이어지는 이유" ---- */
+
+/* ---- 왜 이 순서/자리인가: 단서 카드(유형 칩 + 신호어 + 한 줄) + 앞→이 문장, 긴 설명은 접어 둔다 ---- */
 GM.why = function (ps, items, title) {
   var h = '<div class="why"><div class="wd">' + GM.esc(title) + '</div><ol class="chain">';
   items.forEach(function (it) {
-    var t = ps.why && ps.why[it.i];
-    if (!t) { var k = ps.key[it.i]; t = (k[0] ? k[0] + ' ' : '') + k[1]; }
-    h += '<li><span class="jl">' + GM.esc(it.lab) + '</span><span class="jt">' + GM.kline(t) + '</span></li>';
+    var i = it.i, c = ps.cl && ps.cl[i], t = ps.why && ps.why[i];
+    h += '<li><span class="jl">' + GM.esc(it.lab) + '</span><div class="jt">';
+    if (c) {
+      h += '<div class="jc"><span class="ct">' + GM.esc(c.t) + '</span>' + (c.w ? '<b class="cw">' + GM.esc(c.w) + '</b>' : '') + '</div><div class="jm">' + GM.esc(c.m) + '</div>';
+      if (i > 0) h += '<div class="jf"><div><span class="fa">앞</span>' + GM.esc(GM.strip(ps.key[i - 1][1])) + '</div><div><span class="fa y">이 문장</span>' + GM.esc(GM.strip(ps.key[i][1])) + '</div></div>';
+      if (t) h += '<details class="mo"><summary>자세히 보기</summary><div>' + GM.kline(t) + '</div></details>';
+    } else {
+      if (!t) { var k = ps.key[i]; t = (k[0] ? k[0] + ' ' : '') + k[1]; }
+      h += GM.kline(t);
+    }
+    h += '</div></li>';
   });
   return h + '</ol></div>';
 };
@@ -202,11 +216,11 @@ var SX = { apps: {} };
 SX.prep = function (D, app) {
   if (!D.lesson) return D;
   if (!D._flat) {
-    var f = { id: 'flat', label: D.title, taught: null, en: [], ko: [], key: [], why: [], nums: [], link: [], ins: [], blanks: [], zones: [], modes: ['ko', 'mun'] }, off = 0;
+    var f = { id: 'flat', label: D.title, taught: null, en: [], ko: [], key: [], why: [], nums: [], link: [], ins: [], blanks: [], zones: [], cl: [], st: [], modes: ['ko', 'mun'] }, off = 0;
     D.passages.forEach(function (p) {
       var n = p.en.length, i;
-      f.zones.push({ start: off, len: n, label: p.label, gist: p.gist });
-      for (i = 0; i < n; i++) { f.en.push(p.en[i]); f.ko.push(p.ko[i]); f.key.push(p.key[i]); f.why.push(p.why[i]); f.nums.push(p.nums ? p.nums[i] : off + i + 1); }
+      f.zones.push({ start: off, len: n, label: p.label, gist: p.gist, stt: p.stt });
+      for (i = 0; i < n; i++) { f.en.push(p.en[i]); f.ko.push(p.ko[i]); f.key.push(p.key[i]); f.why.push(p.why[i]); f.cl.push(p.cl ? p.cl[i] : null); f.st.push(p.st ? p.st[i] : null); f.nums.push(p.nums ? p.nums[i] : off + i + 1); }
       for (i = 0; i < n - 1; i++) f.link.push(!!p.link[i]);
       f.link.push(false);
       (p.ins || []).forEach(function (j) { f.ins.push(off + j); });
@@ -223,7 +237,7 @@ SX.prep = function (D, app) {
     for (ln = 6; ln <= 10; ln++) for (s = 0; s + ln <= N; s++) {
       var a = zl(s), b = zl(s + ln - 1);
       ws.push({ id: 'w' + s + '_' + ln, label: a === b ? a : a + ' ~ ' + b, taught: null, modes: ['abc'], g0: s, base: f2,
-        en: f2.en.slice(s, s + ln), ko: f2.ko.slice(s, s + ln), key: f2.key.slice(s, s + ln), why: f2.why.slice(s, s + ln),
+        en: f2.en.slice(s, s + ln), ko: f2.ko.slice(s, s + ln), key: f2.key.slice(s, s + ln), why: f2.why.slice(s, s + ln), cl: f2.cl.slice(s, s + ln),
         nums: f2.nums.slice(s, s + ln), link: f2.link.slice(s, s + ln - 1), ins: [], blanks: [] });
     }
     return { set: D.set, title: D.title, lesson: true, passages: ws };
