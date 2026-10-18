@@ -194,12 +194,14 @@ mark{background:#ffe3e0;color:#8a1c1c;border-radius:4px;padding:0 3px}
 <div class="res"></div>
 <div class="fin"><div class="wd">한눈에 정리 · 이 순서로 기억해요</div><div class="flow"><div class="fn g"><span>여성의 전통적 역할에 이의 제기, 뛰어난 재능</span></div><div class="ar">▼</div><div class="fn"><span>오늘날까지 우리를 놀라게 함</span></div><div class="ar">▼</div><div class="fn"><span>투어 참여에 대한 감사</span></div><div class="ar">▼</div><div class="fn"><span>전시를 더 둘러보라는 당부</span></div></div><button class="sb sub2 again" type="button">다시 풀기</button></div></div>
 <div class="foot">비타민 영어클리닉 · 금천고1 공통영어2 3과 The True Art Lovers</div></div>
+<script src="../gate.js"></script>
 <script>
 (function(){
 var qs=[].slice.call(document.querySelectorAll('.q.seq2')),bar=document.getElementById('cnt');
 var secs=[].slice.call(document.querySelectorAll('.q.pick'));
 var TOT=qs.length+secs.length,done=0,perfect=0,pdone=0,pc=0;
-function up(){bar.innerHTML=(done+pdone)+' / '+TOT+' 풀었어요 · 한 번에 맞힌 문제 <b>'+(perfect+pc)+'</b>개'}
+var hwFired=false;
+function up(){if(!rep&&!hwFired&&done+pdone>=TOT){hwFired=true;try{GK.hw('L3-sunko')}catch(e){}}bar.innerHTML=(done+pdone)+' / '+TOT+' 풀었어요 · 한 번에 맞힌 문제 <b>'+(perfect+pc)+'</b>개'}
 qs.forEach(function(q){
  var tot=+q.dataset.t,slots=[].slice.call(q.querySelectorAll('.slot')),pb=[].slice.call(q.querySelectorAll('.pb')),go=q.querySelector('.go'),lbl=q.querySelector('.lbl');
  var texts={};pb.forEach(function(b){texts[b.dataset.n]=b.innerHTML});
@@ -252,10 +254,10 @@ document.getElementById('rs').onclick=function(){try{localStorage.removeItem(SK)
   q.querySelectorAll('.pb').forEach(function(b){b.classList.remove('gone')});q.querySelector('.go').disabled=true;q.querySelector('.lbl').textContent='이어질 순서대로 문장을 누르세요 (1번째)';
   var r=q.querySelector('.res');r.className='res';r.textContent=''});
  secs.forEach(function(q){q.classList.remove('done');q.querySelectorAll('.ob,.mk').forEach(function(o){o.classList.remove('ok','ng')});var r=q.querySelector('.res');r.className='res';r.textContent=''});
- done=0;perfect=0;pdone=0;pc=0;up();window.scrollTo(0,0)};
+ done=0;perfect=0;pdone=0;pc=0;hwFired=false;up();window.scrollTo(0,0)};
 if(saved){qs.forEach(function(q,i){var st=saved.q&&saved.q[i];if(!st)return;(st.p||[]).forEach(function(n){var b=q.querySelector('.pb[data-n="'+n+'"]');if(b)b.click()});if(st.d){q._tries=Math.max(0,(st.t||1)-1);var go=q.querySelector('.go');if(go&&!go.disabled)go.click()}});
  secs.forEach(function(q,j){var k=saved.p&&saved.p[j];if(k>=0){var o=q.querySelectorAll('.ob,.mk')[k];if(o)o.click()}});
  var all=qs.concat(secs),f=all.filter(function(q){return !q.classList.contains('done')})[0];var any=all.some(function(q){return q.classList.contains('done')||(q._p&&q._p.length)});if(f&&any)setTimeout(function(){f.scrollIntoView({block:'start'})},150)}
-rep=false;up();
+rep=false;hwFired=(done+pdone>=TOT);up();
 })();
 </script><div style="height:64px"></div><a class="homefab" href="../index.html" style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#0f766e;color:#fff;font:700 13px/1 sans-serif;padding:11px 14px;border-radius:22px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.3)">⌂ 목록</a></body></html>

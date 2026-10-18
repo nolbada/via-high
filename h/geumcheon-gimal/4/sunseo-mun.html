@@ -252,6 +252,7 @@ small.kr{display:none;color:var(--sub);font-size:14.5px;font-weight:400;line-hei
 <div class="oth">①②에 넣으면 10~11에서 설명하던 같은 메커니즘 사례가 끊겨요(11의 <span class="en">Similarly</span>(마찬가지로)는 10을 이어받아요). ④ 13 뒤에 넣으면 13의 <span class="en">these implants</span>(이러한 임플란트)가 가리킬 임플란트 이야기가 앞에 정리되어 있어야 합니다.</div>
 <div class="wd">한눈에 정리 · 노란 칸이 주어진 문장</div><div class="flow"><div class="fn"><span class="ch">In addition(또한)</span><span>마비 환자: 디지털 브릿지로 다시 걷기</span></div><div class="ar">▼</div><div class="fn"><span>생각 → AI가 신호 분석 → 다리로 전송</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Similarly(마찬가지로)</span><span>팔을 잃은 사람의 의수도 같은 원리</span></div><div class="ar">▼</div><div class="fn g"><span>의료의 성공 → 다른 산업으로 확산</span></div><div class="ar">▼</div><div class="fn"><span>20~30년 내 상용화, 일상을 크게 변화</span></div><div class="ar">▼</div><div class="fn"><span class="ch">For example(예를 들어)</span><span>마음을 읽는 소프트웨어를 뇌에 설치</span></div></div></div></div>
 <div class="foot">비타민 영어클리닉 · 금천고1 공통영어2 4과 AI Neural Implants</div></div>
+<script src="../gate.js"></script>
 <script>
 (function(){
 var KP='gk-blank-kr',kt=document.getElementById('kt');
@@ -261,7 +262,8 @@ setK(_k);kt.addEventListener('click',function(){setK(!document.body.classList.co
 var qs=[].slice.call(document.querySelectorAll('.q.seq2')),bar=document.getElementById('cnt');
 var secs=[].slice.call(document.querySelectorAll('.q.pick'));
 var TOT=qs.length+secs.length,done=0,perfect=0,pdone=0,pc=0;
-function up(){bar.innerHTML=(done+pdone)+' / '+TOT+' 풀었어요 · 한 번에 맞힌 문제 <b>'+(perfect+pc)+'</b>개'}
+var hwFired=false;
+function up(){if(!rep&&!hwFired&&done+pdone>=TOT){hwFired=true;try{GK.hw('L4-sunmun')}catch(e){}}bar.innerHTML=(done+pdone)+' / '+TOT+' 풀었어요 · 한 번에 맞힌 문제 <b>'+(perfect+pc)+'</b>개'}
 qs.forEach(function(q){
  var tot=+q.dataset.t,slots=[].slice.call(q.querySelectorAll('.slot')),pb=[].slice.call(q.querySelectorAll('.pb')),go=q.querySelector('.go'),lbl=q.querySelector('.lbl');
  var texts={};pb.forEach(function(b){texts[b.dataset.n]=b.innerHTML});
@@ -314,10 +316,10 @@ document.getElementById('rs').onclick=function(){try{localStorage.removeItem(SK)
   q.querySelectorAll('.pb').forEach(function(b){b.classList.remove('gone')});q.querySelector('.go').disabled=true;q.querySelector('.lbl').textContent='이어질 순서대로 문장을 누르세요 (1번째)';
   var r=q.querySelector('.res');r.className='res';r.textContent=''});
  secs.forEach(function(q){q.classList.remove('done');q.querySelectorAll('.ob,.mk').forEach(function(o){o.classList.remove('ok','ng')});var r=q.querySelector('.res');r.className='res';r.textContent=''});
- done=0;perfect=0;pdone=0;pc=0;up();window.scrollTo(0,0)};
+ done=0;perfect=0;pdone=0;pc=0;hwFired=false;up();window.scrollTo(0,0)};
 if(saved){qs.forEach(function(q,i){var st=saved.q&&saved.q[i];if(!st)return;(st.p||[]).forEach(function(n){var b=q.querySelector('.pb[data-n="'+n+'"]');if(b)b.click()});if(st.d){q._tries=Math.max(0,(st.t||1)-1);var go=q.querySelector('.go');if(go&&!go.disabled)go.click()}});
  secs.forEach(function(q,j){var k=saved.p&&saved.p[j];if(k>=0){var o=q.querySelectorAll('.ob,.mk')[k];if(o)o.click()}});
  var all=qs.concat(secs),f=all.filter(function(q){return !q.classList.contains('done')})[0];var any=all.some(function(q){return q.classList.contains('done')||(q._p&&q._p.length)});if(f&&any)setTimeout(function(){f.scrollIntoView({block:'start'})},150)}
-rep=false;up();
+rep=false;hwFired=(done+pdone>=TOT);up();
 })();
 </script><div style="height:64px"></div><a class="homefab" href="../index.html" style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#0f766e;color:#fff;font:700 13px/1 sans-serif;padding:11px 14px;border-radius:22px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.3)">⌂ 목록</a></body></html>

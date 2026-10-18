@@ -99,6 +99,7 @@ small.kr{display:none;color:var(--sub);font-size:14.5px;font-weight:400;line-hei
 .q .qctl{margin-top:4px}\n</style><link rel="icon" type="image/svg+xml" href="../icon.svg"><link rel="apple-touch-icon" href="../icon-180.png"><meta name="apple-mobile-web-app-title" content="금천고정답"></head><body><div class="wrap"><div class="top"><a class="back" href="../index.html">← 금천고 정답 목록</a></div><h1>3과 순서배열 · ABC</h1><p class="lede">3과 The True Art Lovers 본문 · 모의고사 유형 6문제. 주어진 글 다음에 (A)(B)(C)의 순서를 골라요. 다시 풀 때마다 문제가 달라져요.</p><div class="bar"><span id="cnt" class="cnt"></span><button id="kt" type="button">한글 해석 보기</button><button id="rs">처음부터 다시</button></div>
 <h2 class="sechd">ABC 순서 고르기</h2><div class="how">주어진 글 다음에 이어질 <b>(A) (B) (C)</b>의 순서를 골라요. 한 문제씩 보기를 골라 <b>제출하기</b>를 누르면 바로 정답과 한눈에 정리 순서도가 나와요. 풀다가 나가도 <b>풀던 곳에서 이어서</b> 풀 수 있어요. 이 문제는 <b>풀 때마다 바뀌어요</b>. <b>처음부터 다시</b>를 누르면 새 문제가 나와요.</div><div id="qs"></div><div id="sum" style="display:none"></div>
 <div class="foot">비타민 영어클리닉 · 금천고1 공통영어2 3과 The True Art Lovers</div></div>
+<script src="../gate.js"></script>
 <script>
 
 (function(){
@@ -224,7 +225,7 @@ host.addEventListener('click',function(e){
  if(b){if(q.classList.contains('done'))return;
   var os=q.querySelectorAll('.ob');os.forEach(function(o){o.classList.remove('sel')});b.classList.add('sel');run.sel[i]=+b.dataset.i;q.querySelector('.go').disabled=false;saveRun();return}
  if(e.target.closest('.go')){if(run.sel[i]<0||run.res[i]>=0)return;run.res[i]=(run.sel[i]===+q.dataset.a)?1:0;saveRun();gradeUI(q,i,run.sel[i]);view();return}
- if(e.target.closest('.nextq')){run.cur=i+1;saveRun();view();window.scrollTo(0,0)}
+ if(e.target.closest('.nextq')){run.cur=i+1;saveRun();if(run.cur>=TOT){try{GK.hw('L3-sunabc')}catch(x){}}view();window.scrollTo(0,0)}
 });
 document.getElementById('rs').onclick=function(){
  if(run&&run.cur<TOT&&(run.sel.some(function(x){return x>=0}))&&!confirm('지금 풀던 문제를 버리고 새 문제로 시작할까요?'))return;
