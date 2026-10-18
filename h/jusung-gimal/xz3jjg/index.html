@@ -1,0 +1,37 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>선생님 열기 코드</title>
+<style>:root{--bg:#f6f7f6;--fg:#1c2321;--card:#fff;--line:#dde3e0;--pri:#0f766e;--sub:#5b6b66}
+@media(prefers-color-scheme:dark){:root{--bg:#141a18;--fg:#e8efec;--card:#1d2522;--line:#2e3a36;--pri:#2dd4bf;--sub:#9fb0aa}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,'Malgun Gothic',sans-serif}
+.w{max-width:520px;margin:0 auto;padding:16px}h1{font-size:19px;margin:6px 0 12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0}
+input{width:100%;box-sizing:border-box;padding:11px;border:1px solid var(--line);border-radius:10px;font-size:16px;background:var(--bg);color:var(--fg)}
+button{font:inherit;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:10px;padding:10px 12px;margin:4px 4px 0 0}
+button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.big{font-size:34px;font-weight:700;letter-spacing:4px;text-align:center;color:var(--pri);padding:8px 0}
+small{color:var(--sub)}.row{display:flex;gap:8px;align-items:center;margin:6px 0}.row span{min-width:64px;font-weight:600}.row input{flex:1}</style></head><body><div class="w">
+<h1>선생님 열기 코드</h1>
+<div id="lg" class="card"><small>선생님 코드를 입력해요.</small><div class="row"><input id="tc" type="password" placeholder="선생님 코드"><button id="go">확인</button></div><div id="err" style="color:#c0392b"></div></div>
+<div id="main" style="display:none">
+<div class="card"><b>1. 학생</b><br><small>이름 메모는 이 폰에만 저장돼요 (인터넷에는 올라가지 않아요).</small><div id="st"></div></div>
+<div class="card"><b>2. 열어 줄 단계</b><div id="ks"></div></div>
+<div class="card" id="res" style="display:none"><div id="who" style="color:var(--sub)"></div><div class="big" id="cd"></div><button id="cp">복사</button> <small id="cm"></small></div>
+</div></div>
+<script>
+var TH='37575fb29347376e4a3d70a90d193a794f54799008412ac120bea44546a18025';
+var CODES=['m4wb4'];
+var KEYS=[['L4','4과 열기'],['4-1','4과 2회차'],['4-2','4과 3회차'],['4-3','4과 4회차']];
+var AL='23456789abcdefghjkmnpqrstuvwxyz',TC='',sc='',kk='';
+function H(s){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)).then(function(b){return new Uint8Array(b)})}
+function hex(u){return Array.prototype.map.call(u,function(x){return('0'+x.toString(16)).slice(-2)}).join('')}
+function memo(){try{return JSON.parse(localStorage.getItem('js26-memo')||'{}')}catch(e){return{}}}
+function setMemo(c,v){var m=memo();m[c]=v;try{localStorage.setItem('js26-memo',JSON.stringify(m))}catch(e){}}
+document.getElementById('go').onclick=function(){var v=document.getElementById('tc').value.trim();H(v).then(function(u){if(hex(u)===TH){TC=v;document.getElementById('lg').style.display='none';document.getElementById('main').style.display='block';draw()}else document.getElementById('err').textContent='코드가 맞지 않아요'})};
+document.getElementById('tc').onkeydown=function(e){if(e.key==='Enter')document.getElementById('go').click()};
+function draw(){var m=memo(),h='';CODES.forEach(function(c){h+='<div class="row"><button data-c="'+c+'" class="'+(c===sc?'on':'')+'">'+c+'</button><input data-m="'+c+'" placeholder="이름 메모" value="'+(m[c]||'')+'"></div>'});document.getElementById('st').innerHTML=h;
+var k='';KEYS.forEach(function(x){k+='<button data-k="'+x[0]+'" class="'+(x[0]===kk?'on':'')+'">'+x[1]+'</button>'});document.getElementById('ks').innerHTML=k;show()}
+document.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;if(b.dataset.c){sc=b.dataset.c;draw()}else if(b.dataset.k){kk=b.dataset.k;draw()}});
+document.addEventListener('input',function(e){if(e.target.dataset&&e.target.dataset.m)setMemo(e.target.dataset.m,e.target.value)});
+function show(){var r=document.getElementById('res');if(!sc||!kk){r.style.display='none';return}
+H(TC+':'+sc+':'+kk).then(function(d){var o='';for(var i=0;i<6;i++)o+=AL[d[i]%AL.length];r.style.display='block';document.getElementById('cd').textContent=o;var n=(memo()[sc]||sc),kn=KEYS.filter(function(x){return x[0]===kk})[0][1];document.getElementById('who').textContent=n+' · '+kn;document.getElementById('cm').textContent=''})}
+document.getElementById('cp').onclick=function(){var t=document.getElementById('cd').textContent;try{navigator.clipboard.writeText(t);document.getElementById('cm').textContent='복사했어요'}catch(e){}};
+</script></body></html>

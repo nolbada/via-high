@@ -1,0 +1,274 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0f766e"><meta name="robots" content="noindex"><title>주성고 기말 대비</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg"><link rel="apple-touch-icon" href="icon-180.png"><meta name="apple-mobile-web-app-title" content="주성고정답">
+<style>
+:root{--bg:#f6f8f7;--card:#fff;--ink:#16211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--amber:#b45309;--amberL:#fff3e0;--red:#c0262d;--blue:#1d4ed8;--navy:#1e2a44;--green:#15803d;--greenL:#e6f6ea}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--amber:#fbbf24;--amberL:#3a2c0a;--red:#ff8a80;--blue:#8ab4ff;--navy:#e8f0ee;--green:#6ee7a0;--greenL:#12301f}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:560px;margin:0 auto;padding:16px 14px 90px}
+button{font-family:inherit;cursor:pointer}
+a{color:inherit;text-decoration:none}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:6px 0 12px}
+.hd h1{font-size:21px;margin:0;line-height:1.3}
+.hd .s{color:var(--sub);font-size:13.5px}
+.dd{text-align:right;flex:none}
+.dd .l{font-size:12px;color:var(--sub)}
+.dd .n{font-size:30px;font-weight:800;color:var(--pri);line-height:1}
+.dd .d{font-size:12px;color:var(--sub);margin-top:3px}
+.map{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 8px 6px;margin-bottom:14px}
+.map .cap{font-size:12px;color:var(--sub);padding:0 8px 2px}
+.map svg{display:block;width:100%;max-width:340px;margin:0 auto}
+.map text{font-family:inherit}
+.les{margin:22px 0 6px;display:flex;align-items:baseline;justify-content:space-between}
+.les h2{font-size:18px;margin:0;color:var(--pri)}
+.les small{color:var(--sub);font-size:12.5px}
+.ses{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 12px 8px;margin:10px 0;position:relative}
+.ses.lk{background:transparent;border-style:dashed}
+.sh{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.sh b{font-size:16px}
+.sh span.t{color:var(--sub);font-size:13px}
+.sh .st{margin-left:auto;font-size:11.5px;padding:2px 9px;border-radius:999px;border:1px solid var(--line);color:var(--sub);white-space:nowrap}
+.sh .st.ok{color:var(--green);border-color:var(--green);background:var(--greenL)}
+.sh .st.now{color:var(--pri);border-color:var(--pri);background:var(--priL)}
+.lockmsg{font-size:13px;color:var(--sub);padding:4px 2px 8px}
+.c{display:flex;gap:10px;align-items:center;padding:9px 6px;border-top:1px solid var(--line)}
+.c:first-of-type{border-top:0}
+.c .no{flex:none;width:26px;height:26px;border-radius:50%;background:var(--pri);color:#fff;font-weight:700;font-size:13px;line-height:26px;text-align:center}
+.c.done .no{background:var(--green)}
+.c.pl .no{background:transparent;color:var(--amber);border:1.5px dashed var(--amber);line-height:23px}
+.c.ts .no{background:var(--green)}
+.c .bd{flex:1;min-width:0}
+.c .nm{font-weight:700;font-size:15.5px;line-height:1.35}
+.c .tg{display:flex;gap:5px;flex-wrap:wrap;margin-top:3px}
+.tag{font-size:11px;padding:1px 7px;border-radius:5px;font-weight:600;white-space:nowrap}
+.tag.pdf{background:var(--ink);color:var(--bg)}
+.tag.app{border:1px solid var(--sub);color:var(--sub)}
+.tag.tc{background:var(--amberL);color:var(--amber)}
+.tag.ex{background:var(--greenL);color:var(--green)}
+.tag.pl{border:1px dashed var(--amber);color:var(--amber)}
+.tag.pc{background:var(--priL);color:var(--pri)}
+.c .ac{flex:none;display:flex;flex-direction:column;gap:5px;align-items:stretch}
+.btn{border:1px solid var(--pri);background:var(--pri);color:#fff;border-radius:10px;padding:6px 12px;font-size:13.5px;font-weight:700;text-align:center;white-space:nowrap}
+.btn.g{background:transparent;color:var(--pri)}
+.btn.ok{background:var(--greenL);border-color:var(--green);color:var(--green)}
+.c.off{opacity:.5}
+.c.off .no{background:var(--sub)}
+.c.off .btn{background:transparent;border-color:var(--sub);color:var(--sub)}
+.plus{margin-top:6px;border-top:1px dashed var(--amber);padding-top:4px}
+.plus .ph{font-size:12px;color:var(--amber);font-weight:700;padding:4px 6px 0}
+.hw{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;margin:10px 0}
+.hw .hh{font-size:13px;color:var(--sub);margin:2px 0 6px}
+.dots{letter-spacing:3px;color:var(--pri);font-size:14px}
+.dots i{font-style:normal;color:var(--line)}
+.pv{background:var(--card);border:1px dashed var(--line);border-radius:16px;padding:12px;margin:10px 0;color:var(--sub);font-size:14px}
+.pv b{color:var(--ink)}
+.foot{margin-top:26px;color:var(--sub);font-size:12.5px;text-align:center}
+.foot button{background:none;border:0;color:var(--sub);text-decoration:underline;font-size:12.5px;padding:4px 6px}
+.sheet{position:fixed;left:0;right:0;bottom:0;top:0;background:rgba(0,0,0,.45);display:none;align-items:flex-end;justify-content:center;z-index:20}
+.sheet.on{display:flex}
+.sheet .bx{background:var(--card);width:100%;max-width:560px;border-radius:18px 18px 0 0;padding:18px 16px 26px}
+.sheet h3{margin:0 0 6px;font-size:17px}
+.sheet p{margin:0 0 12px;color:var(--sub);font-size:14.5px}
+.sheet input{width:100%;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);margin-bottom:10px}
+.sheet .row{display:flex;gap:8px}.sheet .row button{flex:1}
+.sheet .er{color:var(--red);font-size:13px;min-height:18px;margin:-4px 0 6px}
+.tbar{position:sticky;top:0;z-index:6;background:var(--amberL);color:var(--amber);font-size:13px;padding:8px 12px;border-radius:0 0 12px 12px;display:none;gap:8px;align-items:center;flex-wrap:wrap}
+.tbar.on{display:flex}
+.tbar select,.tbar button{font-size:13px;padding:4px 8px;border-radius:8px;border:1px solid var(--amber);background:var(--card);color:var(--ink)}
+</style></head><body><div class="wrap">
+<div class="tbar" id="tbar"><b>선생님 모드</b><span>보기:</span><select id="pf"><option value="s">심화 + 플러스</option><option value="b">기본</option><option value="c">관리형</option></select><button id="tx">모든 잠금 해제 보기 끄기</button><button id="tq">나가기</button></div>
+<div class="hd"><div><h1>주성고 기말 대비</h1><div class="s">공통영어2 능률(오)<br>비타민 영어클리닉</div></div><div class="dd"><div class="l">기말고사까지</div><div class="n" id="dn">D-?</div><div class="d" id="dday"></div></div></div>
+<div class="map" style="padding:10px 8px 4px"><div class="cap">여정 · 날짜는 러프한 계획이고, 표시는 내가 실제로 간 곳이에요</div><div id="map"></div></div>
+<div id="app"></div>
+<div class="foot"><span id="who"></span><br><button id="cb">개인 코드 입력</button><button id="tb">선생님</button><div style="margin-top:8px">비타민 영어클리닉 · 주성고 공통영어2</div></div>
+</div>
+<div class="sheet" id="sh"><div class="bx"><h3 id="sht"></h3><p id="shp"></p><input id="shi" type="text" inputmode="text" autocomplete="off" autocapitalize="off" placeholder="선생님 코드"><div class="er" id="she"></div><div class="row"><button class="btn g" id="shn">닫기</button><button class="btn" id="shy">확인</button></div></div></div>
+<script>
+(function(){
+/* 열기 코드 검증용 해시 (학생별·단계별). 코드 자체는 홈에 없음 */
+var UH=["00ddefbfcb036a91e11526c670200060b6a5cf50dd4a321f8238ebeb72a4960e", "048c1e2ea149377458c6f994f658e500286ec46386a97fa89aaa3f6819b06097", "102f546672bb463d4bae728833b80956ec78c4987d67de5e77ec11b5b8bf8465", "179367cc0d3c12a65f15f0bbc4717c0b1440c9803b731f27598f8f5bf28f5050"];
+var TH='37575fb29347376e4a3d70a90d193a794f54799008412ac120bea44546a18025';
+var CODES={'m4wb4':'s'};
+/* 임시값: 시험 시작일과 표시 문구는 여기서 바꿔요 */
+var EXAM=[2026,12,7],EXAMTXT='12/7(월) 시작 (임시)';
+/* 지금 홈에 보이는 과. 3과를 붙일 때 [3,4]로 바꾸고 VT[3]·LT[3]을 채워요 */
+var LESSONS=[4];
+var PASS=70,TRIES=2;
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}}
+function J(k,d){try{return JSON.parse(ls(k)||'null')||d}catch(e){return d}}
+function ss(k,v){try{if(v===undefined)return sessionStorage.getItem(k);sessionStorage.setItem(k,v)}catch(e){}}
+var qs=new URLSearchParams(location.search),qc=(qs.get('c')||'').toLowerCase();
+if(qc&&CODES[qc])ls('js26-code',qc);
+var code=ls('js26-code')||'';
+var prof=CODES[code]||'b';
+var TM=ss('js26-t')==='1',PV=ss('js26-pv')||'';
+function P(){return TM&&PV?PV:prof}
+var SKEY=function(){return 'js26-st:'+(code||'default')};
+var S=J(SKEY(),{done:{},force:{},unl:{},hw:{}});
+function save(){ls(SKEY(),JSON.stringify(S))}
+function REP(){return J('js26-rep',{})}
+function sha(s){var b=new TextEncoder().encode(s);return crypto.subtle.digest('SHA-256',b).then(function(h){return Array.prototype.map.call(new Uint8Array(h),function(x){return('0'+x.toString(16)).slice(-2)}).join('')})}
+
+var VT={4:['웹을 모두에게 열어 두기 · 이미지 설명','대본과 자막 · 보고 듣기 쉬운 콘텐츠','키보드 탐색 · 색상 이외의 지표','문화적으로 접근 가능한 웹']};
+var LT={4:'4과 Good for All of Us'};
+function lesson(n){
+  function c(id,nm,href,k,o){o=o||{};o.id='L'+n+'-'+id;o.nm=nm;o.href=href;o.k=k;return o}
+  var v=function(i){return c('vocab'+i,'어휘 '+['①','②','③','④'][i-1]+' · '+VT[n][i-1],n+'/vocab'+i+'.html','app',{sc:1,cc:1})};
+  var key=c('key','핵심 7문장 분석 ('+(P()==='s'?'심화':'기본')+')',n+'/'+(P()==='s'?'hs':'hk')+'/','manual',{cc:1,keyc:1});
+  return {n:n,title:LT[n],hw:[
+    c('blank','빈칸 추론 연습 (매번 다른 문제)',n+'/blank.html','hw',{cc:1}),
+    c('sunko','순서배열 · 한글',n+'/sunseo-ko.html','hw',{cc:1}),
+    c('sunmun','순서배열 · 문장 단위 + 문장삽입',n+'/sunseo-mun.html','hw',{cc:1}),
+    c('sunabc','순서배열 · ABC 묶음 (매번 다른 문제)',n+'/sunseo-abc.html','hw',{})
+  ],ses:[
+   {t:'본문 읽고 내용 잡기',core:[c('jwa','좌본문우해석',n+'/jwa.html','pdf'),c('hangeul','한글채우기 정답',n+'/hangeul.html','pdf'),c('find','틀린 곳 찾기',n+'/find.html','app',{sc:1}),v(1),c('eobeop','어법선택 정답·해설',n+'/eobeop.html','pdf')],
+    plus:[c('yeongeo','영어채우기 정답',n+'/yeongeo.html','pdf')]},
+   {t:'어법 시험과 동사형',core:[key,v(2),c('dongpdf','동사형 정답·해설','../c2-neungryul-oh-34/?hub=4','pdf'),c('eobeoptest','어법선택 시험 (본문 순서대로)',n+'/eobeop-test.html','app',{sc:1,ex:1})],plus:[]},
+   {t:'기출 풀기 시작',core:[c('yesang1','예상문제 1회 정답·해설',n+'/yesang1/','pdf'),v(3),c('dong1','동사형 말하기 시험 (앞 1/2)','../c2-neungryul-oh-34/?hub=4','tonly',{ex:1,cc:1})],
+    plus:[c('awkward','어색한 곳 찾기 정답·해설',n+'/awkward.html','pdf'),c('check','Check 정답·해설',n+'/check.html','pdf')]},
+   {t:'마무리',core:[c('yesang2','예상문제 2회 정답·해설',n+'/yesang2/','pdf'),v(4),c('dong2','동사형 말하기 시험 (뒤 1/2)','../c2-neungryul-oh-34/?hub=4','tonly',{ex:1,cc:1})],
+    plus:[c('yesang3','예상문제 3회 정답·해설',n+'/yesang3/','pdf'),c('yesang4','예상문제 4회 정답·해설',n+'/yesang4/','pdf'),c('yoyak','요약문 완성 정답·해설',n+'/yoyak.html','pdf',{cc:1})]}
+  ]};
+}
+function care(){return P()==='c'}
+function closed(c){return care()&&c.cc&&!S.unl[c.id]}
+function done(c){
+  if(S.done[c.id])return true;
+  if(c.sc){var r=REP()[c.id];if(r&&(r.pct>=PASS||r.tries>=TRIES))return true}
+  return false
+}
+function gating(c){return !(c.k==='tonly')&&!c.ng&&!closed(c)}
+function sesOpen(L,k){
+  if(TM&&ss('js26-tx')==='1')return true;
+  if(k===0)return lessonOpen(L);
+  if(S.force[L.n+'-'+k])return true;
+  return L.ses[k-1].core.filter(gating).every(done)
+}
+function lessonOpen(L){
+  var ix=LESSONS.indexOf(L.n);
+  if(ix<=0)return true;
+  if(TM&&ss('js26-tx')==='1')return true;
+  if(S.force['L'+L.n])return true;
+  var p=lesson(LESSONS[ix-1]),last=p.ses[3];
+  return last.core.filter(gating).every(done)
+}
+function lessonDone(L){return L.ses[3].core.filter(gating).every(done)}
+
+function esc(s){return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+var NUM=['①','②','③','④','⑤','⑥'];
+function row(c,i,open,pl){
+  var cl=closed(c),d=done(c),cls='c'+(d?' done':'')+(pl?' pl':'')+((!open||cl)?' off':'')+(c.k==='tonly'?' ts':'');
+  var tags='';
+  if(c.k==='pdf')tags+='<span class="tag pdf">PDF</span><span class="tag tc">선생님 확인</span>';
+  else if(c.k==='tonly')tags+='<span class="tag pdf">PDF</span><span class="tag tc">선생님 확인 필요</span>';
+  else if(c.k==='manual')tags+='<span class="tag app">앱</span><span class="tag tc">선생님 확인</span>';
+  else tags+='<span class="tag app">앱</span>'+(c.sc?'<span class="tag pc">70% 통과</span>':'');
+  if(c.ex)tags+='<span class="tag ex">시험</span>';
+  if(pl)tags+='<span class="tag pl">플러스</span>';
+  var rep=c.sc?REP()[c.id]:null,sub='';
+  if(rep&&c.sc&&!d)sub='<div style="font-size:12px;color:var(--sub);margin-top:2px">최근 '+(rep.last!=null?rep.last:rep.pct)+'% · '+(rep.tries||1)+'번 해 봤어요</div>';
+  if(rep&&c.sc&&d&&rep.pct>=PASS)sub='<div style="font-size:12px;color:var(--green);margin-top:2px">'+rep.pct+'% 통과</div>';
+  if(rep&&c.sc&&d&&rep.pct<PASS)sub='<div style="font-size:12px;color:var(--sub);margin-top:2px">두 번 해 봤어요 · 열렸어요</div>';
+  var ac='';
+  if(cl)ac='<button class="btn g" data-a="care" data-id="'+c.id+'">잠김</button>';
+  else if(!open)ac='<button class="btn g" data-a="'+(pl?'plus':'ses')+'" data-id="'+c.id+'">잠김</button>';
+  else{
+    ac='<a class="btn'+(d?' g':'')+'" href="'+c.href+'">열기</a>';
+    if(c.k==='pdf'||c.k==='manual')ac+=d?'<button class="btn ok" data-a="undo" data-id="'+c.id+'">다 했어요 ✓</button>':'<button class="btn g" data-a="done" data-id="'+c.id+'">다 했어요</button>';
+    if(c.k==='tonly')ac+=d?'<button class="btn ok" data-a="tundo" data-id="'+c.id+'">확인됨 ✓</button>':'<button class="btn g" data-a="tdone" data-id="'+c.id+'">선생님 확인</button>';
+  }
+  return '<div class="'+cls+'"><div class="no">'+(pl?'+':NUM[i])+'</div><div class="bd"><div class="nm">'+esc(c.nm)+'</div><div class="tg">'+tags+'</div>'+sub+'</div><div class="ac">'+ac+'</div></div>'
+}
+function render(){
+  var out='';
+  LESSONS.forEach(function(n){
+    var L=lesson(n),lo=lessonOpen(L);
+    out+='<div class="les"><h2>'+L.title+'</h2><small>'+(lo?(lessonDone(L)?'모든 회차 완료':'수업 4회'):'앞 과를 끝내면 열려요')+'</small></div>';
+    if(!lo){out+='<div class="lockmsg" style="padding:2px 4px 10px">앞 과 4회차를 끝내면 이 과가 열려요. 빨리 끝낸 학생은 바로 넘어가도 돼요. 아래는 이 과에서 하게 될 내용이에요. <button data-a="lesson" data-n="'+n+'" style="background:none;border:0;color:var(--sub);text-decoration:underline;font-size:12.5px;padding:4px">선생님 코드로 열기</button></div>'}
+    L.ses.forEach(function(s,k){
+      var op=sesOpen(L,k),core=s.core,cdone=core.filter(gating).every(done);
+      var st=!op?'<span class="st">잠김</span>':(cdone?'<span class="st ok">완료</span>':'<span class="st now">진행 중</span>');
+      out+='<div class="ses'+(op?'':' lk')+'"><div class="sh"><b>'+(k+1)+'회차</b><span class="t">'+s.t+'</span>'+st+'</div>';
+      if(!op){out+='<div class="lockmsg">'+(lo?k+'회차를 끝내면 열려요 (앱은 70% 통과, 종이는 "다 했어요") <button data-a="ses" data-id="'+core[0].id+'" style="background:none;border:0;color:var(--sub);text-decoration:underline;font-size:12.5px;padding:4px">선생님 코드로 열기</button>':'앞 과를 끝내면 열려요')+'</div>'}
+      var ordered=core.filter(function(c){return c.k!=='tonly'&&!c.ex}).concat(core.filter(function(c){return c.ex&&c.k!=='tonly'}),core.filter(function(c){return c.k==='tonly'}));
+      ordered.forEach(function(c,i){out+=row(c,i,op,false)});
+      var pf=(P()==='s'||P()==='c')?s.plus:[];
+      if(P()==='b')pf=[];
+      if(pf.length){
+        var po=op&&cdone;
+        out+='<div class="plus"><div class="ph">플러스 · '+(po?'열려 있어요':'이 회차 뼈대를 끝내면 열려요')+'</div>';
+        pf.forEach(function(c,i){out+=row(c,i,po||!!S.unl[c.id],true)});out+='</div>'
+      }
+      out+='</div>'
+    });
+    out+='<div class="hw"><div class="sh"><b>숙제 코너</b><span class="t">회차와 따로, 하루에 한 번씩</span></div><div class="hh">세트를 끝까지 풀 때마다 점이 하나씩 켜져요. 3번이 목표예요. 이어풀기가 돼요.</div>';
+    L.hw.forEach(function(c){
+      var cl=closed(c),n3=Math.min(3,(J('js26-hwauto',{})[c.id]||0)+(S.hw[c.id]||0)),dots='';
+      for(var i=0;i<3;i++)dots+=i<n3?'●':'<i>●</i>';
+      out+='<div class="c'+(cl?' off':'')+'"><div class="no" style="background:var(--sub)">·</div><div class="bd"><div class="nm">'+esc(c.nm)+'</div><div class="tg"><span class="tag app">앱</span></div><div class="dots">'+dots+'</div></div><div class="ac">'+
+      (cl?'<button class="btn g" data-a="care" data-id="'+c.id+'">잠김</button>':'<a class="btn" href="'+c.href+'">열기</a>')+'</div></div>'
+    });
+    out+='</div>'
+  });
+  out+='<div class="les"><h2>모의고사 3주 · 총정리</h2><small>자료 준비 중이에요</small></div><div class="pv"><b>모의고사 1주</b> 지문 이해 · <b>2주</b> 유형 바꿔 풀기 · <b>3주</b> 실전<br><b>총정리</b> 교과서 복기 · 기출 정리<br><span style="font-size:13px">자료가 올라오는 대로 이곳에 카드가 켜져요.</span></div>';
+  document.getElementById('app').innerHTML=out;
+  var w=document.getElementById('who');w.textContent=code?'개인 주소로 들어왔어요':'';
+  mapRender()
+}
+function cur(){for(var i=0;i<LESSONS.length;i++){if(!lessonDone(lesson(LESSONS[i])))return i}return LESSONS.length}
+function mapRender(){
+  var N=LESSONS.map(function(n){return [n+'과','']}).concat([['모고 1주',''],['모고 2주',''],['모고 3주',''],['총정리',''],['기말고사',EXAM[1]+'/'+EXAM[2]]]);
+  var LN=LESSONS.length,T=N.length;
+  var X=[56,86],y0=26,g=36,H=y0+g*(T-1)+30,c=cur(),s='<svg viewBox="0 0 340 '+H+'" role="img" aria-label="여정 지도">';
+  var p='';for(var i=0;i<T;i++){var x=X[i%2],y=y0+g*i;if(!i)p+='M'+x+' '+y;else{var px=X[(i-1)%2],py=y0+g*(i-1),m=(py+y)/2;p+=' C'+px+' '+m+','+x+' '+m+','+x+' '+y}}
+  s+='<path d="'+p+'" fill="none" stroke="var(--line)" stroke-width="2.5" stroke-dasharray="2 6" stroke-linecap="round"/>';
+  var dp='';for(var j=1;j<=c;j++){var qx=X[(j-1)%2],qy=y0+g*(j-1),mx=X[j%2],my=y0+g*j,mm=(qy+my)/2;dp+=(j===1?'M'+qx+' '+qy:'')+' C'+qx+' '+mm+','+mx+' '+mm+','+mx+' '+my}
+  if(dp)s+='<path d="'+dp+'" fill="none" stroke="var(--pri)" stroke-width="3" stroke-linecap="round"/>';
+  N.forEach(function(a,i){var x=X[i%2],y=y0+g*i,dn=i<c,is=i===c,last=i===T-1,f=dn?'var(--pri)':(is?'var(--amber)':'var(--card)'),st=(dn||is)?f:'var(--line)';
+    if(is)s+='<circle cx="'+x+'" cy="'+y+'" r="16" fill="none" stroke="var(--amber)" stroke-width="1.5" opacity=".45"/>';
+    s+='<circle cx="'+x+'" cy="'+y+'" r="'+(last?10:8)+'" fill="'+f+'" stroke="'+st+'" stroke-width="2.5"/>';
+    if(last)s+='<path d="M'+x+' '+(y-10)+'V'+(y-27)+'L'+(x+17)+' '+(y-22)+'L'+x+' '+(y-17)+'" fill="var(--red)" stroke="var(--red)" stroke-width="1.5" stroke-linejoin="round"/>';
+    s+='<text x="126" y="'+y+'" dominant-baseline="central" font-size="14.5" font-weight="700" fill="'+((dn||is||last)?'var(--ink)':'var(--sub)')+'">'+a[0]+'<tspan font-size="12" font-weight="400" fill="var(--sub)" dx="8">'+a[1]+(i>=LN&&i<T-1?' · 준비 중':'')+'</tspan></text>';
+    if(is)s+='<text x="332" y="'+y+'" text-anchor="end" dominant-baseline="central" font-size="12.5" font-weight="700" fill="var(--amber)">지금 여기</text>'
+  });
+  document.getElementById('map').innerHTML=s+'</svg>'
+}
+function dd(){var t=new Date(),a=new Date(t.getFullYear(),t.getMonth(),t.getDate()),e=new Date(EXAM[0],EXAM[1]-1,EXAM[2]),n=Math.round((e-a)/864e5);document.getElementById('dday').textContent=EXAMTXT;document.getElementById('dn').textContent=n>0?'D-'+n:(n===0?'D-day':'D+'+(-n))}
+
+var SHC=null;
+var UKY=null;
+function sheet(t,p,input,cb,ukey){UKY=ukey||null;document.getElementById('sht').textContent=t;document.getElementById('shp').textContent=p;var i=document.getElementById('shi');i.style.display=input?'block':'none';i.value='';document.getElementById('she').textContent='';document.getElementById('shy').style.display=input?'block':'none';SHC=cb;document.getElementById('sh').classList.add('on');if(input)setTimeout(function(){i.focus()},50)}
+function shut(){document.getElementById('sh').classList.remove('on');SHC=null}
+document.getElementById('shn').onclick=shut;
+document.getElementById('sh').onclick=function(e){if(e.target===this)shut()};
+document.getElementById('shy').onclick=function(){var v=document.getElementById('shi').value.trim();if(!v)return;sha(v).then(function(h){if(h===TH&&SHC){var f=SHC;shut();f()}else if(UKY&&SHC&&code){sha(code+':'+UKY+':'+v.toLowerCase()).then(function(h2){if(UH.indexOf(h2)>=0){var f=SHC;shut();f()}else document.getElementById('she').textContent='코드가 맞지 않아요'})}else document.getElementById('she').textContent='코드가 맞지 않아요'})};
+document.getElementById('shi').onkeydown=function(e){if(e.key==='Enter')document.getElementById('shy').click()};
+
+function findC(id){var r=null;LESSONS.forEach(function(n){var L=lesson(n);L.ses.forEach(function(s){s.core.concat(s.plus).forEach(function(c){if(c.id===id)r=c})});L.hw.forEach(function(c){if(c.id===id)r=c})});return r}
+document.getElementById('app').addEventListener('click',function(e){
+  var b=e.target.closest('button[data-a]');if(!b)return;
+  var a=b.dataset.a,id=b.dataset.id;
+  if(a==='done'){S.done[id]=Date.now();save();render()}
+  else if(a==='undo'){delete S.done[id];save();render()}
+  else if(a==='tdone'){sheet('선생님 확인','선생님이 시험을 확인한 뒤 코드를 입력해요.',true,function(){S.done[id]=Date.now();save();render()})}
+  else if(a==='tundo'){if(TM){delete S.done[id];save();render()}}
+  else if(a==='hw'){S.hw[id]=Math.min(9,(S.hw[id]||0)+1);save();render()}
+  else if(a==='care'){var c=findC(id);sheet('정규 수업 코스 자료예요','이 자료는 정규 수업에서 함께 쓰는 자료예요. 궁금하면 선생님께 물어봐요.',true,function(){S.unl[id]=1;save();render()})}
+  else if(a==='plus'){sheet('플러스 자료','이 회차의 뼈대를 끝내면 열려요. 선생님이 알려 준 코드를 입력하면 지금 열 수 있어요.',true,function(){S.unl[id]=1;save();render()})}
+  else if(a==='ses'){var c2=findC(id),m=/^L(\d)-/.exec(id),n=+m[1],L=lesson(n),k=0;L.ses.forEach(function(s,i){if(s.core.concat(s.plus).some(function(x){return x.id===id}))k=i});
+    if(!lessonOpen(L))sheet('아직 잠겨 있어요','앞 과를 끝내면 열려요. 선생님이 알려 준 코드를 입력하면 지금 열 수 있어요.',true,function(){S.force['L'+n]=1;save();render()},'L'+n);
+    else sheet('아직 잠겨 있어요',k+'회차를 끝내면 열려요. 앱은 70% 이상(두 번 해 보면 열려요), 종이는 "다 했어요"를 눌러요. 선생님이 알려 준 코드를 입력하면 지금 열 수 있어요.',true,function(){S.force[n+'-'+k]=1;save();render()},n+'-'+k)}
+  else if(a==='lesson'){var nn=+b.dataset.n;sheet(nn+'과 열기','선생님이 알려 준 코드를 입력하면 '+nn+'과가 열려요.',true,function(){S.force['L'+nn]=1;save();render()},'L'+nn)}
+});
+document.getElementById('cb').onclick=function(){var i=document.getElementById('shi');sheet('개인 코드','선생님이 알려 준 개인 코드를 입력해요.',false,null);i.style.display='block';i.placeholder='개인 코드';var y=document.getElementById('shy');y.style.display='block';y.onclick=function(){var v=i.value.trim().toLowerCase();if(CODES[v]){ls('js26-code',v);location.href=location.pathname+'?c='+v}else document.getElementById('she').textContent='없는 코드예요'};setTimeout(function(){i.focus()},50)};
+document.getElementById('tb').onclick=function(){if(TM)return;sheet('선생님','선생님 코드를 입력해요.',true,function(){ss('js26-t','1');TM=true;tb();render()})};
+function tb(){var t=document.getElementById('tbar');t.classList.toggle('on',TM);var s=document.getElementById('pf');s.value=PV||prof}
+document.getElementById('pf').onchange=function(){PV=this.value;ss('js26-pv',PV);render()};
+document.getElementById('tx').onclick=function(){var on=ss('js26-tx')==='1';ss('js26-tx',on?'0':'1');this.textContent=on?'모든 잠금 해제 보기 켜기':'모든 잠금 해제 보기 끄기';render()};
+document.getElementById('tq').onclick=function(){ss('js26-t','0');ss('js26-tx','0');ss('js26-pv','');TM=false;PV='';tb();render()};
+document.getElementById('tx').textContent='모든 잠금 해제 보기 켜기';
+window.addEventListener('pageshow',function(){S=J(SKEY(),S);render()});
+document.addEventListener('visibilitychange',function(){if(!document.hidden){S=J(SKEY(),S);render()}});
+dd();tb();render();
+})();
+</script></body></html>
