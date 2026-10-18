@@ -154,11 +154,21 @@ var KP='gk-blank-kr',kt=document.getElementById('kt');
 function setK(v){document.body.classList.toggle('kon',v);kt.textContent=v?'한글 해석 닫기':'한글 해석 보기';try{localStorage.setItem(KP,v?'1':'0')}catch(e){}}
 var _k=false;try{_k=localStorage.getItem(KP)==='1'}catch(e){}
 setK(_k);kt.addEventListener('click',function(){setK(!document.body.classList.contains('kon'))});
+var UK='gk4-abc-used',used={};
+try{var _u=JSON.parse(localStorage.getItem(UK)||'{}');if(_u&&typeof _u==='object')used=_u}catch(e){}
+function saveUsed(){try{localStorage.setItem(UK,JSON.stringify(used))}catch(e){}}
 var host=document.getElementById('qs'),bar=document.getElementById('cnt'),sub=document.getElementById('sub'),sum=document.getElementById('sum'),graded=false;
 var TOT=6,pdone=0,pc=0;
 function up(){bar.innerHTML=pdone+' / '+TOT+' 풀었어요 · 한 번에 맞힌 문제 <b>'+pc+'</b>개'}
+function sigOf(s){return s.c.join(',')}
+function fresh(set){return set.every(function(s){return !used[sigOf(s)]})}
+function nfresh(set){return set.filter(function(s){return !used[sigOf(s)]}).length}
 function render(){
- var set=pickSet(),ans=answers(),h='';
+ var set=pickSet(),ans=answers(),h='',best=set,bs=nfresh(set),tries=0;
+ while(bs<set.length&&tries++<1500){var c=pickSet(),n=c?nfresh(c):-1;if(n>bs){best=c;bs=n}}
+ set=best;
+ if(bs===0){used={}}
+ set.forEach(function(s){used[sigOf(s)]=1});saveUsed();
  pdone=0;pc=0;graded=false;if(sub){sub.style.display='';sum.style.display='none'}
  set.forEach(function(s,i){h+=buildQ(s.c,ans[i],i+1,D.zones[s.z].n)});
  host.innerHTML=h;upSel();
