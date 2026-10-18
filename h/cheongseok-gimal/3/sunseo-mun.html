@@ -247,9 +247,10 @@ body.kon small.tr{display:block}
 <div class="wd">한눈에 정리 · 노란 칸이 주어진 문장</div><div class="flow"><div class="fn"><span>백호 = 신성한 수호자</span></div><div class="ar">▼</div><div class="fn"><span class="ch">also(또한)</span><span>K-pop 노래 ‘범 내려온다’에도 등장</span></div><div class="ar">▼</div><div class="fn"><span>가사 한 구절 = 전통 가곡 ‘수궁가’의 재해석</span></div><div class="ar">▼</div><div class="fn"><span>세계적 주목, 영상 수백만 회 시청</span></div><div class="ar">▼</div><div class="fn"><span class="ch">These days(오늘날)</span><span>북한에 야생 호랑이 소수만 남음</span></div><div class="ar">▼</div><div class="fn g"><span class="ch">However(그러나)</span><span>역사·이야기·문화적 의미는 여전히 남아 있음</span></div></div></div></div>
 <div id="sum" style="display:none"></div>
 <div class="foot">비타민 영어클리닉 · 청석고 공통영어2</div></div>
+<script src="../gate.js"></script>
 <script>
 (function(){
-var KP='cs-blank-kr',KL=['한글 해석 보기','한글 해석 닫기'],kt=document.getElementById('kt');
+var GKID='L3-sunmun',KP='cs-blank-kr',KL=['한글 해석 보기','한글 해석 닫기'],kt=document.getElementById('kt');
 function setK(v){document.body.classList.toggle('kon',v);kt.textContent=v?KL[1]:KL[0];try{localStorage.setItem(KP,v?'1':'0')}catch(e){}}
 var _k=false;try{_k=localStorage.getItem(KP)==='1'}catch(e){}
 setK(_k);kt.addEventListener('click',function(){setK(!document.body.classList.contains('kon'))});
@@ -313,7 +314,7 @@ document.getElementById('rs').addEventListener('click',restart);
 sum.addEventListener('click',function(e){var b=e.target.closest('.wq');if(b){st.cur=+b.dataset.i;save();view();window.scrollTo(0,0);return}
  if(e.target.closest('#again'))restart()});
 document.addEventListener('click',function(e){var q=e.target.closest('.q');if(!q)return;var i=Q.indexOf(q),a=st.a[i];if(i<0)return;
- if(e.target.closest('.nextq')){st.cur=Math.min(TOT,i+1);save();view();window.scrollTo(0,0);return}
+ if(e.target.closest('.nextq')){st.cur=Math.min(TOT,i+1);if(st.cur>=TOT&&!st.hw&&GKID){st.hw=1;try{GK.hw(GKID)}catch(x){}}save();view();window.scrollTo(0,0);return}
  if(e.target.closest('.go')){if(a.r>=0||q._go.disabled)return;
   a.r=q._seq?(a.p.every(function(n,k){return n===String(k+1)})?1:0):(a.s===+q.dataset.a?1:0);save();grade(i);view();return}
  if(a.r>=0)return;

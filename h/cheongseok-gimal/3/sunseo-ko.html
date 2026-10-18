@@ -231,9 +231,9 @@ body.kon small.tr{display:block}
 <div class="fin"><div class="wd">한눈에 정리 · 이 순서로 기억해요</div><div class="flow"><div class="fn g"><span class="ch">However(그러나)</span><span>역사·이야기·의미는 여전히 남아 있음</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Who can deny(누가 부정할까)</span><span>호랑이는 한국의 상징</span></div><div class="ar">▼</div><div class="fn"><span class="ch">In 2021(2021년에)</span><span>국립민속박물관, 호랑이 이야기 책 출판</span></div><div class="ar">▼</div><div class="fn"><span class="ch">How about(~하는 게 어때)</span><span>이제 주변에서 호랑이를 찾아보자</span></div></div></div></div>
 <div id="sum" style="display:none"></div>
 <div class="foot">비타민 영어클리닉 · 청석고 공통영어2</div></div>
-<script>
+<script src="../gate.js"></script><script>
 (function(){
-var KP='cs-sunseo-en',KL=['영어 문장 보기','영어 문장 닫기'],kt=document.getElementById('kt');
+var GKID='L3-sunko',KP='cs-sunseo-en',KL=['영어 문장 보기','영어 문장 닫기'],kt=document.getElementById('kt');
 function setK(v){document.body.classList.toggle('kon',v);kt.textContent=v?KL[1]:KL[0];try{localStorage.setItem(KP,v?'1':'0')}catch(e){}}
 var _k=false;try{_k=localStorage.getItem(KP)==='1'}catch(e){}
 setK(_k);kt.addEventListener('click',function(){setK(!document.body.classList.contains('kon'))});
@@ -297,7 +297,7 @@ document.getElementById('rs').addEventListener('click',restart);
 sum.addEventListener('click',function(e){var b=e.target.closest('.wq');if(b){st.cur=+b.dataset.i;save();view();window.scrollTo(0,0);return}
  if(e.target.closest('#again'))restart()});
 document.addEventListener('click',function(e){var q=e.target.closest('.q');if(!q)return;var i=Q.indexOf(q),a=st.a[i];if(i<0)return;
- if(e.target.closest('.nextq')){st.cur=Math.min(TOT,i+1);save();view();window.scrollTo(0,0);return}
+ if(e.target.closest('.nextq')){st.cur=Math.min(TOT,i+1);if(st.cur>=TOT&&!st.hw&&GKID){st.hw=1;try{GK.hw(GKID)}catch(x){}}save();view();window.scrollTo(0,0);return}
  if(e.target.closest('.go')){if(a.r>=0||q._go.disabled)return;
   a.r=q._seq?(a.p.every(function(n,k){return n===String(k+1)})?1:0):(a.s===+q.dataset.a?1:0);save();grade(i);view();return}
  if(a.r>=0)return;
