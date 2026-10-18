@@ -109,6 +109,7 @@ var LT={3:'3과 The True Art Lovers',4:'4과 AI Neural Implants'};
 function lesson(n){
   function c(id,nm,href,k,o){o=o||{};o.id='L'+n+'-'+id;o.nm=nm;o.href=href;o.k=k;return o}
   var v=function(i){return c('vocab'+i,'어휘 '+['①','②','③','④'][i-1]+' · '+VT[n][i-1],n+'/vocab'+i+'.html','app',{sc:1,cc:1})};
+  var dp=function(i,l){return care()?[c('dongp'+i,'동사형 연습 · 정답 확인 ('+l+')','../c2-mirae-kim-34/','app',{ng:1})]:[]};
   var key=c('key','핵심 7문장 분석 ('+(P()==='s'?'심화':'기본')+')',n+'/'+(P()==='s'?'hs':'hk')+'/','manual',{cc:1,keyc:1});
   return {n:n,title:LT[n],hw:[
     c('blank','빈칸 추론 연습 (매번 다른 문제)',n+'/blank.html','hw',{cc:1}),
@@ -119,9 +120,9 @@ function lesson(n){
    {t:'본문 읽고 내용 잡기',core:[c('jwa','좌본문우해석',n+'/jwa.html','pdf'),c('hangeul','한글채우기 정답',n+'/hangeul.html','pdf'),c('find','틀린 곳 찾기',n+'/find.html','app',{sc:1}),v(1)],
     plus:[c('yeongeo','영어채우기 정답',n+'/yeongeo.html','pdf')]},
    {t:'핵심 문장과 어법',core:[key,c('eobeop','어법선택 정답·해설',n+'/eobeop.html','pdf'),v(2),c('eobeoptest','어법선택 시험 (본문 순서대로)',n+'/eobeop-test.html','app',{sc:1,ex:1})],plus:[]},
-   {t:'기출 풀기 시작',core:[c('yesang1','예상문제 1회 정답·해설',n+'/yesang1/','pdf'),v(3),c('dong1','동사형 말하기 시험 (앞 1/2)','../c2-mirae-kim-34/','tonly',{ex:1})],
+   {t:'기출 풀기 시작',core:[c('yesang1','예상문제 1회 정답·해설',n+'/yesang1/','pdf'),v(3),c('dong1','동사형 말하기 시험 (앞 1/2)','../c2-mirae-kim-34/','tonly',{ex:1,cc:1})].concat(dp(1,'앞 1/2')),
     plus:[c('awkward','어색한 곳 찾기 정답·해설',n+'/awkward.html','pdf'),c('check','Check 정답·해설',n+'/check.html','pdf')]},
-   {t:'마무리',core:[c('yesang2','예상문제 2회 정답·해설',n+'/yesang2/','pdf'),v(4),c('dong2','동사형 말하기 시험 (뒤 1/2)','../c2-mirae-kim-34/','tonly',{ex:1})],
+   {t:'마무리',core:[c('yesang2','예상문제 2회 정답·해설',n+'/yesang2/','pdf'),v(4),c('dong2','동사형 말하기 시험 (뒤 1/2)','../c2-mirae-kim-34/','tonly',{ex:1,cc:1})].concat(dp(2,'뒤 1/2')),
     plus:[c('yesang3','예상문제 3회 정답·해설',n+'/yesang3/','pdf'),c('yesang4','예상문제 4회 정답·해설',n+'/yesang4/','pdf'),c('yoyak','요약문 완성 정답·해설',n+'/yoyak.html','pdf',{cc:1})]}
   ]};
 }
@@ -132,7 +133,7 @@ function done(c){
   if(c.sc){var r=REP()[c.id];if(r&&(r.pct>=PASS||r.tries>=TRIES))return true}
   return false
 }
-function gating(c){return !(c.k==='tonly')&&!closed(c)}
+function gating(c){return !(c.k==='tonly')&&!c.ng&&!closed(c)}
 function sesOpen(L,k){
   if(TM&&ss('gk26-tx')==='1')return true;
   if(k===0)return lessonOpen(L);
