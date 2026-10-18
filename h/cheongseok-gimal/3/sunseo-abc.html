@@ -1,0 +1,236 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0f766e"><title>3과 순서배열 · ABC 묶음 (매번 다른 문제)</title>
+<style>
+
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--blue:#1d4ed8;--navy:#1e2a44;
+--pi:#fff6b0;--piB:#f5e27a;--piInk:#4a3f00;--piSub:#8a7a1f;--warn:#b45309;--okBg:#eefaf3;--ngBg:#fdeeee}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--blue:#8ab4ff;--navy:#e8f0ee;
+--pi:#4d4416;--piB:#6f6322;--piInk:#fff3b0;--piSub:#d9c76a;--okBg:#12302d;--ngBg:#3a1d1d}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.72;font-size:18px;word-break:keep-all;overflow-wrap:break-word}
+.wrap{max-width:780px;margin:0 auto;padding:14px 16px 110px}
+a{color:inherit;text-decoration:none}
+.top{margin:2px 0 12px}
+.back{display:inline-block;padding:6px 13px;border:1px solid var(--line);border-radius:999px;font-size:14px;color:var(--sub);background:var(--card)}
+h1{font-size:22px;margin:0 0 4px;line-height:1.35}
+.lede{color:var(--sub);font-size:15px;margin:0 0 12px}
+h2{font-size:18px;color:var(--pri);margin:30px 0 10px;padding-bottom:5px;border-bottom:2px solid var(--pri);scroll-margin-top:8px}
+.how{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:15px;color:var(--sub);margin:8px 0}
+.how b{color:var(--ink)}
+
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:15px}
+.bar b{color:var(--pri)}.bar button{margin-left:auto;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 13px;font-size:14px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 14px 12px;margin:14px 0}
+.qh{display:flex;gap:8px;align-items:center;margin-bottom:6px}
+.qn{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.tg{font-size:12px;font-weight:800;color:var(--pri);border:1px solid var(--pri);border-radius:999px;padding:0 8px}
+.stem{font-size:18.5px;font-weight:600;color:var(--navy);line-height:1.8;margin:2px 0 4px}
+.stem u{text-decoration:none;color:var(--ans);font-weight:800;border-bottom:2.5px solid var(--ans)}
+.ask{font-size:16px;color:var(--sub);margin:2px 0 8px}.ask b{color:var(--ink)}
+.ob{display:block;width:100%;text-align:left;font:inherit;font-size:16.5px;line-height:1.55;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:11px;padding:8px 12px;margin:6px 0}
+.ob small{color:var(--sub);font-size:14px}
+.ob .k{display:block;color:var(--sub);font-size:14px;margin-top:2px}
+.done .ob{pointer-events:none}
+.ob.ok{border-color:var(--pri);background:var(--okBg);font-weight:700}
+.ob.ng{border-color:var(--ans);background:var(--ngBg)}
+.ex{display:none;margin-top:8px;border-top:1px dashed var(--line);padding-top:8px;font-size:16px}
+.done .ex{display:block}
+.res{font-weight:800;margin-bottom:3px}.res.o{color:var(--pri)}.res.x{color:var(--ans)}
+.ex .wd{color:var(--sub);font-size:15px;margin:2px 0}
+.ex .kk{border-left:4px solid var(--pri);background:var(--priL);border-radius:0 8px 8px 0;padding:6px 11px;margin:6px 0;font-size:15.5px}
+.ex ol{margin:4px 0 2px;padding-left:20px;color:var(--sub);font-size:15px}.ex ol li.m{color:var(--pri);font-weight:800}
+mark{background:#ffe3e0;color:#8a1c1c;border-radius:4px;padding:0 3px}
+@media(prefers-color-scheme:dark){mark{background:#4a2224;color:#ffb4ae}}
+.sechd{margin:26px 0 4px}
+.foot{margin-top:28px;text-align:center;font-size:13px;color:var(--sub)}
+
+.flow{margin:8px 0 2px}
+.flow .fn{display:flex;align-items:center;gap:8px;background:var(--priL);border:1.5px solid var(--pri);border-radius:11px;padding:8px 11px;font-size:16.5px;line-height:1.5;font-weight:700}
+.flow .fn.g{background:var(--bg);border-color:var(--line);font-weight:600}
+.flow .ch{flex:none;font-size:12.5px;font-weight:800;color:var(--card);background:var(--pri);border-radius:999px;padding:1px 9px;line-height:1.6}
+.flow .ar{text-align:center;color:var(--pri);font-size:15px;line-height:1.1;margin:1px 0}
+
+.en{color:var(--blue);font-weight:700}
+.ex .en{font-weight:700}
+.pg{font-size:15px;color:var(--sub);margin:2px 0 8px}
+.gv,.sd,.pb{border-radius:11px}
+.gv{background:var(--priL);border:1.5px solid var(--pri);padding:8px 12px;margin:6px 0;font-size:16.5px;line-height:1.6}
+.gv small,.sd small,.sub{display:block;color:var(--sub);font-size:14.5px;margin-top:2px;font-weight:400}
+.gv .tg2,.sd .tg2{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);border:1px solid var(--pri);border-radius:999px;padding:0 7px;margin-right:6px;vertical-align:1px}
+.sd{display:none;background:var(--okBg);border:1.5px solid var(--pri);padding:8px 12px;margin:6px 0;font-size:16.5px;line-height:1.6}
+.sd.on{display:block}
+.sd .why{display:block;border-left:3px solid var(--pri);padding:2px 0 2px 9px;margin-top:6px;font-size:15px;color:var(--sub);font-weight:400}
+.sd .no{display:inline-block;min-width:22px;text-align:center;background:var(--navy);color:var(--card);border-radius:999px;font-size:12.5px;font-weight:800;margin-right:6px;padding:0 6px}
+.pool{margin-top:10px}
+.pool .lbl{font-size:14px;color:var(--sub);margin:4px 0}
+.pb{display:block;width:100%;text-align:left;font:inherit;font-size:16.5px;line-height:1.55;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);padding:8px 12px;margin:6px 0}
+.pb.gone{display:none}
+.pb.ng{border-color:var(--ans);background:var(--ngBg)}
+.msg{min-height:20px;font-size:15px;color:var(--ans);font-weight:700;margin:4px 0 0}
+.fin{display:none;margin-top:8px;border-top:1px dashed var(--line);padding-top:8px;font-size:16px}
+.done .fin{display:block}
+.fin ol{margin:4px 0 2px;padding-left:20px;color:var(--ink);font-size:15.5px}
+.fin li{margin:5px 0}
+.fin li small{display:block;color:var(--sub);font-size:14.5px}
+.pbox{border:1.5px solid var(--line);border-radius:12px;background:var(--bg);padding:10px 12px;margin:6px 0;font-size:16.5px;line-height:1.9}
+.pbox.given{background:var(--priL);border-color:var(--pri)}
+.pbox .lab{display:inline-block;font-weight:800;color:var(--pri);margin-right:4px}
+.ct{margin:8px 0}
+.ct .lab{font-weight:800;color:var(--navy);margin-right:4px}
+.mk{display:inline-block;vertical-align:baseline;font:inherit;font-weight:800;font-size:16.5px;line-height:1.2;color:var(--navy);background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:2px 8px;margin:0 3px}
+.mk.ok{border-color:var(--pri);background:var(--okBg);color:var(--pri)}
+.mk.ng{border-color:var(--ans);background:var(--ngBg);color:var(--ans)}
+.done .mk{pointer-events:none}
+.ins{background:var(--pi);color:var(--piInk);border-radius:6px;padding:0 3px}
+.fin li.insli,.ex li.insli{background:var(--pi);color:var(--piInk);border-radius:8px;padding:3px 6px}
+.ex ol.full{color:var(--ink);font-size:15.5px}
+.ex ol.full li{margin:5px 0}
+.ex ol.full small{display:block;color:var(--sub);font-size:14.5px}
+.ex ol.steps{color:var(--ink)}
+.ex ol.steps li{margin:5px 0}
+.ex .oth{color:var(--sub);font-size:15px;margin:6px 0}
+.cnt b{color:var(--pri)}
+
+.flow .lb{flex:none;font-size:12px;font-weight:800;color:var(--pri);border:1px solid var(--pri);border-radius:999px;padding:0 7px;background:var(--card);line-height:1.6}
+.flow .fn.g .lb{color:var(--sub);border-color:var(--line)}
+.flow .fn{flex-wrap:wrap}
+
+.ob.sel{border-color:var(--pri);background:var(--priL);font-weight:700}#sum{background:var(--priL);border:1px solid var(--pri);border-radius:12px;padding:10px 14px;margin:14px 0;font-size:16px;line-height:1.7;color:var(--ink);font-weight:400}.nx{display:block;width:100%;margin:12px 0 4px;border:0;background:var(--pri);color:#fff;font:inherit;font-size:16px;font-weight:700;border-radius:12px;padding:10px}.nx[disabled]{background:var(--line);color:var(--sub)}.nx.sub{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+small.kr{display:none;color:var(--sub);font-size:14.5px;font-weight:400;line-height:1.55;margin-top:2px}body.kon small.kr{display:block}body.kon .pbox .s2{display:block;margin:0 0 6px}#kt{margin-left:auto}.bar #rs{margin-left:0}
+.q .qctl{margin-top:4px}\n</style><link rel="icon" type="image/svg+xml" href="../icon.svg"><link rel="apple-touch-icon" href="../icon-180.png"><meta name="apple-mobile-web-app-title" content="청석고정답"></head><body><div class="wrap"><div class="top"><a class="back" href="../index.html">← 청석고 정답 목록</a></div><h1>3과 A Timeless Symbol of Korea · 순서배열 ABC 묶음 (매번 다른 문제)</h1><p class="lede">3과 A Timeless Symbol of Korea 본문 · 모의고사 유형 4문제. 주어진 글 다음에 (A)(B)(C)의 순서를 골라요. 다시 풀 때마다 문제가 달라져요.</p><div class="bar"><span id="cnt" class="cnt"></span><button id="kt" type="button">한글 해석 보기</button><button id="rs">처음부터 다시</button></div>
+<h2 class="sechd">ABC 순서 고르기</h2><div class="how">주어진 글 다음에 이어질 <b>(A) (B) (C)</b>의 순서를 골라요. 한 문제씩 보기를 골라 <b>제출하기</b>를 누르면 바로 정답과 한눈에 정리 순서도가 나와요. 풀다가 나가도 <b>풀던 곳에서 이어서</b> 풀 수 있어요. 이 문제는 <b>풀 때마다 바뀌어요</b>. <b>처음부터 다시</b>를 누르면 새 문제가 나와요.</div><div id="qs"></div><div id="sum" style="display:none"></div>
+<div class="foot">비타민 영어클리닉 · 청석고 공통영어2</div></div>
+<script>
+
+(function(){
+var D={"EN": {"1": "Children around the world learned a bit more about Korean culture when writer Tae Keller published her book When You Trap a Tiger in 2020.", "2": "Its story starts with a girl who meets a tiger.", "3": "Her grandmother knows the tiger as well.", "4": "When her grandmother gets sick, the girl makes a deal with the tiger.", "5": "Keller’s inspiration for her award-winning book was an old folktale that her halmoni (grandmother) used to tell her.", "6": "It is called “The Sun and the Moon,” and it is about a brother, a sister, and a tiger.", "7": "Keller wanted to revive the public’s interest in tigers by writing her own book.", "8": "How is the tiger related to Korean culture?", "9": "Long ago, tigers were so abundant in Korea that people often called the country the “Land of Tigers.”", "10": "It is estimated that tigers lived in Korea for at least 100,000 years.", "11": "The first appearance of a tiger in Korean culture dates back to the rock art of the Bronze Age.", "12": "It depicts people hunting various animals, including tigers.", "13": "Since then, tigers have appeared in many aspects of Korean culture, from legends to art and musical instruments.", "14": "Some of you may have heard Korean folktales featuring tigers.", "15": "In fact, approximately forty percent of Korean folktales about animals include a tiger.", "16": "Tigers in Korean folktales are sometimes shown in a positive light and sometimes as foolish creatures.", "17": "For example, in one story, a tiger helps a human become rich after the human saves the tiger’s life.", "18": "In another story, a tiger hears a mother tell her crying baby, “Don’t cry. Here’s a gotgam.”", "19": "Because the baby stops crying, the tiger mistakenly thinks the gotgam is a very scary creature and runs away.", "20": "It seems that people at the time had conflicting feelings about tigers.", "21": "They had respect for tigers’ power and courage.", "22": "However, they were also scared of tigers because being injured or even killed by tigers was common in the past.", "23": "They may have made tigers into foolish characters in order to be less scared of them.", "24": "Tigers in Korea faced a decline in population due to hunting during the Joseon period and nearly went extinct during the Japanese colonial era.", "25": "With the disappearance of tigers in Korea, their use as a symbol of the nation faded away.", "26": "However, their symbolism was revived in modern times through their selection as the mascot for both Olympics hosted by Korea.", "27": "Hodori was the mascot for the Seoul Summer Olympics in 1988.", "28": "It was a Siberian tiger, which represents courage.", "29": "The PyeongChang Winter Olympics in 2018 created Soohorang, a white tiger, as its mascot.", "30": "White tigers are considered sacred guardians.", "31": "Tigers are also mentioned in the K-pop song “Tiger is Coming.”", "32": "One verse of the song is a reinterpreted version of “Sugungga,” which is a traditional Korean song.", "33": "The song drew worldwide attention, and its video was viewed millions of times online.", "34": "These days, only a few wild tigers have been reported to be living in North Korea.", "35": "However, the history, stories, and cultural meaning of tigers still have a place among modern Korean people.", "36": "Who can deny that the tiger is a symbol of Korea?", "37": "In 2021, the National Folk Museum of Korea published a book that collects all the stories about tigers in Korea.", "38": "How about looking for tigers around you now?"}, "WHY": {"2": "<span class=\"en\">Its story</span>(그것의 이야기)의 Its는 앞 문장의 책을 가리켜요. 책을 소개한 다음에 책의 줄거리가 시작됩니다.", "3": "<span class=\"en\">Her grandmother</span>(그녀의 할머니)의 Her는 앞 문장의 <span class=\"en\">a girl</span>(한 소녀)예요. <span class=\"en\">the tiger</span>(그 호랑이)도 앞에서 나온 호랑이를 받습니다.", "4": "앞 문장에서 할머니가 먼저 등장해야 <span class=\"en\">When her grandmother gets sick</span>(할머니가 아프게 되자)로 이어질 수 있어요. 줄거리가 사건으로 넘어갑니다.", "5": "줄거리 소개가 끝나고 다시 작가 이야기로 돌아와요. <span class=\"en\">Keller’s inspiration for her award-winning book</span>(Keller의 수상 도서에 영감을 준 것)이 책이 나온 배경을 알려 줍니다.", "6": "<span class=\"en\">It is called</span>(그것은 ~라고 불린다)의 It은 앞 문장의 <span class=\"en\">an old folktale</span>(옛 설화)예요. 설화의 이름과 내용이 이어집니다.", "7": "설화를 소개한 뒤, Keller가 책을 쓴 목적이 나와요. <span class=\"en\">her own book</span>(그녀 자신의 책)은 할머니의 설화에서 영감을 받아 쓴 책입니다.", "8": "책 이야기에서 본격적인 주제로 넘어가는 질문이에요. 앞의 <span class=\"en\">tigers</span>(호랑이)에 대한 관심을 이어받아 <span class=\"en\">Korean culture</span>(한국 문화)와의 관계를 묻습니다.", "9": "앞의 질문에 대한 답이 <span class=\"en\">Long ago</span>(오래전)부터 시작돼요. 옛날 한국에 호랑이가 매우 많았다는 사실로 답을 엽니다.", "10": "호랑이가 많았다는 말에 이어 얼마나 오래 살았는지를 덧붙여요. <span class=\"en\">at least 100,000 years</span>(적어도 10만 년)이 앞 문장의 <span class=\"en\">Long ago</span>(오래전)을 숫자로 보여 줍니다.", "11": "한국에 살았던 호랑이 이야기에서 문화 속 호랑이로 넘어가요. <span class=\"en\">The first appearance</span>(첫 번째 등장)은 가장 오래된 기록부터 시작한다는 신호입니다.", "12": "<span class=\"en\">It depicts</span>(그것은 묘사한다)의 It은 앞 문장의 <span class=\"en\">the rock art</span>(바위 그림)이에요. 그림에 무엇이 그려져 있는지 설명합니다.", "13": "<span class=\"en\">Since then</span>(그때부터)는 앞에서 말한 청동기 시대 바위 그림 이후를 가리켜요. 첫 등장 다음에 그 뒤로 이어진 등장을 말합니다.", "14": "앞 문장에서 말한 여러 분야 중 <span class=\"en\">legends</span>(전설) 쪽으로 이야기를 좁혀요. <span class=\"en\">Korean folktales featuring tigers</span>(호랑이가 등장하는 한국 설화)로 화제가 넘어갑니다.", "15": "<span class=\"en\">In fact</span>(사실)는 앞의 말을 숫자로 뒷받침할 때 써요. 설화를 들어 봤을 거라는 말에 <span class=\"en\">forty percent</span>(40퍼센트)라는 근거를 붙입니다.", "16": "호랑이가 설화에 많이 나온다고 한 뒤, 설화 속 호랑이가 어떤 모습인지 말해요. <span class=\"en\">sometimes ... and sometimes</span>(때로는 ~, 때로는 ~)로 두 가지 모습을 예고합니다.", "17": "<span class=\"en\">For example</span>(예를 들어)로 앞 문장의 <span class=\"en\">in a positive light</span>(긍정적인 시각으로) 쪽 예가 먼저 나와요. 은혜를 갚는 착한 호랑이입니다.", "18": "<span class=\"en\">In another story</span>(또 다른 이야기에서)는 앞에 이야기 하나가 먼저 나와야 쓸 수 있어요. 이번에는 <span class=\"en\">foolish creatures</span>(어리석은 존재) 쪽 예가 시작됩니다.", "19": "앞 문장에서 엄마가 아기에게 곶감 이야기를 한 뒤에 <span class=\"en\">Because the baby stops crying</span>(아기가 울음을 그치기 때문에)가 이어져요. <span class=\"en\">the gotgam</span>(그 곶감)도 앞에 나온 곶감을 받습니다.", "20": "착한 호랑이와 어리석은 호랑이, 두 이야기를 정리하는 문장이에요. <span class=\"en\">conflicting feelings</span>(상충되는 감정)이 앞의 두 모습을 한데 묶습니다.", "21": "<span class=\"en\">They</span>(그들)는 앞 문장의 <span class=\"en\">people at the time</span>(그 당시 사람들)이에요. 엇갈린 감정 중 첫 번째인 존경하는 마음이 나옵니다.", "22": "<span class=\"en\">However</span>(그러나)와 <span class=\"en\">also</span>(또한)가 앞의 존경과 반대되는 두 번째 감정을 알려요. 존경 다음에 두려움이 와야 엇갈린 감정이 완성됩니다.", "23": "앞 문장의 <span class=\"en\">scared</span>(무서워하는)을 이어받아 <span class=\"en\">less scared</span>(덜 무서워하는)이라고 해요. 설화 속 호랑이가 왜 어리석게 그려졌는지 이유를 짐작합니다.", "24": "설화 이야기가 끝나고 실제 호랑이의 역사로 넘어가요. <span class=\"en\">a decline in population</span>(개체 수 감소)와 <span class=\"en\">nearly went extinct</span>(거의 멸종했다)가 새 화제를 엽니다.", "25": "<span class=\"en\">With the disappearance of tigers</span>(호랑이가 사라지면서)는 앞 문장의 멸종 이야기를 받아요. 호랑이가 사라지자 상징으로서의 의미도 약해졌다고 이어집니다.", "26": "<span class=\"en\">However</span>(그러나)가 앞의 <span class=\"en\">faded away</span>(희미해졌다)와 반대로 <span class=\"en\">was revived</span>(되살아났다)를 이끌어요. 사라진 상징이 다시 살아나는 반전입니다.", "27": "앞 문장의 <span class=\"en\">both Olympics</span>(두 올림픽) 중 첫 번째 올림픽의 마스코트가 나와요. 1988년이 2018년보다 먼저라서 호돌이가 먼저 옵니다.", "28": "<span class=\"en\">It was a Siberian tiger</span>(그것은 시베리아 호랑이였다)의 It은 앞 문장의 <span class=\"en\">Hodori</span>(호돌이)예요. 호돌이가 어떤 호랑이인지 설명합니다.", "29": "두 올림픽 중 두 번째인 <span class=\"en\">The PyeongChang Winter Olympics in 2018</span>(2018년 평창 동계 올림픽)이 이어져요. 호돌이 설명이 끝난 뒤에 수호랑이 나옵니다.", "30": "앞 문장의 <span class=\"en\">a white tiger</span>(백호)를 <span class=\"en\">White tigers</span>(백호)로 받아 그 의미를 설명해요. 호돌이 다음에 그 의미를 설명한 것과 같은 짜임입니다.", "31": "<span class=\"en\">also</span>(또한)는 앞에서 말한 올림픽 마스코트에 이어 호랑이가 나오는 또 다른 예를 더할 때 써요. 이번에는 노래입니다.", "32": "<span class=\"en\">One verse of the song</span>(이 노래의 한 구절)은 앞 문장의 노래 ‘범 내려온다’를 가리켜요. 노래 가사의 뿌리를 설명합니다.", "33": "<span class=\"en\">The song</span>(그 노래)은 앞에서 말한 노래예요. 노래 소개가 끝난 뒤 노래가 얻은 인기가 이어집니다.", "34": "<span class=\"en\">These days</span>(오늘날)로 지금 실제 호랑이의 상황을 말해요. 문화 속 인기와 달리 실제 야생 호랑이는 거의 없다는 이야기입니다.", "35": "<span class=\"en\">However</span>(그러나)가 앞의 <span class=\"en\">only a few wild tigers</span>(소수의 야생 호랑이만)과 반대 방향을 이끌어요. 호랑이는 줄었어도 그 의미는 <span class=\"en\">still</span>(여전히) 남아 있다고 말합니다.", "36": "앞 문장의 ‘여전히 자리하고 있다’를 받아 강하게 정리하는 질문이에요. <span class=\"en\">Who can deny</span>(누가 부정할 수 있을까)는 ‘아무도 부정할 수 없다’는 뜻입니다.", "37": "호랑이가 지금도 한국의 상징이라는 말에 이어 최근의 예를 들어요. <span class=\"en\">a book that collects all the stories about tigers</span>(호랑이에 관한 모든 이야기를 모은 책)이 그 예입니다.", "38": "글의 마지막 권유예요. <span class=\"en\">How about looking for tigers around you now</span>(이제 여러분 주변에서 호랑이를 찾아보는 것은 어떨까)로 독자에게 말을 건네며 끝맺습니다."}, "KEY": {"1": ["", "2020년 Tae Keller(태 켈러)의 책 출간 → 한국 문화를 알게 됨"], "2": ["", "책 이야기: 호랑이를 만난 소녀"], "3": ["as well(역시)", "할머니도 그 호랑이를 앎"], "4": ["When(~하자)", "할머니가 아프자 소녀가 호랑이와 거래"], "5": ["", "책의 영감: 할머니가 들려주던 옛 설화"], "6": ["", "설화 이름 ‘해님 달님’: 오빠·여동생·호랑이"], "7": ["by writing(~을 씀으로써)", "책으로 호랑이에 대한 관심을 되살리려 함"], "8": ["", "질문: 호랑이와 한국 문화는 어떻게 연관?"], "9": ["Long ago(오래전)", "호랑이가 많아 ‘호랑이의 땅’이라 불림"], "10": ["", "적어도 10만 년 동안 한국에 살았다고 추정"], "11": ["", "첫 등장: 청동기 시대 바위 그림"], "12": ["", "바위 그림: 호랑이 등 동물을 사냥하는 사람들"], "13": ["Since then(그때부터)", "전설·미술·악기 등 여러 분야에 등장"], "14": ["", "호랑이가 나오는 설화를 들어 봤을 것"], "15": ["In fact(사실)", "동물 설화의 약 40%에 호랑이 등장"], "16": ["", "설화 속 호랑이: 긍정적인 모습 + 어리석은 모습"], "17": ["For example(예를 들어)", "생명을 구해 준 사람을 부자로 만든 호랑이"], "18": ["In another story(또 다른 이야기에서)", "“울지 마. 여기 곶감이 있단다.”를 들은 호랑이"], "19": ["Because(~때문에)", "곶감을 무서운 존재로 착각하고 도망"], "20": ["It seems(~로 보인다)", "당시 사람들은 호랑이에게 엇갈린 감정"], "21": ["", "호랑이의 힘·용기를 존경"], "22": ["However(그러나)", "다치거나 죽는 일이 흔해 무서워하기도"], "23": ["", "덜 무서워하려고 어리석은 캐릭터로 만들었을지도"], "24": ["", "조선 시대 사냥 → 일제 강점기 거의 멸종"], "25": ["With the disappearance(사라지면서)", "나라의 상징으로서의 쓰임도 희미해짐"], "26": ["However(그러나)", "두 올림픽 마스코트로 상징성이 되살아남"], "27": ["", "1988 서울 올림픽 마스코트 호돌이"], "28": ["", "호돌이 = 용기를 상징하는 시베리아 호랑이"], "29": ["", "2018 평창 올림픽 마스코트 백호 수호랑"], "30": ["", "백호 = 신성한 수호자"], "31": ["also(또한)", "K-pop 노래 ‘범 내려온다’에도 등장"], "32": ["", "가사 한 구절 = 전통 가곡 ‘수궁가’의 재해석"], "33": ["", "세계적 주목, 영상 수백만 회 시청"], "34": ["These days(오늘날)", "북한에 야생 호랑이 소수만 남음"], "35": ["However(그러나)", "역사·이야기·문화적 의미는 여전히 남아 있음"], "36": ["", "호랑이가 한국의 상징임을 누가 부정할까?"], "37": ["In 2021(2021년에)", "국립민속박물관, 호랑이 이야기를 모은 책 출판"], "38": ["How about(~은 어떨까)", "이제 주변에서 호랑이를 찾아보자"]}, "TAG": {"1-1/2-3/4-5/6-6": "책이 된 호랑이 이야기", "1-1/2-3/4-5/6-7": "책이 된 호랑이 이야기", "1-2/3-3/4-5/6-7": "책이 된 호랑이 이야기", "10-11/12-12/13-14/15-16": "한국 문화 속 호랑이", "10-11/12-13/14-14/15-16": "한국 문화 속 호랑이", "11-11/12-12/13-14/15-16": "한국 문화 속 호랑이", "11-11/12-13/14-14/15-16": "한국 문화 속 호랑이", "11-12/13-14/15-16/17-17": "한국 문화 속 호랑이", "18-18/19-19/20-21/22-23": "엇갈린 감정과 되살아난 상징", "18-18/19-20/21-21/22-23": "엇갈린 감정과 되살아난 상징", "18-18/19-20/21-22/23-23": "엇갈린 감정과 되살아난 상징", "18-18/19-20/21-22/23-24": "엇갈린 감정과 되살아난 상징", "18-18/19-20/21-22/23-25": "엇갈린 감정과 되살아난 상징", "18-18/19-21/22-24/25-26": "엇갈린 감정과 되살아난 상징", "18-19/20-20/21-22/23-24": "엇갈린 감정과 되살아난 상징", "18-19/20-21/22-22/23-24": "엇갈린 감정과 되살아난 상징", "18-19/20-21/22-24/25-26": "엇갈린 감정과 되살아난 상징", "18-19/20-21/22-24/25-27": "엇갈린 감정과 되살아난 상징", "18-19/20-22/23-24/25-26": "엇갈린 감정과 되살아난 상징", "18-19/20-22/23-24/25-27": "엇갈린 감정과 되살아난 상징", "18-19/20-22/23-25/26-27": "엇갈린 감정과 되살아난 상징", "2-2/3-3/4-5/6-7": "책이 된 호랑이 이야기", "20-20/21-22/23-24/25-25": "엇갈린 감정과 되살아난 상징", "20-20/21-22/23-24/25-26": "엇갈린 감정과 되살아난 상징", "20-20/21-22/23-24/25-27": "엇갈린 감정과 되살아난 상징", "20-20/21-22/23-25/26-27": "엇갈린 감정과 되살아난 상징", "20-20/21-22/23-25/26-28": "엇갈린 감정과 되살아난 상징", "20-21/22-22/23-24/25-26": "엇갈린 감정과 되살아난 상징", "20-21/22-24/25-26/27-28": "엇갈린 감정과 되살아난 상징", "20-21/22-24/25-26/27-29": "엇갈린 감정과 되살아난 상징", "20-21/22-24/25-27/28-29": "엇갈린 감정과 되살아난 상징", "24-24/25-25/26-27/28-29": "엇갈린 감정과 되살아난 상징", "24-24/25-26/27-27/28-29": "엇갈린 감정과 되살아난 상징", "24-25/26-27/28-28/29-30": "엇갈린 감정과 되살아난 상징", "24-25/26-27/28-29/30-30": "엇갈린 감정과 되살아난 상징", "25-25/26-27/28-28/29-30": "엇갈린 감정과 되살아난 상징", "25-25/26-27/28-29/30-30": "엇갈린 감정과 되살아난 상징", "31-31/32-32/33-34/35-36": "오늘날의 호랑이", "31-31/32-34/35-36/37-38": "오늘날의 호랑이", "31-32/33-34/35-36/37-37": "오늘날의 호랑이", "31-32/33-34/35-36/37-38": "오늘날의 호랑이", "32-32/33-34/35-36/37-37": "오늘날의 호랑이", "32-32/33-34/35-36/37-38": "오늘날의 호랑이", "8-8/9-11/12-13/14-15": "한국 문화 속 호랑이", "8-8/9-11/12-13/14-16": "한국 문화 속 호랑이", "8-8/9-11/12-14/15-16": "한국 문화 속 호랑이"}};
+D.KO={"1": "전 세계 아이들은 작가 Tae Keller가 2020년에 그녀의 책 When You Trap a Tiger를 출판했을 때 한국 문화에 대해 조금 더 알게 되었다.", "2": "그것의 이야기는 호랑이를 만난 한 소녀로부터 시작된다.", "3": "그녀의 할머니 역시 그 호랑이를 알고 있다.", "4": "그녀의 할머니가 아프게 되자, 그 소녀는 그 호랑이와 거래를 한다.", "5": "Keller의 수상 도서에 영감을 준 것은 그녀의 할머니가 그녀에게 이야기해 주던 옛 설화였다.", "6": "그것은 ‘해님 달님’이라고 불리는데, 오빠와 여동생, 그리고 호랑이에 관한 내용이다.", "7": "Keller는 그녀 자신의 책을 씀으로써 호랑이에 대한 대중의 흥미를 되살리고 싶어 했다.", "8": "호랑이는 한국의 문화와 어떻게 연관되는가?", "9": "오래 전, 한국에는 호랑이가 매우 많아서 사람들은 종종 그 나라를 ‘호랑이의 땅’이라고 불렀다.", "10": "호랑이는 한국에 적어도 십만 년을 살았다고 추정된다.", "11": "한국 문화에서 호랑이의 첫 번째 등장은 청동기 시대의 바위 그림으로 거슬러 올라간다.", "12": "그것은 호랑이를 포함하여 다양한 동물을 사냥하는 사람들을 묘사한다.", "13": "그때부터, 호랑이는 전설에서부터 미술과 악기에 이르기까지 한국 문화의 많은 측면에 등장해 왔다.", "14": "여러분 중 일부는 호랑이가 등장하는 한국 설화를 들어 봤을지도 모른다.", "15": "사실, 동물에 대한 한국 설화의 약 40%가 호랑이를 포함한다.", "16": "한국 설화에서 호랑이는 때로는 긍정적인 시각, 그리고 때로는 어리석은 존재로 보여진다.", "17": "예를 들어, 한 이야기에서, 호랑이는 한 인간이 그 호랑이의 생명을 구해 준 이후 그가 부유해지도록 돕는다.", "18": "또 다른 이야기에서, 호랑이는 한 어머니가 울고 있는 자신의 아기에게 “울지 마. 여기 곶감이 있단다.”라고 말하는 것을 듣는다.", "19": "그 아기가 울기를 멈추기 때문에, 호랑이는 그 곶감이 매우 무서운 생명체라고 잘못 생각하고 달아난다.", "20": "그 당시 사람들은 호랑이에 대해 상충되는 감정을 지니고 있었던 것으로 보인다.", "21": "그들은 호랑이의 힘과 용기에 대한 존경심이 있었다.", "22": "그러나, 과거에는 호랑이에게 상처를 입거나 심지어 죽임을 당하는 일이 흔했기 때문에 그들은 호랑이를 무서워하기도 했다.", "23": "그들은 호랑이를 덜 무서워하기 위해 호랑이를 어리석은 캐릭터로 만들었을지도 모른다.", "24": "한국의 호랑이들은 조선 시대 동안 사냥 때문에 개체 수 감소에 직면했고, 일제 강점기 동안 거의 멸종에 이르렀다.", "25": "한국에서 호랑이가 사라지면서, 국가의 상징으로서의 그들의 용도도 희미해졌다.", "26": "그러나, 한국에서 열린 두 올림픽의 마스코트로 선정되면서 그들의 상징성이 현대에 되살아났다.", "27": "호돌이는 1988년 서울 하계 올림픽의 마스코트였다.", "28": "그것은 시베리안 호랑이였는데, 그들은 용기를 상징한다.", "29": "2018년 평창 동계 올림픽은 백호인 수호랑을 그것의 마스코트로 만들었다.", "30": "백호는 신성한 수호자로 여겨진다.", "31": "호랑이는 또한 한국 대중가요 ‘범 내려온다’에도 언급된다.", "32": "이 노래의 한 구절(가사)은 ‘수궁가’의 재해석판인데, 수궁가는 한국의 전통 가곡이다.", "33": "그 노래는 세계적인 주목을 끌었고, 그것의 영상은 온라인에서 수백만 회 시청되었다.", "34": "오늘날, 단지 소수의 야생 호랑이만이 북한에 살고 있다고 보고되어 왔다.", "35": "그러나, 호랑이의 역사, 이야기, 그리고 문화적 의미는 현대 한국 사람들 사이에 여전히 자리하고 있다.", "36": "호랑이가 한국의 상징이라는 점을 누가 부정할 수 있을까?", "37": "2021년에, 국립 민속 박물관은 한국의 호랑이에 관한 모든 이야기를 모은 책을 출판했다.", "38": "이제 여러분 주변에서 호랑이를 찾아보는 것은 어떨까?"};
+var CHO=[['A','C','B'],['B','A','C'],['B','C','A'],['C','A','B'],['C','B','A']],CIRC='①②③④⑤',LAB=['A','B','C'];
+var KP='cs-blank-kr',kt=document.getElementById('kt');
+function setK(v){document.body.classList.toggle('kon',v);kt.textContent=v?'한글 해석 닫기':'한글 해석 보기';try{localStorage.setItem(KP,v?'1':'0')}catch(e){}}
+var _k=false;try{_k=localStorage.getItem(KP)==='1'}catch(e){}
+setK(_k);kt.addEventListener('click',function(){setK(!document.body.classList.contains('kon'))});
+var UK='cs3-abc-used',used={};
+try{var _u=JSON.parse(localStorage.getItem(UK)||'{}');if(_u&&typeof _u==='object')used=_u}catch(e){}
+function saveUsed(){try{localStorage.setItem(UK,JSON.stringify(used))}catch(e){}}
+var host=document.getElementById('qs'),bar=document.getElementById('cnt');
+var last='',done=0,perfect=0,TOT=4;
+function rnd(n){return Math.floor(Math.random()*n)}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=rnd(i+1),t=a[i];a[i]=a[j];a[j]=t}return a}
+function range(a,b){var r=[];for(var i=a;i<=b;i++)r.push(i);return r}
+function makeQ(g,L,combo,gl,ans){
+ var given=range(g-gl+1,g),chunks=[],s=g+1;
+ for(var k=0;k<3;k++){chunks.push(range(s,s+combo[k]-1));s+=combo[k]}
+ var labels=CHO[ans],by={};
+ for(var k=0;k<3;k++)by[labels[k]]=chunks[k];
+ return {g:g,L:L,combo:combo,given:given,chunks:chunks,ans:ans,labels:labels,by:by};
+}
+function txt(ns){return ns.map(function(n){return '<span class="s2">'+D.EN[n]+'<small class="kr">'+D.KO[n]+'</small></span>'}).join(' ')}
+function flowHtml(q){
+ var rows=[];
+ q.given.forEach(function(n){rows.push([n,'주어진 글',1])});
+ for(var k=0;k<3;k++)q.chunks[k].forEach(function(n){rows.push([n,'('+q.labels[k]+')',0])});
+ var h='<div class="flow">';
+ rows.forEach(function(r,i){var K=D.KEY[r[0]];
+  h+='<div class="fn'+(r[2]?' g':'')+'"><span class="lb">'+r[1]+'</span>'+(K[0]?'<span class="ch">'+K[0]+'</span>':'')+'<span>'+K[1]+'</span></div>';
+  if(i<rows.length-1)h+='<div class="ar">▼</div>'});
+ return h+'</div>';
+}
+function explHtml(q){
+ var li='';
+ for(var k=0;k<3;k++){
+  var frm=k==0?'주어진 글':'('+q.labels[k-1]+')',lab=q.labels[k],c=q.chunks[k];
+  li+='<li><b>'+frm+' → ('+lab+')</b> · '+D.WHY[c[0]]+'</li>';
+  c.slice(1).forEach(function(n){li+='<li><b>('+lab+') 안에서</b> · '+D.WHY[n]+'</li>'});
+ }
+ return li;
+}
+function qHtml(q,i,tag){
+ var h='<div class="q pick" data-a="'+q.ans+'"><div class="qh"><span class="qn">'+(i+1)+'</span><span class="tg">'+tag+'</span></div>';
+ h+='<div class="ask">주어진 글 다음에 이어질 글의 순서로 가장 적절한 것은?</div>';
+ h+='<div class="pbox given"><span class="lab">주어진 글</span>'+txt(q.given)+'</div>';
+ LAB.forEach(function(L){h+='<div class="pbox"><span class="lab">('+L+')</span>'+txt(q.by[L])+'</div>'});
+ CHO.forEach(function(c,k){h+='<button class="ob" data-i="'+k+'"><b>'+CIRC[k]+'</b> '+c.map(function(x){return '('+x+')'}).join('-')+'</button>'});
+ h+='<div class="ex"><div class="res"></div><div class="kk">정답은 <b>'+CIRC[q.ans]+' '+q.labels.map(function(x){return '('+x+')'}).join('-')+'</b> 이에요. </div><div class="wd">한눈에 정리 · 이 순서로 기억해요</div>'+flowHtml(q)+'</div></div>';
+ return h;
+}
+function pickAnswers(){
+ var a;
+ for(var t=0;t<200;t++){
+  a=shuffle([0,1,2,3,4,rnd(5)]);var ok=true;
+  for(var i=1;i<6;i++)if(a[i]==a[i-1])ok=false;
+  if(ok)return a;
+ }
+ return a;
+}
+var SCH=[[[[2,5,[1,2,2],2],[11,5,[2,1,2],2],[21,7,[3,2,2],2],[32,5,[2,2,1],1]],[[1,6,[2,2,2],1],[11,5,[2,1,2],1],[18,5,[2,1,2],1],[25,5,[2,2,1],2]],[[1,5,[2,2,1],1],[8,7,[3,2,2],1],[19,7,[2,3,2],2],[32,6,[2,2,2],1]],[[2,5,[1,2,2],1],[12,5,[2,2,1],2],[21,5,[1,2,2],2],[31,5,[1,2,2],1]],[[11,5,[1,2,2],2],[18,7,[2,2,3],1],[25,5,[2,2,1],1],[32,5,[2,2,1],2]]],[[[2,5,[1,2,2],2],[11,5,[1,2,2],1],[19,8,[2,3,3],2],[32,6,[2,2,2],2]],[[1,6,[2,2,2],1],[11,5,[2,1,2],1],[19,7,[3,2,2],2],[32,5,[2,2,1],1]],[[1,5,[2,2,1],1],[8,7,[3,2,2],1],[18,5,[2,2,1],1],[25,5,[2,2,1],2]],[[2,5,[1,2,2],1],[12,5,[2,2,1],2],[18,8,[3,3,2],1],[31,5,[1,2,2],1]],[[11,5,[1,2,2],2],[19,5,[2,1,2],2],[25,5,[2,1,2],2],[31,7,[3,2,2],1]]],[[[2,5,[1,2,2],2],[8,8,[3,3,2],1],[18,5,[1,2,2],1],[24,5,[1,2,2],1]],[[1,6,[2,2,2],1],[8,8,[3,2,3],1],[19,8,[3,2,3],2],[32,6,[2,2,2],1]],[[1,5,[2,2,1],1],[11,5,[2,1,2],1],[21,8,[3,3,2],2],[32,6,[2,2,2],2]],[[2,5,[1,2,2],1],[11,5,[1,2,2],1],[21,5,[1,2,2],2],[32,5,[2,2,1],2]],[[8,7,[3,2,2],1],[18,5,[2,1,2],1],[24,5,[2,1,2],1],[31,7,[3,2,2],1]]],[[[2,5,[1,2,2],2],[11,5,[2,1,2],2],[19,7,[2,3,2],2],[31,5,[1,2,2],1]],[[1,6,[2,2,2],1],[8,8,[3,3,2],1],[19,7,[3,2,2],2],[32,6,[2,2,2],1]],[[1,5,[2,2,1],1],[12,5,[2,2,1],2],[20,5,[2,2,1],1],[25,5,[2,1,2],1]],[[2,5,[1,2,2],1],[11,5,[1,2,2],1],[20,6,[2,2,2],1],[32,5,[2,2,1],1]],[[11,5,[2,1,2],1],[19,5,[1,2,2],2],[25,5,[2,1,2],2],[31,7,[3,2,2],1]]],[[[2,5,[1,2,2],2],[11,5,[1,2,2],2],[18,5,[2,2,1],1],[25,5,[2,2,1],2]],[[1,6,[2,2,2],1],[11,5,[2,1,2],2],[19,8,[3,2,3],2],[31,5,[1,2,2],1]],[[1,5,[2,2,1],1],[12,5,[2,2,1],2],[18,8,[3,3,2],1],[32,6,[2,2,2],2]],[[2,5,[1,2,2],1],[8,8,[3,2,3],1],[21,8,[3,2,3],2],[32,5,[2,2,1],1]],[[11,5,[2,1,2],1],[19,5,[1,2,2],2],[25,5,[2,1,2],2],[32,5,[2,2,1],2]]],[[[2,5,[1,2,2],2],[11,5,[1,2,2],2],[19,8,[2,3,3],2],[31,7,[3,2,2],1]],[[1,6,[2,2,2],1],[11,5,[2,1,2],2],[19,8,[3,2,3],2],[31,5,[1,2,2],1]],[[1,5,[2,2,1],1],[11,5,[1,2,2],1],[18,8,[3,3,2],1],[32,6,[2,2,2],1]],[[2,5,[1,2,2],1],[8,8,[3,3,2],1],[19,8,[3,3,2],2],[32,5,[2,2,1],1]],[[11,5,[2,1,2],1],[19,5,[1,2,2],2],[25,5,[2,1,2],2],[32,6,[2,2,2],2]]],[[[2,5,[1,2,2],2],[8,7,[3,2,2],1],[18,6,[2,2,2],1],[24,5,[2,1,2],1]],[[1,6,[2,2,2],1],[11,5,[1,2,2],2],[20,7,[2,3,2],1],[31,5,[1,2,2],1]],[[1,5,[2,2,1],1],[11,5,[1,2,2],1],[18,5,[1,2,2],1],[25,5,[2,1,2],1]],[[2,5,[1,2,2],1],[8,8,[3,3,2],1],[19,7,[3,2,2],2],[32,5,[2,2,1],2]],[[11,5,[2,1,2],1],[20,5,[2,2,1],1],[25,5,[2,2,1],1],[32,6,[2,2,2],1]]],[[[2,5,[1,2,2],2],[12,5,[2,2,1],2],[18,5,[2,2,1],1],[25,5,[2,2,1],2]],[[1,6,[2,2,2],1],[8,8,[3,2,3],1],[21,7,[3,2,2],2],[31,7,[3,2,2],1]],[[1,5,[2,2,1],1],[11,5,[1,2,2],1],[20,6,[2,2,2],1],[32,5,[2,2,1],1]],[[2,5,[1,2,2],1],[11,5,[1,2,2],2],[18,7,[2,2,3],1],[25,5,[2,1,2],1]],[[8,7,[3,2,2],1],[20,5,[2,2,1],1],[25,5,[2,2,1],1],[32,6,[2,2,2],1]]],[[[2,5,[1,2,2],2],[8,8,[3,3,2],1],[18,6,[2,2,2],1],[24,5,[2,1,2],1]],[[1,6,[2,2,2],1],[12,5,[2,2,1],2],[18,5,[2,1,2],1],[25,5,[2,1,2],2]],[[1,5,[2,2,1],1],[8,8,[3,2,3],1],[20,8,[2,3,3],1],[31,5,[1,2,2],1]],[[2,5,[1,2,2],1],[11,5,[1,2,2],1],[19,5,[2,1,2],2],[25,5,[2,1,2],1]],[[8,7,[3,2,2],1],[18,5,[1,2,2],1],[25,5,[2,2,1],1],[31,7,[3,2,2],1]]],[[[2,5,[1,2,2],2],[11,5,[2,1,2],2],[19,8,[2,3,3],2],[32,6,[2,2,2],1]],[[1,6,[2,2,2],1],[12,5,[2,2,1],2],[18,7,[2,2,3],1],[32,5,[2,2,1],1]],[[1,5,[2,2,1],1],[8,8,[3,2,3],1],[20,5,[2,2,1],1],[32,6,[2,2,2],2]],[[2,5,[1,2,2],1],[8,8,[3,3,2],1],[21,8,[3,3,2],2],[32,5,[2,2,1],2]],[[11,5,[1,2,2],2],[18,5,[2,2,1],1],[25,5,[2,1,2],1],[31,7,[3,2,2],1]]],[[[2,5,[1,2,2],2],[8,7,[3,2,2],1],[19,5,[2,1,2],2],[24,5,[2,1,2],1]],[[1,6,[2,2,2],1],[11,5,[1,2,2],1],[19,5,[1,2,2],2],[24,5,[1,2,2],1]],[[1,5,[2,2,1],1],[11,5,[2,1,2],1],[19,7,[2,3,2],2],[31,5,[1,2,2],1]],[[2,5,[1,2,2],1],[8,8,[3,2,3],1],[20,6,[2,2,2],1],[32,5,[2,2,1],2]],[[8,8,[3,3,2],1],[18,5,[2,1,2],1],[25,5,[2,2,1],2],[31,7,[3,2,2],1]]],[[[2,5,[1,2,2],2],[11,5,[2,1,2],2],[18,5,[1,2,2],1],[25,5,[2,1,2],2]],[[1,6,[2,2,2],1],[8,7,[3,2,2],1],[21,7,[3,2,2],2],[32,6,[2,2,2],2]],[[1,5,[2,2,1],1],[11,5,[1,2,2],1],[19,5,[1,2,2],2],[25,5,[2,2,1],1]],[[2,5,[1,2,2],1],[11,5,[2,1,2],1],[18,6,[2,2,2],1],[25,5,[2,1,2],1]],[[8,8,[3,2,3],1],[18,5,[2,1,2],1],[24,5,[1,2,2],1],[32,5,[2,2,1],1]]],[[[2,5,[1,2,2],2],[8,8,[3,3,2],1],[19,8,[2,3,3],2],[31,7,[3,2,2],1]],[[1,6,[2,2,2],1],[11,5,[1,2,2],2],[18,5,[2,2,1],1],[25,5,[2,2,1],2]],[[1,5,[2,2,1],1],[11,5,[2,1,2],2],[18,7,[2,2,3],1],[25,5,[2,2,1],1]],[[2,5,[1,2,2],1],[11,5,[1,2,2],1],[19,7,[2,3,2],2],[32,5,[2,2,1],2]],[[12,5,[2,2,1],2],[18,6,[2,2,2],1],[24,5,[1,2,2],1],[32,6,[2,2,2],1]]],[[[2,5,[1,2,2],2],[8,8,[3,2,3],1],[20,7,[2,2,3],1],[31,5,[1,2,2],1]],[[1,6,[2,2,2],1],[8,8,[3,3,2],1],[20,5,[2,2,1],1],[25,5,[2,1,2],1]],[[1,5,[2,2,1],1],[8,7,[3,2,2],1],[19,5,[1,2,2],2],[25,5,[2,2,1],1]],[[2,5,[1,2,2],1],[11,5,[2,1,2],2],[20,7,[2,3,2],1],[32,5,[2,2,1],1]],[[11,5,[2,1,2],1],[18,5,[1,2,2],1],[24,5,[1,2,2],1],[32,5,[2,2,1],2]]],[[[2,5,[1,2,2],2],[12,5,[2,2,1],2],[19,7,[2,3,2],2],[32,6,[2,2,2],1]],[[1,6,[2,2,2],1],[11,5,[1,2,2],2],[19,7,[3,2,2],2],[31,5,[1,2,2],1]],[[1,5,[2,2,1],1],[8,7,[3,2,2],1],[21,8,[3,3,2],2],[31,7,[3,2,2],1]],[[2,5,[1,2,2],1],[11,5,[1,2,2],1],[18,5,[2,2,1],1],[25,5,[2,2,1],2]],[[11,5,[2,1,2],2],[18,7,[2,2,3],1],[25,5,[2,2,1],1],[32,5,[2,2,1],1]]],[[[2,5,[1,2,2],2],[8,8,[3,2,3],1],[20,7,[2,2,3],1],[32,5,[2,2,1],2]],[[1,6,[2,2,2],1],[8,8,[3,3,2],1],[19,5,[1,2,2],2],[25,5,[2,1,2],1]],[[1,5,[2,2,1],1],[11,5,[1,2,2],2],[19,8,[3,2,3],2],[32,6,[2,2,2],1]],[[2,5,[1,2,2],1],[11,5,[1,2,2],1],[21,7,[3,2,2],2],[31,7,[3,2,2],1]],[[11,5,[2,1,2],1],[18,5,[2,1,2],1],[25,5,[2,1,2],2],[32,6,[2,2,2],2]]],[[[2,5,[1,2,2],2],[11,5,[2,1,2],2],[18,7,[2,2,3],1],[25,5,[2,2,1],1]],[[1,6,[2,2,2],1],[8,8,[3,3,2],1],[20,7,[2,3,2],1],[31,5,[1,2,2],1]],[[1,5,[2,2,1],1],[12,5,[2,2,1],2],[18,5,[1,2,2],1],[24,5,[2,1,2],1]],[[2,5,[1,2,2],1],[8,7,[3,2,2],1],[18,8,[3,3,2],1],[32,5,[2,2,1],1]],[[11,5,[2,1,2],1],[18,6,[2,2,2],1],[25,5,[2,2,1],2],[32,6,[2,2,2],2]]],[[[2,5,[1,2,2],2],[11,5,[1,2,2],1],[21,8,[3,3,2],2],[31,7,[3,2,2],1]],[[1,6,[2,2,2],1],[8,8,[3,3,2],1],[18,5,[2,1,2],1],[25,5,[2,2,1],1]],[[1,5,[2,2,1],1],[11,5,[1,2,2],2],[21,7,[3,2,2],2],[32,5,[2,2,1],2]],[[2,5,[1,2,2],1],[12,5,[2,2,1],2],[19,8,[2,3,3],2],[32,6,[2,2,2],1]],[[8,8,[3,2,3],1],[20,5,[2,2,1],1],[25,5,[2,1,2],1],[31,5,[1,2,2],1]]],[[[2,5,[1,2,2],2],[8,7,[3,2,2],1],[20,8,[2,3,3],1],[32,5,[2,2,1],1]],[[1,6,[2,2,2],1],[8,8,[3,3,2],1],[21,8,[3,2,3],2],[31,7,[3,2,2],1]],[[1,5,[2,2,1],1],[11,5,[2,1,2],1],[19,7,[3,2,2],2],[32,6,[2,2,2],2]],[[2,5,[1,2,2],1],[11,5,[2,1,2],2],[19,7,[2,3,2],2],[32,6,[2,2,2],1]],[[11,5,[1,2,2],2],[20,5,[2,2,1],1],[25,5,[2,2,1],1],[31,5,[1,2,2],1]]],[[[2,5,[1,2,2],2],[12,5,[2,2,1],2],[20,6,[2,2,2],1],[32,5,[2,2,1],1]],[[1,6,[2,2,2],1],[8,7,[3,2,2],1],[20,7,[2,2,3],1],[32,5,[2,2,1],2]],[[1,5,[2,2,1],1],[8,8,[3,3,2],1],[18,5,[1,2,2],1],[24,5,[1,2,2],1]],[[2,5,[1,2,2],1],[11,5,[1,2,2],1],[19,5,[1,2,2],2],[24,5,[2,1,2],1]],[[8,8,[3,2,3],1],[19,5,[2,1,2],2],[25,5,[2,2,1],1],[31,7,[3,2,2],1]]],[[[2,5,[1,2,2],2],[11,5,[2,1,2],1],[21,8,[3,2,3],2],[32,6,[2,2,2],1]],[[1,6,[2,2,2],1],[11,5,[2,1,2],2],[18,8,[3,3,2],1],[32,5,[2,2,1],2]],[[1,5,[2,2,1],1],[8,7,[3,2,2],1],[21,5,[1,2,2],2],[32,5,[2,2,1],1]],[[2,5,[1,2,2],1],[12,5,[2,2,1],2],[18,5,[2,2,1],1],[24,5,[1,2,2],1]],[[11,5,[1,2,2],1],[18,7,[2,2,3],1],[25,5,[2,2,1],1],[31,7,[3,2,2],1]]],[[[2,5,[1,2,2],2],[8,8,[3,3,2],1],[20,7,[2,2,3],1],[31,5,[1,2,2],1]],[[1,6,[2,2,2],1],[11,5,[1,2,2],2],[18,5,[1,2,2],1],[25,5,[2,1,2],1]],[[1,5,[2,2,1],1],[11,5,[2,1,2],2],[21,7,[3,2,2],2],[32,5,[2,2,1],1]],[[2,5,[1,2,2],1],[12,5,[2,2,1],2],[19,8,[2,3,3],2],[32,6,[2,2,2],2]],[[8,7,[3,2,2],1],[18,5,[2,2,1],1],[25,5,[2,2,1],1],[31,7,[3,2,2],1]]],[[[2,5,[1,2,2],2],[11,5,[1,2,2],1],[20,8,[2,3,3],1],[32,6,[2,2,2],1]],[[1,6,[2,2,2],1],[11,5,[1,2,2],2],[19,5,[2,1,2],2],[24,5,[2,1,2],1]],[[1,5,[2,2,1],1],[11,5,[2,1,2],2],[18,5,[1,2,2],1],[24,5,[1,2,2],1]],[[2,5,[1,2,2],1],[11,5,[2,1,2],1],[19,8,[2,3,3],2],[31,5,[1,2,2],1]],[[8,8,[3,3,2],1],[20,5,[2,2,1],1],[25,5,[2,1,2],1],[31,7,[3,2,2],1]]],[[[2,5,[1,2,2],2],[8,8,[3,2,3],1],[21,8,[3,3,2],2],[32,6,[2,2,2],2]],[[1,6,[2,2,2],1],[11,5,[1,2,2],2],[18,6,[2,2,2],1],[25,5,[2,2,1],2]],[[1,5,[2,2,1],1],[11,5,[2,1,2],2],[18,5,[2,2,1],1],[25,5,[2,1,2],2]],[[2,5,[1,2,2],1],[8,7,[3,2,2],1],[19,8,[3,2,3],2],[31,5,[1,2,2],1]],[[12,5,[2,2,1],2],[20,5,[2,2,1],1],[25,5,[2,1,2],1],[32,5,[2,2,1],1]]],[[[2,5,[1,2,2],2],[8,8,[3,3,2],1],[20,7,[2,3,2],1],[32,5,[2,2,1],2]],[[1,6,[2,2,2],1],[8,8,[3,2,3],1],[19,8,[2,3,3],2],[32,6,[2,2,2],2]],[[1,5,[2,2,1],1],[11,5,[2,1,2],2],[20,8,[2,3,3],1],[31,7,[3,2,2],1]],[[2,5,[1,2,2],1],[11,5,[2,1,2],1],[19,7,[2,3,2],2],[31,5,[1,2,2],1]],[[8,7,[3,2,2],1],[18,5,[2,1,2],1],[24,5,[1,2,2],1],[32,6,[2,2,2],1]]],[[[2,5,[1,2,2],2],[11,5,[1,2,2],2],[19,5,[1,2,2],2],[25,5,[2,2,1],2]],[[1,6,[2,2,2],1],[8,8,[3,2,3],1],[19,7,[3,2,2],2],[32,6,[2,2,2],2]],[[1,5,[2,2,1],1],[11,5,[2,1,2],2],[18,6,[2,2,2],1],[25,5,[2,1,2],1]],[[2,5,[1,2,2],1],[11,5,[2,1,2],1],[20,6,[2,2,2],1],[32,5,[2,2,1],2]],[[11,5,[1,2,2],1],[19,5,[2,1,2],2],[25,5,[2,1,2],2],[32,5,[2,2,1],1]]],[[[2,5,[1,2,2],2],[8,7,[3,2,2],1],[21,7,[3,2,2],2],[31,7,[3,2,2],1]],[[1,6,[2,2,2],1],[11,5,[1,2,2],2],[19,7,[2,3,2],2],[32,6,[2,2,2],1]],[[1,5,[2,2,1],1],[12,5,[2,2,1],2],[18,5,[2,2,1],1],[24,5,[2,1,2],1]],[[2,5,[1,2,2],1],[8,8,[3,3,2],1],[19,5,[1,2,2],2],[25,5,[2,1,2],1]],[[11,5,[2,1,2],1],[18,5,[2,1,2],1],[25,5,[2,1,2],2],[31,5,[1,2,2],1]]],[[[2,5,[1,2,2],2],[11,5,[1,2,2],1],[18,5,[1,2,2],1],[25,5,[2,2,1],1]],[[1,6,[2,2,2],1],[11,5,[1,2,2],2],[18,7,[2,2,3],1],[32,5,[2,2,1],2]],[[1,5,[2,2,1],1],[8,7,[3,2,2],1],[19,7,[3,2,2],2],[32,6,[2,2,2],2]],[[2,5,[1,2,2],1],[12,5,[2,2,1],2],[20,7,[2,2,3],1],[32,6,[2,2,2],1]],[[8,8,[3,3,2],1],[18,5,[2,2,1],1],[24,5,[1,2,2],1],[32,5,[2,2,1],1]]],[[[2,5,[1,2,2],2],[8,8,[3,2,3],1],[21,8,[3,3,2],2],[31,5,[1,2,2],1]],[[1,6,[2,2,2],1],[11,5,[1,2,2],2],[20,8,[2,3,3],1],[32,5,[2,2,1],2]],[[1,5,[2,2,1],1],[8,7,[3,2,2],1],[18,5,[2,1,2],1],[25,5,[2,2,1],2]],[[2,5,[1,2,2],1],[11,5,[2,1,2],1],[19,5,[1,2,2],2],[24,5,[2,1,2],1]],[[8,8,[3,3,2],1],[18,5,[1,2,2],1],[24,5,[1,2,2],1],[31,7,[3,2,2],1]]],[[[2,5,[1,2,2],2],[11,5,[1,2,2],1],[18,5,[2,2,1],1],[25,5,[2,2,1],1]],[[1,6,[2,2,2],1],[11,5,[1,2,2],2],[20,7,[2,2,3],1],[32,5,[2,2,1],2]],[[1,5,[2,2,1],1],[12,5,[2,2,1],2],[18,7,[2,2,3],1],[25,5,[2,1,2],1]],[[2,5,[1,2,2],1],[8,8,[3,2,3],1],[21,8,[3,3,2],2],[32,6,[2,2,2],2]],[[8,8,[3,3,2],1],[18,5,[1,2,2],1],[25,5,[2,1,2],2],[31,7,[3,2,2],1]]]],SK='cs3-abc-sch',ss={s:-1,r:0};
+try{var _s=JSON.parse(localStorage.getItem(SK)||'null');if(_s&&_s.s>=0&&_s.s<SCH.length&&_s.r>=0&&_s.r<5)ss=_s}catch(e){}
+function genSet(){
+ if(ss.s<0||ss.r>=SCH[ss.s].length){var n=ss.s<0?rnd(SCH.length):(ss.s+1)%SCH.length;ss={s:n,r:0}}
+ var round=SCH[ss.s][ss.r];ss.r++;
+ if(ss.r>=SCH[ss.s].length){ss={s:ss.s,r:SCH[ss.s].length}}
+ try{localStorage.setItem(SK,JSON.stringify(ss))}catch(e){}
+ var ans=pickAnswers();
+ return shuffle(round).map(function(w,i){return makeQ(w[0],w[1],w[2],w[3],ans[i])});
+}
+function sigOf(q){return q.given[0]+'-'+q.given[q.given.length-1]+'/'+q.chunks.map(function(c){return c[0]+'-'+c[c.length-1]}).join('/')}
+function fresh(qs){return qs.every(function(q){return !used[sigOf(q)]})}
+function render(){
+ var qs=genSet();
+ var html=qs.map(function(q,i){return qHtml(q,i,D.TAG[sigOf(q)])}).join('');
+ newRun(html);
+}
+var RK='cs3-abc-run',run=null;
+function saveRun(){try{localStorage.setItem(RK,JSON.stringify(run))}catch(e){}}
+function loadRun(){try{var r=JSON.parse(localStorage.getItem(RK)||'null');if(r&&typeof r.html==='string'&&r.sel&&r.res&&r.cur>=0&&r.cur<=TOT)return r}catch(e){}return null}
+function newRun(html){var a=[],b=[];for(var i=0;i<TOT;i++){a.push(-1);b.push(-1)}run={html:html,cur:0,sel:a,res:b};saveRun();mount()}
+function score(){return run.res.filter(function(x){return x===1}).length}
+function gradeUI(q,i,s){
+ var a=+q.dataset.a,os=q.querySelectorAll('.ob');
+ q.classList.add('done');os.forEach(function(o){o.classList.remove('sel')});os[a].classList.add('ok');if(s>=0&&s!==a)os[s].classList.add('ng');
+ var r=q.querySelector('.res');
+ if(s===a){r.className='res o';r.textContent='○ 정답이에요'}else{r.className='res x';r.textContent='× 정답은 '+CIRC[a]+'번'}
+ var go=q.querySelector('.go'),nx=q.querySelector('.nextq');if(go)go.style.display='none';if(nx)nx.style.display='block';
+}
+function mount(){
+ host.innerHTML=run.html;
+ var qs=[].slice.call(host.querySelectorAll('.q'));
+ qs.forEach(function(q,i){
+  var ctl=document.createElement('div');ctl.className='qctl';
+  ctl.innerHTML='<button class="nx go" type="button" disabled>제출하기</button><button class="nx nextq" type="button" style="display:none">'+(i===qs.length-1?'결과 보기':'다음 문제')+'</button>';
+  q.appendChild(ctl);
+  if(run.res[i]>=0)gradeUI(q,i,run.sel[i]);
+  else if(run.sel[i]>=0){q.querySelectorAll('.ob')[run.sel[i]].classList.add('sel');ctl.querySelector('.go').disabled=false}
+  q.style.display=(i===run.cur)?'block':'none';
+ });
+ view();
+}
+function view(){
+ var qs=[].slice.call(host.querySelectorAll('.q'));
+ qs.forEach(function(q,i){q.style.display=(i===run.cur)?'block':'none'});
+ if(run.cur>=TOT){
+  var li='';qs.forEach(function(q,i){li+='<li>'+(i+1)+'번 '+(run.res[i]===1?'○':'×')+' <small>'+(q.querySelector('.tg')?q.querySelector('.tg').textContent:'')+'</small></li>'});
+  sum.style.display='block';
+  sum.innerHTML='<b>'+TOT+'문제 중 '+score()+'개</b>를 맞혔어요.<ul style="list-style:none;padding:0;margin:8px 0">'+li+'</ul>다시 풀면 <b>문제가 매번 바뀌어요</b> (끊는 위치와 (A)(B)(C) 배치가 달라져요).<button class="nx" id="again" type="button">새 문제로 다시 풀기</button>';
+  document.getElementById('again').onclick=function(){render();window.scrollTo(0,0)};
+  bar.innerHTML='끝 · 정답 <b>'+score()+'</b> / '+TOT;
+ }else{
+  sum.style.display='none';
+  bar.innerHTML='문제 <b>'+(run.cur+1)+'</b> / '+TOT+' · 맞힌 개수 <b>'+score()+'</b>';
+ }
+}
+host.addEventListener('click',function(e){
+ var q=e.target.closest('.q');if(!q)return;var i=[].indexOf.call(host.querySelectorAll('.q'),q);
+ var b=e.target.closest('.ob');
+ if(b){if(q.classList.contains('done'))return;
+  var os=q.querySelectorAll('.ob');os.forEach(function(o){o.classList.remove('sel')});b.classList.add('sel');run.sel[i]=+b.dataset.i;q.querySelector('.go').disabled=false;saveRun();return}
+ if(e.target.closest('.go')){if(run.sel[i]<0||run.res[i]>=0)return;run.res[i]=(run.sel[i]===+q.dataset.a)?1:0;saveRun();gradeUI(q,i,run.sel[i]);view();return}
+ if(e.target.closest('.nextq')){run.cur=i+1;saveRun();view();window.scrollTo(0,0)}
+});
+document.getElementById('rs').onclick=function(){
+ if(run&&run.cur<TOT&&(run.sel.some(function(x){return x>=0}))&&!confirm('지금 풀던 문제를 버리고 새 문제로 시작할까요?'))return;
+ render();window.scrollTo(0,0)};
+window.__abc={D:D,CHO:CHO,render:render,get run(){return run}};
+var _sv=loadRun();if(_sv){run=_sv;mount()}else render();
+})();
+
+</script><div style="height:64px"></div><a class="homefab" href="../index.html" style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#0f766e;color:#fff;font:700 13px/1 sans-serif;padding:11px 14px;border-radius:22px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.3)">⌂ 목록</a></body></html>
