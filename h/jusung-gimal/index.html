@@ -86,13 +86,13 @@ a{color:inherit;text-decoration:none}
 <script>
 (function(){
 /* 열기 코드 검증용 해시 (학생별·단계별). 코드 자체는 홈에 없음 */
-var UH=["00ddefbfcb036a91e11526c670200060b6a5cf50dd4a321f8238ebeb72a4960e", "048c1e2ea149377458c6f994f658e500286ec46386a97fa89aaa3f6819b06097", "102f546672bb463d4bae728833b80956ec78c4987d67de5e77ec11b5b8bf8465", "179367cc0d3c12a65f15f0bbc4717c0b1440c9803b731f27598f8f5bf28f5050"];
+var UH=["00ddefbfcb036a91e11526c670200060b6a5cf50dd4a321f8238ebeb72a4960e", "048c1e2ea149377458c6f994f658e500286ec46386a97fa89aaa3f6819b06097", "102f546672bb463d4bae728833b80956ec78c4987d67de5e77ec11b5b8bf8465", "179367cc0d3c12a65f15f0bbc4717c0b1440c9803b731f27598f8f5bf28f5050", "5f2d771ff8d3e389be99ae4b1a063595c43005a9039c428d1edea4144d3e7a28", "bc1ab545c35ed362f86d8aa1cc811f13672de89a6cbafc10c86319b5cd43a9eb", "2dc0bd048615c70f735bcfcb3bc9a14499f0479e524a4235091a938b30cc129c", "a78c0e7fb8180ad4a64a5b3b3ed14771c2d5528d38b8bff17cf3f4fea9e915eb"];
 var TH='37575fb29347376e4a3d70a90d193a794f54799008412ac120bea44546a18025';
 var CODES={'m4wb4':'s'};
 /* 임시값: 시험 시작일과 표시 문구는 여기서 바꿔요 */
 var EXAM=[2026,12,1],EXAMTXT='12/1(화) 시작';
-/* 지금 홈에 보이는 과. 3과를 붙일 때 [3,4]로 바꾸고 VT[3]·LT[3]을 채워요 */
-var LESSONS=[4];
+/* 지금 홈에 보이는 과. 4과 다음에 3과가 이어져요 */
+var LESSONS=[4,3];
 var PASS=70,TRIES=2;
 function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}}
 function J(k,d){try{return JSON.parse(ls(k)||'null')||d}catch(e){return d}}
@@ -109,8 +109,8 @@ function save(){ls(SKEY(),JSON.stringify(S))}
 function REP(){return J('js26-rep',{})}
 function sha(s){var b=new TextEncoder().encode(s);return crypto.subtle.digest('SHA-256',b).then(function(h){return Array.prototype.map.call(new Uint8Array(h),function(x){return('0'+x.toString(16)).slice(-2)}).join('')})}
 
-var VT={4:['웹을 모두에게 열어 두기 · 이미지 설명','대본과 자막 · 보고 듣기 쉬운 콘텐츠','키보드 탐색 · 색상 이외의 지표','문화적으로 접근 가능한 웹']};
-var LT={4:'4과 Good for All of Us'};
+var VT={3:['문화유산 구하기 · 파괴를 막는 것부터 보물을 구하는 것까지','알타우제에서의 시간을 다투는 경주','두 달 안에 옮겨야 하는 임무 · 모뉴먼츠 맨의 지속적인 영향','당신의 언어를 잃지 마라!'],4:['웹을 모두에게 열어 두기 · 이미지 설명','대본과 자막 · 보고 듣기 쉬운 콘텐츠','키보드 탐색 · 색상 이외의 지표','문화적으로 접근 가능한 웹']};
+var LT={4:'4과 Good for All of Us',3:'3과 문화유산 구하기'};
 function lesson(n){
   function c(id,nm,href,k,o){o=o||{};o.id='L'+n+'-'+id;o.nm=nm;o.href=href;o.k=k;return o}
   var v=function(i){return c('vocab'+i,'어휘 '+['①','②','③','④'][i-1]+' · '+VT[n][i-1],n+'/vocab'+i+'.html','app',{sc:1,cc:1})};
@@ -123,10 +123,10 @@ function lesson(n){
   ],ses:[
    {t:'본문 읽고 내용 잡기',core:[c('jwa','좌본문우해석',n+'/jwa.html','pdf'),c('hangeul','한글채우기 정답',n+'/hangeul.html','pdf'),c('find','틀린 곳 찾기',n+'/find.html','app',{sc:1}),v(1),c('eobeop','어법선택 정답·해설',n+'/eobeop.html','pdf')],
     plus:[c('yeongeo','영어채우기 정답',n+'/yeongeo.html','pdf')]},
-   {t:'어법 시험과 동사형',core:[key,v(2),c('dongpdf','동사형 정답·해설','../c2-neungryul-oh-4v/','pdf'),c('eobeoptest','어법선택 시험 (본문 순서대로)',n+'/eobeop-test.html','app',{sc:1,ex:1})],plus:[]},
-   {t:'기출 풀기 시작',core:[c('yesang1','예상문제 1회 정답·해설',n+'/yesang1/','pdf'),v(3),c('dong1','동사형 말하기 시험 (앞 1/2)','../c2-neungryul-oh-4v/','tonly',{ex:1,cc:1})],
+   {t:'어법 시험과 동사형',core:[key,v(2),c('dongpdf','동사형 정답·해설','../c2-neungryul-oh-'+n+'v/','pdf'),c('eobeoptest','어법선택 시험 (본문 순서대로)',n+'/eobeop-test.html','app',{sc:1,ex:1})],plus:[]},
+   {t:'기출 풀기 시작',core:[c('yesang1','예상문제 1회 정답·해설',n+'/yesang1/','pdf'),v(3),c('dong1','동사형 말하기 시험 (앞 1/2)','../c2-neungryul-oh-'+n+'v/','tonly',{ex:1,cc:1})],
     plus:[c('awkward','어색한 곳 찾기 정답·해설',n+'/awkward.html','pdf'),c('check','Check 정답·해설',n+'/check.html','pdf')]},
-   {t:'마무리',core:[c('yesang2','예상문제 2회 정답·해설',n+'/yesang2/','pdf'),v(4),c('dong2','동사형 말하기 시험 (뒤 1/2)','../c2-neungryul-oh-4v/','tonly',{ex:1,cc:1})],
+   {t:'마무리',core:[c('yesang2','예상문제 2회 정답·해설',n+'/yesang2/','pdf'),v(4),c('dong2','동사형 말하기 시험 (뒤 1/2)','../c2-neungryul-oh-'+n+'v/','tonly',{ex:1,cc:1})],
     plus:[c('yesang3','예상문제 3회 정답·해설',n+'/yesang3/','pdf'),c('yesang4','예상문제 4회 정답·해설',n+'/yesang4/','pdf'),c('yoyak','요약문 완성 정답·해설',n+'/yoyak.html','pdf',{cc:1})]}
   ]};
 }
