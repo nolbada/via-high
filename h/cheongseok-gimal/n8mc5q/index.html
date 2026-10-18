@@ -36,7 +36,7 @@ var KEYS=[['3-1','3과 2회차'],['3-2','3과 3회차'],['3-3','3과 4회차'],[
 var VT={3:['책이 된 호랑이 이야기','한국 문화 속 호랑이','엇갈린 감정과 되살아난 상징','오늘날의 호랑이'],4:['위기에 처한 환경','플라스틱 쓰레기 처리하기','오염된 토양 정화하기','조류 바이오 연료 생산하기']};
 function cat(n){var v=function(i){return ['vocab'+i,'어휘 '+'①②③④'[i-1]+' · '+VT[n][i-1]]};
  return {app:[['find','틀린 곳 찾기 TF'],v(1),v(2),v(3),v(4),['eobeoptest','어법선택 시험']],
-  hw:[['blank','빈칸 추론 연습'],['sunko','순서배열 · 한글'],['sunmun','순서배열 · 문장 단위 + 문장삽입'],['sunabc','순서배열 · ABC 묶음']],
+  hw:[['blank','빈칸 추론 연습'],['sunko','순서배열 · 한글'],['sunmun','문장삽입 (매번 다른 문제)'],['sunabc','순서배열 · ABC 묶음']],
   pdf:[['jwa','좌본문우해석'],['hangeul','한글채우기 정답'],['yeongeo','영어채우기 정답'],['key','핵심 7문장 분석'],['eobeop','어법선택 정답·해설'],['yesang1','예상문제 1회'],['awkward','어색한 곳 찾기'],['check','Check'],['yesang2','예상문제 2회'],['yesang3','예상문제 3회'],['yesang4','예상문제 4회'],['yoyak','요약문 완성']]}}
 var AL='23456789abcdefghjkmnpqrstuvwxyz',TC='',sc='',kk='';
 function H(s){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)).then(function(b){return new Uint8Array(b)})}
