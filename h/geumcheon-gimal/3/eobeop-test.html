@@ -73,5 +73,13 @@ q.querySelectorAll('.bk').forEach(function(bk){var a=+bk.dataset.a,bs=bk.querySe
 q.classList.add('done');q.dataset.ok=all?'1':'0';dn++;got+=m;var r=q.querySelector('.res');r.className='res '+(all?'o':'x');r.textContent=all?'모두 정답이에요':'틀린 칸이 있어요 ('+m+' / '+n+')';up();
 if(dn===T.length){var w=[];T.forEach(function(x){if(x.dataset.ok!=='1')w.push('<a href="#'+x.id+'">'+x.dataset.no+'</a>')});
 sum.innerHTML='<h2>결과</h2><div>'+got+' / '+tot+'칸 정답</div>'+(w.length?'<div style="margin-top:6px">틀린 문제(본문 순서): '+w.join('')+'</div>':'<div style="margin-top:6px">전부 맞혔어요.</div>');sum.classList.add('on');sum.scrollIntoView({behavior:'smooth'})}})});
-document.getElementById('rs').onclick=function(){T.forEach(function(q){q.classList.remove('done');q.dataset.ok='';q.querySelectorAll('.bk button').forEach(function(x){x.classList.remove('sel','ok','ng')});q.querySelector('.go').disabled=true});dn=0;got=0;sum.classList.remove('on');up();window.scrollTo(0,0)};up()})();
-</script></body></html>
+var SK='gk-res:'+location.pathname.replace(/[^a-z0-9]/gi,''),rep=false;
+function pidx(bk){var bs=[].slice.call(bk.querySelectorAll('button')),k=-1;bs.forEach(function(b,i){if(b.classList.contains('sel')&&k<0)k=i});if(k<0)bs.forEach(function(b,i){if(b.classList.contains('ng')&&k<0)k=i});if(k<0)bs.forEach(function(b,i){if(b.classList.contains('ok')&&k<0)k=i});return k}
+function persist(){if(rep)return;var o={};T.forEach(function(q,i){o[i]={s:[].map.call(q.querySelectorAll('.bk'),pidx),d:q.classList.contains('done')?1:0}});try{localStorage.setItem(SK,JSON.stringify(o))}catch(e){}}
+T.forEach(function(q){q.addEventListener('click',function(){persist()})});
+document.getElementById('rs').onclick=function(){try{localStorage.removeItem(SK)}catch(e){}T.forEach(function(q){q.classList.remove('done');q.dataset.ok='';q.querySelectorAll('.bk button').forEach(function(x){x.classList.remove('sel','ok','ng')});q.querySelector('.go').disabled=true});dn=0;got=0;sum.classList.remove('on');up();window.scrollTo(0,0)};
+var _sv=null;try{_sv=JSON.parse(localStorage.getItem(SK)||'null')}catch(e){}
+if(_sv){rep=true;T.forEach(function(q,i){var st=_sv[i];if(!st)return;var bks=q.querySelectorAll('.bk');st.s.forEach(function(k,j){if(k>=0)bks[j].querySelectorAll('button')[k].click()});if(st.d)q.querySelector('.go').click()});rep=false;persist();
+ var f=[].filter.call(T,function(q){return !q.classList.contains('done')})[0];if(f)setTimeout(function(){f.scrollIntoView({block:'start'})},150)}
+up()})();
+</script><div style="height:64px"></div><a class="homefab" href="../index.html" style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#0f766e;color:#fff;font:700 13px/1 sans-serif;padding:11px 14px;border-radius:22px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.3)">⌂ 목록</a></body></html>

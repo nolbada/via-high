@@ -242,13 +242,20 @@ secs.forEach(function(q){
   if(i===a){pc++;r.className='res o';r.textContent='정답이에요'}else{b.classList.add('ng');r.className='res x';r.textContent='아쉬워요. 정답은 '+'①②③④⑤'[a]+'번'}
   up()});
 });
-document.getElementById('rs').onclick=function(){
+var SK='gk-res:'+location.pathname.replace(/[^a-z0-9]/gi,''),rep=true,saved=null;try{saved=JSON.parse(localStorage.getItem(SK)||'null')}catch(e){}
+function pickIdx(q){var os=[].slice.call(q.querySelectorAll('.ob,.mk')),k=-1;os.forEach(function(o,i){if(o.classList.contains('ng')&&k<0)k=i});if(k<0)os.forEach(function(o,i){if(o.classList.contains('ok')&&k<0)k=i});return k}
+function persist(){if(rep)return;var o={q:{},p:{}};qs.forEach(function(q,i){o.q[i]={p:q._p||[],d:q.classList.contains('done')?1:0,t:q._tries||0}});secs.forEach(function(q,j){o.p[j]=q.classList.contains('done')?pickIdx(q):-1});try{localStorage.setItem(SK,JSON.stringify(o))}catch(e){}}
+qs.concat(secs).forEach(function(q){q.addEventListener('click',function(){setTimeout(persist,0)})});
+document.getElementById('rs').onclick=function(){try{localStorage.removeItem(SK)}catch(e){}
  qs.forEach(function(q){if(q.classList.contains('done')){q.querySelector('.again').click()}else{q._p=[];var ev=document.createEvent('Event');}
   q._tries=0;q._p=[];q.querySelectorAll('.slot').forEach(function(s){var m=s.querySelector('.ox');if(m){m.className='x';m.textContent=''}s.classList.remove('f');s.querySelector('.st').textContent='비어 있어요';s.querySelector('.x').textContent=''});
   q.querySelectorAll('.pb').forEach(function(b){b.classList.remove('gone')});q.querySelector('.go').disabled=true;q.querySelector('.lbl').textContent='이어질 순서대로 문장을 누르세요 (1번째)';
   var r=q.querySelector('.res');r.className='res';r.textContent=''});
  secs.forEach(function(q){q.classList.remove('done');q.querySelectorAll('.ob,.mk').forEach(function(o){o.classList.remove('ok','ng')});var r=q.querySelector('.res');r.className='res';r.textContent=''});
  done=0;perfect=0;pdone=0;pc=0;up();window.scrollTo(0,0)};
-up();
+if(saved){qs.forEach(function(q,i){var st=saved.q&&saved.q[i];if(!st)return;(st.p||[]).forEach(function(n){var b=q.querySelector('.pb[data-n="'+n+'"]');if(b)b.click()});if(st.d){q._tries=Math.max(0,(st.t||1)-1);var go=q.querySelector('.go');if(go&&!go.disabled)go.click()}});
+ secs.forEach(function(q,j){var k=saved.p&&saved.p[j];if(k>=0){var o=q.querySelectorAll('.ob,.mk')[k];if(o)o.click()}});
+ var all=qs.concat(secs),f=all.filter(function(q){return !q.classList.contains('done')})[0];var any=all.some(function(q){return q.classList.contains('done')||(q._p&&q._p.length)});if(f&&any)setTimeout(function(){f.scrollIntoView({block:'start'})},150)}
+rep=false;up();
 })();
-</script></body></html>
+</script><div style="height:64px"></div><a class="homefab" href="../index.html" style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#0f766e;color:#fff;font:700 13px/1 sans-serif;padding:11px 14px;border-radius:22px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.3)">⌂ 목록</a></body></html>
