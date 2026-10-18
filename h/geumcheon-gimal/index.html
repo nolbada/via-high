@@ -178,12 +178,12 @@ function render(){
   [3,4].forEach(function(n){
     var L=lesson(n),lo=lessonOpen(L);
     out+='<div class="les"><h2>'+L.title+'</h2><small>'+(lo?(lessonDone(L)?'모든 회차 완료':'수업 4회'):'앞 과를 끝내면 열려요')+'</small></div>';
-    if(!lo){out+='<div class="ses lk"><div class="lockmsg">3과 4회차를 끝내면 4과가 열려요. 빨리 끝낸 학생은 바로 넘어가도 돼요.</div><div style="text-align:center"><button class="btn g" data-a="lesson" data-n="'+n+'">선생님 코드로 열기</button></div></div>';return}
+    if(!lo){out+='<div class="lockmsg" style="padding:2px 4px 10px">3과 4회차를 끝내면 4과가 열려요. 빨리 끝낸 학생은 바로 넘어가도 돼요. 아래는 4과에서 하게 될 내용이에요. <button data-a="lesson" data-n="'+n+'" style="background:none;border:0;color:var(--sub);text-decoration:underline;font-size:12.5px;padding:4px">선생님 코드로 열기</button></div>'}
     L.ses.forEach(function(s,k){
       var op=sesOpen(L,k),core=s.core,cdone=core.filter(gating).every(done);
       var st=!op?'<span class="st">잠김</span>':(cdone?'<span class="st ok">완료</span>':'<span class="st now">진행 중</span>');
       out+='<div class="ses'+(op?'':' lk')+'"><div class="sh"><b>'+(k+1)+'회차</b><span class="t">'+s.t+'</span>'+st+'</div>';
-      if(!op){out+='<div class="lockmsg">'+k+'회차를 끝내면 열려요 (앱은 70% 통과, 종이는 "다 했어요")</div><div class="lockmsg" style="opacity:.6;padding-top:0">'+core.map(function(c){return esc(c.nm.replace(/ \(.*\)$/,''))}).join(' · ')+'</div><div style="text-align:right;padding-bottom:4px"><button data-a="ses" data-id="'+core[0].id+'" style="background:none;border:0;color:var(--sub);text-decoration:underline;font-size:12.5px;padding:4px">선생님 코드로 열기</button></div></div>';return}
+      if(!op){out+='<div class="lockmsg">'+(lo?k+'회차를 끝내면 열려요 (앱은 70% 통과, 종이는 "다 했어요") <button data-a="ses" data-id="'+core[0].id+'" style="background:none;border:0;color:var(--sub);text-decoration:underline;font-size:12.5px;padding:4px">선생님 코드로 열기</button>':'앞 과를 끝내면 열려요')+'</div>'}
       var ordered=core.filter(function(c){return c.k!=='tonly'&&!c.ex}).concat(core.filter(function(c){return c.ex&&c.k!=='tonly'}),core.filter(function(c){return c.k==='tonly'}));
       ordered.forEach(function(c,i){out+=row(c,i,op,false)});
       var pf=(P()==='s'||P()==='c')?s.plus:[];
@@ -248,7 +248,7 @@ document.getElementById('app').addEventListener('click',function(e){
   else if(a==='care'){var c=findC(id);sheet('정규 수업 코스 자료예요','이 자료는 정규 수업에서 함께 쓰는 자료예요. 궁금하면 선생님께 물어봐요.',true,function(){S.unl[id]=1;save();render()})}
   else if(a==='plus'){sheet('플러스 자료','이 회차의 뼈대를 끝내면 열려요. 선생님 코드가 있으면 지금 열 수 있어요.',true,function(){S.unl[id]=1;save();render()})}
   else if(a==='ses'){var c2=findC(id),m=/^L(\d)-/.exec(id),n=+m[1],L=lesson(n),k=0;L.ses.forEach(function(s,i){if(s.core.concat(s.plus).some(function(x){return x.id===id}))k=i});
-    if(k===0&&!lessonOpen(L))sheet('아직 잠겨 있어요','앞 과를 끝내면 열려요. 선생님 코드가 있으면 지금 열 수 있어요.',true,function(){S.force['L'+n]=1;save();render()});
+    if(!lessonOpen(L))sheet('아직 잠겨 있어요','앞 과를 끝내면 열려요. 선생님 코드가 있으면 지금 열 수 있어요.',true,function(){S.force['L'+n]=1;save();render()});
     else sheet('아직 잠겨 있어요',k+'회차를 끝내면 열려요. 앱은 70% 이상(두 번 해 보면 열려요), 종이는 "다 했어요"를 눌러요. 선생님 코드가 있으면 지금 열 수 있어요.',true,function(){S.force[n+'-'+k]=1;save();render()})}
   else if(a==='lesson'){var nn=+b.dataset.n;sheet('4과 열기','선생님 코드를 입력하면 4과가 열려요.',true,function(){S.force['L'+nn]=1;save();render()})}
 });
