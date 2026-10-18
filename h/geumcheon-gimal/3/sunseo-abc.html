@@ -94,8 +94,9 @@ mark{background:#ffe3e0;color:#8a1c1c;border-radius:4px;padding:0 3px}
 .flow .fn.g .lb{color:var(--sub);border-color:var(--line)}
 .flow .fn{flex-wrap:wrap}
 
+.ob.sel{border-color:var(--pri);background:var(--priL);font-weight:700}#sum{background:var(--priL);border:1px solid var(--pri);border-radius:12px;padding:10px 14px;margin:14px 0;font-size:16px;line-height:1.7;color:var(--ink);font-weight:400}.nx{display:block;width:100%;margin:12px 0 4px;border:0;background:var(--pri);color:#fff;font:inherit;font-size:16px;font-weight:700;border-radius:12px;padding:10px}.nx[disabled]{background:var(--line);color:var(--sub)}.nx.sub{background:var(--card);color:var(--ink);border:1px solid var(--line)}
 </style><link rel="icon" type="image/svg+xml" href="../icon.svg"><link rel="apple-touch-icon" href="../icon-180.png"><meta name="apple-mobile-web-app-title" content="금천고정답"></head><body><div class="wrap"><div class="top"><a class="back" href="../index.html">← 금천고 정답 목록</a></div><h1>3과 순서배열 · ABC</h1><p class="lede">3과 The True Art Lovers 본문 · 모의고사 유형 6문제. 주어진 글 다음에 (A)(B)(C)의 순서를 골라요. 다시 풀 때마다 문제가 달라져요.</p><div class="bar"><span id="cnt" class="cnt"></span><button id="rs">처음부터 다시</button></div>
-<h2 class="sechd">ABC 순서 고르기</h2><div class="how">주어진 글 다음에 이어질 <b>(A) (B) (C)</b>의 순서를 골라요. 보기를 누르면 바로 정답과 해설이 나와요. <b>처음부터 다시</b>를 누르면 문제가 새로 바뀌어요.</div><div id="qs"></div>
+<h2 class="sechd">ABC 순서 고르기</h2><div class="how">주어진 글 다음에 이어질 <b>(A) (B) (C)</b>의 순서를 골라요. 보기를 골라 두었다가 맨 아래 <b>제출하기</b>를 누르면 정답과 한눈에 정리 순서도가 나와요. 이 문제는 <b>풀 때마다 바뀌어요</b>. <b>처음부터 다시</b>를 누르면 새 문제가 나와요.</div><div id="qs"></div><div id="sum" style="display:none"></div><button class="nx" id="sub" type="button" disabled>제출하기</button>
 <div class="foot">비타민 영어클리닉 · 금천고1 공통영어2 3과 The True Art Lovers</div></div>
 <script>
 
@@ -140,7 +141,7 @@ function qHtml(q,i,tag){
  h+='<div class="pbox given"><span class="lab">주어진 글</span>'+txt(q.given)+'</div>';
  LAB.forEach(function(L){h+='<div class="pbox"><span class="lab">('+L+')</span>'+txt(q.by[L])+'</div>'});
  CHO.forEach(function(c,k){h+='<button class="ob" data-i="'+k+'"><b>'+CIRC[k]+'</b> '+c.map(function(x){return '('+x+')'}).join('-')+'</button>'});
- h+='<div class="ex"><div class="res"></div><div class="kk">정답은 <b>'+CIRC[q.ans]+' '+q.labels.map(function(x){return '('+x+')'}).join('-')+'</b> 이에요. 본문 순서 그대로입니다.</div><ol class="steps">'+explHtml(q)+'</ol><div class="wd">한눈에 정리 · 이 순서로 기억해요</div>'+flowHtml(q)+'</div></div>';
+ h+='<div class="ex"><div class="res"></div><div class="kk">정답은 <b>'+CIRC[q.ans]+' '+q.labels.map(function(x){return '('+x+')'}).join('-')+'</b> 이에요. </div><div class="wd">한눈에 정리 · 이 순서로 기억해요</div>'+flowHtml(q)+'</div></div>';
  return h;
 }
 function pickAnswers(){
@@ -169,18 +170,29 @@ function genSet(){
 function render(){
  var qs=genSet();
  host.innerHTML=qs.map(function(q,i){return qHtml(q,i,D.TAG[q.g])}).join('');
- done=0;perfect=0;up();
+ done=0;perfect=0;graded=false;sub.style.display='';sum.style.display='none';upSel();
  window.__abc.cur=qs;
 }
 function up(){bar.innerHTML=done+' / '+TOT+' 풀었어요 · 한 번에 맞힌 문제 <b>'+perfect+'</b>개'}
+var sub=document.getElementById('sub'),sum=document.getElementById('sum'),graded=false;
+function upSel(){var n=host.querySelectorAll('.q .ob.sel').length;sub.disabled=graded||n<TOT;
+ bar.innerHTML=graded?('채점 완료 · 정답 <b>'+perfect+'</b> / '+TOT):(n+' / '+TOT+' 골랐어요');}
 host.addEventListener('click',function(e){
- var b=e.target.closest('.ob');if(!b)return;var q=b.closest('.q');if(!q||q.classList.contains('done'))return;
- var a=+q.dataset.a,i=+b.dataset.i,os=q.querySelectorAll('.ob');
- q.classList.add('done');done++;os[a].classList.add('ok');
- var r=q.querySelector('.res');
- if(i===a){perfect++;r.className='res o';r.textContent='정답이에요'}
- else{b.classList.add('ng');r.className='res x';r.textContent='아쉬워요. 정답은 '+CIRC[a]+'번'}
- up();
+ var b=e.target.closest('.ob');if(!b||graded)return;var q=b.closest('.q');if(!q)return;
+ q.querySelectorAll('.ob').forEach(function(o){o.classList.remove('sel')});b.classList.add('sel');upSel();
+});
+sub.addEventListener('click',function(){
+ if(graded)return;graded=true;perfect=0;
+ host.querySelectorAll('.q').forEach(function(q){
+  var a=+q.dataset.a,os=q.querySelectorAll('.ob'),sel=q.querySelector('.ob.sel'),i=sel?+sel.dataset.i:-1;
+  q.classList.add('done');os[a].classList.add('ok');os.forEach(function(o){o.classList.remove('sel')});
+  var r=q.querySelector('.res');
+  if(i===a){perfect++;r.className='res o';r.textContent='○ 정답이에요'}else{if(sel)sel.classList.add('ng');r.className='res x';r.textContent='× 정답은 '+CIRC[a]+'번'}
+ });
+ sum.style.display='block';sum.innerHTML=TOT+'문제 중 <b>'+perfect+'개</b>를 맞혔어요. 각 문제 아래 순서도로 흐름을 기억해 두세요.<br>다시 풀면 <b>문제가 매번 바뀌어요</b> (끊는 위치와 (A)(B)(C) 배치가 달라져요).<button class="nx sub" id="again" type="button">새 문제로 다시 풀기</button>';
+ sub.style.display='none';upSel();
+ document.getElementById('again').onclick=function(){render();window.scrollTo(0,0)};
+ sum.scrollIntoView({block:'nearest'});
 });
 document.getElementById('rs').onclick=function(){render();window.scrollTo(0,0)};
 window.__abc={D:D,makeQ:makeQ,qHtml:qHtml,explHtml:explHtml,flowHtml:flowHtml,CHO:CHO,render:render};

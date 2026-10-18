@@ -90,123 +90,150 @@ mark{background:#ffe3e0;color:#8a1c1c;border-radius:4px;padding:0 3px}
 .ex .oth{color:var(--sub);font-size:15px;margin:6px 0}
 .cnt b{color:var(--pri)}
 
+
+.slots{margin:8px 0 4px}
+.slot{display:flex;gap:8px;align-items:flex-start;border:1.5px dashed var(--line);border-radius:11px;padding:8px 11px;margin:6px 0;font-size:16px;line-height:1.55;color:var(--sub);background:var(--bg)}
+.slot .no{flex:none;min-width:22px;text-align:center;background:var(--navy);color:var(--card);border-radius:999px;font-size:12.5px;font-weight:800;padding:0 6px;margin-top:2px}
+.slot.f{border-style:solid;border-color:var(--pri);background:var(--okBg);color:var(--ink);cursor:pointer}
+.slot .x{flex:none;margin-left:auto;color:var(--sub);font-size:13px;padding-left:6px}
+.slot .ox{flex:none;margin-left:auto;font-weight:800;font-size:18px;line-height:1.3;padding-left:6px}
+.slot .ox.o{color:var(--pri)}.slot .ox.n{color:var(--ans)}
+.q.seq2.done .slot{cursor:default}
+.sb{display:block;width:100%;margin:10px 0 2px;border:0;background:var(--pri);color:#fff;font:inherit;font-size:16px;font-weight:700;border-radius:12px;padding:10px}
+.sb[disabled]{background:var(--line);color:var(--sub)}
+.sb.sub2{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.q.seq2.done .pool{display:none}.q.seq2.done .sb.go{display:none}
+.q.seq2 .fin{display:none}.q.seq2.done .fin{display:block}
+.flow{margin:8px 0 2px}
+.flow .fn{display:flex;align-items:center;gap:8px;background:var(--priL);border:1.5px solid var(--pri);border-radius:11px;padding:8px 11px;font-size:16.5px;line-height:1.5;font-weight:700}
+.flow .fn.g{background:var(--pi);border-color:var(--piB);color:var(--piInk)}
+.flow .ch{flex:none;font-size:12.5px;font-weight:800;color:var(--card);background:var(--pri);border-radius:999px;padding:1px 9px;line-height:1.6}
+.flow .ar{text-align:center;color:var(--pri);font-size:15px;line-height:1.1;margin:1px 0}
+@media(prefers-color-scheme:dark){.sb{color:#06201d}}
 </style><link rel="icon" type="image/svg+xml" href="../icon.svg"><link rel="apple-touch-icon" href="../icon-180.png"><meta name="apple-mobile-web-app-title" content="금천고정답"></head><body><div class="wrap"><div class="top"><a class="back" href="../index.html">← 금천고 정답 목록</a></div><h1>3과 순서배열 · 한글</h1><p class="lede">3과 The True Art Lovers 본문 · 한글 문장 7묶음. 영어 연결어는 우리말 뜻과 함께 적혀 있어요.</p><div class="bar"><span id="cnt" class="cnt"></span><button id="rs">처음부터 다시</button></div>
-<h2 class="sechd">한글 순서배열</h2><div class="how">맨 위에 주어진 문장 다음에 올 문장을 <b>본문 순서대로</b> 눌러요. 맞으면 쌓이고 해설이 나와요. <b>영어(뜻)</b>로 적힌 연결어는 문장을 이어 주는 열쇠예요.</div>
-<div class="q seq" data-t="3"><div class="qh"><span class="qn">1</span><span class="tg">도슨트의 인사</span></div>
-<div class="ask">맨 위 문장 다음에 이어질 순서대로 <b>한글 문장</b>을 눌러 쌓아 보세요.</div>
+<h2 class="sechd">한글 순서배열</h2><div class="how">맨 위에 주어진 문장 다음에 올 문장을 <b>본문 순서대로</b> 눌러요. 다 쌓고 <b>제출</b>하면 자리마다 ○×가 표시되고 흐름을 한눈에 정리한 순서도가 나와요. <b>영어(뜻)</b>로 적힌 연결어는 문장을 이어 주는 열쇠예요.</div>
+<div class="q seq2" data-t="3"><div class="qh"><span class="qn">1</span><span class="tg">도슨트의 인사</span></div>
+<div class="ask">맨 위 문장 다음에 이어질 순서대로 <b>한글 문장</b>을 눌러 쌓은 뒤 제출해요.</div>
 <div class="gv"><span class="tg2">주어진 문장</span>드림 아트 갤러리에 오신 것을 환영한다!</div>
 <div class="gv"><span class="tg2">주어진 문장</span>나는 〈그림자에서 빛으로〉 전시회의 도슨트인 Isabel Williams이다.</div>
-<div class="sd"><span class="no">1</span>오늘은 인생의 역경에도 불구하고 결코 예술을 포기하지 않았던 세 명의 놀라운 예술가들을 만나 보려고 한다.<span class="why"><span class="en">Today</span>(오늘)은 이번 투어에서 할 일을 알려 주는 말이에요. <span class="en">three amazing artists</span>(세 명의 놀라운 예술가)를 만난다고 처음 소개합니다.</span></div>
-<div class="sd"><span class="no">2</span>각 예술가에게는 독특한 화풍과 그들의 작품을 높이 평가받게 만들어 준 이야기가 있다.<span class="why"><span class="en">Each artist</span>(각 예술가)는 앞 문장의 <span class="en">three amazing artists</span>(세 명의 놀라운 예술가)를 하나씩 받는 말이에요. 앞에 여럿이 나와야 <span class="en">Each</span>(각각의)를 쓸 수 있어요.</span></div>
-<div class="sd"><span class="no">3</span>각 예술가의 삶과 작품을 함께 살펴보자.<span class="why"><span class="en">Let's explore</span>(함께 살펴보자)는 인사를 끝내고 본격적으로 감상을 시작하자는 말이에요. <span class="en">each artist's life</span>(각 예술가의 삶)은 앞 문장의 <span class="en">Each artist</span>(각 예술가)를 이어받습니다.</span></div>
-<div class="pool"><div class="lbl">다음에 올 문장을 누르세요 (1번째)</div>
+<div class="slots"><div class="slot"><span class="no">1</span><span class="st">비어 있어요</span><span class="x"></span></div><div class="slot"><span class="no">2</span><span class="st">비어 있어요</span><span class="x"></span></div><div class="slot"><span class="no">3</span><span class="st">비어 있어요</span><span class="x"></span></div></div>
+<div class="pool"><div class="lbl">이어질 순서대로 문장을 누르세요 (1번째)</div>
 <button class="pb" data-n="2">각 예술가에게는 독특한 화풍과 그들의 작품을 높이 평가받게 만들어 준 이야기가 있다.</button>
 <button class="pb" data-n="3">각 예술가의 삶과 작품을 함께 살펴보자.</button>
 <button class="pb" data-n="1">오늘은 인생의 역경에도 불구하고 결코 예술을 포기하지 않았던 세 명의 놀라운 예술가들을 만나 보려고 한다.</button>
-<div class="msg"></div></div>
-<div class="res"></div><div class="fin"><div class="wd">한눈에 정리 · 이 순서로 기억해요</div><div class="flow"><div class="fn g"><span>갤러리 환영 인사</span></div><div class="ar">▼</div><div class="fn g"><span>도슨트 Isabel Williams 소개</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Today(오늘)</span><span>역경에도 예술을 포기 않은 세 예술가</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Each(각각)</span><span>독특한 화풍 + 작품을 빛낸 이야기</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Let's(자)</span><span>삶과 작품을 함께 살펴보자</span></div></div></div></div>
-<div class="q seq" data-t="4"><div class="qh"><span class="qn">2</span><span class="tg">Bill Traylor · 삶</span></div>
-<div class="ask">맨 위 문장 다음에 이어질 순서대로 <b>한글 문장</b>을 눌러 쌓아 보세요.</div>
+</div><button class="sb go" disabled>제출하기</button>
+<div class="res"></div>
+<div class="fin"><div class="wd">한눈에 정리 · 이 순서로 기억해요</div><div class="flow"><div class="fn g"><span>갤러리 환영 인사</span></div><div class="ar">▼</div><div class="fn g"><span>도슨트 Isabel Williams 소개</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Today(오늘)</span><span>역경에도 예술을 포기 않은 세 예술가</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Each(각각)</span><span>독특한 화풍 + 작품을 빛낸 이야기</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Let's(자)</span><span>삶과 작품을 함께 살펴보자</span></div></div><button class="sb sub2 again" type="button">다시 풀기</button></div></div>
+<div class="q seq2" data-t="4"><div class="qh"><span class="qn">2</span><span class="tg">Bill Traylor · 삶</span></div>
+<div class="ask">맨 위 문장 다음에 이어질 순서대로 <b>한글 문장</b>을 눌러 쌓은 뒤 제출해요.</div>
 <div class="gv"><span class="tg2">주어진 문장</span>첫 번째로 살펴볼 예술가는 Bill Traylor이다.</div>
-<div class="sd"><span class="no">1</span>Traylor는 1853년 미국에서 노예로 태어나 앨라배마의 목화 농장에서 일하며 어린 시절을 보냈다.<span class="why">앞 문장에서 이름을 밝힌 사람의 삶이 <span class="en">was born</span>(태어났다)부터 시작돼요. 인물 이야기는 태어난 때부터 시간 순서로 흘러갑니다.</span></div>
-<div class="sd"><span class="no">2</span><span class="en">Although</span>(~이지만) 그는 미국 남북전쟁 이후 자유의 몸이 되었어도, 농장에서 매우 낮은 임금을 받고 일하며 여전히 인종차별에 직면해야 했다.<span class="why"><span class="en">Although he became a free man</span>(그는 자유의 몸이 되었지만)은 앞 문장의 <span class="en">born into slavery</span>(노예로 태어나)와 대비돼요. 노예였던 사람이 자유로워졌다는 이야기가 이어집니다.</span></div>
-<div class="sd"><span class="no">3</span><span class="en">Later</span>(이후), 70세 무렵에 Traylor는 앨라배마주 몽고메리시로 이주하여 공장에서 일자리를 얻었다.<span class="why"><span class="en">Later</span>(이후)는 시간이 흐른 뒤라는 신호예요. <span class="en">around 70 years old</span>(70세 무렵)으로 앞 문장의 농장 시절보다 나중 이야기를 합니다.</span></div>
-<div class="sd"><span class="no">4</span>85세가 되고 몸이 너무 아파서 일을 할 수 없게 된 후에야 그는 자신의 인생 경험을 표현하기 위해 그림으로 눈을 돌렸다.<span class="why"><span class="en">85 years old</span>(85세)는 앞 문장의 70세보다 나이가 더 많아요. 나이가 늘어나는 순서로 이야기가 이어집니다.</span></div>
-<div class="pool"><div class="lbl">다음에 올 문장을 누르세요 (1번째)</div>
+<div class="slots"><div class="slot"><span class="no">1</span><span class="st">비어 있어요</span><span class="x"></span></div><div class="slot"><span class="no">2</span><span class="st">비어 있어요</span><span class="x"></span></div><div class="slot"><span class="no">3</span><span class="st">비어 있어요</span><span class="x"></span></div><div class="slot"><span class="no">4</span><span class="st">비어 있어요</span><span class="x"></span></div></div>
+<div class="pool"><div class="lbl">이어질 순서대로 문장을 누르세요 (1번째)</div>
 <button class="pb" data-n="2"><span class="en">Although</span>(~이지만) 그는 미국 남북전쟁 이후 자유의 몸이 되었어도, 농장에서 매우 낮은 임금을 받고 일하며 여전히 인종차별에 직면해야 했다.</button>
 <button class="pb" data-n="4">85세가 되고 몸이 너무 아파서 일을 할 수 없게 된 후에야 그는 자신의 인생 경험을 표현하기 위해 그림으로 눈을 돌렸다.</button>
 <button class="pb" data-n="3"><span class="en">Later</span>(이후), 70세 무렵에 Traylor는 앨라배마주 몽고메리시로 이주하여 공장에서 일자리를 얻었다.</button>
 <button class="pb" data-n="1">Traylor는 1853년 미국에서 노예로 태어나 앨라배마의 목화 농장에서 일하며 어린 시절을 보냈다.</button>
-<div class="msg"></div></div>
-<div class="res"></div><div class="fin"><div class="wd">한눈에 정리 · 이 순서로 기억해요</div><div class="flow"><div class="fn g"><span class="ch">First(첫째)</span><span>Bill Traylor</span></div><div class="ar">▼</div><div class="fn"><span>1853년 노예로 태어나 목화 농장에서 성장</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Although(~이지만)</span><span>자유인이 됐지만 낮은 임금·인종차별</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Later(이후)</span><span>70세 무렵 몽고메리로 이주, 공장 취직</span></div><div class="ar">▼</div><div class="fn"><span>85세, 병들어 일을 못 하자 그림을 시작</span></div></div></div></div>
-<div class="q seq" data-t="4"><div class="qh"><span class="qn">3</span><span class="tg">Bill Traylor · 그림</span></div>
-<div class="ask">맨 위 문장 다음에 이어질 순서대로 <b>한글 문장</b>을 눌러 쌓아 보세요.</div>
+</div><button class="sb go" disabled>제출하기</button>
+<div class="res"></div>
+<div class="fin"><div class="wd">한눈에 정리 · 이 순서로 기억해요</div><div class="flow"><div class="fn g"><span class="ch">First(첫째)</span><span>Bill Traylor</span></div><div class="ar">▼</div><div class="fn"><span>1853년 노예로 태어나 목화 농장에서 성장</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Although(~이지만)</span><span>자유인이 됐지만 낮은 임금·인종차별</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Later(이후)</span><span>70세 무렵 몽고메리로 이주, 공장 취직</span></div><div class="ar">▼</div><div class="fn"><span>85세, 병들어 일을 못 하자 그림을 시작</span></div></div><button class="sb sub2 again" type="button">다시 풀기</button></div></div>
+<div class="q seq2" data-t="4"><div class="qh"><span class="qn">3</span><span class="tg">Bill Traylor · 그림</span></div>
+<div class="ask">맨 위 문장 다음에 이어질 순서대로 <b>한글 문장</b>을 눌러 쌓은 뒤 제출해요.</div>
 <div class="gv"><span class="tg2">주어진 문장</span><span class="en">Now</span>(이제) 〈비열한 개〉와 〈남자와 큰 개〉를 시작으로 그의 그림 몇 점을 살펴보겠다.</div>
 <div class="gv"><span class="tg2">주어진 문장</span>Traylor는 개에 대한 두려움이 컸는데, <span class="en">because</span>(~때문에) 개가 농장에서 노예를 감시하고 사냥하는 데 자주 사용되었다.</div>
-<div class="sd"><span class="no">1</span>이 작품들에는 개에 대한 그의 두려움이 강하게 표현되어 있다.<span class="why"><span class="en">His fear of dogs</span>(그의 개에 대한 두려움)은 앞 문장의 두려움을 그대로 받아요. <span class="en">these pieces</span>(이 작품들)은 개 그림들을 가리킵니다.</span></div>
-<div class="sd"><span class="no">2</span><span class="en">In contrast</span>(반면), 〈핸드백을 든 여인과 우산을 든 남자〉는 몽고메리 거리에서 그가 관찰한 아프리카계 미국인의 자유로운 삶을 묘사한다.<span class="why"><span class="en">In contrast</span>(반면)은 앞과 반대되는 내용이 온다는 신호예요. 두려움이 담긴 개 그림과 달리 <span class="en">free lives</span>(자유로운 삶)을 그린 작품이 나옵니다.</span></div>
-<div class="sd"><span class="no">3</span>Traylor는 단순한 형태와 색채를 사용하여 노예 제도에서 자유에 이르는 미국 역사의 복잡한 순간을 포착했다.<span class="why"><span class="en">from slavery to freedom</span>(노예 제도에서 자유까지)는 앞의 두 종류 그림(두려움과 자유로운 삶)을 하나로 묶어 정리하는 말이에요.</span></div>
-<div class="sd"><span class="no">4</span><span class="en">As a result</span>(그 결과), 그는 현재 미국 민속 예술의 중요한 인물로 여겨지고 있다.<span class="why"><span class="en">As a result</span>(그 결과)는 앞 내용의 결과를 말해요. 노예에서 자유까지 포착한 덕분에 <span class="en">important figure</span>(중요한 인물)로 여겨진다는 결론입니다.</span></div>
-<div class="pool"><div class="lbl">다음에 올 문장을 누르세요 (1번째)</div>
+<div class="slots"><div class="slot"><span class="no">1</span><span class="st">비어 있어요</span><span class="x"></span></div><div class="slot"><span class="no">2</span><span class="st">비어 있어요</span><span class="x"></span></div><div class="slot"><span class="no">3</span><span class="st">비어 있어요</span><span class="x"></span></div><div class="slot"><span class="no">4</span><span class="st">비어 있어요</span><span class="x"></span></div></div>
+<div class="pool"><div class="lbl">이어질 순서대로 문장을 누르세요 (1번째)</div>
 <button class="pb" data-n="4"><span class="en">As a result</span>(그 결과), 그는 현재 미국 민속 예술의 중요한 인물로 여겨지고 있다.</button>
 <button class="pb" data-n="2"><span class="en">In contrast</span>(반면), 〈핸드백을 든 여인과 우산을 든 남자〉는 몽고메리 거리에서 그가 관찰한 아프리카계 미국인의 자유로운 삶을 묘사한다.</button>
 <button class="pb" data-n="3">Traylor는 단순한 형태와 색채를 사용하여 노예 제도에서 자유에 이르는 미국 역사의 복잡한 순간을 포착했다.</button>
 <button class="pb" data-n="1">이 작품들에는 개에 대한 그의 두려움이 강하게 표현되어 있다.</button>
-<div class="msg"></div></div>
-<div class="res"></div><div class="fin"><div class="wd">한눈에 정리 · 이 순서로 기억해요</div><div class="flow"><div class="fn g"><span class="ch">Now(이제)</span><span>그림 감상: 〈비열한 개〉 등</span></div><div class="ar">▼</div><div class="fn g"><span class="ch">because(왜냐하면)</span><span>개가 노예 감시·사냥에 쓰여 개를 두려워함</span></div><div class="ar">▼</div><div class="fn"><span>작품에 개에 대한 두려움이 강하게 표현</span></div><div class="ar">▼</div><div class="fn"><span class="ch">In contrast(반면)</span><span>〈핸드백을 든 여인…〉은 자유로운 삶 묘사</span></div><div class="ar">▼</div><div class="fn"><span>단순한 형태·색채로 노예→자유의 역사 포착</span></div><div class="ar">▼</div><div class="fn"><span class="ch">As a result(그 결과)</span><span>미국 민속 예술의 중요한 인물</span></div></div></div></div>
-<div class="q seq" data-t="3"><div class="qh"><span class="qn">4</span><span class="tg">Maud Lewis · 작품</span></div>
-<div class="ask">맨 위 문장 다음에 이어질 순서대로 <b>한글 문장</b>을 눌러 쌓아 보세요.</div>
+</div><button class="sb go" disabled>제출하기</button>
+<div class="res"></div>
+<div class="fin"><div class="wd">한눈에 정리 · 이 순서로 기억해요</div><div class="flow"><div class="fn g"><span class="ch">Now(이제)</span><span>그림 감상: 〈비열한 개〉 등</span></div><div class="ar">▼</div><div class="fn g"><span class="ch">because(왜냐하면)</span><span>개가 노예 감시·사냥에 쓰여 개를 두려워함</span></div><div class="ar">▼</div><div class="fn"><span>작품에 개에 대한 두려움이 강하게 표현</span></div><div class="ar">▼</div><div class="fn"><span class="ch">In contrast(반면)</span><span>〈핸드백을 든 여인…〉은 자유로운 삶 묘사</span></div><div class="ar">▼</div><div class="fn"><span>단순한 형태·색채로 노예→자유의 역사 포착</span></div><div class="ar">▼</div><div class="fn"><span class="ch">As a result(그 결과)</span><span>미국 민속 예술의 중요한 인물</span></div></div><button class="sb sub2 again" type="button">다시 풀기</button></div></div>
+<div class="q seq2" data-t="3"><div class="qh"><span class="qn">4</span><span class="tg">Maud Lewis · 작품</span></div>
+<div class="ask">맨 위 문장 다음에 이어질 순서대로 <b>한글 문장</b>을 눌러 쌓은 뒤 제출해요.</div>
 <div class="gv"><span class="tg2">주어진 문장</span><span class="en">Although</span>(~이지만) 신체적 제약들이 그녀를 작은 오두막집에 가두었어도 그녀의 재능과 상상력은 둘 다 무한했다.</div>
-<div class="sd"><span class="no">1</span>〈빨간 썰매〉에는 붉은 단풍잎이 특별한 겨울 풍경에 등장하고, 〈한 쌍의 소〉에는 꽃밭에 서 있는 장식된 소들을 보여 준다.<span class="why">앞 문장의 <span class="en">imagination</span>(상상력)이 실제로 드러나는 작품 예시가 나와요. <span class="en">In Red Sleigh</span>(〈빨간 썰매〉에는)이 그 첫 번째 예입니다.</span></div>
-<div class="sd"><span class="no">2</span>이러한 특징을 통해 Lewis의 그림은 마치 동화의 그것과 같은, 마법 같은 특성을 만들어 낸다.<span class="why"><span class="en">With these features</span>(이러한 특징을 통해)에서 <span class="en">these features</span>(이러한 특징)는 앞 문장의 단풍잎, 꽃밭의 장식된 소 같은 특징을 가리켜요.</span></div>
-<div class="sd"><span class="no">3</span><span class="en">As</span>(~하면서) 그녀의 그림이 점차 인기를 얻어, 그녀의 이야기는 많은 사람에게 영감을 주었고 나중에 책과 영화로 만들어졌다.<span class="why"><span class="en">As her paintings gradually gained popularity</span>(그녀의 그림이 점차 인기를 얻으면서)는 작품 설명 뒤에 일어난 일이에요. <span class="en">later</span>(나중에)가 시간 순서를 보여 줍니다.</span></div>
-<div class="pool"><div class="lbl">다음에 올 문장을 누르세요 (1번째)</div>
+<div class="slots"><div class="slot"><span class="no">1</span><span class="st">비어 있어요</span><span class="x"></span></div><div class="slot"><span class="no">2</span><span class="st">비어 있어요</span><span class="x"></span></div><div class="slot"><span class="no">3</span><span class="st">비어 있어요</span><span class="x"></span></div></div>
+<div class="pool"><div class="lbl">이어질 순서대로 문장을 누르세요 (1번째)</div>
 <button class="pb" data-n="2">이러한 특징을 통해 Lewis의 그림은 마치 동화의 그것과 같은, 마법 같은 특성을 만들어 낸다.</button>
 <button class="pb" data-n="3"><span class="en">As</span>(~하면서) 그녀의 그림이 점차 인기를 얻어, 그녀의 이야기는 많은 사람에게 영감을 주었고 나중에 책과 영화로 만들어졌다.</button>
 <button class="pb" data-n="1">〈빨간 썰매〉에는 붉은 단풍잎이 특별한 겨울 풍경에 등장하고, 〈한 쌍의 소〉에는 꽃밭에 서 있는 장식된 소들을 보여 준다.</button>
-<div class="msg"></div></div>
-<div class="res"></div><div class="fin"><div class="wd">한눈에 정리 · 이 순서로 기억해요</div><div class="flow"><div class="fn g"><span class="ch">Although(~이지만)</span><span>몸은 오두막에 갇혀도 재능·상상력은 무한</span></div><div class="ar">▼</div><div class="fn"><span>〈빨간 썰매〉〈한 쌍의 소〉의 특징</span></div><div class="ar">▼</div><div class="fn"><span>동화 같은 마법의 분위기</span></div><div class="ar">▼</div><div class="fn"><span class="ch">As(~하면서)</span><span>인기를 얻으며 영감을 줌 → 책·영화로 제작</span></div></div></div></div>
-<div class="q seq" data-t="3"><div class="qh"><span class="qn">5</span><span class="tg">Anna Ancher · 배움</span></div>
-<div class="ask">맨 위 문장 다음에 이어질 순서대로 <b>한글 문장</b>을 눌러 쌓아 보세요.</div>
+</div><button class="sb go" disabled>제출하기</button>
+<div class="res"></div>
+<div class="fin"><div class="wd">한눈에 정리 · 이 순서로 기억해요</div><div class="flow"><div class="fn g"><span class="ch">Although(~이지만)</span><span>몸은 오두막에 갇혀도 재능·상상력은 무한</span></div><div class="ar">▼</div><div class="fn"><span>〈빨간 썰매〉〈한 쌍의 소〉의 특징</span></div><div class="ar">▼</div><div class="fn"><span>동화 같은 마법의 분위기</span></div><div class="ar">▼</div><div class="fn"><span class="ch">As(~하면서)</span><span>인기를 얻으며 영감을 줌 → 책·영화로 제작</span></div></div><button class="sb sub2 again" type="button">다시 풀기</button></div></div>
+<div class="q seq2" data-t="3"><div class="qh"><span class="qn">5</span><span class="tg">Anna Ancher · 배움</span></div>
+<div class="ask">맨 위 문장 다음에 이어질 순서대로 <b>한글 문장</b>을 눌러 쌓은 뒤 제출해요.</div>
 <div class="gv"><span class="tg2">주어진 문장</span>1859년 덴마크 스카겐에서 태어난 그녀는 나중에 사립 회화 학교에 다니기 위해 코펜하겐으로 이주했다.</div>
-<div class="sd"><span class="no">1</span><span class="en">After that</span>(그 후) 그녀는 파리에서 유학까지 했는데, 그것은 당시 여성들에게 드문 일이었다.<span class="why"><span class="en">After that</span>(그 후)는 앞 문장의 코펜하겐 이주 다음 일이라는 뜻이에요. 파리 유학이 그다음 단계입니다.</span></div>
-<div class="sd"><span class="no">2</span><span class="en">Thanks to</span>(~덕분에) 어머니의 격려, 그녀는 이러한 기회를 활용할 수 있었다.<span class="why"><span class="en">these opportunities</span>(이러한 기회)는 앞에서 말한 코펜하겐 이주와 파리 유학을 가리켜요.</span></div>
-<div class="sd"><span class="no">3</span><span class="en">Even after marrying</span>(결혼한 후에도) Ancher는 기혼 여성은 가사에만 집중해야 한다는 사회적 압력에 저항하며 그림을 계속 그렸다.<span class="why"><span class="en">Even after getting married</span>(결혼한 후에도)는 시간이 더 흐른 뒤의 이야기예요. 배움 이야기 다음에 결혼 후 이야기가 옵니다.</span></div>
-<div class="pool"><div class="lbl">다음에 올 문장을 누르세요 (1번째)</div>
+<div class="slots"><div class="slot"><span class="no">1</span><span class="st">비어 있어요</span><span class="x"></span></div><div class="slot"><span class="no">2</span><span class="st">비어 있어요</span><span class="x"></span></div><div class="slot"><span class="no">3</span><span class="st">비어 있어요</span><span class="x"></span></div></div>
+<div class="pool"><div class="lbl">이어질 순서대로 문장을 누르세요 (1번째)</div>
 <button class="pb" data-n="2"><span class="en">Thanks to</span>(~덕분에) 어머니의 격려, 그녀는 이러한 기회를 활용할 수 있었다.</button>
 <button class="pb" data-n="3"><span class="en">Even after marrying</span>(결혼한 후에도) Ancher는 기혼 여성은 가사에만 집중해야 한다는 사회적 압력에 저항하며 그림을 계속 그렸다.</button>
 <button class="pb" data-n="1"><span class="en">After that</span>(그 후) 그녀는 파리에서 유학까지 했는데, 그것은 당시 여성들에게 드문 일이었다.</button>
-<div class="msg"></div></div>
-<div class="res"></div><div class="fin"><div class="wd">한눈에 정리 · 이 순서로 기억해요</div><div class="flow"><div class="fn g"><span>스카겐 출생, 코펜하겐 사립 회화 학교로 이주</span></div><div class="ar">▼</div><div class="fn"><span class="ch">After that(그 후)</span><span>파리 유학까지 (여성에겐 드문 일)</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Thanks to(~덕분에)</span><span>어머니의 격려로 기회를 활용</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Even after(결혼 후에도)</span><span>사회적 압력에 저항하며 그림을 계속</span></div></div></div></div>
-<div class="q seq" data-t="3"><div class="qh"><span class="qn">6</span><span class="tg">Anna Ancher · 작품 세계</span></div>
-<div class="ask">맨 위 문장 다음에 이어질 순서대로 <b>한글 문장</b>을 눌러 쌓아 보세요.</div>
+</div><button class="sb go" disabled>제출하기</button>
+<div class="res"></div>
+<div class="fin"><div class="wd">한눈에 정리 · 이 순서로 기억해요</div><div class="flow"><div class="fn g"><span>스카겐 출생, 코펜하겐 사립 회화 학교로 이주</span></div><div class="ar">▼</div><div class="fn"><span class="ch">After that(그 후)</span><span>파리 유학까지 (여성에겐 드문 일)</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Thanks to(~덕분에)</span><span>어머니의 격려로 기회를 활용</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Even after(결혼 후에도)</span><span>사회적 압력에 저항하며 그림을 계속</span></div></div><button class="sb sub2 again" type="button">다시 풀기</button></div></div>
+<div class="q seq2" data-t="3"><div class="qh"><span class="qn">6</span><span class="tg">Anna Ancher · 작품 세계</span></div>
+<div class="ask">맨 위 문장 다음에 이어질 순서대로 <b>한글 문장</b>을 눌러 쌓은 뒤 제출해요.</div>
 <div class="gv"><span class="tg2">주어진 문장</span>Ancher는 당시의 다른 예술가들과는 달랐는데, 그들은 여성을 정물화 소재로 묘사했다.</div>
-<div class="sd"><span class="no">1</span><span class="en">In contrast</span>(반면), 〈부엌의 하녀〉와 〈바느질하는 어부의 아내〉라는 작품에서 볼 수 있듯 그녀는 일상 작업의 적극적인 참여자로서의 여성을 보여 주었다.<span class="why"><span class="en">In contrast</span>(반면)은 앞 문장의 <span class="en">depicted women as still life subjects</span>(여성을 정물화 소재로 묘사했다)와 반대되는 내용을 이끌어요. <span class="en">them</span>(그들)은 앞 문장의 <span class="en">women</span>(여성들)이에요.</span></div>
-<div class="sd"><span class="no">2</span><span class="en">Also</span>(또한) 그녀는 빛과 색채를 능숙하게 탐구하여 덴마크의 풍부한 인상주의 운동에 기여했다.<span class="why"><span class="en">also</span>(또한)은 앞 내용에 이어 다른 업적을 더한다는 말이에요. 여성을 그린 방식에 이어 <span class="en">light and color</span>(빛과 색채)를 탐구한 이야기가 나옵니다.</span></div>
-<div class="sd"><span class="no">3</span>그녀의 작품 〈푸른 방의 햇빛〉에서는 푸른 벽에 반사되는 햇빛이 굉장히 아름답게 묘사되어 있다.<span class="why">앞 문장의 빛과 색채를 구체적인 작품 <span class="en">Sunlight in the Blue Room</span>(〈푸른 방의 햇빛〉)으로 보여 줍니다.</span></div>
-<div class="pool"><div class="lbl">다음에 올 문장을 누르세요 (1번째)</div>
+<div class="slots"><div class="slot"><span class="no">1</span><span class="st">비어 있어요</span><span class="x"></span></div><div class="slot"><span class="no">2</span><span class="st">비어 있어요</span><span class="x"></span></div><div class="slot"><span class="no">3</span><span class="st">비어 있어요</span><span class="x"></span></div></div>
+<div class="pool"><div class="lbl">이어질 순서대로 문장을 누르세요 (1번째)</div>
 <button class="pb" data-n="3">그녀의 작품 〈푸른 방의 햇빛〉에서는 푸른 벽에 반사되는 햇빛이 굉장히 아름답게 묘사되어 있다.</button>
 <button class="pb" data-n="2"><span class="en">Also</span>(또한) 그녀는 빛과 색채를 능숙하게 탐구하여 덴마크의 풍부한 인상주의 운동에 기여했다.</button>
 <button class="pb" data-n="1"><span class="en">In contrast</span>(반면), 〈부엌의 하녀〉와 〈바느질하는 어부의 아내〉라는 작품에서 볼 수 있듯 그녀는 일상 작업의 적극적인 참여자로서의 여성을 보여 주었다.</button>
-<div class="msg"></div></div>
-<div class="res"></div><div class="fin"><div class="wd">한눈에 정리 · 이 순서로 기억해요</div><div class="flow"><div class="fn g"><span>다른 예술가들은 여성을 정물 소재로 묘사</span></div><div class="ar">▼</div><div class="fn"><span class="ch">In contrast(반면)</span><span>Ancher는 여성을 일상의 적극적 참여자로</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Also(또한)</span><span>빛과 색채 탐구, 인상주의 운동에 기여</span></div><div class="ar">▼</div><div class="fn"><span>〈푸른 방의 햇빛〉: 햇빛이 아름답게 묘사</span></div></div></div></div>
-<div class="q seq" data-t="3"><div class="qh"><span class="qn">7</span><span class="tg">Anna Ancher · 마무리</span></div>
-<div class="ask">맨 위 문장 다음에 이어질 순서대로 <b>한글 문장</b>을 눌러 쌓아 보세요.</div>
+</div><button class="sb go" disabled>제출하기</button>
+<div class="res"></div>
+<div class="fin"><div class="wd">한눈에 정리 · 이 순서로 기억해요</div><div class="flow"><div class="fn g"><span>다른 예술가들은 여성을 정물 소재로 묘사</span></div><div class="ar">▼</div><div class="fn"><span class="ch">In contrast(반면)</span><span>Ancher는 여성을 일상의 적극적 참여자로</span></div><div class="ar">▼</div><div class="fn"><span class="ch">Also(또한)</span><span>빛과 색채 탐구, 인상주의 운동에 기여</span></div><div class="ar">▼</div><div class="fn"><span>〈푸른 방의 햇빛〉: 햇빛이 아름답게 묘사</span></div></div><button class="sb sub2 again" type="button">다시 풀기</button></div></div>
+<div class="q seq2" data-t="3"><div class="qh"><span class="qn">7</span><span class="tg">Anna Ancher · 마무리</span></div>
+<div class="ask">맨 위 문장 다음에 이어질 순서대로 <b>한글 문장</b>을 눌러 쌓은 뒤 제출해요.</div>
 <div class="gv"><span class="tg2">주어진 문장</span>Ancher는 20세기 여성의 전통적인 역할에 이의를 제기하며 뛰어난 예술적 재능을 보여 주었다.</div>
-<div class="sd"><span class="no">1</span>그녀의 그림은 오늘날까지도 우리를 놀라게 한다.<span class="why"><span class="en">to this day</span>(오늘날까지)는 이야기를 현재로 끌고 와요. <span class="en">Her paintings</span>(그녀의 그림)에 대한 평가로 설명을 마무리합니다.</span></div>
-<div class="sd"><span class="no">2</span>이번 가이드 투어에 참여해 주셔서 감사하며, 나의 설명이 여러분이 그림을 감상하는 데 도움이 되었기를 바란다.<span class="why"><span class="en">Thank you for joining this guided tour</span>(가이드 투어에 참여해 주셔서 감사하다)는 투어가 끝날 때 하는 인사예요.</span></div>
-<div class="sd"><span class="no">3</span>잠시 시간을 내어 전시를 더 둘러보기 바란다.<span class="why"><span class="en">Please take some time to further explore</span>(잠시 시간을 내어 더 둘러보기 바란다)는 마지막 부탁이에요. 인사 다음에 마지막으로 하는 말이라 맨 끝에 옵니다.</span></div>
-<div class="pool"><div class="lbl">다음에 올 문장을 누르세요 (1번째)</div>
+<div class="slots"><div class="slot"><span class="no">1</span><span class="st">비어 있어요</span><span class="x"></span></div><div class="slot"><span class="no">2</span><span class="st">비어 있어요</span><span class="x"></span></div><div class="slot"><span class="no">3</span><span class="st">비어 있어요</span><span class="x"></span></div></div>
+<div class="pool"><div class="lbl">이어질 순서대로 문장을 누르세요 (1번째)</div>
 <button class="pb" data-n="3">잠시 시간을 내어 전시를 더 둘러보기 바란다.</button>
 <button class="pb" data-n="1">그녀의 그림은 오늘날까지도 우리를 놀라게 한다.</button>
 <button class="pb" data-n="2">이번 가이드 투어에 참여해 주셔서 감사하며, 나의 설명이 여러분이 그림을 감상하는 데 도움이 되었기를 바란다.</button>
-<div class="msg"></div></div>
-<div class="res"></div><div class="fin"><div class="wd">한눈에 정리 · 이 순서로 기억해요</div><div class="flow"><div class="fn g"><span>여성의 전통적 역할에 이의 제기, 뛰어난 재능</span></div><div class="ar">▼</div><div class="fn"><span>오늘날까지 우리를 놀라게 함</span></div><div class="ar">▼</div><div class="fn"><span>투어 참여에 대한 감사</span></div><div class="ar">▼</div><div class="fn"><span>전시를 더 둘러보라는 당부</span></div></div></div></div>
+</div><button class="sb go" disabled>제출하기</button>
+<div class="res"></div>
+<div class="fin"><div class="wd">한눈에 정리 · 이 순서로 기억해요</div><div class="flow"><div class="fn g"><span>여성의 전통적 역할에 이의 제기, 뛰어난 재능</span></div><div class="ar">▼</div><div class="fn"><span>오늘날까지 우리를 놀라게 함</span></div><div class="ar">▼</div><div class="fn"><span>투어 참여에 대한 감사</span></div><div class="ar">▼</div><div class="fn"><span>전시를 더 둘러보라는 당부</span></div></div><button class="sb sub2 again" type="button">다시 풀기</button></div></div>
 <div class="foot">비타민 영어클리닉 · 금천고1 공통영어2 3과 The True Art Lovers</div></div>
 <script>
-
 (function(){
-var qs=[].slice.call(document.querySelectorAll('.q.seq')),bar=document.getElementById('cnt');
+var qs=[].slice.call(document.querySelectorAll('.q.seq2')),bar=document.getElementById('cnt');
 var secs=[].slice.call(document.querySelectorAll('.q.pick'));
 var TOT=qs.length+secs.length,done=0,perfect=0,pdone=0,pc=0;
 function up(){bar.innerHTML=(done+pdone)+' / '+TOT+' 풀었어요 · 한 번에 맞힌 문제 <b>'+(perfect+pc)+'</b>개'}
 qs.forEach(function(q){
- var tot=+q.dataset.t;q._k=0;q._w=0;
+ var tot=+q.dataset.t,slots=[].slice.call(q.querySelectorAll('.slot')),pb=[].slice.call(q.querySelectorAll('.pb')),go=q.querySelector('.go'),lbl=q.querySelector('.lbl');
+ var texts={};pb.forEach(function(b){texts[b.dataset.n]=b.innerHTML});
+ q._p=[];q._tries=0;
+ function draw(){
+  slots.forEach(function(s,i){var n=q._p[i],st=s.querySelector('.st');
+   if(n){s.classList.add('f');st.innerHTML=texts[n];s.querySelector('.x').textContent='빼기'}
+   else{s.classList.remove('f');st.textContent='비어 있어요';s.querySelector('.x').textContent=''}});
+  pb.forEach(function(b){b.classList.toggle('gone',q._p.indexOf(b.dataset.n)>-1)});
+  go.disabled=q._p.length!==tot;
+  lbl.textContent=q._p.length<tot?'이어질 순서대로 문장을 누르세요 ('+(q._p.length+1)+'번째)':'모두 쌓았어요. 제출해 보세요.';
+ }
  q.addEventListener('click',function(e){
-  var b=e.target.closest('.pb');if(!b||q.classList.contains('done'))return;
-  var n=+b.dataset.n,msg=q.querySelector('.msg');
-  if(n===q._k+1){
-   b.classList.add('gone');q.querySelectorAll('.sd')[q._k].classList.add('on');q._k++;msg.textContent='';
-   if(q._k===tot){q.classList.add('done');done++;if(q._w===0)perfect++;
-     var r=q.querySelector('.res');r.className='res o';r.textContent=q._w===0?'모두 한 번에 맞혔어요':'순서를 모두 맞혔어요 (틀린 횟수 '+q._w+'번)';
-     q.querySelector('.lbl').style.display='none';}
-   else{q.querySelector('.lbl').textContent='다음에 올 문장을 누르세요 ('+(q._k+1)+'번째)';}
-   up();
-  }else{
-   q._w++;b.classList.add('ng');msg.textContent='아직 이 문장이 올 차례가 아니에요. 앞 문장과 이어 주는 말(접속부사·지시어·시간 표현)을 찾아보세요.';
-   setTimeout(function(){b.classList.remove('ng')},900);
-  }
+  if(q.classList.contains('done'))return;
+  var b=e.target.closest('.pb');
+  if(b){if(q._p.length<tot){q._p.push(b.dataset.n);draw()}return}
+  var s=e.target.closest('.slot.f');
+  if(s){var i=slots.indexOf(s);q._p.splice(i,1);draw()}
  });
+ go.addEventListener('click',function(){
+  if(q._p.length!==tot)return;q._tries++;
+  var ok=0;slots.forEach(function(s,i){var r=q._p[i]===String(i+1);if(r)ok++;
+   var m=s.querySelector('.x');m.className='ox '+(r?'o':'n');m.textContent=r?'○':'×'});
+  q.classList.add('done');done++;if(ok===tot&&q._tries===1)perfect++;
+  var r=q.querySelector('.res');r.className='res '+(ok===tot?'o':'x');
+  r.textContent=ok===tot?'순서가 모두 맞아요 ('+tot+' / '+tot+')':tot+'자리 중 '+ok+'자리가 맞아요. 아래 순서도로 흐름을 기억해 두세요.';
+  up();
+ });
+ q.querySelector('.again').addEventListener('click',function(){
+  q.classList.remove('done');done--;q._p=[];
+  slots.forEach(function(s){var m=s.querySelector('.ox');if(m){m.className='x';m.textContent=''}});
+  var r=q.querySelector('.res');r.className='res';r.textContent='';draw();up();
+ });
+ draw();
 });
 secs.forEach(function(q){
  q.addEventListener('click',function(e){var b=e.target.closest('.ob,.mk');if(!b||q.classList.contains('done'))return;
@@ -216,10 +243,12 @@ secs.forEach(function(q){
   up()});
 });
 document.getElementById('rs').onclick=function(){
- qs.forEach(function(q){q.classList.remove('done');q._k=0;q._w=0;q.querySelectorAll('.pb').forEach(function(x){x.classList.remove('gone','ng')});q.querySelectorAll('.sd').forEach(function(x){x.classList.remove('on')});q.querySelector('.msg').textContent='';var l=q.querySelector('.lbl');l.style.display='';l.textContent='다음에 올 문장을 누르세요 (1번째)';var r=q.querySelector('.res');r.className='res';r.textContent=''});
+ qs.forEach(function(q){if(q.classList.contains('done')){q.querySelector('.again').click()}else{q._p=[];var ev=document.createEvent('Event');}
+  q._tries=0;q._p=[];q.querySelectorAll('.slot').forEach(function(s){var m=s.querySelector('.ox');if(m){m.className='x';m.textContent=''}s.classList.remove('f');s.querySelector('.st').textContent='비어 있어요';s.querySelector('.x').textContent=''});
+  q.querySelectorAll('.pb').forEach(function(b){b.classList.remove('gone')});q.querySelector('.go').disabled=true;q.querySelector('.lbl').textContent='이어질 순서대로 문장을 누르세요 (1번째)';
+  var r=q.querySelector('.res');r.className='res';r.textContent=''});
  secs.forEach(function(q){q.classList.remove('done');q.querySelectorAll('.ob,.mk').forEach(function(o){o.classList.remove('ok','ng')});var r=q.querySelector('.res');r.className='res';r.textContent=''});
  done=0;perfect=0;pdone=0;pc=0;up();window.scrollTo(0,0)};
 up();
 })();
-
 </script></body></html>
