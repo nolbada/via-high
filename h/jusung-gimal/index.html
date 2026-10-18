@@ -123,10 +123,10 @@ function lesson(n){
   ],ses:[
    {t:'본문 읽고 내용 잡기',core:[c('jwa','좌본문우해석',n+'/jwa.html','pdf'),c('hangeul','한글채우기 정답',n+'/hangeul.html','pdf'),c('find','틀린 곳 찾기',n+'/find.html','app',{sc:1}),v(1),c('eobeop','어법선택 정답·해설',n+'/eobeop.html','pdf')],
     plus:[c('yeongeo','영어채우기 정답',n+'/yeongeo.html','pdf')]},
-   {t:'어법 시험과 동사형',core:[key,v(2),c('dongpdf','동사형 정답·해설','../c2-neungryul-oh-34/?hub=4','pdf'),c('eobeoptest','어법선택 시험 (본문 순서대로)',n+'/eobeop-test.html','app',{sc:1,ex:1})],plus:[]},
-   {t:'기출 풀기 시작',core:[c('yesang1','예상문제 1회 정답·해설',n+'/yesang1/','pdf'),v(3),c('dong1','동사형 말하기 시험 (앞 1/2)','../c2-neungryul-oh-34/?hub=4','tonly',{ex:1,cc:1})],
+   {t:'어법 시험과 동사형',core:[key,v(2),c('dongpdf','동사형 정답·해설','../c2-neungryul-oh-4v/','pdf'),c('eobeoptest','어법선택 시험 (본문 순서대로)',n+'/eobeop-test.html','app',{sc:1,ex:1})],plus:[]},
+   {t:'기출 풀기 시작',core:[c('yesang1','예상문제 1회 정답·해설',n+'/yesang1/','pdf'),v(3),c('dong1','동사형 말하기 시험 (앞 1/2)','../c2-neungryul-oh-4v/','tonly',{ex:1,cc:1})],
     plus:[c('awkward','어색한 곳 찾기 정답·해설',n+'/awkward.html','pdf'),c('check','Check 정답·해설',n+'/check.html','pdf')]},
-   {t:'마무리',core:[c('yesang2','예상문제 2회 정답·해설',n+'/yesang2/','pdf'),v(4),c('dong2','동사형 말하기 시험 (뒤 1/2)','../c2-neungryul-oh-34/?hub=4','tonly',{ex:1,cc:1})],
+   {t:'마무리',core:[c('yesang2','예상문제 2회 정답·해설',n+'/yesang2/','pdf'),v(4),c('dong2','동사형 말하기 시험 (뒤 1/2)','../c2-neungryul-oh-4v/','tonly',{ex:1,cc:1})],
     plus:[c('yesang3','예상문제 3회 정답·해설',n+'/yesang3/','pdf'),c('yesang4','예상문제 4회 정답·해설',n+'/yesang4/','pdf'),c('yoyak','요약문 완성 정답·해설',n+'/yoyak.html','pdf',{cc:1})]}
   ]};
 }
@@ -245,11 +245,6 @@ document.getElementById('shy').onclick=function(){var v=document.getElementById(
 document.getElementById('shi').onkeydown=function(e){if(e.key==='Enter')document.getElementById('shy').click()};
 
 function findC(id){var r=null;LESSONS.forEach(function(n){var L=lesson(n);L.ses.forEach(function(s){s.core.concat(s.plus).forEach(function(c){if(c.id===id)r=c})});L.hw.forEach(function(c){if(c.id===id)r=c})});return r}
-/* 동사형 앱은 마지막으로 본 곳에서 열리므로, 눌러서 들어가기 직전에 '4과 첫 문장'을 마지막 위치로 적어 둔다(앱 자체는 건드리지 않음). */
-document.getElementById('app').addEventListener('click',function(e){
-  var a=e.target.closest('a[href*="c2-neungryul-oh-34"]');if(!a)return;
-  try{var k='verb_study_c2-neungryul-oh-34_v1',o=JSON.parse(localStorage.getItem(k))||{};o.last={li:1,pt:0,i:0};localStorage.setItem(k,JSON.stringify(o))}catch(x){}
-},true);
 document.getElementById('app').addEventListener('click',function(e){
   var b=e.target.closest('button[data-a]');if(!b)return;
   var a=b.dataset.a,id=b.dataset.id;
