@@ -245,6 +245,11 @@ document.getElementById('shy').onclick=function(){var v=document.getElementById(
 document.getElementById('shi').onkeydown=function(e){if(e.key==='Enter')document.getElementById('shy').click()};
 
 function findC(id){var r=null;LESSONS.forEach(function(n){var L=lesson(n);L.ses.forEach(function(s){s.core.concat(s.plus).forEach(function(c){if(c.id===id)r=c})});L.hw.forEach(function(c){if(c.id===id)r=c})});return r}
+/* 동사형 앱은 마지막으로 본 곳에서 열리므로, 눌러서 들어가기 직전에 '4과 첫 문장'을 마지막 위치로 적어 둔다(앱 자체는 건드리지 않음). */
+document.getElementById('app').addEventListener('click',function(e){
+  var a=e.target.closest('a[href*="c2-neungryul-oh-34"]');if(!a)return;
+  try{var k='verb_study_c2-neungryul-oh-34_v1',o=JSON.parse(localStorage.getItem(k))||{};o.last={li:1,pt:0,i:0};localStorage.setItem(k,JSON.stringify(o))}catch(x){}
+},true);
 document.getElementById('app').addEventListener('click',function(e){
   var b=e.target.closest('button[data-a]');if(!b)return;
   var a=b.dataset.a,id=b.dataset.id;
