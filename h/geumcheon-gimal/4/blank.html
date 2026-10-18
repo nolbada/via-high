@@ -113,9 +113,8 @@ function answer(i){if(!curView||curView.done)return;curView.done=true;var it=ITE
  document.getElementById('psg').innerHTML=passage(it,true);
  var h='<div class="res '+(ok?'o':'x')+'">'+(ok?'정답이에요.':'아쉬워요. 정답은 '+CIR[curView.pos]+'번이에요.')+'</div>'
   +'<div class="th"><b>본문 엑기스</b><br>'+esc(SEGS[it.seg].theme)+'</div>'
-  +'<div class="kk"><b>정답 '+CIR[curView.pos]+'</b> · '+esc(it.ans)+'<br>'+esc(it.ako)+'<br><span style="color:var(--sub)">'+it.clue+'</span></div>'
-  +'<div class="wd"><b>완성된 문장</b><br>'+esc(endp(SEGS[it.seg].sents[it.si])).replace(esc(it.ans),'<mark>'+esc(it.ans)+'</mark>')+'<br><span style="color:var(--sub)">'+esc(it.ko)+'</span></div><ul class="ol2">';
- o.forEach(function(x,k){if(!x.ok)h+='<li>'+CIR[k]+' '+esc(x.en)+' ('+esc(x.ko)+')</li>'});
+  +'<div class="wd"><b>정답 '+CIR[curView.pos]+'</b><br>'+esc(endp(SEGS[it.seg].sents[it.si])).replace(esc(it.ans),'<mark>'+esc(it.ans)+'</mark>')+'<br><span style="color:var(--sub)">'+esc(it.ko)+'</span></div><ul class="ol2">';
+ o.forEach(function(x,k){if(!x.ok)h+='<li>'+CIR[k]+' '+esc(x.ko)+'</li>'});
  h+='</ul>';
  document.getElementById('ex').innerHTML=h;
  var end=st.setDrawn>=SET||st.queue.length===0;

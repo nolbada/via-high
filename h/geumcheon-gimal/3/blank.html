@@ -137,9 +137,8 @@ function pick(i){
   var sc=SECS[it.sec];
   var h='<div class="res '+(ok?'o':'x')+'">'+(ok?'정답이에요.':'아쉬워요. 정답은 '+nums[ci]+'번이에요.')+'</div>';
   h+='<div class="th"><b>본문 엑기스</b><br>'+esc(sc.theme)+'</div>';
-  h+='<div class="kk"><b>정답 '+nums[ci]+'</b> · '+esc(it.a)+'<br>'+esc(it.ak)+'<br><span style="color:var(--sub)">'+esc(it.clue)+'</span></div>';
-  h+='<div class="wd"><b>완성된 문장</b><br>'+esc(s.en).replace(esc(it.a),'<span class="fill">'+esc(it.a)+'</span>')+'<br><span style="color:var(--sub)">'+esc(s.ko)+'</span></div><ul class="ol2">';
-  o.forEach(function(x,j){ if(!x.c)h+='<li>'+nums[j]+' '+esc(x.t)+' ('+esc(x.k)+')</li>'; });
+  h+='<div class="wd"><b>정답 '+nums[ci]+'</b><br>'+esc(s.en).replace(esc(it.a),'<span class="fill">'+esc(it.a)+'</span>')+'<br><span style="color:var(--sub)">'+esc(s.ko)+'</span></div><ul class="ol2">';
+  o.forEach(function(x,j){ if(!x.c)h+='<li>'+nums[j]+' '+esc(x.k)+'</li>'; });
   h+='</ul>';
   var last=R.n>=R.total;
   h+='<button class="nx" id="nx">'+(last?'이번 판 마치기':'다음 문제')+'</button>';
