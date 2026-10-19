@@ -49,6 +49,7 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 .foot{margin:20px 0 6px;text-align:center;color:var(--sub);font-size:12.5px}
 .cal .dd{border-radius:0;box-shadow:none;outline:none}.cal .dd.tod{box-shadow:none}.cal .dd.tod::before{content:"오늘";position:absolute;left:0;right:0;top:0;font-size:8.5px;line-height:1;font-weight:800;color:var(--pri)}.cal .dd.tod.sel::before{color:#fff;top:1px}.cal .dd.cl{box-shadow:none;color:var(--pri);background:none}.cal .dd.cl::after{content:"";position:absolute;left:50%;bottom:2px;width:6px;height:6px;margin-left:-3px;border-radius:50%;border:1.5px solid var(--pri);box-sizing:border-box}.cal .dd.p1::after{background:linear-gradient(90deg,var(--pri) 50%,transparent 50%)}.cal .dd.p2::after{background:var(--pri)}.cal .dd.p1,.cal .dd.p2{background:none;color:var(--pri)}.cal .dd.p2 small{display:none}.cal .dd.wk{background:var(--priL)}.cal .dd.sel{outline:none;color:#fff;background:radial-gradient(circle 17px at center,var(--pri) 97%,transparent 100%)}.cal .dd.wk.sel{background:radial-gradient(circle 17px at center,var(--pri) 97%,transparent 100%),linear-gradient(var(--priL),var(--priL))}.cal .dd.sel::after{border-color:#fff}.cal .dd.sel.p1::after{background:linear-gradient(90deg,#fff 50%,transparent 50%)}.cal .dd.sel.p2::after{background:#fff}.lg .l0{box-shadow:none;border:1.5px solid var(--pri);border-radius:50%;width:8px;height:8px}.lg .l1{box-shadow:none;border:1.5px solid var(--pri);border-radius:50%;width:8px;height:8px;background:linear-gradient(90deg,var(--pri) 50%,transparent 50%)}.lg .l2{border-radius:50%;width:8px;height:8px}
 .wkt{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:10px 8px 6px;margin:10px 0}.wkh{display:flex;justify-content:space-between;align-items:baseline;padding:0 4px 6px}.wkh b{font-size:15px}.wkh span{font-size:12px;color:var(--sub)}.wkt table{width:100%;border-collapse:collapse;table-layout:fixed}.wkt th,.wkt td{text-align:center;padding:7px 2px;font-size:14px;border-top:1px solid var(--line)}.wkt thead th{border-top:0;padding-bottom:6px}.wkt th:first-child,.wkt td.an{width:31%}.wkt th button{border:0;background:none;font:800 13px/1.25 inherit;font-family:inherit;color:var(--ink);padding:5px 2px;border-radius:10px;width:100%;cursor:pointer}.wkt th button small{display:block;font-weight:500;font-size:11px;color:var(--sub)}.wkt th button.on{background:var(--pri);color:#fff}.wkt th button.on small{color:#e6edfc}.wkt td.an{text-align:left;font-size:13px;font-weight:700;color:var(--navy);padding-left:4px}.wkt td.an em{font-style:normal;font-size:10.5px;color:var(--sub);margin-left:4px;font-weight:500}.wkt td.dn{color:var(--pri);font-weight:800;background:var(--priL)}.wkt td.no{color:var(--sub);font-size:11px;opacity:.6}
+.warn{border:1.5px solid #d97706;background:#fff7e6;color:#7a3b00;border-radius:12px;padding:10px 12px;margin:10px 0;font-size:14px;line-height:1.5}.warn b{color:#b45309}@media(prefers-color-scheme:dark){.warn{background:#3a2a10;color:#ffd9a0}.warn b{color:#ffb74d}}
 </style></head><body><div class="wrap">
 
 <section class="pane on" id="p-today">
@@ -106,7 +107,7 @@ function dkey(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'
 function weekStart(d){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()-((x.getDay()+6)%7));return x}
 var selD=null;
 function today(){
-  var P=PG.get(),h='',tot=0,got=0,nm={},now=new Date(),ws=weekStart(now),we=new Date(ws);we.setDate(we.getDate()+6);
+  var P=PG.get(),h='',tot=0,got=0,nm={},now=(/[?&]d=(\d{4})-(\d\d)-(\d\d)/.exec(location.search)?new Date(+RegExp.$1,+RegExp.$2-1,+RegExp.$3,12):new Date()),ws=weekStart(now),we=new Date(ws);we.setDate(we.getDate()+6);
   var wk0=dkey(ws),wk1=dkey(we),td=dkey(now),cw=curWeek(now),tdd=new Date(now.getFullYear(),now.getMonth(),now.getDate());
   ACT.forEach(function(a){nm[a[0]]=a[1]});
   function key(v,id){return v.L?'L4p'+v.L+':'+id:'mockp'+v.D+':'+id}
@@ -117,6 +118,8 @@ function today(){
   VIS.forEach(function(V,wi){var r0=ROAD[wi][0].split('/');V.forEach(function(v,vi){var x=new Date(Y,r0[0]-1,+r0[1]+DOFF[vi]);var f={v:v,vi:vi,wi:wi,x:x,k:dkey(x),no:flat.length+1};flat.push(f);map[f.k]=f})});
   flat.forEach(function(f){ACT.forEach(function(a){if(setOf(f.v).url[a[0]]){tot++;if(isOn(f.v,a[0]))got++}})});
   if(!selD||!map[selD]){var ti=0;flat.forEach(function(f,i){if(f.x<=tdd)ti=i});selD=flat[ti].k}
+  if(now.getDay()===0){var left=0,ds=[];flat.forEach(function(x){if(x.wi!==cw)return;var q=prog(x.v);if(q.d<q.n){left+=q.n-q.d;ds.push('DAY '+x.no)}});
+    if(left)h+='<div class="warn"><b>오늘은 이번 주 마지막 날이에요</b><br>아직 안 끝난 활동이 '+left+'개 있어요 ('+ds.join(' · ')+'). 오늘 안에 하나라도 더 끝내 봐요. 시간이 없으면 지금 하는 DAY부터 이어서 해요.</div>'}
   h+='<div class="exam"><b>기말고사 (12/1)</b><span>날짜를 눌러 그날 활동을 해요</span></div>';
   var first=new Date(vy,vm,1),lead=(first.getDay()+6)%7,days=new Date(vy,vm+1,0).getDate();
   h+='<div class="cal"><div class="calh"><button type="button" data-cal="-1">‹</button><b>'+vy+'년 '+(vm+1)+'월</b><button type="button" data-cal="1">›</button></div><div class="calg">';
@@ -133,7 +136,7 @@ function today(){
   +ACT.map(function(a,ai){return '<tr><td class="an">'+(ai+1)+'. '+esc(a[1])+(OPT[a[0]]?'<em>선택</em>':'')+'</td>'+wkd.map(function(x){var u=setOf(x.v).url[a[0]],c=CNT[key(x.v,a[0])];if(!u)return '<td class="no">준비 중</td>';var on=isOn(x.v,a[0]);return '<td class="'+(on?'dn':'')+(x.k===selD?' sl':'')+'">'+(on?'✓ ':'')+(c?(a[0]==='voc'?'약 ':'')+c+(a[0]==='find'?'문장':''):'')+'</td>'}).join('')+'</tr>'}).join('')
   +'</tbody></table></div>';
   var v=f.v,pr=prog(v),late=f.x<tdd&&pr.d<pr.n;
-  h+='<div class="blk'+(pr.d>=pr.n?' done':'')+'"><h2>DAY '+f.no+' · '+WDN[f.x.getDay()]+' '+(f.x.getMonth()+1)+'/'+f.x.getDate()+(pr.d>=pr.n?'<span class="tg t">완료</span>':late?'<span class="tg">밀림</span>':'')+'<small class="rng"><b>'+esc(v.t)+'</b> · '+esc(v.s)+'</small>'+(v.x?'<small class="rng">'+esc(v.x)+'</small>':'')+'</h2><div class="rows">';
+  h+='<div class="blk'+(pr.d>=pr.n?' done':'')+'"><h2>DAY '+f.no+(pr.d>=pr.n?'<span class="tg t">완료</span>':'')+'<small class="rng">추천일 '+(f.x.getMonth()+1)+'/'+f.x.getDate()+' ('+WDN[f.x.getDay()]+') · 요일이 달라도 DAY 순서대로 하면 돼요</small>'+'<small class="rng"><b>'+esc(v.t)+'</b> · '+esc(v.s)+'</small>'+(v.x?'<small class="rng">'+esc(v.x)+'</small>':'')+'</h2><div class="rows">';
   ACT.forEach(function(a){var id=a[0],sc=setOf(v),u=sc.url[id];if(!u)return;
     var on=isOn(v,id);
     h+='<div class="arow"><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+(CNT[key(v,id)]?' <span class="cn">'+(id==='voc'?'약 ':'')+CNT[key(v,id)]+(id==='find'?'문장':'문제')+'</span>':'')+'</b>'+(VAR[id]?'<i class="vr">매번 다른 문제</i>':'<i class="vr o">1회성</i>')+'<div class="two" style="grid-template-columns:1fr"><a class="cell'+(on?' on':'')+'" href="'+u+'?part='+(v.L||v.D)+'">'+(on?'했어요':'풀기')+'<small>'+(on?'✓':'')+'</small></a></div></div>'});
