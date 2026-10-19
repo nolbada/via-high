@@ -130,7 +130,7 @@ function today(){
     h+='<div class="rows">';
     ACT.forEach(function(a){var id=a[0],sc=setOf(v),u=sc.url[id];if(!u)return;
       var e=P[key(v,id)],on=!!(e&&e.t&&e.t>=wsT);tot++;if(on)got++;
-      h+='<div class="arow"><b>'+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+'</b>'+(VAR[id]?'<i class="vr">매번 다른 문제</i>':'<i class="vr o">1회성</i>')+'<div class="two" style="grid-template-columns:1fr"><a class="cell'+(on?' on':'')+'" href="'+u+'?part='+(v.L||v.D)+'">'+(on?'했어요':'풀기')+'<small>'+(on?'✓':'')+'</small></a></div></div>'});
+      h+='<div class="arow"><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+'</b>'+(VAR[id]?'<i class="vr">매번 다른 문제</i>':'<i class="vr o">1회성</i>')+'<div class="two" style="grid-template-columns:1fr"><a class="cell'+(on?' on':'')+'" href="'+u+'?part='+(v.L||v.D)+'">'+(on?'했어요':'풀기')+'<small>'+(on?'✓':'')+'</small></a></div></div>'});
     h+='</div></div>';
   });
   document.getElementById('today').innerHTML=h;
