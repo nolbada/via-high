@@ -69,7 +69,6 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 
 <section class="pane" id="p-text">
 
-<div class="seg" id="seg"></div>
 <div id="text"></div>
 </section>
 
@@ -200,67 +199,26 @@ document.getElementById('today').addEventListener('click',function(e){
   var dsel=e.target.closest('[data-d]');if(dsel){selD=dsel.dataset.d;today();return}
   var c=e.target.closest('[data-cal]');if(c){vm+=+c.dataset.cal;if(vm<0){vm=11;vy--}if(vm>11){vm=0;vy++}today()}
 });
-var MODES=['좌본문 우해석','주요 문장 성분 분석','동사형 말하기'],mode=0,hide15=false;
+var hide15=false;
+function curUnits(){var o={},lab='';try{lab=ROAD[curWeek(new Date())][2]}catch(e){}
+  if(lab.indexOf('3과')>=0)o.L3=1;if(lab.indexOf('4과')>=0)o.L4=1;if(lab.indexOf('모의고사')>=0)o.mock=1;
+  if(!o.L3&&!o.L4&&!o.mock)o.L4=1;return o}
+function lrow(href,t,sm){return '<a class="row" href="'+href+'"><span>'+t+(sm?'<small>'+sm+'</small>':'')+'</span><span class="go" style="white-space:nowrap">열기</span></a>'}
 function text(){
-  var seg=document.getElementById('seg');
-  seg.innerHTML=MODES.map(function(m,i){return '<button type="button" data-m="'+i+'" class="'+(i===mode?'on':'')+'">'+m.replace(' ','<br>')+'</button>'}).join('');
-  var h='';
-  [[D3,'교과서 3과','L3'],[D4,'교과서 4과','L4']].forEach(function(g,gi){
-    h+='<details class="acc"'+(gi===0?' open':'')+'><summary>'+g[1]+'</summary><div class="in">';
-    if(mode===0){h+='<a class="row" href="'+g[2]+'/jwa.html"><span>좌본문 우해석<small>'+g[1]+'</small></span><span class="go">열기</span></a>'}else if(mode===1){var _b=g[2]+'/hk/',_s=g[2]+'/hs/';h+='<div style="font-size:13px;color:var(--sub);margin:2px 2px 8px">'+g[1]+' 핵심 7문장을 문장 성분까지 나눠서 봐요.</div>';h+='<a class="row" href="'+_b+'"><span>핵심 7문장 분석 (기본)<small>'+g[1]+'</small></span><span class="go">열기</span></a>';h+='<a class="row" href="'+_s+'"><span>핵심 7문장 분석 (심화)<small>'+g[1]+'</small></span><span class="go">열기</span></a>';}else if(mode===2){h+='<div style="font-size:13px;color:var(--sub);margin:2px 2px 8px">동사형은 학원에서 꼭 시험으로 봐요. 연습으로 충분히 익힌 뒤 선생님께 검사를 받아요.</div>';h+='<a class="row" href="../c2-neungryul-oh-34/?hub='+g[2].slice(1)+'"><span>동사형 말하기 연습<small>'+g[1]+'</small></span><span class="go">열기</span></a>';}else if(false){    }else if(mode===2){
-      if(false){
-        h+='<div style="font-size:13px;color:var(--sub);margin:2px 2px 6px">시험에 나올 수 있는 주요 문장 15개예요. 해석을 가리고 먼저 스스로 해석해 봐요.</div><button type="button" id="hide15" class="row on" style="border:0;width:100%;cursor:pointer;font-family:inherit">해석 '+(hide15?'보이기':'가리기')+'</button>';
-        var no=0;
-        KEY15.groups.forEach(function(gr){
-          h+='<div style="font-size:13px;font-weight:800;color:var(--sub);margin:12px 2px 2px">'+esc(gr.title)+'</div>';
-          gr.items.forEach(function(it){no++;h+='<div class="s"><div class="en"><b style="color:var(--pri)">'+no+'</b> '+esc(it.en)+'</div>'+(hide15?'':'<div class="ko">'+esc(it.ko)+'</div>')+'</div>'});
-        });
-      }else h+='<div class="soonbox">준비 중</div>';
-    }else if(mode===1){
-      if(true){h+='<div class="soonbox">문법 분석은 준비 중이에요.</div>';}
-      else g[0].passages.forEach(function(p){
-        var G=GRAM[p.id];
-        if(!G){h+='<div class="row soon"><span>'+esc(p.label)+'<small>준비 중</small></span></div>';return}
-        h+='<details class="acc" style="margin:7px 0"><summary><span>'+esc(p.label)+'</span></summary><div class="in">';
-        p.en.forEach(function(e,i){
-          var cs=G[i+1]||[],segs=[];
-          cs.forEach(function(c,ci){var at=c.hl?e.indexOf(c.hl):-1;if(at>=0)segs.push({a:at,b:at+c.hl.length,n:ci})});
-          segs.sort(function(x,y){return x.a-y.a});
-          var en='',pos=0;
-          segs.forEach(function(sg){if(sg.a<pos)return;en+=esc(e.slice(pos,sg.a))+'<mark class="m'+sg.n%4+'">'+esc(e.slice(sg.a,sg.b))+'<sup>'+(sg.n+1)+'</sup></mark>';pos=sg.b});
-          en+=esc(e.slice(pos));
-          h+='<div class="s"><div class="en"><b style="color:var(--pri)">'+(i+1)+'</b> '+en+'</div><div class="ko">'+esc((p.ko||[])[i]||'')+'</div>';
-          cs.forEach(function(c,ci){
-            h+='<div class="gc g'+ci%4+'"><div class="gt"><span class="gn">'+(ci+1)+'</span>'+esc(c.t)+(c.tag?'<span class="tg t">'+esc(c.tag)+'</span>':'')+'</div><div class="gd">'+esc(c.d)+'</div><div class="ge">쉬운 예: <b>'+esc(c.ex)+'</b><br>'+esc(c.exk)+'</div></div>';
-          });
-          h+='</div>';
-        });
-        h+='</div></details>';
-      });
-    }else if(mode!==0){
-      h+='<div class="soonbox">'+MODES[mode]+'은(는) 준비 중이에요.<br>하나씩 채워서 열어 드려요.</div>';
-    }else{
-      g[0].passages.forEach(function(p){
-        var tg=p.taught===true?'<span class="tg t">수업에서 다룸</span>':p.taught===false?'<span class="tg">안 다룸</span>':'';
-        h+='<details class="acc" style="margin:7px 0"><summary><span>'+esc(p.label)+tg+'</span></summary><div class="in">';
-        var J=window.SHOW_JJ?(JJ4[p.id]||JJM[p.id]):null;
-        p.en.forEach(function(e,i){
-          h+='<div class="s"><div class="en"><b style="color:var(--pri)">'+(i+1)+'</b></div>';
-          if(J&&J[i]){h+='<div class="jjl">직독직해</div><table class="jj">'+J[i].e.map(function(c,j){return '<tr><td>'+esc(c)+'</td><td>'+esc(J[i].k[j])+'</td></tr>'}).join('')+'</table><div class="jjl">자연스러운 해석</div>'}
-          else h+='<div class="en" style="margin-top:2px">'+esc(e)+'</div>';
-          h+='<div class="ko">'+esc((p.ko||[])[i]||'')+'</div></div>';
-        });
-        var Z=window.SHOW_JJ?EZ[p.id]:null;
-        if(Z){h+='<div class="ez"><div class="jjl">쉬운 정리</div><div>'+esc(Z.easy)+'</div></div>'+(Z.life?'<div class="ez life"><div class="jjl">생활 속 예시</div><div>'+esc(Z.life)+'</div></div>':'')}
-        h+='</div></details>';
-      });
-    }
+  var cu=curUnits(),h='';
+  [['교과서 3과','L3'],['교과서 4과','L4']].forEach(function(g){
+    var k=g[1];
+    h+='<details class="acc"'+(cu[k]?' open':'')+'><summary>'+g[0]+'</summary><div class="in">';
+    h+=lrow(k+'/jwa.html','좌본문 우해석');
+    
+    h+=lrow('../c2-neungryul-oh-34/?hub='+k.slice(1),'동사형 말하기');
+    h+=lrow(k+'/hk/','문장 성분 연습','기본')+lrow(k+'/hs/','문장 성분 연습','심화');
     h+='</div></details>';
   });
+  h+='<details class="acc"'+(cu.mock?' open':'')+'><summary>모의고사</summary><div class="in"><div class="soonbox">26년 10월 모의고사는 준비 중이에요.</div></div></details>';
   document.getElementById('text').innerHTML=h;
 }
 document.getElementById('text').addEventListener('click',function(e){if(e.target.id==='hide15'){hide15=!hide15;text();}});
-document.getElementById('seg').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;mode=+b.dataset.m;text()});
 var TABS=[['text','원문','<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 17h7"/>'],['keys','답안지','<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-6"/>'],['today','오늘의 학습','<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>']];
 function show(id){
   TABS.forEach(function(t){document.getElementById('p-'+t[0]).classList.toggle('on',t[0]===id)});
