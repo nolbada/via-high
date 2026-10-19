@@ -37,6 +37,7 @@ a.row.on{background:var(--pri);color:#fff}@media(prefers-color-scheme:dark){a.ro
 .s .en{font-size:15.5px;line-height:1.65}.s .ko{font-size:14px;line-height:1.65;color:var(--pri);margin-top:2px}
 .tg{display:inline-block;font-size:11.5px;font-weight:800;border-radius:999px;padding:0 8px;margin-left:6px;border:1px solid var(--line);color:var(--sub)}
 .tg.t{border-color:var(--pri);color:var(--pri)}
+.gc{border:1.5px solid var(--pri);border-radius:12px;padding:10px 12px;margin:8px 0}.gt{font-weight:800;color:var(--pri);font-size:15px}.gd{font-size:14px;line-height:1.6;margin:3px 0}.ge{background:var(--yel);border:1px solid var(--yelL);color:var(--ink);border-radius:8px;padding:6px 10px;font-size:13.5px;line-height:1.55}
 .soonbox{border:1px dashed var(--line);border-radius:14px;padding:18px 14px;text-align:center;color:var(--sub);font-size:14.5px}
 .foot{margin:20px 0 6px;text-align:center;color:var(--sub);font-size:12.5px}
 </style></head><body><div class="wrap">
@@ -67,7 +68,7 @@ a.row.on{background:var(--pri);color:#fff}@media(prefers-color-scheme:dark){a.ro
 <script src="../common/prog.js?v=261019"></script>
 <script src="L4/sx-data.js?v=261019"></script><script>var D4=DATA;</script>
 <script src="mock/sx-data.js?v=261019"></script><script>var DM=DATA;</script>
-<script src="key15.js?v=261019"></script>
+<script src="key15.js?v=261019"></script><script src="gram.js?v=261019"></script>
 <script>
 (function(){
 var ACT=[['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['blank','빈칸추론'],['find','TF'],['awk','어색한 곳'],['voc','어휘'],['eobeop','어법선택'],['dongsa','동사형']];
@@ -128,6 +129,20 @@ function text(){
           gr.items.forEach(function(it){no++;h+='<div class="s"><div class="en"><b style="color:var(--pri)">'+no+'</b> '+esc(it.en)+'</div>'+(hide15?'':'<div class="ko">'+esc(it.ko)+'</div>')+'</div>'});
         });
       }else h+='<div class="soonbox">준비 중</div>';
+    }else if(mode===1){
+      g[0].passages.forEach(function(p){
+        var G=GRAM[p.id];
+        if(!G){h+='<div class="row soon"><span>'+esc(p.label)+'<small>준비 중</small></span></div>';return}
+        h+='<details class="acc" style="margin:7px 0"><summary><span>'+esc(p.label)+'</span></summary><div class="in">';
+        p.en.forEach(function(e,i){
+          h+='<div class="s"><div class="en"><b style="color:var(--pri)">'+(i+1)+'</b> '+esc(e)+'</div><div class="ko">'+esc((p.ko||[])[i]||'')+'</div>';
+          (G[i+1]||[]).forEach(function(c){
+            h+='<div class="gc"><div class="gt">'+esc(c.t)+(c.tag?'<span class="tg t">'+esc(c.tag)+'</span>':'')+'</div><div class="gd">'+esc(c.d)+'</div><div class="ge">쉬운 예: <b>'+esc(c.ex)+'</b><br>'+esc(c.exk)+'</div></div>';
+          });
+          h+='</div>';
+        });
+        h+='</div></details>';
+      });
     }else if(mode!==0){
       h+='<div class="soonbox">'+MODES[mode]+'은(는) 준비 중이에요.<br>하나씩 채워서 열어 드려요.</div>';
     }else{
