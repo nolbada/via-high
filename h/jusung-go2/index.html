@@ -114,16 +114,14 @@ function keys(){
   h+='<details class="acc"><summary>플러스 자료</summary><div class="in"><div class="soonbox">기출예상 등 정답·해설이 여기에 쌓여요.<br>준비 중</div></div></details>';
   document.getElementById('keys').innerHTML=h;
 }
-var MODES=['문장 해석','문법 분석','주요 문장','동사형 말하기'],mode=0,hide15=false;
+var MODES=['문장 해석','문법 분석','주요 문장'],mode=0,hide15=false;
 function text(){
   var seg=document.getElementById('seg');
   seg.innerHTML=MODES.map(function(m,i){return '<button type="button" data-m="'+i+'" class="'+(i===mode?'on':'')+'">'+m.replace(' ','<br>')+'</button>'}).join('');
   var h='';
   [[D4,'4과 (교과서)','L4'],[DM,'모의고사','mock']].forEach(function(g,gi){
     h+='<details class="acc"'+(gi===0?' open':'')+'><summary>'+g[1]+'</summary><div class="in">';
-    if(mode===3){
-      h+=g[2]==='L4'?'<a class="row on" href="L4/dongsa-test.html"><span>4과 동사형 말하기 연습<small>원문 위에서 바로 연습하는 모드는 준비 중이에요. 지금은 동사형 시험으로 연결돼요.</small></span><span class="go">열기</span></a>':'<div class="soonbox">준비 중</div>';
-    }else if(mode===2){
+    if(false){    }else if(mode===2){
       if(g[2]==='L4'){
         h+='<div style="font-size:13px;color:var(--sub);margin:2px 2px 6px">시험에 나올 수 있는 주요 문장 15개예요. 해석을 가리고 먼저 스스로 해석해 봐요.</div><button type="button" id="hide15" class="row on" style="border:0;width:100%;cursor:pointer;font-family:inherit">해석 '+(hide15?'보이기':'가리기')+'</button>';
         var no=0;
