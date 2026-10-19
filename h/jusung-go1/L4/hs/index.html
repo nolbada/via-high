@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<title>주성고1 4과 핵심 7문장 분석 (심화)</title>
+<style>
+:root{--bg:#f4f6f8;--sf:#fff;--fg:#14202b;--mu:#566474;--ln:#d9e0e7;--ac:#0f766e;--acbg:#ccfbf1;--ok:#15803d;--okbg:#e3f4e8;--bad:#b91c1c;--badbg:#fde8e8;--warn:#b45309;--warnbg:#fef3c7;--core:#0f766e;--corefg:#fff}
+@media(prefers-color-scheme:dark){:root{--bg:#0e141b;--sf:#17212b;--fg:#e6ebf0;--mu:#9aa8b6;--ln:#2a3744;--ac:#2dd4bf;--acbg:#0f3a36;--ok:#4ade80;--okbg:#15301f;--bad:#f87171;--badbg:#3a1d1f;--warn:#fbbf24;--warnbg:#46330a;--core:#2dd4bf;--corefg:#04201d}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Malgun Gothic","Apple SD Gothic Neo",sans-serif;line-height:1.5}
+.wrap{max-width:560px;margin:0 auto;padding:16px 16px 40px}
+h1{font-size:20px;margin:6px 0 2px}.sub{color:var(--mu);font-size:14px;margin:0 0 14px}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:14px;margin-bottom:12px}
+.day{font-weight:700;margin:0 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-width:44px;height:44px;border-radius:10px;border:1.5px solid var(--ln);background:var(--sf);color:var(--fg);font-size:16px;font-weight:700;cursor:pointer}
+.chip.done{background:var(--acbg);border-color:var(--ac)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.back{background:none;border:none;color:var(--mu);font-size:15px;cursor:pointer;padding:8px 0}
+.q{font-size:16px;font-weight:700;margin:2px 0 14px}
+.sent{font-size:21px;line-height:2.3;font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Malgun Gothic",sans-serif;letter-spacing:.1px}
+.w{display:inline}
+.gap{display:inline-block;min-width:20px;height:30px;vertical-align:middle;margin:0 1px;border:none;background:none;color:var(--ac);font-size:22px;font-weight:700;cursor:pointer;border-radius:6px;padding:0 2px}
+.gap:before{content:"\00b7";color:var(--ln);font-size:22px}
+.gap.on:before{content:"/";color:var(--ac)}
+.gap.ok:before{content:"/";color:var(--ok)}.gap.miss{background:var(--warnbg)}.gap.miss:before{content:"/";color:var(--warn)}
+.gap.extra{background:var(--badbg)}.gap.extra:before{content:"/";color:var(--bad);text-decoration:line-through}
+.btn{display:block;width:100%;height:50px;border:none;border-radius:12px;background:var(--ac);color:var(--corefg);font-size:17px;font-weight:700;cursor:pointer;margin-top:14px}
+.btn:disabled{opacity:.4}
+.btn.sub{background:transparent;color:var(--ac);border:1.5px solid var(--ac);height:44px;font-size:15px}
+.msg{margin-top:12px;padding:10px 12px;border-radius:10px;font-size:15px}
+.msg.g{background:var(--okbg)}.msg.n{background:var(--warnbg)}
+.legend{font-size:13px;color:var(--mu);margin-top:8px}
+.chunks{display:flex;flex-direction:column;gap:8px}
+.ck{text-align:left;border:2px solid var(--ln);background:var(--sf);color:var(--fg);border-radius:12px;padding:10px 12px;font-size:18px;cursor:pointer}
+.ck.sel{border-color:var(--core);background:var(--acbg)}
+.ck.core{background:var(--core);color:var(--corefg);border-color:var(--core)}
+.ck.flesh{opacity:.75}
+.ck.wrong{border-color:var(--bad);background:var(--badbg);color:var(--fg)}
+.ck.missed{border-color:var(--warn);border-style:dashed}
+.ko{display:block;font-family:"Malgun Gothic",sans-serif;font-size:15px;margin-top:3px;opacity:.95}
+.tag{float:right;font-size:12px;font-family:"Malgun Gothic",sans-serif;font-weight:700}
+.sumline{font-size:17px;font-weight:700;margin-top:6px}
+.pill{display:inline-block;padding:2px 10px;border-radius:99px;background:var(--acbg);font-size:13px;font-weight:700;margin-bottom:8px}
+.small{font-size:13px;color:var(--mu)}
+.reset{background:none;border:none;color:var(--mu);text-decoration:underline;cursor:pointer;font-size:13px;margin-top:10px}
+.ck.target{border-color:#eab308;background:#fef9c3;color:#14202b;cursor:default}
+.ck.mini{padding:6px 10px;font-size:16px}
+.ck.okpick{border-color:var(--ok);background:var(--okbg)}
+.tree{display:flex;flex-direction:column;gap:6px}
+.tn{padding:8px 10px;border:1.5px solid var(--ln);border-radius:10px;font-family:inherit;font-size:16px;background:var(--sf)}
+.tn.tcore{background:var(--core);color:var(--corefg);border-color:var(--core)}
+.arm{color:var(--mu);margin-right:6px}.tcore .arm{color:inherit}
+.te{font-family:inherit}
+.msg .ko{margin-top:4px}
+.w2{display:inline;border:none;background:none;color:inherit;font:inherit;padding:2px 3px;border-radius:6px;cursor:pointer}
+span.w2{cursor:default}
+.sent{line-height:2.2}
+.hlw{background:#fde047;color:#14202b}
+.okw{background:var(--okbg);outline:2px solid var(--ok)}
+.badw{background:var(--badbg);text-decoration:line-through;opacity:.7}
+.closed{display:inline-block;padding:2px 10px;margin:0 2px;border:1.5px dashed var(--ln);border-radius:8px;color:var(--mu);font-family:'Malgun Gothic',sans-serif;font-size:14px}
+.outw{color:var(--mu);opacity:.75}
+.kidw{background:#fef9c3;color:var(--mu)}
+
+.stg{display:flex;gap:6px;margin:0 0 10px}.stg div{flex:1;text-align:center;font-size:12px;padding:5px 0;border-radius:8px;background:var(--ln);color:var(--mu);font-weight:700}
+.stg div.on{background:var(--ac);color:var(--corefg)}.stg div.ok{background:var(--acbg);color:var(--ac)}
+.ko1{font-size:14px;color:var(--mu);margin:0 0 10px}
+.mask{display:inline-block;min-width:64px;padding:2px 10px;margin:0 3px;border-radius:8px;border:1.5px solid #64748b;font-family:'Malgun Gothic',sans-serif;font-size:14px;font-weight:700;color:#334155;background:repeating-linear-gradient(135deg,#cbd5e1 0 7px,#f1f5f9 7px 14px);vertical-align:middle}
+@media(prefers-color-scheme:dark){.mask{border-color:#94a3b8;color:#e2e8f0;background:repeating-linear-gradient(135deg,#475569 0 7px,#1e293b 7px 14px)}}
+.em{color:#6d28d9;font-weight:800}
+.pat{margin-top:8px}.pth{font-weight:800;margin-bottom:8px}.pr2{display:flex;align-items:flex-start;gap:3px;flex-wrap:wrap}.pp{font-weight:800;padding-top:4px}
+.pb{display:flex;flex-direction:column;align-items:center}.pb b{padding:4px 6px;border-radius:8px;background:var(--sf);border:1.5px solid var(--ln);font-size:14px;white-space:nowrap}.pb i{font-style:normal;font-size:12px;color:var(--mu);margin-top:3px}.pb.cc b{border-color:var(--ac);background:var(--acbg);color:var(--fg)}
+.pr{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0;border-top:1px solid var(--ln)}.prt{font-size:18px;flex:1}.prb{display:flex;gap:6px}
+.rb{width:44px;height:44px;border-radius:10px;border:1.5px solid var(--ln);background:var(--sf);color:var(--fg);font-size:16px;font-weight:800;cursor:pointer}
+.rb.ok{background:var(--okbg);border-color:var(--ok)}.rb.no{background:var(--badbg);border-color:var(--bad);opacity:.6}
+@media(prefers-color-scheme:dark){.em{color:#c4b5fd}}
+.vb{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;font-weight:700}
+.sel{background:var(--acbg);outline:2px solid var(--ac)}
+.miss{background:var(--warnbg);outline:2px dashed var(--warn)}
+:root{--n1:#bfdbfe;--n2:#dbeafe;--n3:#eff6ff;--nb:#3b82f6;--a1:#ddd6fe;--a2:#ebe5ff;--a3:#f5f3ff;--ab:#8b5cf6;--v1:#fed7aa;--v2:#ffe6cc;--v3:#fff4e6;--vb:#f97316}
+@media(prefers-color-scheme:dark){:root{--n1:#1f4068;--n2:#1a3354;--n3:#162b47;--nb:#60a5fa;--a1:#3f2d73;--a2:#33265f;--a3:#2a2050;--ab:#a78bfa;--v1:#6b3a12;--v2:#57300f;--v3:#46270f;--vb:#fb923c}}
+.kd0{--c1:var(--n1);--c2:var(--n2);--c3:var(--n3);--cb:var(--nb)}
+.kd1{--c1:var(--a1);--c2:var(--a2);--c3:var(--a3);--cb:var(--ab)}
+.kd2{--c1:var(--v1);--c2:var(--v2);--c3:var(--v3);--cb:var(--vb)}
+.dp1{background:var(--c1)}.dp2{background:var(--c2)}.dp3{background:var(--c3)}
+.tn.kd0,.tn.kd1,.tn.kd2{border-color:var(--cb);border-left-width:7px;color:var(--fg)}
+.kdb{border-left:7px solid var(--cb)}
+.bdr{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:10px 0}
+.bd{display:inline-flex;flex-direction:column;align-items:center;padding:4px 10px;border-radius:10px;border:1.5px solid var(--ln);background:var(--sf);font-weight:700;font-size:15px;line-height:1.3}
+.bd i{font-style:normal;font-size:11px;font-weight:600;color:var(--mu)}
+.bd.kd0,.bd.kd1,.bd.kd2{border-color:var(--cb);color:var(--fg)}
+.bd.skS{border-color:var(--ac)}.bd.skV{border-color:var(--ac);background:var(--acbg)}.bd.skO,.bd.skC{border-color:var(--warn)}
+.bd.hostb{border-style:dashed;border-color:var(--warn);background:var(--warnbg);color:var(--fg)}
+.hostw{border-bottom:3px dashed var(--warn);padding-bottom:4px}.hk{font-weight:700;outline:1.5px dashed var(--warn);outline-offset:1px}.tn.hosttn{border-style:dashed;border-color:var(--warn);background:var(--warnbg);color:var(--fg)}
+.hostt{display:inline-block;margin-top:4px;padding:1px 8px;border:1.5px dashed var(--warn);border-radius:8px;font-size:12px;font-weight:700}
+.fsent{line-height:2.2;margin:8px 0 4px}
+.bd.ing{border-color:#16a34a;background:#dcfce7;color:#14202b}.bd.ppb{border-color:#db2777;background:#fce7f3;color:#14202b}
+@media(prefers-color-scheme:dark){.bd.ing{background:#14532d;color:#e6ebf0}.bd.ppb{background:#4a1d33;color:#e6ebf0}}
+.cmp{display:flex;flex-direction:column;gap:6px;margin:8px 0}.cs{border:1.5px solid var(--ln);border-radius:12px;padding:2px 8px;background:var(--sf)}.cs.off{opacity:.5}.cs.on{border:2px solid var(--ok)}.cs .bdr{margin:6px 0}
+.bd.cc{border-color:var(--ac);background:var(--acbg)}.bd.gapb{border-style:dashed;background:transparent}
+.bd.vbd{border-color:var(--ac);background:var(--acbg)}.bd.em2{border-color:#7c3aed;color:#6d28d9}
+@media(prefers-color-scheme:dark){.bd.em2{color:#c4b5fd;border-color:#a78bfa}}
+.ck .hint{display:block;font-family:'Malgun Gothic',sans-serif;font-size:13px;color:var(--mu);margin-top:2px}
+.ck{font-family:inherit;font-size:16px}
+.seg{display:flex;gap:8px}.seg button{flex:1;height:46px;border-radius:12px;border:1.5px solid var(--ln);background:var(--sf);color:var(--fg);font-size:16px;font-weight:700;cursor:pointer}.seg button.on{background:var(--ac);border-color:var(--ac);color:var(--corefg)}
+.row{display:flex;align-items:center;gap:10px;width:100%;min-height:52px;padding:8px 0;border:none;border-bottom:1px solid var(--ln);background:none;color:var(--fg);text-align:left;cursor:pointer;font-family:inherit}
+.row:last-child{border-bottom:none}.rn{flex:0 0 34px;font-weight:700;color:var(--ac);font-size:17px;text-align:center}.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(68px,1fr));gap:8px;margin-bottom:14px}
+.bk{position:relative;background:var(--sf);border:1.5px solid var(--ln);border-radius:12px;min-height:72px;padding:8px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;color:var(--fg);font-family:inherit;cursor:pointer}
+.bk .bn{font-size:21px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2}.bk .bs{font-size:11px;color:var(--mu);line-height:1.2}.bk .bt{font-size:11px;color:var(--ok);font-weight:700;min-height:14px}
+.bk.star{background:var(--warnbg);border-color:var(--warn)}.bk .bks{position:absolute;top:3px;right:6px;font-size:13px;line-height:1;color:var(--warn)}
+.bk.done{background:var(--okbg);border-color:var(--ok)}
+.rt2{flex:1;min-width:0}.stm{display:block;font-size:13px;line-height:1;color:#d97706}.rs{display:block;font-size:12px;color:var(--mu);margin-top:2px;font-family:inherit}.rt{flex:1;font-size:15px;line-height:1.4;font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.rm{flex:0 0 36px;font-size:12px;color:var(--mu);text-align:right}.rm.on{color:var(--ok);font-weight:700}
+.wk{border-bottom:2px dotted #8794a3;cursor:pointer}.wks{border-bottom:2px solid #16a34a;font-weight:700}
+.wkd{margin-top:10px;padding:10px 12px;border-radius:10px;background:rgba(120,140,160,.15);font-size:15px;line-height:1.5}.wkm{font-size:13px;opacity:.8}.wsf{font-weight:400;opacity:.75}.wguide{margin:10px 0;padding:10px 12px;border-radius:10px;background:rgba(120,140,160,.15);font-size:14px;line-height:1.6}
+.wlstrip{display:block;margin:0 0 12px;padding:11px 14px;border:2px solid #e0a100;border-radius:12px;background:#fff4d6;color:#5b3d00;font-size:15px;font-weight:800;text-decoration:none}
+</style></head><body><div style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px 0;font-size:14px"><a href="../../index.html" style="color:var(--ac);text-decoration:none;padding:6px 0">&larr; 주성고 정답 목록</a><a id="wlink" href="words.html" style="color:var(--ac);text-decoration:none;font-weight:700;padding:6px 0">내 단어장</a></div><div class="wrap" id="app"></div>
+<!--WB:BEGIN--><script>var WD={"w1": {"t": "accessibility", "p": "명", "k": "접근성", "d": 4, "x": "m"}, "w2": {"t": "practice", "p": "명", "k": "실천, 관행", "d": 4, "x": "m"}, "w3": {"t": "disability", "p": "명", "k": "장애", "d": 4, "x": "m"}, "w4": {"t": "injured", "p": "형", "k": "부상을 당한, 다친", "d": 4, "x": "m"}, "w5": {"t": "difficult", "p": "형", "k": "어려운", "d": 4, "x": "m"}, "w6": {"t": "visual", "p": "형", "k": "시각의", "d": 4, "x": "m"}, "w7": {"t": "necessarily", "p": "부", "k": "반드시, 꼭", "d": 4, "x": "m"}, "w8": {"t": "aloud", "p": "부", "k": "소리 내어", "d": 4, "x": "m"}, "w9": {"t": "navigation", "p": "명", "k": "탐색, 길 찾기", "d": 4, "x": "m"}, "w10": {"t": "field", "p": "명", "k": "입력란, 필드", "d": 4, "x": "m"}, "w11": {"t": "access", "p": "동", "k": "접근하다, 접속하다", "d": 4, "x": "m"}, "w12": {"t": "benefit", "p": "동", "k": "득을 보다, 이익을 얻다", "d": 4, "x": "m"}, "w13": {"t": "temporarily", "p": "부", "k": "일시적으로", "d": 4, "x": "m"}};var WM={"1-2": [[[12], "w4"], [[7], "w5"]], "1-9": [[[1], "w1"], [[4], "w2"], [[18], "w3"]], "2-4": [[[17], "w8"]], "4-1": [[[2], "w6"], [[3], "w3"], [[5], "w7"]], "5-4": [[[6], "w10"], [[16], "w11"], [[19], "w9"]], "5-7": [[[3], "w3"], [[7], "w13"], [[8], "w4"], [[11], "w12"], [[16], "w9"]]};
+var WBK='vsig-g1js-l4-wb-v1',WINT=[1,3,7,14,30,60];
+function wbLoad(){try{var o=JSON.parse(localStorage.getItem(WBK)||'null');if(o&&o.w){o.q=o.q||{};return o}}catch(e){}return {v:1,w:{},q:{}}}
+function wbSave(o){try{localStorage.setItem(WBK,JSON.stringify(o))}catch(e){}}
+function wbDay(t){var d=new Date(t||Date.now());d.setHours(0,0,0,0);return d.getTime()}
+function wbDue(box,from){var d=new Date(wbDay(from));d.setDate(d.getDate()+WINT[Math.min(box,WINT.length-1)]);return d.getTime()}
+function wbHas(id){return !!wbLoad().w[id]}
+function wbToggle(id,sent,ix,sid){var o=wbLoad();if(o.w[id]){delete o.w[id];wbSave(o);wbBadge();return false}
+ var e=WD[id];o.w[id]={x:e.x,d:e.d,s:sent,ix:ix,sid:sid,box:0,due:wbDue(0),add:Date.now(),miss:0};wbSave(o);wbBadge();return true}
+function wbEsc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+function wbSurf(id,sent,ix){var e=WD[id];if(!sent||!ix)return '';var tk=sent.split(' '),f=ix.map(function(i){return (tk[i]||'').replace(/[^A-Za-z\' -]/g,'')}).join(' ').toLowerCase();return f&&f!==e.t.toLowerCase()?' <span class="wsf">('+wbEsc(f)+')</span>':''}
+function wbInfo(id,sent,ix){var e=WD[id],sf=wbSurf(id,sent,ix);return e.x==='f'?'<b>'+wbEsc(e.t)+'</b>'+sf+' '+wbEsc(e.m):'<b>'+wbEsc(e.t)+'</b>'+sf+' ('+wbEsc(e.p)+') '+wbEsc(e.k)}
+function wbWkd(d){var w='일월화수목금토'[d.getDay()];return (d.getMonth()+1)+'/'+d.getDate()+'('+w+')'}
+function wkBind(root,key,tok){
+ var ms=WM[key];if(!root||!ms||!tok)return;
+ var map={};ms.forEach(function(m){m[0].forEach(function(i){if(map[i]==null)map[i]=m})});
+ if(!Object.keys(map).length)return;
+ var bar=document.createElement('div');bar.className='wkd';bar.innerHTML='밑줄 친 단어는 책에 나온 단어입니다. 한 번 누르면 내 단어장에 담기고, 다시 누르면 빠집니다. 담기는 형태는 원형입니다.';
+ root.parentNode.insertBefore(bar,root.nextSibling);
+ var sent=tok.join(' ');
+ function paint(){root.querySelectorAll('[data-i]').forEach(function(sp){var m=map[+sp.dataset.i];if(m&&wbHas(m[1]))sp.classList.add('wks');else sp.classList.remove('wks')})}
+ root.querySelectorAll('[data-i]').forEach(function(sp){var m=map[+sp.dataset.i];if(!m)return;sp.classList.add('wk');
+  sp.addEventListener('click',function(ev){ev.stopPropagation();var on=wbToggle(m[1],sent,m[0],key);paint();bar.innerHTML=wbInfo(m[1],sent,m[0])+'<br><span class="wkm">'+(on?'내 단어장에 담았습니다.':'내 단어장에서 뺐습니다.')+'</span>'})});
+ paint();
+}
+function wbHashStr(s){var h=0;for(var i=0;i<s.length;i++){h=(h*31+s.charCodeAt(i))|0}return (h>>>0).toString(36)}
+function wbAddQ(it,q){var o=wbLoad(),id=it.k+'|'+wbHashStr(JSON.stringify(q));
+ if(!o.q[id]){o.q[id]={k:it.k,ko:it.ko||'',nos:it.nos||[],q:q,box:0,due:wbDue(0),add:Date.now(),miss:1};
+  var ks=Object.keys(o.q);if(ks.length>300){ks.sort(function(a,b){return o.q[a].add-o.q[b].add});delete o.q[ks[0]]}}
+ else{o.q[id].miss=(o.q[id].miss||0)+1;o.q[id].box=0;o.q[id].due=wbDue(0)}
+ wbSave(o);return id}
+function wbQDone(id,ok){var o=wbLoad(),e=o.q[id];if(!e)return;
+ if(ok){if(e.box>=WINT.length-1){delete o.q[id]}else{e.box++;e.due=wbDue(e.box)}}
+ else{e.box=0;e.miss=(e.miss||0)+1;e.due=wbDue(0)}
+ wbSave(o)}
+function wbBadge(){var el=document.getElementById('wlink');if(el)el.textContent='내 단어장 '+Object.keys(wbLoad().w).length+'개'}
+wbBadge();
+</script><!--WB:END-->
+<script>
+const S=[{"lv": "심화", "id": "1-2", "tok": ["There", "are", "some", "things", "that", "would", "be", "difficult", "to", "do", "with", "your", "injured", "arm."], "ch": ["There are some things", "that would be difficult to do with your injured arm."], "ko": ["몇몇 일들이 있다", "당신의 다친 팔로 하기에 어려울."], "nodes": [{"id": "m", "a": 0, "b": 14, "own": [0, 1, 2, 3], "kids": [[4, 14]], "S": [3], "V": [1], "G": [[1]], "form": 1, "fl": [], "sk": [{"r": "S", "g": [2, 3]}, {"r": "V", "g": [1]}], "note": "There are some things. There ~ 구문('~이 있다')이라 주어 + 동사의 1형식입니다. There는 해석하지 않고 자리만 채우며, 진짜 주어는 are 뒤의 some things예요. 그래서 동사도 주어에 맞춘 복수형 are를 씁니다."}, {"id": "a", "a": 4, "b": 14, "own": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "kids": [], "S": [4], "V": [5, 6], "G": [[5, 6]], "kind": "형용사절", "sub": "주격 관계대명사", "anc": [3], "np": [2, 3], "note": "___ would be difficult 에서 주어 자리가 비어 있어서 that은 주격 관계대명사입니다. 앞의 some things를 꾸며 '어려울 일들'로 해석해요. would be는 조동사 + be로 한 덩어리 동사이고 difficult는 보어(형용사)입니다. 그 뒤의 to do ~는 difficult를 꾸미는 말이에요."}], "dec": {"0": "There는 해석하지 않고 자리만 채우는 말(유도부사)입니다.", "2": "some은 '몇몇의'라는 형용사입니다.", "3": "things는 '일들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "4": "that은 관계대명사입니다.", "7": "difficult는 '어려운'이라는 형용사(보어)입니다.", "8": "to는 뒤의 do와 함께 to부정사를 만듭니다. 문장의 동사가 아니에요.", "9": "do는 to 뒤에 온 동사원형이라 to부정사의 일부입니다. 문장의 동사가 아니에요.", "10": "with는 전치사입니다.", "11": "your는 '당신의'라는 대명사(소유격)입니다.", "12": "injured는 arm을 꾸미는 과거분사(형용사)라서 문장의 동사가 아닙니다.", "13": "arm은 '팔'이라는 명사입니다."}, "vn": "are는 주절의 동사(There are ~ 구문)예요. that절 안의 would be는 조동사 + be로 한 덩어리 동사입니다. to do와 injured는 동사 모양이지만 준동사라서 동사가 아니에요.", "why": null, "nf": [{"w": "to do", "t": "to", "use": "부사적 용법", "reason": "difficult to do에서 to do는 형용사 difficult를 꾸며 '하기에 (어려운)'이라는 뜻이에요. 그래서 부사적 용법입니다.", "g": [8, 9], "pat": {"h": "형용사 + to부정사 : ~하기에 …한", "p": [["difficult", "형용사"], ["to do", "~하기에"]]}}, {"w": "injured", "t": "part", "who": "arm", "base": "injure", "ing": "injuring", "pp": "injured", "ans": "pp", "reason": "arm은 '다친' 수동 관계입니다. 팔이 다침을 당한 것이라서 과거분사 injured예요.", "g": [12]}], "em": []}, {"lv": "심화", "id": "1-9", "tok": ["Web", "accessibility", "is", "the", "practice", "of", "making", "sure", "that", "websites", "can", "be", "used", "by", "everyone,", "including", "people", "with", "disabilities."], "ch": ["Web accessibility is the practice", "of making sure that websites can be used by everyone,", "including people with disabilities."], "ko": ["웹 접근성은 실천이다", "웹 사이트가 모두에게 사용될 수 있도록 확실히 하는", "장애가 있는 사람들을 포함하여."], "nodes": [{"id": "m", "a": 0, "b": 19, "own": [0, 1, 2, 3, 4, 5, 6, 7], "kids": [[8, 19]], "S": [1], "V": [2], "G": [[2]], "form": 2, "fl": [], "sk": [{"r": "S", "g": [0, 1]}, {"r": "V", "g": [2]}, {"r": "C", "g": [3, 4, 5, 6, 7]}], "note": "Web accessibility is the practice. 주어 + 동사 + 보어, 2형식입니다. is를 사이에 두고 Web accessibility = the practice(웹 접근성 = 실천)로 같은 말이에요. of making sure that절은 the practice가 어떤 실천인지 뒤에서 설명해 줍니다."}, {"id": "a", "a": 8, "b": 19, "own": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], "kids": [], "S": [9], "V": [10, 11, 12], "G": [[10, 11, 12]], "kind": "명사절", "sub": "목적어", "gv": [["making sure", "동사구"]], "note": "making sure 뒤에 온 that절이에요. '~하도록 확실히 하다'에서 확실히 하는 내용을 that 이하가 채웁니다. that 뒤에 주어(websites)와 동사(can be used)가 완전해서 that은 접속사예요. can be used는 조동사 + be + 과거분사(수동)로 한 덩어리 동사이고, including people with disabilities는 everyone에 사람들을 덧붙여 설명하는 말입니다."}], "dec": {"0": "Web은 accessibility를 꾸미는 명사입니다.", "1": "accessibility는 '접근성'이라는 명사예요. 이 문장의 주어입니다.", "3": "the는 관사입니다.", "4": "practice는 '실천, 관행'이라는 명사예요. 동사로도 쓰지만 여기서는 명사입니다.", "5": "of는 전치사입니다.", "6": "making은 전치사 of 뒤에 와서 '~하는 것'이라는 뜻이 된 동명사예요. 동사 모양이지만 문장의 동사가 아닙니다.", "7": "sure는 '확실한'이라는 형용사입니다.", "8": "that은 접속사입니다.", "9": "websites는 '웹 사이트들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "13": "by는 전치사입니다.", "14": "everyone은 '모든 사람'이라는 대명사입니다.", "15": "including은 '~을 포함하여'라는 뜻으로 쓰인 분사(전치사처럼 쓰임)라서 문장의 동사가 아닙니다.", "16": "people은 '사람들'이라는 명사입니다.", "17": "with는 전치사입니다.", "18": "disabilities는 '장애들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다."}, "vn": "is는 주절의 동사예요. that절 안의 can be used는 조동사 + be + 과거분사(수동)라서 세 단어가 한 덩어리 동사입니다. making과 including은 동사 모양이지만 준동사라서 지금은 누르지 않아요.", "why": null, "nf": [{"w": "making", "t": "ger", "reason": "전치사 of 뒤에서 '~하는 것'이라는 뜻으로 쓰인 동명사예요. of making sure ~는 '~을 확실히 하는 (것)'이라는 뜻으로 the practice의 내용을 설명합니다.", "g": [6]}, {"w": "including", "t": "part", "who": "everyone", "base": "include", "ing": "including", "pp": "included", "ans": "ing", "reason": "everyone이 장애가 있는 사람들을 '포함하는' 능동 관계입니다. 그래서 현재분사 including이에요.", "g": [15]}], "em": []}, {"lv": "심화", "id": "2-4", "tok": ["When", "they", "go", "on", "a", "website,", "they", "often", "use", "programs", "called", "“screen", "readers,”", "which", "read", "online", "text", "aloud."], "ch": ["When they go on a website,", "they often use programs called “screen readers,”", "which read online text aloud."], "ko": ["그들이 웹 사이트에 접속할 때", "그들은 종종 ‘스크린 리더’라 불리는 프로그램을 사용하는데", "이것은 온라인 텍스트를 소리 내어 읽어 준다."], "nodes": [{"id": "m", "a": 0, "b": 18, "own": [6, 7, 8, 9, 10, 11, 12], "kids": [[0, 6], [13, 18]], "S": [6], "V": [8], "G": [[8]], "form": 3, "fl": [7], "sk": [{"r": "S", "g": [6]}, {"r": "V", "g": [8]}, {"r": "O", "g": [9, 10, 11, 12]}], "note": "they often use programs. 주어 + 동사 + 목적어, 3형식입니다. often은 '종종'이라는 부사로 덧붙이는 말이에요. called “screen readers”는 programs를 뒤에서 꾸미는 과거분사구라서 '‘스크린 리더’라 불리는 (프로그램)'으로 해석합니다."}, {"id": "a", "a": 0, "b": 6, "own": [0, 1, 2, 3, 4, 5], "kids": [], "S": [1], "V": [2], "G": [[2]], "kind": "부사절", "sub": "시간", "note": "When이 이끄는 시간의 부사절('~할 때')입니다. they go on a website에서 go on은 '웹 사이트에 접속하다'라는 뜻으로 주어 + 동사 + 전치사구예요."}, {"id": "b", "a": 13, "b": 18, "own": [13, 14, 15, 16, 17], "kids": [], "S": [13], "V": [14], "G": [[14]], "kind": "형용사절", "sub": "주격 관계대명사", "anc": [12], "np": [11, 12], "note": "콤마 뒤 which는 앞의 “screen readers”를 받는 계속적 용법이에요. ___ read online text aloud 에서 주어 자리가 비어 있어서 주격 관계대명사입니다. 선행사가 복수라서 동사도 복수형 read를 써요. '그리고 그것은 ~' 순서로 이어서 해석합니다."}], "dec": {"0": "When은 접속사입니다.", "1": "they는 '그들'이라는 대명사입니다.", "6": "they는 '그들'이라는 대명사(주절의 주어)입니다.", "3": "on은 전치사입니다.", "4": "a는 관사입니다.", "5": "website는 '웹 사이트'라는 명사입니다.", "7": "often은 '종종'이라는 부사입니다.", "9": "programs는 '프로그램들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "10": "called는 programs를 뒤에서 꾸미는 과거분사라서 문장의 동사가 아닙니다.", "11": "screen은 readers를 꾸미는 명사입니다.", "12": "readers는 '읽어 주는 프로그램들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "13": "which는 관계대명사입니다.", "15": "online은 '온라인의'라는 형용사입니다.", "16": "text는 '텍스트, 글'이라는 명사예요. 동사('문자를 보내다')로도 쓰지만 여기서는 명사입니다.", "17": "aloud는 '소리 내어'라는 부사입니다."}, "vn": "go는 When절의 동사, use는 주절의 동사, read는 which절의 동사예요. called는 programs를 꾸미는 과거분사라서 동사가 아닙니다. 동사는 모두 3개예요.", "why": null, "nf": [{"w": "called", "t": "part", "who": "programs", "base": "call", "ing": "calling", "pp": "called", "ans": "pp", "reason": "programs는 ‘스크린 리더’라고 '불리는' 수동 관계입니다. 그래서 과거분사 called예요.", "g": [10]}], "em": []}, {"lv": "심화", "id": "4-1", "tok": ["Having", "a", "visual", "disability", "doesn’t", "necessarily", "mean", "a", "person", "can’t", "see", "at", "all."], "ch": ["Having a visual disability doesn’t necessarily mean", "a person can’t see at all."], "ko": ["시각 장애를 지니고 있는 것은 반드시 의미하지는 않는다", "한 사람이 전혀 보지 못한다는 것을."], "nodes": [{"id": "m", "a": 0, "b": 13, "own": [0, 1, 2, 3, 4, 5, 6], "kids": [[7, 13]], "S": [0, 3], "V": [4, 5, 6], "G": [[4, 5, 6]], "form": 3, "fl": [], "sk": [{"r": "S", "g": [0, 1, 2, 3]}, {"r": "V", "g": [4, 5, 6]}], "note": "Having a visual disability doesn’t necessarily mean. 주어 + 동사 + 목적어, 3형식입니다. Having a visual disability는 동명사구 주어('시각 장애를 지니고 있는 것')라서 단수로 받아 doesn’t를 써요. doesn’t necessarily mean은 '반드시 ~라는 뜻은 아니다'라는 부분부정이고, 뒤의 절 전체가 mean의 목적어입니다."}, {"id": "a", "a": 7, "b": 13, "own": [7, 8, 9, 10, 11, 12], "kids": [], "S": [8], "V": [9, 10], "G": [[9, 10]], "kind": "명사절", "sub": "목적어", "gv": [["mean", "동사"]], "om": "that", "note": "mean 뒤에 접속사 that이 생략된 목적어 절입니다. a person(주어)과 can’t see(동사)가 완전해서 관계사가 아니에요. that을 넣어 읽으면 '한 사람이 전혀 보지 못한다는 것'이 mean의 목적어가 됩니다."}], "dec": {"0": "Having은 동명사(~하는 것)로 주어 부분을 이끌어요. 동사 모양이지만 문장의 동사가 아닙니다.", "1": "a는 관사입니다.", "2": "visual은 disability를 꾸미는 형용사입니다.", "3": "disability는 '장애'라는 명사입니다.", "7": "a는 관사입니다.", "8": "person은 '사람'이라는 명사입니다.", "11": "at은 전치사입니다.", "12": "all은 at all('전혀')에 쓰인 대명사입니다. 동사가 아니에요."}, "vn": "doesn’t necessarily mean은 부정어와 부사가 낀 한 덩어리 동사예요. 세 단어가 함께 묶여 있어서 하나만 눌러도 됩니다. Having은 동명사라서 동사가 아니에요. that절(생략) 안의 can’t see도 동사입니다.", "why": null, "nf": [{"w": "Having", "t": "ger", "reason": "Having a visual disability는 문장의 주어 자리에 온 동명사구예요. '시각 장애를 지니고 있는 것'으로 해석하고, 단수로 취급해서 동사가 doesn’t입니다.", "g": [0]}], "em": []}, {"lv": "심화", "id": "4-3", "tok": ["This", "makes", "it", "difficult", "for", "them", "to", "read."], "ch": ["This makes it difficult for them to read."], "ko": ["이는 그들이 읽는 것을 어렵게 만든다."], "nodes": [{"id": "m", "a": 0, "b": 8, "own": [0, 1, 2, 3, 4, 5, 6, 7], "kids": [], "S": [0], "V": [1], "G": [[1]], "form": 5, "fl": [4, 5, 6, 7], "sk": [{"r": "S", "g": [0]}, {"r": "V", "g": [1]}, {"r": "O", "g": [2]}, {"r": "C", "g": [3]}], "note": "This makes it difficult. 주어 + 동사 + 목적어 + 목적격보어, 5형식입니다. 여기서 it은 진짜 목적어가 아니라 뒤의 to read를 대신 받은 가목적어라서 해석하지 않아요. 진짜 목적어는 to read(읽는 것)이고, '이는 읽는 것을 어렵게 만든다'로 해석합니다. for them은 to read의 의미상 주어('그들이')예요."}], "dec": {"0": "This는 '이것'이라는 대명사입니다.", "2": "it은 가목적어(대명사)입니다. 동사가 아니에요.", "3": "difficult는 '어려운'이라는 형용사(목적격보어)입니다.", "4": "for는 전치사입니다. 뒤의 them이 to read의 의미상 주어임을 나타내요.", "5": "them은 '그들'이라는 대명사입니다.", "6": "to는 뒤의 read와 함께 to부정사를 만듭니다. 문장의 동사가 아니에요.", "7": "read는 to 뒤에 온 동사원형이라 to부정사의 일부입니다. 문장의 동사가 아니에요."}, "vn": "makes가 문장의 동사예요. to read는 to부정사라서 동사가 아닙니다.", "why": null, "nf": [{"w": "to read", "t": "to", "use": "명사적 용법", "reason": "to read는 가목적어 it이 대신 받은 진짜 목적어예요. '읽는 것'이라는 뜻이니 명사적 용법입니다. for them은 to read의 의미상 주어입니다.", "g": [6, 7], "pat": {"h": "make + 가목적어 it + 목적격보어 + 진목적어(to부정사)", "p": [["makes", "동사"], ["it", "가목적어"], ["difficult", "목적격보어"], ["to read", "진목적어"]]}}], "em": []}, {"lv": "심화", "id": "5-4", "tok": ["This", "means", "that", "links,", "buttons,", "and", "fields,", "which", "are", "spaces", "where", "information", "is", "entered,", "can", "be", "accessed", "through", "keyboard", "navigation."], "ch": ["This means", "that links, buttons, and fields, which are spaces where information is entered, can be accessed through keyboard navigation."], "ko": ["이는 의미한다", "링크, 버튼 그리고 정보가 입력되는 공간인 필드가 키보드 탐색을 통해 접근될 수 있다는 것을."], "nodes": [{"id": "m", "a": 0, "b": 20, "own": [0, 1], "kids": [[2, 20]], "S": [0], "V": [1], "G": [[1]], "form": 3, "fl": [], "sk": [{"r": "S", "g": [0]}, {"r": "V", "g": [1]}], "note": "This means that 절. 주어 + 동사 + 목적어, 3형식입니다. that 이하 전체가 means의 목적어 자리를 채웁니다."}, {"id": "a", "a": 2, "b": 20, "own": [2, 3, 4, 5, 6, 14, 15, 16, 17, 18, 19], "kids": [[7, 14]], "S": [3, 4, 6], "V": [14, 15, 16], "G": [[14, 15, 16]], "kind": "명사절", "sub": "목적어", "gv": [["means", "동사"]], "note": "이 that은 관계사가 아니라 means의 목적어 절을 이끄는 접속사입니다. 뒤에 주어(links, buttons, fields)와 동사(can be accessed)가 완전하게 있어요. 주어가 세 개 나열됐고, can be accessed는 조동사 + be + 과거분사(수동)로 한 덩어리 동사입니다."}, {"id": "b", "a": 7, "b": 14, "own": [7, 8, 9], "kids": [[10, 14]], "S": [7], "V": [8], "G": [[8]], "kind": "형용사절", "sub": "주격 관계대명사", "anc": [6], "np": [6], "note": "콤마 뒤 which는 바로 앞의 fields를 받는 계속적 용법입니다. ___ are spaces 에서 주어 자리가 비어 있어서 which는 주격 관계대명사예요. '그리고 그것(필드)은 ~ 공간이다' 순서로 이어서 해석합니다."}, {"id": "c", "a": 10, "b": 14, "own": [10, 11, 12, 13], "kids": [], "S": [11], "V": [12, 13], "G": [[12, 13]], "kind": "형용사절", "sub": "관계부사", "anc": [9], "np": [9], "note": "where는 앞의 spaces(공간)를 꾸미는 관계부사입니다. where 뒤에 information(주어)과 is entered(동사)가 완전한 문장으로 이어져서 관계대명사가 아니에요. is entered는 be + p.p.(수동)로 한 덩어리 동사입니다."}], "dec": {"0": "This는 '이것'이라는 대명사입니다.", "2": "that은 접속사입니다.", "3": "links는 '링크들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "4": "buttons는 '버튼들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "5": "and는 접속사입니다.", "6": "fields는 '필드(입력란)들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "7": "which는 관계대명사입니다.", "9": "spaces는 '공간들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "10": "where는 관계부사입니다.", "11": "information은 '정보'라는 명사입니다.", "17": "through는 전치사입니다.", "18": "keyboard는 navigation을 꾸미는 명사입니다.", "19": "navigation은 '탐색'이라는 명사입니다."}, "vn": "means는 주절의 동사, can be accessed(조동사 + be + p.p.)는 that절의 한 덩어리 동사예요. which절의 are, where절의 is entered(be + p.p.)도 모두 동사입니다. 동사는 모두 4개예요.", "why": null, "nf": [], "em": []}, {"lv": "심화", "id": "5-7", "tok": ["Both", "users", "with", "disabilities", "and", "those", "with", "temporarily", "injured", "hands", "can", "benefit", "from", "this", "kind", "of", "navigation."], "ch": ["Both users with disabilities and those with temporarily injured hands", "can benefit from this kind of navigation."], "ko": ["장애를 가진 사용자와 일시적으로 손을 다친 사용자 모두가", "이러한 종류의 탐색으로부터 득을 볼 수 있다."], "nodes": [{"id": "m", "a": 0, "b": 17, "own": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], "kids": [], "S": [1, 5], "V": [10, 11], "G": [[10, 11]], "form": 1, "fl": [12, 13, 14, 15, 16], "sk": [{"r": "S", "g": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}, {"r": "V", "g": [10, 11]}], "note": "Both users ... can benefit. 주어 + 동사, 1형식입니다. Both A and B(A와 B 둘 다)가 주어일 때는 복수로 받아서 동사도 복수에 맞춘 can benefit이에요. users with disabilities와 those with ... hands가 and로 이어진 A, B입니다. those는 앞의 users를 대신 받는 대명사('~한 사람들')이고, benefit from은 자동사 + 전치사 짝이라 from this kind of navigation은 목적어가 아니라 덧붙이는 말입니다."}], "dec": {"0": "Both는 'A와 B 둘 다'를 뜻하는 상관접속사 both A and B의 앞부분입니다.", "1": "users는 '사용자들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "2": "with는 전치사입니다.", "3": "disabilities는 '장애들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "4": "and는 상관접속사 both A and B의 and입니다.", "5": "those는 '(그런) 사람들'이라는 대명사로 앞의 users를 대신 받아요.", "6": "with는 전치사입니다.", "7": "temporarily는 '일시적으로'라는 부사입니다.", "8": "injured는 hands를 꾸미는 과거분사(형용사)라서 문장의 동사가 아닙니다.", "9": "hands는 '손들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "12": "from은 전치사입니다.", "13": "this는 '이러한'이라는 지시형용사입니다.", "14": "kind는 '종류'라는 명사입니다. 형용사('친절한')로도 쓰지만 여기서는 명사예요.", "15": "of는 전치사입니다.", "16": "navigation은 '탐색'이라는 명사입니다."}, "vn": "can benefit은 조동사 + 동사로 한 덩어리 동사예요. injured는 hands를 꾸미는 과거분사라서 동사가 아닙니다.", "why": null, "nf": [{"w": "injured", "t": "part", "who": "hands", "base": "injure", "ing": "injuring", "pp": "injured", "ans": "pp", "reason": "hands는 일시적으로 '다친' 수동 관계입니다. 그래서 과거분사 injured예요.", "g": [8]}], "em": []}];
+var WLK='vsig-tb-g1js-l4-wl-v1';
+function wlD(){var d=new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+function wlGet(){try{return JSON.parse(localStorage.getItem(WLK)||'{}')}catch(e){return {}}}
+function wlPut(e){try{var o=wlGet(),k=wlD();Object.keys(o).forEach(function(q){if(q!==k)delete o[q]});var L=(o[k]||[]).filter(function(x){return x.id!==e.id});L.push(e);o[k]=L;var ks=Object.keys(o).sort();while(ks.length>10)delete o[ks.shift()];localStorage.setItem(WLK,JSON.stringify(o))}catch(x){}}
+function wlKey(o){var ks=Object.keys(o).sort().reverse();for(var i=0;i<ks.length;i++)if(o[ks[i]]&&o[ks[i]].length)return ks[i];return ''}
+function wlList(){var o=wlGet(),k=wlKey(o);return k?o[k]:[]}
+function wlN(){return wlList().length}
+function wlStrip(){var n=wlN();return n?'<a class="wlstrip" href="note.html">오답노트 '+n+'문장 쓰러 가기</a>':''}
+const KEY="vsig-tb-g1js-l4-y-xray-v1";
+let R={};try{R=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(R))}catch(e){}}
+const $=document.getElementById("app");
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const KINDS=[["명사절","~것, ~지 (문장의 한 자리)"],["형용사절","앞 명사를 꾸밈"],["부사절","때·이유·조건 등 덧붙임"]];
+const SUBS={"형용사절":[["주격 관계대명사","빠진 자리가 주어: the man who lives here"],["목적격 관계대명사","빠진 자리가 목적어: the book that I read"],["관계부사","뒤가 완전한 절: the day when I met him"]],
+"부사절":[["시간","when, after, before"],["이유","because, since"],["양보","although, though"],["조건","if, unless"],["결과","so ~ that"],["목적","so that ~ 하도록"],["비교","than, as ~ as"],["대조","while, whereas"]],
+"명사절":[["주어","That he won is true."],["목적어","I know (that) he won."],["보어","The fact is that he won."],["전치사의 목적어","I agree with what he said."],["동격","the fact that he won"]]};
+let D=550,KO=0,cur,ni,steps,si,got,wr,ph,opened,done,GL,fnd,gh,wp={};
+function adv(fn){const tag=cur.id+'|'+ni+'|'+si+'|'+ph;setTimeout(()=>{if(cur&&tag==cur.id+'|'+ni+'|'+si+'|'+ph)fn()},D)}
+const STARS=new Set(['5-4']);
+let TAB='심화';
+function home(){
+  const L=S.filter(s=>s.lv==TAB),dn=L.filter(s=>R[s.id]&&R[s.id].done).length;
+  let h=wlStrip()+'<h1>4과 핵심 7문장 분석 (심화)</h1><p class="sub">문장 속 동사를 먼저 찾고, 절을 한 겹씩 열어 분석합니다. '+TAB+' '+L.length+'문장.'+(TAB=='심화'?' ★는 절이 여러 겹 얽힌 도전 문장입니다.':'')+'</p><div class="wguide">밑줄 점선이 보이는 단어를 한 번 누르면 내 단어장에 담깁니다. 다시 누르면 빠집니다. 직접 입력하는 기능은 없습니다. 담긴 단어는 다음 날부터 정해진 간격으로 복습 순서가 돌아옵니다.</div>';
+  h+='<p class="small" style="margin:10px 2px 8px">푼 문장 '+dn+' / '+L.length+'</p><div class="bgrid">';
+  L.forEach((s,k)=>{const r=R[s.id]||{},d=r.done,st=STARS.has(s.id)&&s.lv=='심화';
+    h+='<button class="bk'+(d?' done':'')+(st?' star':'')+'" onclick="play(\''+s.id+'\')">'+(st?'<span class="bks">\u2605</span>':'')+'<span class="bn">'+(k+1)+'</span><span class="bs">'+s.id+'</span><span class="bt">'+(d?(r.wr?'실수 '+r.wr:'완료'):'')+'</span></button>'});
+  h+='</div>';
+  const all=Object.values(R).filter(r=>r.done);
+  if(all.length)h+='<div class="card"><p class="day">내 기록</p><div class="small">푼 문장 '+all.length+'개 / 전부 한 번에 맞힌 문장 '+all.filter(r=>r.wr===0).length+'개</div><button class="reset" onclick="resetAll()">기록 지우기</button></div>';
+  cur=null;$.innerHTML=h;window.scrollTo(0,0)}
+function resetAll(){if(confirm("기록을 모두 지울까요?")){R={};save();home()}}
+function stepsOf(n){
+  if(!n.kind)return n.form?(n.form2?[{t:'S'},{t:'form',p:1},{t:'form',p:2}]:[{t:'S'},{t:'form'}]):[{t:'S'}];
+  const st=[{t:'kind'},{t:'sub'}];if(n.kind=='형용사절')st.push({t:'anc'});st.push({t:'S'});return st}
+function play(id){KO=0;cur=S.find(s=>s.id==id);TAB=cur.lv;wr=0;wp={};ph='verb';opened={};done={};ni=0;si=0;fnd={};
+  GL=[];cur.nodes.forEach(n=>n.G.forEach(g=>GL.push(g)));R[id]=R[id]||{};drawVerb('')}
+function stage(k){const a=['동사','주절','절 열기','준동사'];return '<div class="stg">'+a.map((x,i)=>'<div class="'+(i<k?'ok':i==k?'on':'')+'">'+(i+1)+' '+x+'</div>').join('')+'</div>'}
+function head(k){return '<div class="top"><button class="back" onclick="home()">&lt; 목록</button><span class="small">'+(S.filter(x=>x.lv==cur.lv).indexOf(cur)+1)+'번'+(STARS.has(cur.id)&&cur.lv=='심화'?' ★':'')+' · 출처 '+cur.id+(k==2?' · 절 '+ni+'/'+(cur.nodes.length-1):'')+'</span></div>'+stage(k)+'<p class="ko1">'+(KO?esc(cur.ko.join(' ')):'<button class="reset" style="margin:0" onclick="KO=1;redraw()">우리말 뜻 보기</button>')+'</p>'}
+function redraw(){if(ph=='verb')drawVerb('');else if(ph=='nf')drawNF('');else if(ph=='nfq')drawNFQ();else draw()}
+const VB=()=>{const f=new Set();GL.forEach(g=>g.forEach(i=>f.add(i)));return f};
+/* 1단계: 동사 찾기 - 누르는 즉시 판정 */
+function drawVerb(msg,fin){
+  let h='<div class="sent">';
+  cur.tok.forEach((w,i)=>{
+    const gi=GL.findIndex(g=>g.includes(i));let c='w2';
+    if(gi>=0&&fnd[gi])c+=' okw vb';
+    h+='<button class="'+c+'" '+(fin?'disabled':'onclick="tv('+i+')"')+'>'+esc(w)+'</button> '});
+  h+='</div>';
+  const nf=Object.keys(fnd).length;
+  const cnt=!fin&&nf?'<p class="small" style="margin:8px 0 0">찾은 동사 '+nf+'개</p>':'';
+  $.innerHTML=head(0)+'<div class="card"><p class="q">동사를 모두 누르세요</p>'+h+cnt+'<div id="fb">'+msg+'</div></div>';window.scrollTo(0,0)}
+function whyH(t){const w=t.split('\n');return '<b>'+esc(w[0])+'</b>'+w.slice(1).map(x=>'<br>'+esc(x)).join('')}
+function showWhy(){const e=document.getElementById('why'),b=document.getElementById('whyb');if(e)e.style.display='block';if(b)b.style.display='none'}
+function tv(i){
+  let gi=GL.findIndex(g=>g.includes(i));
+  if(gi<0&&cur.bd&&cur.bd.includes(i)){let bm=-1;GL.forEach((g,k)=>{const e=Math.max.apply(null,g);if(e<i&&e>bm){bm=e;gi=k}})}
+  if(gi>=0){fnd[gi]=1;
+    if(Object.keys(fnd).length==GL.length){
+      let m='<div class="msg g">동사를 모두 찾았습니다. 동사 '+GL.length+'개, 절 '+cur.nodes.length+'개.</div>';
+      if(cur.vn)m+='<div class="msg n" style="background:var(--okbg)">'+esc(cur.vn)+'</div>';
+      if(cur.why)m+='<button id="whyb" class="btn sub" onclick="showWhy()">memo</button><div id="why" class="msg n" style="display:none;background:var(--okbg);line-height:1.6">'+whyH(cur.why)+'</div>';
+      if(cur.vn||cur.why)m+='<button class="btn" onclick="startMain()">다음</button>';
+      drawVerb(m,true);if(!cur.vn&&!cur.why)adv(startMain)}
+    else drawVerb('')}
+  else{miss();drawVerb('<div class="msg n"><b>'+esc(cur.tok[i].replace(/[^A-Za-z\']/g,''))+'</b> '+esc(cur.dec[i]||'동사가 아닙니다.')+'</div>')}}
+
+/* 2단계: 준동사 찾기 + 용법/모양 */
+let NQ=[],nqi=0;
+const nfOf=i=>cur.nf.findIndex(x=>x.g.includes(i));
+const NFN=s=>s.toLowerCase().replace(/[^a-z]/g,'');
+function startNF(){if(!cur.nf.length){fin();return}cur.nodes.forEach((_,k)=>opened[k]=true);ph='nf';fndN={};drawNF('')}
+let fndN={};
+function drawNF(msg,fin){
+  const F=VB();let h='<div class="sent">';
+  cur.tok.forEach((w,i)=>{const gi=nfOf(i);let c='w2';if(F.has(i))c+=' vb';if(gi>=0&&fndN[gi])c+=' okw';
+    h+='<button class="'+c+'" '+(fin?'disabled':'onclick="tn('+i+')"')+'>'+esc(w)+'</button> '});
+  h+='</div>';
+  const nf=Object.keys(fndN).length;
+  const cnt=!fin&&nf?'<p class="small" style="margin:8px 0 0">찾은 준동사 '+nf+'개</p>':'';
+  $.innerHTML=head(3)+'<div class="card"><p class="q">to부정사, 분사, 동명사를 모두 누르세요</p>'+h+cnt+'<div id="fb">'+msg+'</div></div>';window.scrollTo(0,0)}
+function tn(i){
+  const gi=nfOf(i);
+  if(gi>=0){fndN[gi]=1;
+    if(Object.keys(fndN).length==cur.nf.length){
+      const gers=cur.nf.filter(x=>x.t=='ger');
+      let m='<div class="msg g">준동사를 모두 찾았습니다.</div>';
+      gers.forEach(g=>{m+='<div class="msg n" style="background:var(--okbg)"><b>'+esc(g.w)+'</b> '+esc(g.reason)+'</div>'});
+      if(gers.length)m+='<button class="btn" onclick="startNFQ()">다음</button>';
+      drawNF(m,true);if(!gers.length)adv(startNFQ)}
+    else drawNF('')}
+  else if(VB().has(i))drawNF('<div class="msg n" style="background:var(--okbg)">이 동사는 1단계에서 찾았어요.</div>');
+  else{miss();drawNF('<div class="msg n">'+(NFN(cur.tok[i])=='to'?'이 to는 전치사예요. to부정사가 아닙니다.':'준동사가 아닙니다.')+'</div>')}}
+function startNFQ(){NQ=cur.nf.filter(x=>x.t!='ger');nqi=0;if(!NQ.length){fin();return}ph='nfq';drawNFQ()}
+function drawNFQ(){
+  const it=NQ[nqi],F=VB();let h='<div class="sent">';
+  cur.tok.forEach((w,i)=>{
+    if(it.t=='part'&&it.g[0]==i){h+='<span class="w2 hlw">('+esc(it.base)+')</span> ';return}
+    let c='w2';if(F.has(i))c+=' vb';if(it.g.includes(i))c+=' hlw';h+='<span class="'+c+'">'+esc(w)+'</span> '});
+  h+='</div>';
+  let q,o;
+  if(it.t=='to'){q='노란 to부정사의 용법은?';o=[["명사적 용법","~하는 것 (주어·목적어·보어)"],["형용사적 용법","앞 명사를 꾸밈 (~할)"],["부사적 용법","목적·정도·이유 등 (~하기 위해)"]]}
+  else{q='( ) 안의 동사를 알맞은 분사 모양으로 바꾸면?';o=[[it.ing,'현재분사 (-ing)'],[it.pp,'과거분사 (p.p.)']]}
+  const body='<div class="chunks" style="margin-top:12px">'+o.map(x=>'<button class="ck" onclick="pickNF(this,\''+x[0]+'\')">'+x[0]+'<span class="hint">'+x[1]+'</span></button>').join('')+'</div>';
+  $.innerHTML=head(3)+'<div class="card"><span class="pill">'+(it.t=='to'?'to부정사':'분사')+' '+(nqi+1)+'/'+NQ.length+'</span><p class="q">'+q+'</p>'+h+body+'<div id="fb"></div></div>';window.scrollTo(0,0)}
+function pickNF(el,v){
+  const it=NQ[nqi];const want=it.t=='to'?it.use:it[it.ans];
+  if(v==want){document.querySelectorAll('.ck').forEach(b=>b.disabled=true);el.classList.add('okpick');
+    document.getElementById('fb').innerHTML='<div class="msg g">맞았습니다. '+(it.pat?patH(it.pat):it.t=='part'?partH(it):useH(it)+(it.rel?relH(it.rel):''))+'<div style="margin-top:8px">'+esc(it.reason)+'</div></div><button class="btn" onclick="nextNFQ()">다음</button>'}
+  else{el.classList.add('wrong');el.disabled=true;miss();document.getElementById('fb').innerHTML='<div class="msg n">다시 골라 보세요.</div>'}}
+const USES=[['명사적 용법','~하는 것',[['want',''],['to read','u']],'읽는 것을 원한다'],['형용사적 용법','앞 명사를 꾸밈',[['time',''],['to read','u']],'읽을 시간'],['부사적 용법','목적·정도·이유',[['came',''],['to read','u']],'읽으려고 왔다']];
+function useH(it){return '<div class="cmp">'+USES.map((u,k)=>'<div class="cs '+(u[0]==it.use?'on':'off')+'"><div class="bdr">'+bd(u[0],'kd'+k+' dp1',u[1])+u[2].map(x=>bd(x[0],x[1]?'kd'+k+' dp2':'')).join('<span class="pp">+</span>')+'<span class="small">'+esc(u[3])+'</span></div></div>').join('')+'</div>'}
+function partH(it){
+  const on=it.ans;
+  const row=(c,lab,sub,cls,tag,ex,ko)=>'<div class="cs '+(on==c?'on':'off')+'"><div class="bdr">'+bd(lab,'',sub)+'<span class="pp">→</span>'+bd(tag,cls)+'</div><div class="bdr">'+ex.map(x=>bd(x[0],x[1])).join('')+'<span class="small">'+esc(ko)+'</span></div></div>';
+  return '<div class="cmp">'+row('ing','능동','직접 ~한다','ing','-ing 현재분사',[['a boy',''],['playing','ing'],['soccer','']],'축구를 하는 소년')+row('pp','수동','~당한다','ppb','p.p. 과거분사',[['a window',''],['broken','ppb'],['by a ball','']],'공에 깨진 창문')+'</div><div class="bdr">'+bd(it.who||'주어','','이 문장')+'<span class="pp">→</span>'+bd(it.w,on=='ing'?'ing':'ppb',on=='ing'?'능동 · -ing':'수동 · p.p.')+'</div>'}
+function relH(r){return '<div class="pat"><div class="pth">'+esc(r.h)+'</div><div class="bdr">'+r.p.map((x,k)=>(k?'<span class="pp">+</span>':'')+bd(x[0],k==r.p.length-1?'kd2 dp2':'kd2 dp1',x[1])).join('')+'<span class="pp">=</span><span class="small" style="font-size:15px;color:var(--fg);font-weight:700">'+esc(r.ko)+'</span></div></div>'}
+function patH(p){return '<div class="pat"><div class="pth">'+esc(p.h)+'</div><div class="bdr">'+p.p.map((x,k)=>(k?'<span class="pp">+</span>':'')+bd(x[0],k==p.p.length-1?'cc':'',x[1])).join('')+'</div></div>'}
+function nextNFQ(){nqi++;if(nqi<NQ.length)drawNFQ();else fin()}
+/* 문장 표시: 열리지 않은 절은 가림판 */
+function hidTop(i){let b=null;cur.nodes.forEach((m,k)=>{if(!opened[k]&&m.a<=i&&i<m.b&&(!b||m.b-m.a>b.b-b.a))b=m});return b}
+function emOn(){return ph=='node'&&steps[si]&&(steps[si].t=='anc'||steps[si].t=='S')}
+function sentH(n,tap,fl){
+  const F=VB();let h='<div class="sent">';let i=0;
+  while(i<cur.tok.length){
+    const hm=hidTop(i);
+    if(hm){h+='<span class="mask">'+esc(cur.tok[hm.a].replace(/[^A-Za-z\']/g,''))+' ...</span> ';i=hm.b;continue}
+    if(fl&&n.fl&&n.fl.includes(i)){let j=i;while(j<cur.tok.length&&n.fl.includes(j)&&!hidTop(j))j++;h+='<span class="mask">가림</span> ';i=j;continue}
+    let c='w2';const own=n.own.includes(i);
+    if(F.has(i))c+=' vb';
+    if(emOn()&&(cur.em||[]).includes(i))c+=' em';
+    const dk=doneKind(i);
+    if(own)c+=' hlw';else if(dk!=null)c+=' kd'+dk.k+' dp'+dk.d;
+    if(got[i])c+=' okw';
+    h+=((tap&&own)?'<button class="'+c+'" onclick="tapw('+i+')">':'<span class="'+c+'">')+esc(cur.tok[i])+((tap&&own)?'</button>':'</span>')+' ';i++}
+  return h+'</div>'}
+function doneKind(i){
+  for(let k=cur.nodes.length-1;k>=0;k--){const m=cur.nodes[k];if(k===ni||!done[k]||!m.kind)continue;if(m.own.includes(i))return {k:['명사절','형용사절','부사절'].indexOf(m.kind),d:Math.min(depthOf(k),3)}}
+  return null}
+function anyH(n){
+  const F=VB();let h='<div class="sent">';let i=0;
+  while(i<cur.tok.length){
+    const hm=hidTop(i);
+    if(hm){h+='<span class="mask">'+esc(cur.tok[hm.a].replace(/[^A-Za-z\']/g,''))+' ...</span> ';i=hm.b;continue}
+    let c='w2';if(n.own.includes(i))c+=' hlw';if(F.has(i))c+=' vb';if(emOn()&&(cur.em||[]).includes(i))c+=' em';if(got[i])c+=' okw';
+    h+='<button class="'+c+'" onclick="tapw('+i+')">'+esc(cur.tok[i])+'</button> ';i++}
+  return h+'</div>'}
+function startMain(){ni=0;ph='main';opened[0]=true;steps=stepsOf(cur.nodes[0]);si=0;got={};gh={};draw()}
+function startNode(){ph='node';opened[ni]=true;steps=stepsOf(cur.nodes[ni]);si=0;got={};gh={};draw()}
+function draw(){
+  const n=cur.nodes[ni],s=steps[si];let q='',body='';
+  const pillTxt=n.kind?(si>0?n.kind:'절 열기'):'주절';
+  if(s.t=='kind'){q='노란 부분은 어떤 절일까요?';body=sentH(n,false)+opts(KINDS)}
+  else if(s.t=='sub'){q=n.kind=='형용사절'?'어떤 관계사일까요? 관계사 뒤에서 빠진 자리를 보세요.':n.kind=='부사절'?'어떤 뜻의 부사절일까요?':'이 절은 문장에서 무슨 자리일까요?';body=sentH(n,false)+opts(SUBS[n.kind])}
+  else if(s.t=='anc'){q='이 절이 꾸미는 말을 누르세요.';body=anyH(n)}
+  else if(s.t=='S'){q=n.kind?'노란 절의 주어에서 핵심 명사(대명사)를 누르세요.':'문장의 뼈대에서 주어의 핵심 명사(대명사)를 누르세요.';body=sentH(n,true,!n.kind)}
+  else if(s.t=='form'){q=s.p?(s.p==1?'첫 번째 동사('+txtOf(n.G[0])+')가 만드는 뼈대는 몇 형식일까요?':'이어진 두 번째 동사('+txtOf(n.G[1])+')가 만드는 뼈대는 몇 형식일까요?'):'이 뼈대는 누구와 닮은꼴일까요?';body=sentH(n,false,true)+formCards()}
+  else{q=!n.kind?'주절의 동사를 누르세요.':'노란 절에서 and로 이어진 동사를 모두 누르세요.';body=sentH(n,true)}
+  $.innerHTML=head(n.kind?2:1)+'<div class="card"><span class="pill">'+pillTxt+'</span><p class="q">'+esc(q)+'</p>'+body+'<div id="fb"></div></div>';window.scrollTo(0,0)}
+const FORMS=[["1형식","I sleep.","나는 잔다.","S + V"],["2형식","I am happy.","나는 행복하다.","S + V + 보어 · I = happy"],["3형식","I like apples.","나는 사과를 좋아한다.","S + V + 목적어 · I ≠ apples"],["4형식","I give him a book.","나는 그에게 책을 준다.","S + V + 간접목적어 + 직접목적어 · him ≠ a book"],["5형식","I make him happy.","나는 그를 행복하게 만든다.","S + V + 목적어 + 목적격보어 · him = happy"]];
+function formCards(){return '<div class="chunks" style="margin-top:12px">'+FORMS.map((f,k)=>'<button class="ck" onclick="pickform(this,'+(k+1)+')"><b>'+f[0]+'</b> &nbsp;'+f[1]+'<span class="hint">'+f[2]+'</span><span class="hint">'+f[3]+'</span></button>').join('')+'</div>'}
+function pickform(el,k){const n=cur.nodes[ni],st=steps[si];if(k==(st.p==2?n.form2:n.form)){el.classList.add("okpick");good()}else{el.classList.add("wrong");el.disabled=true;bad()}}
+function opts(list){return '<div class="chunks" style="margin-top:12px">'+list.map(o=>{const kc=['명사절','형용사절','부사절'].indexOf(o[0]);return '<button class="ck" onclick="pickopt(this,\''+o[0]+'\')">'+o[0]+'<span class="hint">'+o[1]+'</span></button>'}).join('')+'</div>'}
+function pickopt(el,v){
+  const n=cur.nodes[ni],s=steps[si];const want=s.t=='kind'?n.kind:n.sub;
+  if(v==want){el.classList.add("okpick");good()}else{el.classList.add("wrong");el.disabled=true;bad()}}
+function tapw(i){
+  const n=cur.nodes[ni],s=steps[si];
+  if(s.t=='V'){
+    const gi=n.G.findIndex(g=>g.includes(i)||(!n.kind&&n.V.includes(i)));
+    if(gi<0){bad();return}
+    gh[gi]=1;n.G[gi].forEach(x=>got[x]=1);
+    if(Object.keys(gh).length>=n.G.length){draw2ok()}else{draw();document.getElementById("fb").innerHTML='<div class="msg g">하나 찾았습니다. 더 있어요.</div>'}
+    return}
+  const want=s.t=='anc'?(n.np||n.anc):n.S;
+  if(want.includes(i)){want.forEach(x=>got[x]=1);draw2ok()}else if(s.t=='S'&&preMod(n,i)){modHint(n,i)}else bad()}
+const SUBW=['when','because','that','if','although','while','as','since','after','before','which','who','whom','whose','and','but','or','so','than','whether','though','even','how','what','where','wherever','whenever','whatever','why','until','unless','once','whereas','in','case','however'];
+function preMod(n,i){const h=Math.min.apply(null,n.S);if(!(i<h&&h-i<=3))return false;const F=VB();
+  for(let x=i;x<h;x++){const w=cur.tok[x];if(!n.own.includes(x)||F.has(x)||/[,;:.]$/.test(w)||SUBW.indexOf(w.toLowerCase())>=0)return false}
+  return true}
+function modHint(n,i){const h=Math.min.apply(null,n.S);const cl=x=>cur.tok[x].replace(/[^A-Za-z']/g,'');
+  document.getElementById("fb").innerHTML='<div class="msg n">핵심 명사를 눌러요. '+esc(cur.tok.slice(i,h+1).map(w=>w.replace(/[^A-Za-z\']/g,'')).join(' '))+'에서 핵심 명사는 '+esc(cl(h))+' 하나예요.</div>'}
+function draw2ok(){draw();good()}
+function miss(){wr++;wp[ph]=(wp[ph]||0)+1}
+function bad(){miss();document.getElementById("fb").innerHTML='<div class="msg n">다시 골라 보세요.</div>'}
+function good(){
+  document.querySelectorAll(".ck,.w2").forEach(b=>b.disabled=true);
+  document.querySelectorAll(".sent .w2").forEach(b=>{});
+  document.getElementById("fb").innerHTML='<div class="msg g">맞았습니다.</div>';
+  adv(nextStep)}
+function nextStep(){
+  const n=cur.nodes[ni];
+  if(si<steps.length-1){si++;got={};gh={};draw();return}
+  done[ni]=true;
+  if(n.note){noteScreen();return}
+  advance()}
+const KI=n=>['명사절','형용사절','부사절'].indexOf(n.kind);
+function bd(t,c,sub){return '<span class="bd'+(c?' '+c:'')+'">'+esc(t)+(sub?'<i>'+esc(sub)+'</i>':'')+'</span>'}
+function runsOf(ix){const r=[];let c=[];ix.forEach((i,k)=>{if(k&&i!=ix[k-1]+1){r.push(c);c=[]}c.push(i)});if(c.length)r.push(c);return r.map(txtOf).join(' / ')}
+function txtOf(ix){return ix.map(i=>cur.tok[i]).join(' ').replace(/[^A-Za-z' ]/g,'')}
+function noteVis(n){
+  let h='<div class="bdr">'+bd(n.kind,'kd'+KI(n)+' dp1')+bd(n.sub,'')+'</div>';
+  if(n.kind=='형용사절'&&n.np&&n.sub.indexOf('관계대명사')>0){
+    h+='<div class="bdr">'+bd(cur.tok[n.a].replace(/[^A-Za-z]/g,''),'kd1 dp1',n.sub)+'<span class="pp">가 채우는 자리</span>'+bd('___','gapb',n.sub[0]=='주'?'주어 자리':'목적어 자리')+'<span class="pp">=</span>'+bd(txtOf(n.np),'kd1 dp2','선행사')+'</div>'}
+  if(n.gv){h+='<div class="bdr">'+n.gv.map(g=>bd(g[0],'',g[1])).join('<span class="pp">+</span>')+(n.om?'<span class="pp">+</span>'+bd('('+n.om+')','gapb','생략'):'')+'<span class="pp">+</span>'+bd(n.om?'절':cur.tok[n.a].replace(/[^A-Za-z]/g,'')+' 절','kd0 dp1',n.sub)+'</div>'}
+  if(n.fill)h+='<div class="bdr">'+bd('___','gapb',n.fill[0])+'<span class="pp">←</span>'+bd(n.fill[1],'kd0 dp1','채우는 말')+'</div>';
+  if(n.host)h+='<div class="bdr">'+bd(n.host,'hostb')+'</div>';
+  if(n.G&&n.G.length>1)h+='<div class="bdr">'+n.G.map((g,k)=>(k?'<span class="pp">and</span>':'')+bd(txtOf(g),'vbd','동사')).join('')+'</div>';
+  if(n.kind=='부사절'&&n.sub=='결과'&&(cur.em||[]).length)h+='<div class="bdr">'+bd(txtOf(cur.em),'em2','so ~')+'<span class="pp">…</span>'+bd('that + 절','kd2 dp1','결과')+'</div>';
+  return h}
+function noteRest(n){const m=n.note.match(/형식입니다\.\s*/);return m?n.note.slice(m.index+m[0].length):n.note}
+function mainVis(n){
+  if(!n.sk)return '';
+  const lab={S:'주어',V:'동사',O:'목적어',C:n.form==5?'목적격보어':'보어'};
+  let h='<div class="bdr">'+bd(n.form+'형식'+(n.form2?' + '+n.form2+'형식':''),'cc')+'</div><div class="bdr">'+n.sk.map((x,k)=>(k?'<span class="pp">+</span>':'')+bd(runsOf(x.g),'sk'+x.r,lab[x.r])).join('')+'</div>';
+  return h}
+function noteScreen(){
+  const n=cur.nodes[ni];
+  $.innerHTML=head(n.kind?2:1)+'<div class="card"><span class="pill">정리</span>'+(n.kind?sentH(n,false)+noteVis(n):mainVis(n))+'<p class="q">'+esc(n.kind?n.note:noteRest(n))+'</p><button class="btn" onclick="advance()">'+(ni==cur.nodes.length-1?(cur.nf.length?'다음':'결과 보기'):'다음')+'</button></div>';window.scrollTo(0,0)}
+function advance(){if(ni<cur.nodes.length-1){ni++;startNode()}else startNF()}
+function depthOf(k){let d=0;const n=cur.nodes[k];for(let j=0;j<k;j++){const p=cur.nodes[j];if(p.a<=n.a&&n.b<=p.b)d++}return d}
+function finSent(){
+  let h='<div class="fsent">',kinds={},hs={},he={},hasHost=false;
+  cur.nodes.forEach(n=>{if(n.host&&n.gv&&n.gv[0]){const g=n.gv[0][0].toLowerCase();for(let j=n.a-1;j>=0;j--){if(cur.tok[j].toLowerCase().replace(/[^a-z]/g,'')==g){hs[j]=1;he[n.b-1]=1;hasHost=true;break}}}});
+  let inH=false;
+  cur.tok.forEach((w,i)=>{
+    if(hs[i]){h+='<span class="hostw">';inH=true}
+    let c='w2',k=-1;for(let q=cur.nodes.length-1;q>=0;q--){if(cur.nodes[q].own.includes(i)){k=q;break}}
+    const m=cur.nodes[k];
+    if(m&&m.kind){c+=' kd'+KI(m)+' dp'+Math.min(depthOf(k),3);kinds[m.kind]=1}
+    if((cur.em||[]).includes(i))c+=' em';
+    if(hs[i])c+=' hk';
+    h+='<span class="'+c+'" data-i="'+i+'">'+esc(w)+'</span>'+(he[i]&&inH?'':' ');
+    if(he[i]&&inH){h+='</span> ';inH=false}});
+  h+='</div><div class="bdr">'+bd('주절','cc')+(hasHost?bd('분사구문','hostb'):'')+['명사절','형용사절','부사절'].filter(x=>kinds[x]).map(x=>bd(x,'kd'+['명사절','형용사절','부사절'].indexOf(x)+' dp1')).join('')+'</div>';
+  return h}
+function mkXNote(){
+  const PN={verb:'동사 찾기',main:'주절',node:'절 열기',nf:'준동사',nfq:'준동사'},L=[];
+  Object.keys(wp).forEach(k=>L.push((PN[k]||k)+' 단계에서 '+wp[k]+'번 틀렸습니다.'));
+  if(!L.length)L.push('틀린 횟수 '+wr+'번');
+  const no=S.filter(x=>x.lv==cur.lv).indexOf(cur)+1;
+  let tree='';
+  cur.nodes.forEach((n,k)=>{let txt='';for(let i=n.a;i<n.b;i++){if(!n.own.includes(i))continue;txt+=cur.tok[i]+' '}
+    const lab=n.kind?(n.kind+' · '+n.sub):'주절 · '+n.form+'형식';
+    tree+='<li><b>'+esc(lab)+'</b>: '+esc(txt.trim())+'</li>'});
+  let rows='';cur.ch.forEach((c,i)=>{rows+='<div class="rw"><div class="re">'+esc(c)+'</div><div class="rk">'+esc(cur.ko[i])+'</div></div>'});
+  const pi='<div class="pi"><div class="pit">이것만 꼭 써</div><div class="pir"><b>\u2460</b> 끊어 읽기와 해석</div>'+rows+'</div>';
+  return {id:'x'+cur.id,src:'xray',title:cur.lv+' 문장 분석 '+no+'번 · 출처 '+cur.id,html:'<p class="sec">틀린 곳</p><ul class="wul">'+L.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul><p class="sec">문장 구조</p><ul class="wul">'+tree+'</ul>'+pi};
+}
+function fin(){
+  ph='fin';R[cur.id].done=true;R[cur.id].wr=wr;save();if(wr>0)wlPut(mkXNote());
+  let h='<div class="top"><button class="back" onclick="home()">&lt; 목록</button><span class="small">'+(S.filter(x=>x.lv==cur.lv).indexOf(cur)+1)+'번'+(STARS.has(cur.id)&&cur.lv=='심화'?' ★':'')+' · 출처 '+cur.id+'</span></div><div class="card"><span class="pill">분석 완료</span><p class="q">'+(wr==0?'모두 한 번에 맞혔습니다.':'틀린 횟수 '+wr+'번')+'</p>'+finSent()+'<div class="tree">';
+  cur.nodes.forEach((n,k)=>{
+    let d=depthOf(k);let txt='';for(let i=n.a;i<n.b;i++){if(!n.own.includes(i))continue;txt+=((cur.em||[]).includes(i)?'\u0001'+cur.tok[i]+'\u0002':cur.tok[i])+' '}
+    const lab=n.kind?(n.kind+' · '+n.sub):'주절 · '+n.form+'형식';
+    const anc=n.anc?' → '+(n.np||n.anc).map(x=>cur.tok[x]).join(' ').replace(/[^A-Za-z\' ]/g,'')+'을(를) 꾸밈':'';
+    if(n.host){h+='<div class="tn hosttn" style="margin-left:'+(d*16)+'px"><b>'+esc((n.host||'꾸밈구').replace(/ 안의 절$/,''))+'</b> · '+esc(n.gv&&n.gv[0]?n.gv[0][0]:'')+' 로 시작<br><span class="small">아래 절은 이 '+esc((n.host||'꾸밈구').replace(/ 안의 절$/,'').split('(')[0])+' 안에 들어 있음</span></div>';d=d+1}
+    h+='<div class="tn'+(n.kind?' kd'+KI(n)+' dp'+Math.min(d,3):' tcore')+'" style="margin-left:'+(d*16)+'px"><b>'+lab+'</b>'+esc(anc)+'<br><span class="te">'+esc(txt.trim()).replace(/\u0001/g,'<span class="em">').replace(/\u0002/g,'</span>')+'</span></div>'});
+  h+='</div><p class="small" style="margin-top:12px">이 문장을 끊어 읽으면</p><div class="chunks">';
+  cur.ch.forEach((c,i)=>{h+='<div class="ck mini">'+esc(c)+'<span class="ko">'+esc(cur.ko[i])+'</span></div>'});
+  const LL=S.filter(x=>x.lv==cur.lv),nx=LL[LL.indexOf(cur)+1];TAB=cur.lv;
+  h+='</div>'+(wr>0?'<a class="wlstrip" href="note.html" style="margin-top:12px">오답노트 쓰러 가기</a>':'')+'<button class="btn" onclick="'+(nx?"play('"+nx.id+"')":"home()")+'">'+(nx?'다음 문장':'목록으로')+'</button></div>';$.innerHTML=h;window.scrollTo(0,0);wkBind(document.querySelector('.fsent'),cur.id,cur.tok)}
+home();
+</script><script src="../../../common/prog.js?v=261019"></script>
+<script>(function(){try{var d=document.createElement('div');d.style.cssText='display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;background:#f1f5f4;border-bottom:1px solid #dbe4e1;font:600 14px/1.2 sans-serif;position:relative;z-index:9999';
+var a=document.createElement('a');a.href='../../index.html';a.textContent='← 답안지 목록';a.style.cssText='color:#0f766e;text-decoration:none;padding:6px 10px;border:1px solid #0f766e;border-radius:999px;background:#fff';
+var b=document.createElement('button');b.type='button';b.style.cssText='border:1.5px solid #1d4ed8;border-radius:999px;padding:6px 12px;font:700 13px sans-serif;cursor:pointer';
+function paint(){var n=PG.n('key:L4:hs');b.textContent=n?('✓ 확인했어요 · '+n+'번'):'✓ 확인했어요';b.style.background=n?'#1d4ed8':'#fff';b.style.color=n?'#fff':'#1d4ed8'}
+b.onclick=function(){PG.mark('key:L4:hs');paint()};paint();d.appendChild(a);d.appendChild(b);document.body.insertBefore(d,document.body.firstChild)}catch(e){}})();</script>
+</body></html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<title>내 단어장</title>
+<style>
+:root{--bg:#f4f6f8;--sf:#fff;--fg:#14202b;--mu:#566474;--ln:#d9e0e7;--ac:#0f766e;--acbg:#ccfbf1;--ok:#15803d;--okbg:#e3f4e8;--bad:#b91c1c;--badbg:#fde8e8;--warn:#b45309;--warnbg:#fef3c7;--corefg:#fff;color-scheme:light dark}
+@media(prefers-color-scheme:dark){:root{--bg:#0e141b;--sf:#17212b;--fg:#e6ebf0;--mu:#9aa8b6;--ln:#2a3744;--ac:#2dd4bf;--acbg:#0f3a36;--ok:#4ade80;--okbg:#15301f;--bad:#f87171;--badbg:#3a1d1f;--warn:#fbbf24;--warnbg:#46330a;--corefg:#04201d}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.5}
+.hm{display:inline-block;margin:10px 16px 0;font-size:13px;color:var(--ac);text-decoration:none}
+.wrap{max-width:560px;margin:0 auto;padding:8px 16px 40px}
+h1{font-size:20px;margin:6px 0 2px}.sub{color:var(--mu);font-size:14px;margin:0 0 14px}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:14px;margin-bottom:12px}
+.small{font-size:13px;color:var(--mu)}
+.nums{display:flex;gap:8px}.nums div{flex:1;text-align:center;background:var(--bg);border-radius:10px;padding:10px 4px}.nums b{display:block;font-size:22px}.nums span{font-size:12px;color:var(--mu)}
+.btn{display:block;width:100%;min-height:50px;border:none;border-radius:12px;background:var(--ac);color:var(--corefg);font-size:17px;font-weight:700;cursor:pointer;margin-top:10px;font-family:inherit;text-align:center;text-decoration:none;padding:13px 8px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.g{background:var(--sf);color:var(--fg);border:1.5px solid var(--ln)}
+.seg{display:flex;gap:8px;margin:14px 0 10px}.seg button{flex:1;height:44px;border-radius:12px;border:1.5px solid var(--ln);background:var(--sf);color:var(--fg);font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}.seg button.on{background:var(--ac);border-color:var(--ac);color:var(--corefg)}
+.row{padding:12px 0;border-bottom:1px solid var(--ln)}.row:last-child{border-bottom:none}
+.wt{font-size:18px;font-weight:700}.wguide{margin:10px 0;padding:10px 12px;border-radius:10px;background:rgba(120,140,160,.15);font-size:14px;line-height:1.6}.wsf{font-weight:400;color:var(--mu);font-size:15px}.wp{font-size:13px;color:var(--mu);font-weight:400}
+.wm{font-size:16px;margin-top:2px}
+.ws{font-size:14px;color:var(--mu);margin-top:4px;font-family:"Segoe UI",system-ui,sans-serif;line-height:1.5}.ws b{color:var(--fg);border-bottom:2px solid var(--ac)}
+.wf{display:flex;justify-content:space-between;align-items:center;margin-top:6px;font-size:12px;color:var(--mu)}
+.rm{border:none;background:none;color:var(--mu);font-size:13px;cursor:pointer;padding:8px 0 8px 12px;font-family:inherit;text-decoration:underline}
+.q{font-size:15px;color:var(--mu);margin:0 0 6px}
+.big{font-size:24px;font-weight:700;margin:2px 0 8px}
+.sent{font-size:19px;line-height:1.9;font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;margin:6px 0 12px}.sent b{background:var(--warnbg);border-radius:6px;padding:1px 3px}
+.opt{display:block;width:100%;text-align:left;min-height:48px;padding:11px 14px;margin-top:8px;border-radius:12px;border:2px solid var(--ln);background:var(--sf);color:var(--fg);font-size:17px;cursor:pointer;font-family:inherit}
+.opt.ok{border-color:var(--ok);background:var(--okbg)}.opt.no{border-color:var(--bad);background:var(--badbg)}
+.msg{margin-top:12px;padding:10px 12px;border-radius:10px;font-size:15px;background:var(--warnbg)}.msg.g{background:var(--okbg)}
+.bar{height:5px;background:var(--ln);border-radius:3px;overflow:hidden;margin-bottom:12px}.bar i{display:block;height:100%;background:var(--ac)}
+.memo{margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--acbg);font-size:16px}
+.two{display:flex;gap:8px}.two .btn{margin-top:10px}
+.empty{color:var(--mu);font-size:15px;padding:12px 0;line-height:1.6}
+</style></head><body>
+<a class="hm" href="./">&larr; 돌아가기</a><a class="hm" id="bk0" href="#" style="display:none;margin-left:16px">&larr; 하던 곳으로</a><div class="wrap" id="app"></div>
+<!--WB:BEGIN--><script>var WD={"w1": {"t": "risk", "p": "동", "k": "~을 내걸다, 위태롭게 하다", "d": 3, "x": "m"}, "w2": {"t": "priceless", "p": "형", "k": "대단히 귀중한", "d": 3, "x": "m"}, "w3": {"t": "work of art", "p": "명", "k": "예술품, 미술품", "d": 3, "x": "m"}, "w4": {"t": "ruin", "p": "명", "k": "붕괴, 파멸, 폐허", "d": 3, "x": "m"}, "w5": {"t": "persuade", "p": "동", "k": "설득하다", "d": 3, "x": "m"}, "w6": {"t": "force", "p": "명", "k": "군대, 병력", "d": 3, "x": "m"}, "w7": {"t": "bomb", "p": "동", "k": "폭격하다", "d": 3, "x": "m"}, "w8": {"t": "significant", "p": "형", "k": "중요한, 상당한", "d": 3, "x": "m"}, "w9": {"t": "order", "p": "동", "k": "명령하다", "d": 3, "x": "m"}, "w10": {"t": "destroy", "p": "동", "k": "파괴하다", "d": 3, "x": "m"}, "w11": {"t": "useful", "p": "형", "k": "유용한, 도움이 되는", "d": 3, "x": "m"}, "w12": {"t": "retreat", "p": "동", "k": "후퇴하다, 철수하다", "d": 3, "x": "m"}, "w13": {"t": "squeeze", "p": "동", "k": "비집고 들어가다", "d": 3, "x": "m"}, "w14": {"t": "transport", "p": "동", "k": "수송하다, 이동시키다", "d": 3, "x": "m"}, "w15": {"t": "steal", "p": "동", "k": "훔치다", "d": 3, "x": "m"}, "w16": {"t": "accomplish", "p": "동", "k": "완수하다, 성취하다", "d": 3, "x": "m"}, "w17": {"t": "countless", "p": "형", "k": "무수한, 셀 수 없이 많은", "d": 3, "x": "m"}, "w18": {"t": "destruction", "p": "명", "k": "파괴, 파멸", "d": 3, "x": "m"}, "w19": {"t": "landmark", "p": "명", "k": "역사적인 건물, 장소", "d": 3, "x": "m"}};var WM={"1-1": [[[11], "w1"], [[15], "w2"], [[16, 17, 18], "w3"], [[20], "w4"]], "2-2": [[[3], "w5"], [[6], "w6"], [[9], "w7"], [[17], "w8"]], "2-10": [[[1], "w9"], [[3], "w6"], [[5], "w10"], [[10], "w11"], [[17], "w12"]], "3-10": [[[6], "w13"]], "4-1": [[[11], "w14"]], "5-4": [[[4], "w15"], [[16], "w16"]], "5-6": [[[2], "w17"], [[6], "w19"], [[15], "w18"]]};
+var WBK='vsig-g1js-l3-wb-v1',WINT=[1,3,7,14,30,60];
+function wbLoad(){try{var o=JSON.parse(localStorage.getItem(WBK)||'null');if(o&&o.w){o.q=o.q||{};return o}}catch(e){}return {v:1,w:{},q:{}}}
+function wbSave(o){try{localStorage.setItem(WBK,JSON.stringify(o))}catch(e){}}
+function wbDay(t){var d=new Date(t||Date.now());d.setHours(0,0,0,0);return d.getTime()}
+function wbDue(box,from){var d=new Date(wbDay(from));d.setDate(d.getDate()+WINT[Math.min(box,WINT.length-1)]);return d.getTime()}
+function wbHas(id){return !!wbLoad().w[id]}
+function wbToggle(id,sent,ix,sid){var o=wbLoad();if(o.w[id]){delete o.w[id];wbSave(o);wbBadge();return false}
+ var e=WD[id];o.w[id]={x:e.x,d:e.d,s:sent,ix:ix,sid:sid,box:0,due:wbDue(0),add:Date.now(),miss:0};wbSave(o);wbBadge();return true}
+function wbEsc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+function wbSurf(id,sent,ix){var e=WD[id];if(!sent||!ix)return '';var tk=sent.split(' '),f=ix.map(function(i){return (tk[i]||'').replace(/[^A-Za-z\' -]/g,'')}).join(' ').toLowerCase();return f&&f!==e.t.toLowerCase()?' <span class="wsf">('+wbEsc(f)+')</span>':''}
+function wbInfo(id,sent,ix){var e=WD[id],sf=wbSurf(id,sent,ix);return e.x==='f'?'<b>'+wbEsc(e.t)+'</b>'+sf+' '+wbEsc(e.m):'<b>'+wbEsc(e.t)+'</b>'+sf+' ('+wbEsc(e.p)+') '+wbEsc(e.k)}
+function wbWkd(d){var w='일월화수목금토'[d.getDay()];return (d.getMonth()+1)+'/'+d.getDate()+'('+w+')'}
+function wkBind(root,key,tok){
+ var ms=WM[key];if(!root||!ms||!tok)return;
+ var map={};ms.forEach(function(m){m[0].forEach(function(i){if(map[i]==null)map[i]=m})});
+ if(!Object.keys(map).length)return;
+ var bar=document.createElement('div');bar.className='wkd';bar.innerHTML='밑줄 친 단어는 책에 나온 단어입니다. 한 번 누르면 내 단어장에 담기고, 다시 누르면 빠집니다. 담기는 형태는 원형입니다.';
+ root.parentNode.insertBefore(bar,root.nextSibling);
+ var sent=tok.join(' ');
+ function paint(){root.querySelectorAll('[data-i]').forEach(function(sp){var m=map[+sp.dataset.i];if(m&&wbHas(m[1]))sp.classList.add('wks');else sp.classList.remove('wks')})}
+ root.querySelectorAll('[data-i]').forEach(function(sp){var m=map[+sp.dataset.i];if(!m)return;sp.classList.add('wk');
+  sp.addEventListener('click',function(ev){ev.stopPropagation();var on=wbToggle(m[1],sent,m[0],key);paint();bar.innerHTML=wbInfo(m[1],sent,m[0])+'<br><span class="wkm">'+(on?'내 단어장에 담았습니다.':'내 단어장에서 뺐습니다.')+'</span>'})});
+ paint();
+}
+function wbHashStr(s){var h=0;for(var i=0;i<s.length;i++){h=(h*31+s.charCodeAt(i))|0}return (h>>>0).toString(36)}
+function wbAddQ(it,q){var o=wbLoad(),id=it.k+'|'+wbHashStr(JSON.stringify(q));
+ if(!o.q[id]){o.q[id]={k:it.k,ko:it.ko||'',nos:it.nos||[],q:q,box:0,due:wbDue(0),add:Date.now(),miss:1};
+  var ks=Object.keys(o.q);if(ks.length>300){ks.sort(function(a,b){return o.q[a].add-o.q[b].add});delete o.q[ks[0]]}}
+ else{o.q[id].miss=(o.q[id].miss||0)+1;o.q[id].box=0;o.q[id].due=wbDue(0)}
+ wbSave(o);return id}
+function wbQDone(id,ok){var o=wbLoad(),e=o.q[id];if(!e)return;
+ if(ok){if(e.box>=WINT.length-1){delete o.q[id]}else{e.box++;e.due=wbDue(e.box)}}
+ else{e.box=0;e.miss=(e.miss||0)+1;e.due=wbDue(0)}
+ wbSave(o)}
+function wbBadge(){var el=document.getElementById('wlink');if(el)el.textContent='내 단어장 '+Object.keys(wbLoad().w).length+'개'}
+wbBadge();
+</script><!--WB:END-->
+<script>
+var $=document.getElementById('app'),TAB='list',SS=null;
+var TYN={struct_anc:'꾸밈 대상',struct_main:'본동사',struct_adv:'부사절 뜻',use_prep:'짝꿍 전치사',use_pair:'헷갈리는 동사',use_t5:'맞는 문장 고르기',use_sent:'문장 형식',use_mean:'동사구 뜻'};
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function sentH(s,ix){var tk=s.split(' ');return tk.map(function(w,i){return ix&&ix.indexOf(i)>=0?'<b>'+wbEsc(w)+'</b>':wbEsc(w)}).join(' ')}
+function dstr(ts){return wbWkd(new Date(ts))}
+function home(){
+ SS=null;var o=wbLoad(),ids=Object.keys(o.w),now=Date.now(),due=ids.filter(function(id){return o.w[id].due<=now}),qs=Object.keys(o.q),qd=qs.filter(function(k){return o.q[k].due<=now});
+ var h='<h1>내 단어장</h1><p class="sub">문장 분석과 복습에서 누른 책 단어가 모입니다. 담은 다음 날부터 1일, 3일, 7일, 14일, 30일, 60일 간격으로 다시 나옵니다.</p>';
+ h+='<div class="card"><div class="nums"><div><b>'+ids.length+'</b><span>담은 단어</span></div><div><b>'+due.length+'</b><span>오늘 복습</span></div><div><b>'+qs.length+'</b><span>틀린 문제</span></div></div>';
+ h+='<button class="btn" id="go"'+(due.length?'':' disabled')+'>오늘 복습 시작'+(due.length?' ('+Math.min(due.length,20)+'개)':'')+'</button>';
+ if(ids.length)h+='<button class="btn g" id="all">전부 연습 (일정 그대로)</button>';
+ if(qs.length)h+='<a class="btn g" href="review.html#wrong">틀린 문제 다시 풀기'+(qd.length?' ('+qd.length+'개 오늘)':'')+'</a>';
+ h+='</div>';
+ h+='<div class="wguide">밑줄 점선이 보이는 단어를 한 번 누르면 내 단어장에 담깁니다. 다시 누르면 빠집니다. 직접 입력하는 기능은 없습니다. 담긴 단어는 다음 날부터 정해진 간격으로 복습 순서가 돌아옵니다.<br>담기는 단어는 원형으로 보이고, 문장에 나온 형태는 괄호로 함께 표시됩니다. 이 7문장에 나온 단어만 담을 수 있습니다.</div>';
+ h+='<div class="seg"><button class="'+(TAB=='list'?'on':'')+'" data-t="list">단어 목록 '+ids.length+'</button><button class="'+(TAB=='wrong'?'on':'')+'" data-t="wrong">틀린 문제 '+qs.length+'</button></div>';
+ if(TAB=='list'){
+  if(!ids.length)h+='<div class="card empty">아직 담은 단어가 없습니다.<br>문장 분석을 끝낸 화면이나 복습 문제를 푼 뒤 화면에서, 밑줄 친 단어를 누르면 여기에 모입니다.</div>';
+  else{h+='<div class="card" style="padding:4px 14px">';
+   ids.sort(function(a,b){return o.w[b].add-o.w[a].add}).forEach(function(id){var w=o.w[id],e=WD[id];
+    h+='<div class="row"><div class="wt">'+wbEsc(e.t)+wbSurf(id,w.s,w.ix)+(e.x==='m'?' <span class="wp">('+wbEsc(e.p)+')</span>':'')+'</div><div class="wm">'+wbEsc(e.x==='m'?e.k:e.m)+'</div><div class="ws">'+sentH(w.s,w.ix)+'</div><div class="wf"><span>'+e.d+'과 &middot; 다음 복습 '+dstr(w.due)+(w.miss?' &middot; 틀린 횟수 '+w.miss:'')+'</span><button class="rm" data-rm="'+id+'">빼기</button></div></div>'});
+   h+='</div>'}
+ }else{
+  if(!qs.length)h+='<div class="card empty">틀린 문제가 없습니다. 누적 복습에서 틀린 문제가 여기에 모입니다.</div>';
+  else{h+='<div class="card" style="padding:4px 14px">';
+   qs.sort(function(a,b){return o.q[b].add-o.q[a].add}).forEach(function(id){var e=o.q[id],q=e.q;
+    h+='<div class="row"><div class="wt" style="font-size:16px">Day '+e.k.split('-')[0]+' &middot; '+wbEsc(TYN[q.t]||'문제')+(q.verb?' <span class="wp">'+wbEsc(q.verb)+'</span>':'')+'</div><div class="ws">'+wbEsc((q.tok||[]).join(' '))+'</div><div class="wf"><span>다음 복습 '+dstr(e.due)+' &middot; 틀린 횟수 '+(e.miss||1)+'</span><button class="rm" data-rq="'+id+'">빼기</button></div></div>'});
+   h+='</div>'}
+ }
+ $.innerHTML=h;window.scrollTo(0,0);
+ var g=document.getElementById('go');if(g)g.onclick=function(){startRev(false)};
+ var a=document.getElementById('all');if(a)a.onclick=function(){startRev(true)};
+ $.querySelectorAll('.seg button').forEach(function(b){b.onclick=function(){TAB=b.dataset.t;home()}});
+ $.querySelectorAll('[data-rm]').forEach(function(b){b.onclick=function(){var o=wbLoad();delete o.w[b.dataset.rm];wbSave(o);home()}});
+ $.querySelectorAll('[data-rq]').forEach(function(b){b.onclick=function(){var o=wbLoad();delete o.q[b.dataset.rq];wbSave(o);home()}});
+}
+function startRev(all){var o=wbLoad(),now=Date.now(),ids=Object.keys(o.w).filter(function(id){return all||o.w[id].due<=now});ids=shuf(ids).slice(0,20);if(!ids.length){home();return}
+ SS={ids:ids,i:0,ok:0,n:ids.length,bad:[],noSched:!!all,retryAt:-1};ask()}
+function distract(id){var e=WD[id],ph=(e.p||'').split('/')[0],tk=function(s){return s.split(/[,;\s()~]+/).filter(function(x){return x.length>1})},mine=tk(e.k);
+ var pool=Object.keys(WD).filter(function(k){var d=WD[k];if(d.x!=='m'||k===id||d.k===e.k)return false;var t=tk(d.k);return !t.some(function(x){return mine.indexOf(x)>=0})});
+ var same=shuf(pool.filter(function(k){return (WD[k].p||'').split('/')[0]===ph})),rest=shuf(pool.filter(function(k){return (WD[k].p||'').split('/')[0]!==ph}));
+ var out=[],seen={};same.concat(rest).forEach(function(k){if(out.length<3&&!seen[WD[k].k]){seen[WD[k].k]=1;out.push(WD[k].k)}});return out}
+function ask(){
+ var o=wbLoad(),id=SS.ids[SS.i],e=WD[id],w=o.w[id];
+ if(!w){SS.i++;if(SS.i<SS.ids.length)ask();else endRev();return}
+ var h='<div class="bar"><i style="width:'+(SS.i/SS.ids.length*100)+'%"></i></div><div class="card"><p class="q">'+(SS.i+1)+' / '+SS.ids.length+(SS.retryAt>=0&&SS.i>=SS.retryAt?' &middot; 한 번 더':'')+'</p>';
+ if(e.x==='m'){
+  h+='<div class="big">'+wbEsc(e.t)+'</div><div class="sent">'+sentH(w.s,w.ix)+'</div><p class="q">뜻을 고르세요.</p>';
+  var opts=shuf([e.k].concat(distract(id)));
+  h+=opts.map(function(x){return '<button class="opt" data-v="'+wbEsc(x)+'">'+wbEsc(x)+'</button>'}).join('')+'<div id="fb"></div></div>';
+  $.innerHTML=h;window.scrollTo(0,0);
+  $.querySelectorAll('.opt').forEach(function(b){b.onclick=function(){
+   var ok=b.dataset.v===e.k;$.querySelectorAll('.opt').forEach(function(x){x.disabled=true;if(x.dataset.v===e.k)x.classList.add('ok')});if(!ok)b.classList.add('no');
+   rec(id,ok);document.getElementById('fb').innerHTML='<div class="msg '+(ok?'g':'')+'">'+(ok?'맞았습니다. ':'아쉽습니다. ')+wbInfo(id)+'</div><button class="btn" id="nx">'+(SS.i<SS.ids.length-1?'다음':'결과 보기')+'</button>';
+   document.getElementById('nx').onclick=nxt}})
+ }else{
+  h+='<div class="big">'+wbEsc(e.t)+'</div><div class="sent">'+sentH(w.s,w.ix)+'</div><p class="q">이 말의 쓰임이 기억나나요?</p><button class="btn g" id="sh">책 메모 보기</button><div id="fb"></div></div>';
+  $.innerHTML=h;window.scrollTo(0,0);
+  document.getElementById('sh').onclick=function(){document.getElementById('sh').style.display='none';
+   document.getElementById('fb').innerHTML='<div class="memo">'+wbEsc(e.m)+'</div><div class="two"><button class="btn g" id="no">헷갈린다</button><button class="btn" id="yes">알았다</button></div>';
+   document.getElementById('yes').onclick=function(){rec(id,true);nxt()};document.getElementById('no').onclick=function(){rec(id,false);nxt()}}
+ }
+}
+function rec(id,ok){if(ok)SS.ok++;else if(SS.bad.indexOf(id)<0)SS.bad.push(id);
+ if(SS.noSched||(SS.retryAt>=0&&SS.i>=SS.retryAt))return;
+ var o=wbLoad(),w=o.w[id];if(!w)return;
+ if(ok){w.box=Math.min((w.box||0)+1,WINT.length-1);w.due=wbDue(w.box)}else{w.box=0;w.miss=(w.miss||0)+1;w.due=wbDue(0)}
+ wbSave(o)}
+function nxt(){SS.i++;
+ if(SS.i<SS.ids.length){ask();return}
+ if(SS.retryAt<0&&SS.bad.length&&!SS.noSched){SS.retryAt=SS.ids.length;SS.ids=SS.ids.concat(SS.bad);SS.bad=[];ask();return}
+ endRev()}
+function endRev(){var h='<div class="card"><p class="q">복습 완료</p><div class="big">'+SS.ok+' / '+SS.ids.length+'</div>';
+ h+='<div class="small">틀린 단어는 내일 다시 나오고, 맞힌 단어는 점점 긴 간격으로 나옵니다.</div>';
+ if(SS.bad.length){h+='<div class="memo" style="margin-top:12px"><b>마지막에도 헷갈린 단어</b>'+SS.bad.map(function(id){return '<div style="margin-top:6px">'+wbInfo(id)+'</div>'}).join('')+'</div>'}
+ h+='<button class="btn" id="bk">내 단어장으로</button></div>';$.innerHTML=h;window.scrollTo(0,0);document.getElementById('bk').onclick=home}
+(function(){var r=document.referrer||'';if(/xray|review/.test(r)){var b=document.getElementById('bk0');b.style.display='inline-block';b.onclick=function(e){e.preventDefault();history.back()}}})();
+home();
+</script></body></html>

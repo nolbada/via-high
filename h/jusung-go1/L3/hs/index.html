@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<title>주성고1 3과 핵심 7문장 분석 (심화)</title>
+<style>
+:root{--bg:#f4f6f8;--sf:#fff;--fg:#14202b;--mu:#566474;--ln:#d9e0e7;--ac:#0f766e;--acbg:#ccfbf1;--ok:#15803d;--okbg:#e3f4e8;--bad:#b91c1c;--badbg:#fde8e8;--warn:#b45309;--warnbg:#fef3c7;--core:#0f766e;--corefg:#fff}
+@media(prefers-color-scheme:dark){:root{--bg:#0e141b;--sf:#17212b;--fg:#e6ebf0;--mu:#9aa8b6;--ln:#2a3744;--ac:#2dd4bf;--acbg:#0f3a36;--ok:#4ade80;--okbg:#15301f;--bad:#f87171;--badbg:#3a1d1f;--warn:#fbbf24;--warnbg:#46330a;--core:#2dd4bf;--corefg:#04201d}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Malgun Gothic","Apple SD Gothic Neo",sans-serif;line-height:1.5}
+.wrap{max-width:560px;margin:0 auto;padding:16px 16px 40px}
+h1{font-size:20px;margin:6px 0 2px}.sub{color:var(--mu);font-size:14px;margin:0 0 14px}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:14px;margin-bottom:12px}
+.day{font-weight:700;margin:0 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-width:44px;height:44px;border-radius:10px;border:1.5px solid var(--ln);background:var(--sf);color:var(--fg);font-size:16px;font-weight:700;cursor:pointer}
+.chip.done{background:var(--acbg);border-color:var(--ac)}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.back{background:none;border:none;color:var(--mu);font-size:15px;cursor:pointer;padding:8px 0}
+.q{font-size:16px;font-weight:700;margin:2px 0 14px}
+.sent{font-size:21px;line-height:2.3;font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Malgun Gothic",sans-serif;letter-spacing:.1px}
+.w{display:inline}
+.gap{display:inline-block;min-width:20px;height:30px;vertical-align:middle;margin:0 1px;border:none;background:none;color:var(--ac);font-size:22px;font-weight:700;cursor:pointer;border-radius:6px;padding:0 2px}
+.gap:before{content:"\00b7";color:var(--ln);font-size:22px}
+.gap.on:before{content:"/";color:var(--ac)}
+.gap.ok:before{content:"/";color:var(--ok)}.gap.miss{background:var(--warnbg)}.gap.miss:before{content:"/";color:var(--warn)}
+.gap.extra{background:var(--badbg)}.gap.extra:before{content:"/";color:var(--bad);text-decoration:line-through}
+.btn{display:block;width:100%;height:50px;border:none;border-radius:12px;background:var(--ac);color:var(--corefg);font-size:17px;font-weight:700;cursor:pointer;margin-top:14px}
+.btn:disabled{opacity:.4}
+.btn.sub{background:transparent;color:var(--ac);border:1.5px solid var(--ac);height:44px;font-size:15px}
+.msg{margin-top:12px;padding:10px 12px;border-radius:10px;font-size:15px}
+.msg.g{background:var(--okbg)}.msg.n{background:var(--warnbg)}
+.legend{font-size:13px;color:var(--mu);margin-top:8px}
+.chunks{display:flex;flex-direction:column;gap:8px}
+.ck{text-align:left;border:2px solid var(--ln);background:var(--sf);color:var(--fg);border-radius:12px;padding:10px 12px;font-size:18px;cursor:pointer}
+.ck.sel{border-color:var(--core);background:var(--acbg)}
+.ck.core{background:var(--core);color:var(--corefg);border-color:var(--core)}
+.ck.flesh{opacity:.75}
+.ck.wrong{border-color:var(--bad);background:var(--badbg);color:var(--fg)}
+.ck.missed{border-color:var(--warn);border-style:dashed}
+.ko{display:block;font-family:"Malgun Gothic",sans-serif;font-size:15px;margin-top:3px;opacity:.95}
+.tag{float:right;font-size:12px;font-family:"Malgun Gothic",sans-serif;font-weight:700}
+.sumline{font-size:17px;font-weight:700;margin-top:6px}
+.pill{display:inline-block;padding:2px 10px;border-radius:99px;background:var(--acbg);font-size:13px;font-weight:700;margin-bottom:8px}
+.small{font-size:13px;color:var(--mu)}
+.reset{background:none;border:none;color:var(--mu);text-decoration:underline;cursor:pointer;font-size:13px;margin-top:10px}
+.ck.target{border-color:#eab308;background:#fef9c3;color:#14202b;cursor:default}
+.ck.mini{padding:6px 10px;font-size:16px}
+.ck.okpick{border-color:var(--ok);background:var(--okbg)}
+.tree{display:flex;flex-direction:column;gap:6px}
+.tn{padding:8px 10px;border:1.5px solid var(--ln);border-radius:10px;font-family:inherit;font-size:16px;background:var(--sf)}
+.tn.tcore{background:var(--core);color:var(--corefg);border-color:var(--core)}
+.arm{color:var(--mu);margin-right:6px}.tcore .arm{color:inherit}
+.te{font-family:inherit}
+.msg .ko{margin-top:4px}
+.w2{display:inline;border:none;background:none;color:inherit;font:inherit;padding:2px 3px;border-radius:6px;cursor:pointer}
+span.w2{cursor:default}
+.sent{line-height:2.2}
+.hlw{background:#fde047;color:#14202b}
+.okw{background:var(--okbg);outline:2px solid var(--ok)}
+.badw{background:var(--badbg);text-decoration:line-through;opacity:.7}
+.closed{display:inline-block;padding:2px 10px;margin:0 2px;border:1.5px dashed var(--ln);border-radius:8px;color:var(--mu);font-family:'Malgun Gothic',sans-serif;font-size:14px}
+.outw{color:var(--mu);opacity:.75}
+.kidw{background:#fef9c3;color:var(--mu)}
+
+.stg{display:flex;gap:6px;margin:0 0 10px}.stg div{flex:1;text-align:center;font-size:12px;padding:5px 0;border-radius:8px;background:var(--ln);color:var(--mu);font-weight:700}
+.stg div.on{background:var(--ac);color:var(--corefg)}.stg div.ok{background:var(--acbg);color:var(--ac)}
+.ko1{font-size:14px;color:var(--mu);margin:0 0 10px}
+.mask{display:inline-block;min-width:64px;padding:2px 10px;margin:0 3px;border-radius:8px;border:1.5px solid #64748b;font-family:'Malgun Gothic',sans-serif;font-size:14px;font-weight:700;color:#334155;background:repeating-linear-gradient(135deg,#cbd5e1 0 7px,#f1f5f9 7px 14px);vertical-align:middle}
+@media(prefers-color-scheme:dark){.mask{border-color:#94a3b8;color:#e2e8f0;background:repeating-linear-gradient(135deg,#475569 0 7px,#1e293b 7px 14px)}}
+.em{color:#6d28d9;font-weight:800}
+.pat{margin-top:8px}.pth{font-weight:800;margin-bottom:8px}.pr2{display:flex;align-items:flex-start;gap:3px;flex-wrap:wrap}.pp{font-weight:800;padding-top:4px}
+.pb{display:flex;flex-direction:column;align-items:center}.pb b{padding:4px 6px;border-radius:8px;background:var(--sf);border:1.5px solid var(--ln);font-size:14px;white-space:nowrap}.pb i{font-style:normal;font-size:12px;color:var(--mu);margin-top:3px}.pb.cc b{border-color:var(--ac);background:var(--acbg);color:var(--fg)}
+.pr{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0;border-top:1px solid var(--ln)}.prt{font-size:18px;flex:1}.prb{display:flex;gap:6px}
+.rb{width:44px;height:44px;border-radius:10px;border:1.5px solid var(--ln);background:var(--sf);color:var(--fg);font-size:16px;font-weight:800;cursor:pointer}
+.rb.ok{background:var(--okbg);border-color:var(--ok)}.rb.no{background:var(--badbg);border-color:var(--bad);opacity:.6}
+@media(prefers-color-scheme:dark){.em{color:#c4b5fd}}
+.vb{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;font-weight:700}
+.sel{background:var(--acbg);outline:2px solid var(--ac)}
+.miss{background:var(--warnbg);outline:2px dashed var(--warn)}
+:root{--n1:#bfdbfe;--n2:#dbeafe;--n3:#eff6ff;--nb:#3b82f6;--a1:#ddd6fe;--a2:#ebe5ff;--a3:#f5f3ff;--ab:#8b5cf6;--v1:#fed7aa;--v2:#ffe6cc;--v3:#fff4e6;--vb:#f97316}
+@media(prefers-color-scheme:dark){:root{--n1:#1f4068;--n2:#1a3354;--n3:#162b47;--nb:#60a5fa;--a1:#3f2d73;--a2:#33265f;--a3:#2a2050;--ab:#a78bfa;--v1:#6b3a12;--v2:#57300f;--v3:#46270f;--vb:#fb923c}}
+.kd0{--c1:var(--n1);--c2:var(--n2);--c3:var(--n3);--cb:var(--nb)}
+.kd1{--c1:var(--a1);--c2:var(--a2);--c3:var(--a3);--cb:var(--ab)}
+.kd2{--c1:var(--v1);--c2:var(--v2);--c3:var(--v3);--cb:var(--vb)}
+.dp1{background:var(--c1)}.dp2{background:var(--c2)}.dp3{background:var(--c3)}
+.tn.kd0,.tn.kd1,.tn.kd2{border-color:var(--cb);border-left-width:7px;color:var(--fg)}
+.kdb{border-left:7px solid var(--cb)}
+.bdr{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:10px 0}
+.bd{display:inline-flex;flex-direction:column;align-items:center;padding:4px 10px;border-radius:10px;border:1.5px solid var(--ln);background:var(--sf);font-weight:700;font-size:15px;line-height:1.3}
+.bd i{font-style:normal;font-size:11px;font-weight:600;color:var(--mu)}
+.bd.kd0,.bd.kd1,.bd.kd2{border-color:var(--cb);color:var(--fg)}
+.bd.skS{border-color:var(--ac)}.bd.skV{border-color:var(--ac);background:var(--acbg)}.bd.skO,.bd.skC{border-color:var(--warn)}
+.bd.hostb{border-style:dashed;border-color:var(--warn);background:var(--warnbg);color:var(--fg)}
+.hostw{border-bottom:3px dashed var(--warn);padding-bottom:4px}.hk{font-weight:700;outline:1.5px dashed var(--warn);outline-offset:1px}.tn.hosttn{border-style:dashed;border-color:var(--warn);background:var(--warnbg);color:var(--fg)}
+.hostt{display:inline-block;margin-top:4px;padding:1px 8px;border:1.5px dashed var(--warn);border-radius:8px;font-size:12px;font-weight:700}
+.fsent{line-height:2.2;margin:8px 0 4px}
+.bd.ing{border-color:#16a34a;background:#dcfce7;color:#14202b}.bd.ppb{border-color:#db2777;background:#fce7f3;color:#14202b}
+@media(prefers-color-scheme:dark){.bd.ing{background:#14532d;color:#e6ebf0}.bd.ppb{background:#4a1d33;color:#e6ebf0}}
+.cmp{display:flex;flex-direction:column;gap:6px;margin:8px 0}.cs{border:1.5px solid var(--ln);border-radius:12px;padding:2px 8px;background:var(--sf)}.cs.off{opacity:.5}.cs.on{border:2px solid var(--ok)}.cs .bdr{margin:6px 0}
+.bd.cc{border-color:var(--ac);background:var(--acbg)}.bd.gapb{border-style:dashed;background:transparent}
+.bd.vbd{border-color:var(--ac);background:var(--acbg)}.bd.em2{border-color:#7c3aed;color:#6d28d9}
+@media(prefers-color-scheme:dark){.bd.em2{color:#c4b5fd;border-color:#a78bfa}}
+.ck .hint{display:block;font-family:'Malgun Gothic',sans-serif;font-size:13px;color:var(--mu);margin-top:2px}
+.ck{font-family:inherit;font-size:16px}
+.seg{display:flex;gap:8px}.seg button{flex:1;height:46px;border-radius:12px;border:1.5px solid var(--ln);background:var(--sf);color:var(--fg);font-size:16px;font-weight:700;cursor:pointer}.seg button.on{background:var(--ac);border-color:var(--ac);color:var(--corefg)}
+.row{display:flex;align-items:center;gap:10px;width:100%;min-height:52px;padding:8px 0;border:none;border-bottom:1px solid var(--ln);background:none;color:var(--fg);text-align:left;cursor:pointer;font-family:inherit}
+.row:last-child{border-bottom:none}.rn{flex:0 0 34px;font-weight:700;color:var(--ac);font-size:17px;text-align:center}.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(68px,1fr));gap:8px;margin-bottom:14px}
+.bk{position:relative;background:var(--sf);border:1.5px solid var(--ln);border-radius:12px;min-height:72px;padding:8px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;color:var(--fg);font-family:inherit;cursor:pointer}
+.bk .bn{font-size:21px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2}.bk .bs{font-size:11px;color:var(--mu);line-height:1.2}.bk .bt{font-size:11px;color:var(--ok);font-weight:700;min-height:14px}
+.bk.star{background:var(--warnbg);border-color:var(--warn)}.bk .bks{position:absolute;top:3px;right:6px;font-size:13px;line-height:1;color:var(--warn)}
+.bk.done{background:var(--okbg);border-color:var(--ok)}
+.rt2{flex:1;min-width:0}.stm{display:block;font-size:13px;line-height:1;color:#d97706}.rs{display:block;font-size:12px;color:var(--mu);margin-top:2px;font-family:inherit}.rt{flex:1;font-size:15px;line-height:1.4;font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.rm{flex:0 0 36px;font-size:12px;color:var(--mu);text-align:right}.rm.on{color:var(--ok);font-weight:700}
+.wk{border-bottom:2px dotted #8794a3;cursor:pointer}.wks{border-bottom:2px solid #16a34a;font-weight:700}
+.wkd{margin-top:10px;padding:10px 12px;border-radius:10px;background:rgba(120,140,160,.15);font-size:15px;line-height:1.5}.wkm{font-size:13px;opacity:.8}.wsf{font-weight:400;opacity:.75}.wguide{margin:10px 0;padding:10px 12px;border-radius:10px;background:rgba(120,140,160,.15);font-size:14px;line-height:1.6}
+.wlstrip{display:block;margin:0 0 12px;padding:11px 14px;border:2px solid #e0a100;border-radius:12px;background:#fff4d6;color:#5b3d00;font-size:15px;font-weight:800;text-decoration:none}
+</style></head><body><div style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px 0;font-size:14px"><a href="../../index.html" style="color:var(--ac);text-decoration:none;padding:6px 0">&larr; 주성고 정답 목록</a><a id="wlink" href="words.html" style="color:var(--ac);text-decoration:none;font-weight:700;padding:6px 0">내 단어장</a></div><div class="wrap" id="app"></div>
+<!--WB:BEGIN--><script>var WD={"w1": {"t": "risk", "p": "동", "k": "~을 내걸다, 위태롭게 하다", "d": 3, "x": "m"}, "w2": {"t": "priceless", "p": "형", "k": "대단히 귀중한", "d": 3, "x": "m"}, "w3": {"t": "work of art", "p": "명", "k": "예술품, 미술품", "d": 3, "x": "m"}, "w4": {"t": "ruin", "p": "명", "k": "붕괴, 파멸, 폐허", "d": 3, "x": "m"}, "w5": {"t": "persuade", "p": "동", "k": "설득하다", "d": 3, "x": "m"}, "w6": {"t": "force", "p": "명", "k": "군대, 병력", "d": 3, "x": "m"}, "w7": {"t": "bomb", "p": "동", "k": "폭격하다", "d": 3, "x": "m"}, "w8": {"t": "significant", "p": "형", "k": "중요한, 상당한", "d": 3, "x": "m"}, "w9": {"t": "order", "p": "동", "k": "명령하다", "d": 3, "x": "m"}, "w10": {"t": "destroy", "p": "동", "k": "파괴하다", "d": 3, "x": "m"}, "w11": {"t": "useful", "p": "형", "k": "유용한, 도움이 되는", "d": 3, "x": "m"}, "w12": {"t": "retreat", "p": "동", "k": "후퇴하다, 철수하다", "d": 3, "x": "m"}, "w13": {"t": "squeeze", "p": "동", "k": "비집고 들어가다", "d": 3, "x": "m"}, "w14": {"t": "transport", "p": "동", "k": "수송하다, 이동시키다", "d": 3, "x": "m"}, "w15": {"t": "steal", "p": "동", "k": "훔치다", "d": 3, "x": "m"}, "w16": {"t": "accomplish", "p": "동", "k": "완수하다, 성취하다", "d": 3, "x": "m"}, "w17": {"t": "countless", "p": "형", "k": "무수한, 셀 수 없이 많은", "d": 3, "x": "m"}, "w18": {"t": "destruction", "p": "명", "k": "파괴, 파멸", "d": 3, "x": "m"}, "w19": {"t": "landmark", "p": "명", "k": "역사적인 건물, 장소", "d": 3, "x": "m"}};var WM={"1-1": [[[11], "w1"], [[15], "w2"], [[16, 17, 18], "w3"], [[20], "w4"]], "2-2": [[[3], "w5"], [[6], "w6"], [[9], "w7"], [[17], "w8"]], "2-10": [[[1], "w9"], [[3], "w6"], [[5], "w10"], [[10], "w11"], [[17], "w12"]], "3-10": [[[6], "w13"]], "4-1": [[[11], "w14"]], "5-4": [[[4], "w15"], [[16], "w16"]], "5-6": [[[2], "w17"], [[6], "w19"], [[15], "w18"]]};
+var WBK='vsig-g1js-l3-wb-v1',WINT=[1,3,7,14,30,60];
+function wbLoad(){try{var o=JSON.parse(localStorage.getItem(WBK)||'null');if(o&&o.w){o.q=o.q||{};return o}}catch(e){}return {v:1,w:{},q:{}}}
+function wbSave(o){try{localStorage.setItem(WBK,JSON.stringify(o))}catch(e){}}
+function wbDay(t){var d=new Date(t||Date.now());d.setHours(0,0,0,0);return d.getTime()}
+function wbDue(box,from){var d=new Date(wbDay(from));d.setDate(d.getDate()+WINT[Math.min(box,WINT.length-1)]);return d.getTime()}
+function wbHas(id){return !!wbLoad().w[id]}
+function wbToggle(id,sent,ix,sid){var o=wbLoad();if(o.w[id]){delete o.w[id];wbSave(o);wbBadge();return false}
+ var e=WD[id];o.w[id]={x:e.x,d:e.d,s:sent,ix:ix,sid:sid,box:0,due:wbDue(0),add:Date.now(),miss:0};wbSave(o);wbBadge();return true}
+function wbEsc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+function wbSurf(id,sent,ix){var e=WD[id];if(!sent||!ix)return '';var tk=sent.split(' '),f=ix.map(function(i){return (tk[i]||'').replace(/[^A-Za-z\' -]/g,'')}).join(' ').toLowerCase();return f&&f!==e.t.toLowerCase()?' <span class="wsf">('+wbEsc(f)+')</span>':''}
+function wbInfo(id,sent,ix){var e=WD[id],sf=wbSurf(id,sent,ix);return e.x==='f'?'<b>'+wbEsc(e.t)+'</b>'+sf+' '+wbEsc(e.m):'<b>'+wbEsc(e.t)+'</b>'+sf+' ('+wbEsc(e.p)+') '+wbEsc(e.k)}
+function wbWkd(d){var w='일월화수목금토'[d.getDay()];return (d.getMonth()+1)+'/'+d.getDate()+'('+w+')'}
+function wkBind(root,key,tok){
+ var ms=WM[key];if(!root||!ms||!tok)return;
+ var map={};ms.forEach(function(m){m[0].forEach(function(i){if(map[i]==null)map[i]=m})});
+ if(!Object.keys(map).length)return;
+ var bar=document.createElement('div');bar.className='wkd';bar.innerHTML='밑줄 친 단어는 책에 나온 단어입니다. 한 번 누르면 내 단어장에 담기고, 다시 누르면 빠집니다. 담기는 형태는 원형입니다.';
+ root.parentNode.insertBefore(bar,root.nextSibling);
+ var sent=tok.join(' ');
+ function paint(){root.querySelectorAll('[data-i]').forEach(function(sp){var m=map[+sp.dataset.i];if(m&&wbHas(m[1]))sp.classList.add('wks');else sp.classList.remove('wks')})}
+ root.querySelectorAll('[data-i]').forEach(function(sp){var m=map[+sp.dataset.i];if(!m)return;sp.classList.add('wk');
+  sp.addEventListener('click',function(ev){ev.stopPropagation();var on=wbToggle(m[1],sent,m[0],key);paint();bar.innerHTML=wbInfo(m[1],sent,m[0])+'<br><span class="wkm">'+(on?'내 단어장에 담았습니다.':'내 단어장에서 뺐습니다.')+'</span>'})});
+ paint();
+}
+function wbHashStr(s){var h=0;for(var i=0;i<s.length;i++){h=(h*31+s.charCodeAt(i))|0}return (h>>>0).toString(36)}
+function wbAddQ(it,q){var o=wbLoad(),id=it.k+'|'+wbHashStr(JSON.stringify(q));
+ if(!o.q[id]){o.q[id]={k:it.k,ko:it.ko||'',nos:it.nos||[],q:q,box:0,due:wbDue(0),add:Date.now(),miss:1};
+  var ks=Object.keys(o.q);if(ks.length>300){ks.sort(function(a,b){return o.q[a].add-o.q[b].add});delete o.q[ks[0]]}}
+ else{o.q[id].miss=(o.q[id].miss||0)+1;o.q[id].box=0;o.q[id].due=wbDue(0)}
+ wbSave(o);return id}
+function wbQDone(id,ok){var o=wbLoad(),e=o.q[id];if(!e)return;
+ if(ok){if(e.box>=WINT.length-1){delete o.q[id]}else{e.box++;e.due=wbDue(e.box)}}
+ else{e.box=0;e.miss=(e.miss||0)+1;e.due=wbDue(0)}
+ wbSave(o)}
+function wbBadge(){var el=document.getElementById('wlink');if(el)el.textContent='내 단어장 '+Object.keys(wbLoad().w).length+'개'}
+wbBadge();
+</script><!--WB:END-->
+<script>
+const S=[{"lv": "심화", "id": "1-1", "tok": ["During", "World", "War", "II,", "there", "was", "a", "group", "of", "people", "who", "risked", "everything", "to", "protect", "priceless", "works", "of", "art", "from", "ruin."], "ch": ["During World War II,", "there was a group of people", "who risked everything", "to protect priceless works of art from ruin."], "ko": ["제2차 세계대전 동안", "한 무리의 사람들이 있었다", "모든 것을 건", "대단히 귀중한 예술 작품들을 파괴로부터 지키기 위해."], "nodes": [{"id": "m", "a": 0, "b": 21, "own": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], "kids": [[10, 21]], "S": [7], "V": [5], "G": [[5]], "form": 1, "fl": [0, 1, 2, 3], "sk": [{"r": "S", "g": [6, 7, 8, 9]}, {"r": "V", "g": [5]}], "note": "There was a group of people. There ~ 구문('~이 있었다')이라 주어 + 동사의 1형식입니다. There는 해석하지 않고 자리만 채우며, 진짜 주어는 was 뒤의 a group of people이에요. 주어가 단수(a group)라서 동사도 단수 was를 씁니다."}, {"id": "a", "a": 10, "b": 21, "own": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], "kids": [], "S": [10], "V": [11], "G": [[11]], "kind": "형용사절", "sub": "주격 관계대명사", "anc": [9], "np": [6, 7, 8, 9], "note": "___ risked everything 에서 주어 자리가 비어 있어서 who는 주격 관계대명사입니다. 앞의 a group of people을 꾸며 '모든 것을 건 사람들'로 해석해요. who 대신 that도 쓸 수 있습니다. risked는 이 절의 동사이고, 그 뒤의 to protect ~는 risked everything을 한 목적을 덧붙이는 말이에요."}], "dec": {"0": "During은 '~ 동안'이라는 전치사입니다.", "1": "World는 '세계'라는 명사로, War II와 함께 '제2차 세계대전'이라는 이름을 이룹니다.", "2": "War는 '전쟁'이라는 명사입니다.", "3": "II는 '제2차'를 나타내는 숫자(로마 숫자)입니다.", "4": "There는 해석하지 않고 자리만 채우는 말(유도부사)입니다.", "6": "a는 관사입니다.", "7": "group은 '무리'라는 명사입니다. 동사('모으다')로도 쓰지만 여기서는 명사예요.", "8": "of는 전치사입니다.", "9": "people은 '사람들'이라는 명사입니다.", "10": "who는 관계대명사입니다.", "12": "everything은 '모든 것'이라는 대명사입니다.", "13": "to는 뒤의 protect와 함께 to부정사를 만듭니다. 문장의 동사가 아니에요.", "14": "protect는 to 뒤에 온 동사원형이라 to부정사의 일부입니다. 문장의 동사가 아니에요.", "15": "priceless는 '대단히 귀중한'이라는 형용사입니다.", "16": "works는 '작품들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "17": "of는 전치사입니다.", "18": "art는 '예술'이라는 명사입니다.", "19": "from은 전치사입니다.", "20": "ruin은 '파괴, 파멸'이라는 명사입니다. 동사('망치다')로도 쓰지만 여기서는 명사예요."}, "vn": "was는 주절의 동사(There was ~ 구문)예요. risked는 who절의 동사입니다. protect는 to 뒤의 동사원형이라서 to부정사의 일부일 뿐 동사가 아니에요. 동사는 모두 2개예요.", "why": null, "nf": [{"w": "to protect", "t": "to", "use": "부사적 용법", "reason": "to protect는 '모든 것을 걸었다(risked everything)'의 목적을 나타내요. '지키기 위해'로 해석하니 부사적 용법입니다.", "g": [13, 14]}], "em": []}, {"lv": "심화", "id": "2-2", "tok": ["The", "Monuments", "Men", "persuaded", "the", "Allied", "forces", "not", "to", "bomb", "areas", "with", "museums,", "churches,", "or", "other", "culturally", "significant", "buildings."], "ch": ["The Monuments Men persuaded the Allied forces", "not to bomb areas", "with museums, churches, or other culturally significant buildings."], "ko": ["모뉴먼츠 맨은 연합군을 설득했다", "지역을 폭격하지 않도록", "박물관, 교회, 또는 다른 문화적으로 중요한 건물들이 있는."], "nodes": [{"id": "m", "a": 0, "b": 19, "own": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], "kids": [], "S": [1, 2], "V": [3], "G": [[3]], "form": 5, "fl": [11, 12, 13, 14, 15, 16, 17, 18], "sk": [{"r": "S", "g": [0, 1, 2]}, {"r": "V", "g": [3]}, {"r": "O", "g": [4, 5, 6]}, {"r": "C", "g": [7, 8, 9, 10]}], "note": "The Monuments Men persuaded the Allied forces not to bomb areas. 주어 + 동사 + 목적어 + 목적격보어, 5형식입니다. persuade + 목적어 + to부정사는 '~가 …하도록 설득하다'라는 뜻이에요. 목적어 the Allied forces 뒤에 to부정사 to bomb이 목적격보어로 오고, 부정할 때는 to 바로 앞에 not을 붙여 not to bomb(폭격하지 않도록)이 됩니다. with museums, churches, or other ~ buildings는 areas를 뒤에서 꾸며 '박물관, 교회 등이 있는 지역'이라는 뜻이에요."}], "dec": {"0": "The는 관사입니다.", "1": "Monuments는 Men을 꾸미는 명사로, Monuments Men이 하나의 이름입니다.", "2": "Men은 '사람들'이라는 명사입니다.", "4": "the는 관사입니다.", "5": "Allied는 '연합국의'라는 형용사입니다.", "6": "forces는 '군대'라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "7": "not은 to bomb을 부정하는 말(부사)입니다.", "8": "to는 뒤의 bomb과 함께 to부정사를 만듭니다. 문장의 동사가 아니에요.", "9": "bomb은 to 뒤에 온 동사원형이라 to부정사의 일부입니다. 문장의 동사가 아니에요.", "10": "areas는 '지역들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "11": "with는 전치사입니다.", "12": "museums는 '박물관들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "13": "churches는 '교회들'이라는 명사예요. -es가 붙었지만 동사가 아닙니다.", "14": "or는 접속사입니다.", "15": "other는 '다른'이라는 형용사입니다.", "16": "culturally는 '문화적으로'라는 부사입니다.", "17": "significant는 '중요한'이라는 형용사입니다.", "18": "buildings는 '건물들'이라는 명사예요. -ing처럼 보이지만 동사가 아닙니다."}, "vn": "persuaded가 문장의 동사예요. bomb은 to 뒤의 동사원형이라서 to부정사의 일부이므로 동사가 아닙니다. 동사는 1개예요.", "why": null, "nf": [{"w": "to bomb", "t": "to", "use": "명사적 용법", "reason": "to bomb은 목적어 the Allied forces의 동작을 보충 설명하는 목적격보어예요. '연합군이 폭격하다'라는 주어-서술 관계로 읽고, 부정은 to 앞에 not을 붙입니다. 목적격보어로 쓰인 to부정사는 명사적 용법으로 봅니다.", "g": [8, 9], "pat": {"h": "persuade + 목적어 + (not) to부정사 : ~가 …하도록 설득하다", "p": [["persuaded", "동사"], ["the Allied forces", "목적어"], ["not to bomb", "목적격보어"]]}}], "em": []}, {"lv": "심화", "id": "2-10", "tok": ["Hitler", "ordered", "his", "forces", "to", "destroy", "everything", "that", "could", "be", "useful", "to", "the", "Allied", "armies", "before", "they", "retreated", "from", "an", "area."], "ch": ["Hitler ordered his forces", "to destroy everything that could be useful to the Allied armies", "before they retreated from an area."], "ko": ["히틀러는 그의 군대에게 명령했다", "연합군에게 유용할 수 있는 모든 것을 파괴하라고", "그들(=독일군)이 한 지역에서 후퇴하기 전에."], "nodes": [{"id": "m", "a": 0, "b": 21, "own": [0, 1, 2, 3, 4, 5, 6], "kids": [[7, 15], [15, 21]], "S": [0], "V": [1], "G": [[1]], "form": 5, "fl": [], "sk": [{"r": "S", "g": [0]}, {"r": "V", "g": [1]}, {"r": "O", "g": [2, 3]}, {"r": "C", "g": [4, 5, 6]}], "note": "Hitler ordered his forces to destroy everything. 주어 + 동사 + 목적어 + 목적격보어, 5형식입니다. order + 목적어 + to부정사는 '~에게 …하라고 명령하다'라는 뜻이에요. 목적어 his forces 뒤에 to부정사 to destroy가 목적격보어로 오고, '그의 군대가 파괴한다'는 주어-서술 관계를 이룹니다. 그래서 '그의 군대에게 모든 것을 파괴하라고 명령했다'로 해석해요."}, {"id": "a", "a": 7, "b": 15, "own": [7, 8, 9, 10, 11, 12, 13, 14], "kids": [], "S": [7], "V": [8, 9], "G": [[8, 9]], "kind": "형용사절", "sub": "주격 관계대명사", "anc": [6], "np": [6], "note": "___ could be useful 에서 주어 자리가 비어 있어서 that은 주격 관계대명사입니다. 앞의 everything을 꾸며 '유용할 수 있는 모든 것'으로 해석해요. could be는 조동사 + be로 한 덩어리 동사이고 useful은 보어(형용사)입니다."}, {"id": "b", "a": 15, "b": 21, "own": [15, 16, 17, 18, 19, 20], "kids": [], "S": [16], "V": [17], "G": [[17]], "kind": "부사절", "sub": "시간", "note": "before가 이끄는 시간의 부사절('~하기 전에')입니다. before 뒤에 they(= his forces)와 retreated가 완전한 문장으로 이어져서 접속사예요. retreated from an area는 주어 + 동사 + 전치사구입니다."}], "dec": {"0": "Hitler는 '히틀러'라는 이름(명사)입니다.", "2": "his는 '그의'라는 대명사(소유격)입니다.", "3": "forces는 '군대'라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "4": "to는 뒤의 destroy와 함께 to부정사를 만듭니다. 문장의 동사가 아니에요.", "5": "destroy는 to 뒤에 온 동사원형이라 to부정사의 일부입니다. 문장의 동사가 아니에요.", "6": "everything은 '모든 것'이라는 대명사입니다.", "7": "that은 관계대명사입니다.", "10": "useful은 '유용한'이라는 형용사(보어)입니다.", "11": "to는 전치사입니다. 뒤에 the Allied armies라는 명사가 와서 '~에게'를 뜻해요.", "12": "the는 관사입니다.", "13": "Allied는 '연합국의'라는 형용사입니다.", "14": "armies는 '군대들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "15": "before는 접속사입니다.", "16": "they는 '그들'이라는 대명사입니다.", "18": "from은 전치사입니다.", "19": "an은 관사입니다.", "20": "area는 '지역'이라는 명사입니다."}, "vn": "ordered는 주절의 동사, could be(조동사 + be)는 that절의 한 덩어리 동사, retreated는 before절의 동사예요. destroy는 to 뒤의 동사원형이라서 to부정사의 일부이므로 동사가 아닙니다. 동사는 모두 3개예요.", "why": null, "nf": [{"w": "to destroy", "t": "to", "use": "명사적 용법", "reason": "to destroy는 목적어 his forces의 동작을 보충 설명하는 목적격보어예요. '그의 군대가 파괴하다'라는 주어-서술 관계로 읽습니다. 목적격보어로 쓰인 to부정사는 명사적 용법으로 봅니다.", "g": [4, 5], "pat": {"h": "order + 목적어 + to부정사 : ~에게 …하라고 명령하다", "p": [["ordered", "동사"], ["his forces", "목적어"], ["to destroy", "목적격보어"]]}}], "em": []}, {"lv": "심화", "id": "3-10", "tok": ["When", "the", "Monuments", "Men", "arrived", "and", "squeezed", "their", "way", "into", "the", "mines,", "they", "must", "have", "been", "amazed", "to", "see", "what", "was", "inside."], "ch": ["When the Monuments Men arrived and squeezed their way into the mines,", "they must have been amazed", "to see what was inside."], "ko": ["모뉴먼츠 맨이 도착해 광산 안으로 비집고 들어갔을 때", "그들은 놀랐음에 틀림없다", "안에 있던 것을 보고."], "nodes": [{"id": "m", "a": 0, "b": 22, "own": [12, 13, 14, 15, 16, 17, 18], "kids": [[0, 12], [19, 22]], "S": [12], "V": [13, 14, 15], "G": [[13, 14, 15]], "form": 2, "fl": [17, 18], "sk": [{"r": "S", "g": [12]}, {"r": "V", "g": [13, 14, 15]}, {"r": "C", "g": [16]}], "note": "they must have been amazed. 주어 + 동사 + 보어, 2형식입니다. must have been은 조동사 + have + 과거분사로, 과거의 일에 대한 강한 추측('~했음에 틀림없다')을 나타내는 한 덩어리 동사예요. amazed는 they가 '놀란' 상태를 나타내는 보어(과거분사형 형용사)입니다. to see ~는 놀란 이유를 덧붙이는 말이에요."}, {"id": "a", "a": 0, "b": 12, "own": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "kids": [], "S": [2, 3], "V": [4, 6], "G": [[4], [6]], "kind": "부사절", "sub": "시간", "note": "When이 이끄는 시간의 부사절('~할 때')입니다. 주어 the Monuments Men에 동사 arrived와 squeezed가 and로 이어져 있어요. squeezed their way into the mines는 '광산 안으로 비집고 들어갔다'라는 뜻입니다."}, {"id": "b", "a": 19, "b": 22, "own": [19, 20, 21], "kids": [], "S": [19], "V": [20], "G": [[20]], "kind": "명사절", "sub": "목적어", "gv": [["to see", "준동사"]], "note": "what은 '~하는 것'이라는 뜻으로 the thing that과 같은 말(선행사를 품은 관계대명사)이에요. ___ was inside 에서 주어 자리가 비어 있어서 what이 주어 역할을 하고, 이 절 전체가 see의 목적어입니다. '안에 있던 것'으로 해석해요."}], "dec": {"0": "When은 접속사입니다.", "1": "the는 관사입니다.", "2": "Monuments는 Men을 꾸미는 명사로, Monuments Men이 하나의 이름입니다.", "3": "Men은 '사람들'이라는 명사입니다.", "5": "and는 두 동사 arrived와 squeezed를 이어 주는 접속사입니다.", "7": "their는 '그들의'라는 대명사(소유격)입니다.", "8": "way는 '길, 방법'이라는 명사입니다. squeeze one's way into는 '비집고 들어가다'라는 뜻이에요.", "9": "into는 전치사입니다.", "10": "the는 관사입니다.", "11": "mines는 '광산들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "12": "they는 '그들'이라는 대명사(주절의 주어)입니다.", "16": "amazed는 '놀란'이라는 형용사(과거분사형)로 보어 자리에 있어요. 동사 must have been 뒤에 있지만 동사가 아닙니다.", "17": "to는 뒤의 see와 함께 to부정사를 만듭니다. 문장의 동사가 아니에요.", "18": "see는 to 뒤에 온 동사원형이라 to부정사의 일부입니다. 문장의 동사가 아니에요.", "19": "what은 관계대명사입니다.", "21": "inside는 '안에'라는 뜻의 부사입니다."}, "vn": "arrived와 squeezed는 When절에서 and로 이어진 동사, must have been(조동사 + have + been)은 주절의 한 덩어리 동사, was는 what절의 동사예요. see는 to 뒤의 동사원형이라서 to부정사의 일부이고, amazed는 보어 자리의 형용사라서 동사가 아닙니다. 동사 묶음은 모두 4개예요.", "why": null, "nf": [{"w": "to see", "t": "to", "use": "부사적 용법", "reason": "to see는 놀란 이유(원인)를 나타내요. '보고 (놀란)'이라는 뜻이니 부사적 용법입니다.", "g": [17, 18], "pat": {"h": "감정 형용사 + to부정사 : ~해서 …한", "p": [["amazed", "감정 형용사"], ["to see", "~해서 (원인)"]]}}, {"w": "amazed", "t": "part", "who": "they", "base": "amaze", "ing": "amazing", "pp": "amazed", "ans": "pp", "reason": "they(모뉴먼츠 맨)는 놀라움을 '느끼는' 쪽이에요. 놀라게 '된' 수동 관계라서 과거분사 amazed입니다.", "g": [16]}], "em": []}, {"lv": "심화", "id": "4-1", "tok": ["The", "Monuments", "Men", "thought", "it", "would", "take", "about", "one", "year", "to", "transport", "everything", "they", "found", "to", "a", "safe", "location."], "ch": ["The Monuments Men thought", "it would take about one year", "to transport everything they found to a safe location."], "ko": ["모뉴먼츠 맨은 생각했다", "(가주어) 대략 1년이 걸릴 것이라고", "그들이 발견한 모든 것을 안전한 장소로 옮기는 데."], "nodes": [{"id": "m", "a": 0, "b": 19, "own": [0, 1, 2, 3], "kids": [[4, 19]], "S": [1, 2], "V": [3], "G": [[3]], "form": 3, "fl": [], "sk": [{"r": "S", "g": [0, 1, 2]}, {"r": "V", "g": [3]}], "note": "The Monuments Men thought. 주어 + 동사 + 목적어, 3형식입니다. thought 뒤의 절 전체(it would take ~ location)가 thought의 목적어예요. '모뉴먼츠 맨은 ~라고 생각했다'로 해석합니다."}, {"id": "a", "a": 4, "b": 19, "own": [4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 16, 17, 18], "kids": [[13, 15]], "S": [4], "V": [5, 6], "G": [[5, 6]], "kind": "명사절", "sub": "목적어", "gv": [["thought", "동사"]], "om": "that", "note": "thought 뒤에 접속사 that이 생략된 목적어 절입니다. it(주어)과 would take(동사)가 완전해서 관계사가 아니에요. it은 뒤의 to transport ~를 대신한 가주어이고, it takes + 시간 + to부정사는 '~하는 데 (시간)이 걸리다'라는 뜻입니다. that을 넣어 읽으면 '대략 1년이 걸릴 것이라고'가 thought의 목적어가 됩니다."}, {"id": "b", "a": 13, "b": 15, "own": [13, 14], "kids": [], "S": [13], "V": [14], "G": [[14]], "kind": "형용사절", "sub": "목적격 관계대명사", "anc": [12], "np": [12], "om": "that", "note": "everything (that) they found ___ 에서 found의 목적어(= everything)가 비어 있어서, 생략된 that은 목적격 관계대명사입니다. 명사 뒤에 '주어 + 동사'가 바로 붙어 있으면 관계대명사 생략을 의심하세요. '그들이 발견한 모든 것'으로 해석합니다."}], "dec": {"0": "The는 관사입니다.", "1": "Monuments는 Men을 꾸미는 명사로, Monuments Men이 하나의 이름입니다.", "2": "Men은 '사람들'이라는 명사입니다.", "4": "it은 가주어(대명사)입니다. 동사가 아니에요.", "7": "about은 '대략'이라는 부사입니다.", "8": "one은 '하나의'라는 형용사(수)입니다.", "9": "year는 '해, 1년'이라는 명사입니다.", "10": "to는 뒤의 transport와 함께 to부정사를 만듭니다. 문장의 동사가 아니에요.", "11": "transport는 to 뒤에 온 동사원형이라 to부정사의 일부입니다. 문장의 동사가 아니에요.", "12": "everything은 '모든 것'이라는 대명사입니다.", "13": "they는 '그들'이라는 대명사입니다.", "15": "이 to는 뒤에 장소(a safe location)가 와서 '~로'를 뜻하는 전치사입니다. to부정사가 아니에요.", "16": "a는 관사입니다.", "17": "safe는 '안전한'이라는 형용사입니다.", "18": "location은 '장소'라는 명사입니다."}, "vn": "thought는 주절의 동사, would take(조동사 + 동사)는 생략된 that절의 한 덩어리 동사, found는 관계대명사절의 동사예요. transport는 to 뒤의 동사원형이라서 to부정사의 일부이므로 동사가 아닙니다. 동사는 모두 3개예요.", "why": null, "nf": [{"w": "to transport", "t": "to", "use": "명사적 용법", "reason": "to transport는 가주어 it이 대신 받은 진주어예요. '옮기는 데'라는 뜻이니 명사적 용법입니다.", "g": [10, 11], "pat": {"h": "it takes + 시간 + to부정사 : ~하는 데 (시간)이 걸리다", "p": [["it", "가주어"], ["would take", "걸리다"], ["about one year", "시간"], ["to transport", "진주어"]]}}], "em": []}, {"lv": "심화", "id": "5-4", "tok": ["Not", "everything", "that", "was", "stolen", "by", "the", "Nazis", "has", "been", "found,", "but", "what", "the", "Monuments", "Men", "accomplished", "is", "truly", "amazing."], "ch": ["Not everything that was stolen by the Nazis has been found,", "but what the Monuments Men accomplished is truly amazing."], "ko": ["나치에 의해 도난당한 모든 것이 발견된 것은 아니지만", "모뉴먼츠 맨이 이룬 것은 정말로 놀랍다."], "nodes": [{"id": "m", "a": 0, "b": 20, "own": [0, 1, 8, 9, 10, 11, 17, 18, 19], "kids": [[2, 8], [12, 17]], "S": [1], "V": [8, 9, 10, 17], "G": [[8, 9, 10], [17]], "form": 1, "form2": 2, "fl": [], "sk": [{"r": "S", "g": [0, 1]}, {"r": "V", "g": [8, 9, 10]}, {"r": "S", "g": [12, 13, 14, 15, 16]}, {"r": "V", "g": [17]}, {"r": "C", "g": [19]}], "note": "Not everything ~ has been found, but what ~ is truly amazing. 두 절이 but으로 이어진 1형식 + 2형식입니다. 앞 절은 Not everything + has been found로 주어 + 동사예요. 수동태라서 목적어가 없고, Not everything은 '모든 것이 ~인 것은 아니다'라는 부분부정입니다. has been found는 현재완료 수동태(have been + p.p.)로 한 덩어리 동사예요. 뒤 절은 what절이 주어이고 is + amazing이 동사 + 보어라서 2형식입니다."}, {"id": "a", "a": 2, "b": 8, "own": [2, 3, 4, 5, 6, 7], "kids": [], "S": [2], "V": [3, 4], "G": [[3, 4]], "kind": "형용사절", "sub": "주격 관계대명사", "anc": [1], "np": [1], "note": "___ was stolen by the Nazis 에서 주어 자리가 비어 있어서 that은 주격 관계대명사입니다. 앞의 everything을 꾸며 '나치에 의해 도난당한 모든 것'으로 해석해요. was stolen은 be + p.p.(수동)로 한 덩어리 동사입니다."}, {"id": "b", "a": 12, "b": 17, "own": [12, 13, 14, 15, 16], "kids": [], "S": [14, 15], "V": [16], "G": [[16]], "kind": "명사절", "sub": "주어", "note": "what은 '~하는 것'이라는 뜻으로 the thing that과 같은 말(선행사를 품은 관계대명사)이에요. the Monuments Men accomplished ___ 에서 accomplished의 목적어가 비어 있어서 what이 그 자리를 채우고, 절 전체가 뒤의 is의 주어 역할을 합니다. '모뉴먼츠 맨이 이룬 것'으로 해석해요."}], "dec": {"0": "Not은 everything을 부정하는 말(부사)입니다. Not everything은 '모든 것이 ~인 것은 아니다'(부분부정)예요.", "1": "everything은 '모든 것'이라는 대명사입니다. 이 앞 절의 주어예요.", "2": "that은 관계대명사입니다.", "5": "by는 전치사입니다.", "6": "the는 관사입니다.", "7": "Nazis는 '나치 당원들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "11": "but은 접속사입니다.", "12": "what은 관계대명사입니다.", "13": "the는 관사입니다.", "14": "Monuments는 Men을 꾸미는 명사로, Monuments Men이 하나의 이름입니다.", "15": "Men은 '사람들'이라는 명사입니다.", "18": "truly는 '정말로'라는 부사입니다.", "19": "amazing은 '놀라운'이라는 형용사(보어)입니다. -ing 모양이지만 문장의 동사가 아니에요."}, "vn": "has been found와 is는 but으로 이어진 두 절의 동사, was stolen은 that절의 동사, accomplished는 what절의 동사예요. has been found(have + been + p.p.)와 was stolen(be + p.p.)은 각각 한 덩어리 동사입니다. 동사 묶음은 모두 4개예요.", "why": null, "nf": [{"w": "amazing", "t": "part", "who": "이룬 것", "base": "amaze", "ing": "amazing", "pp": "amazed", "ans": "ing", "reason": "주어 what the Monuments Men accomplished(그들이 이룬 것)는 사람들을 놀라게 '하는' 쪽이에요. 능동 관계라서 현재분사 amazing입니다. (놀라움을 '느끼는' 사람이 주어이면 amazed)", "g": [19]}], "em": []}, {"lv": "심화", "id": "5-6", "tok": ["In", "addition,", "countless", "historical", "and", "cultural", "landmarks", "would", "have", "been", "lost", "forever", "due", "to", "the", "destruction", "of", "war."], "ch": ["In addition, countless historical and cultural landmarks", "would have been lost forever due to the destruction of war."], "ko": ["또한 수많은 역사적, 문화적 랜드마크가", "전쟁의 파괴로 인해 영원히 사라져 버렸을 것이다."], "nodes": [{"id": "m", "a": 0, "b": 18, "own": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], "kids": [], "S": [6], "V": [7, 8, 9, 10], "G": [[7, 8, 9, 10]], "form": 1, "fl": [0, 1, 11, 12, 13, 14, 15, 16, 17], "sk": [{"r": "S", "g": [2, 3, 4, 5, 6]}, {"r": "V", "g": [7, 8, 9, 10]}], "note": "countless historical and cultural landmarks would have been lost. 주어 + 동사의 1형식입니다. 수동태라서 목적어가 없어요. would have been lost는 가정법 과거완료 수동태로, '(그 집단이 없었다면) 사라져 버렸을 것이다'라는 뜻의 한 덩어리 동사입니다. 앞 문장의 Without this determined group이라는 가정이 이어지고 있어요. due to ~는 이유를 덧붙이는 구전치사('~ 때문에')입니다."}], "dec": {"0": "In은 전치사입니다. In addition은 '게다가, 또한'이라는 뜻의 덧붙임말이에요.", "1": "addition은 '추가'라는 명사입니다.", "2": "countless는 '수많은'이라는 형용사입니다.", "3": "historical은 '역사적인'이라는 형용사입니다.", "4": "and는 두 형용사를 이어 주는 접속사입니다.", "5": "cultural은 '문화적인'이라는 형용사입니다.", "6": "landmarks는 '랜드마크들'이라는 명사예요. -s가 붙었지만 동사가 아닙니다.", "11": "forever는 '영원히'라는 부사입니다.", "12": "due는 to와 함께 '~ 때문에'를 뜻하는 구전치사(due to)를 이루는 말입니다.", "13": "to는 due와 함께 쓰이는 전치사입니다. 뒤에 명사구가 와요.", "14": "the는 관사입니다.", "15": "destruction은 '파괴'라는 명사입니다.", "16": "of는 전치사입니다.", "17": "war는 '전쟁'이라는 명사입니다."}, "vn": "would have been lost는 would + have + been + 과거분사(수동)로 이어진 한 덩어리 동사예요. 네 단어를 모두 묶어서 동사 하나로 봅니다. 동사는 1개예요.", "why": null, "nf": [], "em": []}];
+var WLK='vsig-tb-g1js-l3-wl-v1';
+function wlD(){var d=new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+function wlGet(){try{return JSON.parse(localStorage.getItem(WLK)||'{}')}catch(e){return {}}}
+function wlPut(e){try{var o=wlGet(),k=wlD();Object.keys(o).forEach(function(q){if(q!==k)delete o[q]});var L=(o[k]||[]).filter(function(x){return x.id!==e.id});L.push(e);o[k]=L;var ks=Object.keys(o).sort();while(ks.length>10)delete o[ks.shift()];localStorage.setItem(WLK,JSON.stringify(o))}catch(x){}}
+function wlKey(o){var ks=Object.keys(o).sort().reverse();for(var i=0;i<ks.length;i++)if(o[ks[i]]&&o[ks[i]].length)return ks[i];return ''}
+function wlList(){var o=wlGet(),k=wlKey(o);return k?o[k]:[]}
+function wlN(){return wlList().length}
+function wlStrip(){var n=wlN();return n?'<a class="wlstrip" href="note.html">오답노트 '+n+'문장 쓰러 가기</a>':''}
+const KEY="vsig-tb-g1js-l3-y-xray-v1";
+let R={};try{R=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(R))}catch(e){}}
+const $=document.getElementById("app");
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const KINDS=[["명사절","~것, ~지 (문장의 한 자리)"],["형용사절","앞 명사를 꾸밈"],["부사절","때·이유·조건 등 덧붙임"]];
+const SUBS={"형용사절":[["주격 관계대명사","빠진 자리가 주어: the man who lives here"],["목적격 관계대명사","빠진 자리가 목적어: the book that I read"],["관계부사","뒤가 완전한 절: the day when I met him"]],
+"부사절":[["시간","when, after, before"],["이유","because, since"],["양보","although, though"],["조건","if, unless"],["결과","so ~ that"],["목적","so that ~ 하도록"],["비교","than, as ~ as"],["대조","while, whereas"]],
+"명사절":[["주어","That he won is true."],["목적어","I know (that) he won."],["보어","The fact is that he won."],["전치사의 목적어","I agree with what he said."],["동격","the fact that he won"]]};
+let D=550,KO=0,cur,ni,steps,si,got,wr,ph,opened,done,GL,fnd,gh,wp={};
+function adv(fn){const tag=cur.id+'|'+ni+'|'+si+'|'+ph;setTimeout(()=>{if(cur&&tag==cur.id+'|'+ni+'|'+si+'|'+ph)fn()},D)}
+const STARS=new Set(['4-1']);
+let TAB='심화';
+function home(){
+  const L=S.filter(s=>s.lv==TAB),dn=L.filter(s=>R[s.id]&&R[s.id].done).length;
+  let h=wlStrip()+'<h1>3과 핵심 7문장 분석 (심화)</h1><p class="sub">문장 속 동사를 먼저 찾고, 절을 한 겹씩 열어 분석합니다. '+TAB+' '+L.length+'문장.'+(TAB=='심화'?' ★는 절이 여러 겹 얽힌 도전 문장입니다.':'')+'</p><div class="wguide">밑줄 점선이 보이는 단어를 한 번 누르면 내 단어장에 담깁니다. 다시 누르면 빠집니다. 직접 입력하는 기능은 없습니다. 담긴 단어는 다음 날부터 정해진 간격으로 복습 순서가 돌아옵니다.</div>';
+  h+='<p class="small" style="margin:10px 2px 8px">푼 문장 '+dn+' / '+L.length+'</p><div class="bgrid">';
+  L.forEach((s,k)=>{const r=R[s.id]||{},d=r.done,st=STARS.has(s.id)&&s.lv=='심화';
+    h+='<button class="bk'+(d?' done':'')+(st?' star':'')+'" onclick="play(\''+s.id+'\')">'+(st?'<span class="bks">\u2605</span>':'')+'<span class="bn">'+(k+1)+'</span><span class="bs">'+s.id+'</span><span class="bt">'+(d?(r.wr?'실수 '+r.wr:'완료'):'')+'</span></button>'});
+  h+='</div>';
+  const all=Object.values(R).filter(r=>r.done);
+  if(all.length)h+='<div class="card"><p class="day">내 기록</p><div class="small">푼 문장 '+all.length+'개 / 전부 한 번에 맞힌 문장 '+all.filter(r=>r.wr===0).length+'개</div><button class="reset" onclick="resetAll()">기록 지우기</button></div>';
+  cur=null;$.innerHTML=h;window.scrollTo(0,0)}
+function resetAll(){if(confirm("기록을 모두 지울까요?")){R={};save();home()}}
+function stepsOf(n){
+  if(!n.kind)return n.form?(n.form2?[{t:'S'},{t:'form',p:1},{t:'form',p:2}]:[{t:'S'},{t:'form'}]):[{t:'S'}];
+  const st=[{t:'kind'},{t:'sub'}];if(n.kind=='형용사절')st.push({t:'anc'});st.push({t:'S'});return st}
+function play(id){KO=0;cur=S.find(s=>s.id==id);TAB=cur.lv;wr=0;wp={};ph='verb';opened={};done={};ni=0;si=0;fnd={};
+  GL=[];cur.nodes.forEach(n=>n.G.forEach(g=>GL.push(g)));R[id]=R[id]||{};drawVerb('')}
+function stage(k){const a=['동사','주절','절 열기','준동사'];return '<div class="stg">'+a.map((x,i)=>'<div class="'+(i<k?'ok':i==k?'on':'')+'">'+(i+1)+' '+x+'</div>').join('')+'</div>'}
+function head(k){return '<div class="top"><button class="back" onclick="home()">&lt; 목록</button><span class="small">'+(S.filter(x=>x.lv==cur.lv).indexOf(cur)+1)+'번'+(STARS.has(cur.id)&&cur.lv=='심화'?' ★':'')+' · 출처 '+cur.id+(k==2?' · 절 '+ni+'/'+(cur.nodes.length-1):'')+'</span></div>'+stage(k)+'<p class="ko1">'+(KO?esc(cur.ko.join(' ')):'<button class="reset" style="margin:0" onclick="KO=1;redraw()">우리말 뜻 보기</button>')+'</p>'}
+function redraw(){if(ph=='verb')drawVerb('');else if(ph=='nf')drawNF('');else if(ph=='nfq')drawNFQ();else draw()}
+const VB=()=>{const f=new Set();GL.forEach(g=>g.forEach(i=>f.add(i)));return f};
+/* 1단계: 동사 찾기 - 누르는 즉시 판정 */
+function drawVerb(msg,fin){
+  let h='<div class="sent">';
+  cur.tok.forEach((w,i)=>{
+    const gi=GL.findIndex(g=>g.includes(i));let c='w2';
+    if(gi>=0&&fnd[gi])c+=' okw vb';
+    h+='<button class="'+c+'" '+(fin?'disabled':'onclick="tv('+i+')"')+'>'+esc(w)+'</button> '});
+  h+='</div>';
+  const nf=Object.keys(fnd).length;
+  const cnt=!fin&&nf?'<p class="small" style="margin:8px 0 0">찾은 동사 '+nf+'개</p>':'';
+  $.innerHTML=head(0)+'<div class="card"><p class="q">동사를 모두 누르세요</p>'+h+cnt+'<div id="fb">'+msg+'</div></div>';window.scrollTo(0,0)}
+function whyH(t){const w=t.split('\n');return '<b>'+esc(w[0])+'</b>'+w.slice(1).map(x=>'<br>'+esc(x)).join('')}
+function showWhy(){const e=document.getElementById('why'),b=document.getElementById('whyb');if(e)e.style.display='block';if(b)b.style.display='none'}
+function tv(i){
+  let gi=GL.findIndex(g=>g.includes(i));
+  if(gi<0&&cur.bd&&cur.bd.includes(i)){let bm=-1;GL.forEach((g,k)=>{const e=Math.max.apply(null,g);if(e<i&&e>bm){bm=e;gi=k}})}
+  if(gi>=0){fnd[gi]=1;
+    if(Object.keys(fnd).length==GL.length){
+      let m='<div class="msg g">동사를 모두 찾았습니다. 동사 '+GL.length+'개, 절 '+cur.nodes.length+'개.</div>';
+      if(cur.vn)m+='<div class="msg n" style="background:var(--okbg)">'+esc(cur.vn)+'</div>';
+      if(cur.why)m+='<button id="whyb" class="btn sub" onclick="showWhy()">memo</button><div id="why" class="msg n" style="display:none;background:var(--okbg);line-height:1.6">'+whyH(cur.why)+'</div>';
+      if(cur.vn||cur.why)m+='<button class="btn" onclick="startMain()">다음</button>';
+      drawVerb(m,true);if(!cur.vn&&!cur.why)adv(startMain)}
+    else drawVerb('')}
+  else{miss();drawVerb('<div class="msg n"><b>'+esc(cur.tok[i].replace(/[^A-Za-z\']/g,''))+'</b> '+esc(cur.dec[i]||'동사가 아닙니다.')+'</div>')}}
+
+/* 2단계: 준동사 찾기 + 용법/모양 */
+let NQ=[],nqi=0;
+const nfOf=i=>cur.nf.findIndex(x=>x.g.includes(i));
+const NFN=s=>s.toLowerCase().replace(/[^a-z]/g,'');
+function startNF(){if(!cur.nf.length){fin();return}cur.nodes.forEach((_,k)=>opened[k]=true);ph='nf';fndN={};drawNF('')}
+let fndN={};
+function drawNF(msg,fin){
+  const F=VB();let h='<div class="sent">';
+  cur.tok.forEach((w,i)=>{const gi=nfOf(i);let c='w2';if(F.has(i))c+=' vb';if(gi>=0&&fndN[gi])c+=' okw';
+    h+='<button class="'+c+'" '+(fin?'disabled':'onclick="tn('+i+')"')+'>'+esc(w)+'</button> '});
+  h+='</div>';
+  const nf=Object.keys(fndN).length;
+  const cnt=!fin&&nf?'<p class="small" style="margin:8px 0 0">찾은 준동사 '+nf+'개</p>':'';
+  $.innerHTML=head(3)+'<div class="card"><p class="q">to부정사, 분사, 동명사를 모두 누르세요</p>'+h+cnt+'<div id="fb">'+msg+'</div></div>';window.scrollTo(0,0)}
+function tn(i){
+  const gi=nfOf(i);
+  if(gi>=0){fndN[gi]=1;
+    if(Object.keys(fndN).length==cur.nf.length){
+      const gers=cur.nf.filter(x=>x.t=='ger');
+      let m='<div class="msg g">준동사를 모두 찾았습니다.</div>';
+      gers.forEach(g=>{m+='<div class="msg n" style="background:var(--okbg)"><b>'+esc(g.w)+'</b> '+esc(g.reason)+'</div>'});
+      if(gers.length)m+='<button class="btn" onclick="startNFQ()">다음</button>';
+      drawNF(m,true);if(!gers.length)adv(startNFQ)}
+    else drawNF('')}
+  else if(VB().has(i))drawNF('<div class="msg n" style="background:var(--okbg)">이 동사는 1단계에서 찾았어요.</div>');
+  else{miss();drawNF('<div class="msg n">'+(NFN(cur.tok[i])=='to'?'이 to는 전치사예요. to부정사가 아닙니다.':'준동사가 아닙니다.')+'</div>')}}
+function startNFQ(){NQ=cur.nf.filter(x=>x.t!='ger');nqi=0;if(!NQ.length){fin();return}ph='nfq';drawNFQ()}
+function drawNFQ(){
+  const it=NQ[nqi],F=VB();let h='<div class="sent">';
+  cur.tok.forEach((w,i)=>{
+    if(it.t=='part'&&it.g[0]==i){h+='<span class="w2 hlw">('+esc(it.base)+')</span> ';return}
+    let c='w2';if(F.has(i))c+=' vb';if(it.g.includes(i))c+=' hlw';h+='<span class="'+c+'">'+esc(w)+'</span> '});
+  h+='</div>';
+  let q,o;
+  if(it.t=='to'){q='노란 to부정사의 용법은?';o=[["명사적 용법","~하는 것 (주어·목적어·보어)"],["형용사적 용법","앞 명사를 꾸밈 (~할)"],["부사적 용법","목적·정도·이유 등 (~하기 위해)"]]}
+  else{q='( ) 안의 동사를 알맞은 분사 모양으로 바꾸면?';o=[[it.ing,'현재분사 (-ing)'],[it.pp,'과거분사 (p.p.)']]}
+  const body='<div class="chunks" style="margin-top:12px">'+o.map(x=>'<button class="ck" onclick="pickNF(this,\''+x[0]+'\')">'+x[0]+'<span class="hint">'+x[1]+'</span></button>').join('')+'</div>';
+  $.innerHTML=head(3)+'<div class="card"><span class="pill">'+(it.t=='to'?'to부정사':'분사')+' '+(nqi+1)+'/'+NQ.length+'</span><p class="q">'+q+'</p>'+h+body+'<div id="fb"></div></div>';window.scrollTo(0,0)}
+function pickNF(el,v){
+  const it=NQ[nqi];const want=it.t=='to'?it.use:it[it.ans];
+  if(v==want){document.querySelectorAll('.ck').forEach(b=>b.disabled=true);el.classList.add('okpick');
+    document.getElementById('fb').innerHTML='<div class="msg g">맞았습니다. '+(it.pat?patH(it.pat):it.t=='part'?partH(it):useH(it)+(it.rel?relH(it.rel):''))+'<div style="margin-top:8px">'+esc(it.reason)+'</div></div><button class="btn" onclick="nextNFQ()">다음</button>'}
+  else{el.classList.add('wrong');el.disabled=true;miss();document.getElementById('fb').innerHTML='<div class="msg n">다시 골라 보세요.</div>'}}
+const USES=[['명사적 용법','~하는 것',[['want',''],['to read','u']],'읽는 것을 원한다'],['형용사적 용법','앞 명사를 꾸밈',[['time',''],['to read','u']],'읽을 시간'],['부사적 용법','목적·정도·이유',[['came',''],['to read','u']],'읽으려고 왔다']];
+function useH(it){return '<div class="cmp">'+USES.map((u,k)=>'<div class="cs '+(u[0]==it.use?'on':'off')+'"><div class="bdr">'+bd(u[0],'kd'+k+' dp1',u[1])+u[2].map(x=>bd(x[0],x[1]?'kd'+k+' dp2':'')).join('<span class="pp">+</span>')+'<span class="small">'+esc(u[3])+'</span></div></div>').join('')+'</div>'}
+function partH(it){
+  const on=it.ans;
+  const row=(c,lab,sub,cls,tag,ex,ko)=>'<div class="cs '+(on==c?'on':'off')+'"><div class="bdr">'+bd(lab,'',sub)+'<span class="pp">→</span>'+bd(tag,cls)+'</div><div class="bdr">'+ex.map(x=>bd(x[0],x[1])).join('')+'<span class="small">'+esc(ko)+'</span></div></div>';
+  return '<div class="cmp">'+row('ing','능동','직접 ~한다','ing','-ing 현재분사',[['a boy',''],['playing','ing'],['soccer','']],'축구를 하는 소년')+row('pp','수동','~당한다','ppb','p.p. 과거분사',[['a window',''],['broken','ppb'],['by a ball','']],'공에 깨진 창문')+'</div><div class="bdr">'+bd(it.who||'주어','','이 문장')+'<span class="pp">→</span>'+bd(it.w,on=='ing'?'ing':'ppb',on=='ing'?'능동 · -ing':'수동 · p.p.')+'</div>'}
+function relH(r){return '<div class="pat"><div class="pth">'+esc(r.h)+'</div><div class="bdr">'+r.p.map((x,k)=>(k?'<span class="pp">+</span>':'')+bd(x[0],k==r.p.length-1?'kd2 dp2':'kd2 dp1',x[1])).join('')+'<span class="pp">=</span><span class="small" style="font-size:15px;color:var(--fg);font-weight:700">'+esc(r.ko)+'</span></div></div>'}
+function patH(p){return '<div class="pat"><div class="pth">'+esc(p.h)+'</div><div class="bdr">'+p.p.map((x,k)=>(k?'<span class="pp">+</span>':'')+bd(x[0],k==p.p.length-1?'cc':'',x[1])).join('')+'</div></div>'}
+function nextNFQ(){nqi++;if(nqi<NQ.length)drawNFQ();else fin()}
+/* 문장 표시: 열리지 않은 절은 가림판 */
+function hidTop(i){let b=null;cur.nodes.forEach((m,k)=>{if(!opened[k]&&m.a<=i&&i<m.b&&(!b||m.b-m.a>b.b-b.a))b=m});return b}
+function emOn(){return ph=='node'&&steps[si]&&(steps[si].t=='anc'||steps[si].t=='S')}
+function sentH(n,tap,fl){
+  const F=VB();let h='<div class="sent">';let i=0;
+  while(i<cur.tok.length){
+    const hm=hidTop(i);
+    if(hm){h+='<span class="mask">'+esc(cur.tok[hm.a].replace(/[^A-Za-z\']/g,''))+' ...</span> ';i=hm.b;continue}
+    if(fl&&n.fl&&n.fl.includes(i)){let j=i;while(j<cur.tok.length&&n.fl.includes(j)&&!hidTop(j))j++;h+='<span class="mask">가림</span> ';i=j;continue}
+    let c='w2';const own=n.own.includes(i);
+    if(F.has(i))c+=' vb';
+    if(emOn()&&(cur.em||[]).includes(i))c+=' em';
+    const dk=doneKind(i);
+    if(own)c+=' hlw';else if(dk!=null)c+=' kd'+dk.k+' dp'+dk.d;
+    if(got[i])c+=' okw';
+    h+=((tap&&own)?'<button class="'+c+'" onclick="tapw('+i+')">':'<span class="'+c+'">')+esc(cur.tok[i])+((tap&&own)?'</button>':'</span>')+' ';i++}
+  return h+'</div>'}
+function doneKind(i){
+  for(let k=cur.nodes.length-1;k>=0;k--){const m=cur.nodes[k];if(k===ni||!done[k]||!m.kind)continue;if(m.own.includes(i))return {k:['명사절','형용사절','부사절'].indexOf(m.kind),d:Math.min(depthOf(k),3)}}
+  return null}
+function anyH(n){
+  const F=VB();let h='<div class="sent">';let i=0;
+  while(i<cur.tok.length){
+    const hm=hidTop(i);
+    if(hm){h+='<span class="mask">'+esc(cur.tok[hm.a].replace(/[^A-Za-z\']/g,''))+' ...</span> ';i=hm.b;continue}
+    let c='w2';if(n.own.includes(i))c+=' hlw';if(F.has(i))c+=' vb';if(emOn()&&(cur.em||[]).includes(i))c+=' em';if(got[i])c+=' okw';
+    h+='<button class="'+c+'" onclick="tapw('+i+')">'+esc(cur.tok[i])+'</button> ';i++}
+  return h+'</div>'}
+function startMain(){ni=0;ph='main';opened[0]=true;steps=stepsOf(cur.nodes[0]);si=0;got={};gh={};draw()}
+function startNode(){ph='node';opened[ni]=true;steps=stepsOf(cur.nodes[ni]);si=0;got={};gh={};draw()}
+function draw(){
+  const n=cur.nodes[ni],s=steps[si];let q='',body='';
+  const pillTxt=n.kind?(si>0?n.kind:'절 열기'):'주절';
+  if(s.t=='kind'){q='노란 부분은 어떤 절일까요?';body=sentH(n,false)+opts(KINDS)}
+  else if(s.t=='sub'){q=n.kind=='형용사절'?'어떤 관계사일까요? 관계사 뒤에서 빠진 자리를 보세요.':n.kind=='부사절'?'어떤 뜻의 부사절일까요?':'이 절은 문장에서 무슨 자리일까요?';body=sentH(n,false)+opts(SUBS[n.kind])}
+  else if(s.t=='anc'){q='이 절이 꾸미는 말을 누르세요.';body=anyH(n)}
+  else if(s.t=='S'){q=n.kind?'노란 절의 주어에서 핵심 명사(대명사)를 누르세요.':'문장의 뼈대에서 주어의 핵심 명사(대명사)를 누르세요.';body=sentH(n,true,!n.kind)}
+  else if(s.t=='form'){q=s.p?(s.p==1?'첫 번째 동사('+txtOf(n.G[0])+')가 만드는 뼈대는 몇 형식일까요?':'이어진 두 번째 동사('+txtOf(n.G[1])+')가 만드는 뼈대는 몇 형식일까요?'):'이 뼈대는 누구와 닮은꼴일까요?';body=sentH(n,false,true)+formCards()}
+  else{q=!n.kind?'주절의 동사를 누르세요.':'노란 절에서 and로 이어진 동사를 모두 누르세요.';body=sentH(n,true)}
+  $.innerHTML=head(n.kind?2:1)+'<div class="card"><span class="pill">'+pillTxt+'</span><p class="q">'+esc(q)+'</p>'+body+'<div id="fb"></div></div>';window.scrollTo(0,0)}
+const FORMS=[["1형식","I sleep.","나는 잔다.","S + V"],["2형식","I am happy.","나는 행복하다.","S + V + 보어 · I = happy"],["3형식","I like apples.","나는 사과를 좋아한다.","S + V + 목적어 · I ≠ apples"],["4형식","I give him a book.","나는 그에게 책을 준다.","S + V + 간접목적어 + 직접목적어 · him ≠ a book"],["5형식","I make him happy.","나는 그를 행복하게 만든다.","S + V + 목적어 + 목적격보어 · him = happy"]];
+function formCards(){return '<div class="chunks" style="margin-top:12px">'+FORMS.map((f,k)=>'<button class="ck" onclick="pickform(this,'+(k+1)+')"><b>'+f[0]+'</b> &nbsp;'+f[1]+'<span class="hint">'+f[2]+'</span><span class="hint">'+f[3]+'</span></button>').join('')+'</div>'}
+function pickform(el,k){const n=cur.nodes[ni],st=steps[si];if(k==(st.p==2?n.form2:n.form)){el.classList.add("okpick");good()}else{el.classList.add("wrong");el.disabled=true;bad()}}
+function opts(list){return '<div class="chunks" style="margin-top:12px">'+list.map(o=>{const kc=['명사절','형용사절','부사절'].indexOf(o[0]);return '<button class="ck" onclick="pickopt(this,\''+o[0]+'\')">'+o[0]+'<span class="hint">'+o[1]+'</span></button>'}).join('')+'</div>'}
+function pickopt(el,v){
+  const n=cur.nodes[ni],s=steps[si];const want=s.t=='kind'?n.kind:n.sub;
+  if(v==want){el.classList.add("okpick");good()}else{el.classList.add("wrong");el.disabled=true;bad()}}
+function tapw(i){
+  const n=cur.nodes[ni],s=steps[si];
+  if(s.t=='V'){
+    const gi=n.G.findIndex(g=>g.includes(i)||(!n.kind&&n.V.includes(i)));
+    if(gi<0){bad();return}
+    gh[gi]=1;n.G[gi].forEach(x=>got[x]=1);
+    if(Object.keys(gh).length>=n.G.length){draw2ok()}else{draw();document.getElementById("fb").innerHTML='<div class="msg g">하나 찾았습니다. 더 있어요.</div>'}
+    return}
+  const want=s.t=='anc'?(n.np||n.anc):n.S;
+  if(want.includes(i)){want.forEach(x=>got[x]=1);draw2ok()}else if(s.t=='S'&&preMod(n,i)){modHint(n,i)}else bad()}
+const SUBW=['when','because','that','if','although','while','as','since','after','before','which','who','whom','whose','and','but','or','so','than','whether','though','even','how','what','where','wherever','whenever','whatever','why','until','unless','once','whereas','in','case','however'];
+function preMod(n,i){const h=Math.min.apply(null,n.S);if(!(i<h&&h-i<=3))return false;const F=VB();
+  for(let x=i;x<h;x++){const w=cur.tok[x];if(!n.own.includes(x)||F.has(x)||/[,;:.]$/.test(w)||SUBW.indexOf(w.toLowerCase())>=0)return false}
+  return true}
+function modHint(n,i){const h=Math.min.apply(null,n.S);const cl=x=>cur.tok[x].replace(/[^A-Za-z']/g,'');
+  document.getElementById("fb").innerHTML='<div class="msg n">핵심 명사를 눌러요. '+esc(cur.tok.slice(i,h+1).map(w=>w.replace(/[^A-Za-z\']/g,'')).join(' '))+'에서 핵심 명사는 '+esc(cl(h))+' 하나예요.</div>'}
+function draw2ok(){draw();good()}
+function miss(){wr++;wp[ph]=(wp[ph]||0)+1}
+function bad(){miss();document.getElementById("fb").innerHTML='<div class="msg n">다시 골라 보세요.</div>'}
+function good(){
+  document.querySelectorAll(".ck,.w2").forEach(b=>b.disabled=true);
+  document.querySelectorAll(".sent .w2").forEach(b=>{});
+  document.getElementById("fb").innerHTML='<div class="msg g">맞았습니다.</div>';
+  adv(nextStep)}
+function nextStep(){
+  const n=cur.nodes[ni];
+  if(si<steps.length-1){si++;got={};gh={};draw();return}
+  done[ni]=true;
+  if(n.note){noteScreen();return}
+  advance()}
+const KI=n=>['명사절','형용사절','부사절'].indexOf(n.kind);
+function bd(t,c,sub){return '<span class="bd'+(c?' '+c:'')+'">'+esc(t)+(sub?'<i>'+esc(sub)+'</i>':'')+'</span>'}
+function runsOf(ix){const r=[];let c=[];ix.forEach((i,k)=>{if(k&&i!=ix[k-1]+1){r.push(c);c=[]}c.push(i)});if(c.length)r.push(c);return r.map(txtOf).join(' / ')}
+function txtOf(ix){return ix.map(i=>cur.tok[i]).join(' ').replace(/[^A-Za-z' ]/g,'')}
+function noteVis(n){
+  let h='<div class="bdr">'+bd(n.kind,'kd'+KI(n)+' dp1')+bd(n.sub,'')+'</div>';
+  if(n.kind=='형용사절'&&n.np&&n.sub.indexOf('관계대명사')>0){
+    h+='<div class="bdr">'+bd(n.om?'('+n.om+')':cur.tok[n.a].replace(/[^A-Za-z]/g,''),'kd1 dp1',n.sub)+'<span class="pp">가 채우는 자리</span>'+bd('___','gapb',n.sub[0]=='주'?'주어 자리':'목적어 자리')+'<span class="pp">=</span>'+bd(txtOf(n.np),'kd1 dp2','선행사')+'</div>'}
+  if(n.gv){h+='<div class="bdr">'+n.gv.map(g=>bd(g[0],'',g[1])).join('<span class="pp">+</span>')+(n.om?'<span class="pp">+</span>'+bd('('+n.om+')','gapb','생략'):'')+'<span class="pp">+</span>'+bd(n.om?'절':cur.tok[n.a].replace(/[^A-Za-z]/g,'')+' 절','kd0 dp1',n.sub)+'</div>'}
+  if(n.fill)h+='<div class="bdr">'+bd('___','gapb',n.fill[0])+'<span class="pp">←</span>'+bd(n.fill[1],'kd0 dp1','채우는 말')+'</div>';
+  if(n.host)h+='<div class="bdr">'+bd(n.host,'hostb')+'</div>';
+  if(n.G&&n.G.length>1)h+='<div class="bdr">'+n.G.map((g,k)=>(k?'<span class="pp">and</span>':'')+bd(txtOf(g),'vbd','동사')).join('')+'</div>';
+  if(n.kind=='부사절'&&n.sub=='결과'&&(cur.em||[]).length)h+='<div class="bdr">'+bd(txtOf(cur.em),'em2','so ~')+'<span class="pp">…</span>'+bd('that + 절','kd2 dp1','결과')+'</div>';
+  return h}
+function noteRest(n){const m=n.note.match(/형식입니다\.\s*/);return m?n.note.slice(m.index+m[0].length):n.note}
+function mainVis(n){
+  if(!n.sk)return '';
+  const lab={S:'주어',V:'동사',O:'목적어',C:n.form==5?'목적격보어':'보어'};
+  let h='<div class="bdr">'+bd(n.form+'형식'+(n.form2?' + '+n.form2+'형식':''),'cc')+'</div><div class="bdr">'+n.sk.map((x,k)=>(k?'<span class="pp">+</span>':'')+bd(runsOf(x.g),'sk'+x.r,lab[x.r])).join('')+'</div>';
+  return h}
+function noteScreen(){
+  const n=cur.nodes[ni];
+  $.innerHTML=head(n.kind?2:1)+'<div class="card"><span class="pill">정리</span>'+(n.kind?sentH(n,false)+noteVis(n):mainVis(n))+'<p class="q">'+esc(n.kind?n.note:noteRest(n))+'</p><button class="btn" onclick="advance()">'+(ni==cur.nodes.length-1?(cur.nf.length?'다음':'결과 보기'):'다음')+'</button></div>';window.scrollTo(0,0)}
+function advance(){if(ni<cur.nodes.length-1){ni++;startNode()}else startNF()}
+function depthOf(k){let d=0;const n=cur.nodes[k];for(let j=0;j<k;j++){const p=cur.nodes[j];if(p.a<=n.a&&n.b<=p.b)d++}return d}
+function finSent(){
+  let h='<div class="fsent">',kinds={},hs={},he={},hasHost=false;
+  cur.nodes.forEach(n=>{if(n.host&&n.gv&&n.gv[0]){const g=n.gv[0][0].toLowerCase();for(let j=n.a-1;j>=0;j--){if(cur.tok[j].toLowerCase().replace(/[^a-z]/g,'')==g){hs[j]=1;he[n.b-1]=1;hasHost=true;break}}}});
+  let inH=false;
+  cur.tok.forEach((w,i)=>{
+    if(hs[i]){h+='<span class="hostw">';inH=true}
+    let c='w2',k=-1;for(let q=cur.nodes.length-1;q>=0;q--){if(cur.nodes[q].own.includes(i)){k=q;break}}
+    const m=cur.nodes[k];
+    if(m&&m.kind){c+=' kd'+KI(m)+' dp'+Math.min(depthOf(k),3);kinds[m.kind]=1}
+    if((cur.em||[]).includes(i))c+=' em';
+    if(hs[i])c+=' hk';
+    h+='<span class="'+c+'" data-i="'+i+'">'+esc(w)+'</span>'+(he[i]&&inH?'':' ');
+    if(he[i]&&inH){h+='</span> ';inH=false}});
+  h+='</div><div class="bdr">'+bd('주절','cc')+(hasHost?bd('분사구문','hostb'):'')+['명사절','형용사절','부사절'].filter(x=>kinds[x]).map(x=>bd(x,'kd'+['명사절','형용사절','부사절'].indexOf(x)+' dp1')).join('')+'</div>';
+  return h}
+function mkXNote(){
+  const PN={verb:'동사 찾기',main:'주절',node:'절 열기',nf:'준동사',nfq:'준동사'},L=[];
+  Object.keys(wp).forEach(k=>L.push((PN[k]||k)+' 단계에서 '+wp[k]+'번 틀렸습니다.'));
+  if(!L.length)L.push('틀린 횟수 '+wr+'번');
+  const no=S.filter(x=>x.lv==cur.lv).indexOf(cur)+1;
+  let tree='';
+  cur.nodes.forEach((n,k)=>{let txt='';for(let i=n.a;i<n.b;i++){if(!n.own.includes(i))continue;txt+=cur.tok[i]+' '}
+    const lab=n.kind?(n.kind+' · '+n.sub):'주절 · '+n.form+'형식';
+    tree+='<li><b>'+esc(lab)+'</b>: '+esc(txt.trim())+'</li>'});
+  let rows='';cur.ch.forEach((c,i)=>{rows+='<div class="rw"><div class="re">'+esc(c)+'</div><div class="rk">'+esc(cur.ko[i])+'</div></div>'});
+  const pi='<div class="pi"><div class="pit">이것만 꼭 써</div><div class="pir"><b>\u2460</b> 끊어 읽기와 해석</div>'+rows+'</div>';
+  return {id:'x'+cur.id,src:'xray',title:cur.lv+' 문장 분석 '+no+'번 · 출처 '+cur.id,html:'<p class="sec">틀린 곳</p><ul class="wul">'+L.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul><p class="sec">문장 구조</p><ul class="wul">'+tree+'</ul>'+pi};
+}
+function fin(){
+  ph='fin';R[cur.id].done=true;R[cur.id].wr=wr;save();if(wr>0)wlPut(mkXNote());
+  let h='<div class="top"><button class="back" onclick="home()">&lt; 목록</button><span class="small">'+(S.filter(x=>x.lv==cur.lv).indexOf(cur)+1)+'번'+(STARS.has(cur.id)&&cur.lv=='심화'?' ★':'')+' · 출처 '+cur.id+'</span></div><div class="card"><span class="pill">분석 완료</span><p class="q">'+(wr==0?'모두 한 번에 맞혔습니다.':'틀린 횟수 '+wr+'번')+'</p>'+finSent()+'<div class="tree">';
+  cur.nodes.forEach((n,k)=>{
+    let d=depthOf(k);let txt='';for(let i=n.a;i<n.b;i++){if(!n.own.includes(i))continue;txt+=((cur.em||[]).includes(i)?'\u0001'+cur.tok[i]+'\u0002':cur.tok[i])+' '}
+    const lab=n.kind?(n.kind+' · '+n.sub):'주절 · '+n.form+'형식';
+    const anc=n.anc?' → '+(n.np||n.anc).map(x=>cur.tok[x]).join(' ').replace(/[^A-Za-z\' ]/g,'')+'을(를) 꾸밈':'';
+    if(n.host){h+='<div class="tn hosttn" style="margin-left:'+(d*16)+'px"><b>'+esc((n.host||'꾸밈구').replace(/ 안의 절$/,''))+'</b> · '+esc(n.gv&&n.gv[0]?n.gv[0][0]:'')+' 로 시작<br><span class="small">아래 절은 이 '+esc((n.host||'꾸밈구').replace(/ 안의 절$/,'').split('(')[0])+' 안에 들어 있음</span></div>';d=d+1}
+    h+='<div class="tn'+(n.kind?' kd'+KI(n)+' dp'+Math.min(d,3):' tcore')+'" style="margin-left:'+(d*16)+'px"><b>'+lab+'</b>'+esc(anc)+'<br><span class="te">'+esc(txt.trim()).replace(/\u0001/g,'<span class="em">').replace(/\u0002/g,'</span>')+'</span></div>'});
+  h+='</div><p class="small" style="margin-top:12px">이 문장을 끊어 읽으면</p><div class="chunks">';
+  cur.ch.forEach((c,i)=>{h+='<div class="ck mini">'+esc(c)+'<span class="ko">'+esc(cur.ko[i])+'</span></div>'});
+  const LL=S.filter(x=>x.lv==cur.lv),nx=LL[LL.indexOf(cur)+1];TAB=cur.lv;
+  h+='</div>'+(wr>0?'<a class="wlstrip" href="note.html" style="margin-top:12px">오답노트 쓰러 가기</a>':'')+'<button class="btn" onclick="'+(nx?"play('"+nx.id+"')":"home()")+'">'+(nx?'다음 문장':'목록으로')+'</button></div>';$.innerHTML=h;window.scrollTo(0,0);wkBind(document.querySelector('.fsent'),cur.id,cur.tok)}
+home();
+</script><script src="../../../common/prog.js?v=261019"></script>
+<script>(function(){try{var d=document.createElement('div');d.style.cssText='display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;background:#f1f5f4;border-bottom:1px solid #dbe4e1;font:600 14px/1.2 sans-serif;position:relative;z-index:9999';
+var a=document.createElement('a');a.href='../../index.html';a.textContent='← 답안지 목록';a.style.cssText='color:#0f766e;text-decoration:none;padding:6px 10px;border:1px solid #0f766e;border-radius:999px;background:#fff';
+var b=document.createElement('button');b.type='button';b.style.cssText='border:1.5px solid #1d4ed8;border-radius:999px;padding:6px 12px;font:700 13px sans-serif;cursor:pointer';
+function paint(){var n=PG.n('key:L3:hs');b.textContent=n?('✓ 확인했어요 · '+n+'번'):'✓ 확인했어요';b.style.background=n?'#1d4ed8':'#fff';b.style.color=n?'#fff':'#1d4ed8'}
+b.onclick=function(){PG.mark('key:L3:hs');paint()};paint();d.appendChild(a);d.appendChild(b);document.body.insertBefore(d,document.body.firstChild)}catch(e){}})();</script>
+</body></html>
