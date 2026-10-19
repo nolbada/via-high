@@ -199,7 +199,7 @@ function text(){
   var seg=document.getElementById('seg');
   seg.innerHTML=MODES.map(function(m,i){return '<button type="button" data-m="'+i+'" class="'+(i===mode?'on':'')+'">'+m.replace(' ','<br>')+'</button>'}).join('');
   var h='';
-  [[D4,'교과서 4과','L4'],[null,'교과서 3과','L3'],[DM,'모의고사','mock']].filter(function(g){return g[0]||mode===0}).forEach(function(g,gi){
+  [[D4,'교과서 4과','L4'],[null,'교과서 3과','L3'],[DM,'모의고사','mock']].filter(function(g){return g[0]||mode<2}).forEach(function(g,gi){
     h+='<details class="acc"'+(gi===0?' open':'')+'><summary>'+g[1]+'</summary><div class="in">';
     if(mode===0){h+='<a class="row" href="'+g[2]+'/jwa.html"><span>좌본문 우해석<small>'+g[1]+'</small></span><span class="go">열기</span></a>'}else if(mode===2){
       if(g[2]==='L4'){
@@ -211,7 +211,7 @@ function text(){
         });
       }else h+='<div class="soonbox">준비 중</div>';
     }else if(mode===1){
-      if(g[2]==='L4'){h+='<div class="soonbox">교과서는 문법 분석이 없어요.<br>모의고사에서 봐요.</div>';}
+      if(g[2]==='L3'){h+=['집단 결정과 투표','학생 자치회의 고민','투표 당일','단순 다수결(FPTP)','대안 투표(AV)','콩도르세 방식','결과는 제각각'].map(function(l,i){return '<a class="row" href="L3/gram/?s='+(i+1)+'"><span>본문 '+(i+1)+'<small>'+l+'</small></span><span class="go" style="white-space:nowrap">열기</span></a>'}).join('')}else if(g[2]==='L4'){h+='<div class="soonbox">교과서는 문법 분석이 없어요.<br>모의고사에서 봐요.</div>';}
       else g[0].passages.forEach(function(p){
         var G=GRAM[p.id];
         if(!G){h+='<div class="row soon"><span>'+esc(p.label)+'<small>준비 중</small></span></div>';return}
