@@ -85,9 +85,9 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 (function(){
 var ACT=[['voc','어휘'],['find','TF'],['eobeop','어법선택'],['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['awk','어색한 곳'],['blank','빈칸추론'],['wk','틀린 문제 다시 풀기'],['wt','약한 유형 골라 풀기']];
 var SEC=[
- {label:'4과 (교과서)',set:'L4',url:{ko:'L4/sunseo-ko.html',abc:'L4/sunseo-abc.html',mun:'L4/sunseo-mun.html',blank:'L4/blank.html',find:'L4/find.html',awk:'L4/awkward-test.html',eobeop:'L4/eobeop-test.html',voc:'L4/vocab.html'}},
+ {label:'교과서 4과',set:'L4',url:{ko:'L4/sunseo-ko.html',abc:'L4/sunseo-abc.html',mun:'L4/sunseo-mun.html',blank:'L4/blank.html',find:'L4/find.html',awk:'L4/awkward-test.html',eobeop:'L4/eobeop-test.html',voc:'L4/vocab.html'}},
  {label:'모의고사',set:'mock',url:{}},
- {label:'3과 (교과서)',set:'L3',url:{ko:'L3/sunseo-ko.html',abc:'L3/sunseo-abc.html',mun:'L3/sunseo-mun.html',blank:'L3/blank.html',find:'L3/find.html',awk:'L3/awkward-test.html',eobeop:'L3/eobeop-test.html',voc:'L3/vocab.html'}},
+ {label:'교과서 3과',set:'L3',url:{ko:'L3/sunseo-ko.html',abc:'L3/sunseo-abc.html',mun:'L3/sunseo-mun.html',blank:'L3/blank.html',find:'L3/find.html',awk:'L3/awkward-test.html',eobeop:'L3/eobeop-test.html',voc:'L3/vocab.html'}},
  {label:'최종점검',set:'F',url:{wk:'wrong.html',wt:'wrong.html?pick=type'}}
 ];
 function durTxt(k){var t=0;try{t=+localStorage.getItem('vhd:'+k)||0}catch(e){}if(!t)return '';return ' '+(t>=60?Math.floor(t/60)+'분':t+'초')}
@@ -203,7 +203,7 @@ function text(){
   var seg=document.getElementById('seg');
   seg.innerHTML=MODES.map(function(m,i){return '<button type="button" data-m="'+i+'" class="'+(i===mode?'on':'')+'">'+m.replace(' ','<br>')+'</button>'}).join('');
   var h='';
-  [[D3,'3과 (교과서)','L3'],[D4,'4과 (교과서)','L4']].forEach(function(g,gi){
+  [[D3,'교과서 3과','L3'],[D4,'교과서 4과','L4']].forEach(function(g,gi){
     h+='<details class="acc"'+(gi===0?' open':'')+'><summary>'+g[1]+'</summary><div class="in">';
     if(false){    }else if(mode===2){
       if(false){
