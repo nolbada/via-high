@@ -41,6 +41,8 @@ a.row.on{background:var(--pri);color:#fff}@media(prefers-color-scheme:dark){a.ro
 .g0,.m0{--c:#d9560b}.g1,.m1{--c:#15803d}.g2,.m2{--c:#7e3fb8}.g3,.m3{--c:#0e7490}
 mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border-bottom:2.5px solid var(--c);border-radius:3px;padding:0 1px}mark sup{font-size:10.5px;font-weight:800;color:var(--c);margin-left:1px}
 .gc{border-left:5px solid var(--c)}
+.jj{border-collapse:collapse;width:100%;margin:2px 0 6px}.jj td{word-break:keep-all;padding:3px 6px 3px 0;font-size:14.5px;line-height:1.5;vertical-align:top;text-align:left;width:50%}.jj td:first-child{border-right:1px solid var(--line);padding-right:8px}.jj td:last-child{padding-left:8px;color:var(--pri)}
+.jjl{font-size:11.5px;font-weight:800;color:var(--sub);margin:6px 0 2px}.ez{background:var(--off);border-radius:12px;padding:8px 12px;margin:10px 0;font-size:14.5px;line-height:1.7}.ez.life{background:var(--yel)}
 .soonbox{border:1px dashed var(--line);border-radius:14px;padding:18px 14px;text-align:center;color:var(--sub);font-size:14.5px}
 .foot{margin:20px 0 6px;text-align:center;color:var(--sub);font-size:12.5px}
 </style></head><body><div class="wrap">
@@ -71,7 +73,7 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 <script src="../common/prog.js?v=261019"></script>
 <script src="L4/sx-data.js?v=261019"></script><script>var D4=DATA;</script>
 <script src="mock/sx-data.js?v=261019"></script><script>var DM=DATA;</script>
-<script src="key15.js?v=261019"></script><script src="gram.js?v=261019"></script>
+<script src="L4/jj.js?v=261019"></script><script src="mock/ez.js?v=261019"></script><script src="key15.js?v=261019"></script><script src="gram.js?v=261019"></script>
 <script>
 (function(){
 var ACT=[['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['blank','빈칸추론'],['find','TF'],['awk','어색한 곳'],['voc','어휘'],['eobeop','어법선택'],['dongsa','동사형']];
@@ -156,7 +158,15 @@ function text(){
       g[0].passages.forEach(function(p){
         var tg=p.taught===true?'<span class="tg t">수업에서 다룸</span>':p.taught===false?'<span class="tg">안 다룸</span>':'';
         h+='<details class="acc" style="margin:7px 0"><summary><span>'+esc(p.label)+tg+'</span></summary><div class="in">';
-        p.en.forEach(function(e,i){h+='<div class="s"><div class="en">'+esc(e)+'</div><div class="ko">'+esc((p.ko||[])[i]||'')+'</div></div>'});
+        var J=JJ4[p.id]||JJM[p.id];
+        p.en.forEach(function(e,i){
+          h+='<div class="s"><div class="en"><b style="color:var(--pri)">'+(i+1)+'</b></div>';
+          if(J&&J[i]){h+='<div class="jjl">직독직해</div><table class="jj">'+J[i].e.map(function(c,j){return '<tr><td>'+esc(c)+'</td><td>'+esc(J[i].k[j])+'</td></tr>'}).join('')+'</table><div class="jjl">자연스러운 해석</div>'}
+          else h+='<div class="en" style="margin-top:2px">'+esc(e)+'</div>';
+          h+='<div class="ko">'+esc((p.ko||[])[i]||'')+'</div></div>';
+        });
+        var Z=EZ[p.id];
+        if(Z){h+='<div class="ez"><div class="jjl">쉬운 정리</div><div>'+esc(Z.easy)+'</div></div>'+(Z.life?'<div class="ez life"><div class="jjl">생활 속 예시</div><div>'+esc(Z.life)+'</div></div>':'')}
         h+='</div></details>';
       });
     }
