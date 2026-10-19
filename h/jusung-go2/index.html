@@ -1,6 +1,6 @@
 <!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1d4ed8"><title>주성고 영어II · 비타민 영어클리닉</title>
 <link rel="icon" type="image/svg+xml" href="icon.svg"><link rel="apple-touch-icon" href="icon-180.png">
-<style>.rng{display:block;font-size:12px;font-weight:400;color:#667}.arow em{font-style:normal;font-size:11px;color:#889}
+<style>.road{border:1px solid #cdd7ee;border-radius:12px;padding:10px;margin:0 0 12px;background:#f6f8ff}.rh{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}.rh span{color:#1d4ed8;font-weight:700}.wr{display:flex;gap:6px;align-items:baseline;font-size:12.5px;padding:5px 6px;border-radius:8px;word-break:keep-all}.wr.cur{background:#1d4ed8;color:#fff}.wr.past{opacity:.5}.wn{font-weight:800;min-width:24px}.wd2{min-width:74px}.vr{font-style:normal;font-size:10.5px;margin-left:6px;padding:1px 6px;border-radius:8px;background:#e0ecff;color:#1d4ed8}.vr.o{background:#eee;color:#666}.rng{display:block;font-size:12px;font-weight:400;color:#667}.arow em{font-style:normal;font-size:11px;color:#889}
 :root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--priL:#e6edfc;--off:#e9eef8;--offInk:#6b7a93;--yel:#fffbe3;--yelL:#efd96b;--yelInk:#6b5200}
 @media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--priL:#1a2a4a;--off:#222c3d;--offInk:#8d9ab0;--yel:#33290a;--yelL:#6b5a1a;--yelInk:#f1dc8a}}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
@@ -78,14 +78,15 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 <script src="L4/jj.js?v=261019"></script><script src="mock/ez.js?v=261019"></script><script src="key15.js?v=261019"></script><script src="gram.js?v=261019"></script>
 <script>
 (function(){
-var ACT=[['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['blank','빈칸추론'],['find','TF'],['awk','어색한 곳'],['voc','어휘'],['eobeop','어법선택'],['dongsa','동사형']];
+var ACT=[['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['blank','빈칸추론'],['find','TF'],['awk','어색한 곳'],['voc','어휘'],['eobeop','어법선택']];
 var SEC=[
- {label:'4과 (교과서)',set:'L4',url:{ko:'L4/sunseo-ko.html',abc:'L4/sunseo-abc.html',mun:'L4/sunseo-mun.html',blank:'L4/blank.html',find:'L4/find.html',awk:'L4/awkward-test.html',eobeop:'L4/eobeop-test.html',dongsa:'L4/dongsa-test.html',voc:'L4/vocab.html'}},
+ {label:'4과 (교과서)',set:'L4',url:{ko:'L4/sunseo-ko.html',abc:'L4/sunseo-abc.html',mun:'L4/sunseo-mun.html',blank:'L4/blank.html',find:'L4/find.html',awk:'L4/awkward-test.html',eobeop:'L4/eobeop-test.html',voc:'L4/vocab.html'}},
  {label:'모의고사 (22년 11월 · 23년 11월 · 24년 10월)',set:'mock',url:{ko:'mock/sunseo-ko.html',abc:'mock/sunseo-abc.html',mun:'mock/sunseo-mun.html',blank:'mock/blank.html'}}
 ];
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var BLK=[['덩어리 1','4과 본문 ❶~❸ · 22년 11월'],['덩어리 2','4과 본문 ❹~❺ · 23년 11월'],['덩어리 3','4과 본문 ❻~❼ · 24년 10월']];
-var OPT={ko:1};
+var OPT={ko:1},VAR={ko:1,abc:1,mun:1,blank:1};
+var EXAM=new Date(2026,11,1),WEEKS=[['10/19','10/25','첫 회독','본문 3덩어리를 한 번씩 (4과 + 모의고사)'],['10/26','11/1','2회독 ①','같은 3덩어리를 다시 — 매번 다른 문제 활동 위주'],['11/2','11/8','2회독 ②','3덩어리 다시, 틀린 곳 위주로'],['11/9','11/15','3회독 ①','매번 다른 문제 활동으로 속도 올리기'],['11/16','11/22','3회독 ②','1회성 활동(TF·어색한 곳·어법선택) 마무리 확인'],['11/23','11/30','기출 반복','시험 직전 — 모의고사 순서·빈칸 반복']];
 var WD=['월','화','수','목','금','토','일'],vy=new Date().getFullYear(),vm=new Date().getMonth();
 function dkey(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
 function weekStart(d){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()-((x.getDay()+6)%7));return x}
@@ -104,13 +105,18 @@ function today(){
   for(var d=1;d<=days;d++){var k=dkey(new Date(vy,vm,d)),inw=k>=wk0&&k<=wk1;
     h+='<span class="dd'+(inw?' wk':'')+(k===td?' tod':'')+(((lead+d-1)%7)===6?' sun':'')+'">'+d+'</span>'}
   h+='</div></div>';
+  var dd=Math.ceil((new Date(EXAM.getFullYear(),EXAM.getMonth(),EXAM.getDate())-new Date(now.getFullYear(),now.getMonth(),now.getDate()))/864e5);
+  h+='<div class="road"><div class="rh"><b>시험까지 큰 흐름</b><span>'+(dd>0?'시험 D-'+dd+' (12/1)':'시험 기간')+'</span></div>';
+  WEEKS.forEach(function(w,i){var a=w[0].split('/'),b=w[1].split('/'),y=ws.getFullYear(),s0=new Date(y,a[0]-1,a[1]),s1=new Date(y,b[0]-1,+b[1]+1),cur=now>=s0&&now<s1,past=now>=s1;
+    h+='<div class="wr'+(cur?' cur':'')+(past?' past':'')+'"><span class="wn">'+(i+1)+'주</span><span class="wd2">'+w[0]+'~'+w[1]+'</span><span class="wm"><b>'+esc(w[2])+'</b> '+esc(w[3])+'</span></div>'});
+  h+='</div>';
   var nxt=-1;BLK.forEach(function(bk,i){if(nxt<0&&!chunkDone(i))nxt=i});
   h+='<div class="dayhead"><b>이번 주 ('+(ws.getMonth()+1)+'/'+ws.getDate()+' ~ '+(we.getMonth()+1)+'/'+we.getDate()+')</b><span>'+(nxt<0?'이번 주 세 덩어리를 모두 했어요':'첫 번째 오는 날 덩어리 1, 두 번째 오는 날 덩어리 2, 세 번째 오는 날 덩어리 3 — 덩어리마다 모든 활동을 해요')+'</span></div>';
   BLK.forEach(function(bk,bi){
     var dn=chunkDone(bi),isn=bi===nxt;
     h+='<div class="blk'+(dn?' done':'')+(isn?' next':'')+'"><h2>'+esc(bk[0])+(dn?'<span class="tg t">이번 주 완료</span>':isn?'<span class="tg t">오늘 할 차례</span>':'')+'</h2><div class="rows">';
     ACT.forEach(function(a){var id=a[0];
-      h+='<div class="arow"><b>'+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+'</b><div class="two">';
+      h+='<div class="arow"><b>'+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+'</b>'+(VAR[id]?'<i class="vr">매번 다른 문제</i>':'<i class="vr o">1회성</i>')+'<div class="two">';
       SEC.forEach(function(sc){
         var lab=sc.set==='L4'?'4과':'모의고사',u=sc.url[id],on=doneWk(sc,id,bi);
         if(!u){h+='<span class="cell soon">'+lab+'<small>준비 중</small></span>';return}
