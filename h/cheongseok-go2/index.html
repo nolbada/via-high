@@ -82,11 +82,12 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 <script src="L4/jj.js?v=261019"></script><script src="key15.js?v=261019"></script><script src="gram.js?v=261019"></script>
 <script>
 (function(){
-var ACT=[['voc','어휘'],['find','TF'],['eobeop','어법선택'],['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['awk','어색한 곳'],['blank','빈칸추론']];
+var ACT=[['voc','어휘'],['find','TF'],['eobeop','어법선택'],['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['awk','어색한 곳'],['blank','빈칸추론'],['wk','틀린 문제 다시 풀기'],['wt','약한 유형 골라 풀기']];
 var SEC=[
  {label:'4과 (교과서)',set:'L4',url:{ko:'L4/sunseo-ko.html',abc:'L4/sunseo-abc.html',mun:'L4/sunseo-mun.html',blank:'L4/blank.html',find:'L4/find.html',awk:'L4/awkward-test.html',eobeop:'L4/eobeop-test.html',voc:'L4/vocab.html'}},
  {label:'모의고사 (26년 10월)',set:'mock',url:{}},
- {label:'3과 (교과서)',set:'L3',url:{}}
+ {label:'3과 (교과서)',set:'L3',url:{}},
+ {label:'최종점검',set:'F',url:{wk:'wrong.html',wt:'wrong.html?pick=type'}}
 ];
 function durTxt(k){var t=0;try{t=+localStorage.getItem('vhd:'+k)||0}catch(e){}if(!t)return '';return ' '+(t>=60?Math.floor(t/60)+'분':t+'초')}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
@@ -94,7 +95,7 @@ var CNT={"L4p1:find": 7, "L4p1:awk": 4, "L4p1:eobeop": 7, "L4p1:ko": 2, "L4p1:ab
 var OPT={ko:1},VAR={voc:1,ko:1,abc:1,mun:1,blank:1};
 var EXAMD=['2026-12-07', '2026-12-08', '2026-12-09', '2026-12-10', '2026-12-11'];
 var EXAM=new Date(2026,11,7);
-var ROAD=[['10/19','10/25','교과서 4과 ①','본문 ❶~❺ · 1~3회'],['10/26','11/1','4과 마무리 · 3과 시작','4과 4회(❻❼) → 3과 1·2회'],['11/2','11/8','3과 마무리 · 모의고사 시작','3과 3·4회 → 모의고사 1회'],['11/9','11/15','모의고사 ②','2~4회'],['11/16','11/22','모의고사 ③','5~7회'],['11/23','11/29','모의고사 ④','8~10회'],['11/30','12/6','최종정리','기출 많이 풀기 · 틀린 문제 다시 풀기 (3회)']];
+var ROAD=[['10/19','10/25','교과서 4과 ①','본문 ❶~❺ · 1~3회'],['10/26','11/1','4과 마무리 · 3과 시작','4과 4회(❻❼) → 3과 1·2회'],['11/2','11/8','3과 마무리 · 모의고사 시작','3과 3·4회 → 모의고사 1회'],['11/9','11/15','모의고사 ②','2~4회'],['11/16','11/22','모의고사 ③','5~7회'],['11/23','11/29','모의고사 ④','8~10회'],['11/30','12/6','최종점검','틀린 문제 · 약한 유형 골라 풀기']];
 var Y=2026;
 var SOON='내용은 준비 중이에요';
 var VIS=[
@@ -104,7 +105,7 @@ var VIS=[
  [{D:2,t:'모의고사 2회',s:'26년 10월 모의고사',x:SOON},{D:3,t:'모의고사 3회',s:'26년 10월 모의고사',x:SOON},{D:4,t:'모의고사 4회',s:'26년 10월 모의고사',x:SOON}],
  [{D:5,t:'모의고사 5회',s:'26년 10월 모의고사',x:SOON},{D:6,t:'모의고사 6회',s:'26년 10월 모의고사',x:SOON},{D:7,t:'모의고사 7회',s:'26년 10월 모의고사',x:SOON}],
  [{D:8,t:'모의고사 8회',s:'26년 10월 모의고사',x:SOON},{D:9,t:'모의고사 9회',s:'26년 10월 모의고사',x:SOON},{D:10,t:'모의고사 10회',s:'26년 10월 모의고사',x:SOON}],
- [{F:1,t:'최종정리 1회',s:'기출 풀이 · 약점 점검',x:SOON},{F:2,t:'최종정리 2회',s:'기출 풀이 · 틀린 문제 다시 풀기',x:SOON},{F:3,t:'최종정리 3회',s:'기출 풀이 · 최종 점검',x:SOON}]
+ [{F:1,t:'최종점검 1회',s:'틀린 문제 · 약한 유형 골라 풀기'},{F:2,t:'최종점검 2회',s:'틀린 문제 · 약한 유형 골라 풀기'},{F:3,t:'최종점검 3회',s:'틀린 문제 · 약한 유형 골라 풀기'}]
 ];
 var ORD=['DAY 1','DAY 2','DAY 3'],DOFF=[0,2,5],WDN=['일','월','화','수','목','금','토'];
 function curWeek(now){var w=0;ROAD.forEach(function(r,i){var a=r[0].split('/');if(now>=new Date(Y,a[0]-1,+a[1]))w=i});return w}
@@ -117,7 +118,7 @@ function today(){
   var wk0=dkey(ws),wk1=dkey(we),td=dkey(now),cw=curWeek(now),tdd=new Date(now.getFullYear(),now.getMonth(),now.getDate());
   ACT.forEach(function(a){nm[a[0]]=a[1]});
   function key(v,id){return v.L?'L4p'+v.L+':'+id:v.T?'L3p'+v.T+':'+id:v.F?'Fp'+v.F+':'+id:'mockp'+v.D+':'+id}
-  function setOf(v){return v.L?SEC[0]:(v.T||v.F)?SEC[2]:SEC[1]}
+  function setOf(v){return v.L?SEC[0]:v.T?SEC[2]:v.F?SEC[3]:SEC[1]}
   function isOn(v,id){var e=P[key(v,id)];return !!(e&&(e.n||e.t))}
   function prog(v){var n=0,d=0;ACT.forEach(function(a){if(setOf(v).url[a[0]]&&!OPT[a[0]]){n++;if(isOn(v,a[0]))d++}});return{n:n,d:d}}
   var flat=[],map={};
@@ -140,13 +141,13 @@ function today(){
   var f=map[selD];
   var wkd=flat.filter(function(x){return x.wi===f.wi});
   h+='<div class="wkt"><div class="wkh"><b>'+(f.wi+1)+'주차 한눈에</b><span>'+esc(ROAD[f.wi][2])+'</span></div><table><thead><tr><th></th>'+wkd.map(function(x){var q=prog(x.v);return '<th><button type="button" data-d="'+x.k+'" class="'+(x.k===selD?'on':'')+'">DAY '+x.no+'<small>'+WDN[x.x.getDay()]+' '+(x.x.getMonth()+1)+'/'+x.x.getDate()+'</small></button></th>'}).join('')+'</tr></thead><tbody>'
-  +ACT.map(function(a,ai){return '<tr><td class="an">'+(ai+1)+'. '+esc(a[1])+(OPT[a[0]]?'<em>선택</em>':'')+'</td>'+wkd.map(function(x){var u=setOf(x.v).url[a[0]],c=CNT[key(x.v,a[0])];if(!u)return '<td class="no">준비 중</td>';var on=isOn(x.v,a[0]);return '<td class="'+(on?'dn':'')+(x.k===selD?' sl':'')+'">'+(on?'✓ ':'')+(c?(a[0]==='voc'?'약 ':'')+c+(a[0]==='find'?'개':''):'')+'</td>'}).join('')+'</tr>'}).join('')
+  +ACT.map(function(a,ai){if(!wkd.some(function(x){return setOf(x.v).url[a[0]]}))return '';return '<tr><td class="an">'+(ai+1)+'. '+esc(a[1])+(OPT[a[0]]?'<em>선택</em>':'')+'</td>'+wkd.map(function(x){var u=setOf(x.v).url[a[0]],c=CNT[key(x.v,a[0])];if(!u)return '<td class="no">준비 중</td>';var on=isOn(x.v,a[0]);return '<td class="'+(on?'dn':'')+(x.k===selD?' sl':'')+'">'+(on?'✓ ':'')+(c?(a[0]==='voc'?'약 ':'')+c+(a[0]==='find'?'개':''):'')+'</td>'}).join('')+'</tr>'}).join('')
   +'</tbody></table></div>';
   var v=f.v,pr=prog(v),late=f.x<tdd&&pr.d<pr.n;
   h+='<div class="blk'+(pr.n&&pr.d>=pr.n?' done':'')+'"><h2>DAY '+f.no+(pr.n&&pr.d>=pr.n?'<span class="tg t">완료</span>':'')+'<small class="rng">추천일 '+(f.x.getMonth()+1)+'/'+f.x.getDate()+' ('+WDN[f.x.getDay()]+') · 요일이 달라도 DAY 순서대로 하면 돼요</small>'+'<small class="rng"><b>'+esc(v.t)+'</b> · '+esc(v.s)+'</small>'+(v.x?'<small class="rng">'+esc(v.x)+'</small>':'')+'</h2><div class="rows">';
   ACT.forEach(function(a){var id=a[0],sc=setOf(v),u=sc.url[id];if(!u)return;
     var on=isOn(v,id);
-    h+='<div class="arow"><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+(CNT[key(v,id)]?' <span class="cn">'+(id==='voc'?'약 ':'')+CNT[key(v,id)]+(id==='find'?'개':'문제')+'</span>':'')+'</b>'+(VAR[id]?'<i class="vr">매번 다른 문제</i>':'<i class="vr o">1회성</i>')+'<div class="two" style="grid-template-columns:1fr"><a class="cell'+(on?' on':'')+'" href="'+u+'?part='+(v.L||v.D)+'">'+(on?'했어요':'풀기')+'<small>'+(on?'✓'+durTxt(key(v,id)):'')+'</small></a></div></div>'});
+    h+='<div class="arow"><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+(CNT[key(v,id)]?' <span class="cn">'+(id==='voc'?'약 ':'')+CNT[key(v,id)]+(id==='find'?'개':'문제')+'</span>':'')+'</b>'+(VAR[id]?'<i class="vr">매번 다른 문제</i>':(id==='wk'||id==='wt')?'':'<i class="vr o">1회성</i>')+'<div class="two" style="grid-template-columns:1fr"><a class="cell'+(on?' on':'')+'" href="'+(v.F?u:u+'?part='+(v.L||v.T||v.D))+'"'+(v.F?' data-fm="'+key(v,id)+'"':'')+'>'+(on?'했어요':'풀기')+'<small>'+(on?'✓'+durTxt(key(v,id)):'')+'</small></a></div></div>'});
   if(!pr.n)h+='<div class="soonbox">내용은 준비 중이에요</div>';
   h+='</div></div>';
   /* 학습 기록 카드 (인증샷용 · 새 기기 복구용) */
@@ -186,11 +187,12 @@ function keys(){
   document.getElementById('keys').innerHTML=h;
 }
 document.getElementById('today').addEventListener('click',function(e){
+  var fm=e.target.closest('[data-fm]');if(fm){try{PG.mark(fm.dataset.fm)}catch(x){}return}
   var nt=e.target.closest('[data-note]');if(nt){e.preventDefault();var kk=nt.dataset.note,en=PG.get()[kk];if(en&&en.n&&en.t>=weekStart(new Date()).getTime())PG.unmark(kk);else PG.mark(kk);today();return}
   var rb=e.target.closest('[data-rest]');if(rb){var dn=+document.getElementById('rdn').value,an=+document.getElementById('rac').value;
     if(rb.dataset.rest==='1'){rb.dataset.rest='2';rb.textContent='DAY '+dn+' · '+an+'번 활동까지 체크할까요? 한 번 더 누르면 체크해요';return}
     VIS.forEach(function(V,wi){var r0=ROAD[wi][0].split('/');V.forEach(function(v,vi){var no=0;VIS.forEach(function(W,j){if(j<wi)no+=W.length});no+=vi+1;if(no>dn)return;
-      ACT.forEach(function(a,ai){var sc=v.L?SEC[0]:(v.T||v.F)?SEC[2]:SEC[1];if(!sc.url[a[0]]||OPT[a[0]])return;if(no===dn&&ai+1>an)return;var k=(v.L?'L4p'+v.L:'mockp'+v.D)+':'+a[0];var en=PG.get()[k];if(!(en&&(en.n||en.t)))PG.mark(k)})})});
+      ACT.forEach(function(a,ai){var sc=v.L?SEC[0]:v.T?SEC[2]:v.F?SEC[3]:SEC[1];if(!sc.url[a[0]]||OPT[a[0]])return;if(no===dn&&ai+1>an)return;var k=(v.L?'L4p'+v.L:v.T?'L3p'+v.T:v.F?'Fp'+v.F:'mockp'+v.D)+':'+a[0];var en=PG.get()[k];if(!(en&&(en.n||en.t)))PG.mark(k)})})});
     today();return}
   var dsel=e.target.closest('[data-d]');if(dsel){selD=dsel.dataset.d;today();return}
   var c=e.target.closest('[data-cal]');if(c){vm+=+c.dataset.cal;if(vm<0){vm=11;vy--}if(vm>11){vm=0;vy++}today()}
