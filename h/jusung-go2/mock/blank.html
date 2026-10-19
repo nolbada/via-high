@@ -11,5 +11,9 @@
 <a class="homefab" href="../index.html">⌂ 목록</a>
 <script src="../../common/prog.js?v=261019"></script><script src="../../common/sx.js?v=261019"></script>
 <script src="sx-data.js?v=261019"></script>
+<script src="../parts.js?v=261019"></script>
+<script>(function(){var K='mock';DATA.passages=DATA.passages.filter(function(p){return inPart(K,p.id)});DATA.set=partKey(K);
+if(PART){var l=document.querySelector('.lede');if(l)l.insertAdjacentHTML('afterend','<p class="lede" style="margin-top:-6px;font-weight:700">이번 덩어리: '+PARTS.names[K][PART]+'</p>');
+try{var g=GM.ls,og=g.get,os=g.set,dl=g.del,m=function(k){return String(k).indexOf('sx-res:')===0?k+'p'+PART:k};g.get=function(k){return og.call(g,m(k))};g.set=function(k,v){return os.call(g,m(k),v)};g.del=function(k){return dl.call(g,m(k))}}catch(e){}}})();</script>
 <script>SX.start('blank',DATA,{set:DATA.set,hw:DATA.hw&&DATA.hw['blank']});</script>
 </body></html>
