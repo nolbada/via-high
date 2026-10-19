@@ -170,10 +170,10 @@ function today(){
   document.getElementById('sbar').style.width=(tot?Math.round(got*100/tot):0)+'%';
 }
 var KEYS=[
- {g:'교과서 4과',open:1,subs:[{t:'4과',items:[['어법 선택형','정답·해설','L4/eobeop.html','key:L4:eobeop'],['동사형','정답·해설','L4/dongsa.html','key:L4:dongsa']]}]},
- {g:'교과서 3과',subs:[{t:'3과',items:[]}]},
- {g:'모의고사',subs:[{t:'26년 10월',items:[]}]},
- {g:'플러스 자료',subs:[{t:'기출예상 등',items:[]}]}
+ {"g":"교과서 4과","open":1,"subs":[{"t":"","items":[["어법 선택형","정답·해설","L4/eobeop.html","key:L4:eobeop"],["동사형","정답·해설","L4/dongsa.html","key:L4:dongsa"]]}]},
+ {"g":"교과서 3과","subs":[{"t":"","items":[]}]},
+ {"g":"모의고사","subs":[{"t":"","items":[]}]},
+ {"g":"플러스 자료","subs":[{"t":"","items":[]}]}
 ];
 function keys(){
   var P=PG.get(),h='';
@@ -181,7 +181,7 @@ function keys(){
   KEYS.forEach(function(g){
     h+='<details class="acc"'+(g.open?' open':'')+'><summary>'+esc(g.g)+'</summary><div class="in">';
     g.subs.forEach(function(sb){
-      h+='<details class="acc sub"'+(g.open?' open':'')+'><summary>'+esc(sb.t)+'</summary><div class="in">'+(sb.items.length?sb.items.map(row).join(''):'<div class="soonbox">정답·해설이 여기에 쌓여요.<br>준비 중</div>')+'</div></details>';
+      var _in=(sb.items.length?sb.items.map(row).join(''):'<div class="soonbox">정답·해설이 여기에 쌓여요.<br>준비 중</div>');h+=sb.t===''?_in:'<details class="acc sub"'+(g.open?' open':'')+'><summary>'+esc(sb.t)+'</summary><div class="in">'+_in+'</div></details>';
     });
     h+='</div></details>';
   });
