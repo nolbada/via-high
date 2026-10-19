@@ -37,7 +37,10 @@ a.row.on{background:var(--pri);color:#fff}@media(prefers-color-scheme:dark){a.ro
 .s .en{font-size:15.5px;line-height:1.65}.s .ko{font-size:14px;line-height:1.65;color:var(--pri);margin-top:2px}
 .tg{display:inline-block;font-size:11.5px;font-weight:800;border-radius:999px;padding:0 8px;margin-left:6px;border:1px solid var(--line);color:var(--sub)}
 .tg.t{border-color:var(--pri);color:var(--pri)}
-.gc{border:1.5px solid var(--pri);border-radius:12px;padding:10px 12px;margin:8px 0}.gt{font-weight:800;color:var(--pri);font-size:15px}.gd{font-size:14px;line-height:1.6;margin:3px 0}.ge{background:var(--yel);border:1px solid var(--yelL);color:var(--ink);border-radius:8px;padding:6px 10px;font-size:13.5px;line-height:1.55}
+.gc{background:var(--yel);border:1px solid var(--yelL);border-radius:12px;padding:10px 12px;margin:8px 0}.gt{font-weight:800;font-size:15px;color:var(--ink)}.gn{display:inline-block;width:20px;height:20px;border-radius:50%;color:#fff;font-size:12px;line-height:20px;text-align:center;margin-right:7px;background:var(--c)}.gd{font-size:14px;line-height:1.6;margin:4px 0}.ge{background:var(--card);border:1px solid var(--yelL);border-radius:8px;padding:6px 10px;font-size:13.5px;line-height:1.55}
+.g0,.m0{--c:#d9560b}.g1,.m1{--c:#15803d}.g2,.m2{--c:#7e3fb8}.g3,.m3{--c:#0e7490}
+mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border-bottom:2.5px solid var(--c);border-radius:3px;padding:0 1px}mark sup{font-size:10.5px;font-weight:800;color:var(--c);margin-left:1px}
+.gc{border-left:5px solid var(--c)}
 .soonbox{border:1px dashed var(--line);border-radius:14px;padding:18px 14px;text-align:center;color:var(--sub);font-size:14.5px}
 .foot{margin:20px 0 6px;text-align:center;color:var(--sub);font-size:12.5px}
 </style></head><body><div class="wrap">
@@ -135,9 +138,15 @@ function text(){
         if(!G){h+='<div class="row soon"><span>'+esc(p.label)+'<small>준비 중</small></span></div>';return}
         h+='<details class="acc" style="margin:7px 0"><summary><span>'+esc(p.label)+'</span></summary><div class="in">';
         p.en.forEach(function(e,i){
-          h+='<div class="s"><div class="en"><b style="color:var(--pri)">'+(i+1)+'</b> '+esc(e)+'</div><div class="ko">'+esc((p.ko||[])[i]||'')+'</div>';
-          (G[i+1]||[]).forEach(function(c){
-            h+='<div class="gc"><div class="gt">'+esc(c.t)+(c.tag?'<span class="tg t">'+esc(c.tag)+'</span>':'')+'</div><div class="gd">'+esc(c.d)+'</div><div class="ge">쉬운 예: <b>'+esc(c.ex)+'</b><br>'+esc(c.exk)+'</div></div>';
+          var cs=G[i+1]||[],segs=[];
+          cs.forEach(function(c,ci){var at=c.hl?e.indexOf(c.hl):-1;if(at>=0)segs.push({a:at,b:at+c.hl.length,n:ci})});
+          segs.sort(function(x,y){return x.a-y.a});
+          var en='',pos=0;
+          segs.forEach(function(sg){if(sg.a<pos)return;en+=esc(e.slice(pos,sg.a))+'<mark class="m'+sg.n%4+'">'+esc(e.slice(sg.a,sg.b))+'<sup>'+(sg.n+1)+'</sup></mark>';pos=sg.b});
+          en+=esc(e.slice(pos));
+          h+='<div class="s"><div class="en"><b style="color:var(--pri)">'+(i+1)+'</b> '+en+'</div><div class="ko">'+esc((p.ko||[])[i]||'')+'</div>';
+          cs.forEach(function(c,ci){
+            h+='<div class="gc g'+ci%4+'"><div class="gt"><span class="gn">'+(ci+1)+'</span>'+esc(c.t)+(c.tag?'<span class="tg t">'+esc(c.tag)+'</span>':'')+'</div><div class="gd">'+esc(c.d)+'</div><div class="ge">쉬운 예: <b>'+esc(c.ex)+'</b><br>'+esc(c.exk)+'</div></div>';
           });
           h+='</div>';
         });
