@@ -1,21 +1,25 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1d4ed8"><title>4과 어휘</title>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1d4ed8"><title>4과 어휘 퀴즈</title>
 <link rel="icon" type="image/svg+xml" href="../icon.svg"><link rel="apple-touch-icon" href="../icon-180.png">
 <link rel="stylesheet" href="../../common/sx.css?v=261019">
 <style>
-.acc{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:10px 0;overflow:hidden}
-.acc>summary{list-style:none;cursor:pointer;padding:12px 14px;font-weight:800;font-size:16.5px;display:flex;justify-content:space-between}
-.acc>summary::-webkit-details-marker{display:none}.acc>summary:after{content:"▸";color:var(--sub)}.acc[open]>summary:after{content:"▾";color:var(--pri)}
-.acc .in{padding:0 12px 12px}
-.w{display:flex;gap:10px;padding:8px 2px;border-top:1px solid var(--line);align-items:baseline}.w:first-child{border-top:0}
-.w b{flex:0 0 42%;font-size:16.5px;color:var(--navy)}.w span{flex:1;font-size:15.5px;color:var(--ink)}
-.hide .w span{filter:blur(6px);cursor:pointer;user-select:none}.hide .w span.show{filter:none}
-.tg{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);border:1px solid var(--pri);border-radius:999px;padding:0 9px}
-.tbtn{display:block;width:100%;border:1.5px solid var(--pri);background:var(--card);color:var(--pri);font:800 15px/1 inherit;font-family:inherit;border-radius:12px;padding:12px;margin:10px 0;cursor:pointer}
-.pw{padding:10px 2px;border-top:1px solid var(--line)}.pw:first-child{border-top:0}.pw h3{margin:0 0 4px;font-size:18px;color:var(--navy)}
-.pi{margin:6px 0 8px}.pi .m{font-size:15.5px;font-weight:700}.pi .m i{font-style:normal;color:var(--pri);margin-right:4px}.pi .e{font-size:16px;margin-top:2px}.pi .k{font-size:14.5px;color:var(--sub)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}
+.q{font-size:18px;font-weight:800;color:var(--navy);margin:2px 0 4px;line-height:1.45}
+.q em{font-style:normal;color:var(--pri)}
+.sub{color:var(--sub);font-size:14px;margin:0 0 6px}
+.ex{font-size:16.5px;line-height:1.55;margin:6px 0 4px}.ex b{color:var(--pri)}
+.o{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:600 16.5px/1.4 inherit;font-family:inherit;border-radius:12px;padding:12px 13px;margin:8px 0;cursor:pointer}
+.o.sel{border-color:var(--pri);background:var(--priL)}
+.o.ok{border-color:#16803c;background:#e3f5e8;color:#0f5b2a}.o.no{border-color:var(--ans);background:#fdeaea;color:var(--ans)}
+.go{display:block;width:100%;border:0;background:var(--pri);color:#fff;font:800 16px/1 inherit;font-family:inherit;border-radius:12px;padding:14px;margin:12px 0;cursor:pointer}
+.go:disabled{opacity:.35;cursor:default}
+.go.l{background:var(--card);color:var(--pri);border:1.5px solid var(--pri)}
+.fb{border-radius:12px;padding:10px 12px;margin:10px 0;font-size:15.5px;line-height:1.55;background:var(--grayL)}
+.fb b.g{color:#16803c}.fb b.r{color:var(--ans)}
+.pg{height:6px;background:var(--grayL);border-radius:9px;overflow:hidden;margin:6px 0 10px}.pg i{display:block;height:100%;background:var(--pri)}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);border:1px solid var(--pri);border-radius:999px;padding:0 9px;margin-bottom:6px}
+.cnt{display:flex;gap:8px}.cnt button{flex:1;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 15px/1 inherit;font-family:inherit;border-radius:12px;padding:13px 4px;cursor:pointer}.cnt button.on{border-color:var(--pri);background:var(--priL);color:var(--pri)}
 </style></head><body><div class="wrap"><div class="top"><a class="back" href="../index.html">← 목록</a></div>
-<h1>4과 · 어휘</h1><p class="lede">교과서 4과 단어와 다의어예요. 단어 시험(WORD TEST)은 종이로 봐요.</p><p class="lede" id="pt" style="font-weight:800;color:var(--navy)" hidden></p>
-<button class="tbtn" id="hid" type="button">뜻 가리기</button>
+<h1>4과 · 어휘 퀴즈</h1><p class="lede" id="pt" style="font-weight:800;color:var(--navy)" hidden></p>
 <div id="stage"></div>
 <div class="foot" style="text-align:center;color:var(--sub);font-size:13px;margin-top:26px">비타민 영어클리닉 · 주성고 영어II</div></div>
 <a class="homefab" href="../index.html">⌂ 목록</a>
@@ -23,22 +27,73 @@
 <script>
 (function(){
 var E=function(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
-var st=document.getElementById('stage'),h='';
-var F=function(a){return PART?a.filter(function(x){return x.p===PART}):a};
-var nW=0;
-[['본문','본문 단어',true]].forEach(function(g){
-  var a=F(VOC.W[g[0]].map(function(x){return{w:x[0],m:x[1],p:x[2]}}));if(!a.length)return;nW+=a.length;
-  var open=g[2]||!F(VOC.W['본문'].map(function(x){return{p:x[2]}})).length;
-  h+='<details class="acc"'+(open?' open':'')+'><summary><span>'+g[1]+' <span class="tg">'+a.length+'개</span></span></summary><div class="in wl">'+a.map(function(x){return'<div class="w"><b>'+E(x.w)+'</b><span>'+E(x.m)+'</span></div>'}).join('')+'</div></details>';
-});
-var PO=F(VOC.POLY);nW+=PO.length;
-if(PO.length)h+='<details class="acc"><summary><span>다의어 <span class="tg">'+PO.length+'개</span></span></summary><div class="in">'+PO.map(function(p){
-  return'<div class="pw"><h3>'+E(p.w)+'</h3>'+p.items.map(function(it,i){return'<div class="pi"><div class="m"><i>'+(i+1)+'</i>'+E(it.m)+'</div><div class="e">'+E(it.e)+'</div><div class="k">'+E(it.k)+'</div></div>'}).join('')+'</div>'}).join('')+'</div></details>';
-if(PART){var pt=document.getElementById('pt');pt.hidden=false;pt.textContent='이번 덩어리: '+PARTS.names.L4[PART]+' · 단어 '+nW+'개'}
-st.innerHTML=h;
-var hid=false,btn=document.getElementById('hid');
-btn.onclick=function(){hid=!hid;btn.textContent=hid?'뜻 보이기':'뜻 가리기';[].forEach.call(document.querySelectorAll('.wl'),function(x){x.classList.toggle('hide',hid)});[].forEach.call(document.querySelectorAll('.w span.show'),function(x){x.classList.remove('show')})};
-st.addEventListener('click',function(e){var s=e.target.closest('.w span');if(s&&s.parentNode.parentNode.classList.contains('hide'))s.classList.toggle('show')});
-PG.bar(partKey('L4')+':voc','어휘 공부했어요');
+var st=document.getElementById('stage'),KEY=partKey('L4')+':voc',SK='vq:'+KEY;
+var HEADS=VOC.SYN.filter(function(x){return !PART||x.p===PART}),POLY=VOC.POLY.filter(function(x){return !PART||x.p===PART});
+function rnd(a){return a[Math.floor(Math.random()*a.length)]}
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function pos(p){return (p||'').replace(/^v[ti]\./,'v.')}
+/* 단어 전체 풀 (품사 같은 것끼리 오답으로) */
+var POOL=[];VOC.SYN.forEach(function(x){var p=pos(x.pos);POOL.push({w:x.h,p:p});x.syn.forEach(function(w){POOL.push({w:w,p:p})});x.ant.forEach(function(a){POOL.push({w:a.w,p:p})})});
+function clusterOf(ws){var s={};ws.forEach(function(w){s[w]=1;VOC.CL.forEach(function(c){if(c.indexOf(w)>=0)c.forEach(function(z){s[z]=1})})});return s}
+function fam(h){return [h.h].concat(h.syn,h.ant.map(function(a){return a.w}))}
+function dist(h,n,extra){var ex=clusterOf(fam(h)),p=pos(h.pos),seen={},r=[];
+  var sp=shuf(POOL);sp.forEach(function(x){if(x.p!==p||ex[x.w]||seen[x.w]||(extra&&extra.indexOf(x.w)>=0))return;seen[x.w]=1;r.push(x.w)});if(r.length<n)sp.forEach(function(x){if(r.length<n&&!ex[x.w]&&!seen[x.w]){seen[x.w]=1;r.push(x.w)}});return r.slice(0,n)}
+function mkS(h){var ans=rnd(h.syn),d=dist(h,3);
+  if(h.ant.length&&Math.random()<.5)d[0]=rnd(h.ant).w;
+  return{t:'S',h:h.h,m:h.m,a:ans,o:shuf([ans].concat(d)),x:h.syn.join(', ')}}
+function mkA(h){var an=rnd(h.ant),d=dist(h,3);
+  if(h.syn.length&&Math.random()<.5)d[0]=rnd(h.syn);
+  return{t:'A',h:h.h,m:h.m,a:an.w,o:shuf([an.w].concat(d)),am:an.m}}
+function mkO(h){var k=[];if(h.syn.length)k.push('s');if(h.ant.length)k.push('a');k.push('n');
+  var r;if(h.syn.length&&h.ant.length)r=rnd(['s','a','n']);else r=Math.random()<.6?k[0]:'n';
+  var b=r==='s'?rnd(h.syn):r==='a'?rnd(h.ant).w:dist(h,1)[0];
+  return{t:'O',h:h.h,m:h.m,b:b,a:r}}
+function hl(e,w){var re=new RegExp('\\b('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\w*)','i');return E(e).replace(re,'<b>$1</b>')}
+function mkP(p,it){var d=[];POLY.concat(VOC.POLY).forEach(function(q){if(q.w!==p.w)q.items.forEach(function(z){d.push(z.m)})});
+  var own=p.items.map(function(z){return z.m}),o=own.slice();shuf(d).forEach(function(m){if(o.length<4&&o.indexOf(m)<0)o.push(m)});
+  return{t:'P',w:p.w,e:it.e,k:it.k,a:it.m,o:shuf(o)}}
+function build(n){var q=[];HEADS.forEach(function(h){if(h.syn.length)q.push(mkS(h));if(h.ant.length)q.push(mkA(h));q.push(mkO(h))});
+  POLY.forEach(function(p){p.items.forEach(function(it){q.push(mkP(p,it))})});
+  var best=null;for(var t=0;t<80;t++){var s=shuf(q),bad=0;for(var i=1;i<s.length;i++)if(s[i].t==='P'&&s[i-1].t==='P'&&s[i].w===s[i-1].w)bad++;if(!best||bad<best.b)best={b:bad,s:s};if(!bad)break}
+  var s=best.s;return n&&n<s.length?s.slice(0,n):s}
+function load(){try{return JSON.parse(localStorage.getItem(SK)||'null')}catch(e){return null}}
+function save(S){try{localStorage.setItem(SK,JSON.stringify(S))}catch(e){}}
+function clear(){try{localStorage.removeItem(SK)}catch(e){}}
+var S=load(),sel=-1,N=0,cnt=0;
+HEADS.forEach(function(h){N+=1+(h.syn.length?1:0)+(h.ant.length?1:0)});POLY.forEach(function(p){N+=p.items.length});
+if(PART){var pt=document.getElementById('pt');pt.hidden=false;pt.textContent='이번 덩어리: '+PARTS.names.L4[PART]}
+function start(){cnt=cnt||0;S={qs:build(cnt),i:0,ok:0,done:false,sub:false};save(S);show()}
+function home(){var done=PG.n(KEY),h='<div class="card"><div class="q">유의어 · 반의어 · 다의어 퀴즈</div><p class="sub">이번 덩어리 단어로 만든 문제예요. 문제는 한 번 풀 때마다 새로 섞여요.</p></div>';
+  if(S&&!S.done&&S.i>0)h+='<button class="go" id="re">이어서 풀기 ('+S.i+' / '+S.qs.length+')</button>';
+  h+='<div class="card"><div class="q" style="font-size:16px">몇 문제 풀까요?</div><div class="cnt" id="cn"><button data-n="0" class="on">전체 '+N+'</button>'+(N>20?'<button data-n="20">20문제</button>':'')+(N>10?'<button data-n="10">10문제</button>':'')+'</div><p class="sub" style="margin-top:8px">'+(done?'지금까지 '+done+'번 끝냈어요. 이번엔 개수를 골라도 돼요.':'처음엔 전체를 풀어요.')+'</p></div><button class="go" id="st">'+(S&&!S.done&&S.i>0?'새로 시작':'시작')+'</button>';
+  st.innerHTML=h;var re=document.getElementById('re');if(re)re.onclick=show;
+  document.getElementById('cn').onclick=function(e){var b=e.target.closest('button');if(!b)return;cnt=+b.dataset.n;[].forEach.call(this.children,function(x){x.classList.toggle('on',x===b)})};
+  document.getElementById('st').onclick=start}
+function ask(q){
+  if(q.t==='S')return'<span class="tag">유의어</span><div class="q"><em>'+E(q.h)+'</em> 와 뜻이 비슷한 말은?</div>';
+  if(q.t==='A')return'<span class="tag">반의어</span><div class="q"><em>'+E(q.h)+'</em> 의 반대 뜻인 말은?</div>';
+  if(q.t==='O')return'<span class="tag">관련 있나 없나</span><div class="q"><em>'+E(q.h)+'</em> 와 <em>'+E(q.b)+'</em> 의 관계는?</div>';
+  return'<span class="tag">다의어</span><div class="q"><em>'+E(q.w)+'</em> 의 뜻은?</div><div class="ex">'+hl(q.e,q.w)+'</div>'}
+function opts(q){return q.t==='O'?['비슷한 뜻','반대 뜻','관련 없음']:q.o}
+function ansTxt(q){return q.t==='O'?{s:'비슷한 뜻',a:'반대 뜻',n:'관련 없음'}[q.a]:q.a}
+function fbk(q){
+  if(q.t==='S')return'<b>'+E(q.h)+'</b> ('+E(q.m)+') ≈ '+E(q.x);
+  if(q.t==='A')return'<b>'+E(q.h)+'</b> ('+E(q.m)+') ↔ '+E(q.a)+(q.am?' ('+E(q.am)+')':'');
+  if(q.t==='O'){var r=q.a==='s'?'비슷한 뜻이에요':q.a==='a'?'반대 뜻이에요':'서로 관련이 없어요';return'<b>'+E(q.h)+'</b> ('+E(q.m)+') · <b>'+E(q.b)+'</b> → '+r}
+  return E(q.k)}
+function show(){
+  if(S.done)return fin();var q=S.qs[S.i],o=opts(q),sub=S.sub;sel=sub?S.sel:-1;
+  var h='<div class="pg"><i style="width:'+Math.round(S.i/S.qs.length*100)+'%"></i></div><div class="sub">'+(S.i+1)+' / '+S.qs.length+'</div><div class="card">'+ask(q)+'<div id="ol">'+o.map(function(t,i){return'<button class="o" data-i="'+i+'">'+E(t)+'</button>'}).join('')+'</div><div id="fb"></div></div><button class="go" id="sb" disabled>제출</button>';
+  st.innerHTML=h;var ol=document.getElementById('ol'),sb=document.getElementById('sb');
+  function mark(){var ok=o[sel]===ansTxt(q);[].forEach.call(ol.children,function(b,i){b.disabled=true;if(o[i]===ansTxt(q))b.classList.add('ok');else if(i===sel)b.classList.add('no')});
+    document.getElementById('fb').innerHTML='<div class="fb"><b class="'+(ok?'g':'r')+'">'+(ok?'정답이에요 ✓':'아쉬워요 · 정답: '+E(ansTxt(q)))+'</b><br>'+fbk(q)+'</div>';
+    sb.disabled=false;sb.textContent=S.i+1>=S.qs.length?'결과 보기':'다음';sb.onclick=function(){S.i++;S.sub=false;if(S.i>=S.qs.length){S.done=true;PG.mark(KEY)}save(S);show()}}
+  ol.onclick=function(e){var b=e.target.closest('.o');if(!b||S.sub)return;sel=+b.dataset.i;[].forEach.call(ol.children,function(x){x.classList.toggle('sel',x===b)});sb.disabled=false};
+  sb.onclick=function(){if(sel<0)return;S.sub=true;S.sel=sel;if(o[sel]===ansTxt(q))S.ok++;save(S);mark()};
+  if(sub){mark()}}
+function fin(){var n=S.qs.length;st.innerHTML='<div class="card" style="text-align:center"><div class="q">끝! '+S.ok+' / '+n+' 맞았어요</div><p class="sub">이 활동은 완료로 체크됐어요. 틀린 문제가 있었다면 한 번 더 풀어 봐요.</p></div><button class="go" id="ag">다시 풀기 (새 문제)</button><a class="go l" style="text-align:center;text-decoration:none" href="../index.html">목록으로</a>';
+  document.getElementById('ag').onclick=function(){clear();S=null;home()}}
+if(S&&S.done){clear();S=null}
+home();
 })();
 </script></body></html>
