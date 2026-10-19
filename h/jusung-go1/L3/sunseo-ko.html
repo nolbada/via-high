@@ -11,7 +11,7 @@
 <a class="homefab" href="../index.html">⌂ 목록</a>
 <script src="../../common/prog.js?v=261019"></script><script src="../../common/sx.js?v=261019"></script>
 <script src="sx-data.js?v=261019"></script>
-<script>if(/[?&]wrong=1\b/.test(location.search))window.NOTIMER=1;</script>
+<script>if(/[?&](wrong|mix)=1\b/.test(location.search))window.NOTIMER=1;</script>
 <script src="../parts.js?v=261019"></script>
 <script src="../wrong.js?v=261019"></script>
 <script>(function(){var K='L3';DATA.passages=DATA.passages.filter(function(p){return inPart(K,p.id)});DATA.set=partKey(K);
@@ -28,7 +28,7 @@ try{var _a=ACT,_n=ACT==='ko'?'ko':ACT==='mun'?'mi':ACT;if(typeof G!=='undefined'
 if(W){
   try{PG.mark=function(){}}catch(e){}
   var ids=mine(),h=document.querySelector('h1');
-  var info='<div class="how" style="border-color:#b45309"><b>오답 다시 풀기</b> · 오답 노트에 담은 지문으로 문제를 새로 풀어요. <a href="../wrong.html">오답 노트 ›</a></div>';
+  var info=WN.MIX?WN.mixInfo():'<div class="how" style="border-color:#b45309"><b>오답 다시 풀기</b> · 오답 노트에 담은 지문으로 문제를 새로 풀어요. <a href="../wrong.html">오답 노트 ›</a></div>';
   if(h)h.insertAdjacentHTML('afterend',info);
   var f=DATA.passages.filter(function(p){return ids.indexOf(p.id)>=0});
   if(f.length&&typeof G!=='undefined'){ /* 고른 지문만으로 문제를 만들 수 없으면 이번 범위 전체로 */
@@ -41,7 +41,7 @@ if(W){
     st.innerHTML='<div class="sum"><h3>오답 노트에 담긴 문제가 없어요</h3><a class="nx sub" href="../wrong.html">오답 노트 ›</a><a class="nx sub" href="../index.html">← 목록</a></div>';
     window.SXNO=1;
   }else DATA.passages=f;
-  var g=GM.ls,og=g.get,os=g.set,dl=g.del,m=function(k){k=String(k);return (k.indexOf('sx-res:')===0||k.indexOf('sx-used:')===0)?k+':w':k};
+  var g=GM.ls,og=g.get,os=g.set,dl=g.del,m=function(k){k=String(k);return (k.indexOf('sx-res:')===0||k.indexOf('sx-used:')===0)?k+WN.SUF:k};
   g.get=function(k){return og.call(g,m(k))};g.set=function(k,v){return os.call(g,m(k),v)};g.del=function(k){return dl.call(g,m(k))};
 }
 /* 훅: 한 문제를 제출해 틀린 것으로 판정되는 순간(cfg.act 직후)을 잡는다 */
@@ -71,7 +71,8 @@ var stg=document.getElementById('stage');
 if(stg&&window.MutationObserver)new MutationObserver(function(){
   var s=stg.querySelector('.sum');if(!s||s.querySelector('.wn-l')||window.SXNO)return;
   var add='';
-  if(W)add='<p class="wn-l" style="margin:12px 0 0;font-size:14px;color:#6b7280">이제 안 봐도 되는 문제는 오답 노트에서 \'빼기\'로 뺄 수 있어요. <a href="../wrong.html">오답 노트 보기 ›</a></p>';
+  if(W&&WN.MIX)add=WN.mixSum();
+  else if(W)add='<p class="wn-l" style="margin:12px 0 0;font-size:14px;color:#6b7280">이제 안 봐도 되는 문제는 오답 노트에서 \'빼기\'로 뺄 수 있어요. <a href="../wrong.html">오답 노트 보기 ›</a></p>';
   else if(s.querySelector('.chips .x'))add='<p class="wn-l" style="margin:12px 0 0;font-size:14px"><a href="../wrong.html">오답 노트 보기 ›</a></p>';
   if(add)s.insertAdjacentHTML('beforeend',add)}).observe(stg,{childList:true});
 })('ko','한글 순서배열');</script>
