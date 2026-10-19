@@ -134,13 +134,13 @@ function today(){
   var f=map[selD];
   var wkd=flat.filter(function(x){return x.wi===f.wi});
   h+='<div class="wkt"><div class="wkh"><b>'+(f.wi+1)+'주차 한눈에</b><span>'+esc(ROAD[f.wi][2])+'</span></div><table><thead><tr><th></th>'+wkd.map(function(x){var q=prog(x.v);return '<th><button type="button" data-d="'+x.k+'" class="'+(x.k===selD?'on':'')+'">DAY '+x.no+'<small>'+WDN[x.x.getDay()]+' '+(x.x.getMonth()+1)+'/'+x.x.getDate()+'</small></button></th>'}).join('')+'</tr></thead><tbody>'
-  +ACT.map(function(a,ai){return '<tr><td class="an">'+(ai+1)+'. '+esc(a[1])+(OPT[a[0]]?'<em>선택</em>':'')+'</td>'+wkd.map(function(x){var u=setOf(x.v).url[a[0]],c=CNT[key(x.v,a[0])];if(!u)return '<td class="no">준비 중</td>';var on=isOn(x.v,a[0]);return '<td class="'+(on?'dn':'')+(x.k===selD?' sl':'')+'">'+(on?'✓ ':'')+(c?(a[0]==='voc'?'약 ':'')+c+(a[0]==='find'?'문장':''):'')+'</td>'}).join('')+'</tr>'}).join('')
+  +ACT.map(function(a,ai){return '<tr><td class="an">'+(ai+1)+'. '+esc(a[1])+(OPT[a[0]]?'<em>선택</em>':'')+'</td>'+wkd.map(function(x){var u=setOf(x.v).url[a[0]],c=CNT[key(x.v,a[0])];if(!u)return '<td class="no">준비 중</td>';var on=isOn(x.v,a[0]);return '<td class="'+(on?'dn':'')+(x.k===selD?' sl':'')+'">'+(on?'✓ ':'')+(c?(a[0]==='voc'?'약 ':'')+c+(a[0]==='find'?'개':''):'')+'</td>'}).join('')+'</tr>'}).join('')
   +'</tbody></table></div>';
   var v=f.v,pr=prog(v),late=f.x<tdd&&pr.d<pr.n;
   h+='<div class="blk'+(pr.d>=pr.n?' done':'')+'"><h2>DAY '+f.no+(pr.d>=pr.n?'<span class="tg t">완료</span>':'')+'<small class="rng">추천일 '+(f.x.getMonth()+1)+'/'+f.x.getDate()+' ('+WDN[f.x.getDay()]+') · 요일이 달라도 DAY 순서대로 하면 돼요</small>'+'<small class="rng"><b>'+esc(v.t)+'</b> · '+esc(v.s)+'</small>'+(v.x?'<small class="rng">'+esc(v.x)+'</small>':'')+'</h2><div class="rows">';
   ACT.forEach(function(a){var id=a[0],sc=setOf(v),u=sc.url[id];if(!u)return;
     var on=isOn(v,id);
-    h+='<div class="arow"><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+(CNT[key(v,id)]?' <span class="cn">'+(id==='voc'?'약 ':'')+CNT[key(v,id)]+(id==='find'?'문장':'문제')+'</span>':'')+'</b>'+(VAR[id]?'<i class="vr">매번 다른 문제</i>':'<i class="vr o">1회성</i>')+'<div class="two" style="grid-template-columns:1fr"><a class="cell'+(on?' on':'')+'" href="'+u+'?part='+(v.L||v.D)+'">'+(on?'했어요':'풀기')+'<small>'+(on?'✓'+durTxt(key(v,id)):'')+'</small></a></div></div>'});
+    h+='<div class="arow"><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+(CNT[key(v,id)]?' <span class="cn">'+(id==='voc'?'약 ':'')+CNT[key(v,id)]+(id==='find'?'개':'문제')+'</span>':'')+'</b>'+(VAR[id]?'<i class="vr">매번 다른 문제</i>':'<i class="vr o">1회성</i>')+'<div class="two" style="grid-template-columns:1fr"><a class="cell'+(on?' on':'')+'" href="'+u+'?part='+(v.L||v.D)+'">'+(on?'했어요':'풀기')+'<small>'+(on?'✓'+durTxt(key(v,id)):'')+'</small></a></div></div>'});
   h+='</div></div>';
   /* 학습 기록 카드 (인증샷용 · 새 기기 복구용) */
   var last=null,nxt=null,doneDays=0;
