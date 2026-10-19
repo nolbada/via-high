@@ -1,0 +1,44 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1d4ed8"><title>오답 노트</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg"><link rel="apple-touch-icon" href="icon-180.png">
+<link rel="stylesheet" href="../common/sx.css?v=261019">
+<style>
+.g{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:10px 0;overflow:hidden}
+.gh{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.gh .t{flex:1;font-weight:800;font-size:15.5px;color:var(--navy)}.gh .t small{display:block;font-weight:600;font-size:12.5px;color:var(--sub);margin-top:2px}
+.gh a.go{background:var(--pri);color:#fff;border-radius:10px;padding:9px 13px;font-weight:800;font-size:14px;text-decoration:none;white-space:nowrap}
+.gi{border-top:1px solid var(--line);padding:0 14px}.gi summary{cursor:pointer;list-style:none;font-size:13px;color:var(--pri);font-weight:700;padding:8px 0}.gi summary::-webkit-details-marker{display:none}
+.it{display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--line);font-size:14.5px}.it span{flex:1}.it small{display:block;color:var(--sub);font-size:12.5px}
+.it button{border:1.5px solid var(--line);background:var(--card);color:var(--sub);border-radius:9px;padding:6px 10px;font:700 12.5px/1 inherit;font-family:inherit;cursor:pointer}
+.empty{text-align:center;color:var(--sub);padding:40px 10px;line-height:1.7}
+.note{font-size:13px;color:var(--sub);line-height:1.6;margin:4px 2px 10px}
+.hd{margin:16px 2px 4px;font-size:14px;font-weight:800;color:var(--sub)}
+</style></head><body><div class="wrap"><div class="top"><a class="back" href="index.html">← 목록</a></div>
+<h1>오답 노트</h1><p class="note">틀린 문제가 활동마다 여기에 모여요. 맞혀도 자동으로 빠지지 않아요. 이제 안 봐도 되겠다 싶은 문제만 직접 「빼기」로 빼요.</p>
+<div id="st"></div>
+<div class="foot" style="text-align:center;color:var(--sub);font-size:13px;margin-top:26px">비타민 영어클리닉</div></div>
+<a class="homefab" href="index.html">⌂ 목록</a>
+<script src="parts.js?v=261019"></script><script src="../common/prog.js?v=261019"></script><script src="wrong.js?v=261019"></script>
+<script>
+(function(){
+var NM={voc:'어휘',find:'TF',eobeop:'어법선택',ko:'한글 순서',abc:'ABC 순서',mun:'문장삽입',awk:'어색한 곳',blank:'빈칸추론'};
+var ORDER=['voc','find','eobeop','ko','abc','mun','awk','blank'];
+var URL={L4:{voc:'L4/vocab.html',find:'L4/find.html',eobeop:'L4/eobeop-test.html',ko:'L4/sunseo-ko.html',abc:'L4/sunseo-abc.html',mun:'L4/sunseo-mun.html',awk:'L4/awkward-test.html',blank:'L4/blank.html'},mock:{ko:'mock/sunseo-ko.html',abc:'mock/sunseo-abc.html',mun:'mock/sunseo-mun.html',blank:'mock/blank.html'}};
+var KN={L4:'교과서 4과',mock:'모의고사'};
+function E(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function pname(k,p){var n=PARTS.names&&PARTS.names[k]&&PARTS.names[k][p];return n||(p?('구간 '+p):'전체')}
+function paint(){
+  var L=WN.list(),st=document.getElementById('st');
+  if(!L.length){st.innerHTML='<div class="empty">담긴 문제가 아직 없어요.<br>활동에서 틀린 문제가 생기면 여기에 모여요.</div>';return}
+  var g={};L.forEach(function(x){var k=x.kind+'|'+x.act+'|'+x.part;(g[k]=g[k]||{kind:x.kind,act:x.act,part:x.part,a:[]}).a.push(x)});
+  var keys=Object.keys(g).sort(function(a,b){var A=g[a],B=g[b];return (A.kind===B.kind?0:A.kind<B.kind?-1:1)||(ORDER.indexOf(A.act)-ORDER.indexOf(B.act))||(A.part-B.part)});
+  var h='<div class="hd">모두 '+L.length+'개</div>';
+  keys.forEach(function(k){var G=g[k],u=(URL[G.kind]||{})[G.act];
+    h+='<div class="g"><div class="gh"><div class="t">'+E(NM[G.act]||G.act)+' · '+G.a.length+'개<small>'+E(KN[G.kind]||G.kind)+' · '+E(pname(G.kind,G.part))+'</small></div>'+(u?'<a class="go" href="'+u+'?part='+G.part+'&wrong=1">이것만 풀기</a>':'')+'</div>'
+     +'<details class="gi"><summary>목록 보기</summary>'+G.a.map(function(x){return'<div class="it"><span>'+E(x.label||x.qid)+(x.label2?'<small>'+E(x.label2)+'</small>':'')+'</span><button type="button" data-id="'+E(x.id)+'">빼기</button></div>'}).join('')+'</details></div>'});
+  st.innerHTML=h}
+document.getElementById('st').addEventListener('click',function(e){var b=e.target.closest('button[data-id]');if(!b)return;
+  if(b.dataset.s!=='1'){b.dataset.s='1';b.textContent='정말 뺄까요?';setTimeout(function(){if(b.isConnected){b.dataset.s='';b.textContent='빼기'}},3000);return}
+  WN.remove(b.dataset.id);paint()});
+paint();
+})();
+</script></body></html>

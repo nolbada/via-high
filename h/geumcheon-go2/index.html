@@ -50,6 +50,8 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 .cal .dd{border-radius:0;box-shadow:none;outline:none}.cal .dd.tod{box-shadow:none}.cal .dd.tod::before{content:"오늘";position:absolute;left:0;right:0;top:0;font-size:8.5px;line-height:1;font-weight:800;color:var(--pri)}.cal .dd.tod.sel::before{color:#fff;top:1px}.cal .dd.cl{box-shadow:none;color:var(--pri);background:none}.cal .dd.cl::after{content:"";position:absolute;left:50%;bottom:2px;width:6px;height:6px;margin-left:-3px;border-radius:50%;border:1.5px solid var(--pri);box-sizing:border-box}.cal .dd.p1::after{background:linear-gradient(90deg,var(--pri) 50%,transparent 50%)}.cal .dd.p2::after{background:var(--pri)}.cal .dd.p1,.cal .dd.p2{background:none;color:var(--pri)}.cal .dd.p2 small{display:none}.cal .dd.wk{background:var(--priL)}.cal .dd.sel{outline:none;color:#fff;background:radial-gradient(circle 17px at center,var(--pri) 97%,transparent 100%)}.cal .dd.wk.sel{background:radial-gradient(circle 17px at center,var(--pri) 97%,transparent 100%),linear-gradient(var(--priL),var(--priL))}.cal .dd.sel::after{border-color:#fff}.cal .dd.sel.p1::after{background:linear-gradient(90deg,#fff 50%,transparent 50%)}.cal .dd.sel.p2::after{background:#fff}.lg .l0{box-shadow:none;border:1.5px solid var(--pri);border-radius:50%;width:8px;height:8px}.lg .l1{box-shadow:none;border:1.5px solid var(--pri);border-radius:50%;width:8px;height:8px;background:linear-gradient(90deg,var(--pri) 50%,transparent 50%)}.lg .l2{border-radius:50%;width:8px;height:8px}
 .wkt{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:10px 8px 6px;margin:10px 0}.wkh{display:flex;justify-content:space-between;align-items:baseline;padding:0 4px 6px}.wkh b{font-size:15px}.wkh span{font-size:12px;color:var(--sub)}.wkt table{width:100%;border-collapse:collapse;table-layout:fixed}.wkt th,.wkt td{text-align:center;padding:7px 2px;font-size:14px;border-top:1px solid var(--line)}.wkt thead th{border-top:0;padding-bottom:6px}.wkt th:first-child,.wkt td.an{width:31%}.wkt th button{border:0;background:none;font:800 13px/1.25 inherit;font-family:inherit;color:var(--ink);padding:5px 2px;border-radius:10px;width:100%;cursor:pointer}.wkt th button small{display:block;font-weight:500;font-size:11px;color:var(--sub)}.wkt th button.on{background:var(--pri);color:#fff}.wkt th button.on small{color:#e6edfc}.wkt td.an{text-align:left;font-size:13px;font-weight:700;color:var(--navy);padding-left:4px}.wkt td.an em{font-style:normal;font-size:10.5px;color:var(--sub);margin-left:4px;font-weight:500}.wkt td.dn{color:var(--pri);font-weight:800;background:var(--priL)}.wkt td.no{color:var(--sub);font-size:11px;opacity:.6}
 .warn{border:1.5px solid #d97706;background:#fff7e6;color:#7a3b00;border-radius:12px;padding:10px 12px;margin:10px 0;font-size:14px;line-height:1.5}.warn b{color:#b45309}@media(prefers-color-scheme:dark){.warn{background:#3a2a10;color:#ffd9a0}.warn b{color:#ffb74d}}
+.cal .dd.ex{color:#dc2626!important;font-weight:900}.cal .dd.ex::before{content:"시험";position:absolute;left:0;right:0;top:0;font-size:8.5px;line-height:1;font-weight:800;color:#dc2626}.cal .dd.ex.sel{background:radial-gradient(circle 17px at center,#dc2626 97%,transparent 100%);color:#fff!important}.cal .dd.ex.sel::before{color:#fff;top:1px}.lg .lx{width:8px;height:8px;border-radius:50%;background:#dc2626}
+.wnb{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1.5px solid #d97706;background:#fff7e6;color:#7a3b00;border-radius:12px;padding:10px 14px;margin:10px 0 4px;text-decoration:none}.wnb b{display:block;font-size:15px}.wnb small{display:block;font-size:12.5px;color:#9a5a10;margin-top:1px}.wnb .go{font-weight:800;font-size:13.5px;color:#b45309}@media(prefers-color-scheme:dark){.wnb{background:#3a2a10;color:#ffd9a0}.wnb small{color:#e8bb7a}.wnb .go{color:#ffb74d}}
 </style></head><body><div class="wrap">
 
 <section class="pane on" id="p-today">
@@ -75,7 +77,7 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 
 <nav class="tabs" id="tabs"></nav>
 
-<script src="../common/prog.js?v=261019"></script>
+<script src="../common/prog.js?v=261019"></script><script src="wrong.js?v=261019"></script>
 <script src="L4/sx-data.js?v=261019"></script><script>var D4=DATA;</script>
 <script src="L4/jj.js?v=261019"></script><script src="key15.js?v=261019"></script><script src="gram.js?v=261019"></script>
 <script>
@@ -90,6 +92,7 @@ function durTxt(k){var t=0;try{t=+localStorage.getItem('vhd:'+k)||0}catch(e){}if
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var CNT={"L4p1:find": 7, "L4p1:awk": 4, "L4p1:eobeop": 7, "L4p1:ko": 2, "L4p1:abc": 6, "L4p1:mun": 5, "L4p1:blank": 2, "L4p1:voc": 40, "L4p2:find": 6, "L4p2:awk": 2, "L4p2:eobeop": 11, "L4p2:ko": 2, "L4p2:abc": 6, "L4p2:mun": 4, "L4p2:blank": 2, "L4p2:voc": 45, "L4p3:find": 6, "L4p3:awk": 2, "L4p3:eobeop": 6, "L4p3:ko": 2, "L4p3:abc": 6, "L4p3:mun": 3, "L4p3:blank": 2, "L4p3:voc": 31, "L4p4:find": 7, "L4p4:awk": 4, "L4p4:eobeop": 10, "L4p4:ko": 3, "L4p4:abc": 6, "L4p4:mun": 6, "L4p4:blank": 2, "L4p4:voc": 25};
 var OPT={ko:1},VAR={voc:1,ko:1,abc:1,mun:1,blank:1};
+var EXAMD=['2026-12-07', '2026-12-08', '2026-12-09', '2026-12-10'];
 var EXAM=new Date(2026,11,7);
 var ROAD=[['10/19','10/25','교과서 4과 ①','본문 ❶~❺ · 1~3회'],['10/26','11/1','4과 마무리 · 3과 시작','4과 4회(❻❼) → 3과 1·2회'],['11/2','11/8','3과 마무리 · 모의고사 시작','3과 3·4회 → 모의고사 1회'],['11/9','11/15','모의고사 ②','2~4회'],['11/16','11/22','모의고사 ③','5~7회'],['11/23','11/29','모의고사 ④','8~10회'],['11/30','12/6','최종정리','기출 많이 풀기 · 틀린 문제 다시 풀기 (3회)']];
 var Y=2026;
@@ -123,16 +126,17 @@ function today(){
   if(!selD||!map[selD]){var ti=0;flat.forEach(function(f,i){if(f.x<=tdd)ti=i});selD=flat[ti].k}
   if(now.getDay()===0){var left=0,ds=[];flat.forEach(function(x){if(x.wi!==cw)return;var q=prog(x.v);if(q.d<q.n){left+=q.n-q.d;ds.push('DAY '+x.no)}});
     if(left)h+='<div class="warn"><b>오늘은 이번 주 마지막 날이에요</b><br>아직 안 끝난 활동이 '+left+'개 있어요 ('+ds.join(' · ')+'). 오늘 안에 하나라도 더 끝내 봐요. 시간이 없으면 지금 하는 DAY부터 이어서 해요.</div>'}
-  h+='<div class="exam"><b>기말고사 (12/7)</b><span>날짜를 눌러 그날 활동을 해요</span></div>';
+  var wn=WN.count();h+='<a class="wnb" href="wrong.html"><span><b>오답 노트</b><small>'+(wn?'틀린 문제 '+wn+'개가 모여 있어요':'틀린 문제가 생기면 여기에 모여요')+'</small></span><span class="go">'+(wn?'다시 풀기':'열기')+'</span></a>';
+  h+='<div class="exam"><b>기말고사 (12/7~12/10)</b><span>날짜를 눌러 그날 활동을 해요</span></div>';
   var first=new Date(vy,vm,1),lead=(first.getDay()+6)%7,days=new Date(vy,vm+1,0).getDate();
   h+='<div class="cal"><div class="calh"><button type="button" data-cal="-1">‹</button><b>'+vy+'년 '+(vm+1)+'월</b><button type="button" data-cal="1">›</button></div><div class="calg">';
   WD.forEach(function(w,i){h+='<span class="wd'+(i===6?' sun':'')+'">'+w+'</span>'});
   for(var i=0;i<lead;i++)h+='<span></span>';
-  for(var d=1;d<=days;d++){var k=dkey(new Date(vy,vm,d)),f=map[k],inw=k>=wk0&&k<=wk1,c='dd'+(inw?' wk':'')+(k===td?' tod':'')+(((lead+d-1)%7)===6?' sun':'')+(k===selD?' sel':'');
+  for(var d=1;d<=days;d++){var k=dkey(new Date(vy,vm,d)),f=map[k],inw=k>=wk0&&k<=wk1,c='dd'+(EXAMD.indexOf(k)>=0?' ex':'')+(inw?' wk':'')+(k===td?' tod':'')+(((lead+d-1)%7)===6?' sun':'')+(k===selD?' sel':'');
     if(f){var pr=prog(f.v);c+=' cl '+(pr.n&&pr.d>=pr.n?'p2':pr.d>0?'p1':'p0');
       h+='<button type="button" class="'+c+'" data-d="'+k+'">'+d+(pr.n&&pr.d>=pr.n?'<small>✓</small>':'')+'</button>'}
     else h+='<span class="'+c+'">'+d+'</span>'}
-  h+='</div><div class="lg"><span><i class="l0"></i>수업 날짜</span><span><i class="l1"></i>일부 했어요</span><span><i class="l2"></i>모두 했어요</span></div></div>';
+  h+='</div><div class="lg"><span><i class="l0"></i>수업 날짜</span><span><i class="l1"></i>일부 했어요</span><span><i class="l2"></i>모두 했어요</span><span><i class="lx"></i>시험</span></div></div>';
   var f=map[selD];
   var wkd=flat.filter(function(x){return x.wi===f.wi});
   h+='<div class="wkt"><div class="wkh"><b>'+(f.wi+1)+'주차 한눈에</b><span>'+esc(ROAD[f.wi][2])+'</span></div><table><thead><tr><th></th>'+wkd.map(function(x){var q=prog(x.v);return '<th><button type="button" data-d="'+x.k+'" class="'+(x.k===selD?'on':'')+'">DAY '+x.no+'<small>'+WDN[x.x.getDay()]+' '+(x.x.getMonth()+1)+'/'+x.x.getDate()+'</small></button></th>'}).join('')+'</tr></thead><tbody>'
@@ -156,7 +160,7 @@ function today(){
    +'<div class="rr"><em>전체 진행</em><b>'+got+' / '+tot+' 활동 · '+doneDays+' / '+flat.length+' DAY 완료</b></div>'
    +'<div class="rs">이 화면을 캡처해 두면, 기기가 바뀌어도 어디까지 했는지 바로 알 수 있어요.<br>캡처 시각: '+fmt(Date.now())+'</div>'
    +'<details class="rst"><summary>다른 기기예요 · 기록 옮기기</summary><div class="rsi"><p>캡처해 둔 “마지막으로 끝낸 활동”까지 이 기기에 체크해요.</p><div class="rsel"><select id="rdn">'+flat.map(function(f){return '<option value="'+f.no+'">DAY '+f.no+' ('+(f.x.getMonth()+1)+'/'+f.x.getDate()+')</option>'}).join('')+'</select><select id="rac">'+ACT.map(function(a,i){return '<option value="'+(i+1)+'">'+(i+1)+'. '+a[1]+'</option>'}).join('')+'</select></div><button type="button" class="rbtn" data-rest="1">여기까지 했어요로 체크</button></div></details></div>';
-  h+='<div class="road"><div class="rh"><b>시험까지 큰 흐름</b><span>기말고사 (12/7)</span></div>';
+  h+='<div class="road"><div class="rh"><b>시험까지 큰 흐름</b><span>기말고사 (12/7~12/10)</span></div>';
   ROAD.forEach(function(w,i){h+='<div class="wr'+(i===cw?' cur':'')+(i<cw?' past':'')+'"><span class="wn">'+(i+1)+'주</span><span class="wd2">'+w[0]+'~'+w[1]+'</span><span class="wm"><b>'+esc(w[2])+'</b> '+esc(w[3])+'</span></div>'});
   h+='</div>';
   document.getElementById('today').innerHTML=h;
