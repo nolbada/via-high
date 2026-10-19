@@ -43,12 +43,13 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 .gc{border-left:5px solid var(--c)}
 .jj{border-collapse:collapse;width:100%;margin:2px 0 6px}.jj td{word-break:keep-all;padding:3px 6px 3px 0;font-size:14.5px;line-height:1.5;vertical-align:top;text-align:left;width:50%}.jj td:first-child{border-right:1px solid var(--line);padding-right:8px}.jj td:last-child{padding-left:8px;color:var(--pri)}
 .jjl{font-size:11.5px;font-weight:800;color:var(--sub);margin:6px 0 2px}.ez{background:var(--off);border-radius:12px;padding:8px 12px;margin:10px 0;font-size:14.5px;line-height:1.7}.ez.life{background:var(--yel)}
+.blk{border:2px solid var(--line);border-radius:16px;padding:10px 12px 6px;margin:14px 0;background:var(--card)}.blk h2{font-size:15.5px;margin:2px 0 6px}.arow{display:flex;align-items:center;gap:8px;padding:6px 0;border-top:1px solid var(--line)}.arow:first-child{border-top:0}.arow>b{flex:0 0 76px;font-size:14px}.arow .two{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:6px}.arow .cell{margin:0}
 .soonbox{border:1px dashed var(--line);border-radius:14px;padding:18px 14px;text-align:center;color:var(--sub);font-size:14.5px}
 .foot{margin:20px 0 6px;text-align:center;color:var(--sub);font-size:12.5px}
 </style></head><body><div class="wrap">
 
 <section class="pane on" id="p-today">
-<h1>오늘의 학습</h1><p class="sub">하고 싶은 걸 골라 눌러요. 끝내면 파랗게 바뀌어요.</p>
+<h1>이번주 학습</h1><p class="sub">한 주에 세 덩어리, 하루에 한 덩어리씩 해요. 순서는 마음대로, 끝내면 파랗게 바뀌어요.</p>
 <div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline"><b>채운 칸</b><b id="sum" style="color:var(--pri)"></b></div><div class="bar"><i id="sbar" style="width:0"></i></div>
 <div style="font-size:12.5px;color:var(--sub)">시험 전까지 모든 활동을 두 번씩! (✓ 한 번, ✓✓ 두 번 이상)</div></div>
 <div id="today"></div>
@@ -82,15 +83,21 @@ var SEC=[
  {label:'모의고사 (22년 11월 · 23년 11월 · 24년 10월)',set:'mock',url:{ko:'mock/sunseo-ko.html',abc:'mock/sunseo-abc.html',mun:'mock/sunseo-mun.html',blank:'mock/blank.html'}}
 ];
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var BLK=[['① 글의 흐름','한글 순서·ABC 순서·문장삽입',['ko','abc','mun']],['② 내용 파악','빈칸추론·TF·어색한 곳',['blank','find','awk']],['③ 어휘와 문법','어휘·어법선택·동사형',['voc','eobeop','dongsa']]];
 function today(){
-  var P=PG.get(),h='',tot=0,got=0;
-  SEC.forEach(function(s){
-    h+='<div class="card"><h2>'+esc(s.label)+'</h2><div class="grid">';
-    ACT.forEach(function(a){
-      var u=s.url[a[0]],k=s.set+':'+a[0],n=(P[k]||{}).n||0;
-      if(!u){h+='<span class="cell soon">'+a[1]+'<small>준비 중</small></span>';return}
-      tot++;if(n)got++;
-      h+='<a class="cell'+(n?' on':'')+'" href="'+u+'">'+a[1]+'<small>'+(n>=2?'✓✓':n?'✓':'')+'</small></a>';
+  var P=PG.get(),h='',tot=0,got=0,nm={};
+  ACT.forEach(function(a){nm[a[0]]=a[1]});
+  BLK.forEach(function(bk){
+    h+='<div class="blk"><h2>'+esc(bk[0])+'</h2><div class="rows">';
+    bk[2].forEach(function(id){
+      h+='<div class="arow"><b>'+esc(nm[id])+'</b><div class="two">';
+      SEC.forEach(function(sc){
+        var lab=sc.set==='L4'?'4과':'모의고사',u=sc.url[id],n=(P[sc.set+':'+id]||{}).n||0;
+        if(!u){h+='<span class="cell soon">'+lab+'<small>준비 중</small></span>';return}
+        tot++;if(n)got++;
+        h+='<a class="cell'+(n?' on':'')+'" href="'+u+'">'+lab+'<small>'+(n>=2?'✓✓':n?'✓':'')+'</small></a>';
+      });
+      h+='</div></div>';
     });
     h+='</div></div>';
   });
@@ -176,7 +183,7 @@ function text(){
 }
 document.getElementById('text').addEventListener('click',function(e){if(e.target.id==='hide15'){hide15=!hide15;text();}});
 document.getElementById('seg').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;mode=+b.dataset.m;text()});
-var TABS=[['text','원문','<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 17h7"/>'],['keys','답안지','<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-6"/>'],['today','오늘의 학습','<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>']];
+var TABS=[['text','원문','<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 17h7"/>'],['keys','답안지','<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-6"/>'],['today','이번주 학습','<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>']];
 function show(id){
   TABS.forEach(function(t){document.getElementById('p-'+t[0]).classList.toggle('on',t[0]===id)});
   [].forEach.call(document.querySelectorAll('#tabs button'),function(b){b.classList.toggle('on',b.dataset.t===id)});
