@@ -78,7 +78,7 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 <script src="L4/jj.js?v=261019"></script><script src="mock/ez.js?v=261019"></script><script src="key15.js?v=261019"></script><script src="gram.js?v=261019"></script>
 <script>
 (function(){
-var ACT=[['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['blank','빈칸추론'],['find','TF'],['awk','어색한 곳'],['voc','어휘'],['eobeop','어법선택']];
+var ACT=[['voc','어휘'],['find','TF'],['eobeop','어법선택'],['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['awk','어색한 곳'],['blank','빈칸추론']];
 var SEC=[
  {label:'4과 (교과서)',set:'L4',url:{ko:'L4/sunseo-ko.html',abc:'L4/sunseo-abc.html',mun:'L4/sunseo-mun.html',blank:'L4/blank.html',find:'L4/find.html',awk:'L4/awkward-test.html',eobeop:'L4/eobeop-test.html',voc:'L4/vocab.html'}},
  {label:'모의고사 (22년 11월 · 23년 11월 · 24년 10월)',set:'mock',url:{ko:'mock/sunseo-ko.html',abc:'mock/sunseo-abc.html',mun:'mock/sunseo-mun.html',blank:'mock/blank.html'}}
@@ -86,15 +86,15 @@ var SEC=[
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var OPT={ko:1},VAR={ko:1,abc:1,mun:1,blank:1};
 var EXAM=new Date(2026,11,1);
-var ROAD=[['10/19','10/25','교과서 4과','본문 3덩어리 · 덩어리마다 모든 활동'],['10/26','11/1','모의고사 ①','하루 5지문씩 · 22년 11월 + 23년 11월 시작'],['11/2','11/8','모의고사 ②','하루 5지문씩 · 23년 11월 + 24년 10월'],['11/9','11/15','복습 (2회독)','틀린 곳·약한 활동 다시 풀기'],['11/16','11/22','기출 풀기','22년 · 23년 · 24년 기출'],['11/23','11/30','기출 · 최종정리','26년 기출(추후 공지) · 교과서 기출 1회 · 28일(토) 최종정리']];
+var ROAD=[['10/19','10/25','교과서 4과','본문 3덩어리 · 덩어리마다 모든 활동'],['10/26','11/1','모의고사 1회독 ①','하루 3지문 · 해석과 문법 분석까지 꼼꼼히'],['11/2','11/8','모의고사 1회독 ②','하루 3지문 · 꼼꼼히'],['11/9','11/15','모의고사 1회독 ③','하루 3지문 · 꼼꼼히'],['11/16','11/22','1회독 마무리 · 2회독 시작','2회독은 하루 6지문 · 수업에서 기출 풀이'],['11/23','11/29','2회독 · 최종정리','기출 풀이와 함께 · 28일(토) 최종정리']];
 var Y=2026;
 var VIS=[
  [{L:1,t:'교과서 덩어리 1',s:'본문 ❶~❸'},{L:2,t:'교과서 덩어리 2',s:'본문 ❹~❺'},{L:3,t:'교과서 덩어리 3',s:'본문 ❻~❼'}],
- [{D:1,t:'22년 11월',s:'29·30·31·32·33번 (5지문)'},{D:2,t:'22년 11월',s:'34·35·36·37·38번 (5지문)'},{D:3,t:'23년 11월',s:'21·23·30·31·32번 (5지문)'}],
- [{D:4,t:'23년 11월',s:'33·34·35·36·37번 (5지문)'},{D:5,t:'23년 11월 · 24년 10월',s:'23년 38·39·40·41번 + 24년 22번 (5지문)'},{D:6,t:'24년 10월',s:'23·24·29·30·33번 (5지문)'}],
- [{N:'rv1',t:'복습 ①',s:'22년 11월 + 23년 11월 앞부분을 다시 풀어요'},{N:'rv2',t:'복습 ②',s:'23년 11월 + 24년 10월을 다시 풀어요'},{N:'rv3',t:'복습 ③',s:'틀렸던 곳 위주로 마무리해요'}],
- [{N:'gc22',t:'22년 기출',s:'기출 시험지를 풀어요'},{N:'gc23',t:'23년 기출',s:'기출 시험지를 풀어요'},{N:'gc24',t:'24년 기출',s:'기출 시험지를 풀어요'}],
- [{N:'gc26',t:'26년 기출',s:'추후 공지'},{N:'gct',t:'교과서 기출 1회',s:'교과서 기출을 풀어요'},{N:'fin',t:'최종정리',s:'28일(토) · 기말고사 전 마지막 정리'}]
+ [{D:1,t:'1회독',s:'22년 11월 29·30·31번 (3지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'},{D:2,t:'1회독',s:'22년 11월 32·33·34번 (3지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'},{D:3,t:'1회독',s:'22년 11월 35·36·37·38번 (4지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'}],
+ [{D:4,t:'1회독',s:'23년 11월 21·23·30번 (3지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'},{D:5,t:'1회독',s:'23년 11월 31·32·33번 (3지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'},{D:6,t:'1회독',s:'23년 11월 34·35·36번 (3지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'}],
+ [{D:7,t:'1회독',s:'23년 11월 37·38·39번 (3지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'},{D:8,t:'1회독',s:'23년 11월 40·41번 (2지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'},{D:9,t:'1회독',s:'24년 10월 22·23·24번 (3지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'}],
+ [{D:10,t:'1회독',s:'24년 10월 29·30·33번 (3지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'},{D:11,t:'2회독',s:'22년 11월 29·30·31·32·33·34번 (6지문)',x:'수업: 22년 기출 풀이 · 앱은 6지문'},{D:12,t:'2회독',s:'22년 11월 35·36·37·38번 · 23년 11월 21·23번 (6지문)',x:'수업: 23년 기출 풀이 · 앱은 6지문'}],
+ [{D:13,t:'2회독',s:'23년 11월 30·31·32·33·34·35번 (6지문)',x:'수업: 24년 기출 풀이 · 앱은 6지문'},{D:14,t:'2회독',s:'23년 11월 36·37·38·39·40·41번 (6지문)',x:'수업: 26년 기출(추후 공지) · 앱은 6지문'},{D:15,t:'2회독',s:'24년 10월 22·23·24·29·30·33번 (6지문)',x:'수업: 교과서 기출 1회 + 최종정리(28일) · 앱은 6지문'}]
 ];
 var ORD=['DAY 1','DAY 2','DAY 3'],DOFF=[0,2,5],WDN=['일','월','화','수','목','금','토'];
 function curWeek(now){var w=0;ROAD.forEach(function(r,i){var a=r[0].split('/');if(now>=new Date(Y,a[0]-1,+a[1]))w=i});return w}
@@ -125,7 +125,7 @@ function today(){
   h+='<div class="dayhead"><b>이번 주 ('+(ws.getMonth()+1)+'/'+ws.getDate()+' ~ '+(we.getMonth()+1)+'/'+we.getDate()+') · '+esc(ROAD[cw][2])+'</b><span>'+(nxt<0?'이번 주 DAY를 모두 했어요':'순서는 자유예요. 빠진 DAY는 주말에 채워도 돼요')+'</span></div>';
   V.forEach(function(v,vi){
     var dn=doneV(v),isn=vi===nxt;
-    h+='<div class="blk'+(dn?' done':'')+'"><h2>'+ORD[vi]+' · '+(function(){var x=new Date(Y,r0[0]-1,+r0[1]+DOFF[vi]);v.late=x<tdd;return WDN[x.getDay()]+' '+(x.getMonth()+1)+'/'+x.getDate()})()+(dn?'<span class="tg t">완료</span>':v.late?'<span class="tg">밀림</span>':'')+'<small class="rng"><b>'+esc(v.t)+'</b> · '+esc(v.s)+'</small></h2>';
+    h+='<div class="blk'+(dn?' done':'')+'"><h2>'+ORD[vi]+' · '+(function(){var x=new Date(Y,r0[0]-1,+r0[1]+DOFF[vi]);v.late=x<tdd;return WDN[x.getDay()]+' '+(x.getMonth()+1)+'/'+x.getDate()})()+(dn?'<span class="tg t">완료</span>':v.late?'<span class="tg">밀림</span>':'')+'<small class="rng"><b>'+esc(v.t)+'</b> · '+esc(v.s)+'</small>'+(v.x?'<small class="rng">'+esc(v.x)+'</small>':'')+'</h2>';
     if(v.N){h+='<div class="rows"><div class="arow"><div class="two" style="grid-template-columns:1fr"><a class="cell'+(dn?' on':'')+'" href="#" data-note="'+v.N+'">'+(dn?'했어요 ✓':'했어요')+'<small>누르면 표시돼요</small></a></div></div></div></div>';return}
     h+='<div class="rows">';
     ACT.forEach(function(a){var id=a[0],sc=setOf(v),u=sc.url[id];if(!u)return;
