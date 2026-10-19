@@ -56,7 +56,7 @@ var WEMPTY=false;
 if(WN.MODE){var _wi=WN.ids('L3',PART,'find');D.groups=D.groups.filter(function(g){return _wi.indexOf(String(g._i))>=0});
   D.parts=D.parts.filter(function(p){return D.groups.some(function(g){return g.part===p[0]})});WEMPTY=!D.groups.length}
 var PGK=partKey('L3')+':find';
-var KEY='gm2-res:'+location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')+(PART?':p'+PART:'')+(WN.MODE?':w':''), S={};
+var KEY='gm2-res:'+location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')+(PART?':p'+PART:'')+WN.SUF, S={};
 try{S=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){S={}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
 function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
@@ -72,7 +72,7 @@ function wnNote(host,mode){ /* host: 요소 뒤에 안내 줄 삽입 */
   host.parentNode.insertBefore(d,host.nextSibling);return d}
 function wnRender(d,fin){
   if(WN.MODE){
-    d.innerHTML='<b>오답 다시 풀기</b> · 오답 노트에 담은 문제만 보여요. <a href="../wrong.html" style="color:#0f766e;text-decoration:underline">오답 노트 보기 ›</a>'+(fin?'<div style="margin-top:6px">이제 안 봐도 되는 문제는 오답 노트에서 \'빼기\'로 뺄 수 있어요.</div>':'');
+    d.innerHTML=WN.MIX?WN.mixNote(fin):'<b>오답 다시 풀기</b> · 오답 노트에 담은 문제만 보여요. <a href="../wrong.html" style="color:#0f766e;text-decoration:underline">오답 노트 보기 ›</a>'+(fin?'<div style="margin-top:6px">이제 안 봐도 되는 문제는 오답 노트에서 \'빼기\'로 뺄 수 있어요.</div>':'');
   }else{
     var n=WN.ids('L3',PART,WNA).length;
     d.innerHTML=n?'<a href="../wrong.html" style="font-size:13px;color:#0f766e;text-decoration:underline">틀린 '+n+'개가 오답 노트에 담겼어요 ›</a>':''}

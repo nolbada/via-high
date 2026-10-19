@@ -1,0 +1,103 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1d4ed8"><title>전체 랜덤 20문항</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg"><link rel="apple-touch-icon" href="icon-180.png">
+<link rel="stylesheet" href="../common/sx.css?v=261019">
+<style>
+.mg{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:10px 0;overflow:hidden}
+.mg.dn{border-color:#16a34a}
+.gh{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.gh .t{flex:1;font-weight:800;font-size:15.5px;color:var(--navy)}.gh .t small{display:block;font-weight:600;font-size:12.5px;color:var(--sub);margin-top:2px}
+.gh a.go{background:var(--pri);color:#fff;border-radius:10px;padding:9px 13px;font-weight:800;font-size:14px;text-decoration:none;white-space:nowrap}
+.mg.dn .gh a.go{background:var(--card);color:var(--sub);border:1.5px solid var(--line)}
+.mok{display:inline-block;margin-left:6px;color:#16a34a;font-weight:800;font-size:13px}
+.mmk{display:block;width:100%;border:0;border-top:1px solid var(--line);background:transparent;color:var(--sub);font:600 13px/1 inherit;font-family:inherit;padding:10px 14px;text-align:left;cursor:pointer}
+.note{font-size:13.5px;color:var(--sub);line-height:1.65;margin:4px 2px 10px}
+.st{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:14px;margin:10px 0}
+.st .r{font-size:19px;font-weight:800;color:var(--navy)}.st .s{font-size:14px;color:var(--sub);margin-top:3px}
+.mbar{height:8px;border-radius:99px;background:var(--line);margin:11px 0 4px;overflow:hidden}.mbar i{display:block;height:100%;background:var(--pri)}
+.btn{display:block;width:100%;margin:10px 0 0;border:0;background:var(--pri);color:#fff;font:800 16px/1 inherit;font-family:inherit;border-radius:12px;padding:14px;cursor:pointer}
+.btn.l{background:var(--card);color:var(--sub);border:1.5px solid var(--line);font-size:14px;padding:11px;font-weight:700}
+.mfin{background:var(--priL);border-radius:14px;padding:14px;margin:12px 0;text-align:center}.mfin b{font-size:17px;color:var(--navy)}.mfin p{margin:4px 0 0;font-size:14px;color:var(--sub)}
+.hd{margin:16px 2px 4px;font-size:14px;font-weight:800;color:var(--sub)}
+.cy{font-size:13px;color:#b45309;margin:8px 0 0}
+</style></head><body><div class="wrap"><div class="top"><a class="back" href="index.html">← 목록</a></div>
+<h1>전체 랜덤 20문항</h1>
+<p class="note">교과서 전체에서 여러 유형을 골고루 섞어 한 회차에 20문항씩 내요. 한 번 나온 문제는 다음 회차에 나오지 않아요. 풀다가 나가도 같은 회차를 이어서 풀 수 있어요. 틀린 문제는 오답 노트에 담겨요.</p>
+<div id="st"></div>
+<div class="foot" style="text-align:center;color:var(--sub);font-size:13px;margin-top:26px">비타민 영어클리닉</div></div>
+<a class="homefab" href="index.html">⌂ 목록</a>
+<script src="parts.js?v=261019"></script><script src="../common/prog.js?v=261019"></script><script src="wrong.js?v=261019"></script><script src="mix-pool.js?v=261019"></script>
+<script>
+(function(){
+var KEY='vhmx:'+WN.school,QUOTA=20;
+var NM={voc:'어휘',find:'TF',eobeop:'어법선택',ko:'한글 순서',mun:'문장삽입',awk:'어색한 곳',blank:'빈칸추론'};
+var ORDER=['voc','find','eobeop','ko','mun','awk','blank'];
+var FILE={voc:'vocab.html',find:'find.html',eobeop:'eobeop-test.html',ko:'sunseo-ko.html',abc:'sunseo-abc.html',mun:'sunseo-mun.html',awk:'awkward-test.html',blank:'blank.html'};
+var KN={L3:'교과서 3과',L4:'교과서 4과',mock:'모의고사'};
+function E(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function pname(k,p){var n=PARTS.names&&PARTS.names[k]&&PARTS.names[k][p];return n||(p?('구간 '+p):'전체')}
+function uid(k,p,a,q){return k+':'+p+':'+a+':'+q}
+function load(){try{var o=JSON.parse(localStorage.getItem(KEY)||'null');if(o&&o.cur)return o}catch(e){}return null}
+function save(o){try{localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}}
+function rnd(a){return a[Math.floor(Math.random()*a.length)]}
+var POOL=(window.MIXPOOL?MIXPOOL.units:[]).map(function(u){return{k:u[0],p:u[1],a:u[2],q:u[3],w:u[4],id:uid(u[0],u[1],u[2],u[3])}});
+var TOTAL=POOL.reduce(function(n,u){return n+u.w},0);
+function acts(){var s={};POOL.forEach(function(u){s[u.a]=1});return ORDER.filter(function(a){return s[a]})}
+
+/* 새 회차 뽑기: 안 쓴 문제만, 유형·구간이 골고루 */
+function draw(S0){
+  var used={};(S0.used||[]).forEach(function(i){used[i]=1});
+  var prev={};(S0.cur||[]).forEach(function(x){prev[uid(x.kind,x.part,x.act,x.qid)]=1});
+  var A=acts(),cur=[],curS={},tot=0,acc={},bk={},reset=false,relax=false,guard=0,wrapped=false;
+  function pool(a){return POOL.filter(function(u){return u.a===a&&!used[u.id]&&!curS[u.id]&&(relax||!prev[u.id])})}
+  while(tot<QUOTA&&guard++<500){
+    var rem=QUOTA-tot,lim=rem,opts;
+    for(var pass=0;pass<2;pass++){
+      opts=A.map(function(a){return{a:a,l:pool(a).filter(function(u){return u.w<=lim})}}).filter(function(o){return o.l.length});
+      if(opts.length)break;lim=rem+2}
+    if(!opts.length){
+      if(A.some(function(a){return pool(a).length}))break;
+      if(!reset){reset=true;wrapped=true;used={};continue}
+      if(!relax){relax=true;continue}
+      break}
+    var mn=Math.min.apply(null,opts.map(function(o){return acc[o.a]||0}));
+    var o=rnd(opts.filter(function(o){return(acc[o.a]||0)===mn}));
+    var bm=Math.min.apply(null,o.l.map(function(u){return bk[u.k+':'+u.p]||0}));
+    var u=rnd(o.l.filter(function(u){return(bk[u.k+':'+u.p]||0)===bm}));
+    cur.push({kind:u.k,part:u.p,act:u.a,qid:u.q,w:u.w});curS[u.id]=1;tot+=u.w;acc[u.a]=(acc[u.a]||0)+u.w;bk[u.k+':'+u.p]=(bk[u.k+':'+u.p]||0)+1}
+  var nu=(wrapped?[]:(S0.used||[]).slice());cur.forEach(function(x){nu.push(uid(x.kind,x.part,x.act,x.qid))});
+  return{round:(S0.round||0)+1,used:nu,cur:cur,done:{},open:{},cyc:(S0.cyc||0)+(wrapped?1:0),wrap:wrapped?1:0}}
+
+function bundles(S){var g={};S.cur.forEach(function(x){var k=x.kind+'|'+x.part+'|'+x.act;(g[k]=g[k]||{kind:x.kind,part:x.part,act:x.act,k:k,n:0}).n+=x.w});
+  return Object.keys(g).map(function(k){return g[k]}).sort(function(a,b){return(ORDER.indexOf(a.act)-ORDER.indexOf(b.act))||(a.kind<b.kind?-1:a.kind>b.kind?1:0)||(a.part-b.part)})}
+function left(S){var u={};(S.used||[]).forEach(function(i){u[i]=1});return POOL.reduce(function(n,p){return n+(u[p.id]?0:p.w)},0)}
+
+var st=document.getElementById('st'),confirmT=0;
+function paint(){
+  var S=load();
+  if(!POOL.length){st.innerHTML='<div class="note">아직 준비된 문제가 없어요.</div>';return}
+  if(!S||!S.round){
+    st.innerHTML='<div class="st"><div class="r">아직 시작 전이에요</div><div class="s">준비된 문제 '+TOTAL+'개 중에서 뽑아요</div><button class="btn" id="go">1회차 시작</button></div>';
+    document.getElementById('go').onclick=function(){save(draw({used:[],cur:[],round:0}));paint()};return}
+  var B=bundles(S),nd=B.filter(function(b){return S.done&&S.done[b.k]}).length,all=nd===B.length,n=S.cur.reduce(function(a,x){return a+x.w},0);
+  var h='<div class="st"><div class="r">'+S.round+'회차 · '+n+'문항</div><div class="s">남은 문제 '+left(S)+'개 (전체 '+TOTAL+'개) · 묶음 '+nd+' / '+B.length+' 끝</div><div class="mbar"><i style="width:'+Math.round(nd/B.length*100)+'%"></i></div>'
+   +(S.wrap?'<div class="cy">준비된 문제를 한 바퀴 다 풀어서, 문제를 새로 섞었어요.</div>':'')
+   +(all?'':'<button class="btn l" id="nw">'+(confirmT?'남은 묶음이 있어요. 정말 새 회차로 갈까요?':'새 회차 시작')+'</button>')+'</div>';
+  if(all)h+='<div class="mfin"><b>'+S.round+'회차 끝</b><p>잘했어요. 다음 회차에는 지금까지 나온 문제가 다시 나오지 않아요.</p></div><button class="btn" id="nw">다음 회차 시작</button>';
+  h+='<div class="hd">이번 회차 묶음 · 눌러서 풀기</div>';
+  B.forEach(function(b){var d=S.done&&S.done[b.k],o=S.open&&S.open[b.k];
+    h+='<div class="mg'+(d?' dn':'')+'"><div class="gh"><div class="t">'+E(NM[b.act]||b.act)+(d?'<span class="mok">✓ 끝</span>':'')+'<small>'+E(KN[b.kind]||b.kind)+' · '+E(pname(b.kind,b.part))+' · '+b.n+'문항</small></div>'
+     +'<a class="go" data-k="'+E(b.k)+'" href="'+b.kind+'/'+FILE[b.act]+'?part='+b.part+'&mix=1">'+(d?'다시 보기':o?'이어서 풀기':'풀기')+'</a></div>'
+     +(d?'':'<button type="button" class="mmk" data-k="'+E(b.k)+'">다 풀었어요 (끝냈다고 표시)</button>')+'</div>'});
+  st.innerHTML=h;
+  var nw=document.getElementById('nw');
+  if(nw)nw.onclick=function(){
+    if(!all&&!confirmT){confirmT=1;paint();setTimeout(function(){if(confirmT){confirmT=0;paint()}},4000);return}
+    confirmT=0;var S1=load();save(draw(S1));window.scrollTo(0,0);paint()}}
+st.addEventListener('click',function(e){
+  var a=e.target.closest('a.go');if(a){var S=load();if(S){S.open=S.open||{};S.open[a.dataset.k]=1;save(S)}return}
+  var m=e.target.closest('button.mmk');if(m){var S2=load();if(S2){S2.done=S2.done||{};S2.done[m.dataset.k]=1;save(S2);paint()}}});
+/* 풀이 화면에서 돌아오면 최신 상태로 */
+addEventListener('pageshow',function(){paint()});
+paint();
+})();
+</script></body></html>

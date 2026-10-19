@@ -62,6 +62,7 @@ function clear(){try{localStorage.removeItem(SK)}catch(e){}}
 var S=load(),sel=-1,N=0,cnt=0;
 N=WN.MODE?0:build().length;
 if(PART){var pt=document.getElementById('pt');pt.hidden=false;pt.textContent='이번 범위: '+PARTS.names.L4[PART]}
+if(WN.MIX){var pt2=document.getElementById('pt');pt2.hidden=false;pt2.textContent='전체 랜덤 '+WN.mixRound()+'회차 · 이번 회차에 뽑힌 문제만 보여요'}
 function qid(q){return q.t==='O'?'O:'+q.h+':'+q.b+':'+q.a:'P:'+q.w+':'+q.a+(q.r?':r':'')}
 function wlab(q){return q.t==='O'?{label:q.h+' — '+q.b,label2:'단어 관계 · '+q.m}:{label:q.w,label2:'다의어 · '+q.bm}}
 function wq(it){var q=JSON.parse(JSON.stringify(it.q));if(q.t==='P')q.o=shuf(q.o);return q}

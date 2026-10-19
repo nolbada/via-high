@@ -76,7 +76,7 @@ function wnNote(host,mode){ /* host: 요소 뒤에 안내 줄 삽입 */
   host.parentNode.insertBefore(d,host.nextSibling);return d}
 function wnRender(d,fin){
   if(WN.MODE){
-    d.innerHTML='<b>오답 다시 풀기</b> · 오답 노트에 담은 문제만 보여요. <a href="../wrong.html" style="color:#0f766e;text-decoration:underline">오답 노트 보기 ›</a>'+(fin?'<div style="margin-top:6px">이제 안 봐도 되는 문제는 오답 노트에서 \'빼기\'로 뺄 수 있어요.</div>':'');
+    d.innerHTML=WN.MIX?WN.mixNote(fin):'<b>오답 다시 풀기</b> · 오답 노트에 담은 문제만 보여요. <a href="../wrong.html" style="color:#0f766e;text-decoration:underline">오답 노트 보기 ›</a>'+(fin?'<div style="margin-top:6px">이제 안 봐도 되는 문제는 오답 노트에서 \'빼기\'로 뺄 수 있어요.</div>':'');
   }else{
     var n=WN.ids('L4',PART,WNA).length;
     d.innerHTML=n?'<a href="../wrong.html" style="font-size:13px;color:#0f766e;text-decoration:underline">틀린 '+n+'개가 오답 노트에 담겼어요 ›</a>':''}
@@ -99,7 +99,7 @@ if(!all&&!rep){WN.add({kind:'L4',part:PART,act:'eobeop',qid:q.dataset.orig,label
 wnRender(wn,WN.MODE&&dn===T.length);var r=q.querySelector('.res');r.className='res '+(all?'o':'x');r.textContent=all?'모두 정답이에요':'틀린 칸이 있어요 ('+m+' / '+n+')';up();
 if(dn===T.length){if(!rep&&!WN.MODE){try{PG.mark(partKey('L4')+':eobeop')}catch(e){}}var w=[];T.forEach(function(x){if(x.dataset.ok!=='1')w.push('<a href="#'+x.id+'">'+x.dataset.no+'</a>')});
 sum.innerHTML='<h2>결과</h2><div>'+got+' / '+tot+'칸 정답</div>'+(w.length?'<div style="margin-top:6px">틀린 문제(본문 순서): '+w.join('')+'</div>':'<div style="margin-top:6px">전부 맞혔어요.</div>');sum.classList.add('on');sum.scrollIntoView({behavior:'smooth'})}})});
-var SK='gm2-res:'+location.pathname.replace(/[^a-z0-9]/gi,'')+(PART?':p'+PART:'')+(WN.MODE?':w':''),rep=false;
+var SK='gm2-res:'+location.pathname.replace(/[^a-z0-9]/gi,'')+(PART?':p'+PART:'')+WN.SUF,rep=false;
 function pidx(bk){var bs=[].slice.call(bk.querySelectorAll('button')),k=-1;bs.forEach(function(b,i){if(b.classList.contains('sel')&&k<0)k=i});if(k<0)bs.forEach(function(b,i){if(b.classList.contains('ng')&&k<0)k=i});if(k<0)bs.forEach(function(b,i){if(b.classList.contains('ok')&&k<0)k=i});return k}
 function persist(){if(rep)return;var o={};T.forEach(function(q,i){o[i]={s:[].map.call(q.querySelectorAll('.bk'),pidx),d:q.classList.contains('done')?1:0}});try{localStorage.setItem(SK,JSON.stringify(o))}catch(e){}}
 T.forEach(function(q){q.addEventListener('click',function(){persist()})});

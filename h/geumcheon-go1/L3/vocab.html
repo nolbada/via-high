@@ -27,7 +27,7 @@
 <script>
 (function(){
 var E=function(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
-var st=document.getElementById('stage'),KEY=partKey('L3')+':voc',SK='vq:'+KEY+(WN.MODE?':w':'');
+var st=document.getElementById('stage'),KEY=partKey('L3')+':voc',SK='vq:'+KEY+WN.SUF;
 var PK='p';
 var HEADS=VOC.SYN.filter(function(x){return !PART||x[PK]===PART}),POLY=VOC.POLY.filter(function(x){return !PART||x[PK]===PART}),REPS=VOC.POLY.filter(function(x){return x.r&&(!PART||x.r.p===PART)});
 function rnd(a){return a[Math.floor(Math.random()*a.length)]}
@@ -62,10 +62,16 @@ function clear(){try{localStorage.removeItem(SK)}catch(e){}}
 var S=load(),sel=-1,N=0,cnt=0;
 N=WN.MODE?0:build().length;
 if(PART){var pt=document.getElementById('pt');pt.hidden=false;pt.textContent='이번 범위: '+PARTS.names.L3[PART]}
+if(WN.MIX){var pt2=document.getElementById('pt');pt2.hidden=false;pt2.textContent='전체 랜덤 '+WN.mixRound()+'회차 · 이번 회차에 뽑힌 문제만 보여요'}
 function qid(q){return q.t==='O'?'O:'+q.h+':'+q.b+':'+q.a:'P:'+q.w+':'+q.a+(q.r?':r':'')}
 function wlab(q){return q.t==='O'?{label:q.h+' — '+q.b,label2:'단어 관계 · '+q.m}:{label:q.w,label2:'다의어 · '+q.bm}}
 function wq(it){var q=JSON.parse(JSON.stringify(it.q));if(q.t==='P')q.o=shuf(q.o);return q}
-function startW(){var it=WN.items('L3',PART,'voc').filter(function(x){return x.q});
+function mkey(q,seen){if(q.t==='O'&&q.a==='n'){seen[q.h]=(seen[q.h]||0)+1;return'N:'+q.h+':'+seen[q.h]}return qid(q)}
+window.MIXKEYS=function(){var seen={};return build().map(function(q){return mkey(q,seen)})};
+function startMix(){var want={};WN.ids('L3',PART,'voc').forEach(function(i){want[i]=1});var seen={},qs=build().filter(function(q){return want[mkey(q,seen)]});
+  if(!qs.length){st.innerHTML='<div class="card" style="text-align:center"><div class="q">이 묶음에는 문제가 없어요</div></div><a class="go l" style="text-align:center;text-decoration:none" href="../mix.html">전체 랜덤으로</a>';return}
+  S={sec:0,last:Date.now(),qs:qs,i:0,ok:0,wr:0,done:false,sub:false};save(S);show()}
+function startW(){if(WN.MIX)return startMix();var it=WN.items('L3',PART,'voc').filter(function(x){return x.q});
   if(!it.length){st.innerHTML='<div class="card" style="text-align:center"><div class="q">오답 노트에 담긴 어휘 문제가 없어요</div></div><a class="go l" style="text-align:center;text-decoration:none" href="../wrong.html">오답 노트로</a>';return}
   S={sec:0,last:Date.now(),qs:shuf(it).map(wq),i:0,ok:0,wr:0,done:false,sub:false};save(S);show()}
 function start(){cnt=cnt||0;S={sec:0,last:Date.now(),qs:(function(){var a=build();return cnt&&cnt<a.length?a.slice(0,cnt):a})(),i:0,ok:0,wr:0,done:false,sub:false};save(S);show()}
@@ -94,6 +100,7 @@ function show(){
   sb.onclick=function(){if(sel<0)return;var nw=Date.now();S.sec=(S.sec||0)+Math.min(120,Math.round((nw-(S.last||nw))/1000));S.last=nw;S.sub=true;S.sel=sel;if(o[sel]===ansTxt(q))S.ok++;else{S.wr=(S.wr||0)+1;var lb=wlab(q);WN.add({kind:'L3',part:PART||0,act:'voc',qid:qid(q),label:lb.label,label2:lb.label2,q:q})}save(S);mark()};
   if(sub){mark()}}
 function fin(){var n=S.qs.length;
+  if(WN.MIX){WN.finish();st.innerHTML='<div class="card" style="text-align:center"><div class="q">이 묶음 끝 · '+S.ok+' / '+n+' 맞았어요</div><p class="sub">틀린 문제는 오답 노트에 담겨요.</p></div><a class="go" style="text-align:center;text-decoration:none" href="../mix.html">전체 랜덤으로</a><a class="go l" style="text-align:center;text-decoration:none" href="../wrong.html">오답 노트 보기</a>';return}
   if(WN.MODE){st.innerHTML='<div class="card" style="text-align:center"><div class="q">오답 다시 풀기 끝 · '+S.ok+' / '+n+' 맞았어요</div><p class="sub">맞힌 문제는 그대로 남아요. 이제 안 봐도 되는 문제는 오답 노트에서 \'빼기\'로 뺄 수 있어요.</p></div><a class="go" style="text-align:center;text-decoration:none" href="../wrong.html">오답 노트로</a><button class="go l" id="ag">한 번 더 풀기</button>';
     document.getElementById('ag').onclick=function(){clear();S=null;startW()};return}
   st.innerHTML='<div class="card" style="text-align:center"><div class="q">끝! '+S.ok+' / '+n+' 맞았어요</div><p class="sub">걸린 시간 <b>'+(S.sec>=60?Math.floor(S.sec/60)+'분 ':'')+(S.sec%60)+'초</b><br>이 활동은 완료로 체크됐어요. 틀린 문제가 있었다면 한 번 더 풀어 봐요.</p>'+(S.wr?'<p class="sub"><b>틀린 '+S.wr+'개가 오답 노트에 담겼어요</b> · <a href="../wrong.html">오답 노트 보기</a></p>':'')+'</div><button class="go" id="ag">다시 풀기 (새 문제)</button><a class="go l" style="text-align:center;text-decoration:none" href="../index.html">목록으로</a>';

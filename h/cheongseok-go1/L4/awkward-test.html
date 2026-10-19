@@ -95,7 +95,7 @@ var WEMPTY=false;
 if(WN.MODE){var _wi=WN.ids('L4',PART,'awk');Q=Q.filter(function(q){return _wi.indexOf(q.id)>=0});WEMPTY=!Q.length}
 var PGK=partKey('L4')+':awk';
 var CIRC='①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮';
-var KEY='gm2-res:'+location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')+(PART?':p'+PART:'')+(WN.MODE?':w':'');
+var KEY='gm2-res:'+location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')+(PART?':p'+PART:'')+WN.SUF;
 var S={res:{},cur:null};
 try{var raw=localStorage.getItem(KEY);if(raw){var o=JSON.parse(raw);if(o&&o.res)S=o}}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
@@ -114,7 +114,7 @@ function wnNote(host,mode){ /* host: 요소 뒤에 안내 줄 삽입 */
   host.parentNode.insertBefore(d,host.nextSibling);return d}
 function wnRender(d,fin){
   if(WN.MODE){
-    d.innerHTML='<b>오답 다시 풀기</b> · 오답 노트에 담은 문제만 보여요. <a href="../wrong.html" style="color:#0f766e;text-decoration:underline">오답 노트 보기 ›</a>'+(fin?'<div style="margin-top:6px">이제 안 봐도 되는 문제는 오답 노트에서 \'빼기\'로 뺄 수 있어요.</div>':'');
+    d.innerHTML=WN.MIX?WN.mixNote(fin):'<b>오답 다시 풀기</b> · 오답 노트에 담은 문제만 보여요. <a href="../wrong.html" style="color:#0f766e;text-decoration:underline">오답 노트 보기 ›</a>'+(fin?'<div style="margin-top:6px">이제 안 봐도 되는 문제는 오답 노트에서 \'빼기\'로 뺄 수 있어요.</div>':'');
   }else{
     var n=WN.ids('L4',PART,WNA).length;
     d.innerHTML=n?'<a href="../wrong.html" style="font-size:13px;color:#0f766e;text-decoration:underline">틀린 '+n+'개가 오답 노트에 담겼어요 ›</a>':''}
@@ -184,7 +184,7 @@ function toggle(q,c){
   var e=document.querySelector('.cd[data-c="'+c+'"]');if(e)e.classList.toggle('sel',r.sel.indexOf(c)>=0);upd(q);
 }
 $('submit').onclick=function(){var q=qById(S.cur),r=R(q);if(r.sel.length!==q.items.length)return;r.done=true;if(!isOk(q)){var _k=(q.ko||'').replace(/\s+/g,' ');WN.add({kind:'L4',part:PART,act:'awk',qid:q.id,label:'어색한 곳('+(q.kind==='ctx'?'문맥':'어법')+') · '+_k.slice(0,16)+'…'})}
-if(!S.marked&&Q.every(function(x){return R(x).done})){S.marked=1;if(!WN.MODE){try{if(window.PG)PG.mark(PGK)}catch(e){}}}save();draw(q);setTimeout(function(){var x=$('res');if(x.scrollIntoView)x.scrollIntoView({behavior:'smooth',block:'start'})},30)};
+if(!S.marked&&Q.every(function(x){return R(x).done})){S.marked=1;if(WN.MIX)WN.finish();if(!WN.MODE){try{if(window.PG)PG.mark(PGK)}catch(e){}}}save();draw(q);setTimeout(function(){var x=$('res');if(x.scrollIntoView)x.scrollIntoView({behavior:'smooth',block:'start'})},30)};
 function result(q){
   var r=R(q),res=$('res');res.innerHTML='';res.classList.remove('hide');
   var T=truth(q),got=r.sel.filter(function(c){return T.indexOf(c)>=0}).length,ok=isOk(q);
@@ -204,7 +204,8 @@ function result(q){
     res.appendChild(d)});
   var wrongPick=r.sel.filter(function(c){return T.indexOf(c)<0});
   if(wrongPick.length){res.appendChild(html('div','note','<b>잘못 고른 곳</b> '+wrongPick.map(function(c){return CIRC.charAt(c-1)}).join(' ')+'은(는) 글의 흐름과 문법에 맞는 표현이라 그대로 둬요.'))}
-  if(WN.MODE){res.appendChild(html('div','note','이제 안 봐도 되는 문제는 <a href="../wrong.html" style="color:#0f766e;text-decoration:underline">오답 노트</a>에서 \'빼기\'로 뺄 수 있어요.'))}
+  if(WN.MIX){WN.finish();res.appendChild(html('div','note','틀린 문제는 <a href="../wrong.html" style="color:#0f766e;text-decoration:underline">오답 노트</a>에 담겨요.'))}
+  else if(WN.MODE){res.appendChild(html('div','note','이제 안 봐도 되는 문제는 <a href="../wrong.html" style="color:#0f766e;text-decoration:underline">오답 노트</a>에서 \'빼기\'로 뺄 수 있어요.'))}
   else if(WN.has('L4',PART,'awk',q.id)){res.appendChild(html('div','note','<a href="../wrong.html" style="color:#0f766e;text-decoration:underline">틀린 '+WN.ids('L4',PART,'awk').length+'개가 오답 노트에 담겼어요 ›</a>'))}
   res.appendChild(html('div','note','<b>글의 흐름</b> '+q.flow));
   res.appendChild(html('div','note','<b>그대로 두는 부분</b> '+q.keep));

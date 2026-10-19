@@ -51,7 +51,7 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 .wkt{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:10px 8px 6px;margin:10px 0}.wkh{display:flex;justify-content:space-between;align-items:baseline;padding:0 4px 6px}.wkh b{font-size:15px}.wkh span{font-size:12px;color:var(--sub)}.wkt table{width:100%;border-collapse:collapse;table-layout:fixed}.wkt th,.wkt td{text-align:center;padding:7px 2px;font-size:14px;border-top:1px solid var(--line)}.wkt thead th{border-top:0;padding-bottom:6px}.wkt th:first-child,.wkt td.an{width:31%}.wkt th button{border:0;background:none;font:800 13px/1.25 inherit;font-family:inherit;color:var(--ink);padding:5px 2px;border-radius:10px;width:100%;cursor:pointer}.wkt th button small{display:block;font-weight:500;font-size:11px;color:var(--sub)}.wkt th button.on{background:var(--pri);color:#fff}.wkt th button.on small{color:#e6edfc}.wkt td.an{text-align:left;font-size:13px;font-weight:700;color:var(--navy);padding-left:4px}.wkt td.an em{font-style:normal;font-size:10.5px;color:var(--sub);margin-left:4px;font-weight:500}.wkt td.dn{color:var(--pri);font-weight:800;background:var(--priL)}.wkt td.no{color:var(--sub);font-size:11px;opacity:.6}
 .warn{border:1.5px solid #d97706;background:#fff7e6;color:#7a3b00;border-radius:12px;padding:10px 12px;margin:10px 0;font-size:14px;line-height:1.5}.warn b{color:#b45309}@media(prefers-color-scheme:dark){.warn{background:#3a2a10;color:#ffd9a0}.warn b{color:#ffb74d}}
 .cal .dd.ex{color:#dc2626!important;font-weight:900}.cal .dd.ex::before{content:"시험";position:absolute;left:0;right:0;top:0;font-size:8.5px;line-height:1;font-weight:800;color:#dc2626}.cal .dd.ex.sel{background:radial-gradient(circle 17px at center,#dc2626 97%,transparent 100%);color:#fff!important}.cal .dd.ex.sel::before{color:#fff;top:1px}.lg .lx{width:8px;height:8px;border-radius:50%;background:#dc2626}
-.wnb{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1.5px solid #d97706;background:#fff7e6;color:#7a3b00;border-radius:12px;padding:10px 14px;margin:10px 0 4px;text-decoration:none}.wnb b{display:block;font-size:15px}.wnb small{display:block;font-size:12.5px;color:#9a5a10;margin-top:1px}.wnb .go{font-weight:800;font-size:13.5px;color:#b45309}@media(prefers-color-scheme:dark){.wnb{background:#3a2a10;color:#ffd9a0}.wnb small{color:#e8bb7a}.wnb .go{color:#ffb74d}}
+.wnb{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1.5px solid #d97706;background:#fff7e6;color:#7a3b00;border-radius:12px;padding:10px 14px;margin:10px 0 4px;text-decoration:none}.wnb b{display:block;font-size:15px}.wnb small{display:block;font-size:12.5px;color:#9a5a10;margin-top:1px}.wnb .go{font-weight:800;font-size:13.5px;color:#b45309}@media(prefers-color-scheme:dark){.wnb{background:#3a2a10;color:#ffd9a0}.wnb small{color:#e8bb7a}.wnb .go{color:#ffb74d}}.wnb.mxb{border-color:#1d4ed8;background:#e6edfc;color:#17316b;margin-top:6px}.wnb.mxb small{color:#3a5aa8}.wnb.mxb .go{color:#1d4ed8}@media(prefers-color-scheme:dark){.wnb.mxb{border-color:#8ab4ff;background:#1a2a4a;color:#cfe0ff}.wnb.mxb small{color:#9db8ee}.wnb.mxb .go{color:#8ab4ff}}
 </style></head><body><div class="wrap">
 
 <section class="pane on" id="p-today">
@@ -77,7 +77,7 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 
 <nav class="tabs" id="tabs"></nav>
 
-<script src="../common/prog.js?v=261019"></script><script src="wrong.js?v=261019"></script>
+<script src="../common/prog.js?v=261019"></script><script src="wrong.js?v=261019"></script><script src="mix-pool.js?v=261019"></script>
 <script src="L3/sx-data.js?v=261019"></script><script>var D3=DATA;</script>
 <script src="L4/sx-data.js?v=261019"></script><script>var D4=DATA;</script>
 <script>var JJ4={},JJM={},EZ={},KEY15={groups:[]},GRAM={};</script>
@@ -130,6 +130,7 @@ function today(){
   if(now.getDay()===0){var left=0,ds=[];flat.forEach(function(x){if(x.wi!==cw)return;var q=prog(x.v);if(q.d<q.n){left+=q.n-q.d;ds.push('DAY '+x.no)}});
     if(left)h+='<div class="warn"><b>오늘은 이번 주 마지막 날이에요</b><br>아직 안 끝난 활동이 '+left+'개 있어요 ('+ds.join(' · ')+'). 오늘 안에 하나라도 더 끝내 봐요. 시간이 없으면 지금 하는 DAY부터 이어서 해요.</div>'}
   var wn=WN.count();h+='<a class="wnb" href="wrong.html"><span><b>오답 노트</b><small>'+(wn?'틀린 문제 '+wn+'개가 모여 있어요':'틀린 문제가 생기면 여기에 모여요')+'</small></span><span class="go">'+(wn?'다시 풀기':'열기')+'</span></a>';
+  var mx=WN.mixStat();h+='<a class="wnb mxb" href="mix.html"><span><b>전체 랜덤 20문항</b><small>'+(mx.round?mx.round+'회차 · 남은 문제 '+mx.left+'개':'교과서 전체에서 20문항씩, 겹치지 않게 풀어요')+'</small></span><span class="go">'+(!mx.round?'시작':mx.undone?'이어서 풀기':'다음 회차')+'</span></a>';
   h+='<div class="exam"><b>기말고사 (12/7~12/10)</b><span>날짜를 눌러 그날 활동을 해요</span></div>';
   var first=new Date(vy,vm,1),lead=(first.getDay()+6)%7,days=new Date(vy,vm+1,0).getDate();
   h+='<div class="cal"><div class="calh"><button type="button" data-cal="-1">‹</button><b>'+vy+'년 '+(vm+1)+'월</b><button type="button" data-cal="1">›</button></div><div class="calg">';
