@@ -13,3 +13,21 @@ function inPart(kind,pid,part){part=part||PART;if(!part)return true;
   if(kind==='L4')return PARTS.L4[part].indexOf(pid)>=0;
   return PARTS.mock[part].indexOf(String(pid))>=0}
 function partKey(kind){return PART?kind+'p'+PART:kind}
+
+/* 걸린 시간: 활동을 끝내 PG.mark 가 불리면 "걸린 시간"을 잠깐 띄운다. (화면을 보고 있고 최근 1분 안에 만진 시간만 센다) */
+(function(){
+  if(window.NOTIMER)return;
+  var TK='vhtm:'+location.pathname+':'+PART,act=0,last=Date.now(),shown=0;
+  function ld(){try{return +localStorage.getItem(TK)||0}catch(e){return 0}}
+  function sv(v){try{localStorage.setItem(TK,String(v))}catch(e){}}
+  ['click','keydown','touchstart','scroll'].forEach(function(ev){addEventListener(ev,function(){last=Date.now()},true)});
+  var base=ld();
+  setInterval(function(){if(document.visibilityState==='visible'&&Date.now()-last<60000){act++;if(act%5===0)sv(base+act)}},1000);
+  function fmt(s){return (s>=60?Math.floor(s/60)+'분 ':'')+(s%60)+'초'}
+  addEventListener('load',function(){
+    if(window.NOTIMER||typeof PG==='undefined')return;var m=PG.mark;
+    PG.mark=function(k){m.apply(PG,arguments);if(shown||window.NOTIMER)return;shown=1;var t=base+act;try{localStorage.setItem('vhd:'+k,String(t))}catch(e){}sv(0);base=0;act=0;
+      var d=document.createElement('div');d.textContent='걸린 시간 '+fmt(t);d.style.cssText='position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:#1e2a44;color:#fff;padding:11px 18px;border-radius:999px;font:700 15px sans-serif;z-index:99999;box-shadow:0 4px 14px rgba(0,0,0,.25);transition:opacity .6s';
+      document.body.appendChild(d);setTimeout(function(){d.style.opacity=0},5500);setTimeout(function(){d.remove();shown=0},6200)}
+  })
+})();

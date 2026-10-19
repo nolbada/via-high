@@ -23,7 +23,7 @@
 <div id="stage"></div>
 <div class="foot" style="text-align:center;color:var(--sub);font-size:13px;margin-top:26px">비타민 영어클리닉 · 주성고 영어II</div></div>
 <a class="homefab" href="../index.html">⌂ 목록</a>
-<script src="../parts.js?v=261019"></script><script src="../../common/prog.js?v=261019"></script><script src="voc-data.js?v=261019"></script>
+<script>window.NOTIMER=1</script><script src="../parts.js?v=261019"></script><script src="../../common/prog.js?v=261019"></script><script src="voc-data.js?v=261019"></script>
 <script>
 (function(){
 var E=function(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
@@ -79,7 +79,7 @@ function show(){
   st.innerHTML=h;var ol=document.getElementById('ol'),sb=document.getElementById('sb');
   function mark(){var ok=o[sel]===ansTxt(q);[].forEach.call(ol.children,function(b,i){b.disabled=true;if(o[i]===ansTxt(q))b.classList.add('ok');else if(i===sel)b.classList.add('no')});
     document.getElementById('fb').innerHTML='<div class="fb"><b class="'+(ok?'g':'r')+'">'+(ok?'정답이에요 ✓':'아쉬워요 · 정답: '+E(ansTxt(q)))+'</b><br>'+fbk(q)+'</div>';
-    sb.disabled=false;sb.textContent=S.i+1>=S.qs.length?'결과 보기':'다음';sb.onclick=function(){S.last=Date.now();S.i++;S.sub=false;if(S.i>=S.qs.length){S.done=true;PG.mark(KEY)}save(S);show()}}
+    sb.disabled=false;sb.textContent=S.i+1>=S.qs.length?'결과 보기':'다음';sb.onclick=function(){S.last=Date.now();S.i++;S.sub=false;if(S.i>=S.qs.length){S.done=true;try{localStorage.setItem('vhd:'+KEY,String(S.sec||0))}catch(e){}PG.mark(KEY)}save(S);show()}}
   ol.onclick=function(e){var b=e.target.closest('.o');if(!b||S.sub)return;sel=+b.dataset.i;[].forEach.call(ol.children,function(x){x.classList.toggle('sel',x===b)});sb.disabled=false};
   sb.onclick=function(){if(sel<0)return;var nw=Date.now();S.sec=(S.sec||0)+Math.min(120,Math.round((nw-(S.last||nw))/1000));S.last=nw;S.sub=true;S.sel=sel;if(o[sel]===ansTxt(q))S.ok++;save(S);mark()};
   if(sub){mark()}}
