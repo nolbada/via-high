@@ -7,7 +7,7 @@
 <div class="how">주어진 문장이 들어갈 자리 ①~⑤를 골라 <b>제출</b>해요. 제출하면 앞뒤 문장과 이어지는 단서와 전체 흐름(노란 박스)이 나와요. 이 문제는 <b>매번 바뀌어요</b>. 풀다가 나가도 이어서 풀 수 있어요.</div>
 <div class="bar"><span id="cnt"></span><span class="sp"></span><button id="kt" type="button">한글 해석 보기</button><button id="rs" type="button">새 문제로 다시 풀기</button></div>
 <div id="stage"></div>
-<div class="foot">비타민 영어클리닉 · 청석고1</div></div>
+<div class="foot">비타민 영어클리닉 · 주성고1</div></div>
 <a class="homefab" href="../index.html">⌂ 목록</a>
 <script src="../../common/prog.js?v=261019"></script><script src="../../common/sx.js?v=261019"></script>
 <script src="sx-data.js?v=261019"></script>
@@ -20,6 +20,11 @@ try{var g=GM.ls,og=g.get,os=g.set,dl=g.del,m=function(k){return String(k).indexO
 <script>(function(ACT,ACTN){
 var W=WN.MODE,P0=DATA.passages.slice();
 function mine(){return WN.ids('L4',PART,ACT)}
+try{var _a=ACT,_n=ACT==='ko'?'ko':ACT==='mun'?'mi':ACT;if(typeof G!=='undefined'&&G.catalog(SX.prep({set:DATA.set,title:DATA.title,lesson:DATA.lesson,passages:P0},_a),_n).length===0){
+  var _s=document.getElementById('stage'),_b=document.querySelector('.bar'),_h=document.querySelector('.how');
+  if(_b)_b.style.display='none';if(_h)_h.style.display='none';
+  _s.innerHTML='<div class="sum"><h3>이번 범위에는 이 활동이 없어요</h3><p class="lede">글이 짧거나 이어지는 흐름이 맞지 않아 문제를 만들 수 없어요. 다른 범위나 활동을 풀어 주세요.</p><a class="nx sub" href="../index.html">← 목록</a></div>';
+  window.SXNO=1;return}}catch(e){}
 if(W){
   try{PG.mark=function(){}}catch(e){}
   var ids=mine(),h=document.querySelector('h1');
