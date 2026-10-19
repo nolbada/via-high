@@ -181,7 +181,7 @@ function keys(){
   KEYS.forEach(function(g){
     h+='<details class="acc"'+(g.open?' open':'')+'><summary>'+esc(g.g)+'</summary><div class="in">';
     g.subs.forEach(function(sb){
-      h+='<details class="acc sub"'+(g.open?' open':'')+'><summary>'+esc(sb.t)+'</summary><div class="in">'+(sb.items.length?sb.items.map(row).join(''):'<div class="soonbox">정답·해설이 여기에 쌓여요.<br>준비 중</div>')+'</div></details>';
+      h+='<details class="acc sub"><summary>'+esc(sb.t)+'</summary><div class="in">'+(sb.items.length?sb.items.map(row).join(''):'<div class="soonbox">정답·해설이 여기에 쌓여요.<br>준비 중</div>')+'</div></details>';
     });
     h+='</div></details>';
   });
