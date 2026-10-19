@@ -67,7 +67,7 @@ function marks(mk,s,mode,only,sn){
     else out+=t;
     pos=re.lastIndex}
   return out+esc(mk.slice(pos))}
-function noteBox(n){return '<div class="note"><div class="nl">노트에 이렇게 적어요</div>'+n.map(function(l){return '<div class="ln">'+esc(l)+'</div>'}).join('')+'</div>'}
+function noteBox(n){return '<div class="note"><div class="nl">노트 정리</div>'+n.map(function(l){return '<div class="ln">'+esc(l)+'</div>'}).join('')+'</div>'}
 function drillBar(cur){return '<div class="drb">'+['g','b','k','o'].map(function(k){return '<button type="button" class="c-'+k+(cur==k?' on':'')+'" data-dr="'+k+'">'+CAT[k]+'</button>'}).join('')+'</div>'}
 function firstSent(s,i){for(var k=0;k<s.sents.length;k++){if(new RegExp('\\['+i+'\\|').test(s.sents[k].mk))return s.sents[k]}return s.sents[0]}
 function vDrill(){
