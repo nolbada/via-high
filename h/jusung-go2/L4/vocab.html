@@ -26,7 +26,7 @@ var E=function(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&am
 var st=document.getElementById('stage'),h='';
 var F=function(a){return PART?a.filter(function(x){return x.p===PART}):a};
 var nW=0;
-[['본문','본문 단어',true],['대화문','대화문 단어',false]].forEach(function(g){
+[['본문','본문 단어',true]].forEach(function(g){
   var a=F(VOC.W[g[0]].map(function(x){return{w:x[0],m:x[1],p:x[2]}}));if(!a.length)return;nW+=a.length;
   var open=g[2]||!F(VOC.W['본문'].map(function(x){return{p:x[2]}})).length;
   h+='<details class="acc"'+(open?' open':'')+'><summary><span>'+g[1]+' <span class="tg">'+a.length+'개</span></span></summary><div class="in wl">'+a.map(function(x){return'<div class="w"><b>'+E(x.w)+'</b><span>'+E(x.m)+'</span></div>'}).join('')+'</div></details>';
