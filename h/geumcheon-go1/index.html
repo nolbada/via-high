@@ -92,7 +92,7 @@ var SEC=[
 ];
 function durTxt(k){var t=0;try{t=+localStorage.getItem('vhd:'+k)||0}catch(e){}if(!t)return '';return ' '+(t>=60?Math.floor(t/60)+'분':t+'초')}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-var CNT={};
+var CNT={"L3p1:ko": 2, "L3p2:ko": 2, "L3p3:ko": 2, "L3p4:ko": 2, "L3p1:abc": 0, "L3p2:abc": 3, "L3p3:abc": 4, "L3p4:abc": 2, "L3p1:mun": 2, "L3p2:mun": 2, "L3p3:mun": 2, "L3p4:mun": 2, "L3p1:blank": 2, "L3p2:blank": 2, "L3p3:blank": 2, "L3p4:blank": 2, "L4p1:ko": 2, "L4p2:ko": 2, "L4p3:ko": 2, "L4p4:ko": 0, "L4p1:abc": 6, "L4p2:abc": 6, "L4p3:abc": 2, "L4p4:abc": 5, "L4p1:mun": 3, "L4p2:mun": 2, "L4p3:mun": 2, "L4p4:mun": 2, "L4p1:blank": 2, "L4p2:blank": 2, "L4p3:blank": 2, "L4p4:blank": 2, "L3p1:find": 4, "L3p1:awk": 4, "L3p1:eobeop": 7, "L3p2:find": 4, "L3p2:awk": 4, "L3p2:eobeop": 9, "L3p3:find": 4, "L3p3:awk": 4, "L3p3:eobeop": 9, "L3p4:find": 2, "L3p4:awk": 2, "L3p4:eobeop": 7, "L4p1:find": 5, "L4p1:awk": 4, "L4p1:eobeop": 12, "L4p2:find": 5, "L4p2:awk": 2, "L4p2:eobeop": 10, "L4p3:find": 3, "L4p3:awk": 2, "L4p3:eobeop": 9, "L4p4:find": 4, "L4p4:awk": 2, "L4p4:eobeop": 12, "L3p1:voc": 13, "L3p2:voc": 24, "L3p3:voc": 27, "L3p4:voc": 18, "L4p1:voc": 26, "L4p2:voc": 19, "L4p3:voc": 20, "L4p4:voc": 24};
 var OPT={ko:1},VAR={voc:1,ko:1,abc:1,mun:1,blank:1};
 var EXAMD=["2026-12-07", "2026-12-08", "2026-12-09", "2026-12-10"];
 var EXAM=new Date(2026,11,7);
@@ -119,7 +119,8 @@ function today(){
   var wk0=dkey(ws),wk1=dkey(we),td=dkey(now),cw=curWeek(now),tdd=new Date(now.getFullYear(),now.getMonth(),now.getDate());
   ACT.forEach(function(a){nm[a[0]]=a[1]});
   function key(v,id){return v.L?'L4p'+v.L+':'+id:v.T?'L3p'+v.T+':'+id:v.F?'Fp'+v.F+':'+id:'mockp'+v.D+':'+id}
-  function setOf(v){return v.L?SEC[0]:v.T?SEC[2]:v.F?SEC[3]:SEC[1]}
+  function setOf0(v){return v.L?SEC[0]:v.T?SEC[2]:v.F?SEC[3]:SEC[1]}
+  function setOf(v){var b=setOf0(v),u={};for(var k in b.url)if(CNT[key(v,k)]!==0)u[k]=b.url[k];return{label:b.label,set:b.set,url:u}}
   function isOn(v,id){var e=P[key(v,id)];return !!(e&&(e.n||e.t))}
   function prog(v){var n=0,d=0;ACT.forEach(function(a){if(setOf(v).url[a[0]]&&!OPT[a[0]]){n++;if(isOn(v,a[0]))d++}});return{n:n,d:d}}
   var flat=[],map={};
