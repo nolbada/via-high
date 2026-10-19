@@ -14,25 +14,31 @@
 .pw{padding:10px 2px;border-top:1px solid var(--line)}.pw:first-child{border-top:0}.pw h3{margin:0 0 4px;font-size:18px;color:var(--navy)}
 .pi{margin:6px 0 8px}.pi .m{font-size:15.5px;font-weight:700}.pi .m i{font-style:normal;color:var(--pri);margin-right:4px}.pi .e{font-size:16px;margin-top:2px}.pi .k{font-size:14.5px;color:var(--sub)}
 </style></head><body><div class="wrap"><div class="top"><a class="back" href="../index.html">← 목록</a></div>
-<h1>4과 · 어휘</h1><p class="lede">교과서 4과 단어와 다의어예요. 단어 시험(WORD TEST)은 종이로 봐요.</p>
+<h1>4과 · 어휘</h1><p class="lede">교과서 4과 단어와 다의어예요. 단어 시험(WORD TEST)은 종이로 봐요.</p><p class="lede" id="pt" style="font-weight:800;color:var(--navy)" hidden></p>
 <button class="tbtn" id="hid" type="button">뜻 가리기</button>
 <div id="stage"></div>
 <div class="foot" style="text-align:center;color:var(--sub);font-size:13px;margin-top:26px">비타민 영어클리닉 · 주성고 영어II</div></div>
 <a class="homefab" href="../index.html">⌂ 목록</a>
-<script src="../../common/prog.js?v=261019"></script><script src="voc-data.js?v=261019"></script>
+<script src="../parts.js?v=261019"></script><script src="../../common/prog.js?v=261019"></script><script src="voc-data.js?v=261019"></script>
 <script>
 (function(){
 var E=function(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
 var st=document.getElementById('stage'),h='';
+var F=function(a){return PART?a.filter(function(x){return x.p===PART}):a};
+var nW=0;
 [['본문','본문 단어',true],['대화문','대화문 단어',false]].forEach(function(g){
-  var a=VOC.W[g[0]];h+='<details class="acc"'+(g[2]?' open':'')+'><summary><span>'+g[1]+' <span class="tg">'+a.length+'개</span></span></summary><div class="in wl">'+a.map(function(x){return'<div class="w"><b>'+E(x[0])+'</b><span>'+E(x[1])+'</span></div>'}).join('')+'</div></details>';
+  var a=F(VOC.W[g[0]].map(function(x){return{w:x[0],m:x[1],p:x[2]}}));if(!a.length)return;nW+=a.length;
+  var open=g[2]||!F(VOC.W['본문'].map(function(x){return{p:x[2]}})).length;
+  h+='<details class="acc"'+(open?' open':'')+'><summary><span>'+g[1]+' <span class="tg">'+a.length+'개</span></span></summary><div class="in wl">'+a.map(function(x){return'<div class="w"><b>'+E(x.w)+'</b><span>'+E(x.m)+'</span></div>'}).join('')+'</div></details>';
 });
-h+='<details class="acc"><summary><span>다의어 <span class="tg">'+VOC.POLY.length+'개</span></span></summary><div class="in">'+VOC.POLY.map(function(p){
+var PO=F(VOC.POLY);nW+=PO.length;
+if(PO.length)h+='<details class="acc"><summary><span>다의어 <span class="tg">'+PO.length+'개</span></span></summary><div class="in">'+PO.map(function(p){
   return'<div class="pw"><h3>'+E(p.w)+'</h3>'+p.items.map(function(it,i){return'<div class="pi"><div class="m"><i>'+(i+1)+'</i>'+E(it.m)+'</div><div class="e">'+E(it.e)+'</div><div class="k">'+E(it.k)+'</div></div>'}).join('')+'</div>'}).join('')+'</div></details>';
+if(PART){var pt=document.getElementById('pt');pt.hidden=false;pt.textContent='이번 덩어리: '+PARTS.names.L4[PART]+' · 단어 '+nW+'개'}
 st.innerHTML=h;
 var hid=false,btn=document.getElementById('hid');
 btn.onclick=function(){hid=!hid;btn.textContent=hid?'뜻 보이기':'뜻 가리기';[].forEach.call(document.querySelectorAll('.wl'),function(x){x.classList.toggle('hide',hid)});[].forEach.call(document.querySelectorAll('.w span.show'),function(x){x.classList.remove('show')})};
 st.addEventListener('click',function(e){var s=e.target.closest('.w span');if(s&&s.parentNode.parentNode.classList.contains('hide'))s.classList.toggle('show')});
-PG.bar('L4:voc','어휘 공부했어요');
+PG.bar(partKey('L4')+':voc','어휘 공부했어요');
 })();
 </script></body></html>
