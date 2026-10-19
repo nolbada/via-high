@@ -77,7 +77,7 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 .goal .kst b{color:var(--gor)}
 .goal .kcd.c .kst b{color:#c0392b}
 .goal .kft{display:flex;justify-content:space-between;font-size:11.5px;opacity:.7;padding-top:8px}
-.goal .kbr{display:flex;height:30px;border-radius:8px;overflow:hidden;font-size:12px;font-weight:800}
+.goal .kbr{display:flex;height:64px;border-radius:12px;overflow:hidden;font-size:15px;font-weight:900;margin-top:14px;text-align:center;line-height:1.25}.goal .kbig2{display:flex;align-items:center;justify-content:center;gap:14px;font-size:84px;font-weight:900;line-height:1;color:#1d2b4f}.goal .kbig2 i{font-style:normal;font-size:44px;opacity:.5}.goal .kbig2 .o{color:#f28c28}
 .goal .kbr i{display:flex;align-items:center;justify-content:center;font-style:normal;color:#fff}
 .goal .krw{display:flex;flex-direction:column;gap:3px}
 .goal .krw .kl{display:flex;justify-content:space-between;font-size:13.5px;font-weight:700}
@@ -92,6 +92,18 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 .goal .kdt{display:flex;justify-content:center;gap:6px;padding:9px 0 10px;background:var(--card)}
 .goal .kdt i{width:7px;height:7px;border-radius:50%;background:var(--line)}
 .goal .kdt i.on{background:var(--gor)}
+.goal .kpr .hl{background:var(--gor)}
+.goal .kpr .hl b,.goal .kpr .hl span,.goal .kpr .hl small{color:#fff;opacity:1}
+.goal .kpr .pt{display:block;font-style:normal;font-size:26px;font-weight:900;color:var(--gor);line-height:1.15;margin-top:2px}
+.goal .kpr .hl .pt{color:#fff}
+.goal .kvs{display:flex;align-items:center;gap:8px}
+.goal .kvs>div{flex:1;text-align:center;padding:10px 4px 9px;border-radius:12px;background:rgba(255,255,255,.1)}
+.goal .kvs>div.hl{background:var(--gor)}
+.goal .kvs span{display:block;font-size:14px;font-weight:800}
+.goal .kvs b{display:block;font-size:50px;font-weight:900;line-height:1.05;color:var(--gor)}
+.goal .kvs .hl b{color:#fff}
+.goal .kvs small{display:block;font-size:13px;opacity:.9}
+.goal .kvs .co{flex:0 0 auto;font-style:normal;font-size:28px;font-weight:900;opacity:.6}
 @media(prefers-color-scheme:dark){.goal{--gnv:#3a5190}.goal .kcd.n{background:#1d2b4f}.goal .kcd.c{background:#f6f0e3;color:#1d2b4f}}
 </style></head><body><div class="wrap">
 
@@ -274,18 +286,16 @@ window.addEventListener('pageshow',function(e){var t='today';try{var nv=(perform
 })();
 </script><script>
 (function(){
-var EX=new Date(2026,11,1),WDN=['일','월','화','수','목','금','토'],N=7;
+var EX=new Date(2026,11,1),WDN=['일','월','화','수','목','금','토'],N=5;
 function nowD(){var m=/[?&]d=(\d{4})-(\d\d)-(\d\d)/.exec(location.search);return m?new Date(+m[1],+m[2]-1,+m[3],12):new Date()}
 function ft(i){return '<div class="kft"><span>비타민 영어클리닉</span><span>'+i+' / '+N+'</span></div>'}
 function cards(big,ex){
  var c=[];
- c.push('<div class="kcd n"><span class="ktg">주성고2 · 기말 준비</span><div class="khd" style="font-size:30px">지난 중간고사를<br>숫자로 보면</div><div class="kbd"><div class="kbig">27<small>문항 · 100점</small></div><div class="kst">지난 중간고사 · 영어II<br>객관식 24문항 85점 + 서술형 3문항 15점</div></div>'+ft(1)+'</div>');
- c.push('<div class="kcd c"><span class="ktg">출처</span><div class="khd">10문항 중 7문항이<br>모의고사</div><div class="kbd"><div class="kbr"><i style="flex:19;background:#1d2b4f">모고 19</i><i style="flex:6;background:#f28c28">교과서 6</i><i style="flex:2;background:#8a93a8"></i></div><div class="kst">교과서 : 모의고사 = <b>6 : 19</b><br>기타 2문항</div></div>'+ft(2)+'</div>');
- c.push('<div class="kcd n"><span class="ktg">문법 비율</span><div class="khd">문법은<br>교과서에서</div><div class="kbd"><div class="kpr"><div><span>교과서</span><b>3/6</b><small>50%</small></div><div><span>모의고사</span><b>1/19</b><small>5%</small></div></div><div class="kst">배점으로 <b>교과서 13.7점</b> : 모고 3.7점<br>서술형 3-1의 어형 변화는 제외</div></div>'+ft(3)+'</div>');
- c.push('<div class="kcd c"><span class="ktg">문법 · 수업</span><div class="khd">문법 4문항,<br>전부 수업에서 다룬 지문</div><div class="kbd"><div class="kbig">4 : 0</div><div class="kst">다룬 지문 : 안 다룬 지문<br>교과서 3 + 모의고사 1(24년 9월 31번)<br>모고 전체로는 수업 지문 <b>12</b> : 안 다룬 지문 <b>7</b> (63% : 37%)</div></div>'+ft(4)+'</div>');
- c.push('<div class="kcd n"><span class="ktg">모의고사 유형</span><div class="khd">무게중심은<br>글의 흐름</div><div class="kbd"><div class="krw"><div class="kl"><span>순서 · 삽입 · 무관</span><span>6문항 32%</span></div><div class="kb"><i style="width:100%"></i></div></div><div class="krw"><div class="kl"><span>대의파악 (요지 · 주제 · 제목)</span><span>4문항 21%</span></div><div class="kb"><i style="width:67%"></i></div></div><div class="krw"><div class="kl"><span>빈칸 · 함축 의미</span><span>3문항 16%</span></div><div class="kb"><i style="width:50%"></i></div></div><div class="krw"><div class="kl"><span>요약</span><span>2문항 11%</span></div><div class="kb"><i style="width:33%"></i></div></div><div class="krw"><div class="kl"><span>일치 · 어휘 · 어법 · 서술형</span><span>4문항 21%</span></div><div class="kb"><i style="width:67%"></i></div></div></div>'+ft(5)+'</div>');
- c.push('<div class="kcd c"><span class="ktg r">유형 변화</span><div class="khd">빈칸 지문 9개,<br>빈칸으로 나온 건 0</div><div class="kbd"><div class="kbig">9 → 0</div><div class="kst">수업에서 다룬 12지문 중 9지문이 원래 빈칸 문제<br>시험에서는 <b>순서 · 삽입 · 요약 · 무관 · 제목 · 어휘 · 어법</b>으로 바뀜<br>지문 문장은 거의 그대로</div></div>'+ft(6)+'</div>');
- c.push('<div class="kcd n"><span class="ktg">기말 범위</span><div class="khd">범위는 넓고<br>진도는 약 15개</div><div class="kbd"><div class="kpr"><div><span>모의고사</span><b>45</b><small>지문 · 수업 약 15</small></div><div><span>교과서</span><b>4과</b><small>본문 + 핵심 문법 2</small></div></div><div class="kst">핵심 문법 <b>당위성 that절</b> · <b>with + 명사 + 분사</b><br>수업에서 다루지 않은 지문도 37%</div></div>'+ft(7)+'</div>');
+ c.push('<div class="kcd n"><span class="ktg">주성고2 · 기말 준비</span><div class="khd">지난 중간고사 27문항 · 100점</div><div class="kbd"><div class="kvs"><div class="hl"><span>모고</span><b>21</b><small>76.0점</small></div><i class="co">:</i><div><span>교과서</span><b>6</b><small>24.0점</small></div></div><div class="kvs"><div class="hl"><span>내용관련</span><b>20</b><small>70.3점</small></div><i class="co">:</i><div><span>문법관련</span><b>4</b><small>17.4점</small></div></div><div class="kst">모고 21 + 교과서 6 = 27문항<br>내용관련 20 + 문법관련 4 + 낱말 · 서술형 3 = 27문항</div></div>'+ft(1)+'</div>');
+ c.push('<div class="kcd n"><span class="ktg">문법 비율</span><div class="khd">문법은<br>교과서에서</div><div class="kbd"><div class="kpr"><div><span>모의고사</span><b>1/21</b><small>5%</small></div><div class="hl"><span>교과서</span><b>3/6</b><small>50%</small></div></div><div class="kst">배점으로 모고 3.7점 : <b>교과서 13.7점</b><br>서술형 3-1의 어형 변화는 제외</div></div>'+ft(2)+'</div>');
+ c.push('<div class="kcd c"><span class="ktg">문법 · 수업</span><div class="khd">문법 4문항,<br>전부 수업에서 다룬 지문</div><div class="kbd"><div class="kbig">4 : 0</div><div class="kst">다룬 지문 : 안 다룬 지문<br>교과서 3 + 모의고사 1(24년 9월 31번)<br>모고 21문항 중 수업 지문 <b>12</b> : 안 다룬 지문 <b>9</b> (57% : 43%)</div></div>'+ft(3)+'</div>');
+ c.push('<div class="kcd n"><span class="ktg">모의고사 유형</span><div class="khd">모고의 84%는 독해형,<br>문법은 1문항</div><div class="kbd"><div class="kbig">16/19<small>독해형 · 84%</small></div><div class="krw"><div class="kl"><span>내용중심 (주제 · 제목 · 요지 · 요약)</span><span>6문항</span></div><div class="kb"><i style="width:100%"></i></div></div><div class="krw"><div class="kl"><span>글의 흐름 (순서 · 삽입 · 무관)</span><span>6문항</span></div><div class="kb"><i style="width:100%"></i></div></div><div class="krw"><div class="kl"><span>빈칸 · 함축 의미</span><span>3문항</span></div><div class="kb"><i style="width:50%"></i></div></div><div class="krw"><div class="kl"><span>일치</span><span>1문항</span></div><div class="kb"><i style="width:17%"></i></div></div><div class="kst">모고 중 유형을 확인한 19문항 기준<br>독해형이 아닌 3문항: 어법 1 · 낱말 쓰임 1 · 서술형 1</div></div>'+ft(4)+'</div>');
+ c.push('<div class="kcd n"><span class="ktg">기말 범위</span><div class="khd">범위는 넓고<br>진도는 약 15개</div><div class="kbd"><div class="kpr"><div><span>모의고사</span><b>45</b><small>지문 · 수업 약 15</small></div><div><span>교과서</span><b>4과</b><small>본문 + 핵심 문법 2</small></div></div><div class="kst">핵심 문법 <b>당위성 that절</b> · <b>with + 명사 + 분사</b><br>수업에서 다루지 않은 지문도 43%</div></div>'+ft(5)+'</div>');
  return c.join('');
 }
 function render(){
