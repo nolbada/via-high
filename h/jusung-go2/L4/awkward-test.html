@@ -90,7 +90,7 @@ var Q=[{"id": "ctx1", "kind": "ctx", "n": 1, "title": null, "tko": null, "paras"
 /* 덩어리 필터: 지문 영어 문장을 sx-data.js 와 대조해 배정(문제 3·gram3 은 ❸❹ 걸쳐 있어 오류 위치 다수결로 2번 덩어리) */
 var AWKP={ctx1:1,ctx2:1,gram1:1,gram2:1,ctx3:2,ctx4:2,gram3:2,gram4:2,ctx5:3,ctx6:3,gram5:3,gram6:3};
 if(PART){Q=Q.filter(function(q){return AWKP[q.id]===PART});var _c={ctx:0,gram:0};Q.forEach(function(q){q.n=++_c[q.kind]});
-  var _l=document.querySelector('.lede');if(_l){var _d=document.createElement('p');_d.className='lede';_d.innerHTML='이번 덩어리: <b>'+PARTS.names.L4[PART]+'</b>';_l.parentNode.insertBefore(_d,_l.nextSibling)}}
+  var _l=document.querySelector('.lede');if(_l){var _d=document.createElement('p');_d.className='lede';_d.innerHTML='이번 범위: <b>'+PARTS.names.L4[PART]+'</b>';_l.parentNode.insertBefore(_d,_l.nextSibling)}}
 var PGK=partKey('L4')+':awk';
 var CIRC='①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮';
 var KEY='gm2-res:'+location.pathname.replace(/\/index\.html$/,'').replace(/\/$/,'')+(PART?':p'+PART:'');

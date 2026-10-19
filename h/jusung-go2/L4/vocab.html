@@ -38,13 +38,14 @@ function clusterOf(ws){var s={};ws.forEach(function(w){s[w]=1;VOC.CL.forEach(fun
 function fam(h){return [h.h].concat(h.syn,h.ant.map(function(a){return a.w}))}
 function dist(h,n,extra){var ex=clusterOf(fam(h)),p=pos(h.pos),seen={},r=[];
   var sp=shuf(POOL);sp.forEach(function(x){if(x.p!==p||ex[x.w]||seen[x.w]||(extra&&extra.indexOf(x.w)>=0))return;seen[x.w]=1;r.push(x.w)});if(r.length<n)sp.forEach(function(x){if(r.length<n&&!ex[x.w]&&!seen[x.w]){seen[x.w]=1;r.push(x.w)}});return r.slice(0,n)}
+function hlx(e,h){return E(e).replace(new RegExp('('+h+')','i'),'<b>$1</b>')}
 function mkO(h,r,b,swap){var x=swap?{l:b,r:h.h}:{l:h.h,r:b};return{t:'O',h:h.h,m:h.m,x:x,b:b,a:r}}
 function mkP(p){var it=p.items[p.b],o=[it.e],d=[];p.items.forEach(function(z,i){if(i!==p.b)d.push(z)});
   VOC.POLY.forEach(function(q){if(q.w!==p.w)q.items.forEach(function(z){d.push(z)})});
   var own=p.items.filter(function(z,i){return i!==p.b}),pool=shuf(own);pool.slice(0,3).forEach(function(z){o.push(z.e)});
   shuf(d).forEach(function(z){if(o.length<3&&o.indexOf(z.e)<0)o.push(z.e)});
   var all=p.items.map(function(z){return{e:z.e,m:z.m,k:z.k}});
-  return{t:'P',w:p.w,bm:it.m,a:it.e,o:shuf(o),all:all}}
+  return{t:'P',w:p.w,bm:it.m,a:it.e,o:shuf(o),all:all,tx:p.t}}
 function build(n){var q=[];HEADS.forEach(function(h){
     h.syn.forEach(function(w){q.push(mkO(h,'s',w,Math.random()<.5))});
     h.ant.forEach(function(a){q.push(mkO(h,'a',a.w,Math.random()<.5))});
@@ -56,33 +57,33 @@ function save(S){try{localStorage.setItem(SK,JSON.stringify(S))}catch(e){}}
 function clear(){try{localStorage.removeItem(SK)}catch(e){}}
 var S=load(),sel=-1,N=0,cnt=0;
 N=build().length;
-if(PART){var pt=document.getElementById('pt');pt.hidden=false;pt.textContent='이번 덩어리: '+PARTS.names.L4[PART]}
-function start(){cnt=cnt||0;S={qs:(function(){var a=build();return cnt&&cnt<a.length?a.slice(0,cnt):a})(),i:0,ok:0,done:false,sub:false};save(S);show()}
-function home(){var done=PG.n(KEY),h='<div class="card"><div class="q">단어 관계 · 다의어 퀴즈</div><p class="sub">이번 덩어리 단어로 만든 문제예요. 문제는 한 번 풀 때마다 새로 섞여요.</p></div>';
+if(PART){var pt=document.getElementById('pt');pt.hidden=false;pt.textContent='이번 범위: '+PARTS.names.L4[PART]}
+function start(){cnt=cnt||0;S={sec:0,last:Date.now(),qs:(function(){var a=build();return cnt&&cnt<a.length?a.slice(0,cnt):a})(),i:0,ok:0,done:false,sub:false};save(S);show()}
+function home(){var done=PG.n(KEY),h='<div class="card"><div class="q">단어 관계 · 다의어 퀴즈</div><p class="sub">이번 범위 단어로 만든 문제예요. 문제는 한 번 풀 때마다 새로 섞여요.</p></div>';
   if(S&&!S.done&&S.i>0)h+='<button class="go" id="re">이어서 풀기 ('+S.i+' / '+S.qs.length+')</button>';
   h+='<div class="card"><div class="q" style="font-size:16px">몇 문제 풀까요?</div><div class="cnt" id="cn"><button data-n="0" class="on">전체 '+N+'</button>'+(N>20?'<button data-n="20">20문제</button>':'')+(N>10?'<button data-n="10">10문제</button>':'')+'</div><p class="sub" style="margin-top:8px">'+(done?'지금까지 '+done+'번 끝냈어요. 이번엔 개수를 골라도 돼요.':'처음엔 전체를 풀어요.')+'</p></div><button class="go" id="st">'+(S&&!S.done&&S.i>0?'새로 시작':'시작')+'</button>';
-  st.innerHTML=h;var re=document.getElementById('re');if(re)re.onclick=show;
+  st.innerHTML=h;var re=document.getElementById('re');if(re)re.onclick=function(){S.last=Date.now();show()};
   document.getElementById('cn').onclick=function(e){var b=e.target.closest('button');if(!b)return;cnt=+b.dataset.n;[].forEach.call(this.children,function(x){x.classList.toggle('on',x===b)})};
   document.getElementById('st').onclick=start}
 function ask(q){
   if(q.t==='O')return'<span class="tag">단어와 단어의 관계</span><div class="q" style="text-align:center;font-size:22px"><em>'+E(q.x.l)+'</em> &nbsp;—&nbsp; <em>'+E(q.x.r)+'</em></div><div class="sub" style="text-align:center">두 단어의 관계는?</div>';
-  return'<span class="tag">다의어</span><div class="q">교과서 본문에서 <em>'+E(q.w)+'</em> 는 “'+E(q.bm.replace(/^[a-z]+\.\s*/,''))+'” 뜻이에요.<br>같은 뜻으로 쓰인 문장은?</div>'}
+  return'<span class="tag">다의어</span><div class="sub">교과서 문장이에요. 파란 단어와 같은 뜻으로 쓰인 문장을 고르세요.</div><div class="ex">'+hlx(q.tx.e,q.tx.h)+'</div>'}
 function opts(q){return q.t==='O'?['비슷한 뜻','반대 뜻','관련 없음']:q.o}
 function ansTxt(q){return q.t==='O'?{s:'비슷한 뜻',a:'반대 뜻',n:'관련 없음'}[q.a]:q.a}
 function fbk(q){
   if(q.t==='O'){var r=q.a==='s'?'비슷한 뜻이에요':q.a==='a'?'반대 뜻이에요':'서로 관련이 없어요';return'<b>'+E(q.h)+'</b> ('+E(q.m)+')<br>'+E(q.x.l)+' — '+E(q.x.r)+' → '+r}
-  return q.all.map(function(z){return'<div style="margin-top:6px"><b>'+E(z.m)+'</b><br>'+E(z.e)+'<br><span style="color:var(--sub)">'+E(z.k)+'</span></div>'}).join('')}
+  return'<div class="fb2" style="background:var(--priL);border-radius:10px;padding:8px 10px;margin:2px 0 6px">교과서에서 <b>'+E(q.w)+'</b> = <b>'+E(q.bm)+'</b><br><span style="color:var(--sub)">'+E(q.tx.k)+'</span></div>'+q.all.map(function(z){return'<div style="margin-top:6px"><b>'+E(z.m)+'</b><br>'+E(z.e)+'<br><span style="color:var(--sub)">'+E(z.k)+'</span></div>'}).join('')}
 function show(){
   if(S.done)return fin();var q=S.qs[S.i],o=opts(q),sub=S.sub;sel=sub?S.sel:-1;
   var h='<div class="pg"><i style="width:'+Math.round(S.i/S.qs.length*100)+'%"></i></div><div class="sub">'+(S.i+1)+' / '+S.qs.length+'</div><div class="card">'+ask(q)+'<div id="ol">'+o.map(function(t,i){return'<button class="o" data-i="'+i+'">'+E(t)+'</button>'}).join('')+'</div><div id="fb"></div></div><button class="go" id="sb" disabled>제출</button>';
   st.innerHTML=h;var ol=document.getElementById('ol'),sb=document.getElementById('sb');
   function mark(){var ok=o[sel]===ansTxt(q);[].forEach.call(ol.children,function(b,i){b.disabled=true;if(o[i]===ansTxt(q))b.classList.add('ok');else if(i===sel)b.classList.add('no')});
     document.getElementById('fb').innerHTML='<div class="fb"><b class="'+(ok?'g':'r')+'">'+(ok?'정답이에요 ✓':'아쉬워요 · 정답: '+E(ansTxt(q)))+'</b><br>'+fbk(q)+'</div>';
-    sb.disabled=false;sb.textContent=S.i+1>=S.qs.length?'결과 보기':'다음';sb.onclick=function(){S.i++;S.sub=false;if(S.i>=S.qs.length){S.done=true;PG.mark(KEY)}save(S);show()}}
+    sb.disabled=false;sb.textContent=S.i+1>=S.qs.length?'결과 보기':'다음';sb.onclick=function(){S.last=Date.now();S.i++;S.sub=false;if(S.i>=S.qs.length){S.done=true;PG.mark(KEY)}save(S);show()}}
   ol.onclick=function(e){var b=e.target.closest('.o');if(!b||S.sub)return;sel=+b.dataset.i;[].forEach.call(ol.children,function(x){x.classList.toggle('sel',x===b)});sb.disabled=false};
-  sb.onclick=function(){if(sel<0)return;S.sub=true;S.sel=sel;if(o[sel]===ansTxt(q))S.ok++;save(S);mark()};
+  sb.onclick=function(){if(sel<0)return;var nw=Date.now();S.sec=(S.sec||0)+Math.min(120,Math.round((nw-(S.last||nw))/1000));S.last=nw;S.sub=true;S.sel=sel;if(o[sel]===ansTxt(q))S.ok++;save(S);mark()};
   if(sub){mark()}}
-function fin(){var n=S.qs.length;st.innerHTML='<div class="card" style="text-align:center"><div class="q">끝! '+S.ok+' / '+n+' 맞았어요</div><p class="sub">이 활동은 완료로 체크됐어요. 틀린 문제가 있었다면 한 번 더 풀어 봐요.</p></div><button class="go" id="ag">다시 풀기 (새 문제)</button><a class="go l" style="text-align:center;text-decoration:none" href="../index.html">목록으로</a>';
+function fin(){var n=S.qs.length;st.innerHTML='<div class="card" style="text-align:center"><div class="q">끝! '+S.ok+' / '+n+' 맞았어요</div><p class="sub">걸린 시간 <b>'+(S.sec>=60?Math.floor(S.sec/60)+'분 ':'')+(S.sec%60)+'초</b><br>이 활동은 완료로 체크됐어요. 틀린 문제가 있었다면 한 번 더 풀어 봐요.</p></div><button class="go" id="ag">다시 풀기 (새 문제)</button><a class="go l" style="text-align:center;text-decoration:none" href="../index.html">목록으로</a>';
   document.getElementById('ag').onclick=function(){clear();S=null;home()}}
 if(S&&S.done){clear();S=null}
 home();

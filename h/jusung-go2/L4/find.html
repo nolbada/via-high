@@ -60,7 +60,7 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
 function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
 function rich(p,s){var parts=s.split('**');parts.forEach(function(t,i){if(!t)return;if(i%2){var b=el('b',null,t);p.appendChild(b)}else p.appendChild(document.createTextNode(t))})}
 document.getElementById('h').textContent=D.title+' · 본문과 다른 문장 찾기';
-if(PART){var _n=el('div','sub','');_n.innerHTML='이번 덩어리: <b>'+PARTS.names.L4[PART]+'</b>';var _h=document.getElementById('h');_h.parentNode.insertBefore(_n,_h.nextSibling)}
+if(PART){var _n=el('div','sub','');_n.innerHTML='이번 범위: <b>'+PARTS.names.L4[PART]+'</b>';var _h=document.getElementById('h');_h.parentNode.insertBefore(_n,_h.nextSibling)}
 var root=document.getElementById('root'),prog=el('span','prog','');
 var nav=document.getElementById('nav');
 var secs={};
