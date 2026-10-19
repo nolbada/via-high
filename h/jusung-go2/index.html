@@ -140,7 +140,8 @@ function text(){
         });
       }else h+='<div class="soonbox">준비 중</div>';
     }else if(mode===1){
-      g[0].passages.forEach(function(p){
+      if(g[2]==='L4'){h+='<div class="soonbox">교과서는 문법 분석이 없어요.<br>모의고사에서 봐요.</div>';}
+      else g[0].passages.forEach(function(p){
         var G=GRAM[p.id];
         if(!G){h+='<div class="row soon"><span>'+esc(p.label)+'<small>준비 중</small></span></div>';return}
         h+='<details class="acc" style="margin:7px 0"><summary><span>'+esc(p.label)+'</span></summary><div class="in">';
@@ -165,14 +166,14 @@ function text(){
       g[0].passages.forEach(function(p){
         var tg=p.taught===true?'<span class="tg t">수업에서 다룸</span>':p.taught===false?'<span class="tg">안 다룸</span>':'';
         h+='<details class="acc" style="margin:7px 0"><summary><span>'+esc(p.label)+tg+'</span></summary><div class="in">';
-        var J=JJ4[p.id]||JJM[p.id];
+        var J=window.SHOW_JJ?(JJ4[p.id]||JJM[p.id]):null;
         p.en.forEach(function(e,i){
           h+='<div class="s"><div class="en"><b style="color:var(--pri)">'+(i+1)+'</b></div>';
           if(J&&J[i]){h+='<div class="jjl">직독직해</div><table class="jj">'+J[i].e.map(function(c,j){return '<tr><td>'+esc(c)+'</td><td>'+esc(J[i].k[j])+'</td></tr>'}).join('')+'</table><div class="jjl">자연스러운 해석</div>'}
           else h+='<div class="en" style="margin-top:2px">'+esc(e)+'</div>';
           h+='<div class="ko">'+esc((p.ko||[])[i]||'')+'</div></div>';
         });
-        var Z=EZ[p.id];
+        var Z=window.SHOW_JJ?EZ[p.id]:null;
         if(Z){h+='<div class="ez"><div class="jjl">쉬운 정리</div><div>'+esc(Z.easy)+'</div></div>'+(Z.life?'<div class="ez life"><div class="jjl">생활 속 예시</div><div>'+esc(Z.life)+'</div></div>':'')}
         h+='</div></details>';
       });
