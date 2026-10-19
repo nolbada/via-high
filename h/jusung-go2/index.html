@@ -1,6 +1,6 @@
 <!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1d4ed8"><title>주성고 영어II · 비타민 영어클리닉</title>
 <link rel="icon" type="image/svg+xml" href="icon.svg"><link rel="apple-touch-icon" href="icon-180.png">
-<style>.road{border:1px solid #cdd7ee;border-radius:12px;padding:10px;margin:0 0 12px;background:#f6f8ff}.rh{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}.rh span{color:#1d4ed8;font-weight:700}.wr{display:flex;gap:6px;align-items:baseline;font-size:12.5px;padding:5px 6px;border-radius:8px;word-break:keep-all}.wr.cur{background:#1d4ed8;color:#fff}.wr.past{opacity:.5}.wn{font-weight:800;min-width:24px}.wd2{min-width:74px}.vr{font-style:normal;font-size:10.5px;margin-left:6px;padding:1px 6px;border-radius:8px;background:#e0ecff;color:#1d4ed8}.vr.o{background:#eee;color:#666}.rng{display:block;font-size:12px;font-weight:400;color:#667}.arow em{font-style:normal;font-size:11px;color:#889}
+<style>.road{border:1px solid #cdd7ee;border-radius:12px;padding:10px;margin:0 0 12px;background:#f6f8ff}.rh{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}.rh span{color:#1d4ed8;font-weight:700}.wr{display:flex;gap:6px;align-items:baseline;font-size:12.5px;padding:5px 6px;border-radius:8px;word-break:keep-all}.wr.cur{background:#1d4ed8;color:#fff}.wr.past{opacity:.5}.wn{font-weight:800;min-width:24px}.wd2{min-width:74px}.vr{font-style:normal;font-size:10.5px;margin-left:6px;padding:1px 6px;border-radius:8px;background:#e0ecff;color:#1d4ed8}.vr.o{background:#eee;color:#666}.wkd{margin:8px 0}.wkd>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:8px;padding:10px 12px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);font-size:14px;word-break:keep-all}.wkd>summary::-webkit-details-marker{display:none}.wkd>summary i{font-style:normal;color:var(--pri);font-weight:800}.wkd[open]>summary{border-color:var(--pri)}.acc.sub{margin:6px 0}.rng{display:block;font-size:12px;font-weight:400;color:#667}.arow em{font-style:normal;font-size:11px;color:#889}
 :root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--priL:#e6edfc;--off:#e9eef8;--offInk:#6b7a93;--yel:#fffbe3;--yelL:#efd96b;--yelInk:#6b5200}
 @media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--priL:#1a2a4a;--off:#222c3d;--offInk:#8d9ab0;--yel:#33290a;--yelL:#6b5a1a;--yelInk:#f1dc8a}}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
@@ -50,9 +50,9 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 </style></head><body><div class="wrap">
 
 <section class="pane on" id="p-today">
-<h1>오늘의 학습</h1><p class="sub">이번 주 할 일은 DAY 1~3이에요. 순서는 자유예요.</p>
+<h1>오늘의 학습</h1><p class="sub">주마다 DAY 1~3이에요. 순서는 자유예요.</p>
 <div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline"><b>채운 칸</b><b id="sum" style="color:var(--pri)"></b></div><div class="bar"><i id="sbar" style="width:0"></i></div>
-<div style="font-size:12.5px;color:var(--sub)">시험 전까지 모든 활동을 두 번씩 해요. 칸의 ✓는 이번 주에 한 표시예요.</div></div>
+<div style="font-size:12.5px;color:var(--sub)">시험 전까지 모든 활동을 두 번씩 해요. 한 칸은 진하게 바뀌고 ✓가 붙어요.</div></div>
 <div id="today"></div>
 <div class="note">내 진도는 내가 정해요. 칸을 누르면 바로 그 활동이 열려요. 기록은 이 폰에만 저장돼요. 점선 칸은 준비 중이에요.</div>
 </section>
@@ -103,17 +103,15 @@ function dkey(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'
 function weekStart(d){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()-((x.getDay()+6)%7));return x}
 function today(){
   var P=PG.get(),h='',tot=0,got=0,nm={},now=new Date(),ws=weekStart(now),we=new Date(ws);we.setDate(we.getDate()+6);
-  var wsT=ws.getTime(),wk0=dkey(ws),wk1=dkey(we),td=dkey(now),cw=curWeek(now);
+  var wk0=dkey(ws),wk1=dkey(we),td=dkey(now),cw=curWeek(now),tdd=new Date(now.getFullYear(),now.getMonth(),now.getDate());
   ACT.forEach(function(a){nm[a[0]]=a[1]});
-  function key(v,id){return v.L?'L4p'+v.L+':'+id:v.D?'mockp'+v.D+':'+id:v.N}
+  function key(v,id){return v.L?'L4p'+v.L+':'+id:'mockp'+v.D+':'+id}
   function setOf(v){return v.L?SEC[0]:SEC[1]}
-  function doneV(v){var e;if(v.N){e=P[v.N];return !!(e&&e.n&&e.t>=wsT)}
-    var n=0,d=0;ACT.forEach(function(a){if(setOf(v).url[a[0]]&&!OPT[a[0]]){n++;e=P[key(v,a[0])];if(e&&e.t&&e.t>=wsT)d++}});return n>0&&d===n}
-  var dd=Math.ceil((new Date(EXAM.getFullYear(),EXAM.getMonth(),EXAM.getDate())-new Date(now.getFullYear(),now.getMonth(),now.getDate()))/864e5);
-  h+='<div class="road"><div class="rh"><b>시험까지 큰 흐름</b><span>'+'기말고사 (12/1)'+'</span></div>';
+  function isOn(v,id){var e=P[key(v,id)];return !!(e&&(e.n||e.t))}
+  function doneV(v){var n=0,d=0;ACT.forEach(function(a){if(setOf(v).url[a[0]]&&!OPT[a[0]]){n++;if(isOn(v,a[0]))d++}});return n>0&&d===n}
+  h+='<div class="road"><div class="rh"><b>시험까지 큰 흐름</b><span>기말고사 (12/1)</span></div>';
   ROAD.forEach(function(w,i){h+='<div class="wr'+(i===cw?' cur':'')+(i<cw?' past':'')+'"><span class="wn">'+(i+1)+'주</span><span class="wd2">'+w[0]+'~'+w[1]+'</span><span class="wm"><b>'+esc(w[2])+'</b> '+esc(w[3])+'</span></div>'});
   h+='</div>';
-  /* 달력: 월~일, 이번 주 줄 전체 강조 */
   var first=new Date(vy,vm,1),lead=(first.getDay()+6)%7,days=new Date(vy,vm+1,0).getDate();
   h+='<div class="cal"><div class="calh"><button type="button" data-cal="-1">‹</button><b>'+vy+'년 '+(vm+1)+'월</b><button type="button" data-cal="1">›</button></div><div class="calg">';
   WD.forEach(function(w,i){h+='<span class="wd'+(i===6?' sun':'')+'">'+w+'</span>'});
@@ -121,21 +119,40 @@ function today(){
   for(var d=1;d<=days;d++){var k=dkey(new Date(vy,vm,d)),inw=k>=wk0&&k<=wk1;
     h+='<span class="dd'+(inw?' wk':'')+(k===td?' tod':'')+(((lead+d-1)%7)===6?' sun':'')+'">'+d+'</span>'}
   h+='</div></div>';
-  var V=VIS[cw],nxt=-1,r0=ROAD[cw][0].split('/'),tdd=new Date(now.getFullYear(),now.getMonth(),now.getDate());V.forEach(function(v,i){if(nxt<0&&!doneV(v))nxt=i});
-  h+='<div class="dayhead"><b>이번 주 ('+(ws.getMonth()+1)+'/'+ws.getDate()+' ~ '+(we.getMonth()+1)+'/'+we.getDate()+') · '+esc(ROAD[cw][2])+'</b><span>'+(nxt<0?'이번 주 DAY를 모두 했어요':'순서는 자유예요. 빠진 DAY는 주말에 채워도 돼요')+'</span></div>';
-  V.forEach(function(v,vi){
-    var dn=doneV(v),isn=vi===nxt;
-    h+='<div class="blk'+(dn?' done':'')+'"><h2>'+ORD[vi]+' · '+(function(){var x=new Date(Y,r0[0]-1,+r0[1]+DOFF[vi]);v.late=x<tdd;return WDN[x.getDay()]+' '+(x.getMonth()+1)+'/'+x.getDate()})()+(dn?'<span class="tg t">완료</span>':v.late?'<span class="tg">밀림</span>':'')+'<small class="rng"><b>'+esc(v.t)+'</b> · '+esc(v.s)+'</small>'+(v.x?'<small class="rng">'+esc(v.x)+'</small>':'')+'</h2>';
-    if(v.N){h+='<div class="rows"><div class="arow"><div class="two" style="grid-template-columns:1fr"><a class="cell'+(dn?' on':'')+'" href="#" data-note="'+v.N+'">'+(dn?'했어요 ✓':'했어요')+'<small>누르면 표시돼요</small></a></div></div></div></div>';return}
-    h+='<div class="rows">';
-    ACT.forEach(function(a){var id=a[0],sc=setOf(v),u=sc.url[id];if(!u)return;
-      var e=P[key(v,id)],on=!!(e&&e.t&&e.t>=wsT);tot++;if(on)got++;
-      h+='<div class="arow"><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+'</b>'+(VAR[id]?'<i class="vr">매번 다른 문제</i>':'<i class="vr o">1회성</i>')+'<div class="two" style="grid-template-columns:1fr"><a class="cell'+(on?' on':'')+'" href="'+u+'?part='+(v.L||v.D)+'">'+(on?'했어요':'풀기')+'<small>'+(on?'✓':'')+'</small></a></div></div>'});
-    h+='</div></div>';
+  h+='<div class="dayhead"><b>전체 일정</b><span>날짜는 권장이에요. 학교 일정 때문에 먼저 한 건 눌러서 해도 되고, 한 칸은 진하게 바뀌어요.</span></div>';
+  VIS.forEach(function(V,wi){
+    var r0=ROAD[wi][0].split('/'),nd=V.filter(doneV).length;
+    h+='<details class="wkd"'+(wi===cw?' open':'')+'><summary><span><b>'+(wi+1)+'주</b> '+ROAD[wi][0]+'~'+ROAD[wi][1]+' · '+esc(ROAD[wi][2])+'</span><i>'+nd+'/'+V.length+'</i></summary>';
+    V.forEach(function(v,vi){
+      var dn=doneV(v),x=new Date(Y,r0[0]-1,+r0[1]+DOFF[vi]),late=x<tdd&&!dn;
+      h+='<div class="blk'+(dn?' done':'')+'"><h2>'+ORD[vi]+' · '+WDN[x.getDay()]+' '+(x.getMonth()+1)+'/'+x.getDate()+(dn?'<span class="tg t">완료</span>':late?'<span class="tg">밀림</span>':'')+'<small class="rng"><b>'+esc(v.t)+'</b> · '+esc(v.s)+'</small>'+(v.x?'<small class="rng">'+esc(v.x)+'</small>':'')+'</h2><div class="rows">';
+      ACT.forEach(function(a){var id=a[0],sc=setOf(v),u=sc.url[id];if(!u)return;
+        var on=isOn(v,id);tot++;if(on)got++;
+        h+='<div class="arow"><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+'</b>'+(VAR[id]?'<i class="vr">매번 다른 문제</i>':'<i class="vr o">1회성</i>')+'<div class="two" style="grid-template-columns:1fr"><a class="cell'+(on?' on':'')+'" href="'+u+'?part='+(v.L||v.D)+'">'+(on?'했어요':'풀기')+'<small>'+(on?'✓':'')+'</small></a></div></div>'});
+      h+='</div></div>';
+    });
+    h+='</details>';
   });
   document.getElementById('today').innerHTML=h;
   document.getElementById('sum').textContent=got+' / '+tot+'칸';
   document.getElementById('sbar').style.width=(tot?Math.round(got*100/tot):0)+'%';
+}
+var KEYS=[
+ {g:'교과서',open:1,subs:[{t:'4과',items:[['어색한 곳 찾기','정답·해설','L4/awkward.html','key:L4:awk'],['동사형 연습','정답·해설','L4/dongsa.html','key:L4:dongsa'],['어법 선택형','정답·해설','L4/eobeop.html','key:L4:eobeop']]}]},
+ {g:'모의고사',subs:[{t:'22년 11월',items:[['한글채우기'],['영어채우기']]},{t:'23년 11월',items:[['한글채우기'],['영어채우기']]},{t:'24년 10월',items:[['한글채우기'],['영어채우기']]}]},
+ {g:'플러스 자료',subs:[{t:'기출예상 등',items:[]}]}
+];
+function keys(){
+  var P=PG.get(),h='';
+  function row(it){var n=(P[it[3]]||{}).n||0;return it[2]?'<a class="row'+(n?' on':'')+'" href="'+it[2]+'"><span>'+esc(it[0])+'<small>'+(n?'확인했어요':esc(it[1]||''))+'</small></span><span class="go">'+(n?'다시 보기':'열기')+'</span></a>':'<div class="row soon"><span>'+esc(it[0])+'<small>준비 중</small></span></div>'}
+  KEYS.forEach(function(g){
+    h+='<details class="acc"'+(g.open?' open':'')+'><summary>'+esc(g.g)+'</summary><div class="in">';
+    g.subs.forEach(function(sb){
+      h+='<details class="acc sub"'+(g.open?' open':'')+'><summary>'+esc(sb.t)+'</summary><div class="in">'+(sb.items.length?sb.items.map(row).join(''):'<div class="soonbox">정답·해설이 여기에 쌓여요.<br>준비 중</div>')+'</div></details>';
+    });
+    h+='</div></details>';
+  });
+  document.getElementById('keys').innerHTML=h;
 }
 document.getElementById('today').addEventListener('click',function(e){
   var nt=e.target.closest('[data-note]');if(nt){e.preventDefault();var kk=nt.dataset.note,en=PG.get()[kk];if(en&&en.n&&en.t>=weekStart(new Date()).getTime())PG.unmark(kk);else PG.mark(kk);today();return}
