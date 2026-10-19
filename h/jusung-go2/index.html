@@ -44,12 +44,13 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 .jj{border-collapse:collapse;width:100%;margin:2px 0 6px}.jj td{word-break:keep-all;padding:3px 6px 3px 0;font-size:14.5px;line-height:1.5;vertical-align:top;text-align:left;width:50%}.jj td:first-child{border-right:1px solid var(--line);padding-right:8px}.jj td:last-child{padding-left:8px;color:var(--pri)}
 .jjl{font-size:11.5px;font-weight:800;color:var(--sub);margin:6px 0 2px}.ez{background:var(--off);border-radius:12px;padding:8px 12px;margin:10px 0;font-size:14.5px;line-height:1.7}.ez.life{background:var(--yel)}
 .blk{border:2px solid var(--line);border-radius:16px;padding:10px 12px 6px;margin:14px 0;background:var(--card)}.blk h2{font-size:15.5px;margin:2px 0 6px}.arow{display:flex;align-items:center;gap:8px;padding:6px 0;border-top:1px solid var(--line)}.arow:first-child{border-top:0}.arow>b{flex:0 0 76px;font-size:14px}.arow .two{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:6px}.arow .cell{margin:0}
+.cal{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 10px 8px;margin:10px 0}.calh{display:flex;justify-content:space-between;align-items:center;padding:0 4px 6px}.calh button{border:0;background:none;font-size:22px;color:var(--pri);padding:2px 12px;cursor:pointer}.calg{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center}.wd{font-size:12px;font-weight:800;color:var(--sub);padding:3px 0}.sun{color:#c2410c}.dd{border:0;background:none;border-radius:10px;height:38px;font:700 14.5px inherit;font-family:inherit;color:var(--ink);cursor:pointer}.dd.sun{color:#c2410c}.dd.tod{box-shadow:inset 0 0 0 1.5px var(--pri)}.dd.ok{background:var(--pri);color:#fff}.dd.sel:not(.ok){background:var(--off)}.dd.sel{outline:2px solid var(--pri);outline-offset:-2px}.dayhead{margin:14px 2px 0}.dayhead span{display:block}.dayhead span{font-size:12.5px;color:var(--sub)}.blk.done{border-color:var(--pri)}
 .soonbox{border:1px dashed var(--line);border-radius:14px;padding:18px 14px;text-align:center;color:var(--sub);font-size:14.5px}
 .foot{margin:20px 0 6px;text-align:center;color:var(--sub);font-size:12.5px}
 </style></head><body><div class="wrap">
 
 <section class="pane on" id="p-today">
-<h1>이번주 학습</h1><p class="sub">한 주에 세 덩어리, 하루에 한 덩어리씩 해요. 순서는 마음대로, 끝내면 파랗게 바뀌어요.</p>
+<h1>이번주 학습</h1><p class="sub">날짜를 누르면 그날 할 덩어리가 나와요. 세 덩어리 중 하루에 하나는 꼭, 순서는 마음대로예요.</p>
 <div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline"><b>채운 칸</b><b id="sum" style="color:var(--pri)"></b></div><div class="bar"><i id="sbar" style="width:0"></i></div>
 <div style="font-size:12.5px;color:var(--sub)">시험 전까지 모든 활동을 두 번씩! (✓ 한 번, ✓✓ 두 번 이상)</div></div>
 <div id="today"></div>
@@ -84,27 +85,53 @@ var SEC=[
 ];
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var BLK=[['① 글의 흐름','한글 순서·ABC 순서·문장삽입',['ko','abc','mun']],['② 내용 파악','빈칸추론·TF·어색한 곳',['blank','find','awk']],['③ 어휘와 문법','어휘·어법선택·동사형',['voc','eobeop','dongsa']]];
+var WD=['월','화','수','목','금','토','일'],cur=new Date(),selDay=null,vy=cur.getFullYear(),vm=cur.getMonth();
+function dkey(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+function dayMap(P){var m={};Object.keys(P).forEach(function(k){var t=P[k].t;if(!t)return;var d=dkey(new Date(t)),id=k.split(':').pop();(m[d]=m[d]||{})[id]=1});return m}
 function today(){
-  var P=PG.get(),h='',tot=0,got=0,nm={};
+  var P=PG.get(),h='',tot=0,got=0,nm={},DM2=dayMap(P),td=dkey(new Date());
+  if(!selDay)selDay=td;
   ACT.forEach(function(a){nm[a[0]]=a[1]});
-  BLK.forEach(function(bk){
-    h+='<div class="blk"><h2>'+esc(bk[0])+'</h2><div class="rows">';
-    bk[2].forEach(function(id){
-      h+='<div class="arow"><b>'+esc(nm[id])+'</b><div class="two">';
-      SEC.forEach(function(sc){
-        var lab=sc.set==='L4'?'4과':'모의고사',u=sc.url[id],n=(P[sc.set+':'+id]||{}).n||0;
-        if(!u){h+='<span class="cell soon">'+lab+'<small>준비 중</small></span>';return}
-        tot++;if(n)got++;
-        h+='<a class="cell'+(n?' on':'')+'" href="'+u+'">'+lab+'<small>'+(n>=2?'✓✓':n?'✓':'')+'</small></a>';
+  function chunkDone(bk,d){var m=DM2[d]||{};return bk[2].some(function(id){return m[id]})}
+  function dayDone(d){return BLK.some(function(bk){return chunkDone(bk,d)})}
+  /* 달력: 월~일 */
+  var first=new Date(vy,vm,1),lead=(first.getDay()+6)%7,days=new Date(vy,vm+1,0).getDate();
+  h+='<div class="cal"><div class="calh"><button type="button" data-cal="-1">‹</button><b>'+vy+'년 '+(vm+1)+'월</b><button type="button" data-cal="1">›</button></div><div class="calg">';
+  WD.forEach(function(w,i){h+='<span class="wd'+(i===6?' sun':'')+'">'+w+'</span>'});
+  for(var i=0;i<lead;i++)h+='<span></span>';
+  for(var d=1;d<=days;d++){
+    var dt=new Date(vy,vm,d),k=dkey(dt),cl='dd'+(k===td?' tod':'')+(k===selDay?' sel':'')+(dayDone(k)?' ok':'')+(((lead+d-1)%7)===6?' sun':'');
+    h+='<button type="button" class="'+cl+'" data-day="'+k+'">'+d+'</button>';
+  }
+  h+='</div></div>';
+  var sd=new Date(selDay.replace(/-/g,'/')),lab=(sd.getMonth()+1)+'월 '+sd.getDate()+'일 ('+WD[(sd.getDay()+6)%7]+')';
+  if(selDay>td){h+='<div class="soonbox" style="margin:10px 0">'+lab+'은 그날이 되면 열려요.</div>'}
+  else{
+    h+='<div class="dayhead"><b>'+lab+(selDay===td?' · 오늘':'')+'</b><span>'+(selDay===td?'세 덩어리 중 한 덩어리는 꼭 해요':'이날 한 것')+'</span></div>';
+    BLK.forEach(function(bk){
+      var dn=chunkDone(bk,selDay);
+      h+='<div class="blk'+(dn?' done':'')+'"><h2>'+esc(bk[0])+(dn?'<span class="tg t">'+(selDay===td?'오늘 완료':'완료')+'</span>':'')+'</h2><div class="rows">';
+      bk[2].forEach(function(id){
+        h+='<div class="arow"><b>'+esc(nm[id])+'</b><div class="two">';
+        SEC.forEach(function(sc){
+          var lab2=sc.set==='L4'?'4과':'모의고사',u=sc.url[id],n=(P[sc.set+':'+id]||{}).n||0;
+          if(!u){h+='<span class="cell soon">'+lab2+'<small>준비 중</small></span>';return}
+          h+='<a class="cell'+(n?' on':'')+'" href="'+u+'">'+lab2+'<small>'+(n>=2?'✓✓':n?'✓':'')+'</small></a>';
+        });
+        h+='</div></div>';
       });
       h+='</div></div>';
     });
-    h+='</div></div>';
-  });
+  }
+  SEC.forEach(function(sc){ACT.forEach(function(a){if(sc.url[a[0]]){tot++;if((P[sc.set+':'+a[0]]||{}).n)got++}})});
   document.getElementById('today').innerHTML=h;
   document.getElementById('sum').textContent=got+' / '+tot+'칸';
   document.getElementById('sbar').style.width=(tot?Math.round(got*100/tot):0)+'%';
 }
+document.getElementById('today').addEventListener('click',function(e){
+  var c=e.target.closest('[data-cal]');if(c){vm+=+c.dataset.cal;if(vm<0){vm=11;vy--}if(vm>11){vm=0;vy++}today();return}
+  var d=e.target.closest('[data-day]');if(d){selDay=d.dataset.day;today()}
+});
 function keys(){
   var P=PG.get();
   function row(name,sub,url,k){var n=(P[k]||{}).n||0;return url?'<a class="row'+(n?' on':'')+'" href="'+url+'"><span>'+name+'<small>'+(n?'확인했어요':sub)+'</small></span><span class="go">'+(n?'다시 보기':'열기')+'</span></a>':'<div class="row soon"><span>'+name+'<small>준비 중</small></span></div>'}
