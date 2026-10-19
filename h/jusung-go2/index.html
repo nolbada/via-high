@@ -96,7 +96,7 @@ var VIS=[
  [{N:'gc22',t:'22년 기출',s:'기출 시험지를 풀어요'},{N:'gc23',t:'23년 기출',s:'기출 시험지를 풀어요'},{N:'gc24',t:'24년 기출',s:'기출 시험지를 풀어요'}],
  [{N:'gc26',t:'26년 기출',s:'기출 시험지를 풀어요'},{N:'gct',t:'교과서 기출 1회',s:'교과서 기출을 풀어요'},{N:'fin',t:'최종정리',s:'28일(토) · 시험 전 마지막 정리'}]
 ];
-var ORD=['DAY 1','DAY 2','DAY 3'];
+var ORD=['DAY 1','DAY 2','DAY 3'],DOFF=[0,2,5],WDN=['일','월','화','수','목','금','토'];
 function curWeek(now){var w=0;ROAD.forEach(function(r,i){var a=r[0].split('/');if(now>=new Date(Y,a[0]-1,+a[1]))w=i});return w}
 var WD=['월','화','수','목','금','토','일'],vy=new Date().getFullYear(),vm=new Date().getMonth();
 function dkey(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
@@ -110,7 +110,7 @@ function today(){
   function doneV(v){var e;if(v.N){e=P[v.N];return !!(e&&e.n&&e.t>=wsT)}
     var n=0,d=0;ACT.forEach(function(a){if(setOf(v).url[a[0]]&&!OPT[a[0]]){n++;e=P[key(v,a[0])];if(e&&e.t&&e.t>=wsT)d++}});return n>0&&d===n}
   var dd=Math.ceil((new Date(EXAM.getFullYear(),EXAM.getMonth(),EXAM.getDate())-new Date(now.getFullYear(),now.getMonth(),now.getDate()))/864e5);
-  h+='<div class="road"><div class="rh"><b>시험까지 큰 흐름</b><span>'+(dd>0?'시험 D-'+dd+' (12/1)':'시험 기간')+'</span></div>';
+  h+='<div class="road"><div class="rh"><b>시험까지 큰 흐름</b><span>'+'기말고사 (12/1)'+'</span></div>';
   ROAD.forEach(function(w,i){h+='<div class="wr'+(i===cw?' cur':'')+(i<cw?' past':'')+'"><span class="wn">'+(i+1)+'주</span><span class="wd2">'+w[0]+'~'+w[1]+'</span><span class="wm"><b>'+esc(w[2])+'</b> '+esc(w[3])+'</span></div>'});
   h+='</div>';
   /* 달력: 월~일, 이번 주 줄 전체 강조 */
@@ -121,11 +121,11 @@ function today(){
   for(var d=1;d<=days;d++){var k=dkey(new Date(vy,vm,d)),inw=k>=wk0&&k<=wk1;
     h+='<span class="dd'+(inw?' wk':'')+(k===td?' tod':'')+(((lead+d-1)%7)===6?' sun':'')+'">'+d+'</span>'}
   h+='</div></div>';
-  var V=VIS[cw],nxt=-1;V.forEach(function(v,i){if(nxt<0&&!doneV(v))nxt=i});
+  var V=VIS[cw],nxt=-1,r0=ROAD[cw][0].split('/'),tdd=new Date(now.getFullYear(),now.getMonth(),now.getDate());V.forEach(function(v,i){if(nxt<0&&!doneV(v))nxt=i});
   h+='<div class="dayhead"><b>이번 주 ('+(ws.getMonth()+1)+'/'+ws.getDate()+' ~ '+(we.getMonth()+1)+'/'+we.getDate()+') · '+esc(ROAD[cw][2])+'</b><span>'+(nxt<0?'이번 주 DAY를 모두 했어요':'순서는 자유예요. 빠진 DAY는 주말에 채워도 돼요')+'</span></div>';
   V.forEach(function(v,vi){
     var dn=doneV(v),isn=vi===nxt;
-    h+='<div class="blk'+(dn?' done':'')+'"><h2>'+ORD[vi]+(dn?'<span class="tg t">완료</span>':'')+'<small class="rng"><b>'+esc(v.t)+'</b> · '+esc(v.s)+'</small></h2>';
+    h+='<div class="blk'+(dn?' done':'')+'"><h2>'+ORD[vi]+' · '+(function(){var x=new Date(Y,r0[0]-1,+r0[1]+DOFF[vi]);v.late=x<tdd;return WDN[x.getDay()]+' '+(x.getMonth()+1)+'/'+x.getDate()})()+(dn?'<span class="tg t">완료</span>':v.late?'<span class="tg">밀림</span>':'')+'<small class="rng"><b>'+esc(v.t)+'</b> · '+esc(v.s)+'</small></h2>';
     if(v.N){h+='<div class="rows"><div class="arow"><div class="two" style="grid-template-columns:1fr"><a class="cell'+(dn?' on':'')+'" href="#" data-note="'+v.N+'">'+(dn?'했어요 ✓':'했어요')+'<small>누르면 표시돼요</small></a></div></div></div></div>';return}
     h+='<div class="rows">';
     ACT.forEach(function(a){var id=a[0],sc=setOf(v),u=sc.url[id];if(!u)return;
