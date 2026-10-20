@@ -52,9 +52,18 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 .warn{border:1.5px solid #d97706;background:#fff7e6;color:#7a3b00;border-radius:12px;padding:10px 12px;margin:10px 0;font-size:14px;line-height:1.5}.warn b{color:#b45309}@media(prefers-color-scheme:dark){.warn{background:#3a2a10;color:#ffd9a0}.warn b{color:#ffb74d}}
 .cal .dd.ex{color:#dc2626!important;font-weight:900}.cal .dd.ex::before{content:"시험";position:absolute;left:0;right:0;top:0;font-size:8.5px;line-height:1;font-weight:800;color:#dc2626}.cal .dd.ex.sel{background:radial-gradient(circle 17px at center,#dc2626 97%,transparent 100%);color:#fff!important}.cal .dd.ex.sel::before{color:#fff;top:1px}.lg .lx{width:8px;height:8px;border-radius:50%;background:#dc2626}
 .wnb{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1.5px solid #d97706;background:#fff7e6;color:#7a3b00;border-radius:12px;padding:10px 14px;margin:10px 0 4px;text-decoration:none}.wnb b{display:block;font-size:15px}.wnb small{display:block;font-size:12.5px;color:#9a5a10;margin-top:1px}.wnb .go{font-weight:800;font-size:13.5px;color:#b45309}@media(prefers-color-scheme:dark){.wnb{background:#3a2a10;color:#ffd9a0}.wnb small{color:#e8bb7a}.wnb .go{color:#ffb74d}}.wnb.mxb{border-color:#1d4ed8;background:#e6edfc;color:#17316b;margin-top:6px}.wnb.mxb small{color:#3a5aa8}.wnb.mxb .go{color:#1d4ed8}@media(prefers-color-scheme:dark){.wnb.mxb{border-color:#8ab4ff;background:#1a2a4a;color:#cfe0ff}.wnb.mxb small{color:#9db8ee}.wnb.mxb .go{color:#8ab4ff}}
+.goal{--gnv:#1d2b4f;border:1.5px solid var(--gnv);border-radius:14px;margin:10px 0;background:var(--card);overflow:hidden}
+.goal .gs{display:flex;align-items:center;gap:12px;padding:11px 12px}
+.goal .kgd{background:var(--gnv);color:#fff;border-radius:10px;padding:6px 10px;text-align:center;line-height:1.15;min-width:74px}
+.goal .kgd small{display:block;font-size:11px;opacity:.85}
+.goal .kgd b{font-size:22px;letter-spacing:-.5px;color:#fff}
+.goal .kgl{flex:1;min-width:0;font-size:15px;font-weight:800;line-height:1.35;word-break:keep-all}
+.goal .kgl em{display:block;font-style:normal;font-size:12px;color:var(--sub);font-weight:700}
+@media(prefers-color-scheme:dark){.goal{--gnv:#3a5190}}
 </style></head><body><div class="wrap">
 
 <section class="pane on" id="p-today">
+<div id="goal"></div>
 
 <div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline"><b>전체 진행</b><b id="sum" style="color:var(--pri)"></b></div><div class="bar"><i id="sbar" style="width:0"></i></div>
 <div style="font-size:12.5px;color:var(--sub)">끝난 활동은 체크 표시가 되면서 진하게 바뀌어요.</div></div>
@@ -235,4 +244,7 @@ document.getElementById('tabs').innerHTML=TABS.map(function(t){return '<button t
 document.getElementById('tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(b)show(b.dataset.t)});
 window.addEventListener('pageshow',function(e){var t='today';try{var nv=(performance.getEntriesByType('navigation')[0]||{}).type;if(e.persisted||nv==='back_forward')t=sessionStorage.getItem('vh-tab')||'today'}catch(x){}show(t)});
 })();
-</script></body></html>
+</script><script>(function(){var EX=new Date(2026,11,7),WDN=['일','월','화','수','목','금','토'];
+function nowD(){var m=/[?&]d=(\d{4})-(\d\d)-(\d\d)/.exec(location.search);return m?new Date(+m[1],+m[2]-1,+m[3],12):new Date()}
+function render(){var el=document.getElementById('goal');if(!el)return;var n=nowD(),d0=new Date(n.getFullYear(),n.getMonth(),n.getDate()),dd=Math.round((EX-d0)/864e5);if(dd<0){el.innerHTML='';return}var big=dd===0?'D-DAY':'D-'+dd;el.innerHTML='<div class="goal"><div class="gs"><span class="kgd"><small>기말 12/7('+WDN[EX.getDay()]+')</small><b>'+big+'</b></span><span class="kgl">기말고사<em>시험 기간 12/7 ~ 12/10</em></span></div></div>'}
+render();window.addEventListener('pageshow',render)})();</script></body></html>
