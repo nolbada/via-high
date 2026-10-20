@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>24년 10월 29번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "24년 10월 29번", "sub": "고2 · 조건부 장소 선호 실험", "one": "동물이 어느 장소를 더 좋아하게 되는지를 전후로 비교하면, 그 동물이 무엇을 원하는지 알 수 있음", "flow": [{"label": "도입부", "range": "1번", "sum": "조건부 장소 선호는 동물이 무엇을 원하는지 알아내는 방법 <small>(Conditioned Place Preference)<\/small>", "eg": "쥐에게 방 두 개를 주고, 어느 방을 더 좋아하는지로 쥐의 속마음을 알아냄"}, {"label": "본론 (1)", "range": "2~4번", "sum": "두 장소를 서로 다른 경험과 연관시키도록 훈련시키고, 장소 선호도를 경험 전과 후에 모두 측정 <small>(associate, measured both before and after)<\/small>", "eg": "A방에는 먹이를, B방에는 아무것도 두지 않고 훈련한 뒤, 훈련 전후에 쥐가 어느 방에 오래 있는지 잼"}, {"label": "본론 (2)", "range": "5~6번", "sum": "선호 장소가 바뀌면 그 경험을 좋아한 것이고, 반대로 그 장소를 피하면 불쾌하게 느낀 것 <small>(shift, conversely)<\/small>", "eg": "먹이가 있던 A방에 더 오래 있으면 ‘좋았구나’, A방을 피해 B방에 가면 ‘싫었구나’"}, {"label": "결론", "range": "7~8번", "sum": "암에 걸린 쥐는 모르핀이 주어졌던 장소를 선호했고, 이는 모르핀을 원했다는 뜻 <small>(mice with cancer, morphine)<\/small>", "eg": "아픈 쥐는 모르핀을 맞았던 방에 계속 머물고, 건강한 쥐는 방을 가리지 않음"}], "sents": [{"n": 1, "mk": "[1|Conditioned Place Preference is a way of finding out what animals want].", "ko": "조건부 장소 선호도는 동물들이 무엇을 원하는지 알아내는 하나의 방법이다."}, {"n": 2, "mk": "Researchers train [2|them] to [3|associate] one place with an experience such as food or a loud noise and another place with something completely different, usually where nothing happens.", "ko": "연구자들은 그것들이 한 장소를 음식이나 시끄러운 소리와 같은 경험과 연관시키고 또 다른 장소를 완벽히 다른 어떤 것과 연관시키도록 훈련시키는데, 대개 그곳에서는 아무것도 일어나지 않는다."}, {"n": 3, "star": 1, "mk": "The two places [6|are made obviously different] [7|to make it as easy as possible] for the animal to associate each place with [8|what happened to it there].", "ko": "그 두 장소는 그 동물이 각 장소를 거기에서 그것에게 일어난 일과 연관시키는 것을 가능한 한 쉽게 만들기 위해 명백히 다르게 만들어진다."}, {"n": 4, "mk": "The animal’s [9|preference for] being in one place or another is [10|measured] both before and after its experiences in the two places.", "ko": "한 장소나 다른 장소에 있는 것에 대한 그 동물의 선호도는 두 장소에서 경험하기 전과 후에 모두 측정된다."}, {"n": 5, "mk": "If there is a [11|shift] in where the animal chooses to spend its time for the [13|reward], [14|this] suggests that [16|it] liked the experience and is trying to repeat [17|it].", "ko": "만약 동물이 보상을 위해 어디에서 시간을 보내기로 선택하는지에 변화가 있다면, 이것은 그것이 그 경험을 좋아했고 그것을 반복하려고 노력하는 중이라는 것을 시사한다."}, {"n": 6, "mk": "[18|Conversely], if [19|it] now [20|avoids] [21|the place the stimulus appeared] and starts to prefer the place it did not experience it, then [23|this] suggests that it found the stimulus unpleasant.", "ko": "반대로, 만약 그것이 이제 자극이 나타났던 장소를 피하고 그것을 경험하지 않았던 장소를 선호하기 시작한다면, 그러면 이것은 그것이 그 자극을 불쾌하게 느꼈다는 것을 시사한다."}, {"n": 7, "mk": "[25|For example], mice with cancer show a preference for the place [26|where they have been given morphine], [27|a drug used to relieve pain], [28|rather than] where they have received [29|saline], [30|whereas] healthy mice [31|developed] no such preference.", "ko": "예를 들어, 암에 걸린 쥐는 식염수를 받아 왔었던 곳보다 통증을 완화시키는 데 사용되는 약인 모르핀이 주어졌었던 장소에 대한 선호를 보여 준 반면, 건강한 쥐는 그러한 선호가 생기지 않았다."}, {"n": 8, "mk": "[32|This suggests that the mice with cancer wanted the morphine].", "ko": "이것은 암에 걸린 쥐가 그 모르핀을 원했음을 시사한다."}], "items": {"1": {"c": "k", "t": "주제문 : 조건부 장소 선호 = 동물이 원하는 것을 알아내는 방법", "n": ["Conditioned Place Preference = 조건부 장소 선호도 (실험 이름)", "a way of finding out = 알아내는 방법", "what animals want = 동물들이 원하는 것"], "x": ["이 글의 주제를 소개하는 첫 문장이다.", "a way of finding out ~은 ‘~을 알아내는 방법’이라는 뜻이다. of 뒤라서 동명사 finding이다.", "find out은 ‘알아내다’라는 뜻의 구동사이다.", "what animals want는 ‘동물들이 원하는 것’이라는 뜻의 명사절이고, finding out의 목적어이다.", "what이 want의 목적어라서 뒤 절(animals want)에 목적어가 없는 불완전한 절이다."], "e": "쉬운 예시 : 쥐에게 방 두 개를 주고 어느 방에서 더 오래 지내는지 보면, 쥐가 뭘 좋아하는지 알 수 있다."}, "2": {"c": "o", "t": "them = animals (동물들)", "n": ["them = animals (1번에 나온 동물들)", "train + O + to V = O가 ~하도록 훈련시키다"], "x": ["Researchers train them to associate ~의 them은 1번 문장의 animals를 가리킨다.", "train + O + to V는 ‘O가 ~하도록 훈련시키다’라는 뜻이다.", "to associate의 의미상 주어는 목적어 them(동물들)이다."]}, "3": {"c": "g", "t": "associate A with B : A를 B와 연관시키다", "n": ["associate A with B = A를 B와 연관 짓다", "association = 연관, 연상 (명사)", "(다의어) associate = 동료 (명사)"], "x": ["associate one place with an experience는 ‘한 장소를 경험과 연관시키다’라는 뜻이다.", "A와 B 자리에 연결할 두 대상이 들어간다. 여기서는 장소와 경험이다.", "to 뒤라서 동사원형 associate이다.", "associate는 명사로 ‘동료’라는 뜻도 있다."]}, "6": {"c": "p", "t": "make + O + 형용사의 수동태 : 다르게 만들어지다", "n": ["make + O + C(형용사) = O를 ~하게 만들다", "O is made + 형용사 = O가 ~하게 만들어지다", "made = 동사 make(만들다)의 과거분사"], "x": ["are made obviously different는 ‘명백히 다르게 만들어진다’라는 뜻이다.", "능동문 make the two places obviously different에서 목적어가 주어로 나간 수동태이다.", "different는 보어로 남은 형용사이다.", "obviously는 부사이고, 형용사 different를 꾸민다. ‘obvious different’로 쓰지 않는다."]}, "7": {"c": "p", "t": "make it as easy as possible : 가목적어 it", "n": ["make + it(가목적어) + 형용사 + to V(진목적어)", "as easy as possible = 가능한 한 쉽게", "for + 의미상 주어 + to V"], "x": ["to make it as easy as possible for the animal to associate ~는 ‘그 동물이 ~을 연관시키는 것을 가능한 한 쉽게 만들기 위해’라는 뜻이다.", "it은 가목적어이고, 진짜 목적어는 뒤의 to associate ~이다.", "for the animal은 to associate의 의미상 주어이다.", "맨 앞의 to make는 ‘~하기 위해’라는 목적의 to부정사이다."]}, "8": {"c": "p", "t": "관계대명사 what : 전치사 with의 목적어 명사절", "n": ["what happened to it there = 거기서 그것에게 일어난 일", "it = the animal (그 동물)", "happen to ~ = ~에게 일어나다"], "x": ["associate each place with what happened to it there는 ‘각 장소를 거기서 그것에게 일어난 일과 연관시키다’라는 뜻이다.", "what은 ‘~하는 것’이라는 뜻이고, 여기서는 주어 역할이라 바로 뒤에 동사 happened가 온다.", "happened는 동사 happen(일어나다)의 과거형이다.", "what절은 전치사 with의 목적어이다. it은 the animal, there는 각 장소를 가리킨다."]}, "9": {"c": "g", "t": "preference for ~ : ~에 대한 선호", "n": ["preference = 선호, 선호도", "prefer = 선호하다 (동사)", "preference for ~ = ~에 대한 선호"], "x": ["The animal’s preference for being in one place or another는 ‘한 장소나 다른 장소에 있는 것에 대한 그 동물의 선호’라는 뜻이다.", "preference는 동사 prefer(선호하다)의 명사형이다. 품사 변형으로 출제될 수 있다.", "for는 전치사라서 뒤에 동명사 being이 왔다."]}, "10": {"c": "g", "t": "measure : 측정하다", "n": ["measure = 측정하다, 재다", "measurement = 측정 (명사)", "(다의어) measure = 조치, 대책 (명사)"], "x": ["is measured both before and after ~는 ‘~ 전과 후에 모두 측정된다’라는 뜻이다.", "is measured는 be + 과거분사로 만든 수동태이다. measured는 동사 measure의 과거분사이다.", "both A and B는 ‘A와 B 둘 다’라는 뜻이다. 여기서는 before와 after가 연결되었다.", "measure는 명사로 ‘조치’라는 뜻도 있다."]}, "11": {"c": "g", "t": "shift : 변화, 이동", "n": ["shift = 변화, 이동", "a shift in ~ = ~의 변화", "(다의어) shift = 교대 근무, 옮기다"], "x": ["a shift in where the animal chooses ~는 ‘동물이 선택하는 곳의 변화’라는 뜻이다.", "여기서 shift는 명사로 ‘(선호하는 곳이) 바뀌는 것’을 말한다.", "shift는 ‘교대 근무 조’라는 뜻도 있고 동사로 ‘옮기다’라는 뜻도 있다."]}, "13": {"c": "g", "t": "reward : 보상", "n": ["reward = 보상, 보답", "(품사 변형) reward = 보상하다 (동사)"], "x": ["for the reward는 ‘보상을 위해’라는 뜻이다.", "여기서 보상은 동물이 원하는 먹이나 약 같은 것을 말한다.", "reward는 동사로도 쓰인다."]}, "14": {"c": "o", "t": "this = if절의 내용 (선호 장소의 변화)", "n": ["this = 동물이 시간을 보내는 장소가 바뀌었다는 사실", "suggest = 시사하다, 암시하다"], "x": ["this suggests의 this는 앞의 if절 전체(보내는 장소가 바뀐 것)를 가리킨다.", "suggest는 ‘제안하다’ 외에 ‘시사하다, 암시하다’라는 뜻이 있다. 여기서는 ‘시사하다’이다.", "suggests는 동사 suggest의 3인칭 단수 현재형이다. this가 단수라서 -s가 붙었다."]}, "16": {"c": "o", "t": "it = the animal (동물)", "n": ["it = the animal (5번 앞부분의 동물)"], "x": ["that it liked에서 it은 앞에 나온 the animal을 가리킨다.", "‘그 동물이 그 경험을 좋아했다’는 뜻이다."]}, "17": {"c": "o", "t": "it = the experience (경험)", "n": ["repeat it의 it = the experience (그 경험)"], "x": ["repeat it의 it은 앞의 the experience를 가리킨다.", "‘그 경험을 반복하다’는 뜻이다.", "앞의 it(동물)과 가리키는 대상이 다르다."]}, "18": {"c": "b", "t": "Conversely : 반대로", "n": ["conversely = 반대로, 거꾸로", "앞 내용과 반대되는 경우를 소개"], "x": ["Conversely는 ‘반대로’라는 뜻의 연결어이다.", "5번은 ‘좋아했을 때’, 6번은 ‘싫어했을 때’로 상반된 경우를 설명한다."]}, "19": {"c": "o", "t": "it = the animal (동물)", "n": ["it = the animal (5번의 동물과 같은 대상)"], "x": ["if it now avoids의 it은 5번 문장의 the animal을 가리킨다.", "‘그 동물이 이제 ~을 피한다면’이라는 뜻이다."]}, "20": {"c": "g", "t": "avoid : 피하다", "n": ["avoid = 피하다", "avoid + 명사/-ing (to V 불가)", "(반의어) approach = 다가가다"], "x": ["avoids the place는 ‘그 장소를 피한다’라는 뜻이다.", "avoids는 동사 avoid의 3인칭 단수 현재형이다. 주어 it이 단수이기 때문이다.", "avoid는 목적어로 명사나 동명사를 쓰고, to부정사는 쓰지 않는다."]}, "21": {"c": "p", "t": "관계부사 where 생략 : the place (where) the stimulus appeared", "n": ["the place (where) the stimulus appeared = 자극이 나타났던 장소", "stimulus = 자극 (복수형 stimuli)", "appear = 나타나다"], "x": ["기준 : 시험지 원문이 ‘the place it did not experience it’로 인쇄돼 있다. 그대로 두고 ‘경험하지 않은 장소’로 읽는다.", "the place the stimulus appeared는 ‘자극이 나타났던 장소’라는 뜻이다.", "선행사 the place 뒤에 관계부사 where가 생략되었다.", "뒤에 완전한 절(the stimulus appeared)이 오는 것이 생략의 단서이다.", "appeared는 동사 appear(나타나다)의 과거형이다. appear는 자동사라서 수동태로 쓰지 않는다."]}, "23": {"c": "o", "t": "this = if절의 내용 (자극 장소를 피하는 행동)", "n": ["this = 동물이 자극이 있던 곳을 피하고 다른 곳을 선호하기 시작한 것"], "x": ["then this suggests의 this는 앞의 if절 전체를 가리킨다.", "‘자극 장소를 피하고 다른 곳을 선호하는 변화’를 받는 말이다."]}, "25": {"c": "b", "t": "For example : 예를 들어", "n": ["for example = 예를 들어", "앞의 일반 설명 뒤에 구체적 사례를 이끎"], "x": ["For example은 ‘예를 들어’라는 뜻의 연결어이다.", "5~6번의 일반적인 원리를 쥐 실험 사례로 보여 준다."]}, "26": {"c": "p", "t": "관계부사 where + 4형식 수동태 : have been given", "n": ["where they have been given morphine = 그들이 모르핀을 주어졌던 (장소)", "have been given + DO = ~가 주어져 왔다", "give + IO + DO의 수동태 (IO가 주어)"], "x": ["where they have been given morphine은 ‘그들이 모르핀을 받았던 곳’이라는 뜻이다.", "선행사 the place를 꾸미는 관계부사절이다. where 뒤에 완전한 절이 온다.", "have been given은 현재완료 수동태이다. given은 동사 give(주다)의 과거분사이다.", "4형식 수동태에서 목적어 morphine이 남아 있어 능동으로 착각하기 쉽다. ‘have given’이 아니다."]}, "27": {"c": "p", "t": "동격 + 과거분사구 : a drug used to relieve pain", "n": ["morphine, a drug ~ = 모르핀, 즉 ~하는 약 (동격)", "a drug ← used to relieve pain (과거분사구)", "relieve = 완화시키다"], "x": ["a drug used to relieve pain은 ‘통증을 완화시키는 데 사용되는 약’이라는 뜻이다.", "콤마 뒤의 a drug는 morphine을 설명하는 동격이다.", "used to relieve pain은 a drug를 뒤에서 꾸미는 과거분사구이다. used는 동사 use(사용하다)의 과거분사이다.", "to relieve는 ‘~하기 위해’라는 목적의 to부정사이다."]}, "28": {"c": "b", "t": "A rather than B : B보다는 A", "n": ["A rather than B = B보다는 A", "여기서 A = 모르핀을 받은 장소 / B = 식염수를 받은 장소"], "x": ["rather than은 ‘~보다는’이라는 뜻으로 두 대상을 비교하는 신호이다.", "쥐가 모르핀을 받은 장소를 식염수를 받은 장소보다 선호한다는 대비를 만든다.", "rather than 뒤에도 where절이 이어져 두 장소가 병렬을 이룬다."]}, "29": {"c": "g", "t": "saline : 식염수", "n": ["saline = 식염수, 소금물", "실험에서 아무 효과 없는 비교용 물질로 쓰임"], "x": ["where they have received saline은 ‘그들이 식염수를 받았던 곳’이라는 뜻이다.", "saline은 약효가 없어서 ‘아무 효과 없는 비교 대상’으로 쓰인다.", "received는 동사 receive(받다)의 현재완료 have received에 쓰인 과거분사이다."]}, "30": {"c": "b", "t": "whereas : 반면에", "n": ["whereas = ~인 반면에 (대조 접속사)", "암에 걸린 쥐 ↔ 건강한 쥐"], "x": ["whereas는 ‘~인 반면에’라는 뜻의 대조 접속사이다.", "암에 걸린 쥐는 선호가 생겼고, 건강한 쥐는 생기지 않았다는 대비를 보여 준다.", "while과 비슷하게 쓰인다."]}, "31": {"c": "g", "t": "develop : (습관·감정이) 생기다, 발달시키다", "n": ["develop = 발달시키다, (병·습관·감정이) 생기다", "developed no such preference = 그러한 선호가 생기지 않았다", "development = 발달 (명사)"], "x": ["developed no such preference는 ‘그러한 선호를 갖게 되지 않았다’라는 뜻이다.", "developed는 동사 develop의 과거형이다.", "develop은 ‘발달시키다’ 외에 ‘생기다, 갖게 되다’라는 뜻이 있어 다의어이다.", "no such ~는 ‘그러한 ~는 없는’이라는 뜻이다."]}, "32": {"c": "k", "t": "결론문 : 암에 걸린 쥐는 모르핀을 원했음", "n": ["This = 7번 내용 (모르핀 장소에 대한 선호)", "suggest that + 절 = ~라는 것을 시사하다", "the mice with cancer wanted the morphine = 암에 걸린 쥐가 모르핀을 원했다"], "x": ["This suggests that the mice with cancer wanted the morphine은 ‘암에 걸린 쥐가 모르핀을 원했음을 시사한다’라는 뜻이다.", "This는 7번 문장의 실험 결과 전체를 가리킨다.", "선호 장소를 보면 동물이 원하는 것을 알 수 있다는 1번의 주제가 사례로 확인된다.", "mice는 mouse(쥐)의 복수형이다."], "e": "쉬운 예시 : 아픈 쥐가 모르핀을 맞았던 방에서만 오래 머문다면, 그 쥐는 모르핀이 필요했다는 뜻이다."}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

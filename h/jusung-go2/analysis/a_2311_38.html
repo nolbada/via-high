@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>23년 11월 38번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "23년 11월 38번", "sub": "고2 · 내향적인 사람과 서번트 리더십", "one": "남을 돕고 성장시키려는 열망은 내향적인 사람에게 더 흔해, 겸손을 앞세우는 서번트 리더십의 좋은 리더가 될 수 있음", "flow": [{"label": "도입부", "range": "1~2번", "sum": "‘외향적인 사람이 더 유능한 리더’라는 강한 인식, 실제로 관리자·임원의 96% 이상이 외향적 <small>(cultural presumption)<\/small>", "eg": "학급 회장 후보라고 하면 말 잘하는 친구부터 떠올리는 분위기"}, {"label": "본론 (1)", "range": "3~4번", "sum": "고위 임원의 65%가 내향성을 장애물로 봤지만 이 고정 관념은 재검토 필요 <small>(reexamine this stereotype)<\/small>", "eg": "조용한 친구는 회장감이 아니라고 단정했지만 늘 맞는 것은 아님"}, {"label": "주제", "range": "5번", "sum": "남을 돕고 성장시키려는 열망은 내향적인 사람에게 더 흔한 리더의 핵심 요소 <small>(a desire to be of service)<\/small>", "eg": "친구가 발표를 준비하도록 조용히 도와주는 마음이 좋은 회장의 힘"}, {"label": "본론 (2)", "range": "6번", "sum": "서번트 리더십은 근로자와 고객이 목표를 이루도록 도와 회사 목표도 이룸 <small>(servant leadership)<\/small>", "eg": "반 친구들이 각자 목표를 이루게 도우면 학급 목표도 가장 잘 이뤄짐"}, {"label": "결론", "range": "7번", "sum": "관심을 쫓지 않고 타인의 성취를 비추는 겸손이 결국 결실을 맺음 <small>(humility pays off)<\/small>", "eg": "회장이 자기 자랑 대신 친구들의 성과를 칭찬하면 결국 반 전체가 잘됨"}], "sents": [{"n": 1, "mk": "[1|Introverted] leaders do have to overcome the strong cultural [2|presumption] [3|that extroverts are more effective leaders].", "ko": "내향적인 리더들은 외향적인 사람들이 더 유능한 리더라는 강력한 문화적 억측을 극복해야 한다."}, {"n": 2, "mk": "Although the population [4|splits into] almost equal parts between introverts and extroverts, more than 96 percent of managers and executives are extroverted.", "ko": "비록 인구는 내향적인 사람과 외향적인 사람 사이에서 거의 동등한 비율로 나뉘지만, 관리자와 임원의 96% 이상이 외향적이다."}, {"n": 3, "mk": "In a study [5|done in 2006], 65 percent of senior corporate executives [6|viewed] introversion [6|as] a [7|barrier] to leadership.", "ko": "2006년에 실시된 한 연구에서, 기업 고위 임원의 65%가 내향성을 리더십의 장애물로 간주했다."}, {"n": 4, "mk": "[8|We must reexamine this stereotype], [9|however], as [10|it] doesn't always [11|hold true].", "ko": "하지만 우리는 이 고정 관념을 재검토해야 하는데, 그것이 항상 맞는 것은 아니기 때문이다."}, {"n": 5, "star": 1, "mk": "Regent University [12|found that] a desire to be of service to others and to [13|empower] [14|them] to grow, [15|which] is more common among introverts than extroverts, [16|is a key factor] in becoming a leader and [17|retaining] leadership.", "ko": "Regent 대학교는 다른 사람들에게 도움이 되고 그들이 성장할 수 있도록 힘을 주고자 하는 열망이, 외향적인 사람들보다 내향적인 사람들 사이에서 더 일반적인데, 리더가 되고 리더십을 유지하는 데 핵심적인 요소라는 것을 발견했다."}, {"n": 6, "star": 1, "mk": "So-called servant leadership, [18|dating back to] ancient philosophical literature, [19|adheres to] the belief [20|that] a company‘s goals are best achieved by [21|helping workers or customers achieve their goals].", "ko": "고대 철학 문헌으로 거슬러 올라가는 소위 서번트 리더십은, 한 회사의 목표가 근로자나 고객이 그들의 목표를 달성하도록 도움으로써 가장 잘 달성된다는 믿음을 고수한다."}, {"n": 7, "mk": "Such leaders do [22|not] seek attention [22|but rather] want to [23|shine a light on] others’ wins and achievements ; [24|servant leadership requires humility], but [25|that] humility ultimately [26|pays off].", "ko": "그런 리더들은 관심을 추구하는 것이 아니라 오히려 다른 사람들의 승리와 업적에 빛을 비추고 싶어 하며, 서번트 리더십은 겸손을 필요로 하지만, 그 겸손은 궁극적으로 결실을 맺는다."}], "items": {"1": {"c": "g", "t": "introverted : 내향적인", "n": ["introverted = 내향적인", "introvert = 내향적인 사람 / introversion = 내향성", "(반의) extroverted = 외향적인"], "x": ["Introverted leaders는 ‘내향적인 리더들’이라는 뜻이다.", "introvert(내향적인 사람)에서 형용사 introverted, 명사 introversion(내향성)이 나온다.", "반의어는 extrovert(외향적인 사람), extroverted(외향적인)이다.", "3번의 introversion, 5번의 introverts도 같은 어근이다."]}, "2": {"c": "g", "t": "presumption : 억측, 추정", "n": ["presumption = 억측, 추정, 가정", "presume = 추정하다, 가정하다", "the strong cultural presumption = 강력한 문화적 억측"], "x": ["the strong cultural presumption은 ‘강력한 문화적 억측’이라는 뜻이다.", "presumption은 동사 presume(추정하다)의 명사형이다.", "근거 없이 ‘그럴 것이다’라고 믿는 생각이다.", "뒤의 that절이 그 억측의 내용이다."]}, "3": {"c": "p", "t": "동격 that : presumption = that절", "n": ["the presumption that + 완전한 문장 = ~라는 억측", "that = 접속사 (관계대명사 which 불가)", "that절이 presumption의 내용을 설명"], "x": ["the presumption that extroverts are more effective leaders는 ‘외향적인 사람이 더 유능한 리더라는 억측’이라는 뜻이다.", "that 뒤에 extroverts(주어) are(동사)로 완전한 문장이 이어지므로 that은 접속사이다.", "관계대명사 which로 바꿀 수 없다.", "that절이 presumption의 내용을 설명하는 동격 관계이다."]}, "4": {"c": "g", "t": "split into : ~로 나뉘다", "n": ["split into = ~로 나뉘다, 갈라지다", "(다의어) split = 쪼개다 / 분열", "almost equal parts = 거의 같은 비율"], "x": ["the population splits into almost equal parts는 ‘인구가 거의 같은 비율로 나뉜다’라는 뜻이다.", "splits는 동사 split의 3인칭 단수 현재형이다.", "between introverts and extroverts는 ‘내향적인 사람과 외향적인 사람 사이에서’라는 뜻이다.", "Although절이라 ‘나뉘지만’으로 해석하고, 뒤의 96%와 대비시킨다."]}, "5": {"c": "p", "t": "과거분사구 : done in 2006 → study 꾸미기", "n": ["a study done in 2006 = 2006년에 실시된 연구", "done = 동사 do의 과거분사", "65 percent of ~ = ~의 65%"], "x": ["done in 2006은 ‘2006년에 실시된’이라는 뜻으로 study를 뒤에서 꾸민다.", "a study (which was) done in 2006에서 which was가 생략된 모양으로 볼 수 있다.", "done은 동사 do의 과거분사로 ‘실시된’이라는 수동의 뜻이다.", "뼈대는 65 percent of senior corporate executives viewed ~이다."]}, "6": {"c": "g", "t": "view A as B : A를 B로 간주하다", "n": ["view A as B = A를 B로 간주하다, 여기다", "viewed = 동사 view의 과거형", "(비슷한 구문) regard A as B, see A as B"], "x": ["viewed introversion as a barrier to leadership은 ‘내향성을 리더십의 장애물로 간주했다’라는 뜻이다.", "viewed는 동사 view의 과거형이다.", "A 자리에 introversion, B 자리에 a barrier가 들어간다.", "view는 ‘보다’ 외에 ‘~로 여기다’라는 뜻이 있어 as와 함께 외워 둔다."]}, "7": {"c": "g", "t": "barrier : 장애물", "n": ["barrier = 장애물, 장벽", "a barrier to ~ = ~에 대한 장애물", "(다의어) senior = 고위의 / 연장자의"], "x": ["a barrier to leadership은 ‘리더십에 대한 장애물’이라는 뜻이다.", "barrier 뒤에는 전치사 to가 온다.", "비슷한 말은 obstacle이다.", "senior corporate executives에서 senior는 ‘(지위가) 고위의’라는 뜻이다."]}, "8": {"c": "k", "t": "필자 주장 : 고정 관념을 재검토해야 함", "n": ["reexamine = 재검토하다", "stereotype = 고정 관념", "We must ~ = 필자의 주장"], "x": ["We must reexamine this stereotype은 ‘우리는 이 고정 관념을 재검토해야 한다’라는 뜻이다.", "must는 필자의 주장을 드러내는 신호이다.", "this stereotype은 1번의 ‘외향적인 사람이 더 유능한 리더’라는 생각을 가리킨다.", "reexamine은 ‘다시(re-) 살펴보다(examine)’, 즉 ‘재검토하다’라는 뜻이다."], "e": "쉬운 예시 : ‘학급 회장은 말 잘하는 친구가 해야 한다’는 생각이 정말 맞는지 다시 따져 보자는 말이다."}, "9": {"c": "b", "t": "however : 하지만 (문장 중간에 삽입)", "n": ["however = 하지만, 그러나", "콤마 사이에 끼어든 연결어", "3번의 ‘내향성은 장애물’을 뒤집음"], "x": ["however는 ‘하지만’이라는 뜻의 연결어이다.", "콤마 사이에 끼어 있어도 문장 맨 앞의 However와 같은 역할이다.", "3번의 ‘내향성은 장애물이다’라는 내용을 뒤집는 신호이다.", "이 문장에서 글의 방향이 반전된다."]}, "10": {"c": "o", "t": "it = this stereotype", "n": ["it = this stereotype (이 고정 관념)", "as it doesn't always hold true = 그것이 항상 맞는 것은 아니기 때문에"], "x": ["as it doesn't always hold true의 it은 앞의 this stereotype을 가리킨다.", "as는 여기서 ‘~ 때문에’라는 이유의 접속사이다.", "‘고정 관념이 항상 맞는 것은 아니기 때문에’로 해석한다."]}, "11": {"c": "g", "t": "hold true : 들어맞다, 사실이다", "n": ["hold true = (사실로) 들어맞다, 유효하다", "not always = 항상 ~인 것은 아니다 (부분부정)", "(다의어) hold = 잡다, 열다, 유지하다"], "x": ["doesn't always hold true는 ‘항상 맞는 것은 아니다’라는 뜻이다.", "not always는 ‘항상 ~인 것은 아니다’라는 부분부정이다.", "‘항상 틀리다’가 아니라 ‘맞을 때도 있고 아닐 때도 있다’는 뜻이다.", "doesn't는 does not의 줄임말이고, 뒤에 동사원형 hold가 온다.", "hold는 ‘잡다’ 외에 ‘열다, 유지하다’ 등 뜻이 많은 다의어이다."]}, "12": {"c": "p", "t": "found that + 명사절 : found의 목적어", "n": ["found that ~ = ~라는 것을 발견했다", "found = 동사 find의 과거형", "that절의 주어 = a desire ~ to grow, 동사 = 두 번째 is"], "x": ["Regent University found that ~은 ‘Regent 대학교는 ~라는 것을 발견했다’라는 뜻이다.", "found는 동사 find(발견하다)의 과거형이다.", "that 이하가 found의 목적어인 명사절이다.", "that절의 주어는 a desire ~ to grow로 매우 길고, 동사는 두 번째 is(is a key factor)이다.", "첫 번째 is는 which절 안의 동사이다."]}, "13": {"c": "g", "t": "empower : ~할 힘을 주다", "n": ["empower + O + to V = O가 ~할 수 있도록 힘을 주다", "power = 힘", "a desire to be of service to others = 다른 사람들에게 도움이 되고자 하는 열망"], "x": ["to empower them to grow는 ‘그들이 성장할 수 있도록 힘을 주다’라는 뜻이다.", "them이 목적어, to grow가 목적보어인 5형식 구조이다.", "power(힘)에서 나온 말로 ‘힘을 주다, 권한을 주다’라는 뜻이다.", "앞의 to be of service to others와 and로 이어진 병렬이다."]}, "14": {"c": "o", "t": "them = others (다른 사람들)", "n": ["them = others (to others의 others)", "to grow = 성장하도록"], "x": ["empower them의 them은 바로 앞 to others의 others(다른 사람들)를 가리킨다.", "‘그들이 성장할 수 있도록’의 ‘그들’이다.", "grow는 여기서 ‘성장하다’라는 뜻의 동사이다."]}, "15": {"c": "p", "t": "계속적 용법 which : a desire 부연", "n": ["[,] which = 그런데 그것은", "which의 선행사 = a desire ~ to grow", "more A than B = B보다 더 A한"], "x": ["which는 앞의 a desire ~를 가리키는 주격 관계대명사로, 계속적 용법이다.", "‘그런데 그것은 외향적인 사람들보다 내향적인 사람들 사이에서 더 일반적이다’라고 풀어 해석한다.", "more common among introverts than extroverts는 두 집단을 비교하는 구문이다.", "which절은 덧붙인 설명이라 건너뛰고 읽으면 뼈대가 보인다."]}, "16": {"c": "k", "t": "주제문 : 남을 돕고자 하는 열망 = 리더의 핵심 요소", "n": ["a key factor in -ing = ~하는 데 핵심적인 요소", "becoming a leader and retaining leadership = 리더가 되고 리더십을 유지하는 것", "이 열망은 내향적인 사람에게 더 흔함"], "x": ["is a key factor in becoming a leader and retaining leadership은 ‘리더가 되고 리더십을 유지하는 데 핵심적인 요소이다’라는 뜻이다.", "주어는 a desire(열망)이고 동사는 is이다.", "in 뒤의 becoming과 retaining은 and로 이어진 동명사 병렬이다.", "열망이 내향적인 사람에게 더 흔하다는 앞 내용과 합쳐 글의 주제가 된다."], "e": "쉬운 예시 : 친구가 잘되도록 도와주고 싶은 마음은 조용한 친구에게 더 흔하고, 좋은 학급 회장이 되는 데에도 큰 힘이 된다."}, "17": {"c": "g", "t": "retain : 유지하다, 보유하다", "n": ["retain = 유지하다, 보유하다", "(다의어) retain = 기억하다", "retaining = retain의 -ing형"], "x": ["retaining leadership은 ‘리더십을 유지하는 것’이라는 뜻이다.", "retaining은 전치사 in 뒤에 온 동명사이다.", "retain은 ‘유지하다’ 외에 ‘기억해 두다’라는 뜻도 있다."]}, "18": {"c": "g", "t": "date back to : ~까지 거슬러 올라가다", "n": ["date back to ~ = ~(시기)까지 거슬러 올라가다", "(다의어) date = 날짜 / 데이트하다", "ancient = 고대의 / philosophical = 철학의"], "x": ["dating back to ancient philosophical literature는 ‘고대 철학 문헌으로 거슬러 올라가는’이라는 뜻이다.", "dating은 동사 date의 -ing형으로 servant leadership을 뒤에서 꾸미는 현재분사구이다.", "date는 ‘날짜’ 외에 ‘~로 거슬러 올라가다’라는 동사로도 쓰인다.", "So-called는 ‘소위, 이른바’라는 뜻이다."]}, "19": {"c": "g", "t": "adhere to : ~을 고수하다", "n": ["adhere to = 고수하다, 지키다", "belief = 믿음, 신념", "(비슷한 말) stick to"], "x": ["adheres to the belief는 ‘그 믿음을 고수한다’라는 뜻이다.", "adheres는 동사 adhere의 3인칭 단수 현재형이다. 주어는 servant leadership이다.", "adhere는 ‘달라붙다’에서 ‘~을 굳게 지키다’라는 뜻으로 쓰인다."]}, "20": {"c": "p", "t": "동격 that : the belief = that절", "n": ["the belief that + 완전한 문장 = ~라는 믿음", "that = 접속사 (which 불가)", "are best achieved = 가장 잘 달성된다 (수동태)"], "x": ["the belief that ~은 ‘~라는 믿음’이라는 뜻이다.", "that 뒤에 a company's goals(주어) are achieved(동사)로 완전한 문장이 오므로 접속사 that이다.", "that절이 belief의 내용을 설명하는 동격이다.", "are best achieved는 ‘가장 잘 달성된다’라는 수동태이다. achieved는 동사 achieve의 과거분사이다."]}, "21": {"c": "p", "t": "help + O + OC : ~가 …하도록 돕다", "n": ["help + O + 동사원형(또는 to V) = O가 ~하도록 돕다", "helping workers or customers achieve their goals = 근로자나 고객이 목표를 달성하도록 돕는 것", "by -ing = ~함으로써"], "x": ["by helping workers or customers achieve their goals는 ‘근로자나 고객이 그들의 목표를 달성하도록 도움으로써’라는 뜻이다.", "help는 목적어 뒤에 동사원형이나 to부정사를 목적보어로 쓸 수 있다.", "여기서는 workers or customers가 목적어, achieve가 목적보어(동사원형)이다.", "by 뒤의 helping은 동명사이다.", "their는 workers or customers를 가리킨다."]}, "22": {"c": "b", "t": "not A but rather B : A가 아니라 오히려 B", "n": ["not A but rather B = A가 아니라 오히려 B", "A = seek attention", "B = want to shine a light on ~"], "x": ["do not seek attention but rather want to shine a light ~는 ‘관심을 추구하는 것이 아니라 오히려 ~에 빛을 비추고 싶어 한다’라는 뜻이다.", "A와 B는 모두 동사구로 나란히 놓인 병렬구조이다.", "seek는 ‘추구하다, 찾다’, attention은 ‘관심’이라는 뜻이다.", "B에 글쓴이의 강조점이 놓인다."]}, "23": {"c": "g", "t": "shine a light on : ~에 빛을 비추다, 조명하다", "n": ["shine a light on ~ = ~에 빛을 비추다, ~을 조명하다", "wins = 승리 / achievement = 업적, 성취"], "x": ["shine a light on others' wins and achievements는 ‘다른 사람들의 승리와 업적에 빛을 비추다’라는 뜻이다.", "남이 돋보이도록 해 준다는 비유 표현이다.", "wins는 명사 win(승리)의 복수형이다.", "achievements는 achieve(달성하다)의 명사형 achievement의 복수형이다."]}, "24": {"c": "k", "t": "결론 : 서번트 리더십은 겸손을 요구함", "n": ["require = 필요로 하다", "humility = 겸손", "(관련) humble = 겸손한"], "x": ["servant leadership requires humility는 ‘서번트 리더십은 겸손을 필요로 한다’라는 뜻이다.", "requires는 동사 require의 3인칭 단수 현재형이다.", "humility는 형용사 humble(겸손한)의 명사형이다.", "뒤의 but that humility ultimately pays off와 함께 글을 맺는다."], "e": "쉬운 예시 : 회장이 자기 자랑 대신 친구들의 성과를 먼저 칭찬하는 것이 겸손이고, 그것이 결국 반 전체의 신뢰로 돌아온다."}, "25": {"c": "o", "t": "that humility = 앞의 humility", "n": ["that humility = 서번트 리더십이 필요로 하는 겸손", "that = 지시형용사 (그)"], "x": ["but that humility ultimately pays off에서 that은 ‘그’라는 뜻의 지시형용사이다.", "바로 앞에서 말한 humility(겸손)를 다시 가리킨다.", "뒤에 humility라는 명사가 바로 오므로 접속사 that과 구별된다."]}, "26": {"c": "g", "t": "pay off : 결실을 맺다, 성공하다", "n": ["pay off = 결실을 맺다, 성공하다, 보상받다", "(다의어) pay off = (빚을) 다 갚다", "ultimately = 궁극적으로"], "x": ["ultimately pays off는 ‘궁극적으로 결실을 맺는다’라는 뜻이다.", "pays는 동사 pay의 3인칭 단수 현재형이다.", "pay off는 ‘(노력이) 결실을 맺다’ 외에 ‘(빚을) 다 갚다’라는 뜻도 있다.", "ultimately는 ‘궁극적으로, 결국’이라는 뜻의 부사이다."]}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

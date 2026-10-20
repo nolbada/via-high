@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>24년 10월 25번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "24년 10월 25번", "sub": "고2 · 온라인 판매 점유율 도표", "one": "5개 제품군의 온라인 판매 점유율이 2023년에서 2027년으로 모두 늘지만 50%는 넘지 않고, 식품은 두 배에 못 미침", "flow": [{"label": "도표 소개", "range": "1번", "sum": "5개 제품군의 2023년 점유율과 2027년 추정 점유율을 보여 주는 그래프 <small>(the shares of online sales, estimated)<\/small>", "eg": "쇼핑몰 앱에서 ‘작년 구매 비율’과 ‘내년 예상 비율’을 나란히 놓은 막대그래프"}, {"label": "전체 경향", "range": "2번", "sum": "5개 제품군 모두 2027년까지 증가하지만 50%는 넘지 않음 <small>(respectively, while not surpassing 50%)<\/small>", "eg": "다섯 칸의 막대가 전부 오르지만 어느 것도 반(50%) 선까지는 못 감"}, {"label": "제품군 비교", "range": "3~5번", "sum": "소비자 가전의 격차가 가장 크고, DIY는 가구를 추월하며, 뷰티 케어는 20% 아래에서 20% 위로 이동 <small>(the biggest gap, exceed, higher than 20%)<\/small>", "eg": "가전은 31에서 44로 13칸이나 올랐고, 같은 29였던 DIY와 가구는 38 대 35로 갈림"}, {"label": "불일치 포인트", "range": "6번", "sum": "식품은 4%에서 6%로 늘 뿐, ‘두 배 이상’이 아니라 ‘두 배 미만’ 증가 <small>(more than double → less than double)<\/small>", "eg": "4칸이 두 배면 8칸이어야 하는데 막대는 6칸까지만 오름"}], "sents": [{"n": 1, "mk": "The graph above shows the [1|shares] of online sales out of total sales by each of five product categories in 2023 and the [2|estimated ones] in 2027.", "ko": "위 그래프는 5개 제품군별 2023년 전체 판매 중 온라인 판매의 점유율과 2027년의 추정 점유율을 나타낸다."}, {"n": 2, "mk": "The shares of all five categories [3|are expected to increase] by 2027 [4|respectively], [5|while not] [6|surpassing] 50%.", "ko": "5개 제품군 모두의 점유율은 2027년까지 각각 증가할 것으로 예상되나 50%를 넘기지는 못할 것으로 예상된다."}, {"n": 3, "mk": "[7|Based on the selected categories], consumer electronics [8|is anticipated] to show the biggest [9|gap] in the share of online sales between 2023 and 2027.", "ko": "선정된 제품군 중에서 소비자 가전은 2023년과 2027년의 온라인 판매 점유율에서 가장 큰 격차를 보일 것으로 예상된다."}, {"n": 4, "mk": "DIY and furniture showed the same share of online sales with 29% in 2023, [10|but] the share of DIY online sales is estimated to [11|exceed] [12|that] of furniture online sales by 2027.", "ko": "DIY와 가구는 2023년에 29%로 동일한 온라인 판매 점유율을 나타냈지만, 2027년에는 DIY 온라인 판매 점유율이 가구 온라인 판매 점유율을 넘어설 것으로 추정된다."}, {"n": 5, "mk": "The share of beauty care online sales was lower than 20% [13|by 2 percentage points] in 2023, [14|but] is estimated to be higher than 20% in 2027.", "ko": "뷰티 케어 온라인 판매 점유율은 2023년에 20%보다 2퍼센트포인트 낮았지만 2027년에는 20%보다 높을 것으로 추정된다."}, {"n": 6, "mk": "In 2023, food showed the lowest share of online sales among the categories, [15|but] that share is [16|projected] to [17|more than double] by 2027.", "ko": "2023년에 식품은 제품군 중 가장 낮은 온라인 판매 점유율을 보였지만, 그 점유율은 2027년에는 두 배 이상 증가할 것으로 예상된다."}], "items": {"1": {"c": "g", "t": "share : 점유율, 몫", "n": ["share = 점유율, 몫", "(다의어) share = 공유하다 (동사)", "the share of A = A가 차지하는 비율"], "x": ["the shares of online sales는 ‘온라인 판매의 점유율들’이라는 뜻이다.", "여기서 share는 전체에서 차지하는 비율을 뜻하는 명사이다.", "shares는 명사 share의 복수형이다. 제품군이 여러 개라서 복수로 썼다.", "share는 동사로 ‘공유하다’라는 뜻도 있어서 문맥으로 구분한다."]}, "2": {"c": "o", "t": "the estimated ones = 2027년의 추정 점유율들", "n": ["ones = shares (앞에 나온 복수 명사의 반복을 피함)", "estimated = 추정된", "the estimated ones in 2027 = 2027년의 추정 점유율"], "x": ["the estimated ones의 ones는 앞에 나온 the shares를 대신한다.", "shares가 복수라서 one의 복수형 ones를 썼다.", "estimated는 동사 estimate(추정하다)의 과거분사로 ones를 꾸민다.", "그래서 ‘2027년의 추정 점유율들’로 해석한다."]}, "3": {"c": "p", "t": "be expected to V : ~할 것으로 예상되다", "n": ["expect + O + to V = O가 ~하리라 예상하다", "O is expected to V = O가 ~할 것으로 예상된다 (수동태)", "increase = 증가하다"], "x": ["are expected to increase by 2027은 ‘2027년까지 증가할 것으로 예상된다’라는 뜻이다.", "능동문 expect + O + to V의 목적어가 주어로 나가서 be expected to V가 된 모양이다.", "expected는 동사 expect(예상하다)의 과거분사이다.", "by 2027은 ‘2027년까지’라는 뜻이다."]}, "4": {"c": "g", "t": "respectively : 각각", "n": ["respectively = 각각, 제각기", "respective = 각각의 (형용사)"], "x": ["increase by 2027 respectively는 ‘2027년까지 각각 증가한다’라는 뜻이다.", "다섯 제품군이 하나씩 따로 늘어난다는 점을 강조한다.", "respective(각각의)의 부사형이다. 형용사·부사 변형으로 출제될 수 있다."]}, "5": {"c": "p", "t": "while + 분사구문 : ~하면서도", "n": ["while not surpassing 50% = 50%를 넘기지는 않으면서", "접속사 while을 남겨 둔 분사구문", "while + -ing = ~하면서도, ~하는 반면"], "x": ["기준 : 아잉카 분석(접속사 + 분사구문, 해석을 분명하게 하려고 접속사를 남겨 둠).", "while not surpassing 50%는 ‘50%를 넘기지는 못하면서’라는 뜻이다.", "뜻이 분명해지도록 접속사 while을 그대로 둔 분사구문이다.", "분사구문의 부정은 -ing 앞에 not을 붙인다."]}, "6": {"c": "g", "t": "surpass : 넘어서다, 능가하다", "n": ["surpass = 넘어서다, 능가하다", "유의어 : exceed / outdo", "surpassing = 동사 surpass의 -ing형"], "x": ["not surpassing 50%는 ‘50%를 넘지 않으면서’라는 뜻이다.", "surpassing은 동사 surpass(넘어서다)의 -ing형이다. 분사구문이라서 -ing형을 썼다.", "exceed(4번 문장)와 비슷한 뜻이다."]}, "7": {"c": "p", "t": "Based on ~ : ~에 근거하여 (분사구문)", "n": ["Based on ~ = ~에 근거하여, ~을 바탕으로", "base A on B = A를 B에 근거를 두다", "selected = 선정된"], "x": ["Based on the selected categories는 ‘선정된 제품군을 바탕으로 볼 때’라는 뜻이다.", "Based는 동사 base(근거를 두다)의 과거분사이다. 수동의 뜻을 가진 분사구문이다.", "문장 앞에 놓여 ‘이 범위 안에서’라는 조건을 알려 준다.", "selected는 동사 select(선정하다)의 과거분사로 categories를 꾸민다."]}, "8": {"c": "g", "t": "anticipate : 예상하다", "n": ["anticipate = 예상하다, 기대하다", "유의어 : expect / predict", "be anticipated to V = ~할 것으로 예상되다"], "x": ["is anticipated to show는 ‘보일 것으로 예상된다’라는 뜻이다.", "anticipated는 동사 anticipate(예상하다)의 과거분사이다. be + 과거분사라서 수동태이다.", "expected, estimated, projected와 같은 ‘예상·추정’ 계열의 표현이다."]}, "9": {"c": "g", "t": "gap : 격차, 차이", "n": ["gap = 격차, 차이, 틈", "the biggest gap = 가장 큰 격차", "(다의어) gap = 틈, 빈 곳"], "x": ["the biggest gap in the share는 ‘점유율에서 가장 큰 격차’라는 뜻이다.", "그래프에서 소비자 가전은 31%에서 44%로 13포인트가 늘어 격차가 가장 크다.", "gap은 ‘틈’이라는 기본 뜻에서 ‘차이, 격차’라는 뜻으로 넓어진 말이다."]}, "10": {"c": "b", "t": "but : 그러나 (대조)", "n": ["but = 그러나, 하지만", "2023년 같음 ↔ 2027년 달라짐"], "x": ["but은 앞뒤 내용이 대조됨을 알리는 신호이다.", "2023년에는 DIY와 가구가 같은 29%였지만, 2027년에는 DIY가 더 높아진다는 내용이 이어진다.", "그래프에서 DIY는 38%, 가구는 35%이다."]}, "11": {"c": "g", "t": "exceed : 넘어서다, 초과하다", "n": ["exceed = 넘어서다, 초과하다", "유의어 : surpass", "excess = 초과 (명사)"], "x": ["is estimated to exceed that of furniture online sales는 ‘가구 온라인 판매 점유율을 넘어설 것으로 추정된다’라는 뜻이다.", "estimated는 동사 estimate(추정하다)의 과거분사이다. is estimated to V는 수동태이다.", "exceed 뒤에 목적어가 바로 온다. 전치사 over를 붙이지 않는다."]}, "12": {"c": "o", "t": "that = the share", "n": ["that = the share (앞 명사의 반복을 피함)", "that of furniture online sales = 가구 온라인 판매의 점유율"], "x": ["that of furniture online sales의 that은 앞에 나온 the share를 가리킨다.", "the share of DIY online sales와 the share of furniture online sales를 비교하는 문장이다.", "같은 명사 share를 반복하지 않으려고 단수 대명사 that을 썼다."]}, "13": {"c": "g", "t": "by 2 percentage points : 2퍼센트포인트만큼", "n": ["percentage point = 퍼센트포인트 (비율끼리의 차이 단위)", "lower than 20% by 2 percentage points = 20%보다 2퍼센트포인트 낮은"], "x": ["by 2 percentage points는 ‘2퍼센트포인트만큼’이라는 차이를 나타낸다.", "여기서 by는 차이의 정도를 나타내는 전치사이다.", "그래프에서 뷰티 케어는 2023년에 18%이므로 20%보다 2퍼센트포인트 낮다.", "2퍼센트포인트는 ‘2%만큼’이 아니라 비율 숫자 자체가 2 차이 난다는 뜻이다."]}, "14": {"c": "b", "t": "but : 그러나 (대조)", "n": ["but = 그러나, 하지만", "20%보다 낮음 ↔ 20%보다 높음"], "x": ["but은 2023년과 2027년의 상태가 반대로 바뀜을 알리는 신호이다.", "뷰티 케어는 2023년에 20% 아래(18%)였지만 2027년에는 20% 위(22%)로 올라간다."]}, "15": {"c": "b", "t": "but : 그러나 (대조)", "n": ["but = 그러나, 하지만", "가장 낮은 점유율 ↔ 크게 증가할 것으로 예상"], "x": ["but 앞은 2023년의 식품 점유율이 가장 낮았다는 내용이다.", "but 뒤는 2027년에 그 점유율이 크게 늘 것이라는 내용이다.", "그래프에서 식품은 4%에서 6%가 된다."]}, "16": {"c": "g", "t": "project : 예상하다, 추정하다", "n": ["project = 예상하다, 추정하다", "(다의어) project = 계획, 과제 (명사) / 투영하다", "be projected to V = ~할 것으로 예상되다"], "x": ["is projected to more than double은 ‘두 배 넘게 늘 것으로 예상된다’라는 뜻이다.", "projected는 동사 project(예상하다)의 과거분사이다. be + 과거분사라서 수동태이다.", "project는 명사로는 ‘과제, 계획’이라는 뜻이라서 다의어로 출제될 수 있다."]}, "17": {"c": "k", "t": "불일치 포인트 : more than double은 오답", "n": ["more than double = 두 배 넘게 증가하다", "식품 4% → 6% = 두 배 미만 (less than double)", "double = 두 배가 되다 (동사)"], "x": ["more than double은 ‘두 배 넘게 늘다’라는 뜻이다. 여기서 double은 동사이다.", "그래프에서 식품은 2023년 4%, 2027년 6%라서 두 배(8%)에 못 미친다.", "그래서 이 문장은 그래프와 일치하지 않는 불일치 문장이다.", "맞게 고치면 less than double(두 배 미만으로 증가)이 된다."], "e": "쉬운 예시 : 쇼핑몰 장바구니가 4칸에서 6칸으로 늘었다. 두 배라면 8칸이어야 하므로 ‘두 배 넘게’는 틀린 말이다."}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

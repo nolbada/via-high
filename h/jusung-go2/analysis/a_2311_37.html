@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>23년 11월 37번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "23년 11월 37번", "sub": "고2 · 전체 데이터 세트의 이점", "one": "전체 데이터를 모아 두면 초점과 분석을 나중에 마음대로 다시 정할 수 있어, 일부만 뽑는 방식보다 유리함", "flow": [{"label": "도입부", "range": "1~2번", "sum": "무작위 추출법은 디지털 시대 이전에 큰 데이터 분석을 가능하게 한 지름길 <small>(random sampling)<\/small>", "eg": "사진 수천 장 중 몇 장만 골라 보고 전체 분위기를 판단하던 시절"}, {"label": "본론 (1)", "range": "3번", "sum": "그러나 일부만 뽑으면 파일을 줄일 때처럼 정보가 손실됨 <small>(information is lost)<\/small>", "eg": "큰 사진을 작은 파일로 줄이면 세부 모습이 뭉개지는 것과 같음"}, {"label": "주제", "range": "4번", "sum": "전체 데이터 세트를 가지면 탐색의 자유가 훨씬 커짐 <small>(the full dataset)<\/small>", "eg": "원본 사진 전체가 있으면 확대도 하고 다른 부분도 마음대로 볼 수 있음"}, {"label": "본론 (2)", "range": "5~6번", "sum": "라이트 필드 카메라는 빛의 정보를 통째로 담아 나중에 초점을 고를 수 있음 <small>(light-field camera)<\/small>", "eg": "찍은 뒤에 가까운 사과에 맞출지 먼 오렌지에 맞출지 고름"}, {"label": "결론", "range": "7~9번", "sum": "모든 정보를 모아 두면 처음에 초점을 정할 필요 없이 더 재사용 가능 <small>(more “reuseable”)<\/small>", "eg": "찍을 때 초점을 못 정해도 되고, 같은 사진을 초점만 바꿔 다시 활용 가능"}], "sents": [{"n": 1, "mk": "For a long time, random sampling was a good [1|shortcut].", "ko": "오랫동안, 무작위 추출법은 좋은 지름길이었다."}, {"n": 2, "mk": "[2|It] made analysis of large data problems possible in the pre-digital era.", "ko": "그것은 디지털 시대 이전에 상당한 규모의 데이터 문제를 분석하는 것을 가능하게 했다."}, {"n": 3, "star": 1, "mk": "[4|But] [5|much as] [6|converting a digital image or song into a smaller file] [7|results in] loss of data, information is lost [8|when sampling].", "ko": "그러나 디지털 이미지나 노래를 더 작은 파일로 변환하는 것이 데이터 손실을 유발하는 것과 마찬가지로, 추출을 할 때 정보가 손실된다."}, {"n": 4, "star": 1, "mk": "[9|Having the full (or close to the full) dataset] [10|provides a lot more freedom] [11|to explore], to look at the data [12|from different angles] or to look closer at certain [14|aspects] of [15|it].", "ko": "전체(또는 전체에 가까운) 데이터 세트를 가지는 것은, 탐색하거나, 데이터를 다른 각도에서 살펴보거나, 그것의 특정 측면들을 더 자세히 보게 해 주는 훨씬 더 많은 자유를 제공한다."}, {"n": 5, "mk": "A [16|fitting] example may be the light-field camera, which [18|captures] [19|not just] a single [20|plane] of light, as with [22|conventional] cameras, [19|but] rays from the entire light field, some 11 million of [23|them].", "ko": "적절한 예는 라이트 필드 카메라일 수 있는데, 그것은 기존 카메라처럼 한 평면의 빛만 포착하는 것이 아니라, 전체 라이트 필드로부터 나온 광선들, 즉 그중 약 1,100만 개도 포착한다."}, {"n": 6, "mk": "The photographers can [24|decide] later [25|which element of an image to focus on] in the digital file.", "ko": "사진사들은 나중에 디지털 파일에서 이미지의 어느 요소에 초점을 맞출지 결정할 수 있다."}, {"n": 7, "star": 1, "mk": "[26|There is no need to focus at the beginning], [27|since collecting all the information makes it possible to do] [28|that] afterwards.", "ko": "처음에 초점을 맞출 필요는 없는데, 모든 정보를 수집하는 것이 나중에 그것을 하는 것을 가능하게 만들기 때문이다."}, {"n": 8, "mk": "Because rays from the entire light field [29|are included], [30|it] is closer to all the data.", "ko": "전체 라이트 필드의 광선이 포함되기 때문에, 그것은 모든 데이터에 더 가깝다."}, {"n": 9, "mk": "[31|As a result], [37|the information is more “reuseable”] than [32|ordinary] pictures, where the photographer has to decide what to focus on before [36|she] presses the shutter.", "ko": "결과적으로, 그 정보는 일반 사진보다 더 ‘재사용 가능’한데, 일반 사진에서는 사진사가 셔터를 누르기 전에 무엇에 초점을 맞출지 결정해야 한다."}], "items": {"1": {"c": "g", "t": "shortcut : 지름길", "n": ["shortcut = 지름길", "(다의어) shortcut = (컴퓨터) 바로가기, 단축키", "random sampling = 무작위 추출(법)"], "x": ["a good shortcut은 ‘좋은 지름길’이라는 뜻이다.", "전체를 다 조사하는 대신 일부만 뽑아 빨리 결론에 이르는 방법을 말한다.", "random sampling은 전체에서 일부를 무작위로 뽑아 조사하는 ‘무작위 추출법’이다.", "shortcut은 ‘지름길’ 외에 컴퓨터의 ‘바로가기(단축키)’라는 뜻도 있다."]}, "2": {"c": "o", "t": "It = random sampling (1번)", "n": ["it = random sampling (무작위 추출법)", "1번 문장의 주어를 받음"], "x": ["It은 바로 앞 문장의 주어 random sampling을 가리킨다.", "‘무작위 추출법은 ~을 가능하게 했다’로 해석한다."]}, "4": {"c": "b", "t": "But : 역접 신호", "n": ["but = 그러나", "1~2번의 장점에서 문제점으로 넘어감"], "x": ["But은 ‘그러나’라는 뜻의 연결어이다.", "1~2번은 무작위 추출법이 좋은 지름길이었다는 장점이다.", "3번부터는 그 방식의 문제점으로 넘어간다."]}, "5": {"c": "p", "t": "much as : ~와 마찬가지로 (= as much as)", "n": ["much as = as much as = ~와 마찬가지로", "뒤에 절(주어 + 동사)이 이어짐"], "x": ["기준 : 아잉카 분석(much as = as much as, 접속사 ‘~와 마찬가지로’).", "much as는 ‘~인 것과 마찬가지로’라는 뜻의 접속사 역할이다.", "but과 함께 ‘그러나 ~와 마찬가지로 …’로 이어진다.", "뒤에 converting ~ results in ~이라는 절이 온다."]}, "6": {"c": "p", "t": "동명사 주어 : converting A into B", "n": ["converting a digital image or song into a smaller file = 디지털 이미지나 노래를 더 작은 파일로 변환하는 것", "convert A into B = A를 B로 변환하다", "smaller = 더 작은 (small의 비교급)"], "x": ["converting ~ file은 동명사구로 이 절의 주어이다.", "converting은 동사 convert의 -ing형이다.", "주어가 길어서 동사를 놓치기 쉬운데, 동사는 results in이다.", "image or song은 or로 연결된 두 명사이다."]}, "7": {"c": "g", "t": "result in : 초래하다, 유발하다", "n": ["result in = 초래하다, 유발하다 (원인 + result in + 결과)", "(반의) result from = ~에서 비롯되다 (결과 + result from + 원인)", "loss = 손실, 손해"], "x": ["results in loss of data는 ‘데이터 손실을 초래한다’라는 뜻이다.", "results는 동사 result의 3인칭 단수 현재형이다. 주어 converting ~이 단수 취급되기 때문이다.", "result in 앞에는 원인이, 뒤에는 결과가 온다.", "result from은 반대로 원인이 뒤에 온다.", "loss는 동사 lose(잃다)와 관련된 명사로 ‘손실’이라는 뜻이다."]}, "8": {"c": "p", "t": "when sampling : 접속사 + 분사구문", "n": ["when + -ing = ~할 때", "sampling = 추출(을 하는 것)", "information is lost = 정보가 손실된다 (수동태)"], "x": ["기준 : 아잉카 분석(접속사를 남겨 둔 분사구문).", "when sampling은 ‘추출을 할 때’라는 뜻이다.", "접속사 when을 남겨 두어 해석의 뜻을 분명히 했다.", "주어(일반 사람)와 be동사가 생략된 모양이다.", "sampling은 동사 sample(표본을 추출하다)의 -ing형이다."]}, "9": {"c": "p", "t": "동명사 주어 : Having ~ dataset", "n": ["Having the full (or close to the full) dataset = 전체(또는 거의 전체) 데이터 세트를 가지는 것", "close to = ~에 가까운", "provides = 제공하다"], "x": ["Having ~ dataset은 동명사구로 문장의 주어이다.", "Having은 동사 have의 -ing형이다.", "괄호 안의 (or close to the full)은 덧붙인 말이라 건너뛰고 읽는다.", "주어가 길어도 단수 취급해 동사는 provides이다.", "dataset은 ‘데이터 세트(자료의 묶음)’이다."]}, "10": {"c": "k", "t": "주제문 : 전체 데이터가 주는 자유", "n": ["provide A = A를 제공하다", "freedom to V = ~할 자유", "a lot more = 훨씬 더 많은", "전체 데이터 세트 = 더 많은 탐색의 자유"], "x": ["provides a lot more freedom to explore ~는 ‘~을 탐색할 훨씬 더 많은 자유를 제공한다’라는 뜻이다.", "a lot은 비교급 more를 강조하는 말로 ‘훨씬’이라고 해석한다.", "to explore ~는 freedom을 꾸미는 to부정사(형용사적 용법)이다.", "이 글의 주제를 담은 핵심 문장이다."], "e": "쉬운 예시 : 사진 한 장만 있으면 보이는 것만 볼 수 있지만, 원본 사진 전체가 있으면 확대도 하고 다른 부분도 마음대로 살펴볼 수 있다."}, "11": {"c": "g", "t": "explore : 탐색하다, 조사하다", "n": ["explore = 탐색하다, 조사하다", "(다의어) explore = (방법·가능성을) 모색하다"], "x": ["to explore는 ‘탐색하는’이라는 뜻으로 freedom을 뒤에서 꾸민다.", "explore는 ‘탐험하다’뿐 아니라 ‘(방법을) 모색하다’라는 뜻도 있다.", "여기서는 데이터를 이리저리 살펴본다는 말이다."]}, "12": {"c": "g", "t": "angle : 각도, 관점", "n": ["angle = 각도", "(다의어) angle = 관점, 시각", "from different angles = 다른 각도에서"], "x": ["from different angles는 ‘다른 각도에서’라는 뜻이다.", "angle은 ‘각도’ 외에 ‘관점, 시각’이라는 뜻도 있다.", "여기서는 데이터를 여러 방향에서 본다는 말이다.", "angles는 명사 angle의 복수형이다."]}, "14": {"c": "g", "t": "aspect : 측면, 양상", "n": ["aspect = 측면, 양상", "(다의어) certain = 특정한, 어떤 / 확실한"], "x": ["certain aspects of it은 ‘그것의 특정 측면들’이라는 뜻이다.", "aspects는 명사 aspect의 복수형이다.", "certain은 ‘확실한’ 외에 ‘어떤, 특정한’이라는 뜻도 있다.", "여기서는 명사 앞에서 ‘특정한’이라는 뜻으로 쓰였다."]}, "15": {"c": "o", "t": "it = the full dataset (4번)", "n": ["it = the full dataset (전체 데이터 세트)", "aspects of it = 그 데이터 세트의 측면들"], "x": ["aspects of it의 it은 문장 앞의 the full (or close to the full) dataset을 가리킨다.", "‘가지는 것’이 아니라 데이터 세트 자체를 가리킨다.", "‘그 데이터 세트의 특정 측면들’로 해석한다."]}, "16": {"c": "g", "t": "fitting : 적절한", "n": ["fitting = 적절한, 알맞은", "(다의어) fit = 맞다, 어울리다", "a fitting example = 적절한 예"], "x": ["A fitting example은 ‘적절한 예’라는 뜻이다.", "fitting은 동사 fit의 -ing 모양이지만 ‘적절한’이라는 형용사로 쓰인다.", "비슷한 말로 suitable, appropriate가 있다."]}, "18": {"c": "g", "t": "capture : 포착하다", "n": ["capture = 포착하다, 담아내다", "(다의어) capture = 붙잡다, 점령하다"], "x": ["captures a single plane of light는 ‘한 평면의 빛을 포착한다’라는 뜻이다.", "captures는 동사 capture의 3인칭 단수 현재형이다.", "카메라에서는 ‘(장면·빛을) 담아내다’라는 뜻이다.", "‘붙잡다, 점령하다’라는 뜻도 있다."]}, "19": {"c": "b", "t": "not just A but B : A뿐만 아니라 B도", "n": ["not just A but B = A뿐만 아니라 B도", "A = a single plane of light", "B = rays from the entire light field"], "x": ["not just a single plane of light ~ but rays ~는 ‘한 평면의 빛뿐만 아니라 전체 라이트 필드의 광선도’라는 뜻이다.", "but 뒤에서는 반복되는 captures를 생략했다.", "A와 B는 모두 captures의 목적어이다.", "사이에 낀 as with ~ cameras는 덧붙인 설명이라 건너뛰고 읽는다."]}, "20": {"c": "g", "t": "plane : 평면", "n": ["plane = 평면, 수평면", "(다의어) plane = 비행기", "a single plane of light = 한 평면의 빛"], "x": ["a single plane of light는 ‘한 평면의 빛’이라는 뜻이다.", "일반 카메라는 한 평면(2D)에 들어오는 빛만 기록한다는 말이다.", "plane은 ‘비행기’라는 뜻으로 더 자주 쓰이므로 문맥으로 구분한다."]}, "22": {"c": "g", "t": "conventional : 기존의, 관습적인", "n": ["conventional = 기존의, 전통적인", "convention = 관습, 관례"], "x": ["conventional cameras는 ‘기존의 카메라들’이라는 뜻이다.", "라이트 필드 카메라와 구분해서 일반 카메라를 부르는 말이다.", "conventional은 명사 convention(관습)의 형용사형이다."]}, "23": {"c": "o", "t": "them = rays (광선들)", "n": ["them = rays from the entire light field", "some 11 million of them = 그중 약 1,100만 개"], "x": ["some 11 million of them의 them은 rays(광선들)를 가리킨다.", "some은 여기서 ‘약’이라는 뜻의 부사이다.", "‘전체 라이트 필드의 광선 가운데 약 1,100만 개’라는 뜻이다.", "rays를 구체적인 수로 덧붙여 설명한 말이다."]}, "24": {"c": "g", "t": "decide : 결정하다", "n": ["decide = 결정하다", "(파생) decision = 결정 / decisive = 결정적인"], "x": ["can decide later는 ‘나중에 결정할 수 있다’라는 뜻이다.", "decide의 목적어는 which element ~ to focus on이다.", "decide는 명사 decision(결정), 형용사 decisive(결정적인)로 바뀐다.", "later가 이 글의 핵심이다. 찍은 뒤에 결정한다는 점이다."]}, "25": {"c": "p", "t": "which + 명사 + to V : 의문형용사 + to부정사", "n": ["which element of an image to focus on = 이미지의 어느 요소에 초점을 맞출지", "focus on = ~에 초점을 맞추다", "element = 요소"], "x": ["which element of an image to focus on은 ‘이미지의 어느 요소에 초점을 맞출지’라는 뜻이다.", "which는 element를 꾸미는 의문형용사이고, 전체가 decide의 목적어이다.", "focus on의 목적어가 which element라서 on이 맨 뒤에 남는다.", "풀어 쓰면 which element of an image they will focus on이다."]}, "26": {"c": "k", "t": "요지문 : 처음에 초점을 맞출 필요 없음", "n": ["There is no need to V = ~할 필요가 없다", "at the beginning = 처음에", "나중에 초점을 맞추면 되므로 처음엔 불필요"], "x": ["There is no need to focus at the beginning은 ‘처음에 초점을 맞출 필요가 없다’라는 뜻이다.", "need는 여기서 명사 ‘필요’이고, to focus는 need를 꾸미는 to부정사이다.", "일반 카메라는 찍기 전에 초점을 정해야 하지만, 이 방식은 그럴 필요가 없다.", "since 이하가 그 이유이다."], "e": "쉬운 예시 : 일단 빛을 통째로 담아 두면, 찍은 뒤에 가까운 사과에 맞출지 먼 오렌지에 맞출지 골라도 된다."}, "27": {"c": "p", "t": "since + 동명사 주어 + make it possible to V", "n": ["since = ~ 때문에 (이유)", "collecting all the information = 모든 정보를 수집하는 것", "make + it(가목적어) + 형용사 + to V(진목적어) = ~하는 것을 …하게 만들다"], "x": ["since는 여기서 ‘~ 때문에’라는 이유의 접속사이다.", "collecting all the information이 동명사구 주어이고 동사는 makes이다.", "collecting은 동사 collect(수집하다)의 -ing형이다.", "makes it possible to do that은 가목적어 it, 형용사 possible, 진목적어 to do that으로 이루어진다.", "it은 해석하지 않고 ‘그것을 하는 것을 가능하게 만든다’로 해석한다."]}, "28": {"c": "o", "t": "that = focus (초점 맞추기)", "n": ["do that = 초점을 맞추다 (focus를 대신함)", "afterwards = 나중에, 그 뒤에"], "x": ["to do that의 that은 앞에 나온 focus(초점을 맞추는 일)를 가리킨다.", "‘초점 맞추는 일을 나중에 하다’라는 뜻이다.", "afterwards는 ‘나중에, 그 뒤에’라는 뜻의 부사이다."]}, "29": {"c": "g", "t": "include : 포함하다", "n": ["include = 포함하다", "are included = 포함되어 있다", "(반의) exclude = 제외하다"], "x": ["are included는 ‘포함되어 있다’라는 뜻이다.", "included는 동사 include의 과거분사이고, are included는 수동태이다.", "rays from the entire light field는 ‘전체 라이트 필드로부터의 광선들’이라는 뜻이다.", "Because가 이끄는 절은 ‘~이 포함되기 때문에’라는 이유를 나타낸다."]}, "30": {"c": "o", "t": "it = the light-field camera (문맥)", "n": ["it = the light-field camera (카메라가 담은 정보)", "closer to = ~에 더 가까운"], "x": ["it은 5~6번에서 설명한 라이트 필드 카메라(가 담은 정보)를 가리킨다.", "‘그것은 모든 데이터에 더 가깝다’라는 뜻이다.", "closer는 형용사 close의 비교급이다."]}, "31": {"c": "b", "t": "As a result : 결과적으로", "n": ["as a result = 결과적으로", "앞 내용의 결과를 이끎"], "x": ["As a result는 ‘결과적으로’라는 뜻의 연결어이다.", "7~8번의 ‘모든 정보를 담는다’는 내용의 결과가 이어진다.", "3번의 result in(초래하다)과 달리 여기서 result는 명사 ‘결과’이다."]}, "37": {"c": "k", "t": "요지문 : 정보가 더 재사용 가능", "n": ["more A than B = B보다 더 A한", "reusable = 재사용 가능한 (본문 철자 reuseable)", "찍은 뒤에도 초점을 바꿔 다시 활용 가능"], "x": ["기준 : 시험지 원문의 철자가 ‘reuseable’이다. 그대로 두며 reusable(재사용 가능한)과 같은 단어이다.", "the information is more “reuseable” than ordinary pictures는 ‘그 정보는 일반 사진들보다 더 재사용 가능하다’라는 뜻이다.", "‘재사용 가능’은 찍은 뒤에도 초점을 바꿔 다시 쓸 수 있다는 말이다.", "more ~ than은 둘을 비교하는 구문이다.", "이 글의 결론을 담은 문장이다."], "e": "쉬운 예시 : 일반 사진은 찍을 때 초점이 정해지면 끝이지만, 라이트 필드 사진은 찍고 나서도 초점을 바꿔 새 사진처럼 다시 쓸 수 있다."}, "32": {"c": "g", "t": "ordinary : 평범한, 일반적인", "n": ["ordinary = 평범한, 일반적인, 보통의", "(반의) extraordinary = 비범한"], "x": ["ordinary pictures는 ‘일반 사진들’이라는 뜻이다.", "라이트 필드 카메라가 아닌 기존 카메라로 찍은 사진을 말한다.", "반의어는 extraordinary(비범한)이다."]}, "36": {"c": "o", "t": "she = the photographer", "n": ["she = the photographer (사진사)", "press = 누르다 / shutter = 셔터"], "x": ["before she presses the shutter의 she는 앞의 the photographer를 가리킨다.", "‘사진사가 셔터를 누르기 전에’라는 뜻이다.", "presses는 동사 press(누르다)의 3인칭 단수 현재형이다.", "shutter는 ‘(카메라의) 셔터’이다."]}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>23년 11월 35번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "23년 11월 35번", "sub": "고2 · 도덕적 우수성의 형성 가능성", "one": "도덕적 우수성은 타고난 면도 있지만 성인기 초반까지 뇌가 계속 발달하므로 교육으로 가르칠 여지가 더 큼", "flow": [{"label": "도입부", "range": "1번", "sum": "Aristotle에 따르면 도덕적 우수성은 습관과 반복의 결과, 현대 과학은 타고난 요소도 시사 <small>(habit and repetition)<\/small>", "eg": "착한 행동은 매일 반복해서 몸에 밴 결과이면서 타고난 성향도 있음"}, {"label": "본론 (1)", "range": "2번", "sum": "도덕적 우수성은 어린 시절에 폭넓게 정해지므로 얼마나 일찍 가르칠지가 중요 <small>(how early to teach it)<\/small>", "eg": "착한 습관은 어릴수록 잘 자리 잡으니 언제 가르치느냐가 중요"}, {"label": "본론 (2)", "range": "3번", "sum": "Freud는 5세 무렵 이후 성격이 안 변한다고 했지만 틀렸음 <small>(Freud was wrong)<\/small>", "eg": "다섯 살 이후로는 바뀌지 않는다는 말은 사실이 아니었음"}, {"label": "무관한 문장", "range": "4번", "sum": "도덕적으로 우수한 사람은 좋은 일을 하지 않을 수 없고 그것은 자연스러움 <small>(cannot help doing)<\/small>", "eg": "착한 사람이 선행하는 건 계절이 바뀌는 것만큼 자연스러움"}, {"label": "결론", "range": "5번", "sum": "성격 특성은 30세 무렵 안정되고 뇌는 20대 중반까지 계속 발달 <small>(stabilize around age thirty)<\/small>", "eg": "20대 중반까지 뇌가 자라고, 성격은 서른 즈음에야 굳어짐"}, {"label": "요지", "range": "6번", "sum": "새 이해 덕분에 도덕적 우수성을 가르칠 수 있다는 점에서 더 낙관적일 수 있음 <small>(more optimistic)<\/small>", "eg": "성격이 늦게까지 변하니 착한 습관을 가르치는 일이 생각보다 희망적"}], "sents": [{"n": 1, "mk": "Moral [1|excellence], according to Aristotle, is the result of habit and repetition, [2|though] modern science would also [3|suggest] that it may have an [4|innate], [5|genetic] [6|component].", "ko": "도덕적 우수성은 Aristotle에 따르면 습관과 반복의 결과이지만, 현대 과학은 또한 그것이 선천적인, 즉 유전적인 요소를 가질 수도 있다고 시사할 것이다."}, {"n": 2, "star": 1, "mk": "This means that moral excellence will be [7|broadly] [8|set] early in our lives, [9|which is why the question of how early to teach it is so important].", "ko": "이것은 도덕적 우수성이 우리 삶에 있어 이른 시기에 광범위하게 설정될 것임을 의미하며, 이것이 얼마나 일찍 그것을 가르쳐야 할지에 대한 질문이 매우 중요한 이유이다."}, {"n": 3, "mk": "Freud suggested that we don't change our personality much after age five or [10|thereabouts], but as in many other things, Freud was wrong.", "ko": "Freud는 우리가 5세 혹은 그 무렵 이후로는 우리의 성격을 많이 바꾸지 않는다고 제시했지만, 다른 많은 것들에서처럼 Freud는 틀렸다."}, {"n": 4, "mk": "A person of moral excellence [11|cannot help doing] good — it is [12|as natural as] the change of seasons or the [13|rotation] of the planets.", "ko": "도덕적 우수성을 가진 사람은 좋은 일을 하지 않을 수 없으며, 그것은 계절의 변화나 행성의 자전만큼이나 자연스럽다."}, {"n": 5, "mk": "Recent psychological research shows [14|that personality traits stabilize around age thirty in both men and women and regardless of ethnicity] as the human brain continues to develop, both [15|neuroanatomically] and [16|in terms of] cognitive skills, until the mid-twenties.", "ko": "최근의 심리학 연구는 인간의 뇌가 20대 중반까지 신경 해부학적으로 그리고 인지 기능 면에서 계속 발달함에 따라, 남성과 여성 모두에게 있어 그리고 민족에 상관없이 성격 특성이 30세 무렵에 안정된다는 것을 보여 준다."}, {"n": 6, "star": 1, "mk": "The [17|advantage] of this new understanding is [18|that we can be a bit more optimistic than Aristotle and Freud about being able to teach moral excellence].", "ko": "이 새로운 이해의 이점은 도덕적 우수성을 가르칠 수 있다는 점에서 우리가 Aristotle이나 Freud보다 조금 더 낙관적일 수 있다는 것이다."}], "items": {"1": {"c": "g", "t": "excellence : 우수성, 탁월함", "n": ["excellence = 우수성, 탁월함", "(파생) excellent = 우수한", "moral excellence = 도덕적 우수성"], "x": ["Moral excellence는 ‘도덕적 우수성’이라는 뜻이다.", "excellent(우수한)의 명사형이다.", "이 글 전체의 중심 소재이다."]}, "2": {"c": "b", "t": "though : 비록 ~이지만 (양보 신호)", "n": ["though + 절 = 비록 ~이지만", "양보 : 앞 주장과 다른 내용을 덧붙임"], "x": ["though modern science would also suggest ~는 ‘비록 현대 과학은 ~도 시사하지만’이라는 뜻이다.", "앞의 ‘습관과 반복의 결과’에 ‘타고난 면도 있다’를 덧붙인다.", "though는 접속사로 뒤에 절이 온다."]}, "3": {"c": "g", "t": "suggest : 시사하다, 제안하다", "n": ["suggest = 시사하다, 제안하다", "suggest that + 절 = ~라고 제시하다", "(파생) suggestion = 제안"], "x": ["modern science would also suggest that ~은 ‘현대 과학은 ~라고도 시사할 것이다’라는 뜻이다.", "suggest는 ‘제안하다’와 ‘(연구가) 시사하다’ 두 뜻이 있다.", "여기서는 ‘시사하다’의 뜻이다."]}, "4": {"c": "g", "t": "innate : 선천적인", "n": ["innate = 선천적인, 타고난", "(반의어) acquired = 후천적인", "innate component = 선천적 요소"], "x": ["an innate, genetic component는 ‘선천적인, 즉 유전적인 요소’라는 뜻이다.", "태어날 때부터 가지고 있는 성질을 말한다.", "innate와 genetic은 쉼표로 이어진 비슷한 말이다."]}, "5": {"c": "g", "t": "genetic : 유전적인", "n": ["genetic = 유전의, 유전적인", "gene = 유전자", "genetic change = 유전적 변화"], "x": ["genetic component는 ‘유전적 요소’라는 뜻이다.", "gene(유전자)의 형용사형이다.", "부모에게서 물려받은 요소를 가리킨다."]}, "6": {"c": "g", "t": "component : (구성) 요소", "n": ["component = 구성 요소", "(유의어) element = 요소", "have a component = 요소를 가지다"], "x": ["a genetic component는 ‘유전적 구성 요소’라는 뜻이다.", "전체를 이루는 부분 중 하나를 말한다.", "it은 moral excellence를 가리킨다."]}, "7": {"c": "g", "t": "broadly : 광범위하게, 대략적으로", "n": ["broadly = 광범위하게, 폭넓게", "broad = 넓은", "broadly set = 대체로 정해지다"], "x": ["will be broadly set은 ‘폭넓게 설정될 것이다’라는 뜻이다.", "broad(넓은)에 -ly를 붙인 부사이다.", "큰 틀이 일찍 정해진다는 말이다."]}, "8": {"c": "g", "t": "set : 설정하다, 정하다", "n": ["set = 설정하다, 정하다", "(다의어) set = 놓다, 지다 (해가), 세트", "will be set = 정해질 것이다 (수동태)"], "x": ["기준 : be + 과거분사의 수동태로 분석함.", "will be broadly set early in our lives는 ‘우리 삶의 이른 시기에 폭넓게 설정될 것이다’라는 뜻이다.", "set은 원형·과거·과거분사의 모양이 모두 같다.", "set은 뜻이 많아 문맥으로 구분한다."]}, "9": {"c": "p", "t": "which is why + 절 : 그것이 ~한 이유이다", "n": ["which = 앞 절 전체", "which is why ~ = 그것이 ~한 이유이다", "how early to teach it = 얼마나 일찍 가르칠지"], "x": ["which is why the question of how early to teach it is so important는 ‘이것이 얼마나 일찍 가르칠지의 문제가 매우 중요한 이유이다’라는 뜻이다.", "which는 앞 절 전체를 받는 계속적 용법의 관계대명사이다.", "how early to teach it은 ‘how + 형용사/부사 + to V’의 명사구로 question을 설명한다.", "it은 moral excellence를 가리킨다."]}, "10": {"c": "g", "t": "thereabouts : 그 무렵, ~쯤", "n": ["thereabouts = 그 무렵, 그쯤", "or thereabouts = ~쯤", "age five or thereabouts = 5세 혹은 그 무렵"], "x": ["age five or thereabouts는 ‘5세 혹은 그 무렵’이라는 뜻이다.", "수나 시기 뒤에 붙어 ‘대략 그쯤’이라는 뜻을 더한다.", "다소 낯선 단어이므로 뜻을 외워 두자."]}, "11": {"c": "p", "t": "cannot help -ing : ~하지 않을 수 없다", "n": ["cannot help -ing = ~하지 않을 수 없다", "cannot help but + 동사원형 = ~하지 않을 수 없다", "do good = 좋은 일을 하다"], "x": ["A person of moral excellence cannot help doing good은 ‘도덕적 우수성을 가진 사람은 좋은 일을 하지 않을 수 없다’라는 뜻이다.", "cannot help 뒤에는 동명사가 온다.", "비슷한 표현으로 cannot (help) but + 동사원형이 있다.", "doing은 동사 do의 -ing형이다."]}, "12": {"c": "p", "t": "as + 형용사 + as : ~만큼 …한", "n": ["as natural as ~ = ~만큼 자연스러운", "the change of seasons = 계절의 변화", "natural = 자연스러운"], "x": ["it is as natural as the change of seasons는 ‘계절의 변화만큼 자연스럽다’라는 뜻이다.", "앞의 as는 부사, 뒤의 as는 접속사 또는 전치사이다.", "or로 the change of seasons와 the rotation of the planets가 이어져 있다."]}, "13": {"c": "g", "t": "rotation : 자전, 회전", "n": ["rotation = 자전, 회전", "rotate = 회전하다", "(다의어) rotation = 교대, 순환"], "x": ["the rotation of the planets는 ‘행성의 자전’이라는 뜻이다.", "rotate(회전하다)의 명사형이다.", "rotation은 ‘교대, 순환’이라는 뜻도 있다."]}, "14": {"c": "k", "t": "핵심 근거문 : 성격 특성은 30세 무렵 안정된다", "n": ["personality traits stabilize around age thirty = 성격 특성은 30세 무렵 안정된다", "trait = 특성", "stabilize = 안정되다"], "x": ["최근 연구가 보여 준 결과이다.", "stabilize는 ‘안정되다’, trait는 ‘특성’이라는 뜻이다.", "in both men and women은 ‘남성과 여성 모두에게서’라는 뜻이고, regardless of ethnicity는 ‘민족에 상관없이’라는 뜻이다.", "5세 이후에 변하지 않는다는 Freud의 주장과 대비된다."], "e": "쉬운 예시 : 사람의 성격은 다섯 살에 굳는 것이 아니라 서른 즈음에야 안정된다. 그 전까지는 바뀔 여지가 있다."}, "15": {"c": "g", "t": "neuroanatomically : 신경 해부학적으로", "n": ["neuroanatomically = 신경 해부학적으로", "cognitive skills = 인지 기능", "both A and B = A와 B 둘 다"], "x": ["both neuroanatomically and in terms of cognitive skills는 ‘신경 해부학적으로 그리고 인지 기능 면에서 모두’라는 뜻이다.", "뇌의 구조와 사고 능력 둘 다 20대 중반까지 발달한다는 말이다.", "both A and B에서 A는 부사 neuroanatomically, B는 전치사구이다.", "as the human brain continues to develop은 ‘인간의 뇌가 계속 발달함에 따라’라는 뜻이다."]}, "16": {"c": "g", "t": "in terms of : ~ 면에서", "n": ["in terms of ~ = ~ 면에서", "뒤에 명사(구)가 옴", "regardless of ~ = ~에 상관없이"], "x": ["in terms of cognitive skills는 ‘인지 기능 면에서’라는 뜻이다.", "in terms of는 어떤 관점에서 보는지를 밝히는 표현이다.", "cognitive는 ‘인지의, 인식의’라는 뜻이다."]}, "17": {"c": "g", "t": "advantage : 이점, 유리한 점", "n": ["advantage = 이점, 유리한 점", "(반의어) disadvantage = 불리한 점", "(파생) advantageous = 이로운"], "x": ["The advantage of this new understanding은 ‘이 새로운 이해의 이점’이라는 뜻이다.", "이 새로운 이해는 5번 문장의 심리학 연구 결과를 말한다.", "that절이 보어로 이점의 내용을 말해 준다."]}, "18": {"c": "k", "t": "요지문 : 도덕적 우수성은 가르칠 수 있다", "n": ["more optimistic than ~ = ~보다 더 낙관적인", "optimistic = 낙관적인", "be able to V = ~할 수 있다"], "x": ["we can be a bit more optimistic ~ about being able to teach moral excellence는 ‘도덕적 우수성을 가르칠 수 있다는 점에 대해 Aristotle이나 Freud보다 조금 더 낙관적일 수 있다’라는 뜻이다.", "a bit는 비교급 more를 꾸미는 말로 ‘조금’이라는 뜻이다.", "that절은 is의 보어로 쓰인 명사절이다.", "글 전체의 요지가 담긴 문장이다."], "e": "쉬운 예시 : 성격이 서른 즈음까지 바뀐다면 착한 습관을 가르치는 일도 어릴 때만의 일은 아니니, 우리는 가르치는 데 더 희망을 가질 수 있다."}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

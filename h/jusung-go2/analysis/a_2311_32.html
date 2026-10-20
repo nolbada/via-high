@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>23년 11월 32번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "23년 11월 32번", "sub": "고2 · 잘못된 외부 정보의 기억 통합", "one": "사건 이후에 접한 잘못된 정보는 기억이 흐릿할수록 거부되지 못하고 원래 기억의 일부로 섞여 들어옴", "flow": [{"label": "도입부", "range": "1번", "sum": "사건 이후에 접한 정보는 이후의 기억하기에 영향을 줌 <small>(subsequent remembering)<\/small>", "eg": "친구에게 들은 말 때문에 어제 본 장면이 다르게 기억남"}, {"label": "주제", "range": "2번", "sum": "사건이 불충분하게 부호화됐거나 오래된 기억일수록 외부 정보가 쉽게 통합됨 <small>(integrate into)<\/small>", "eg": "어제 본 장면이 흐릿할수록 친구의 말이 그대로 내 기억이 됨"}, {"label": "본론 (1)", "range": "3번", "sum": "정보가 줄어든 기억에서는 새 정보가 거부될 가능성이 낮음 <small>(less likely)<\/small>", "eg": "장면이 가물가물하면 친구 말이 틀렸는지 확인할 방법이 없음"}, {"label": "본론 (1)", "range": "4번", "sum": "대신 현재 생각과 맞고 이야기가 되는 정보는 원래 경험의 일부로 받아들여짐 <small>(Instead)<\/small>", "eg": "내 짐작과 맞는 친구의 말은 처음부터 내가 본 것처럼 자리 잡음"}, {"label": "본론 (2)", "range": "5~6번", "sum": "이 과정은 알 수도 있지만 흔히 무의식적임 <small>(unconscious)<\/small>", "eg": "친구 말대로 장면을 떠올리면서도 그런 줄 모르고 있음"}, {"label": "결론", "range": "7~8번", "sum": "시간이 지나면 출처조차 잊고, 잘못된 정보의 출처는 법정까지 어디에나 있음 <small>(sources of misinformation)<\/small>", "eg": "누구에게서 들었는지 잊은 채 그 장면만 내 기억으로 남음"}], "sents": [{"n": 1, "mk": "[1|Information encountered after an event] can [2|influence] [3|subsequent] remembering.", "ko": "사건 이후에 마주친 정보는 이후의 기억하는 것에 영향을 미칠 수 있다."}, {"n": 2, "star": 1, "mk": "External information can easily [4|integrate into] a witness's memory, especially if the event was poorly [5|encoded] or the memory is from a distant event, [6|in which case] time and forgetting have [7|degraded] the original memory.", "ko": "외부 정보는 목격자의 기억에 쉽게 통합될 수 있는데, 특히 사건이 불충분하게 부호화되었거나 그 기억이 먼 사건으로부터 온 것이라면 그러하며, 이 경우 시간과 망각이 원래의 기억을 저하시켜 온 것이다."}, {"n": 3, "star": 1, "mk": "[8|With reduced information available in memory] [9|with which to confirm] the [10|validity] of post-event [11|misinformation], it is less likely [12|that this new information will be rejected].", "ko": "사후 잘못된 정보의 유효성을 확인하기 위해 기억에서 사용할 수 있는 줄어든 정보를 가지면, 이 새로운 정보가 거부될 가능성은 덜하다."}, {"n": 4, "mk": "[13|Instead], especially when it [14|fits] the witness's current thinking and can be used to create a story [15|that makes sense] to him or her, [16|it] may be integrated as part of the original experience.", "ko": "대신에, 특히 그것이 목격자의 현재 생각과 맞고 그 또는 그녀에게 이해되는 하나의 이야기를 만드는 데 사용될 수 있을 때, 그것은 원래 경험의 일부로서 통합될 수 있다."}, {"n": 5, "mk": "This process can be [17|explicit] ([18|i.e.], the witness knows it is happening), but it is often [19|unconscious].", "ko": "이 과정은 명시적일 수 있지만(즉, 목격자는 그것이 일어나고 있다는 것을 알고 있다), 그것은 흔히 무의식적이다."}, {"n": 6, "mk": "[20|That is], the witness might [21|find himself or herself thinking about the event differently] without awareness.", "ko": "즉, 목격자는 의식하지 못한 채 그 사건에 대해 다르게 생각하는 그 자신 또는 그녀 자신을 발견할지도 모른다."}, {"n": 7, "mk": "Over time, the witness may not even know the source of information that led to the (new) memory.", "ko": "시간이 지남에 따라, 목격자는 (새로운) 기억으로 이끈 정보의 출처조차 모를지도 모른다."}, {"n": 8, "mk": "Sources of misinformation in [22|forensic] contexts can be encountered anywhere, from discussions with other witnesses to social media searches, to multiple interviews with investigators or other legal professionals, and even in [23|court].", "ko": "법정의 상황에서 잘못된 정보의 출처는 다른 목격자들과의 토론에서부터 소셜 미디어 조사들, 수사관 또는 기타 법률 전문가들과의 다중 인터뷰들, 심지어 법정에서까지 어디에서나 마주쳐질 수 있다."}], "items": {"1": {"c": "p", "t": "과거분사구 : Information 꾸미기", "n": ["Information ← encountered after an event", "encounter = 마주치다, 접하다", "encountered = 동사 encounter의 과거분사"], "x": ["핵심 명사는 Information(정보)이다.", "encountered after an event는 ‘사건 이후에 마주친’이라는 뜻으로 Information을 뒤에서 꾸민다.", "encountered는 동사 encounter의 과거분사이다.", "뼈대는 Information can influence remembering이다."]}, "2": {"c": "g", "t": "influence : 영향을 미치다 / 영향", "n": ["influence = 영향을 미치다", "(다의어) influence = 영향(력)", "influence + 목적어 = ~에 영향을 주다"], "x": ["can influence subsequent remembering은 ‘이후의 기억하기에 영향을 미칠 수 있다’라는 뜻이다.", "여기서 influence는 동사이고, 명사로도 쓰인다.", "동사일 때는 전치사 없이 바로 목적어를 받는다."]}, "3": {"c": "g", "t": "subsequent : 이후의, 다음의", "n": ["subsequent = 이후의, 다음의", "subsequent to ~ = ~ 다음에", "remembering = 기억하는 것 (동명사)"], "x": ["subsequent remembering은 ‘(사건) 이후의 기억하기’라는 뜻이다.", "사건을 겪은 뒤에 그 일을 떠올릴 때를 말한다.", "remembering은 동사 remember의 -ing형으로 명사처럼 쓰였다."]}, "4": {"c": "g", "t": "integrate into : ~에 통합되다", "n": ["integrate into ~ = ~에 통합되다, 섞여 들어가다", "integrate = 통합시키다", "easily = 쉽게"], "x": ["can easily integrate into a witness’s memory는 ‘목격자의 기억에 쉽게 통합될 수 있다’라는 뜻이다.", "밖에서 들어온 정보가 원래 기억과 섞인다는 말이다.", "이 문장이 글의 주제를 말한다."]}, "5": {"c": "g", "t": "encode : 부호화하다", "n": ["encode = 부호화하다 (기억으로 저장하기 위해 바꾸다)", "poorly encoded = 불충분하게 부호화된", "(반의어) decode = 해독하다"], "x": ["기준 : 수동태 (the event was poorly encoded는 be + 과거분사 구조).", "the event was poorly encoded는 ‘사건이 불충분하게 부호화되었다’라는 뜻이다.", "본 것을 기억으로 제대로 저장하지 못했다는 말이다.", "encoded는 동사 encode의 과거분사이다."]}, "6": {"c": "p", "t": "in which case : 이 경우에", "n": ["in which case = 이 경우에는 (= and in that case)", "which = 앞 내용 전체를 가리키는 관계사", "계속적 용법으로 덧붙임"], "x": ["in which case time and forgetting have degraded ~는 ‘이 경우 시간과 망각이 ~을 저하시켜 왔다’라는 뜻이다.", "which는 앞의 ‘사건이 불충분하게 부호화됐거나 먼 사건일 때’를 가리킨다.", "앞 내용을 받아 그 경우의 결과를 덧붙이는 구문이다.", "have degraded는 현재완료로 ‘저하시켜 왔다’라는 뜻이다."]}, "7": {"c": "g", "t": "degrade : 저하시키다", "n": ["degrade = 저하시키다, 떨어뜨리다", "(파생) degradation = 저하", "the original memory = 원래의 기억"], "x": ["have degraded the original memory는 ‘원래의 기억을 저하시켜 왔다’라는 뜻이다.", "degraded는 동사 degrade의 과거분사이고 have와 함께 현재완료를 이룬다.", "시간이 지나고 잊으면서 기억이 흐려졌다는 말이다."]}, "8": {"c": "p", "t": "With + 명사 + 형용사구 : ~한 채로, ~이므로", "n": ["With + O + 형용사구 = O가 ~한 상태에서", "reduced information = 줄어든 정보", "available in memory = 기억에서 사용할 수 있는"], "x": ["With reduced information available in memory는 ‘기억에서 사용할 수 있는 정보가 줄어든 상태에서’라는 뜻이다.", "available in memory가 information을 뒤에서 꾸민다.", "reduced는 동사 reduce(줄이다)의 과거분사로 information을 앞에서 꾸민다.", "뼈대는 뒤의 it is less likely that ~이다."]}, "9": {"c": "p", "t": "전치사 + 관계대명사 + to V : ~하기 위한", "n": ["with which to confirm ~ = ~을 확인하기 위한 (정보)", "confirm = 확인하다", "information ← with which to confirm ..."], "x": ["with which to confirm the validity는 ‘유효성을 확인하기 위해 쓸 수 있는’이라는 뜻이다.", "앞의 information을 꾸미며, 그 정보를 가지고 확인한다는 말이다.", "‘전치사 + 관계대명사 + to부정사’는 to부정사의 목적어가 앞 명사일 때 쓴다.", "풀면 information that one can confirm the validity with이다."]}, "10": {"c": "g", "t": "validity : 유효성, 타당성", "n": ["validity = 유효성, 타당성", "(파생) valid = 유효한", "(반의어) invalidity = 무효"], "x": ["the validity of post-event misinformation은 ‘사건 후 잘못된 정보의 유효성’이라는 뜻이다.", "그 정보가 맞는지 틀리는지를 따지는 일이다.", "validity는 형용사 valid의 명사형이다."]}, "11": {"c": "g", "t": "misinformation : 잘못된 정보", "n": ["misinformation = 잘못된 정보", "mis- = 잘못된", "(반의어) accurate information = 정확한 정보"], "x": ["post-event misinformation은 ‘사건 이후에 들어온 잘못된 정보’라는 뜻이다.", "접두사 mis-는 ‘잘못’이라는 뜻을 더한다.", "셀 수 없는 명사라 -s를 붙이지 않는다."]}, "12": {"c": "k", "t": "요지문 : 새 정보는 거부되지 않는다", "n": ["this new information will be rejected = 이 새로운 정보가 거부될 것이다", "reject = 거부하다", "less likely = 가능성이 덜한"], "x": ["기억 속 정보가 줄어들면 외부 정보가 틀렸는지 가려낼 수 없다.", "그래서 잘못된 정보도 그대로 받아들여지기 쉽다는 것이 핵심이다.", "빈칸에는 ‘거부될 것이다’가 들어가며 4번 문장의 Instead와 이어진다.", "rejected는 동사 reject(거부하다)의 과거분사이다."], "e": "쉬운 예시 : 어제 본 장면이 가물가물하면 친구가 ‘빨간 차였어’라고 해도 틀렸다고 가려낼 수 없다. 그래서 그 말이 그대로 내 기억이 된다."}, "13": {"c": "b", "t": "Instead : 대신에", "n": ["instead = 대신에", "앞 내용과 반대되는 내용을 이끎", "B = 앞 내용(A)의 반대"], "x": ["Instead는 ‘대신에’라는 뜻의 연결어이다.", "앞 문장은 ‘새 정보가 거부될 가능성이 덜하다’였다.", "그 반대로 ‘받아들여져 원래 경험의 일부가 된다’는 내용이 이어진다."]}, "14": {"c": "g", "t": "fit : 맞다, 어울리다", "n": ["fit = (크기·내용이) 맞다", "(다의어) fit = 건강한, 적합한", "fits the witness’s current thinking = 목격자의 현재 생각과 맞다"], "x": ["when it fits the witness’s current thinking은 ‘그것이 목격자의 현재 생각과 맞을 때’라는 뜻이다.", "fits는 동사 fit의 3인칭 단수 현재형이다.", "fit은 형용사로 ‘건강한, 적합한’이라는 뜻도 있다."]}, "15": {"c": "p", "t": "관계대명사 that + make sense : 이해가 되는", "n": ["a story that makes sense = 이해가 되는 이야기", "make sense = 이해되다, 말이 되다", "that = story를 꾸미는 주격 관계대명사"], "x": ["a story that makes sense to him or her는 ‘그 또는 그녀에게 이해되는 이야기’라는 뜻이다.", "that은 story를 가리키는 주격 관계대명사이고, 뒤에 동사 makes가 온다.", "makes는 선행사 story가 단수라서 3인칭 단수형이다.", "make sense는 ‘말이 되다, 이해되다’라는 뜻의 표현이다."]}, "16": {"c": "o", "t": "it = 새로운 외부 정보", "n": ["it = this new (misleading) information (3번 문장)", "may be integrated = 통합될 수 있다", "as part of ~ = ~의 일부로서"], "x": ["it may be integrated의 it은 3번 문장의 this new information을 가리킨다.", "앞의 when it fits에 나오는 it도 같은 정보이다.", "통합되는 것은 목격자가 아니라 정보이다."]}, "17": {"c": "g", "t": "explicit : 명시적인", "n": ["explicit = 명시적인, 분명한", "(반의어) implicit = 암묵적인", "(반의어) unconscious = 무의식적인"], "x": ["This process can be explicit은 ‘이 과정은 명시적일 수 있다’라는 뜻이다.", "목격자가 정보가 섞이고 있음을 알고 있다는 뜻이다.", "뒤의 괄호가 그 뜻을 풀어 준다."]}, "18": {"c": "b", "t": "i.e. : 즉", "n": ["i.e. = 즉, 다시 말해", "앞 내용을 다른 말로 풀어 줌"], "x": ["i.e.는 ‘즉’이라는 뜻의 줄임말이다.", "앞의 explicit을 풀어서 ‘목격자가 그것이 일어나고 있다는 것을 안다’고 설명한다.", "비슷한 연결어로 that is, in other words가 있다."]}, "19": {"c": "g", "t": "unconscious : 무의식적인", "n": ["unconscious = 무의식적인", "(반의어) conscious = 의식하는", "(반의어) explicit = 명시적인"], "x": ["it is often unconscious는 ‘그것은 흔히 무의식적이다’라는 뜻이다.", "접두사 un-이 붙어 conscious(의식하는)의 반대 뜻이 된다.", "but으로 앞의 explicit과 대비된다."]}, "20": {"c": "b", "t": "That is : 즉", "n": ["that is = 즉, 다시 말해", "앞 내용을 풀어서 설명함"], "x": ["That is는 ‘즉’이라는 뜻의 연결어이다.", "앞 문장의 ‘흔히 무의식적이다’를 구체적으로 설명하는 신호이다.", "뒤에 풀이 내용이 이어진다."]}, "21": {"c": "p", "t": "find + O + -ing : O가 ~하는 것을 발견하다", "n": ["find + O + -ing = O가 ~하고 있는 것을 알게 되다", "find himself or herself thinking = 자신이 생각하고 있음을 발견하다", "differently = 다르게"], "x": ["the witness might find himself or herself thinking about the event differently는 ‘목격자가 사건에 대해 다르게 생각하는 자신을 발견할지도 모른다’라는 뜻이다.", "himself or herself가 find의 목적어이고 thinking이 목적격 보어이다.", "thinking about ~ differently는 ‘~에 대해 다르게 생각하는’이라는 뜻이다.", "might는 약한 추측을 나타내는 조동사이다."]}, "22": {"c": "g", "t": "forensic : 법정의, 법의학의", "n": ["forensic = 법정의, 범죄 수사의", "forensic context = 법정(수사)의 상황", "context = 상황, 맥락"], "x": ["forensic contexts는 ‘법정·수사와 관련된 상황’이라는 뜻이다.", "재판이나 조사 현장에서 목격자가 진술하는 상황을 말한다.", "context는 ‘맥락, 상황’이라는 뜻이다."]}, "23": {"c": "g", "t": "court : 법정", "n": ["court = 법정, 법원", "(다의어) court = (테니스 등의) 코트", "(다의어) court = 궁정"], "x": ["even in court는 ‘심지어 법정에서까지’라는 뜻이다.", "court는 ‘법정’ 외에 운동 ‘코트’, 옛날의 ‘궁정’이라는 뜻도 있다.", "여기서는 재판이 열리는 법정이다."]}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

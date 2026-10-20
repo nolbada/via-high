@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>23년 11월 21번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "23년 11월 21번", "sub": "고2 · 예술과 미학의 역할", "one": "예술과 미학은 어렵고 불편한 경험도 정서적으로 마주하게 해 주는 매개체", "flow": [{"label": "도입부", "range": "1번", "sum": "예술과 미학은 다양한 인간 경험에 정서적 연결을 제공 <small>(emotional connection)<\/small>", "eg": "슬픈 영화를 보면 전쟁이나 이별 같은 낯선 일도 마음으로 이해하게 됨"}, {"label": "본론 (1)", "range": "2~3번", "sum": "예술은 단순히 달콤한 것 이상, 불편함을 마주하면 변화와 변형의 경험으로 이어짐 <small>(sugar on the tongue)<\/small>", "eg": "마음이 불편한 영화도 끝까지 보고 나면 생각이 달라져 있음"}, {"label": "요지", "range": "4번", "sum": "예술은 어렵고 불편한 아이디어·개념과 맞서는 매개체 <small>(vehicles to contend with)<\/small>", "eg": "영화가 불편한 주제를 끝까지 따라가 보게 하는 탈것 역할"}, {"label": "결론 (1)", "range": "5번", "sum": "피카소의 게르니카가 전쟁의 잔인함과 고통을 포착해 보여 줌 <small>(Guernica)<\/small>", "eg": "전쟁 영화 한 편이 뉴스보다 더 깊이 전쟁의 아픔을 전함"}, {"label": "결론 (2)", "range": "6번", "sum": "한스베리의 희곡이 인종 차별과 아메리칸 드림, 가족 이야기를 감동적으로 묘사 <small>(A Raisin in the Sun)<\/small>", "eg": "가족 영화 한 편이 차별과 꿈과 가족애를 한꺼번에 보여 줌"}], "sents": [{"n": 1, "mk": "The arts and aesthetics offer emotional connection to [3|the full range of human experience].", "ko": "예술과 미학은 다양한 인간 경험에 대한 정서적인 연결을 제공한다."}, {"n": 2, "mk": "“The arts [4|can be more than just sugar on the tongue],” Anjan Chatterjee, a professor at the University of Pennsylvania, says.", "ko": "“예술은 단순히 혀 위의 설탕 이상의 것이 될 수 있다.”라고 Pennsylvania 대학교의 교수인 Anjan Chatterjee는 말한다."}, {"n": 3, "mk": "“In art, when there’s something challenging, [7|which] can also be [8|uncomfortable], this discomfort, if we’re willing to engage with [10|it], offers the [11|possibility] of some change, some [12|transformation]. [13|That] can also be a powerful [14|aesthetic] experience.”", "ko": "“예술에서, 무언가 도전적인 것이 있고 그것이 또한 불편할 수 있을 때, 이 불편함은, 우리가 기꺼이 그것에 참여하려 한다면, 어떤 변화, 어떤 변형의 가능성을 제공한다. 그것은 또한 강력한 미적 경험이 될 수 있다.”"}, {"n": 4, "mk": "The arts, in this way, become [15|vehicles] [16|to contend with] ideas and concepts [17|that are difficult and uncomfortable otherwise].", "ko": "예술은 이런 방식으로, 그렇지 않았더라면 어렵고 불편한 아이디어와 개념들과 싸우는 매개체가 된다."}, {"n": 5, "mk": "When Picasso painted his masterpiece Guernica in 1937, he [19|captured] the [20|heartbreaking] and cruel [21|nature] of war, [22|and offered] the world a way [23|to consider the universal suffering caused by the Spanish Civil War].", "ko": "Picasso가 1937년에 그의 걸작 Guernica를 그렸을 때, 그는 가슴 아프고 잔인한 전쟁의 본질을 포착했고, 스페인 내전으로 인한 보편적인 고통을 숙고할 방법을 세상에 제공했다."}, {"n": 6, "mk": "When Lorraine Hansberry wrote her play A Raisin in the Sun, she gave us a powerful story of [24|people struggling with] racism, [25|discrimination], and [26|the pursuit of] the American dream, [27|while also offering] a touching [28|portrait] of family life.", "ko": "Lorraine Hansberry가 그녀의 희곡 A Raisin in the Sun을 썼을 때, 그녀는 인종 차별, 차별, 그리고 아메리칸 드림의 추구와 투쟁하는 사람들의 강력한 이야기를 우리에게 주었고, 또한 가족생활에 대한 감동적인 초상화를 제공했다."}], "items": {"3": {"c": "g", "t": "the full range of ~ : ~의 모든 범위, 다양한 ~", "n": ["range = 범위, 다양성", "the full range of ~ = ~의 전 범위", "(다의어) range = 산맥, (범위가) 이르다"], "x": ["the full range of human experience는 ‘인간 경험의 모든 범위’라는 뜻이다.", "즐거운 경험부터 괴로운 경험까지 두루 포함한다는 느낌이다.", "range는 여기서 명사로 쓰였다."]}, "4": {"c": "k", "t": "핵심 비유 : 예술 = 달콤함 이상의 것", "n": ["sugar on the tongue = 혀 위의 설탕 (즉각적인 달콤함)", "more than just ~ = 단지 ~ 이상의 것", "예술은 즐거움만 주는 것이 아님"], "x": ["The arts can be more than just sugar on the tongue은 ‘예술은 단지 혀 위의 설탕 이상일 수 있다’라는 뜻이다.", "sugar on the tongue은 입에 단 것, 곧 듣기 좋고 즐겁기만 한 것을 비유한다.", "예술은 즐거움 외에 불편하고 어려운 것도 담는다는 뜻이다.", "can은 ‘~일 수 있다’라는 가능성을 나타낸다."], "e": "쉬운 예시 : 영화가 재미만 주는 사탕이 아니라, 보고 나서 마음이 무거워지고 오래 생각하게 만들 수도 있다."}, "7": {"c": "p", "t": "계속적 관계대명사 which : 앞 내용을 이어 설명", "n": ["something challenging, which can also be uncomfortable", "which = something challenging", "쉼표 + which = 그런데 그것은"], "x": ["which can also be uncomfortable은 ‘그런데 그것은 또한 불편할 수 있다’라는 뜻이다.", "which는 바로 앞 something challenging을 가리킨다.", "쉼표 뒤 which는 앞 내용을 덧붙여 설명하는 계속적 용법이다.", "which 바로 뒤에 동사가 오므로 주격 관계대명사이다."]}, "8": {"c": "g", "t": "uncomfortable · discomfort : 불편한 · 불편", "n": ["uncomfortable = 불편한", "discomfort = 불편, 불쾌", "comfortable = 편안한 (반의어 관계)"], "x": ["uncomfortable은 comfortable(편안한) 앞에 un-이 붙은 반의어이다.", "discomfort는 comfort(편안함) 앞에 dis-가 붙은 명사로 ‘불편’이라는 뜻이다.", "품사가 다르면 형태가 바뀌므로 파생어 문제로 나오기 쉽다.", "this discomfort는 앞의 ‘불편할 수 있는 도전적인 것’을 받는다."]}, "10": {"c": "o", "t": "it = something challenging (불편한 도전적인 것)", "n": ["it = something challenging", "engage with it = 그것에 참여하다"], "x": ["engage with it의 it은 앞 문장의 something challenging을 가리킨다.", "‘그 도전적이고 불편한 것에 기꺼이 참여한다면’으로 이해한다."]}, "11": {"c": "g", "t": "possibility : 가능성", "n": ["possibility = 가능성", "possible = 가능한 (형용사)", "(반의어) impossibility = 불가능"], "x": ["the possibility of some change는 ‘어떤 변화의 가능성’이라는 뜻이다.", "possibility는 형용사 possible에서 나온 명사이다.", "of 뒤에 가능성의 내용(변화)이 온다."]}, "12": {"c": "g", "t": "transformation : 변형, 탈바꿈", "n": ["transformation = 변형, 탈바꿈", "transform = 변형시키다 (동사)", "change = 변화 (비슷한 말)"], "x": ["some change, some transformation은 ‘어떤 변화, 어떤 변형’이라는 뜻이다.", "change와 transformation은 비슷한 말을 겹쳐 강조한 표현이다.", "transformation은 동사 transform에 -ation이 붙은 명사이다."]}, "13": {"c": "o", "t": "That = 불편함에 참여해 얻는 변화·변형의 경험", "n": ["That = 앞 문장의 내용 (변화·변형의 가능성을 얻는 것)", "That can also be a powerful aesthetic experience."], "x": ["That은 바로 앞 문장 전체의 내용을 가리키는 지시대명사이다.", "‘불편함에 참여해 변화를 겪는 것’이 강력한 미적 경험이 될 수 있다는 말이다."]}, "14": {"c": "g", "t": "aesthetic : 미적인, 심미적인", "n": ["aesthetic = 미적인, 심미적인", "aesthetics = 미학 (명사)", "(파생) aesthetically = 미적으로"], "x": ["a powerful aesthetic experience는 ‘강력한 미적 경험’이라는 뜻이다.", "aesthetic은 형용사이고 1번 문장의 aesthetics는 ‘미학’이라는 명사이다.", "아름다움을 느끼고 이해하는 것과 관련된 말이다."]}, "15": {"c": "k", "t": "요지문 : 예술 = 어려운 개념과 맞서는 매개체", "n": ["vehicle = 매개체, 수단", "(다의어) vehicle = 탈것, 차량", "contend with ~ = ~와 싸우다, 맞서다", "otherwise = 그렇지 않으면"], "x": ["The arts become vehicles to contend with ideas and concepts ~는 ‘예술은 ~한 아이디어와 개념과 맞서는 매개체가 된다’라는 뜻이다.", "예술이 어려운 주제를 마주할 수 있는 통로라는 뜻이다.", "vehicle은 여기서 ‘탈것’이 아니라 ‘무언가를 전달하거나 이루는 수단’이다.", "이 글의 요지를 담은 핵심 문장이다."], "e": "쉬운 예시 : 어렵고 불편한 주제도 영화나 그림을 타고 가면 끝까지 따라가 볼 수 있다. 영화가 그 불편한 이야기를 태워 주는 탈것이다."}, "16": {"c": "g", "t": "contend with : ~와 싸우다, 맞서다", "n": ["contend with ~ = ~와 싸우다, 다투다", "(다의어) contend = 주장하다 (contend that ~)", "to contend with = 맞서기 위한 (to부정사)"], "x": ["to contend with ideas and concepts는 ‘아이디어와 개념과 맞서기 위한’이라는 뜻이다.", "to contend는 앞의 vehicles를 뒤에서 꾸미는 to부정사(형용사 역할)이다.", "contend는 ‘주장하다’라는 뜻도 있어서 시험에 다의어로 나온다."]}, "17": {"c": "p", "t": "관계대명사 that + otherwise : 그렇지 않았더라면", "n": ["ideas and concepts ← that are difficult and uncomfortable", "that = 주격 관계대명사 (선행사 ideas and concepts)", "otherwise = 그렇지 않다면, 다른 방식으로는"], "x": ["that are difficult and uncomfortable otherwise는 ‘그렇지 않았더라면 어렵고 불편한’이라는 뜻이다.", "that은 ideas and concepts를 꾸미는 주격 관계대명사이고, 뒤에 동사 are가 바로 온다.", "otherwise는 예술이라는 통로가 없다면이라는 뜻을 더한다.", "선행사가 복수라서 동사가 are이다."]}, "19": {"c": "g", "t": "capture : 포착하다", "n": ["capture = 포착하다, 사로잡다", "(다의어) capture = 붙잡다, 점령하다", "captured = 동사 capture의 과거형"], "x": ["he captured the heartbreaking and cruel nature of war는 ‘그는 가슴 아프고 잔인한 전쟁의 본질을 포착했다’라는 뜻이다.", "captured는 동사 capture의 과거형이다.", "capture는 ‘붙잡다’ 외에 ‘생생하게 담아내다’는 뜻으로도 쓴다."]}, "20": {"c": "g", "t": "heartbreaking : 가슴 아픈", "n": ["heartbreaking = 가슴 아픈, 비통한", "cruel = 잔인한", "heart + break = 마음을 부수는"], "x": ["the heartbreaking and cruel nature of war는 ‘가슴 아프고 잔인한 전쟁의 본질’이라는 뜻이다.", "heartbreaking은 heart(마음)와 break(부수다)의 -ing형이 합쳐진 형용사이다.", "cruel은 ‘잔인한’이라는 뜻이다."]}, "21": {"c": "g", "t": "nature : 본질, 본성", "n": ["nature = 본질, 본성", "(다의어) nature = 자연", "the nature of war = 전쟁의 본질"], "x": ["the nature of war는 ‘전쟁의 본질’이라는 뜻이다.", "nature는 ‘자연’ 외에 ‘본질, 성격’이라는 뜻이 있다.", "문맥상 자연이 아니라 전쟁이 가진 근본 성격을 말한다."]}, "22": {"c": "p", "t": "병렬구조 : captured ~, and offered ~", "n": ["he captured ~ and offered ~", "captured, offered = 같은 주어 he의 두 동사", "and = 두 동사를 연결"], "x": ["he captured ~, and offered ~는 한 주어 he의 두 동작을 and로 이은 병렬구조이다.", "‘포착했고, 제공했다’로 같은 시제(과거)로 맞춰져 있다.", "offered는 동사 offer의 과거형이다.", "offered the world a way는 ‘세상에 방법을 제공했다’라는 뜻이다."]}, "23": {"c": "p", "t": "a way to V + 과거분사 후치수식 : suffering caused by ~", "n": ["a way to consider ~ = ~을 숙고할 방법", "suffering ← caused by the Spanish Civil War", "universal = 보편적인, 모두에게 해당하는", "cause = 일으키다"], "x": ["a way to consider ~는 ‘~을 숙고할 방법’이라는 뜻이고, to consider가 way를 뒤에서 꾸민다.", "caused by the Spanish Civil War는 ‘스페인 내전으로 인한’이라는 뜻으로 suffering을 꾸민다.", "caused는 동사 cause(일으키다)의 과거분사이다. 고통이 ‘일으켜지는’ 수동 관계이다.", "universal suffering은 ‘보편적인 고통’으로 어느 시대, 어느 곳에나 통하는 고통이라는 뜻이다."]}, "24": {"c": "p", "t": "현재분사 후치수식 : people struggling with ~", "n": ["people ← struggling with racism, ...", "struggle with ~ = ~와 씨름하다, 고군분투하다", "racism = 인종 차별"], "x": ["people struggling with racism ...은 ‘인종 차별 등과 고군분투하는 사람들’이라는 뜻이다.", "struggling with ~가 people을 뒤에서 꾸미는 현재분사구이다.", "struggling은 동사 struggle(고군분투하다)의 -ing형이다.", "사람이 ‘고군분투하는’ 능동 관계라서 현재분사를 쓴다."]}, "25": {"c": "g", "t": "discrimination : 차별", "n": ["discrimination = 차별", "discriminate = 차별하다, 구별하다 (동사)", "racism = 인종 차별"], "x": ["racism, discrimination, and the pursuit of the American dream은 세 가지를 나열한 표현이다.", "discrimination은 동사 discriminate에 -ion이 붙은 명사이다.", "discriminate는 ‘구별하다’는 뜻으로도 쓰인다."]}, "26": {"c": "g", "t": "pursuit : 추구", "n": ["pursuit = 추구, 추적", "pursue = 추구하다, 쫓다 (동사)", "the pursuit of ~ = ~의 추구"], "x": ["the pursuit of the American dream은 ‘아메리칸 드림의 추구’라는 뜻이다.", "pursuit은 동사 pursue에서 나온 명사이다.", "of 뒤에 추구하는 대상이 온다."]}, "27": {"c": "p", "t": "while + -ing : ~하면서 (분사구문의 접속사 남김)", "n": ["while also offering ~ = 또한 ~을 제공하면서", "while + -ing = ~하는 동시에", "(she) + offering"], "x": ["while also offering a touching portrait of family life는 ‘또한 가족생활에 대한 감동적인 초상화를 제공하면서’라는 뜻이다.", "while 뒤에 주어와 동사 대신 -ing만 남은 분사구문이다.", "주어 she가 같아서 생략된 것이다.", "offering은 동사 offer의 -ing형이고, 앞 내용에 동시 동작을 덧붙인다."]}, "28": {"c": "g", "t": "portrait : 초상화, 묘사", "n": ["portrait = 초상화, (생생한) 묘사", "touching = 감동적인", "a portrait of family life = 가족생활의 묘사"], "x": ["a touching portrait of family life는 ‘가족생활에 대한 감동적인 초상화(묘사)’라는 뜻이다.", "portrait는 사람 그림뿐 아니라 글이나 연극이 그려 내는 모습도 뜻한다.", "touching은 ‘감동적인’이라는 뜻의 형용사이다."]}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>23년 11월 30번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "23년 11월 30번", "sub": "고2 · 기술 발전과 사생활", "one": "기술이 발전하면 사생활 개념을 이해하는 방식도 바뀌어, 보호를 넓히면서도 공공 이익을 위해 일부 포기를 요구받음", "flow": [{"label": "도입부", "range": "1~2번", "sum": "기술은 사생활 개념을 이해하는 방식을 바꿈, 새 능력이 있다고 해서 남을 들여다보는 것이 정당화되지는 않음 <small>(concept of privacy)<\/small>", "eg": "손에 드론이 생겼다고 이웃집 마당을 찍어도 되는 것은 아님"}, {"label": "본론 (1)", "range": "3~4번", "sum": "기술 발전은 사생활 보호를 어떻게 넓힐지 고려하도록 요구, 카메라 등장 때 법 제정을 두고 다툼 <small>(protections should be expanded)<\/small>", "eg": "드론이 처음 나왔을 때 마을 사람들이 촬영 금지 규칙을 두고 다툼"}, {"label": "본론 (2)", "range": "5~6번", "sum": "새 기술이 사적 공간과 공적 공간의 구별을 재확인, 공공장소에 들어서면 보이고 녹화되는 것에 동의한 것으로 봄 <small>(private and public spaces)<\/small>", "eg": "집 안은 촬영 금지, 공원에 들어서면 촬영될 수 있다는 암묵적 합의"}, {"label": "결론", "range": "7번", "sum": "감시 카메라가 불편해도 대부분 문화권의 시민들은 관찰되지 않을 권리를 포기하는 것이 해가 더 적다는 사실에 순응 <small>(adjusted to the fact)<\/small>", "eg": "처음엔 불편하던 드론 방범도 마을 안전에 도움이 되니 결국 받아들임"}], "sents": [{"n": 1, "mk": "Technology changes [1|how individuals and societies understand the concept of privacy].", "ko": "기술은 개인들과 사회가 사생활의 개념을 이해하는 방식을 변화시킨다."}, {"n": 2, "mk": "The fact [2|that someone has a new ability to access information or watch the actions of another] does not [3|justify] doing so.", "ko": "누군가 정보에 접근하거나 다른 사람의 행동을 관찰하는 새로운 능력을 갖고 있다는 사실이 그렇게 하는 것을 정당화하지는 않는다."}, {"n": 3, "mk": "[4|Rather], advances in technology [5|require] citizens and [6|policy makers] to consider how privacy protections should be expanded.", "ko": "오히려, 기술의 발전은 시민들과 정책 입안자들이 사생활 보호가 어떻게 확대되어야 하는지를 고려할 것을 요구한다."}, {"n": 4, "mk": "[8|For example], when cameras first became available for [9|commercial] and private use, nations and citizens [10|struggled over] [11|whether new laws should be enacted] to protect individuals from being photographed without their permission.", "ko": "예를 들어, 카메라가 상업적 용도와 사적 용도로 처음 사용 가능해졌을 때, 국가들과 시민들은 개인들을 그들의 허가 없이 사진이 찍히는 것으로부터 보호하기 위해 새로운 법이 제정되어야 하는지에 대해 투쟁했다."}, {"n": 5, "mk": "The [12|reconsideration] of privacy [13|brought about by this new technology] [14|re-affirmed] a [15|distinction] between private and public spaces.", "ko": "이 새로운 기술이 가져온 사생활에 대한 재고는 사적 및 공적 공간의 구별을 재확인했다."}, {"n": 6, "mk": "It was [16|determined] by most cultures [17|that people automatically gave consent to being seen — and thus recorded —] [18|once] they voluntarily stepped into a public space.", "ko": "일단 사람들이 자발적으로 공공장소에 발을 들여놓으면, 보여지고 따라서 녹화되는 것에 자동으로 동의한 것이라고 대부분의 문화에서 결정되었다."}, {"n": 7, "star": 1, "mk": "[19|Although] some people might be uncomfortable with the spread of surveillance cameras, citizens in most cultures [20|have adjusted to] the fact [21|that giving up the right not to be observed in these circumstances] causes [22|less harm to the community than failing to have surveillance].", "ko": "일부 사람들은 감시 카메라의 확산에 불편함을 느낄지도 모르지만, 대부분의 문화권에 있는 시민들은 이러한 상황에서 관찰되지 않을 권리를 포기하는 것이 감시를 갖추지 못하는 것보다 지역 사회에 더 적은 해를 끼친다는 사실에 적응해 왔다."}], "items": {"1": {"c": "k", "t": "주제문 : 기술 변화 → 사생활 이해 방식의 변화", "n": ["how + 주어 + 동사 = ~하는 방식 (명사절)", "concept = 개념", "privacy = 사생활", "기술이 사생활 개념의 이해를 바꿈"], "x": ["Technology changes how individuals and societies understand the concept of privacy는 ‘기술은 개인과 사회가 사생활 개념을 이해하는 방식을 바꾼다’라는 뜻이다.", "how 이하는 changes의 목적어 역할을 하는 명사절이다. how 뒤에 완전한 문장이 온다.", "changes는 동사 change의 3인칭 단수 현재형이다.", "이 글의 주제를 담은 핵심 문장이다."], "e": "쉬운 예시 : 집 앞에 CCTV가 흔해지면서, ‘남이 내 모습을 찍는 것’을 우리가 어디까지 사생활 침해로 보는지가 달라졌다."}, "2": {"c": "p", "t": "The fact that ~ : 동격 that절 (~라는 사실)", "n": ["The fact that + 완전한 문장 = ~라는 사실", "access information = 정보에 접근하다", "watch the actions of another = 다른 사람의 행동을 지켜보다", "does not justify doing so = 그렇게 하는 것을 정당화하지 않는다"], "x": ["The fact that ~ does not justify doing so는 ‘~라는 사실이 그렇게 하는 것을 정당화하지는 않는다’라는 뜻이다.", "that 이하는 완전한 문장이라서 fact의 내용을 설명하는 동격의 that절이다.", "to access와 (to) watch가 or로 이어져 ability를 꾸미는 병렬구조이다.", "doing so는 앞의 ‘정보에 접근하거나 관찰하는 것’을 받는다.", "문장의 뼈대는 The fact ... does not justify ...이다."]}, "3": {"c": "g", "t": "justify : 정당화하다", "n": ["justify = 정당화하다, 해명하다", "justification = 정당화, 변명", "(비슷한 말) excuse"], "x": ["does not justify doing so는 ‘그렇게 하는 것을 정당화하지는 않는다’라는 뜻이다.", "justify는 ‘옳다고 인정할 만한 이유가 된다’는 느낌이다.", "justify 뒤에는 동명사 doing이 목적어로 온다."]}, "4": {"c": "b", "t": "Rather : 오히려", "n": ["rather = 오히려, 차라리", "앞 내용을 부정하고 반대 내용을 제시"], "x": ["Rather는 ‘오히려’라는 뜻의 연결어이다.", "앞 문장의 ‘정당화되지 않는다’를 받아 글쓴이가 하려는 말로 넘어간다.", "뒤에 ‘기술 발전은 보호 확대를 고려하도록 요구한다’는 주장이 나온다."]}, "5": {"c": "g", "t": "require A to V : A가 ~하도록 요구하다", "n": ["require = 요구하다, 필요로 하다", "require A to V = A에게 ~할 것을 요구하다", "requirement = 요구 사항"], "x": ["advances in technology require citizens and policy makers to consider ~는 ‘기술 발전은 시민들과 정책 입안자들이 ~을 고려하도록 요구한다’라는 뜻이다.", "require는 목적어 뒤에 to부정사를 쓰는 5형식 동사이다.", "advances는 복수 명사 ‘발전’이라서 동사 require에 -s가 없다.", "(다의어) advance = 발전, 진전, 앞으로 나아가다"]}, "6": {"c": "g", "t": "policy maker : 정책 입안자", "n": ["policy maker = 정책 입안자", "policy = 정책", "citizen = 시민, 주민"], "x": ["citizens and policy makers는 ‘시민들과 정책 입안자들’이라는 뜻이다.", "policy maker는 법이나 정책을 만드는 사람을 가리킨다.", "citizens도 함께 규칙을 고려해야 할 주체로 나온다."]}, "8": {"c": "b", "t": "For example : 예를 들어", "n": ["for example = 예를 들어", "뒤에 구체적인 사례가 나옴"], "x": ["For example은 ‘예를 들어’라는 뜻의 연결어이다.", "앞의 ‘보호를 어떻게 넓힐지 고려해야 한다’는 주장을 카메라 사례로 뒷받침한다.", "예시 뒤에는 앞 내용을 구체화하는 문장이 이어진다."]}, "9": {"c": "g", "t": "commercial : 상업적인", "n": ["commercial = 상업적인", "commerce = 상업", "(반의어) private = 사적인"], "x": ["commercial and private use는 ‘상업적 용도와 사적 용도’라는 뜻이다.", "commercial은 명사 commerce(상업)에서 나온 형용사이다.", "private(사적인)과 대비되어 쓰였다."]}, "10": {"c": "g", "t": "struggle over : ~을 둘러싸고 투쟁하다", "n": ["struggle over ~ = ~에 대해 다투다, 투쟁하다", "(다의어) struggle with ~ = ~와 씨름하다", "struggled = 동사 struggle의 과거형"], "x": ["nations and citizens struggled over ~는 ‘국가들과 시민들은 ~에 대해 투쟁했다’라는 뜻이다.", "struggled는 동사 struggle(투쟁하다)의 과거형이다.", "struggle over는 의견이 갈려 다툰다는 느낌이다."]}, "11": {"c": "p", "t": "whether + 절 : ~인지 아닌지 (전치사 over의 목적어)", "n": ["whether new laws should be enacted = 새 법이 제정되어야 하는지", "enact = (법을) 제정하다", "to protect ... = ~을 보호하기 위해 (목적)"], "x": ["whether new laws should be enacted는 ‘새로운 법이 제정되어야 하는지’라는 뜻이다.", "whether 이하는 전치사 over의 목적어가 되는 명사절이다.", "should be enacted는 수동태이고, enacted는 동사 enact(제정하다)의 과거분사이다.", "to protect individuals from being photographed는 ‘개인들을 사진 찍히는 것으로부터 보호하기 위해’라는 뜻이다."]}, "12": {"c": "g", "t": "reconsideration : 재고", "n": ["reconsideration = 재고, 다시 생각함", "reconsider = 재고하다", "re- = 다시"], "x": ["The reconsideration of privacy는 ‘사생활에 대한 재고’라는 뜻이다.", "reconsideration은 동사 reconsider에 -ation이 붙은 명사이다.", "re-는 ‘다시’라는 뜻의 접두사이다."]}, "13": {"c": "p", "t": "과거분사 후치수식 : reconsideration brought about by ~", "n": ["reconsideration ← brought about by this new technology", "bring about = 초래하다, 일으키다", "brought = bring의 과거분사"], "x": ["brought about by this new technology는 ‘이 새로운 기술이 가져온’이라는 뜻으로 reconsideration을 꾸민다.", "brought는 동사 bring의 과거분사이다. bring about(초래하다)는 한 덩어리 표현이다.", "‘재고’가 기술에 의해 ‘초래된’ 수동 관계이다.", "뼈대는 The reconsideration ... re-affirmed a distinction이다."]}, "14": {"c": "g", "t": "re-affirm : 재확인하다", "n": ["reaffirm = 재확인하다", "affirm = 확인하다, 단언하다", "re-affirmed = 과거형"], "x": ["re-affirmed a distinction between private and public spaces는 ‘사적 공간과 공적 공간의 구별을 재확인했다’라는 뜻이다.", "re-affirmed는 동사 re-affirm의 과거형이다.", "affirm에 ‘다시’를 뜻하는 re-가 붙은 단어이다."]}, "15": {"c": "g", "t": "distinction : 구별, 차이", "n": ["distinction = 구별, 차이", "distinguish = 구별하다", "(다의어) distinction = 탁월함, 훈장"], "x": ["a distinction between private and public spaces는 ‘사적 공간과 공적 공간의 구별’이라는 뜻이다.", "distinction은 동사 distinguish에서 나온 명사이다.", "between A and B가 distinction을 뒤에서 꾸민다."]}, "16": {"c": "g", "t": "determine : 결정하다, 확정하다", "n": ["determine = 결정하다, 밝혀내다", "determined = 결정된 (과거분사)", "(다의어) determined = 단호한"], "x": ["It was determined by most cultures that ~은 ‘~라고 대부분의 문화에서 결정되었다’라는 뜻이다.", "It은 가주어이고 진짜 주어는 that 이하이다.", "was determined는 동사 determine의 수동태이다.", "determined는 형용사로 ‘단호한’이라는 뜻도 있다."]}, "17": {"c": "p", "t": "It ~ that 가주어 구문 + give consent to -ing", "n": ["It was determined that + 절 = ~라고 결정되었다", "give consent to ~ = ~에 동의하다", "being seen — and thus recorded = 보여지고, 따라서 녹화되는 것"], "x": ["that people automatically gave consent to being seen — and thus recorded는 ‘사람들이 보여지는 것, 따라서 녹화되는 것에 자동으로 동의했다’라는 뜻이다.", "that절은 가주어 It의 진짜 주어이다.", "consent to 뒤에는 명사나 동명사가 오는데, being seen과 (being) recorded가 and로 병렬된다.", "to가 전치사라서 뒤에 -ing가 온다.", "gave는 동사 give의 과거형이고 consent는 여기서 명사 ‘동의’이다."]}, "18": {"c": "g", "t": "once : 일단 ~하면 (접속사)", "n": ["once + 절 = 일단 ~하면", "(부사) once = 한 번, 한때", "voluntarily = 자발적으로"], "x": ["once they voluntarily stepped into a public space는 ‘일단 그들이 자발적으로 공공장소에 발을 들여놓으면’이라는 뜻이다.", "여기서 once는 부사가 아니라 접속사이다.", "stepped는 동사 step(발을 딛다)의 과거형이다.", "voluntarily는 ‘스스로 원해서’라는 뜻의 부사이다."]}, "19": {"c": "b", "t": "Although : 비록 ~이지만 (양보)", "n": ["although + 절, 주절 = ~이지만 …", "앞 절은 인정, 뒤 절이 핵심", "uncomfortable = 불편한"], "x": ["Although some people might be uncomfortable ~은 ‘일부 사람들은 불편할지도 모르지만’이라는 양보의 뜻이다.", "양보절은 인정하는 내용이고, 주절의 citizens ... have adjusted가 글쓴이의 핵심이다.", "might는 ‘~일지도 모른다’는 약한 추측이다."]}, "20": {"c": "g", "t": "adjust to : ~에 적응하다, 순응하다", "n": ["adjust to ~ = ~에 적응하다", "adjust = 조정하다", "have adjusted = 현재완료"], "x": ["citizens in most cultures have adjusted to the fact that ~은 ‘대부분 문화권의 시민들은 ~라는 사실에 적응해 왔다’라는 뜻이다.", "have adjusted는 현재완료로 ‘지금까지 적응해 왔다’는 뜻이다.", "adjust to의 to는 전치사라서 뒤에 명사 the fact가 온다."]}, "21": {"c": "p", "t": "the fact that : 동격 that절 + 동명사 주어 (giving up ~)", "n": ["the fact that + 완전한 문장", "giving up the right not to be observed = 관찰되지 않을 권리를 포기하는 것 (동명사 주어)", "give up = 포기하다", "the right not to be observed = 관찰되지 않을 권리"], "x": ["the fact that giving up ~ causes ...는 ‘~을 포기하는 것이 …를 초래한다는 사실’이라는 뜻이다.", "that절 안에서 giving up the right ...이 동명사 주어이고 동사는 causes이다. 주어가 단수라서 -s가 붙었다.", "the right not to be observed에서 not to be observed는 right를 꾸미는 to부정사의 수동 부정형이다.", "in these circumstances는 ‘이러한 상황에서’라는 뜻이다."]}, "22": {"c": "p", "t": "less A than B : B보다 A가 덜한 (비교 + failing to V)", "n": ["causes less harm to the community than failing to have surveillance", "less harm than ~ = ~보다 더 적은 해", "than 뒤 = failing to have surveillance (동명사구)"], "x": ["기준 : 아잉카 분석(giving up ~ 과 failing ~ 의 비교).", "less harm to the community than failing to have surveillance는 ‘감시를 갖추지 못하는 것보다 지역 사회에 더 적은 해’라는 뜻이다.", "비교 대상은 앞의 giving up ~ 과 뒤의 failing to have surveillance이다.", "fail to V는 ‘~하지 못하다’이고, failing은 동사 fail의 -ing형이다."]}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

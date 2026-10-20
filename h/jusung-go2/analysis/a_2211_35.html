@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>22년 11월 35번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "22년 11월 35번", "sub": "고2 · 질투를 감추는 이유", "one": "질투는 가장 알아차리기 어려운 감정, 우리는 느끼는 즉시 불공평함 같은 다른 감정으로 바꿔 스스로에게도 감춤", "flow": [{"label": "도입부", "range": "1~2번", "sum": "질투는 가장 이해하기 어려운 감정, 행동을 움직이는 질투를 알아차리기도 어려움 <small>(elusive)<\/small>", "eg": "친구의 새 가방이 부러워 괜히 짜증이 났는데, 왜 그런지 나도 모름"}, {"label": "본론 (1)", "range": "3번", "sum": "질투를 느껴도 거의 직접 표현하지 않는 것이 모호한 이유 <small>(almost never directly express)<\/small>", "eg": "새 가방을 자랑해도 ‘부럽다’ 대신 ‘예쁘네’라고만 말함"}, {"label": "본론 (2)", "range": "4~5번", "sum": "질투는 내가 열등하다는 인정을 수반, 그것을 남이 아는 것은 더 나쁨 <small>(admission of inferiority)<\/small>", "eg": "‘나는 저 가방이 없다’고 인정하는 것도 쓰린데, 친구가 눈치채면 더 창피함"}, {"label": "무관한 문장", "range": "6번", "sum": "질투가 질병을 부를 수 있다는 내용, 앞뒤 흐름에서 벗어난 문장 <small>(illness)<\/small>", "eg": "가방 이야기를 하다가 갑자기 건강 이야기가 튀어나옴"}, {"label": "결론 = 요지", "range": "7번", "sum": "질투를 느끼는 즉시 스스로에게 감추고 불공평함·분개로 바꿔 인식 <small>(disguise it to ourselves)<\/small>", "eg": "‘부러운 게 아니라 저 친구만 가방을 받은 게 불공평해’라고 스스로를 설득함"}], "sents": [{"n": 1, "mk": "Of all the human emotions, [1|none is trickier or more elusive than envy].", "ko": "모든 인간의 감정 중에서, 질투보다 더 까다롭거나 더 이해하기 어려운 것은 없다."}, {"n": 2, "mk": "[2|It] is very difficult [3|to actually discern] the envy that [5|motivates] people’s actions.", "ko": "사람들의 행동을 자극하는 질투를 실제로 알아차리는 것은 매우 어렵다."}, {"n": 3, "mk": "The reason for this [6|elusiveness] is simple : [7|we almost never directly express the envy we are feeling].", "ko": "이러한 모호함의 이유는 간단한데, 우리는 우리가 느끼고 있는 질투를 대부분 절대 직접적으로 표현하지 않는다."}, {"n": 4, "mk": "Envy [9|entails] the [10|admission] to ourselves [11|that] we are [13|inferior to] another person in something [12|we value].", "ko": "질투는 우리가 가치 있게 여기는 무언가에서 우리가 또 다른 사람보다 열등하다는 스스로에 대한 인정을 수반한다."}, {"n": 5, "star": 1, "mk": "[14|Not only is] [15|it] painful to admit this inferiority, but [22|it] is even worse [16|for others to see] that we are feeling [21|this].", "ko": "이 열등감을 인정하는 것은 고통스러울 뿐만 아니라, 우리가 이것을 느끼고 있다는 것을 다른 사람들이 알게 되는 것은 훨씬 더 나쁘다."}, {"n": 6, "mk": "Envy can [23|cause] illness because people with envy can [25|cast] the \"evil eye\" on someone they envy, [27|even unwittingly], [24|or] the [28|envious] person can become ill from the emotion.", "ko": "질투는 질병을 유발할 수도 있는데, 왜냐하면 질투하는 사람이 무의식적으로라도 그들이 시기하는 사람에게 ‘증오에 찬 눈초리’를 보낼 수 있거나 질투심이 강한 사람이 그 감정 때문에 건강이 나빠질 수 있기 때문이다."}, {"n": 7, "mk": "[32|And so] almost as soon as we experience the initial feelings of envy, [35|we are motivated to disguise it to ourselves] — [37|it is not envy we feel but unfairness] at the [38|distribution] of goods or attention, [39|resentment] at this unfairness, even anger.", "ko": "그래서 우리가 최초의 질투심을 경험하는 거의 즉시, 우리는 그것을 우리 자신에게 감추고자 하게 되는데, 즉 그것은 우리가 느끼는 질투가 아니라 재산의 분배나 관심에 대한 불공평함, 이 불공평함에 대한 분개, 심지어 분노라는 것이다."}], "items": {"1": {"c": "p", "t": "none + 비교급 than ~ : ~보다 더 …한 것은 없다 (최상급 의미)", "n": ["none is more A than B = B보다 더 A한 것은 없다", "tricky = 까다로운", "elusive = 이해하기 어려운, 붙잡기 힘든"], "x": ["none is trickier or more elusive than envy는 ‘질투보다 더 까다롭거나 더 이해하기 어려운 것은 없다’라는 뜻이다.", "부정 주어 none + 비교급 than은 ‘가장 ~하다’는 최상급 의미이다.", "즉 모든 감정 중에서 질투가 가장 까다롭고 파악하기 어렵다는 말이다.", "trickier는 형용사 tricky(까다로운)의 비교급이다. tricky의 y가 i로 바뀌어 -er이 붙었다.", "Of all the human emotions는 ‘모든 인간의 감정 중에서’라는 범위를 정한다."]}, "2": {"c": "o", "t": "It = to actually discern ~ (가주어)", "n": ["It = to actually discern the envy ... (진주어)", "가주어 It은 해석하지 않음"], "x": ["It is very difficult to ~는 ‘~하는 것은 매우 어렵다’라는 뜻이다.", "It은 가주어이고, 진짜 주어는 to actually discern ~ 이하이다.", "그래서 ‘그것은’이라고 풀지 않고 ‘~하는 것은’으로 해석한다."]}, "3": {"c": "g", "t": "discern : 알아차리다, 분별하다", "n": ["discern = 알아차리다, 분별하다", "actually = 실제로", "to actually discern = 분리부정사 (to와 동사 사이에 부사)"], "x": ["to actually discern the envy는 ‘질투를 실제로 알아차리는 것’이라는 뜻이다.", "to와 discern 사이의 actually는 동사를 강조하는 부사이다.", "이렇게 to와 동사원형 사이에 부사가 들어간 모양을 분리부정사라고 한다.", "discern은 눈에 잘 보이지 않는 것을 구별해 알아본다는 느낌의 동사이다."]}, "5": {"c": "g", "t": "motivate : 동기를 부여하다, 자극하다", "n": ["motivate = 동기를 부여하다, 자극하다", "motivate + 목적어 + to V = ~가 ...하도록 자극하다", "be motivated to V = ~하게 되다, ~하고자 하다"], "x": ["the envy that motivates people’s actions는 ‘사람들의 행동을 자극하는 질투’라는 뜻이다.", "that은 the envy를 가리키는 주격 관계대명사이고, motivates는 동사 motivate의 3인칭 단수 현재형이다.", "7번 문장의 are motivated to disguise는 수동태로 ‘감추고자 하게 되다’라는 뜻이다.", "motivation(동기 부여)이라는 명사형도 함께 알아 두면 좋다."]}, "6": {"c": "g", "t": "elusive : 이해하기 어려운, 붙잡기 힘든", "n": ["elusive = 이해하기 어려운, 붙잡기 힘든", "elusiveness = 모호함, 붙잡기 어려움 (명사형)", "elude = 피하다, 빠져나가다 (동사)"], "x": ["this elusiveness는 ‘이러한 모호함’이라는 뜻으로, 1번 문장의 more elusive를 명사로 바꿔 받는다.", "elusive는 형용사, 여기에 -ness가 붙으면 명사가 된다.", "손에 잡힐 듯하면서도 빠져나가서 알기 어렵다는 느낌의 단어이다."]}, "7": {"c": "k", "t": "주제문 : 질투는 직접 표현하지 않아서 알아차리기 어렵다", "n": ["almost never = 거의 ~하지 않다", "directly = 직접적으로", "express = 표현하다", "질투를 느껴도 겉으로 드러내지 않음"], "x": ["we almost never directly express the envy we are feeling은 ‘우리는 느끼고 있는 질투를 거의 직접 표현하지 않는다’라는 뜻이다.", "알아차리기 어려운 이유가 바로 이것이다.", "we are feeling은 the envy를 꾸미는 말로, 앞에 목적격 관계대명사 that이 생략되었다.", "이 글의 주제를 말하는 핵심 문장이다."], "e": "쉬운 예시 : 친구가 새 가방을 자랑해도 ‘부럽다’고 말하지 않고 ‘예쁘네’라고만 한다. 질투는 속으로만 남아서 겉으로는 알아보기 어렵다."}, "9": {"c": "g", "t": "entail : 수반하다, 필요로 하다", "n": ["entail = 수반하다, 포함하다", "entail A = A를 동반하다"], "x": ["Envy entails the admission ~은 ‘질투는 ~라는 인정을 수반한다’라는 뜻이다.", "질투에는 항상 어떤 인정이 따라온다는 말이다.", "entails는 동사 entail의 3인칭 단수 현재형이다."]}, "10": {"c": "g", "t": "admission : 인정 (다의어: 입장, 입학)", "n": ["admission = 인정, 시인", "(다의어) admission = 입장(료), 입학 허가", "admit = 인정하다 (동사)"], "x": ["the admission to ourselves는 ‘스스로에 대한 인정’이라는 뜻이다.", "admission은 동사 admit(인정하다)의 명사형이다.", "미술관 ‘입장료’, 대학 ‘입학 허가’라는 뜻도 있어서 문맥으로 구분한다."]}, "11": {"c": "p", "t": "동격의 that절 : admission의 내용 설명", "n": ["the admission that + 절 = ~라는 인정", "that절 = 인정의 구체적인 내용"], "x": ["that we are inferior to another person ~은 ‘우리가 다른 사람보다 열등하다는’이라는 뜻이다.", "앞의 명사 admission의 내용을 풀어 주는 동격의 that절이다.", "that 뒤에 주어 we와 동사 are가 갖춰진 완전한 문장이 온다.", "그래서 ‘~라는 인정’처럼 admission 뒤에 ‘~라는’을 붙여 해석한다."]}, "12": {"c": "p", "t": "something we value : 목적격 관계대명사 생략", "n": ["something (that) we value = 우리가 가치 있게 여기는 무언가", "value = 가치 있게 여기다 (동사)"], "x": ["something we value는 ‘우리가 가치 있게 여기는 무언가’라는 뜻이다.", "something과 we 사이에 목적격 관계대명사 that이 생략되었다.", "value는 여기서 명사가 아니라 동사이다. 동사 value 뒤에 목적어가 없는 것이 단서이다.", "in something we value는 ‘우리가 소중히 여기는 것에서’라는 범위를 나타낸다."]}, "13": {"c": "g", "t": "inferior to : ~보다 열등한", "n": ["inferior to ~ = ~보다 열등한", "inferiority = 열등감, 열등함 (명사)", "↔ superior to ~ = ~보다 우월한"], "x": ["we are inferior to another person은 ‘우리가 다른 사람보다 열등하다’라는 뜻이다.", "비교할 때 than이 아니라 to를 쓴다.", "5번 문장의 inferiority는 inferior의 명사형으로 ‘열등감’이라는 뜻이다.", "반대말은 superior(우월한)이고 역시 superior to ~로 쓴다."]}, "14": {"c": "p", "t": "Not only + 도치 ~ but ... : ~뿐만 아니라 ...도", "n": ["Not only is it ~ = ~할 뿐만 아니라 (도치)", "not only A but (also) B = A뿐만 아니라 B도", "부정어 + be동사 + 주어 (도치)"], "x": ["Not only is it painful ~, but it is even worse ~는 ‘~은 고통스러울 뿐만 아니라 훨씬 더 나쁘다’라는 뜻이다.", "not only 같은 부정어가 문장 앞에 오면 의문문처럼 어순이 바뀐다.", "원래 순서 it is가 is it으로 뒤집혔다.", "B(but 뒤)가 더 중요한 정보이다. even worse로 점점 강해진다."]}, "15": {"c": "o", "t": "it = to admit this inferiority (가주어)", "n": ["it = to admit this inferiority (진주어)", "painful = 고통스러운"], "x": ["it is painful to admit this inferiority는 ‘이 열등감을 인정하는 것은 고통스럽다’라는 뜻이다.", "it은 가주어이고 to admit ~이 진주어이다.", "painful은 명사 pain(고통)에 -ful이 붙은 형용사이다."]}, "16": {"c": "p", "t": "for + 의미상 주어 + to V : 다른 사람들이 ~하는 것", "n": ["for others to see = 다른 사람들이 보는 것", "it is worse for A to V = A가 ~하는 것이 더 나쁘다", "to V의 의미상 주어 = for A"], "x": ["it is even worse for others to see that ~은 ‘다른 사람들이 ~을 알게 되는 것은 훨씬 더 나쁘다’라는 뜻이다.", "for others는 to see의 의미상 주어로, ‘다른 사람들이’라고 해석한다.", "see는 여기서 ‘보다’가 아니라 ‘알게 되다, 이해하다’라는 뜻이다.", "that 이하는 see의 목적어인 명사절이다."]}, "21": {"c": "o", "t": "this = this inferiority (열등감)", "n": ["this = 앞에 나온 this inferiority (열등감)", "we are feeling this = 우리가 이 열등감을 느끼고 있다"], "x": ["that we are feeling this에서 this는 앞 문장 앞부분의 this inferiority를 가리킨다.", "즉 ‘우리가 이 열등감을 느끼고 있다는 것’이다.", "남이 알아채는 것이 내 열등감이라는 점을 짚어야 해석이 맞는다."]}, "22": {"c": "o", "t": "it = for others to see that ~ (가주어)", "n": ["it = for others to see that we are feeling this (진주어)", "even worse = 훨씬 더 나쁜"], "x": ["두 번째 it도 가주어이고, 진주어는 for others to see that ~ 이하이다.", "even은 비교급 worse를 강조해서 ‘훨씬’이라는 뜻이다.", "worse는 형용사 bad의 비교급이다."]}, "23": {"c": "g", "t": "cause : 유발하다 (다의어: 원인)", "n": ["cause = 유발하다, 일으키다", "(다의어) cause = 원인, 이유", "cause A = A를 일으키다"], "x": ["Envy can cause illness는 ‘질투는 질병을 유발할 수 있다’라는 뜻이다.", "여기서 cause는 동사이다.", "명사 cause는 ‘원인’이라는 뜻이다. 문장 속 품사로 구분한다."]}, "24": {"c": "b", "t": "or : 이유를 하나 더 잇는 신호", "n": ["because ~, or (because) ~ = ~이기 때문이거나, 또는 ~이기 때문이다", "or = 또는"], "x": ["질병이 생기는 이유를 because ~ or ~로 두 가지 든다.", "or 뒤에는 because가 생략되어 있어, 두 번째 이유가 이어진다.", "첫 번째 이유는 시기하는 쪽의 눈초리이고, 두 번째 이유는 질투하는 사람 자신의 몸 상태이다."]}, "25": {"c": "g", "t": "cast : 던지다, 보내다 (다의어: 배역, 깁스)", "n": ["cast = 던지다, (시선을) 보내다", "cast the evil eye on ~ = ~에게 증오에 찬 눈초리를 보내다", "(다의어) cast = 배역, 깁스"], "x": ["cast the ‘evil eye’ on someone은 ‘누군가에게 증오에 찬 눈초리를 보내다’라는 뜻이다.", "cast는 동사 원형이다. can 뒤라서 원형이 왔다.", "cast는 현재·과거·과거분사의 모양이 모두 같은 동사이다.", "명사로는 영화의 ‘출연진’이나 ‘깁스’라는 뜻도 있다."]}, "27": {"c": "g", "t": "unwittingly : 무의식적으로, 자기도 모르게", "n": ["unwittingly = 무의식적으로, 모르는 사이에", "unwitting = 모르는, 무의식적인 (형용사)", "knowingly = 알면서, 고의로 (반의어)"], "x": ["even unwittingly는 ‘무의식적으로라도’라는 뜻이다.", "일부러 그러지 않고 자기도 모르게 눈초리를 보내는 경우까지 포함한다는 말이다.", "unwitting(모르는)에 -ly가 붙어 부사가 되었다."]}, "28": {"c": "g", "t": "envious : 질투하는, 시기하는 (envy의 파생어)", "n": ["envious = 질투하는, 시기하는 (형용사)", "envy = 질투 (명사) / 시기하다 (동사)", "be envious of ~ = ~을 부러워하다"], "x": ["the envious person은 ‘질투심이 강한 사람’이라는 뜻이다.", "명사 envy(질투)에 -ous가 붙어 형용사가 되었다.", "앞의 they envy에서 envy는 동사로 쓰여 ‘시기하다’라는 뜻이다. 같은 단어가 품사만 바뀌었다."]}, "32": {"c": "b", "t": "And so : 그래서", "n": ["and so = 그래서, 그런 이유로", "앞 내용의 결과를 이끎"], "x": ["And so는 ‘그래서, 그런 이유로’라는 뜻의 연결어이다.", "앞에서 말한 질투의 고통스러움이 이 문장의 원인이 된다.", "결론 부분이 시작되는 신호이다."]}, "35": {"c": "k", "t": "요지문 : 질투를 느끼는 즉시 스스로에게 감추려 한다", "n": ["be motivated to V = ~하고자 하게 되다", "disguise = 감추다, 위장하다", "to ourselves = 우리 자신에게", "질투를 즉시 다른 모습으로 바꿔 감춤"], "x": ["we are motivated to disguise it to ourselves는 ‘우리는 그것을 우리 자신에게 감추고자 하게 된다’라는 뜻이다.", "it은 앞의 envy(질투)를 가리킨다.", "남에게만이 아니라 자기 자신에게도 질투를 숨긴다는 점이 핵심이다.", "motivated는 동사 motivate의 과거분사로, be motivated to V는 수동태이다.", "이 글의 요지를 담은 마지막 핵심 문장이다."], "e": "쉬운 예시 : 친구의 새 가방이 부러운 순간, 나는 ‘부럽다’고 인정하지 않고 ‘저건 별로야’라고 스스로를 설득한다."}, "37": {"c": "p", "t": "not A but B : A가 아니라 B", "n": ["not A but B = A가 아니라 B", "it is not envy (that) we feel = 우리가 느끼는 것은 질투가 아니다", "unfairness = 불공평함 (fair의 반의어 unfair의 명사형)"], "x": ["it is not envy we feel but unfairness ~는 ‘우리가 느끼는 것은 질투가 아니라 불공평함이다’라는 뜻이다.", "기준 : 아잉카 분석(not A but B, envy we feel의 관계대명사 that 생략).", "A(질투)를 부정하고 B(불공평함, 분개, 분노)를 내세운다.", "unfairness는 형용사 fair(공정한)에서 unfair, unfairness로 이어진 파생어이다."]}, "38": {"c": "g", "t": "distribution : 분배, 분포", "n": ["distribution = 분배, 분포", "distribute = 분배하다 (동사)", "distribution of goods = 재산(물품)의 분배"], "x": ["the distribution of goods or attention은 ‘재산이나 관심의 분배’라는 뜻이다.", "distribution은 동사 distribute(분배하다)의 명사형이다.", "내 몫이 남보다 적다고 느낄 때 쓰는 말이다.", "goods는 여기서 ‘재산, 물품’이라는 뜻의 복수 명사이다."]}, "39": {"c": "g", "t": "resentment : 분개, 분함", "n": ["resentment = 분개, 억울하고 분한 감정", "resent = 분개하다 (동사)", "resentment at ~ = ~에 대한 분개"], "x": ["resentment at this unfairness는 ‘이 불공평함에 대한 분개’라는 뜻이다.", "resentment는 동사 resent(분개하다)의 명사형이다.", "질투와 달리 ‘내가 부당하게 당했다’는 느낌이 담겨 있다."]}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

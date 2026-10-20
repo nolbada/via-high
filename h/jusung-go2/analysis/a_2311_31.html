@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>23년 11월 31번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "23년 11월 31번", "sub": "고2 · 기적과 무지", "one": "기적은 자연의 이치를 모르는 무지에서 나온 말이며, 원인을 따져 보기 귀찮아하는 사람들의 핑계", "flow": [{"label": "도입부", "range": "1번", "sum": "통계적으로 불가능한 우연을 비이성적 사건으로 보고 어떤 이는 기적이라 정의 <small>(define it as a miracle)<\/small>", "eg": "복권에 연달아 당첨된 사람의 이야기를 ‘기적’이라 부름"}, {"label": "주제", "range": "2번", "sum": "Montaigne : 기적의 기원은 자연이 아니라 자연에 대한 우리의 무지 <small>(ignorance)<\/small>", "eg": "복권 당첨의 원리를 모르니 ‘기적’처럼 느껴질 뿐"}, {"label": "본론 (1)", "range": "3~4번", "sum": "영광스러운 기적도 나중에 자연 법칙이나 당시 몰랐던 기술로 밝혀짐, 신비한 것은 아직 기적이 아님 <small>(not yet miracles)<\/small>", "eg": "복권 추첨의 확률 원리가 알려지면 ‘기적’이 ‘이해된 현상’으로 바뀜"}, {"label": "본론 (2)", "range": "5~6번", "sum": "기적은 인간 능력 너머 ‘더 높은 힘’의 개입을 가정하지만, 신의 계시 없이 기적을 일으키는 체계적 방법도 존재 <small>(methodical and simple ways)<\/small>", "eg": "당첨 확률을 올리는 방법을 알면 당첨은 신의 선물이 아님"}, {"label": "결론", "range": "7번", "sum": "사건의 근원을 조사해 찾는 대신 우리는 그것을 기적이라 정의 <small>(Instead of checking it out)<\/small>", "eg": "당첨 원리를 조사하는 대신 ‘기적이다’라고 말해 버림"}, {"label": "요지", "range": "8번", "sum": "기적은 생각하기에 너무 게으른 사람들의 핑계 <small>(too lazy to think)<\/small>", "eg": "‘기적이다’라는 말로 원인을 따져 보는 수고를 건너뜀"}], "sents": [{"n": 1, "mk": "[1|Coincidence] that is statistically impossible [3|seems to us like an irrational event], and some [4|define it as a miracle].", "ko": "통계적으로 불가능한 우연은 우리에게 비이성적인 사건처럼 보이고, 어떤 이들은 그것을 기적으로 정의한다."}, {"n": 2, "mk": "[5|But], [6|as Montaigne has said], “the origin of a miracle is in our [7|ignorance], at the level of our knowledge of nature, and not in nature itself.”", "ko": "그러나 Montaigne가 말했듯이, “기적의 기원은 우리의 무지에 있으며, 자연에 대한 우리 지식의 수준에 있지, 자연 그 자체에 있지 않다.”"}, {"n": 3, "mk": "[8|Glorious] miracles have been later on [9|discovered to be] [10|obedience to the laws of nature] or a technological development that was not widely known at the time.", "ko": "영광스러운 기적들은 자연의 법칙에 대한 순응이거나, 혹은 당시에는 널리 알려지지 않았던 기술적 발전인 것으로 나중에 발견되었다."}, {"n": 4, "mk": "As the German poet, Goethe, phrased it: “[13|Things that are mysterious are not yet miracles].”", "ko": "독일 시인 Goethe가 그것을 표현했듯이, “신비한 것들은 아직 ‘기적’이 아니다.”"}, {"n": 5, "mk": "The miracle [14|assumes] the [15|intervention] of a “higher power” in its [16|occurrence] [17|that is beyond human capability to grasp].", "ko": "기적은 그것의 발생에 있어서 인간이 이해할 수 있는 능력 너머의 ‘더 높은 힘’의 개입을 가정한다."}, {"n": 6, "mk": "[18|Yet] there are [19|methodical and simple ways to “cause a miracle”] without [20|divine revelation and inspiration].", "ko": "하지만 신적 계시와 영감 없이 ‘기적을 일으키는’ 체계적이고 간단한 방법들이 있다."}, {"n": 7, "mk": "[22|Instead of checking it out, investigating and finding the source of the event], we define it as a miracle.", "ko": "그것을 확인하는 것, 즉 그 사건의 근원을 조사하고 찾는 것 대신에, 우리는 그것을 기적으로 정의한다."}, {"n": 8, "mk": "The miracle, [23|then], is [24|the excuse] of [25|those] who are [26|too lazy to think].", "ko": "그렇다면, 기적은 생각하기에 너무 게으른 사람들의 핑계이다."}], "items": {"1": {"c": "g", "t": "coincidence : 우연, 우연의 일치", "n": ["coincidence = 우연, 우연의 일치", "coincide = 동시에 일어나다", "(다의어) coincide with ~ = ~와 일치하다"], "x": ["Coincidence that is statistically impossible은 ‘통계적으로 불가능한 우연’이라는 뜻이다.", "coincidence는 서로 관련 없는 일이 겹쳐 일어나는 것이다.", "동사 coincide(동시에 일어나다)에서 나온 명사이다."]}, "3": {"c": "g", "t": "seem to + 명사구 like ~ : ~처럼 보이다", "n": ["seem like ~ = ~처럼 보이다", "to us = 우리에게", "irrational = 비이성적인"], "x": ["seems to us like an irrational event는 ‘우리에게 비이성적인 사건처럼 보인다’라는 뜻이다.", "seems는 주어 Coincidence가 단수라서 -s가 붙었다.", "irrational은 rational(이성적인)에 ir-가 붙은 반의어이다."]}, "4": {"c": "g", "t": "define A as B : A를 B로 정의하다", "n": ["define A as B = A를 B로 정의하다", "definition = 정의", "it = Coincidence that is statistically impossible"], "x": ["some define it as a miracle은 ‘어떤 이들은 그것을 기적으로 정의한다’라는 뜻이다.", "it은 앞의 통계적으로 불가능한 우연을 가리킨다.", "some은 ‘어떤 사람들’이라는 대명사이다."]}, "5": {"c": "b", "t": "But : 반전 신호", "n": ["but = 그러나", "앞 내용에 대한 글쓴이의 반박이 시작됨"], "x": ["But은 ‘그러나’라는 뜻의 연결어이다.", "앞에서 말한 ‘기적’의 정의를 뒤집는 흐름이 시작된다.", "이 뒤에 글쓴이가 인용하는 Montaigne의 말이 나온다."]}, "6": {"c": "p", "t": "as + 절 : ~가 …했듯이", "n": ["as Montaigne has said = Montaigne가 말했듯이", "has said = 현재완료 (말해 왔다)", "인용문 앞에 붙는 표현"], "x": ["as Montaigne has said는 ‘Montaigne가 말했듯이’라는 뜻이다.", "as 뒤에 주어와 동사가 있어서 접속사이다.", "has said는 현재완료이고 said는 동사 say의 과거분사이다."]}, "7": {"c": "k", "t": "주제문 : 기적의 기원 = 우리의 무지", "n": ["origin = 기원, 근원", "ignorance = 무지", "the level of our knowledge of nature = 자연에 대한 우리 지식의 수준", "A and not B = B가 아니라 A"], "x": ["the origin of a miracle is in our ignorance는 ‘기적의 기원은 우리의 무지에 있다’라는 뜻이다.", "and not in nature itself는 ‘자연 그 자체가 아니라’라는 뜻이다.", "기적은 자연이 신비로운 것이 아니라 우리가 모르는 것에서 생긴다는 뜻이다.", "이 글의 주제를 담은 핵심 문장이며 빈칸 추론의 후보이다."], "e": "쉬운 예시 : 마술은 원리를 모를 때만 기적처럼 보인다. 원리를 알고 나면 그냥 기술이다."}, "8": {"c": "g", "t": "glorious : 영광스러운, 멋진", "n": ["glorious = 영광스러운, 훌륭한", "glory = 영광", "(비슷한 말) magnificent"], "x": ["Glorious miracles는 ‘영광스러운 기적들’이라는 뜻이다.", "glorious는 명사 glory(영광)에 -ous가 붙은 형용사이다.", "대단해 보이는 기적도 나중에 설명된다는 흐름의 출발점이다."]}, "9": {"c": "p", "t": "be discovered to be ~ : ~인 것으로 밝혀지다", "n": ["discover A to be B = A가 B임을 알아내다", "A is discovered to be B = A는 B인 것으로 밝혀지다", "later on = 나중에"], "x": ["have been later on discovered to be ~는 ‘나중에 ~인 것으로 발견되었다’라는 뜻이다.", "have been discovered는 현재완료 수동태이고, discovered는 동사 discover의 과거분사이다.", "to be 이하가 기적의 정체를 설명한다.", "later on이 have been과 discovered 사이에 끼어 있다."]}, "10": {"c": "g", "t": "obedience to ~ : ~에 대한 순응", "n": ["obedience = 순응, 복종", "obey = 따르다, 복종하다", "obedience to the laws of nature = 자연 법칙에 대한 순응"], "x": ["obedience to the laws of nature는 ‘자연 법칙에 대한 순응’이라는 뜻이다.", "obedience는 동사 obey에서 나온 명사이다.", "신비해 보이던 일이 사실은 자연 법칙을 따른 결과였다는 뜻이다."]}, "13": {"c": "k", "t": "핵심 문장 : 신비한 것은 아직 기적이 아님", "n": ["mysterious = 신비한", "not yet = 아직 ~하지 않은", "신비해 보여도 설명되면 기적이 아님"], "x": ["Things that are mysterious are not yet miracles는 ‘신비한 것들은 아직 기적이 아니다’라는 뜻이다.", "that은 Things를 꾸미는 주격 관계대명사이다.", "‘아직’이라는 말은 나중에 설명될 것이라는 뜻을 담는다.", "2번 문장의 ‘무지’와 이어지는 핵심 문장이다."], "e": "쉬운 예시 : 번개가 신의 분노로 보이던 시절이 있었다. 원리를 알게 된 지금은 신비하지만 기적은 아니다."}, "14": {"c": "g", "t": "assume : 가정하다, 추정하다", "n": ["assume = 가정하다, 추정하다", "(다의어) assume = (태도 등을) 취하다, 떠맡다", "assumption = 가정"], "x": ["The miracle assumes the intervention of a “higher power”는 ‘기적은 ‘더 높은 힘’의 개입을 가정한다’라는 뜻이다.", "assumes는 동사 assume의 3인칭 단수 현재형이다.", "assume은 ‘사실이라고 여기고 출발한다’는 느낌이다."]}, "15": {"c": "g", "t": "intervention : 개입", "n": ["intervention = 개입, 간섭", "intervene = 개입하다", "the intervention of ~ = ~의 개입"], "x": ["the intervention of a “higher power”는 ‘더 높은 힘의 개입’이라는 뜻이다.", "intervention은 동사 intervene에서 나온 명사이다.", "신이나 초자연적 힘이 끼어든다는 뜻이다."]}, "16": {"c": "g", "t": "occurrence : 발생, 일어남", "n": ["occurrence = 발생, 사건", "occur = 일어나다", "in its occurrence = 그것이 일어나는 데 있어서"], "x": ["in its occurrence는 ‘그것의 발생에 있어서’라는 뜻이다.", "occurrence는 동사 occur(일어나다)에서 나온 명사이다.", "its는 the miracle을 가리킨다."]}, "17": {"c": "p", "t": "관계대명사 that + beyond ~ to grasp : power 수식", "n": ["a “higher power” ← that is beyond human capability to grasp", "beyond = ~ 너머의", "capability to grasp = 이해할 수 있는 능력", "grasp = 이해하다, 파악하다"], "x": ["that is beyond human capability to grasp는 ‘인간이 이해할 수 있는 능력 너머에 있는’이라는 뜻이다.", "that은 higher power를 꾸미는 주격 관계대명사이다. 뒤에 동사 is가 온다.", "to grasp는 앞의 capability를 꾸미는 to부정사이다.", "(다의어) grasp = 꽉 잡다, 이해하다"]}, "18": {"c": "b", "t": "Yet : 하지만 (반전)", "n": ["yet = 하지만, 그럼에도", "앞의 ‘기적은 높은 힘’이라는 생각을 반박"], "x": ["Yet은 ‘하지만’이라는 뜻의 연결어이다.", "앞 문장의 ‘기적은 더 높은 힘의 개입’이라는 생각에 반대하는 내용이 이어진다.", "yet은 ‘아직’이라는 뜻의 부사도 있으니 문맥으로 구분한다."]}, "19": {"c": "p", "t": "ways to V : ~하는 방법 (to부정사 후치수식)", "n": ["ways to “cause a miracle” = ‘기적을 일으키는’ 방법들", "methodical = 체계적인", "cause = 일으키다"], "x": ["methodical and simple ways to “cause a miracle”은 ‘기적을 일으키는 체계적이고 간단한 방법들’이라는 뜻이다.", "to cause는 ways를 뒤에서 꾸미는 to부정사이다.", "methodical은 ‘순서와 방법이 짜여 있는’이라는 뜻이다.", "cause는 여기서 동사 ‘일으키다’이다."]}, "20": {"c": "g", "t": "divine revelation and inspiration : 신적 계시와 영감", "n": ["divine = 신의, 신성한", "revelation = 계시, 폭로", "inspiration = 영감", "without A and B = A와 B 없이"], "x": ["without divine revelation and inspiration은 ‘신적 계시와 영감 없이’라는 뜻이다.", "revelation은 동사 reveal(드러내다)에서 나온 명사이다.", "inspiration은 동사 inspire(영감을 주다)에서 나온 명사이다.", "신의 개입 없이도 기적 같은 일이 가능하다는 뜻이다."]}, "22": {"c": "p", "t": "Instead of + -ing · 병렬 동명사 : checking it out, investigating and finding", "n": ["instead of + -ing = ~하는 대신에", "check out = 확인하다", "investigate = 조사하다", "find the source of the event = 그 사건의 근원을 찾다"], "x": ["기준 : check out을 한 덩어리 구동사로 본다.", "Instead of ~, we define it as a miracle은 ‘~하는 대신에 우리는 그것을 기적으로 정의한다’라는 뜻이다.", "instead of는 전치사라서 뒤에 동명사가 오고, checking, investigating, finding이 병렬된다.", "해야 할 일(조사)을 하지 않고 쉬운 방법(기적이라 부르기)을 택한다는 비판이다.", "it은 앞에 나온 ‘기적처럼 보이는 사건’을 가리킨다."]}, "23": {"c": "b", "t": "then : 그렇다면 (결론 도출)", "n": ["then = 그렇다면, 그러면", "앞 내용을 이어 결론을 내림"], "x": ["The miracle, then, is ~에서 then은 ‘그렇다면’이라는 뜻의 연결어이다.", "지금까지의 이야기에서 결론이 나온다는 신호이다.", "then은 ‘그때’라는 뜻의 부사로도 쓰인다."]}, "24": {"c": "k", "t": "요지문 : 기적 = 게으른 사람들의 핑계", "n": ["excuse = 핑계, 변명", "(동사) excuse = 용서하다", "= justification (비슷한 말로 변형 출제)", "too lazy to think = 생각하기에 너무 게으른"], "x": ["The miracle is the excuse of those who are too lazy to think는 ‘기적은 생각하기에 너무 게으른 사람들의 핑계이다’라는 뜻이다.", "excuse는 명사로 ‘핑계, 변명’이다. 동사 ‘용서하다’와 구별한다.", "원인을 알아보기 귀찮아서 ‘기적’이라고 부른다는 뜻이다.", "이 글의 요지를 담은 마지막 핵심 문장이다."], "e": "쉬운 예시 : ‘원리는 모르겠고 그냥 기적이야’라고 말하는 순간, 원리를 알아볼 기회는 사라진다."}, "25": {"c": "o", "t": "those = people (사람들)", "n": ["those who ~ = ~하는 사람들", "those = people", "who = 주격 관계대명사"], "x": ["those who are too lazy to think의 those는 ‘사람들’을 뜻한다.", "특정한 대상이 아니라 ‘게으른 사람들’ 일반을 가리킨다.", "who는 those를 꾸미는 주격 관계대명사이다."]}, "26": {"c": "p", "t": "too + 형용사 + to V : 너무 ~해서 …할 수 없다 (~하기엔 너무 ~하다)", "n": ["too lazy to think = 너무 게을러서 생각하지 못하는", "too + 형 + to V = ~하기에는 너무 …한", "lazy = 게으른"], "x": ["too lazy to think는 ‘생각하기에는 너무 게으른’이라는 뜻이다.", "too ~ to V 구문은 ‘너무 ~해서 …할 수 없다’로 해석할 수 있다.", "to think는 lazy를 꾸미는 to부정사의 부사적 용법이다."]}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>24년 10월 22번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "24년 10월 22번", "sub": "고2 · 측정의 개념", "one": "측정은 이미 있는 값을 그대로 재는 일이 아니라, 이미 정립된 여러 이론을 바탕으로 특정 크기를 계산해 내는 과정", "flow": [{"label": "도입부", "range": "1번", "sum": "볼링공의 질량은 저울로 이미 알고 있는 질량과 비교해 쉽게 측정 <small>(compare it with a known mass)<\/small>", "eg": "볼링공을 저울에 올려 이미 질량을 아는 금속 큐브와 견주어 봄"}, {"label": "본론 (1)", "range": "2~4번", "sum": "먼 별의 질량은 훨씬 복잡, 별의 질량 측정에는 다양한 이론이 개입 <small>(involves various theories)<\/small>", "eg": "별은 저울에 올릴 수 없어서 볼링공처럼 잴 수가 없음"}, {"label": "본론 (2)", "range": "5~6번", "sum": "쌍성의 질량 중심과 거리를 구한 뒤 케플러 법칙으로 질량을 계산 <small>(measure other quantities and calculate)<\/small>", "eg": "별 사이의 거리와 공전 주기를 재서 공식에 넣어 질량을 구함"}, {"label": "결론 = 요지", "range": "7번", "sum": "측정은 단순한 추정이 아니라 정립된 이론을 바탕으로 특정 크기를 결정하는 일 <small>(a determination of certain magnitudes)<\/small>", "eg": "별의 질량 값은 이론이라는 계산 도구가 있어야만 얻어지는 값"}], "sents": [{"n": 1, "mk": "[1|To determine] the [2|mass] of my bowling ball, I might put it onto a [3|balance] and compare it with a known mass, such as a number of metal cubes [5|each weighing 1, 10, or 100 grams].", "ko": "내 볼링공의 질량을 측정하기 위해, 나는 그것을 저울 위에 올려놓고 각각 1g, 10g, 또는 100g이 나가는 여러 개의 금속 큐브 같은 이미 알고 있는 질량과 비교할 수 있다."}, {"n": 2, "mk": "Things get much more [7|complicated] if I want to know the mass of a [8|distant] star.", "ko": "만약 내가 먼 별의 질량을 알고 싶다면 상황은 훨씬 더 복잡해진다."}, {"n": 3, "mk": "[9|How do I measure] [10|it]?", "ko": "나는 어떻게 그것을 측정할까?"}, {"n": 4, "mk": "We can [12|roughly] say that [14|measuring the mass of a star] [13|involves] various theories.", "ko": "우리는 별의 질량을 측정하는 것은 다양한 이론을 포함한다고 대략적으로 말할 수 있다."}, {"n": 5, "mk": "If we want to measure the mass of a [16|binary star], we first [17|determine] a [18|center of mass] between the two stars, then their distance from [23|that center] [19|which we can then use], together with a value for the period and a certain [21|instance] of Kepler’s Third Law, to calculate the mass.", "ko": "만약 우리가 쌍성의 질량을 측정하기를 원한다면, 우리는 먼저 두 별 사이의 질량 중심을 알아내고, 그다음 그 중심으로부터의 그것들의 거리를 알아내는데, 우리는 그 거리를 공전 주기의 값과 케플러 제3법칙의 특정한 사례와 함께 사용하여 질량을 계산할 수 있다."}, {"n": 6, "mk": "[24|In other words], [25|in order to] “[11|measure]” the star mass, [35|we measure other quantities and use those values, together with certain equations, to calculate the mass].", "ko": "다시 말해서, 별의 질량을 ‘측정’하기 위해서 우리는 다른 양들을 측정하고 그 값들을 특정 방정식과 함께 사용하여 질량을 계산한다."}, {"n": 7, "mk": "[28|Measurement is not a simple and unmediated estimation of independently existing properties, but a determination of certain magnitudes before the background of a number of accepted theories].", "ko": "측정은 독립적으로 존재하는 값들에 대한 단순하고 중재되지 않은 추정이 아니라, 이미 정립된 여러 이론을 바탕으로 특정 크기들을 계산하는 것이다."}], "items": {"1": {"c": "p", "t": "To determine ~ : 목적의 to부정사 (~하기 위해)", "n": ["To V, S + V = ~하기 위해, S가 ...한다", "determine = 알아내다, 결정하다", "문장 앞의 to V는 보통 목적"], "x": ["To determine the mass of my bowling ball은 ‘내 볼링공의 질량을 측정하기 위해’라는 뜻이다.", "문장 맨 앞 to부정사는 뒤의 주어와 동사 앞에서 ‘~하기 위해’라는 목적으로 풀린다.", "뼈대는 I might put it onto a balance and compare it with a known mass이다.", "put과 compare 두 동사가 and로 이어진 병렬이고 might 뒤에 함께 걸린다.", "known은 동사 know의 과거분사로, ‘이미 알려진’이라는 뜻으로 mass를 꾸민다."]}, "2": {"c": "g", "t": "mass : 질량 (다의어: 덩어리, 대중)", "n": ["mass = 질량", "(다의어) mass = 덩어리, 다수, 대중", "mass of ~ = ~의 질량"], "x": ["the mass of my bowling ball은 ‘내 볼링공의 질량’이라는 뜻이다.", "mass는 물체가 가진 물질의 양을 뜻하는 과학 용어이다.", "‘덩어리’나 ‘대중’이라는 뜻도 있어서 문맥으로 구분한다.", "이 글에서는 계속 ‘질량’이다."]}, "3": {"c": "g", "t": "balance : 저울 (다의어: 균형)", "n": ["balance = 저울", "(다의어) balance = 균형, 균형을 잡다", "put A onto B = A를 B 위에 올려놓다"], "x": ["put it onto a balance는 ‘그것을 저울 위에 올려놓다’라는 뜻이다.", "balance는 여기서 막대 양쪽을 맞춰 무게를 재는 ‘저울’이다.", "일반적으로는 ‘균형’이라는 뜻으로 더 자주 쓰인다."]}, "5": {"c": "p", "t": "each weighing ~ : 분사구가 명사를 꾸밈", "n": ["metal cubes each weighing 1, 10, or 100 grams = 각각 1, 10, 100g이 나가는 금속 큐브", "weigh = 무게가 ~이다", "each = 각각"], "x": ["metal cubes each weighing 1, 10, or 100 grams는 ‘각각 1g, 10g, 또는 100g이 나가는 금속 큐브’라는 뜻이다.", "weighing은 동사 weigh(무게가 ~이다)의 -ing형으로, 앞의 cubes를 뒤에서 꾸민다.", "each는 큐브 하나하나가 각각 그만한 무게라는 뜻이다.", "weigh는 ‘무게를 달다’가 아니라 ‘무게가 나가다’라는 뜻으로 쓰였다."]}, "7": {"c": "g", "t": "complicated : 복잡한", "n": ["complicated = 복잡한", "complicate = 복잡하게 만들다 (동사)", "get + 형용사의 비교급 = 더 ~해지다"], "x": ["Things get much more complicated는 ‘상황은 훨씬 더 복잡해진다’라는 뜻이다.", "get은 여기서 ‘~해지다’라는 뜻으로, 뒤에 형용사가 온다.", "much는 비교급 more complicated를 강조하는 부사로 ‘훨씬’이라는 뜻이다.", "if 이하는 ‘만약 ~을 알고 싶다면’이라는 조건이다."]}, "8": {"c": "g", "t": "distant : 먼, 떨어진", "n": ["distant = 먼, 멀리 떨어진", "distance = 거리 (명사)", "a distant star = 먼 별"], "x": ["a distant star는 ‘먼 별’이라는 뜻이다.", "명사 distance(거리)에서 나온 형용사이다.", "볼링공처럼 직접 만지거나 저울에 올릴 수 없다는 점이 포인트이다."]}, "9": {"c": "b", "t": "How do I measure it? : 화제를 이끄는 질문", "n": ["How do I V? = 나는 어떻게 ~할까?", "질문으로 다음 설명을 이끎", "앞 문장의 어려움에 이어지는 전환"], "x": ["‘나는 어떻게 그것을 측정할까?’라는 뜻이다.", "답을 구하는 질문으로, 이어지는 문장들이 그 방법을 설명한다.", "의문문이라서 do I 어순(조동사 + 주어)이다.", "글이 볼링공에서 별로 넘어가는 신호이다."]}, "10": {"c": "o", "t": "it = the mass of a distant star (먼 별의 질량)", "n": ["it = the mass of a distant star (2번)", "measure = 측정하다"], "x": ["How do I measure it?의 it은 바로 앞 문장의 the mass of a distant star를 가리킨다.", "볼링공이 아니라 먼 별의 질량이라는 점에 주의해야 한다.", "measure는 여기서 ‘측정하다’라는 동사이다."]}, "11": {"c": "g", "t": "measure : 측정하다 (다의어: 조치, 척도)", "n": ["measure = 측정하다", "(다의어) measure = 조치, 척도, 기준", "measurement = 측정 (명사)"], "x": ["in order to “measure” the star mass는 ‘별의 질량을 ‘측정’하기 위해서’라는 뜻이다.", "따옴표는 이것이 우리가 보통 생각하는 직접 재기가 아님을 뜻한다.", "명사 measure는 ‘조치’나 ‘척도’라는 뜻이다. 7번의 Measurement는 동사 measure의 명사형이다."]}, "12": {"c": "g", "t": "roughly : 대략, 거칠게", "n": ["roughly = 대략, 대충", "rough = 거친, 대략적인", "roughly say = 대략적으로 말하다"], "x": ["We can roughly say that ~은 ‘우리는 ~라고 대략 말할 수 있다’라는 뜻이다.", "rough는 ‘거친’ 외에 ‘대략적인’이라는 뜻도 있다.", "roughly는 형용사 rough에 -ly가 붙은 부사이다."]}, "13": {"c": "g", "t": "involve : 포함하다, 수반하다 (다의어: 관련시키다)", "n": ["involve = 포함하다, 수반하다", "(다의어) involve = 관련시키다, 참여시키다", "be involved in ~ = ~에 관여하다"], "x": ["measuring the mass of a star involves various theories는 ‘별의 질량을 측정하는 일은 다양한 이론을 포함한다’라는 뜻이다.", "involves는 동사 involve의 3인칭 단수 현재형이다.", "주어가 measuring(동명사) 하나이므로 단수 동사를 썼다.", "다의어이므로 목적어와 함께 외운다."]}, "14": {"c": "p", "t": "that + 동명사 주어 : measuring the mass of a star", "n": ["say that + 절 = ~라고 말하다", "measuring the mass of a star = 별의 질량을 측정하는 것 (that절의 주어)", "that절의 동사 = involves"], "x": ["that measuring the mass of a star involves various theories는 say의 목적어인 명사절이다.", "that절 안에서 동명사구 measuring the mass of a star가 주어이다.", "동사는 involves이므로, 주어가 어디까지인지 먼저 끊으면 쉽다.", "‘별의 질량을 측정하는 것’이 주어이다."]}, "16": {"c": "g", "t": "binary star : 쌍성", "n": ["binary star = 쌍성 (서로 돌고 있는 두 별)", "binary = 둘로 이루어진", "the two stars = 쌍성을 이루는 두 별"], "x": ["a binary star는 ‘쌍성’이라는 뜻이다.", "서로의 중력으로 묶여 함께 도는 두 별을 한 쌍으로 부르는 말이다.", "binary는 ‘둘로 이루어진’이라는 뜻의 형용사이다."]}, "17": {"c": "g", "t": "determine : 알아내다, 결정하다 (다의어)", "n": ["determine = 알아내다, 측정하다, 결정하다", "(다의어) determine = 결심하다", "determination = 결정, 결심 (명사)"], "x": ["we first determine a center of mass ~는 ‘우리는 먼저 질량 중심을 알아낸다’라는 뜻이다.", "determine의 목적어는 a center of mass이고, then 뒤의 their distance ~도 목적어가 된다.", "즉 ‘먼저 질량 중심을 알아내고, 그다음 거리를 알아낸다’로 읽는다.", "1번의 To determine은 ‘측정하다’, 7번의 determination은 그 명사형이다."]}, "18": {"c": "g", "t": "center of mass : 질량 중심", "n": ["center of mass = 질량 중심", "center = 중심", "between the two stars = 두 별 사이"], "x": ["a center of mass between the two stars는 ‘두 별 사이의 질량 중심’이라는 뜻이다.", "두 별이 서로 돌 때 기준이 되는 점이다.", "mass는 여기서도 ‘질량’이다."]}, "19": {"c": "p", "t": "which we can then use : 목적격 관계대명사 (선행사 = their distance)", "n": ["their distance from that center which we can then use = 우리가 그제서야 사용할 수 있는, 그 중심으로부터의 그들의 거리", "which = their distance from that center", "use의 목적어가 빠진 구조"], "x": ["기준 : 시험지 원문은 ‘center, then their distance’처럼 and 없이 이어진다. 그대로 두고 ‘~을 알아내고 그다음 ~’으로 읽는다.", "which we can then use는 앞의 their distance from that center를 꾸미는 관계절이다.", "which는 use의 목적어 자리가 비어 있는 목적격 관계대명사이다.", "‘우리가 그다음에 사용할 수 있는’이라는 뜻이다.", "together with ~ Kepler’s Third Law는 ‘~와 함께’라는 뜻으로 use를 꾸민다.", "마지막 to calculate the mass는 ‘질량을 계산하기 위해’라는 목적이다."]}, "21": {"c": "g", "t": "instance : 사례, 경우", "n": ["instance = 사례, 경우", "for instance = 예를 들어", "a certain instance of ~ = ~의 특정한 사례"], "x": ["a certain instance of Kepler’s Third Law는 ‘케플러 제3법칙의 특정한 사례’라는 뜻이다.", "instance는 ‘예, 경우’라는 뜻이고 for instance(예를 들어)에도 들어 있다.", "여기서 certain은 ‘어떤, 특정한’이라는 뜻이다."]}, "23": {"c": "o", "t": "that center = a center of mass (질량 중심)", "n": ["that center = 앞에 나온 a center of mass between the two stars", "their distance = 두 별의 질량 중심으로부터의 거리"], "x": ["that center는 바로 앞의 a center of mass between the two stars를 가리킨다.", "their는 the two stars를 가리킨다.", "그래서 their distance from that center는 ‘두 별이 그 질량 중심으로부터 떨어진 거리’이다."]}, "24": {"c": "b", "t": "In other words : 다시 말해서", "n": ["in other words = 다시 말해서", "앞 내용을 쉽게 바꿔 말함"], "x": ["In other words는 ‘다시 말해서’라는 뜻의 연결어이다.", "5번의 복잡한 과정을 한 문장으로 정리한다.", "뒤에 요약된 설명이 나온다."]}, "25": {"c": "p", "t": "in order to V : ~하기 위해 (목적)", "n": ["in order to V = ~하기 위해", "= so as to V", "in order to “measure” the star mass = 별의 질량을 ‘측정’하기 위해"], "x": ["in order to “measure” the star mass는 ‘별의 질량을 측정하기 위해’라는 뜻이다.", "in order to 뒤에는 동사원형이 온다.", "to만 쓰는 것보다 목적이라는 뜻이 분명하다."]}, "28": {"c": "k", "t": "요지문 : 측정은 이미 정립된 이론을 바탕으로 크기를 결정하는 일", "n": ["not A but B = A가 아니라 B", "estimation = 추정 / unmediated = 중재되지 않은, 직접적인", "independently existing properties = 독립적으로 존재하는 특성들", "determination of certain magnitudes = 특정 크기들의 결정", "accepted theories = 널리 인정된 이론들"], "x": ["Measurement is not A but B는 ‘측정은 A가 아니라 B이다’라는 뜻이다.", "A는 독립적으로 존재하는 특성을 단순히 중간 과정 없이 추정하는 것이다.", "B는 정립된 여러 이론을 배경으로 특정 크기를 결정하는 것이다.", "unmediated는 ‘중간에 거치는 것이 없는, 직접적인’이라는 뜻이다.", "magnitude는 ‘크기’, accepted는 동사 accept의 과거분사로 ‘받아들여진’이라는 뜻이다."], "e": "쉬운 예시 : 별의 질량은 저울에 올려서 읽는 값이 아니라, 거리와 공전 주기를 법칙에 넣어 계산해야 나오는 값이다."}, "35": {"c": "k", "t": "핵심 문장 : 별의 질량은 다른 양을 재서 계산한다", "n": ["measure other quantities = 다른 양들을 측정하다", "quantity = 양 (복수 quantities)", "together with certain equations = 특정 방정식과 함께", "to calculate = 계산하기 위해"], "x": ["we measure other quantities and use those values ~ to calculate the mass는 ‘다른 양들을 측정하고 그 값들로 질량을 계산한다’라는 뜻이다.", "질량을 직접 재는 것이 아니라 다른 양을 재서 계산한다는 뜻이다.", "measure와 use 두 동사가 and로 이어진 병렬이다.", "those values는 방금 측정한 다른 양들의 값을 가리킨다.", "quantities는 명사 quantity(양)의 복수형이다."], "e": "쉬운 예시 : 별의 질량 대신 별 사이의 거리와 도는 시간을 재고, 그 값을 공식에 넣어 질량을 구한다."}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

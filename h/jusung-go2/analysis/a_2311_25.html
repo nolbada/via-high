@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>23년 11월 25번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "23년 11월 25번", "sub": "고2 · 도표 : 연령대별 맞춤형 광고 인식", "one": "도표와 어긋난 곳은 35~44세가 아니라 55세 이상이 격차가 가장 크다는 부분", "flow": [{"label": "제목·개요", "range": "1번", "sum": "2019년 설문, 미국 연령대별 맞춤형 온라인 광고에 대한 견해 <small>(targeted online advertising)<\/small>", "eg": "배달 앱 알림을 편리하다고 보는지 거슬린다고 보는지 연령대별로 조사한 표"}, {"label": "전체 비율", "range": "2번", "sum": "전체 응답자의 51%는 침해적, 27%는 흥미롭다고 응답 <small>(intrusive / interesting)<\/small>", "eg": "알림이 거슬린다는 사람이 절반, 재미있다는 사람은 4분의 1 남짓"}, {"label": "세부 수치 (1)", "range": "3~4번", "sum": "흥미롭다는 비율은 18~24세가 최고, 침해적이라는 비율은 25~34세와 45~54세가 동일 <small>(the highest / the same)<\/small>", "eg": "20대 초반이 알림을 가장 재미있어 하고, 30대 초반과 40대 후반은 거슬린다는 비율이 같음"}, {"label": "세부 수치 (2)", "range": "5번", "sum": "흥미롭다와 침해적이라는 응답 간 차이가 가장 큰 연령대 (도표와 불일치: 실제로는 55세 이상) <small>(the gap between)<\/small>", "eg": "‘재미있다’와 ‘거슬린다’ 막대 길이 차이를 연령대별로 비교"}, {"label": "세부 수치 (3)", "range": "6번", "sum": "침해적이라는 응답이 50%를 넘는 유일한 연령대는 55세 이상 <small>(more than 50%)<\/small>", "eg": "알림이 거슬린다는 사람이 절반을 넘는 연령대는 오직 한 곳"}], "sents": [{"n": 1, "mk": "The graph above [1|shows] the [2|results] of a 2019 [3|survey] on the [4|views] of American age groups on [5|targeted] online advertising.", "ko": "위의 그래프는 표적 온라인 광고에 대한 미국 연령층들의 견해에 관한 2019년 설문 조사의 결과를 보여 준다."}, {"n": 2, "mk": "In total, [6|while] 51% of the [7|respondents] said (that) targeted ads were [8|intrusive], 27% said (that) they were interesting.", "ko": "전체적으로, 응답자의 51%는 표적 광고가 침해적이라고 말한 반면, 27%는 그것들이 흥미롭다고 대답했다."}, {"n": 3, "mk": "The percentage of respondents [9|who believed that targeted ads were interesting] was the highest in the age group of 18 to 24.", "ko": "표적 광고가 흥미롭다고 믿는 응답자들의 비율은 18세에서 24세 연령층에서 가장 높았다."}, {"n": 4, "mk": "The percentage of respondents [10|aged 25 to 34] who said that targeted ads were intrusive was the same as [11|that] of respondents aged 45 to 54 who said [12|the same].", "ko": "표적 광고가 침해적이라고 응답한 25세에서 34세 응답자들의 비율은 45세에서 54세 응답자들의 그것과 똑같았다."}, {"n": 5, "mk": "Among all age groups, [13|the gap between] respondents who said (that) targeted ads were interesting and [14|those] who believed them to be intrusive was [15|the largest in the 35-to-44 age group].", "ko": "모든 연령층 중에서, 표적 광고가 흥미롭다고 말한 응답자들과 그것들이 침해적이라고 믿는 사람들 간의 차이는 35세에서 44세 연령층에서 가장 컸다."}, {"n": 6, "mk": "The age group of 55 and above was the only group [16|where] the percentage of respondents who believed (that) targeted ads were intrusive was [17|more than 50%].", "ko": "55세 이상의 연령층은 표적 광고가 침해적이라고 믿는 응답자들의 비율이 50%가 넘는 유일한 집단이었다."}], "items": {"1": {"c": "g", "t": "show : 보여 주다", "n": ["show = 보여 주다, 나타내다", "(다의어) show = 쇼, 공연", "The graph shows the results = 그래프는 결과를 보여 준다"], "x": ["The graph above shows ~는 ‘위의 그래프는 ~을 보여 준다’라는 뜻이다.", "도표 문제의 첫 문장은 대개 어떤 도표인지를 소개한다.", "주어 The graph가 단수라서 동사에 -s가 붙었다."]}, "2": {"c": "g", "t": "result : 결과", "n": ["result = 결과", "(다의어) result in ~ = ~을 초래하다", "survey = 설문 조사"], "x": ["the results of a 2019 survey는 ‘2019년 설문 조사의 결과’라는 뜻이다.", "result는 명사 ‘결과’ 외에 동사로 result in(~을 낳다), result from(~에서 비롯되다)으로도 쓴다."]}, "3": {"c": "g", "t": "survey : 설문 조사", "n": ["survey = 설문 조사, 조사하다", "(비슷한 말) poll", "a 2019 survey = 2019년 설문 조사"], "x": ["a 2019 survey on the views of ~는 ‘~의 견해에 관한 2019년 설문 조사’라는 뜻이다.", "survey는 명사와 동사 모두 쓴다. 여기서는 명사이다."]}, "4": {"c": "g", "t": "view : 견해, 생각", "n": ["view = 견해, 의견", "(다의어) view = 경치, 보다", "views on ~ = ~에 대한 견해"], "x": ["the views of American age groups on ~는 ‘~에 대한 미국 연령층들의 견해’라는 뜻이다.", "view는 ‘경치, 보다’라는 뜻도 있어서 문맥으로 구분한다.", "views는 view의 복수형이다."]}, "5": {"c": "g", "t": "targeted : 표적이 된, 목표가 된", "n": ["targeted = 표적이 된, 맞춤형의", "target = 목표, 겨냥하다", "targeted ads = 표적 광고"], "x": ["기준 : 형용사로 쓰인 분사로 본다.", "targeted online advertising은 ‘특정 대상을 겨냥한 온라인 광고’라는 뜻이다.", "targeted는 동사 target(겨냥하다)의 과거분사가 형용사로 쓰인 것이다."]}, "6": {"c": "b", "t": "while : ~인 반면에 (대조)", "n": ["while A, B = A인 반면 B", "대비되는 두 수치를 이어 줌", "51% ↔ 27%"], "x": ["while은 여기서 ‘~인 반면에’라는 대조의 접속사이다.", "51%의 침해적이라는 응답과 27%의 흥미롭다는 응답이 대비된다.", "‘~하는 동안’이라는 때의 뜻과 구별한다."]}, "7": {"c": "g", "t": "respondent : 응답자", "n": ["respondent = 응답자", "respond = 응답하다", "response = 응답"], "x": ["51% of the respondents는 ‘응답자의 51%’라는 뜻이다.", "respondent는 동사 respond(응답하다)에서 나온 명사이다.", "respondents는 복수형이다."]}, "8": {"c": "g", "t": "intrusive : 침해적인, 끼어드는", "n": ["intrusive = 침해적인, 거슬리는", "intrude = 침입하다, 끼어들다", "intrusion = 침입"], "x": ["targeted ads were intrusive는 ‘표적 광고가 침해적이었다(거슬렸다)’라는 뜻이다.", "intrusive는 동사 intrude에서 나온 형용사이다.", "반대 느낌의 interesting과 짝으로 나온다."]}, "9": {"c": "p", "t": "who + 동사 : 주격 관계대명사 (respondents 수식)", "n": ["respondents ← who believed that ~", "who = 주격 관계대명사 (선행사 respondents)", "believe that + 절 = ~라고 믿다"], "x": ["who believed that targeted ads were interesting은 ‘표적 광고가 흥미롭다고 믿는’이라는 뜻이다.", "who는 respondents를 꾸미는 주격 관계대명사이다.", "believed 뒤의 that은 명사절 접속사이다.", "뼈대는 The percentage ... was the highest이다."]}, "10": {"c": "p", "t": "과거분사 후치수식 : respondents aged 25 to 34", "n": ["respondents ← aged 25 to 34", "aged 25 to 34 = 25세에서 34세인", "age = ~살이 되다"], "x": ["aged 25 to 34는 ‘25세에서 34세인’이라는 뜻으로 respondents를 뒤에서 꾸민다.", "aged는 동사 age의 과거분사이다.", "그 뒤 who said ~가 다시 respondents를 꾸민다."]}, "11": {"c": "o", "t": "that = the percentage (비율)", "n": ["that = the percentage", "the same as that of ~ = ~의 그것과 같은"], "x": ["as that of respondents aged 45 to 54의 that은 앞의 the percentage를 가리킨다.", "같은 말 percentage의 반복을 피하려는 대명사이다.", "‘45세에서 54세 응답자들의 비율’이라고 읽는다."]}, "12": {"c": "o", "t": "the same = said that targeted ads were intrusive", "n": ["said the same = 같은 말을 했다", "the same = 표적 광고가 침해적이라는 것"], "x": ["who said the same의 the same은 앞에서 말한 ‘표적 광고가 침해적이라고’를 가리킨다.", "같은 말을 반복하지 않으려고 쓴 표현이다."]}, "13": {"c": "p", "t": "the gap between A and B : A와 B 사이의 차이 (긴 A·B)", "n": ["the gap between A and B = A와 B 사이의 격차", "A = respondents who said ~ interesting", "B = those who believed them to be intrusive", "gap = 차이, 격차"], "x": ["the gap between ... and ...는 ‘~와 … 사이의 격차’라는 뜻이다.", "A와 B가 모두 관계사절을 달아서 길어졌다.", "뼈대는 the gap ... was the largest이다.", "gap은 ‘틈, 격차’라는 뜻의 명사이다."]}, "14": {"c": "o", "t": "those = respondents (응답자들)", "n": ["those who believed ~ = ~라고 믿는 사람들", "those = respondents", "believe A to be B = A를 B라고 믿다"], "x": ["those who believed them to be intrusive의 those는 앞의 respondents를 받는다.", "‘~하는 사람들’이라는 뜻으로 who가 뒤에서 꾸민다.", "them은 targeted ads를 가리킨다.", "believe A to be B는 ‘A가 B라고 믿다’라는 뜻이다."]}, "15": {"c": "k", "t": "불일치 문장 : 가장 큰 격차 = 55세 이상 (35~44세 X)", "n": ["the largest in the 35-to-44 age group = 35~44세에서 가장 큰", "도표상 가장 큰 격차 = 55세 이상", "내용 불일치 문장"], "x": ["이 문장이 도표와 일치하지 않는 문장이다.", "도표에서 두 비율의 차이가 가장 큰 곳은 35~44세가 아니라 55세 이상이다.", "도표에 (수정) 표시로도 ‘55+ 연령층’이라고 적혀 있다.", "숫자·연령대를 바꿔 틀리게 만드는 도표 문제의 전형이다."], "e": "쉬운 예시 : 알림이 ‘재미있다’와 ‘거슬린다’ 막대 길이 차이가 가장 큰 연령대를 찾으면 55세 이상이다. 문장은 엉뚱하게 35~44세라고 했다."}, "16": {"c": "p", "t": "관계부사 where + 완전한 문장 : group 수식", "n": ["the only group where ~ = ~인 유일한 집단", "where + 완전한 문장", "the percentage of respondents who believed ~ = 주어"], "x": ["where 이하는 ‘표적 광고가 침해적이라고 믿는 응답자들의 비율이 50%를 넘는’이라는 뜻으로 group을 꾸민다.", "where 뒤가 주어와 동사를 갖춘 완전한 문장이라서 관계부사이다.", "선행사 group이 ‘집단’이라는 추상적 장소라서 where를 쓴다."]}, "17": {"c": "g", "t": "more than 50% : 50%를 넘는", "n": ["more than ~ = ~보다 많은, ~ 초과", "over 50%와 같은 뜻", "(반의어) less than ~ = ~ 미만"], "x": ["was more than 50%는 ‘50%를 넘었다’라는 뜻이다.", "more than 50%는 50%를 포함하지 않는다.", "‘이상’을 나타내는 at least와 구별한다."]}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

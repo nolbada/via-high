@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>23년 11월 40번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "23년 11월 40번", "sub": "고2 · 협력과 사회적 혜택", "one": "집단에 기여하는 협력적인 사람은 사회적 혜택을 받고, 비협조적인 사람은 비판과 벌을 받는 경향", "flow": [{"label": "도입부", "range": "1번", "sum": "협력적인 사람은 다른 사람들에게서 사회적 혜택을 받는 경향 <small>(social advantages)<\/small>", "eg": "모둠 활동에서 친구를 잘 도와주는 학생은 다른 친구들에게도 도움을 받음"}, {"label": "본론 (1)", "range": "2~3번", "sum": "기여자에 대한 반응을 보는 실험, 집단 기금 게임 뒤 평판에 따라 돈을 주게 함 <small>(a cooperative game)<\/small>", "eg": "모둠 간식비를 낸 친구에게 다른 친구들이 호의로 갚는지 보는 게임"}, {"label": "본론 (2)", "range": "4~5번", "sum": "더 많이 기부한 사람이 더 많은 돈을 맡게 되었고, 다른 연구도 같은 결과 <small>(more responsibility)<\/small>", "eg": "간식비를 더 낸 친구에게 모둠 돈 관리를 맡김"}, {"label": "결론", "range": "6~7번", "sum": "협력적인 사람은 선택·선호·좋은 평가·신뢰를 얻고, 비협조적인 사람은 비판과 벌을 받음 <small>(preferred / punishment)<\/small>", "eg": "도와주는 친구는 모둠장으로 뽑히고, 얌체 짓을 하는 친구는 핀잔을 들음"}], "sents": [{"n": 1, "mk": "Multiple laboratory studies show that [1|cooperative] [2|people tend to receive social advantages from others].", "ko": "여러 실험실 연구들은 협력적인 사람들이 다른 사람들로부터 사회적 혜택들을 받는 경향이 있다는 것을 보여 준다."}, {"n": 2, "mk": "One way to [3|demonstrate] [4|this] is to give people the opportunity to act positively or negatively toward [6|contributors].", "ko": "이것을 증명하는 한 가지 방법은 사람들에게 기여자들을 향해 긍정적으로 또는 부정적으로 행동할 기회를 주는 것이다."}, {"n": 3, "mk": "[9|For example], Pat Barclay, a professor at the University of Guelph, [7|had participants play] a cooperative game [8|where] people could [6|contribute] money toward a group fund which helped all group members, and then [10|allowed participants to give] money to other participants [11|based on] their [12|reputations].", "ko": "예를 들어, Guelph 대학교의 교수인 Pat Barclay는 참가자들로 하여금 사람들이 모든 집단 구성원들을 도와주는 집단 기금에 돈을 기부할 수 있는 협동 게임을 하도록 한 다음, 참가자들이 그들의 평판을 바탕으로 다른 참가자들에게 돈을 줄 수 있도록 허락했다."}, {"n": 4, "star": 1, "mk": "People who [6|contributed] more to the group fund [13|were given] [14|responsibility] for more money than people who contributed less.", "ko": "집단 기금에 더 많이 기부한 사람들은 덜 기부한 사람들보다 더 많은 돈에 대한 책임이 주어졌다."}, {"n": 5, "mk": "Similar results [15|have been found] by other researchers.", "ko": "유사한 결과들이 다른 연구자들에 의해 발견되었다."}, {"n": 6, "star": 1, "mk": "People who contribute toward their groups are also [16|chosen] more often as interaction partners, [16|preferred] as leaders, [17|rated as] more [18|desirable] partners for long-term relationships, and [16|are perceived to be] [20|trustworthy] and have high social [19|status].", "ko": "집단에 기여하는 사람들은 또한 상호 작용 파트너로서 더 자주 선택되고, 리더로서 선호되며, 장기적인 관계를 위한 더 바람직한 파트너로서 평가되고, 신뢰할 수 있고 높은 사회적 지위를 가진 것으로 인식된다."}, {"n": 7, "mk": "[21|Uncooperative people tend to receive] verbal [23|criticism] or even more [24|severe] punishment.", "ko": "비협조적인 사람들은 언어적인 비판이나 심지어 더 심한 벌을 받는 경향이 있다."}], "items": {"1": {"c": "g", "t": "cooperative : 협력적인", "n": ["cooperative = 협력적인", "cooperate = 협력하다 / cooperation = 협력", "(반의) uncooperative = 비협조적인"], "x": ["cooperative people은 ‘협력적인 사람들’이라는 뜻이다.", "동사 cooperate(협력하다), 명사 cooperation(협력)과 같은 어근이다.", "7번의 uncooperative는 반의어로 ‘비협조적인’이라는 뜻이다.", "이 글은 협력적인 사람과 비협조적인 사람이 받는 대우를 비교한다."]}, "2": {"c": "k", "t": "주제문 : 협력적인 사람은 사회적 혜택을 받음", "n": ["tend to V = ~하는 경향이 있다", "social advantages = 사회적 혜택(이점)", "laboratory = 실험실"], "x": ["people tend to receive social advantages from others는 ‘사람들은 다른 사람들로부터 사회적 혜택을 받는 경향이 있다’라는 뜻이다.", "tend to V는 ‘~하는 경향이 있다’라는 뜻이다.", "advantages는 명사 advantage(이점, 혜택)의 복수형이다.", "Multiple laboratory studies show that 이하가 연구가 보여 주는 내용, 즉 이 글의 주제이다."], "e": "쉬운 예시 : 모둠 활동에서 친구를 잘 도와주는 학생은 다른 친구들에게서도 도움과 좋은 평가를 받는다."}, "3": {"c": "g", "t": "demonstrate : 증명하다, 보여 주다", "n": ["demonstrate = 증명하다, 보여 주다", "demonstration = 시연, 증명", "One way to demonstrate this = 이것을 증명하는 한 가지 방법"], "x": ["One way to demonstrate this is to give ~는 ‘이것을 증명하는 한 가지 방법은 ~을 주는 것이다’라는 뜻이다.", "to demonstrate this는 way를 꾸미는 to부정사(형용사적 용법)이다.", "is 뒤의 to give ~는 보어 역할의 to부정사(명사적 용법)이다.", "to give people the opportunity to act ~는 ‘사람들에게 ~할 기회를 주는 것’이다. to act는 opportunity를 꾸민다."]}, "4": {"c": "o", "t": "this = 1번의 내용", "n": ["this = cooperative people tend to receive social advantages from others (1번)"], "x": ["demonstrate this의 this는 1번 문장의 내용, 즉 ‘협력적인 사람이 사회적 혜택을 받는 경향’을 가리킨다.", "앞 문장 전체를 받는 지시어이다.", "‘이 경향을 증명하는 방법’으로 해석한다."]}, "6": {"c": "g", "t": "contribute : 기여하다, 기부하다", "n": ["contribute = 기여하다, 기부하다", "contributor = 기여자, 기부자", "contribute A toward B = B를 위해 A를 기부하다"], "x": ["contributors는 ‘기여자들’이라는 뜻으로, contribute(기여하다)에서 나온 명사이다.", "3번의 contribute money toward a group fund는 ‘집단 기금에 돈을 기부하다’라는 뜻이다.", "4번의 contributed는 동사 contribute의 과거형이다.", "contribute는 ‘기여하다’와 ‘기부하다’ 두 뜻으로 쓰이는 다의어이다."]}, "7": {"c": "p", "t": "have + O + 동사원형 : O가 ~하게 하다 (사역)", "n": ["have + O + 동사원형 = O가 ~하게 하다", "had participants play a cooperative game = 참가자들이 협동 게임을 하게 했다", "participant = 참가자"], "x": ["had participants play a cooperative game은 ‘참가자들이 협동 게임을 하게 했다’라는 뜻이다.", "had는 동사 have의 과거형이고, 사역동사로 쓰였다.", "participants가 목적어, play가 목적보어(동사원형)이다.", "목적어가 게임을 하는 주체라서 동사원형을 쓴다."]}, "8": {"c": "p", "t": "where : 관계부사 (선행사 a cooperative game)", "n": ["where = in which", "a cooperative game where ~ = ~하는 협동 게임", "where + 완전한 문장"], "x": ["where 이하는 a cooperative game을 꾸미는 관계부사절이다.", "where 뒤의 people could contribute money ~가 완전한 문장이라 관계부사이다.", "in which로 바꿔 쓸 수 있다.", "‘사람들이 ~에 돈을 기부할 수 있는 협동 게임’으로 해석한다.", "which helped all group members는 a group fund를 꾸미는 주격 관계대명사절이다."]}, "10": {"c": "p", "t": "allow + O + to V : O가 ~하도록 허락하다", "n": ["allow + O + to V = O가 ~하도록 허락하다", "allowed participants to give money to other participants = 참가자들이 다른 참가자들에게 돈을 줄 수 있게 했다"], "x": ["allowed participants to give money to other participants는 ‘참가자들이 다른 참가자들에게 돈을 줄 수 있도록 허락했다’라는 뜻이다.", "allowed는 동사 allow의 과거형이다.", "participants가 목적어, to give가 목적보어(to부정사)이다.", "and then 앞의 had participants play와 이어진 동사로, 같은 주어 Pat Barclay의 행동이다.", "give money to ~에서 to는 ‘~에게’라는 전치사이다."]}, "11": {"c": "g", "t": "based on : ~에 근거하여, ~을 바탕으로", "n": ["based on ~ = ~에 근거하여, ~을 바탕으로", "base = 기초, 기반", "(다의어) base = 기초를 두다"], "x": ["based on their reputations는 ‘그들의 평판을 바탕으로’라는 뜻이다.", "based는 동사 base의 과거분사이고, based on은 전치사처럼 쓰는 표현이다.", "돈을 줄 때 평판을 기준으로 삼았다는 말이다."]}, "12": {"c": "g", "t": "reputation : 평판, 명성", "n": ["reputation = 평판, 명성", "a good / bad reputation = 좋은 / 나쁜 평판"], "x": ["their reputations는 ‘그들의 평판’이라는 뜻이다.", "reputations는 명사 reputation의 복수형이다.", "평판은 다른 사람들이 그 사람에 대해 가지는 평가이다."]}, "13": {"c": "p", "t": "4형식 수동태 : were given responsibility", "n": ["give + IO + DO → (수동) IO + be given + DO", "People were given responsibility = 사람들에게 책임이 주어졌다", "who contributed more = 더 많이 기여한"], "x": ["were given responsibility for more money는 ‘더 많은 돈에 대한 책임이 주어졌다’라는 뜻이다.", "give + IO + DO에서 간접목적어(People)가 주어로 나가고 be given + DO(responsibility) 모양이 된 수동태이다.", "뒤에 목적어 responsibility가 남아서 능동태로 착각하기 쉽다.", "given은 동사 give의 과거분사이다.", "who contributed more to the group fund는 People을 꾸미는 주격 관계대명사절이다."]}, "14": {"c": "g", "t": "responsibility : 책임", "n": ["responsibility = 책임, 책무", "(형용사) responsible = 책임이 있는"], "x": ["responsibility for more money는 ‘더 많은 돈에 대한 책임’이라는 뜻이다.", "responsible(책임이 있는)의 명사형이다.", "책임이 크다는 것은 그만큼 믿고 맡긴다는 뜻이다.", "than 이하는 ‘덜 기부한 사람들보다’라는 비교 대상이다."]}, "15": {"c": "p", "t": "현재완료 수동태 : have been found by ~", "n": ["have been found = 발견되었다 (현재완료 + 수동)", "found = 동사 find의 과거분사", "by other researchers = 다른 연구자들에 의해"], "x": ["Similar results have been found by other researchers는 ‘유사한 결과들이 다른 연구자들에 의해 발견되었다’라는 뜻이다.", "have been found는 have + been + 과거분사 형태의 현재완료 수동태이다.", "found는 동사 find(발견하다)의 과거분사이다.", "같은 결과가 다른 연구에서도 나왔다는 말로, 앞 실험의 신뢰도를 높인다."]}, "16": {"c": "p", "t": "병렬 수동태 : chosen, preferred, rated, are perceived", "n": ["are also chosen / (are) preferred / (are) rated / are perceived = 수동태 4개 병렬", "preferred·rated 앞의 are는 생략", "perceive + O + to be + 형용사 → (수동) be perceived to be ~"], "x": ["chosen, preferred, rated, are perceived는 모두 People의 동사로 나란히 놓인 수동태 병렬구조이다.", "preferred와 rated 앞에는 are가 생략되어 있다.", "chosen은 choose, preferred는 prefer, rated는 rate의 과거분사이다.", "are perceived to be trustworthy는 ‘신뢰할 수 있는 것으로 인식된다’라는 뜻이다.", "perceive + O + to be + 형용사의 수동태이다.", "and have high social status는 ‘높은 사회적 지위를 가진 것으로(인식된다)’라고 이어 해석한다."]}, "17": {"c": "g", "t": "rate A as B : A를 B로 평가하다", "n": ["rate A as B = A를 B로 평가하다", "rated as more desirable partners = 더 바람직한 파트너로 평가되다", "(다의어) rate = 비율, 속도"], "x": ["rated as more desirable partners는 ‘더 바람직한 파트너로 평가된다’라는 뜻이다.", "rated는 동사 rate(평가하다)의 과거분사이다.", "rate는 명사로 ‘비율, 속도’라는 뜻도 있는 다의어이다.", "as는 ‘~로서’라는 뜻의 전치사이다."]}, "18": {"c": "g", "t": "desirable : 바람직한", "n": ["desirable = 바람직한, 갖고 싶은", "desire = 바라다, 욕구", "(반의) undesirable = 바람직하지 않은"], "x": ["more desirable partners for long-term relationships는 ‘장기적인 관계를 위한 더 바람직한 파트너들’이라는 뜻이다.", "desirable은 동사 desire(바라다)에서 나온 형용사이다.", "long-term은 ‘장기적인’이라는 뜻이다.", "반의어는 undesirable이다."]}, "19": {"c": "g", "t": "status : (사회적) 지위", "n": ["status = (사회적) 지위, 신분", "high social status = 높은 사회적 지위", "(다의어) status = 상태"], "x": ["have high social status는 ‘높은 사회적 지위를 가지다’라는 뜻이다.", "status는 ‘지위, 신분’이라는 뜻이다.", "status는 ‘상태, 현황’이라는 뜻으로도 쓰인다."]}, "20": {"c": "g", "t": "trustworthy : 신뢰할 수 있는", "n": ["trustworthy = 신뢰할 수 있는", "trust = 신뢰(하다)", "-worthy = ~할 만한"], "x": ["to be trustworthy는 ‘신뢰할 수 있는 것으로’라는 뜻이다.", "trust(신뢰)에 -worthy(~할 만한)가 붙은 형용사이다.", "perceived to be trustworthy는 ‘신뢰할 만하다고 인식된다’라는 뜻이다."]}, "21": {"c": "k", "t": "결론 : 비협조적인 사람은 비판과 벌을 받음", "n": ["uncooperative = 비협조적인", "tend to receive = 받는 경향이 있다", "1번(협력적 → 혜택)과 대비"], "x": ["Uncooperative people tend to receive ~는 ‘비협조적인 사람들은 ~을 받는 경향이 있다’라는 뜻이다.", "1번의 cooperative people tend to receive social advantages와 반대되는 내용이다.", "un-이 붙어 cooperative의 반대 뜻이 된다.", "협력하지 않으면 혜택 대신 비판과 벌을 받는다는 마무리이다."], "e": "쉬운 예시 : 모둠 활동에서 늘 얌체 짓을 하는 학생은 친구들의 핀잔을 듣고 점점 외면받는다."}, "23": {"c": "g", "t": "criticism : 비판, 비난", "n": ["criticism = 비판, 비난", "criticize = 비판하다 / critic = 비평가", "verbal = 언어적인, 말로 하는"], "x": ["verbal criticism은 ‘언어적인 비판’이라는 뜻이다.", "criticism은 동사 criticize(비판하다)의 명사형이다.", "criticism or even more severe punishment는 ‘비판 또는 심지어 더 심한 벌’이라는 뜻이다.", "punishment는 동사 punish(벌주다)의 명사형으로 ‘벌’이다."]}, "24": {"c": "g", "t": "severe : 심한, 가혹한", "n": ["severe = 심한, 심각한, 가혹한", "(다의어) severe = 엄격한", "severity = 심각성"], "x": ["more severe punishment는 ‘더 심한 벌’이라는 뜻이다.", "severe는 ‘(정도가) 심한, 가혹한’이라는 뜻이다.", "비교급 more severe는 앞의 criticism보다 더 심하다는 말이다.", "even은 ‘심지어’라는 뜻으로 정도를 강조한다."]}, "9": {"c": "b", "t": "For example : 예를 들어", "n": ["for example = 예를 들어", "앞 내용(실험으로 증명)을 구체적 사례로 풀어 줌"], "x": ["For example은 ‘예를 들어’라는 뜻의 연결어이다.", "2번에서 말한 ‘증명하는 방법’의 구체적인 사례가 시작된다.", "Pat Barclay의 실험이 그 사례이다."]}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

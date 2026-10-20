@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>22년 11월 38번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "22년 11월 38번", "sub": "고2 · 아이들이 채소를 싫어하는 이유", "one": "항영양소가 든 음식을 피하는 직관은 진화로 타고난 것, 아이들이 채소를 싫어하는 것도 연약한 몸을 보호하려는 미각의 작용이며 자라면 사라짐", "flow": [{"label": "도입부 = 주제 (1)", "range": "1~3번", "sum": "동물은 항영양소가 든 식물을 먹고 탈이 나면 다시 먹지 않음, 진화로 물려받은 타고난 지능 <small>(innate intelligence)<\/small>", "eg": "한 번 먹고 배탈이 난 열매는 동물이 다시 건드리지 않음"}, {"label": "본론 (1)", "range": "4~6번", "sum": "이 직관은 사람에게도 있음, 아이들이 채소를 싫어하는 것은 유전적 프로그래밍 <small>(genetic programming)<\/small>", "eg": "아이가 브로콜리를 보자마자 인상을 쓰는 것도 몸에 새겨진 반응"}, {"label": "본론 (2)", "range": "7~8번", "sum": "연약하고 성장 중인 몸을 지키려고 미각이 채소 맛을 나쁘고 역겹게 느끼게 만듦 <small>(taste buds perceive these flavors as bad)<\/small>", "eg": "브로콜리의 쓴맛이 아이에게는 훨씬 역겹게 느껴짐"}, {"label": "결론 = 주제 (2)", "range": "9번", "sum": "자라서 몸이 강해지면 항영양소를 견딜 수 있어 맛이 더 이상 나쁘지 않음 <small>(no longer taste as bad as before)<\/small>", "eg": "어른이 되자 어느 순간 브로콜리가 그렇게 쓰지 않게 느껴짐"}], "sents": [{"n": 1, "mk": "In the natural world, if an animal [3|consumes] a plant with enough [4|antinutrients] to [5|make] [6|it] feel unwell, [6|it] won’t eat that plant again.", "ko": "자연계에서는, 만약 동물이 자신의 상태를 안 좋게 하기에 충분한 항영양소가 있는 식물을 섭취하면, 그 동물은 그 식물을 다시 먹지 않을 것이다."}, {"n": 2, "mk": "[7|Intuitively], animals also know [8|to stay away from] these plants.", "ko": "직관적으로, 동물은 또한 이러한 식물을 멀리할 줄 안다."}, {"n": 3, "mk": "[9|Years of evolution] and [10|information being passed down] [13|created this innate intelligence].", "ko": "오랜 시간의 진화와 전해 내려오는 정보가 이 타고난 지능을 만들었다."}, {"n": 4, "mk": "[16|This] “intuition,” [14|though], is [15|not just seen] in animals.", "ko": "하지만 이 ‘직관’은 동물에게서만 보이는 것은 아니다."}, {"n": 5, "mk": "Have you ever wondered [18|why most children hate vegetables]?", "ko": "여러분은 왜 대부분의 아이들이 채소를 싫어하는지 궁금해한 적이 있는가?"}, {"n": 6, "mk": "Dr. Steven Gundry [19|justifies] [20|this] as part of our [21|genetic] programming, our inner intelligence.", "ko": "Dr. Steven Gundry는 이것을 우리의 유전적 프로그래밍, 즉 우리의 내적 지능의 일부로 정당화한다."}, {"n": 7, "mk": "[22|Since] many vegetables [23|are full of] [4|antinutrients], your body tries to keep you away from them while you are still [25|fragile] and in development.", "ko": "많은 채소가 항영양소로 가득 차 있기 때문에, 여러분의 몸은 여러분이 아직 연약하고 성장 중일 때 여러분을 그것들로부터 멀리하려고 노력한다."}, {"n": 8, "mk": "It [29|does this] by [5|making] your taste buds [32|perceive these flavors as] bad and even [33|disgusting].", "ko": "그것은 여러분의 미뢰(味蕾)로 하여금 이러한 맛을 나쁘고 심지어 역겨운 것으로 인식하게 만듦으로써 이를 수행한다."}, {"n": 9, "mk": "[34|As] you grow and your body becomes stronger enough to [35|tolerate] these antinutrients, suddenly they [36|no longer taste as bad as before].", "ko": "여러분이 성장하고 여러분의 몸이 이러한 항영양소를 견딜 만큼 충분히 강해지면, 갑자기 그것들은 더 이상 이전만큼 맛이 나쁘게 느껴지지 않는다."}], "items": {"3": {"c": "g", "t": "consume : 섭취하다, 소비하다", "n": ["consume = 섭취하다, 먹다, 소비하다", "consumption = 섭취, 소비 (명사)", "consumer = 소비자"], "x": ["an animal consumes a plant는 ‘동물이 식물을 섭취한다’라는 뜻이다.", "consumes는 동사 consume의 3인칭 단수 현재형이다.", "음식(food)을 먹는다는 뜻으로, 일상어 eat보다 딱딱한 표현이다."]}, "4": {"c": "g", "t": "antinutrient : 항영양소", "n": ["antinutrient = 항영양소 (영양 흡수를 방해하는 물질)", "anti- = 반대의 / nutrient = 영양소", "enough + 명사 + to V = ~할 만큼 충분한 …"], "x": ["enough antinutrients to make it feel unwell은 ‘그것이 몸이 안 좋다고 느끼게 할 만큼 충분한 항영양소’라는 뜻이다.", "antinutrient는 anti-(반대)와 nutrient(영양소)가 합쳐진 단어이다.", "enough는 명사 antinutrients 앞에 놓여 ‘충분한’이라는 뜻의 형용사로 쓰였다.", "7번과 9번에도 같은 단어가 나온다."]}, "5": {"c": "p", "t": "make + O + 동사원형 : O가 ~하게 만들다", "n": ["make + 목적어 + 동사원형 = ~가 …하게 만들다", "make it feel unwell = 그것이 몸이 안 좋다고 느끼게 하다", "making your taste buds perceive ~ = 미뢰가 ~을 인식하게 만들다"], "x": ["make it feel unwell은 ‘그것이 몸이 안 좋다고 느끼게 만들다’라는 뜻이다.", "make는 사역동사라서 목적어 뒤에 동사원형 feel이 온다.", "8번의 making your taste buds perceive ~도 같은 구조이고, making은 make의 -ing형이다.", "taste bud는 혀의 ‘미뢰(맛을 느끼는 기관)’이다."]}, "6": {"c": "o", "t": "it = an animal (동물)", "n": ["it = an animal", "make it feel unwell의 it과 it won’t eat의 it은 모두 같은 동물"], "x": ["make it feel unwell의 it과 it won’t eat that plant again의 it은 모두 앞의 an animal을 가리킨다.", "동물이 식물을 먹고 몸이 안 좋아지고, 그 동물이 다시 먹지 않는 것이다.", "won’t는 will not의 줄임말이다."]}, "7": {"c": "g", "t": "intuitively : 직관적으로", "n": ["intuitively = 직관적으로, 본능적으로", "intuition = 직관 (명사)", "intuitive = 직관적인 (형용사)"], "x": ["Intuitively, animals also know ~는 ‘직관적으로 동물은 ~을 안다’라는 뜻이다.", "intuition(직관)에서 intuitive(직관적인), intuitively(직관적으로)로 바뀐 파생어 묶음이다.", "배우지 않아도 몸이 먼저 아는 느낌을 말한다."]}, "8": {"c": "g", "t": "stay away from : ~을 멀리하다", "n": ["stay away from ~ = ~을 멀리하다, 가까이 가지 않다", "keep A away from B = A가 B에서 멀어지게 하다", "know to V = ~할 줄 알다"], "x": ["animals also know to stay away from these plants는 ‘동물은 이러한 식물을 멀리할 줄 안다’라는 뜻이다.", "know to V는 ‘~할 줄 알다, ~해야 함을 알다’라는 뜻이다.", "7번의 keep you away from them은 ‘여러분을 그것들로부터 멀리하게 하다’라는 뜻으로, 같은 away from 표현이다."]}, "9": {"c": "g", "t": "evolution : 진화", "n": ["evolution = 진화", "evolve = 진화하다 (동사)", "years of evolution = 오랜 진화의 시간"], "x": ["Years of evolution은 ‘오랜 진화의 세월’이라는 뜻이다.", "evolution은 동사 evolve의 명사형이다.", "years는 여기서 ‘몇 년이 아니라 아주 오랜 시간’이라는 느낌이다."]}, "10": {"c": "p", "t": "being passed down : information 꾸미기 (현재분사 수동)", "n": ["information being passed down = 전해 내려오는 정보", "pass down = 물려주다, 전하다", "being + 과거분사 = 수동 진행(~되고 있는)"], "x": ["information being passed down은 ‘전해 내려오는 정보’라는 뜻이다.", "being passed down은 앞의 information을 뒤에서 꾸민다.", "being + 과거분사는 수동의 -ing형으로, ‘~되고 있는’이라고 해석한다.", "passed는 동사 pass의 과거분사이다. 뼈대는 Years of evolution and information created ~이다."]}, "13": {"c": "k", "t": "주제문 (1) : 진화와 전해 내려온 정보가 타고난 지능을 만들었다", "n": ["innate = 타고난, 선천적인", "intelligence = 지능, 지적 능력", "created this innate intelligence = 이 타고난 지능을 만들었다"], "x": ["created this innate intelligence는 ‘이 타고난 지능을 만들었다’라는 뜻이다.", "this innate intelligence는 앞 문장의 ‘식물을 멀리할 줄 아는 것’, 즉 직관을 가리킨다.", "innate는 ‘태어날 때부터 가지고 있는’이라는 뜻이고, 반대는 learned(배운)이다.", "created는 동사 create의 과거형이다."], "e": "쉬운 예시 : 아이는 브로콜리를 먹고 배탈이 난 적이 없어도 쓴맛을 싫어한다. 오랜 진화가 몸속에 심어 준 경고이다."}, "14": {"c": "b", "t": "though : 하지만 (문장 중간 반전 신호)", "n": ["though = 하지만, 그렇지만 (문장 중간·끝에서)", "앞은 동물, 뒤는 사람으로 화제 전환"], "x": ["This “intuition,” though, is not just seen in animals는 ‘하지만 이 직관은 동물에게서만 보이는 것이 아니다’라는 뜻이다.", "though는 접속사 말고 부사로 쓰여 문장 중간에서 ‘하지만’이라고 해석한다.", "동물 이야기에서 사람 이야기로 넘어가는 신호이다."]}, "15": {"c": "p", "t": "not just ~ : ~뿐만이 아니다 (수동태 is seen)", "n": ["not just A = A뿐만이 아니다", "be seen in ~ = ~에서 보이다", "not just seen in animals = 동물에게서만 보이는 것은 아니다"], "x": ["is not just seen in animals는 ‘동물에게서만 보이는 것은 아니다’라는 뜻이다.", "just는 ‘오직’이라는 뜻의 부사로, not just는 ‘~만이 아니다’라고 푼다.", "seen은 동사 see의 과거분사이고, is seen은 수동태이다.", "사람에게도 같은 직관이 있다는 점을 다음 문장들이 설명한다."]}, "16": {"c": "o", "t": "This “intuition” = 동물이 식물을 피하는 직관 (2번)", "n": ["This “intuition” = 2번 문장의 intuitively 알고 있는 것", "따옴표 = 본능에 가까운 ‘직관’"], "x": ["This “intuition”은 앞에서 말한 동물이 위험한 식물을 알아서 피하는 능력을 가리킨다.", "따옴표는 학문적인 직관이 아니라 본능에 가깝다는 뜻을 나타낸다.", "though가 있어서 ‘동물의 직관이 사람에게도 있다’는 방향으로 이어진다."]}, "18": {"c": "p", "t": "why + 절 : 명사절 (wonder의 목적어)", "n": ["wonder why + 주어 + 동사 = 왜 ~인지 궁금하다", "Have you ever p.p. ~? = ~한 적이 있니?", "wonder = 궁금해하다"], "x": ["Have you ever wondered why most children hate vegetables?는 ‘왜 대부분의 아이들이 채소를 싫어하는지 궁금해한 적이 있는가?’라는 뜻이다.", "why 이하는 wondered의 목적어인 명사절로, 의문문이 아니라 평서문 어순이다.", "Have you ever + 과거분사는 ‘~한 적 있니?’라는 경험의 현재완료 의문문이다.", "wondered는 동사 wonder의 과거분사이다.", "독자에게 말을 거는 질문으로 본론(1)이 시작된다."]}, "19": {"c": "g", "t": "justify : 정당화하다, 타당하다고 설명하다", "n": ["justify = 정당화하다", "justification = 정당화 (명사)", "justify A as B = A를 B로서 정당화하다"], "x": ["justifies this as part of our genetic programming은 ‘이것을 우리의 유전적 프로그래밍의 일부로서 설명한다’라는 뜻이다.", "justifies는 동사 justify의 3인칭 단수 현재형이다.", "여기서는 ‘그럴 만한 이유가 있다고 설명하다’라는 느낌이다."]}, "20": {"c": "o", "t": "this = 아이들이 채소를 싫어하는 것 (5번)", "n": ["this = 대부분의 아이들이 채소를 싫어하는 것", "as part of our genetic programming = 우리의 유전적 프로그래밍의 일부로"], "x": ["justifies this의 this는 앞 문장에서 물은 ‘아이들이 채소를 싫어하는 것’을 가리킨다.", "8번 문장의 does this의 this와는 다르다. 그쪽은 몸이 우리를 멀리하게 하는 일이다.", "그래서 ‘아이들이 채소를 싫어하는 현상을 유전적 프로그래밍으로 설명한다’로 해석한다."]}, "21": {"c": "g", "t": "genetic : 유전적인", "n": ["genetic = 유전적인, 유전자의", "gene = 유전자", "genetics = 유전학"], "x": ["our genetic programming은 ‘우리의 유전적 프로그래밍’이라는 뜻이다.", "our inner intelligence는 genetic programming을 다시 설명하는 동격 표현이다.", "‘타고난 지능’과 같은 뜻으로 이어진다."]}, "22": {"c": "p", "t": "Since : ~ 때문에 (이유)", "n": ["since + 절 = ~ 때문에 (이유)", "(다의어) since = ~ 이후로", "앞이 이유, 뒤가 결과"], "x": ["Since many vegetables are full of antinutrients는 ‘많은 채소가 항영양소로 가득 차 있기 때문에’라는 뜻이다.", "여기서 since는 시간이 아니라 이유를 나타낸다.", "뒤의 your body tries to ~가 그 결과이다."]}, "23": {"c": "g", "t": "be full of : ~로 가득 차 있다", "n": ["be full of ~ = ~로 가득 차 있다", "full = 가득 찬", "= be filled with ~"], "x": ["are full of antinutrients는 ‘항영양소로 가득 차 있다’라는 뜻이다.", "many vegetables가 주어이므로 복수형 동사 are를 썼다.", "be filled with와 같은 뜻이다."]}, "25": {"c": "g", "t": "fragile : 연약한, 부서지기 쉬운", "n": ["fragile = 연약한, 부서지기 쉬운", "while you are still fragile and in development = 아직 연약하고 성장 중일 때", "development = 성장, 발달"], "x": ["while you are still fragile and in development는 ‘여러분이 아직 연약하고 성장 중인 동안’이라는 뜻이다.", "while은 ‘~하는 동안’이라는 접속사이고, 뒤에 you are가 온 완전한 절이다.", "in development는 ‘성장(발달) 중인’이라는 뜻이다.", "아이의 몸이 어른보다 약하다는 설명으로, 항영양소를 더 조심해야 하는 이유이다."]}, "29": {"c": "o", "t": "does this = tries to keep you away from them (7번)", "n": ["does this = 여러분을 항영양소로부터 멀리하려는 일을 한다", "does = 대동사 (앞 동사구를 대신함)", "this = 7번의 your body tries to keep you away from them"], "x": ["It does this by making ~의 It은 your body를 가리킨다.", "does this는 앞 문장의 ‘채소에서 여러분을 멀리하려고 노력하는 것’을 대신 말한다.", "does는 조동사가 아니라 ‘하다’라는 본동사이고, this가 목적어이다.", "그 방법이 by 이하의 ‘미뢰가 맛을 나쁘게 느끼게 만들기’이다."]}, "32": {"c": "g", "t": "perceive A as B : A를 B로 인식하다", "n": ["perceive A as B = A를 B로 인식하다", "perceive = 인식하다, 감지하다", "disgusting 앞에 even = 심지어 (역겨운)"], "x": ["perceive these flavors as bad and even disgusting은 ‘이러한 맛을 나쁘고 심지어 역겨운 것으로 인식하다’라는 뜻이다.", "perceive는 앞의 making your taste buds 뒤에 와서 동사원형이 되었다.", "as bad and even disgusting에서 and가 bad와 disgusting을 이어 as의 보어가 된다.", "perception(인식, 지각)이라는 명사형도 있다."]}, "33": {"c": "g", "t": "disgusting : 역겨운", "n": ["disgusting = 역겨운, 구역질 나는", "disgust = 혐오감 (명사) / 역겹게 하다 (동사)", "disgusted = 역겨워하는"], "x": ["even disgusting은 ‘심지어 역겨운’이라는 뜻이다.", "bad보다 한 단계 센 표현이라 even이 붙었다.", "감정을 느끼는 사람은 disgusted, 원인이 되는 것은 disgusting으로 쓴다."]}, "34": {"c": "p", "t": "As + 절 : ~함에 따라, ~할 때", "n": ["as + 주어 + 동사 = ~함에 따라, ~할 때", "As you grow and your body becomes stronger = 여러분이 자라고 몸이 강해짐에 따라", "grow and ... becomes = 병렬"], "x": ["기준 : 시험지 원문이 ‘stronger enough’로 인쇄돼 있다. 그대로 두고 ‘더 강해져서 견딜 만큼’으로 읽는다.", "As you grow and your body becomes stronger enough ~는 ‘여러분이 자라고 몸이 충분히 강해짐에 따라’라는 뜻이다.", "기준 : 아잉카 분석(As + 절, 변화를 나타내는 ‘~함에 따라’).", "grow와 becomes 두 동사가 and로 이어진 병렬이다.", "becomes는 동사 become(되다)의 3인칭 단수 현재형이다.", "stronger enough to tolerate ~는 ‘~을 견딜 만큼 충분히 강한’이라는 뜻이다."]}, "35": {"c": "g", "t": "tolerate : 견디다, 참다", "n": ["tolerate = 견디다, 참아 주다", "tolerance = 내성, 관용 (명사)", "…enough to tolerate = ~을 견딜 만큼 충분히 …한"], "x": ["enough to tolerate these antinutrients는 ‘이러한 항영양소를 견딜 만큼 충분히’라는 뜻이다.", "tolerate는 싫거나 해로운 것을 참고 견딘다는 뜻의 동사이다.", "몸이 자라서 항영양소의 영향을 견딜 수 있게 되었다는 말이다."]}, "36": {"c": "k", "t": "주제문 (2) : 자라면 항영양소 맛이 더 이상 나쁘지 않다", "n": ["no longer = 더 이상 ~ 않다", "taste + 형용사 = ~한 맛이 나다", "as bad as before = 이전만큼 나쁜 (원급 비교)"], "x": ["suddenly they no longer taste as bad as before는 ‘갑자기 그것들은 더 이상 이전만큼 나쁜 맛이 나지 않는다’라는 뜻이다.", "taste는 여기서 ‘맛이 나다’라는 동사이고, 뒤에 형용사 bad가 보어로 온다.", "as bad as before는 ‘이전만큼 나쁜’이라는 원급 비교이고, no longer가 이를 부정한다.", "they는 앞 절의 these antinutrients, 즉 항영양소가 든 채소를 가리킨다.", "이 글의 결론을 담은 핵심 문장이다."], "e": "쉬운 예시 : 어렸을 때 그렇게 쓰던 브로콜리가 어른이 되니 어느 순간 먹을 만해진다."}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

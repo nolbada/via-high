@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>24년 10월 26번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "24년 10월 26번", "sub": "고2 · Helen Suzman의 생애", "one": "Helen Suzman은 아파르트헤이트에 맞서 의회 안팎에서 평생 싸운 인권·민주주의의 대변자", "flow": [{"label": "인물 소개", "range": "1번", "sum": "아파르트헤이트에 대항한 운동가 <small>(an activist against apartheid)<\/small>", "eg": "위인전 첫 줄 : ‘그는 불의에 맞선 사람이었다’"}, {"label": "출생과 초기", "range": "2~3번", "sum": "1917년 유대인 이민자 부모 밑에서 태어나 대학 강사로 일하며 인종 관계 연구소에 가입 <small>(was born to, joined)<\/small>", "eg": "위인전 연표 : 1917년 출생, 대학 강사, 연구소 가입"}, {"label": "정치 활동", "range": "4~5번", "sum": "1953년 통합당 소속 의원이 되었다가 1959년 진보당 창당, 36년간 의회에서 정권의 남용을 폭로 <small>(left it, formed the Progressive Party)<\/small>", "eg": "위인전 연표 : 1953년 의원 당선, 1959년 새 정당 창당, 36년간 의회 활동"}, {"label": "은퇴 후와 말년", "range": "6~7번", "sum": "1989년 은퇴 후에도 다인종 민주주의를 지지하고 새 헌법 작성에 영향, 2009년 사망 때까지 대변자 <small>(continued to advocate for)<\/small>", "eg": "위인전 연표 : 1989년 은퇴, 새 헌법 작성에 참여, 2009년 별세"}], "sents": [{"n": 1, "mk": "[1|Helen Suzman was an activist against apartheid], [2|a racist political and social system in the Republic of South Africa].", "ko": "Helen Suzman은 남아프리카 공화국의 인종 차별적인 정치 및 사회 체제인 아파르트헤이트에 대항하는 운동가였다."}, {"n": 2, "mk": "Suzman [3|was born to] Jewish [4|immigrant] parents in Germiston in the Union of South Africa in 1917.", "ko": "Suzman은 1917년에 남아프리카 연방의 Germiston에서 유대인 이민자 부모 밑에서 태어났다."}, {"n": 3, "mk": "[5|While working as] a lecturer on economic history at Witwatersrand University, she [6|joined] the South African Institute of Race Relations.", "ko": "Witwatersrand 대학에서 경제사 강사로 일하던 중 그녀는 남아프리카 인종 관계 연구소에 들어갔다."}, {"n": 4, "mk": "In 1953, she joined the United Party and [7|was elected to] Parliament, [8|but] when the United Party [9|adopted a more moderate stance] on apartheid, Suzman and other [10|progressive] members left [11|it] and formed the Progressive Party in 1959.", "ko": "1953년에 그녀는 통합당에 가입했고 의회에 선출되었지만, 통합당이 아파르트헤이트에 대해 더 온건한 입장을 채택했을 때, Suzman과 다른 진보적인 구성원들은 탈당하여 1959년에 진보당을 만들었다."}, {"n": 5, "mk": "Suzman [12|tirelessly] fought against apartheid, [13|exposing the government’s abuses and challenging its laws] for a total of 36 years in Parliament.", "ko": "Suzman은 의회에서 총 36년 동안 정권의 남용을 폭로하고 그것의 법에 도전하며 아파르트헤이트에 맞서 지칠 줄 모르고 싸웠다."}, {"n": 6, "mk": "Even after her [14|retirement] in 1989, she continued to [15|advocate for] a multi-racial democracy in the Republic of South Africa [16|and influenced] the [17|drafting] of the country’s new constitution after the end of apartheid.", "ko": "1989년에 은퇴한 후에도 그녀는 남아프리카 공화국의 다인종 민주주의를 계속해서 지지했고 아파르트헤이트가 끝난 후 그 나라의 새 헌법의 작성에 영향을 주었다."}, {"n": 7, "mk": "[18|She remained an active voice for human rights and democracy until her death in 2009].", "ko": "그녀는 2009년에 사망할 때까지 인권과 민주주의의 적극적인 대변자로 남아 있었다."}], "items": {"1": {"c": "k", "t": "인물 소개 : 아파르트헤이트에 대항한 운동가", "n": ["activist = 운동가, 활동가", "against ~ = ~에 반대하는, ~에 대항하는", "apartheid = 아파르트헤이트 (남아공의 인종 차별 정책)"], "x": ["Helen Suzman was an activist against apartheid는 ‘아파르트헤이트에 대항하는 운동가였다’라는 뜻이다.", "activist는 사회 문제를 바꾸려고 직접 행동하는 사람이다.", "이 글 전체는 이 한 문장의 내용을 연도순으로 풀어 쓴 것이다."], "e": "쉬운 예시 : 위인전 첫 줄에 ‘그는 불의에 맞서 평생 싸운 사람이었다’라고 쓰고, 뒤에 연표가 이어진다."}, "2": {"c": "p", "t": "동격 : apartheid = a racist ~ system", "n": ["apartheid, a racist political and social system = 동격 (콤마로 풀어쓰기)", "racist = 인종 차별적인", "system = 체제, 제도"], "x": ["apartheid 뒤의 콤마와 a racist political and social system은 apartheid를 풀어 설명하는 동격이다.", "‘인종 차별적인 정치 및 사회 체제인 아파르트헤이트’라고 해석한다.", "political and social은 둘 다 system을 꾸미는 형용사이다."]}, "3": {"c": "g", "t": "be born to ~ : ~ 밑에서 태어나다", "n": ["be born to ~ = ~의 자녀로 태어나다", "Jewish = 유대인의", "was born = 동사 bear(낳다)의 과거분사 born을 쓴 수동태"], "x": ["기준 : was born은 ‘태어나다’라는 뜻의 굳은 수동태 표현으로 본다.", "was born to Jewish immigrant parents는 ‘유대인 이민자 부모 밑에서 태어났다’라는 뜻이다.", "born은 동사 bear(낳다)의 과거분사이다.", "to 뒤에는 부모가 와서 ‘~의 자녀로’라는 뜻이 된다."]}, "4": {"c": "g", "t": "immigrant : 이민자", "n": ["immigrant = (들어온) 이민자", "immigrate = 이민 오다 (동사)", "immigration = 이민 (명사)"], "x": ["Jewish immigrant parents는 ‘유대인 이민자 부모’라는 뜻이다.", "immigrant는 동사 immigrate(이민 오다)에서 나온 명사이다.", "emigrant(나가는 이민자)와 헷갈리지 않도록 주의해야 한다.", "여기서는 명사 immigrant가 형용사처럼 parents를 꾸민다."]}, "5": {"c": "p", "t": "while + 분사구문 : ~하는 동안", "n": ["While working as ~ = ~로 일하는 동안", "접속사를 남겨 둔 분사구문", "lecturer = 강사"], "x": ["기준 : 아잉카 분석(접속사 + 분사구문, 해석의 명확성을 위해 접속사를 남김).", "While working as a lecturer ~는 ‘강사로 일하는 동안’이라는 뜻이다.", "분사구문의 주어는 뒤 절의 주어 she와 같다.", "working은 동사 work(일하다)의 -ing형이다."]}, "6": {"c": "g", "t": "join : 가입하다, 합류하다", "n": ["join = 가입하다, 합류하다", "(다의어) join = 연결하다, 잇다", "join + 목적어 (전치사 in 없음)"], "x": ["she joined the South African Institute of Race Relations는 ‘그녀는 남아프리카 인종 관계 연구소에 들어갔다’라는 뜻이다.", "join은 타동사라서 바로 뒤에 목적어가 온다. ‘join to’처럼 쓰지 않는다.", "joined는 동사 join의 과거형이다."]}, "7": {"c": "g", "t": "be elected to ~ : ~에 선출되다", "n": ["be elected to ~ = ~에 선출되다", "elect = 선출하다, 뽑다", "Parliament = 의회"], "x": ["was elected to Parliament는 ‘의회에 선출되었다’라는 뜻이다.", "elected는 동사 elect(선출하다)의 과거분사이다. was + 과거분사라서 수동태이다.", "joined the United Party and was elected는 주어 she에 이어지는 두 동사가 and로 연결된 모양이다."]}, "8": {"c": "b", "t": "but : 그러나 (대조)", "n": ["but = 그러나, 하지만", "의회에 선출됨 ↔ 당을 떠남"], "x": ["but은 앞의 ‘통합당에서 의원이 되었다’와 반대되는 내용을 이끈다.", "뒤에서는 통합당이 입장을 바꾸자 탈당했다는 내용이 나온다."]}, "9": {"c": "g", "t": "adopt a stance : 입장을 취하다", "n": ["adopt a stance = 입장을 채택하다", "moderate = 온건한", "stance = 입장, 태도", "(다의어) adopt = 채택하다 / 입양하다"], "x": ["adopted a more moderate stance on apartheid는 ‘아파르트헤이트에 대해 더 온건한 입장을 채택했다’라는 뜻이다.", "adopted는 동사 adopt의 과거형이다.", "adopt는 ‘입양하다’라는 뜻도 있어서 문맥으로 구분한다.", "moderate(온건한)의 반대말은 extreme(극단적인)이다."]}, "10": {"c": "g", "t": "progressive : 진보적인", "n": ["progressive = 진보적인", "(다의어) progressive = 점진적인, 진행 중인", "progress = 진전, 진보"], "x": ["other progressive members는 ‘다른 진보적인 구성원들’이라는 뜻이다.", "여기서 progressive는 정치적으로 개혁을 지지하는 ‘진보적인’이라는 뜻이다.", "‘점진적인’이라는 뜻도 있어 문맥으로 구분한다.", "뒤의 the Progressive Party(진보당)는 이름에 이 단어가 들어간 정당이다."]}, "11": {"c": "o", "t": "it = the United Party (통합당)", "n": ["it = the United Party (통합당)", "left it = 통합당을 떠났다 (탈당했다)"], "x": ["left it의 it은 바로 앞에 나온 the United Party를 가리킨다.", "left는 동사 leave(떠나다)의 과거형이다.", "Suzman은 통합당에서 1959년에 나와 진보당을 만들었다.", "그래서 ‘1953년부터 은퇴 전까지 동일한 정당에서 활동했다’는 선지는 이 글과 맞지 않는다."]}, "12": {"c": "g", "t": "tirelessly : 지칠 줄 모르고", "n": ["tirelessly = 지칠 줄 모르고, 꾸준히", "tireless = 지칠 줄 모르는 (형용사)", "tire = 피곤하게 하다, 지치다 (동사)"], "x": ["tirelessly fought against apartheid는 ‘아파르트헤이트에 맞서 지칠 줄 모르고 싸웠다’라는 뜻이다.", "tire(피곤하게 하다)에 -less(~없는)와 -ly가 붙은 부사이다.", "fought는 동사 fight(싸우다)의 과거형이다."]}, "13": {"c": "p", "t": "병렬 현재분사구문 2개 : exposing ~ and challenging ~", "n": ["exposing ~ and challenging ~ = ~을 폭로하고 ~에 도전하며", "abuse = 남용, 학대", "for a total of 36 years = 총 36년 동안"], "x": ["exposing the government’s abuses and challenging its laws는 ‘정권의 남용을 폭로하고 그 법에 도전하며’라는 뜻이다.", "exposing과 challenging이 and로 이어진 두 개의 현재분사구문이다.", "분사구문의 주어는 주절의 Suzman이다.", "for a total of 36 years in Parliament는 ‘의회에서 총 36년 동안’이라는 뜻이다."]}, "14": {"c": "g", "t": "retirement : 은퇴", "n": ["retirement = 은퇴, 퇴직", "retire = 은퇴하다 (동사)"], "x": ["Even after her retirement in 1989는 ‘1989년에 은퇴한 후에도’라는 뜻이다.", "retirement는 동사 retire(은퇴하다)의 명사형이다.", "Even after는 ‘~한 후에도’라는 양보의 느낌을 더한다."]}, "15": {"c": "g", "t": "advocate for ~ : ~을 옹호하다, 지지하다", "n": ["advocate for ~ = ~을 지지하다, 옹호하다", "(품사 변형) advocate = 옹호자 (명사)", "multi-racial = 다인종의"], "x": ["continued to advocate for a multi-racial democracy는 ‘다인종 민주주의를 계속 지지했다’라는 뜻이다.", "continue to V는 ‘계속 ~하다’라는 뜻이고, to 뒤에는 동사원형이 온다.", "advocate는 동사로도 명사로도 쓰이는 단어이다."]}, "16": {"c": "p", "t": "and influenced : 동사의 병렬", "n": ["she continued ... and influenced = 그녀는 계속 지지했고 영향을 주었다", "influence = 영향을 주다 / 영향"], "x": ["기준 : and가 continued와 influenced를 이은 것으로 본다(두 과거형 동사의 병렬).", "and influenced the drafting of the country’s new constitution은 ‘그 나라의 새 헌법 작성에 영향을 주었다’라는 뜻이다.", "influenced는 동사 influence(영향을 주다)의 과거형이다.", "after the end of apartheid는 ‘아파르트헤이트가 끝난 후’라는 뜻이다."]}, "17": {"c": "g", "t": "drafting : 초안 작성", "n": ["draft = 초안, 초안을 작성하다", "the drafting of ~ = ~의 작성", "constitution = 헌법"], "x": ["the drafting of the country’s new constitution은 ‘그 나라의 새 헌법의 작성’이라는 뜻이다.", "drafting은 동사 draft(초안을 쓰다)의 -ing형에서 나온 명사이다.", "constitution은 ‘헌법’이라는 뜻이다."]}, "18": {"c": "k", "t": "마무리 : 죽을 때까지 인권과 민주주의의 대변자", "n": ["remain = (계속) ~ 상태이다, 남다", "active voice = 적극적인 대변자", "until her death = 사망할 때까지"], "x": ["She remained an active voice for human rights and democracy는 ‘그녀는 인권과 민주주의의 적극적인 대변자로 남아 있었다’라는 뜻이다.", "여기서 voice는 ‘목소리’에서 나온 ‘대변자’라는 뜻이다.", "remained는 동사 remain의 과거형이고, 뒤에 명사 보어(an active voice)가 온다.", "until her death in 2009는 ‘2009년에 사망할 때까지’라는 뜻이다."], "e": "쉬운 예시 : 위인전 마지막 줄에 ‘그는 세상을 떠나는 날까지 이 일을 멈추지 않았다’라고 쓰는 것과 같다."}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>24년 10월 28번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "24년 10월 28번", "sub": "고2 · 패션 스타일링 상담 안내문", "one": "Woodville 회사 직원을 위한 패션 스타일링 상담 행사 안내, 부스는 순서 없이 자유롭게 방문하고 모든 부스에 전문 상담가가 있음", "flow": [{"label": "행사 소개", "range": "1~3번", "sum": "나에게 가장 잘 어울리는 스타일을 찾도록 돕는 상담 <small>(Fashion Styling Consultation)<\/small>", "eg": "거울 앞에서 ‘내게 어울리는 옷은 뭘까?’ 고민하는 직원을 도와주는 행사"}, {"label": "행사 개요", "range": "4~5번", "sum": "정해진 순서 없이 부스를 자유롭게 방문, 12월 27일 강당 <small>(with no fixed order, Auditorium)<\/small>", "eg": "A부스부터 가도 되고 C부스부터 가도 됨, 장소는 강당"}, {"label": "상담 부스", "range": "6~9번", "sum": "모든 부스에 전문 상담가가 있고, A는 색, B는 액세서리, C는 머리 스타일 담당 <small>(colors, accessories, hairstyle)<\/small>", "eg": "A부스에서 피부 톤에 맞는 색, B부스에서 액세서리, C부스에서 얼굴형에 맞는 머리 상담"}, {"label": "유의 사항", "range": "10~11번", "sum": "스스로 스타일링해 보고 사진을 찍는 구역이 있고, 사진을 소셜 미디어에 올리면 선물을 받음 <small>(a section, a special gift)<\/small>", "eg": "구역에서 찍은 사진을 SNS에 올리면 작은 선물을 받음"}, {"label": "문의 안내", "range": "12번", "sum": "더 많은 정보는 웹사이트(www.whatsurstyle2024.com)를 방문 <small>(For more information)<\/small>", "eg": "자세한 내용이 궁금하면 안내문의 웹사이트 주소로 들어감"}], "sents": [{"n": 1, "mk": "Fashion Styling [1|Consultation]", "ko": "패션 스타일링 상담"}, {"n": 2, "mk": "Find the style [2|that] [3|suits] you best.", "ko": "여러분에게 가장 잘 어울리는 스타일을 찾으세요."}, {"n": 3, "mk": "We [4|are ready to] [5|make the employees of Woodville Company look nice].", "ko": "우리는 Woodville 회사의 직원들을 매력적으로 만들 준비가 되어 있습니다."}, {"n": 4, "mk": "[6|Freely] visit booths [7|with no fixed order]!", "ko": "정해진 순서 없이 자유롭게 부스를 방문하세요!"}, {"n": 5, "mk": "When & Where : Dec. 27, 2024, [8|Auditorium]", "ko": "날짜와 장소 : 2024년 12월 27일, 강당"}, {"n": 6, "mk": "Consultation Booths (Each booth [9|has professional consultants].)", "ko": "상담 부스 (모든 부스에 전문 상담가가 있습니다.)"}, {"n": 7, "mk": "A : Find colors [10|that] [11|go well with] your skin tone.", "ko": "A : 여러분의 피부 톤에 잘 어울리는 색을 찾으세요."}, {"n": 8, "mk": "B : Learn about [12|accessories] for various situations.", "ko": "B : 다양한 상황을 위한 액세서리에 대해 배워 보세요."}, {"n": 9, "mk": "C : Find the best hairstyle [13|that] [14|fits] your face shape.", "ko": "C : 여러분의 얼굴형에 맞는 최고의 머리 스타일을 알아보세요."}, {"n": 10, "mk": "There is a [15|section] [16|where you can try styling yourself and take pictures].", "ko": "여러분 스스로 스타일링해 보고 사진을 찍을 수 있는 구역이 있습니다."}, {"n": 11, "mk": "[17|If you post your picture on social media], you will receive [18|a special gift].", "ko": "소셜 미디어에 여러분의 사진을 올리면 특별한 선물을 받을 수 있습니다."}, {"n": 12, "mk": "For more information, please visit www.whatsurstyle2024.com.", "ko": "더 많은 정보를 위해서, www.whatsurstyle2024.com을 방문해 주세요."}], "items": {"1": {"c": "g", "t": "consultation : 상담", "n": ["consultation = 상담, 협의", "consult = 상담하다 (동사)", "consultant = 상담가 (명사)"], "x": ["Fashion Styling Consultation은 ‘패션 스타일링 상담’이라는 뜻이다.", "consultation은 동사 consult(상담하다)의 명사형이다.", "6번 문장의 consultants(상담가들)도 같은 계열의 단어이다."]}, "2": {"c": "p", "t": "주격 관계대명사 that : the style 꾸미기", "n": ["the style ← that suits you best", "that = the style을 가리키는 주격 관계대명사"], "x": ["that suits you best는 앞의 the style을 뒤에서 꾸미는 관계대명사절이다.", "‘여러분에게 가장 잘 어울리는 스타일’이라고 해석한다.", "that이 절 안에서 주어 역할을 해서 바로 뒤에 동사 suits가 온다.", "선행사 the style이 단수라서 동사에 -s가 붙었다."]}, "3": {"c": "g", "t": "suit : ~에게 어울리다", "n": ["suit = ~에게 어울리다, 알맞다", "(다의어) suit = 정장, 소송", "유의어 : fit / go well with"], "x": ["suits you best는 ‘당신에게 가장 잘 어울린다’라는 뜻이다.", "여기서 suit는 동사이고, suits는 3인칭 단수 현재형이다.", "suit는 명사로 ‘정장’이라는 뜻도 있어서 쓰임을 구분해야 한다.", "best는 부사 well의 최상급으로 ‘가장 잘’이라는 뜻이다."]}, "4": {"c": "g", "t": "be ready to V : ~할 준비가 되어 있다", "n": ["be ready to V = ~할 준비가 되어 있다", "ready = 준비된", "(비교) be ready for + 명사"], "x": ["We are ready to make ~는 ‘우리는 ~을 만들 준비가 되어 있다’라는 뜻이다.", "ready 뒤에 to부정사가 와서 ‘~할 준비가 된’이라는 뜻이 된다.", "명사가 오면 be ready for ~로 쓴다."]}, "5": {"c": "p", "t": "make + O + 동사원형 : O가 ~하게 만들다", "n": ["make + O + 동사원형 = O가 ~하게 만들다 (사역동사)", "look nice = 멋져 보이다"], "x": ["make the employees ~ look nice는 ‘직원들이 멋져 보이게 만든다’라는 뜻이다.", "make는 사역동사라서 목적어 뒤에 동사원형 look이 온다.", "to look이 아니라 look이라는 점이 포인트이다.", "look nice에서 look은 ‘~하게 보이다’라는 뜻의 동사이고 nice는 형용사 보어이다."]}, "6": {"c": "g", "t": "freely : 자유롭게", "n": ["freely = 자유롭게", "free = 자유로운 (형용사)", "(다의어) free = 무료의, 한가한"], "x": ["Freely visit booths는 ‘자유롭게 부스를 방문하세요’라는 뜻이다.", "freely는 형용사 free에 -ly가 붙은 부사이다.", "free는 ‘무료의’라는 뜻도 있다. 이 문장에서는 ‘자유롭게’라는 뜻이다."]}, "7": {"c": "k", "t": "불일치 포인트 : with no fixed order (순서 없이)", "n": ["with no fixed order = 정해진 순서 없이", "fixed = 정해진, 고정된", "선지 ① 정해진 순서대로 방문해야 한다 = 불일치"], "x": ["with no fixed order는 ‘정해진 순서 없이’라는 뜻이다.", "fixed는 동사 fix(고정하다)의 과거분사로 order를 꾸민다.", "그래서 ‘정해진 순서대로 부스를 방문해야 한다’는 선지는 글과 반대이다."], "e": "쉬운 예시 : A부스에서 시작하든 C부스에서 시작하든 상관없이 마음대로 돌아다녀도 된다."}, "8": {"c": "g", "t": "auditorium : 강당", "n": ["auditorium = 강당", "hall = 홀 (비슷한 말)"], "x": ["Auditorium은 ‘강당’이라는 뜻이다.", "행사가 열리는 장소를 알려 주는 말이다.", "철자가 길어서 틀리기 쉬운 단어이다."]}, "9": {"c": "k", "t": "일치 포인트 : 모든 부스에 전문 상담가가 있다", "n": ["each booth = 모든 부스 (각 부스)", "professional = 전문적인", "선지 ② 모든 상담 부스에 전문 상담가가 있다 = 일치"], "x": ["Each booth has professional consultants는 ‘모든 부스에 전문 상담가가 있다’라는 뜻이다.", "Each 뒤에는 단수 명사가 오고 동사도 단수형 has를 쓴다.", "그래서 선지 ‘모든 상담 부스에 전문 상담가가 있다’는 글과 일치한다."], "e": "쉬운 예시 : A, B, C 어느 부스에 가도 그 분야를 잘 아는 전문가가 앉아 있다."}, "10": {"c": "p", "t": "주격 관계대명사 that : colors 꾸미기", "n": ["colors ← that go well with your skin tone", "that = colors를 가리키는 주격 관계대명사"], "x": ["that go well with your skin tone은 앞의 colors를 꾸미는 관계대명사절이다.", "‘여러분의 피부 톤에 잘 어울리는 색’이라고 해석한다.", "선행사 colors가 복수라서 동사는 go(s 없음)이다.", "skin tone은 ‘피부 톤’이라는 뜻이다."]}, "11": {"c": "g", "t": "go well with : ~와 잘 어울리다", "n": ["go well with ~ = ~와 잘 어울리다", "유의어 : suit / match", "(다의어) go with = 함께 가다"], "x": ["go well with your skin tone은 ‘여러분의 피부 톤과 잘 어울린다’라는 뜻이다.", "go well with는 세 단어를 한 덩어리로 외운다.", "2번 문장의 suits와 비슷한 뜻이다."]}, "12": {"c": "g", "t": "accessory : 액세서리, 부속품", "n": ["accessory = 액세서리, 부속품", "accessories = accessory의 복수형", "various = 다양한"], "x": ["accessories for various situations는 ‘다양한 상황을 위한 액세서리’라는 뜻이다.", "accessories는 명사 accessory의 복수형이다. y를 i로 바꾸고 -es를 붙인다.", "learn about ~은 ‘~에 대해 배우다’라는 뜻이다."]}, "13": {"c": "p", "t": "주격 관계대명사 that : the best hairstyle 꾸미기", "n": ["the best hairstyle ← that fits your face shape", "that = the best hairstyle을 가리키는 주격 관계대명사"], "x": ["that fits your face shape는 the best hairstyle을 꾸미는 관계대명사절이다.", "‘여러분의 얼굴형에 맞는 최고의 머리 스타일’이라고 해석한다.", "선행사가 단수라서 동사에 -s가 붙은 fits이다.", "face shape는 ‘얼굴형’이라는 뜻이다."]}, "14": {"c": "g", "t": "fit : (크기·모양이) 맞다, 어울리다", "n": ["fit = 맞다, 어울리다", "(다의어) fit = 건강한, 적합한 (형용사)", "유의어 : suit"], "x": ["fits your face shape는 ‘여러분의 얼굴형에 맞는다’라는 뜻이다.", "여기서 fit은 동사이고, fits는 3인칭 단수 현재형이다.", "fit은 형용사로 ‘건강한’이라는 뜻도 있다."]}, "15": {"c": "g", "t": "section : 구역, 부분", "n": ["section = 구역, 부분", "(다의어) section = (신문·책의) 면, 단락", "designated section = 지정된 구역"], "x": ["a section where ~은 ‘~하는 구역’이라는 뜻이다.", "section은 전체의 한 부분을 뜻해서 ‘구역, 부분’이라는 뜻이다.", "신문의 ‘면’, 글의 ‘단락’ 같은 뜻도 있다."]}, "16": {"c": "p", "t": "관계부사 where : a section 꾸미기", "n": ["a section ← where you can try styling yourself ~", "where = in which (장소 선행사)", "try + -ing = 시험 삼아 ~해 보다"], "x": ["where you can try styling yourself and take pictures는 앞의 a section을 꾸미는 관계부사절이다.", "선행사 a section이 장소이고, where 뒤에 완전한 절(you can try ~)이 온다.", "try styling yourself는 ‘시험 삼아 스스로 스타일링해 보다’라는 뜻이다.", "try와 take가 and로 이어진 두 동사이다."]}, "17": {"c": "p", "t": "if 조건절 : 현재형이 미래를 나타냄", "n": ["If + 주어 + 현재 동사, 주어 + will + 동사원형", "post = (온라인에) 올리다, 게시하다", "(다의어) post = 우편, 기둥"], "x": ["If you post your picture on social media는 ‘소셜 미디어에 사진을 올리면’이라는 뜻이다.", "조건을 나타내는 if절에서는 미래의 일도 현재형(post)으로 쓴다.", "뒤의 주절은 미래 표현(will receive)이다.", "post는 명사로 ‘우편’이라는 뜻도 있어서 쓰임을 구분해야 한다."]}, "18": {"c": "k", "t": "조건부 선물 : 사진을 올리면 받음", "n": ["special gift = 특별한 선물", "receive = 받다", "선지 ⑤ 참가자 전원에게 선물을 준다 = 불일치 (올린 사람만)"], "x": ["you will receive a special gift는 ‘특별한 선물을 받을 수 있다’라는 뜻이다.", "선물은 사진을 소셜 미디어에 올렸을 때만 주어진다.", "그래서 ‘참가자 전원에게 특별한 선물을 준다’는 선지는 글과 맞지 않는다."], "e": "쉬운 예시 : 구역에서 찍은 사진을 SNS에 올린 사람에게만 선물이 간다. 올리지 않으면 선물이 없다."}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

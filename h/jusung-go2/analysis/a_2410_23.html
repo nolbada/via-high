@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>24년 10월 23번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "24년 10월 23번", "sub": "고2 · 쾌락과 고통의 균형", "one": "쾌락과 고통은 한 동전의 양면처럼 함께 작동해 몸의 균형을 유지, 고통을 피하려는 시도는 오히려 더 큰 고통", "flow": [{"label": "도입부", "range": "1~3번", "sum": "고통과 쾌락은 뇌의 같은 영역에서 처리, 몸은 균형(항상성)을 유지하려 함 <small>(homeostasis)<\/small>", "eg": "시소가 한쪽으로 기울면 몸이 알아서 다시 수평으로 맞추려 함"}, {"label": "본론 (1) = 주제", "range": "4번", "sum": "쾌락과 고통은 한 동전의 양면, 함께 작동하며 균형을 유지 <small>(two sides of the same coin)<\/small>", "eg": "시소의 양 끝처럼 한쪽이 올라가면 다른 쪽은 내려감"}, {"label": "본론 (2)", "range": "5~8번", "sum": "한쪽이 오르면 다른 쪽은 반드시 내려감, 고통을 피하려는 시도는 오히려 더 비참하게 함 <small>(No pain, no gain)<\/small>", "eg": "시소의 한쪽을 계속 눌러 올리려 할수록 반대쪽이 더 크게 내려감"}, {"label": "결론 = 주제 부연", "range": "9번", "sum": "고통은 중립 상태 유지에 필수, 고통을 받아들이면 내적 저울이 균형으로 복귀 <small>(reset our internal scale)<\/small>", "eg": "내려간 쪽을 받아들이면 시소가 다시 수평으로 돌아옴"}], "sents": [{"n": 1, "mk": "[1|Based on] discoveries in [2|neuroscience], pain and pleasure are formed and processed in the same area of the brain.", "ko": "신경과학의 발견에 따르면, 고통과 쾌락은 뇌의 같은 영역에서 형성되고 처리된다."}, {"n": 2, "mk": "Our bodies constantly [6|strive for] [7|homeostasis], [8|which is defined as] the balance of bodily functions.", "ko": "우리 몸은 끊임없이 항상성을 추구하는데, 그것은 신체 기능들의 균형으로 정의된다."}, {"n": 3, "mk": "[9|Without] the body’s effective [10|compensatory] [11|mechanisms], [12|which may cushion potential highs and lows], we would not be [13|capable of] surviving.", "ko": "잠재적인 높낮이를 완화시킬 수 있는 몸의 효과적인 보상 기제가 없다면, 우리는 생존할 수 없을 것이다."}, {"n": 4, "mk": "[14|Pleasure and pain are like two sides of the same coin]; they [17|seem to] work together and are [15|heavily reliant on] one another and keep balance.", "ko": "쾌락과 고통은 같은 동전의 두 면과 같은데, 그것들은 함께 작동하는 것 같으며 서로 상당히 의존하고 있고 균형을 유지한다."}, {"n": 5, "mk": "If you imagine pleasure and pain as the two opposite points on a [25|scale], you can easily understand that [21|as] [22|one] of the two points rises, [22|the other] must [24|correspondingly] fall.", "ko": "만약 여러분이 쾌락과 고통을 저울 위의 두 반대 지점으로 상상한다면, 두 지점 중 하나가 올라갈 때 다른 하나는 그에 상응하여 틀림없이 내려간다는 것을 쉽게 이해할 수 있을 것이다."}, {"n": 6, "mk": "We’ve all heard the expression, “No pain, no gain.”", "ko": "우리는 모두 ‘고통 없이는 얻는 것도 없다’라는 표현을 들어 본 적이 있다."}, {"n": 7, "mk": "[31|Well], according to psychiatrist Dr. Anna Lembke, there may be some truth to [30|these words].", "ko": "자, 정신과 의사 Dr. Anna Lembke에 따르면, 이 말에는 어느 정도의 진실이 있을 수 있다."}, {"n": 8, "mk": "She says that [33|our attempts to escape being miserable are in fact making us even more miserable].", "ko": "그녀는 비참함에서 벗어나려는 우리의 시도가 사실 우리를 훨씬 더 비참하게 만들고 있다고 말한다."}, {"n": 9, "mk": "[41|This] is [36|because] pain is actually an [37|essential] [38|component] of our ability to [39|maintain] a neutral state, and [40|allowing it will in turn reset our internal] [25|scale] [40|back to balance].", "ko": "이는 고통이 사실 중립적인 상태를 유지하는 우리 능력의 필수적인 구성 요소이기 때문이고, 그것을 허용하는 것은 결과적으로 우리의 내적 저울을 다시 균형 상태로 되돌려 놓을 것이다."}], "items": {"1": {"c": "p", "t": "Based on ~ : ~에 근거하면, ~에 따르면 (과거분사구)", "n": ["based on ~ = ~에 근거하여, ~에 따르면", "discoveries in neuroscience = 신경과학의 발견", "pain and pleasure are formed and processed = 고통과 쾌락은 형성되고 처리된다"], "x": ["Based on discoveries in neuroscience는 ‘신경과학의 발견에 따르면’이라는 뜻이다.", "문장 맨 앞에서 뒤 문장의 근거를 밝히는 분사구문이다.", "뼈대는 pain and pleasure are formed and processed이다. formed와 processed는 동사 form, process의 과거분사로, and로 이어진 수동태이다.", "in the same area of the brain은 ‘뇌의 같은 영역에서’라는 뜻이다."]}, "2": {"c": "g", "t": "neuroscience : 신경과학", "n": ["neuroscience = 신경과학", "neuro- = 신경의", "science = 과학"], "x": ["discoveries in neuroscience는 ‘신경과학 분야의 발견들’이라는 뜻이다.", "neuro-(신경)와 science(과학)가 합쳐진 단어이다.", "뇌 이야기로 글이 시작되는 신호이다."]}, "6": {"c": "g", "t": "strive for : ~을 얻으려고 애쓰다", "n": ["strive for ~ = ~을 얻으려고 노력하다", "strive to V = ~하려고 애쓰다", "constantly = 끊임없이"], "x": ["Our bodies constantly strive for homeostasis는 ‘우리 몸은 끊임없이 항상성을 얻으려고 애쓴다’라는 뜻이다.", "strive는 ‘노력하다’이고, 뒤에 for 명사 또는 to V가 온다.", "constantly는 형용사 constant(끊임없는)에 -ly가 붙은 부사이다.", "bodies는 명사 body의 복수형이다."]}, "7": {"c": "g", "t": "homeostasis : 항상성", "n": ["homeostasis = 항상성 (몸의 상태를 일정하게 유지하는 성질)", "balance of bodily functions = 신체 기능들의 균형", "bodily = 신체의"], "x": ["homeostasis는 ‘몸이 안정적인 상태를 일정하게 유지하려는 성질’이다.", "예를 들어 몸이 더워지면 땀을 내서 체온을 다시 맞춘다.", "bodily는 명사 body에 -ly가 붙은 형용사로 ‘신체의’라는 뜻이다."]}, "8": {"c": "p", "t": ", which is defined as ~ : 계속적 용법의 관계대명사 + 수동태", "n": ["~, which is defined as A = ~인데, 그것은 A로 정의된다", "which = homeostasis", "be defined as ~ = ~로 정의되다"], "x": ["which is defined as the balance of bodily functions는 ‘그것은 신체 기능들의 균형으로 정의된다’라는 뜻이다.", "which는 앞의 homeostasis를 가리키는 주격 관계대명사이다.", "쉼표 뒤의 which는 앞 단어를 덧붙여 설명하는 계속적 용법이다.", "defined는 동사 define의 과거분사이고, is defined는 수동태이다."]}, "9": {"c": "p", "t": "Without ~, S would not V : ~이 없다면 …할 수 없을 것이다", "n": ["Without + 명사, S would (not) V = ~이 없다면 …할 것이다", "= If it were not for ~", "가정법 과거의 의미"], "x": ["Without the body’s effective compensatory mechanisms, we would not be capable of surviving은 ‘효과적인 보상 기제가 없다면 우리는 생존할 수 없을 것이다’라는 뜻이다.", "without 뒤에 명사가 오고, 주절에 would가 있으면 ‘~이 없다면’이라는 가정이다.", "실제로는 그 기제가 있어서 우리가 살고 있다는 뜻이 숨어 있다.", "중간의 which ~ lows는 mechanisms를 설명하는 삽입 관계절이다."]}, "10": {"c": "g", "t": "compensatory : 보상하는 (compensate의 파생어)", "n": ["compensatory = 보상하는, 보충하는", "compensate = 보상하다", "compensation = 보상 (명사)"], "x": ["effective compensatory mechanisms는 ‘효과적인 보상 기제들’이라는 뜻이다.", "compensatory는 동사 compensate에서 나온 형용사이다.", "몸이 한쪽으로 쏠린 것을 다른 쪽으로 채워 맞춘다는 느낌이다."]}, "11": {"c": "g", "t": "mechanism : 기제, 작동 방식", "n": ["mechanism = 기제, 작동 방식, 장치", "compensatory mechanism = 보상 기제", "mechanisms = 복수형"], "x": ["the body’s effective compensatory mechanisms는 ‘몸의 효과적인 보상 기제들’이라는 뜻이다.", "mechanism은 어떤 일이 일어나게 하는 작동 방식을 말한다.", "mechanisms는 mechanism의 복수형이다."]}, "12": {"c": "p", "t": ", which may cushion ~ : 계속적 관계대명사 (선행사 mechanisms)", "n": ["which = the body’s effective compensatory mechanisms", "cushion = 완화하다, 충격을 줄이다", "potential highs and lows = 잠재적인 높낮이(변동)"], "x": ["which may cushion potential highs and lows는 ‘잠재적인 높낮이를 완화시킬 수 있는’이라는 뜻이다.", "which는 mechanisms를 가리키는 주격 관계대명사이다.", "cushion은 명사로는 ‘쿠션’이고, 여기서는 동사로 ‘충격을 줄이다’라는 뜻이다.", "highs and lows는 몸 상태의 큰 오르내림을 말한다."]}, "13": {"c": "g", "t": "be capable of -ing : ~할 수 있다", "n": ["be capable of -ing = ~할 능력이 있다", "capable = 능력 있는", "would not be capable of surviving = 생존할 수 없을 것이다"], "x": ["we would not be capable of surviving은 ‘우리는 생존할 수 없을 것이다’라는 뜻이다.", "capable of 뒤에는 동명사가 온다. surviving은 동사 survive의 -ing형이다.", "= be able to V와 같은 뜻이다."]}, "14": {"c": "k", "t": "주제문 : 쾌락과 고통은 한 동전의 양면", "n": ["two sides of the same coin = 같은 동전의 두 면", "쾌락과 고통은 서로 떼어 낼 수 없음", "함께 작동하며 균형을 유지"], "x": ["Pleasure and pain are like two sides of the same coin은 ‘쾌락과 고통은 같은 동전의 두 면과 같다’라는 뜻이다.", "동전의 앞면과 뒷면처럼 항상 짝을 이룬다는 비유이다.", "세미콜론 뒤에서 그 비유를 설명한다.", "이 글의 핵심 개념을 담은 문장이다."], "e": "쉬운 예시 : 시소의 양쪽 끝처럼 한쪽이 올라가면 다른 쪽은 내려가서, 둘이 함께 균형을 이룬다."}, "15": {"c": "g", "t": "be reliant on : ~에 의존하다", "n": ["be reliant on ~ = ~에 의존하다", "reliant = 의존하는 (rely on의 파생어)", "heavily = 크게, 심하게"], "x": ["are heavily reliant on one another는 ‘서로에게 크게 의존한다’라는 뜻이다.", "reliant는 동사 rely(의존하다)에서 나온 형용사이다.", "one another는 ‘서로’라는 뜻으로 쾌락과 고통을 가리킨다.", "heavily는 ‘심하게, 크게’라는 정도 부사이다."]}, "17": {"c": "p", "t": "seem to V ~ and are ~ and keep ~ : 세 동사의 병렬", "n": ["seem to V = ~하는 것 같다", "work together / are heavily reliant / keep balance = 병렬된 세 서술", "one another = 서로"], "x": ["they seem to work together and are heavily reliant on one another and keep balance는 세 동사구가 and로 이어진 병렬이다.", "기준 : 아잉카 분석(seem to work / are reliant / keep balance의 병렬).", "seem to work together는 ‘함께 작동하는 것 같다’라는 뜻이다.", "keep balance는 ‘균형을 유지하다’라는 뜻이다.", "they는 pleasure and pain을 가리킨다."]}, "21": {"c": "p", "t": "as + 절 : ~함에 따라 (비례)", "n": ["as + 주어 + 동사 = ~함에 따라", "as one rises, the other must fall = 하나가 올라감에 따라 다른 하나는 내려간다", "understand that + 절 = ~라는 것을 이해하다"], "x": ["as one of the two points rises, the other must correspondingly fall은 ‘두 지점 중 하나가 올라감에 따라 다른 하나는 내려가야 한다’라는 뜻이다.", "기준 : 아잉카 분석(as + 절 = 변화에 따라 함께 변하는 ‘~함에 따라’).", "that 이하는 understand의 목적어인 명사절이다.", "rises는 동사 rise의 3인칭 단수 현재형이다."]}, "22": {"c": "o", "t": "one = 두 지점 중 하나 / the other = 나머지 하나", "n": ["one of the two points = 두 지점 중 하나", "the other = 나머지 하나 (두 개일 때)", "one ↔ the other (둘 중 하나 ↔ 나머지 하나)"], "x": ["one of the two points는 ‘두 지점 중 하나’이다.", "the other는 두 개 중 하나를 말하고 남은 ‘나머지 하나’를 가리킨다.", "두 지점이 쾌락과 고통이므로 쾌락이 오르면 고통이 내리는 관계이다.", "대상이 둘이면 one과 the other를 짝으로 쓴다."]}, "24": {"c": "g", "t": "correspondingly : 이에 상응하여, 그에 따라", "n": ["correspondingly = 이에 상응하여, 그에 맞춰", "correspond = 일치하다, 상응하다", "correspond to ~ = ~에 해당하다"], "x": ["the other must correspondingly fall은 ‘다른 하나는 그에 상응하여 내려가야 한다’라는 뜻이다.", "하나가 오른 만큼 다른 하나가 그에 맞게 내려간다는 말이다.", "correspondingly는 동사 correspond에서 나온 부사이다."]}, "25": {"c": "g", "t": "scale : 저울, 눈금 (다의어: 규모)", "n": ["scale = 저울, 눈금, 척도", "(다의어) scale = 규모, 비늘", "internal scale = 내적 저울"], "x": ["two opposite points on a scale은 ‘저울(눈금) 위의 두 반대 지점’이라는 뜻이다.", "9번의 internal scale은 몸속에서 쾌락과 고통의 균형을 재는 가상의 저울을 말한다.", "scale은 ‘규모’라는 뜻이 더 자주 쓰이므로 문맥으로 구분한다."]}, "30": {"c": "o", "t": "these words = “No pain, no gain.” (6번)", "n": ["these words = “No pain, no gain.”", "there may be some truth to ~ = ~에는 어느 정도 진실이 있을 수 있다"], "x": ["these words는 바로 앞 문장의 “No pain, no gain.”을 가리킨다.", "there may be some truth to ~는 ‘~에는 어느 정도 진실이 있을 수 있다’라는 뜻이다.", "No pain, no gain은 ‘고통 없이는 얻는 것도 없다’라는 속담이다."]}, "31": {"c": "b", "t": "Well : 자, 그런데 (화제 전환)", "n": ["well = 자, 글쎄 (화제를 바꾸는 말)", "앞의 속담에 이어 전문가의 말을 소개"], "x": ["Well은 ‘자, 그런데’라는 뜻으로 화제를 이어 가거나 바꿀 때 쓴다.", "‘고통 없이는 얻는 것도 없다’는 말을 전문가의 연구로 연결한다.", "according to ~는 ‘~에 따르면’이라는 뜻이다."]}, "33": {"c": "k", "t": "주제문 : 고통을 피하려는 시도는 오히려 더 비참하게 만든다", "n": ["attempts to escape being miserable = 비참함에서 벗어나려는 시도", "escape -ing = ~하는 것을 피하다", "miserable = 비참한 / in fact = 사실은", "make A even more miserable = A를 훨씬 더 비참하게 만들다"], "x": ["our attempts to escape being miserable are in fact making us even more miserable은 ‘비참함에서 벗어나려는 우리의 시도가 사실 우리를 훨씬 더 비참하게 만들고 있다’라는 뜻이다.", "attempts는 명사 attempt(시도)의 복수형이고, to escape는 attempts를 꾸민다.", "escape는 뒤에 동명사를 목적어로 가져 being miserable이 왔다.", "even은 비교급 more miserable을 강조하는 부사이다.", "이 글의 요지에 해당하는 핵심 문장이다."], "e": "쉬운 예시 : 시소의 한쪽을 계속 눌러 올리려 할수록 반대쪽이 더 크게 내려간다. 고통을 피하려 할수록 더 큰 고통이 돌아온다."}, "36": {"c": "b", "t": "This is because ~ : 이것은 ~ 때문이다 (이유 설명)", "n": ["This is because + 절 = 이것은 ~ 때문이다", "because = 왜냐하면, ~ 때문에", "앞 문장의 이유를 설명함"], "x": ["This is because ~는 ‘이것은 ~ 때문이다’라는 뜻이다.", "앞 문장의 ‘고통을 피하려는 시도가 더 비참하게 만든다’는 주장의 이유를 밝힌다.", "because 뒤에는 주어와 동사가 있는 절이 온다.", "결론 부분이 시작되는 신호이다."]}, "37": {"c": "g", "t": "essential : 필수적인", "n": ["essential = 필수적인, 본질적인", "essence = 본질 (명사)", "an essential component = 필수적인 구성 요소"], "x": ["an essential component of our ability는 ‘우리 능력의 필수적인 구성 요소’라는 뜻이다.", "essential은 없어서는 안 된다는 뜻이다.", "actually는 ‘사실은’이라는 뜻의 부사로 예상과 다른 사실을 말한다."]}, "38": {"c": "g", "t": "component : 구성 요소", "n": ["component = 구성 요소, 부품", "component of ~ = ~의 구성 요소", "(동의어) element = 요소"], "x": ["a component of our ability는 ‘우리 능력의 한 구성 요소’라는 뜻이다.", "고통이 중립 상태를 유지하는 능력을 이루는 부분이라는 뜻이다.", "ability to V는 ‘~하는 능력’이라는 뜻이다."]}, "39": {"c": "g", "t": "maintain : 유지하다", "n": ["maintain = 유지하다, 지키다", "maintenance = 유지, 관리 (명사)", "neutral state = 중립적인 상태"], "x": ["our ability to maintain a neutral state는 ‘중립적인 상태를 유지하는 우리의 능력’이라는 뜻이다.", "to maintain은 앞의 ability를 꾸미는 to부정사이다.", "neutral은 쾌락과 고통 어느 한쪽으로도 기울지 않은 상태를 말한다."]}, "40": {"c": "k", "t": "결론문 : 고통을 허용하면 내적 저울이 균형으로 돌아온다", "n": ["allow it = 고통을 허용하다 (받아들이다)", "in turn = 결과적으로, 차례로", "reset A back to balance = A를 다시 균형으로 되돌리다", "it = pain"], "x": ["allowing it will in turn reset our internal scale back to balance는 ‘고통을 허용하는 것은 결과적으로 우리의 내적 저울을 다시 균형으로 되돌려 놓을 것이다’라는 뜻이다.", "allowing it이 주어이고, it은 앞의 pain을 가리킨다.", "allowing은 동사 allow의 -ing형으로, 동명사 주어이다.", "in turn은 ‘그 결과로, 이번에는’이라는 뜻이다.", "고통을 피하지 않고 받아들일 때 몸이 균형을 되찾는다는 이 글의 결론이다."], "e": "쉬운 예시 : 내려간 쪽을 억지로 올리지 않고 그대로 두면, 시소는 저절로 다시 수평이 된다."}, "41": {"c": "o", "t": "This = 고통을 피하려는 시도가 오히려 더 비참하게 하는 것 (8번)", "n": ["This = 8번 문장의 내용 전체", "= our attempts to escape being miserable are making us more miserable"], "x": ["This is because ~의 This는 바로 앞 문장의 내용 전체를 가리킨다.", "즉 ‘비참함을 피하려는 시도가 오히려 더 비참하게 만든다는 것’이다.", "because 이하가 그 이유를 설명한다."]}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

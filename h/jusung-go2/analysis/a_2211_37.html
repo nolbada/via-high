@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>22년 11월 37번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "22년 11월 37번", "sub": "고2 · 경제학의 행동 설명", "one": "경제학에서 행동을 ‘취향의 변화’로 설명하는 것은 문제, 소득과 가격의 변화로 설명해야 함 (출산율이 그 예)", "flow": [{"label": "도입부", "range": "1번", "sum": "호불호의 변화로 행동을 설명하는 것은 경제학자에게 대체로 문제 <small>(explaining behavior in terms of changes in likes and dislikes)<\/small>", "eg": "떡볶이를 더 사 먹는 이유를 ‘입맛이 바뀌어서’라고 설명하면 설명이 되지 않음"}, {"label": "본론 (1)", "range": "2번", "sum": "출산율 변동을 대중의 타고난 취향 변화로 설명하면 사회과학자가 불안정한 입장에 놓임 <small>(an unsound position)<\/small>", "eg": "떡볶이 판매량이 늘어난 것을 사람들이 갑자기 좋아하게 됐기 때문이라고 주장하는 셈"}, {"label": "본론 (2)", "range": "3번", "sum": "그런 주장은 사망률 증감을 죽음에 대한 욕구 변화로 설명하는 것과 같음 <small>(equivalent to ~)<\/small>", "eg": "‘사람들이 갑자기 떡볶이를 싫어하게 됐다’로 매출 급감을 설명하는 것과 같음"}, {"label": "요지", "range": "4번", "sum": "취향이 아니라 소득과 가격의 변화가 출산율에 영향 <small>(changes in income and prices)<\/small>", "eg": "떡볶이 소비는 입맛이 아니라 용돈과 가격의 변화로 설명"}, {"label": "결론", "range": "5번", "sum": "소득이 늘면 타고난 욕구가 같아도 사람들은 더 많은 자녀를 원하게 됨 <small>(even if the desire stays the same)<\/small>", "eg": "용돈이 늘면 떡볶이 좋아하는 정도가 그대로여도 더 자주 사 먹게 됨"}], "sents": [{"n": 1, "mk": "To an economist [1|who succeeds in figuring out] a person’s preference structure — [13|understanding] [4|whether] the [5|satisfaction] gained from [6|consuming] one good is greater than [7|that] of another — [8|explaining behavior in terms of changes in underlying likes and dislikes is usually highly] [9|problematic].", "ko": "사람의 선호 구조를 알아내는 데 성공한 경제학자, 즉 한 상품을 소비하여 얻는 만족도가 다른 상품의 만족도보다 더 큰지를 이해하는 데 성공한 경제학자에게, 행동을 기저에 있는 호불호의 변화의 관점에서 설명하는 것은 대체로 매우 문제가 많다."}, {"n": 2, "mk": "[15|To argue], [14|for instance], that the baby boom and then the baby bust [18|resulted from] an increase and then a decrease in the public’s [19|inherent] taste for children, [20|rather than] a change in [21|relative] prices against a background of stable preferences, [16|places a social scientist in an unsound position].", "ko": "예를 들어, 출산율의 급증과 그 후의 급감이 안정된 선호를 배경으로 한 상대적 가격의 변화 때문이 아니라 아이에 대한 대중의 내재적 기호의 증가와 그 후의 감소에서 비롯되었다고 주장하는 것은 사회과학자를 불안정한 입장에 놓는다."}, {"n": 3, "mk": "In economics, [25|such an argument] about birth rates would be [26|equivalent to] saying that a rise and fall in [28|mortality] could be [27|attributed to] an increase in the [19|inherent] desire change for death.", "ko": "경제학에서, 출산율에 대한 그러한 주장은 사망률의 상승과 하락이 죽음에 대한 내재적 욕구 변화의 증가에 기인한다고 말하는 것과 같을 것이다."}, {"n": 4, "mk": "For an economist, [32|changes in income and prices, rather than changes in tastes, affect birth rates].", "ko": "경제학자에게는, 취향의 변화보다는 소득과 가격의 변화가 출산율에 영향을 미친다."}, {"n": 5, "mk": "When income rises, [36|for example], [38|people want more children] ([37|or, as you will see later,] more satisfaction [34|derived from] children), [35|even if] their [19|inherent] desire for children stays the same.", "ko": "소득이 증가할 때, 예를 들어, 사람들은 더 많은 자녀를 원하는데(또는 여러분이 나중에 알게 되겠지만 자녀로부터 오는 더 큰 만족감을 원하는데), 자녀에 대한 그들의 내재적 욕구가 그대로 유지되더라도 그렇다."}], "items": {"1": {"c": "g", "t": "succeed in -ing · figure out : ~하는 데 성공하다 · 알아내다", "n": ["succeed in -ing = ~하는 데 성공하다", "figure out = 알아내다, 이해하다", "preference = 선호(도), 취향"], "x": ["an economist who succeeds in figuring out ~은 ‘~을 알아내는 데 성공한 경제학자’라는 뜻이다.", "who는 economist를 가리키는 주격 관계대명사이다.", "succeed는 ‘성공하다’이고 succeed in 뒤에는 동명사가 온다. figuring은 figure의 -ing형이다.", "preference structure는 ‘선호 구조’, 즉 사람이 무엇을 더 좋아하는지의 짜임새이다."]}, "4": {"c": "p", "t": "whether + 절 : ~인지 아닌지 (명사절)", "n": ["whether + 주어 + 동사 = ~인지 (아닌지)", "whether절 = understanding의 목적어", "the satisfaction (which is) gained from ~ = ~에서 얻는 만족도"], "x": ["understanding whether the satisfaction ~ is greater than that of another는 ‘~의 만족도가 다른 것보다 더 큰지를 이해하는 것’이라는 뜻이다.", "whether 이하는 understanding의 목적어인 명사절이다.", "gained from consuming one good은 앞의 satisfaction을 꾸미는 과거분사구이다.", "gained는 동사 gain(얻다)의 과거분사이다."]}, "5": {"c": "g", "t": "satisfaction : 만족(도)", "n": ["satisfaction = 만족, 만족도", "satisfy = 만족시키다 (동사)", "satisfied = 만족한 / satisfying = 만족을 주는"], "x": ["the satisfaction gained from consuming one good은 ‘한 상품을 소비해서 얻는 만족도’라는 뜻이다.", "satisfaction은 동사 satisfy의 명사형이다.", "5번 문장의 satisfaction derived from children도 같은 뜻으로, 아이로부터 얻는 만족감이다."]}, "6": {"c": "g", "t": "consume : 소비하다, 섭취하다", "n": ["consume = 소비하다, 먹다", "consumption = 소비 (명사)", "consumer = 소비자"], "x": ["consuming one good은 ‘한 상품을 소비하는 것’이라는 뜻이다.", "consuming은 동사 consume의 -ing형으로, 전치사 from 뒤에 온 동명사이다.", "good은 여기서 ‘좋은’이 아니라 ‘상품, 재화’라는 뜻의 명사이다."]}, "7": {"c": "o", "t": "that = the satisfaction (만족도)", "n": ["that of another = another (good)의 만족도", "that = 앞에 나온 the satisfaction", "비교 대상을 맞추려고 쓰는 that"], "x": ["greater than that of another는 ‘다른 상품의 만족도보다 더 큰’이라는 뜻이다.", "that은 앞에 나온 the satisfaction을 대신 받는 대명사이다.", "비교하는 두 대상을 같은 종류로 맞추려고 that of를 쓴다.", "another는 ‘또 다른 상품’을 뜻한다."]}, "8": {"c": "k", "t": "주제문 : 호불호의 변화로 행동을 설명하는 것은 문제", "n": ["explaining behavior in terms of ~ = ~의 관점에서 행동을 설명하는 것", "in terms of ~ = ~의 관점에서", "underlying = 기저에 있는, 근본적인", "problematic = 문제가 많은"], "x": ["explaining behavior ~ is usually highly problematic은 ‘행동을 ~의 관점에서 설명하는 것은 대체로 매우 문제가 많다’라는 뜻이다.", "explaining behavior ~ likes and dislikes 전체가 동명사구 주어이고, 동사는 is이다.", "in terms of ~는 ‘~의 관점에서, ~에 관해서’라는 뜻이다.", "취향(likes and dislikes)의 변화를 이유로 삼는 설명을 비판하는 글의 주제이다."], "e": "쉬운 예시 : 떡볶이를 더 사 먹는 이유를 ‘입맛이 바뀌어서’라고만 설명하면 왜 바뀌었는지는 알 수 없어서 설명이 되지 않는다."}, "9": {"c": "g", "t": "problematic : 문제가 많은, 문제의 소지가 있는", "n": ["problematic = 문제가 많은, 문제의 소지가 있는", "problem = 문제 (명사)", "problematic은 problem의 형용사형"], "x": ["usually highly problematic은 ‘대체로 매우 문제가 많은’이라는 뜻이다.", "명사 problem에 -atic이 붙어 형용사가 되었다.", "usually는 ‘대체로’, highly는 ‘매우’라는 뜻의 부사이다."]}, "13": {"c": "p", "t": "대시(—) 삽입 : 앞 내용을 부연하는 분사구", "n": ["— understanding whether ~ — = ~을 이해하는 것 (앞 내용의 부연)", "figuring out a person’s preference structure = understanding whether ~"], "x": ["두 대시 사이의 understanding ~ of another는 앞의 figuring out ~ preference structure를 풀어 설명한다.", "즉 ‘선호 구조를 알아낸다’는 것이 구체적으로 어떤 일인지 밝힌다.", "대시 안의 내용을 괄호처럼 건너뛰어도 뼈대는 To an economist ~, explaining ~ is problematic이다.", "To an economist는 ‘경제학자에게는’이라는 뜻이다."]}, "14": {"c": "b", "t": "for instance : 예를 들어", "n": ["for instance = 예를 들어", "앞 문장의 구체적인 예를 이끎"], "x": ["for instance는 ‘예를 들어’라는 뜻의 연결어이다.", "1번의 일반적인 주장을 출산율의 구체적 사례로 설명한다.", "문장 중간에 삽입되어 쉼표로 둘러싸여 있다."]}, "15": {"c": "p", "t": "To argue ~, places ... : to부정사구가 주어", "n": ["To argue that ~ = ~라고 주장하는 것", "To argue that ... places a social scientist in ~ = ~라고 주장하는 것은 사회과학자를 ~에 놓는다", "that절 = argue의 목적어"], "x": ["To argue, for instance, that ~ places a social scientist in an unsound position의 주어는 To argue ~ 전체이다.", "that 이하는 argue의 목적어로, 아주 길어서 동사 places가 멀리 떨어져 있다.", "먼저 that절 끝(stable preferences)까지 묶어서 주어로 보고, 그다음 동사 places를 찾는다.", "places는 동사 place(놓다)의 3인칭 단수 현재형이다."]}, "16": {"c": "g", "t": "place A in a position : A를 ~한 처지에 놓다 · unsound", "n": ["place A in ~ position = A를 ~한 입장에 놓다", "unsound = 근거가 약한, 불안정한", "↔ sound = 타당한, 건전한"], "x": ["places a social scientist in an unsound position은 ‘사회과학자를 불안정한 입장에 놓는다’라는 뜻이다.", "unsound는 sound(타당한)에 부정 접두사 un-이 붙은 형용사이다.", "근거가 약해서 반박당하기 쉬운 처지를 말한다."]}, "18": {"c": "g", "t": "result from : ~에서 비롯되다", "n": ["result from ~ = ~에서 비롯되다, ~가 원인이다", "result in ~ = ~을 초래하다 (반대 방향)", "원인 result in 결과 / 결과 result from 원인"], "x": ["the baby boom and then the baby bust resulted from ~은 ‘출산율의 급증과 그 후의 급감이 ~에서 비롯되었다’라는 뜻이다.", "resulted는 동사 result의 과거형이다.", "result from 뒤에는 원인이, result in 뒤에는 결과가 온다.", "baby boom은 출산율의 급증, baby bust는 출산율의 급감을 뜻한다."]}, "19": {"c": "g", "t": "inherent : 내재적인, 타고난", "n": ["inherent = 내재적인, 타고난, 고유한", "inherent taste = 타고난 취향", "inherent desire = 내재적 욕구"], "x": ["the public’s inherent taste for children은 ‘아이에 대한 대중의 타고난 기호’라는 뜻이다.", "inherent는 처음부터 그 안에 들어 있어서 쉽게 바뀌지 않는다는 느낌이다.", "3번과 5번의 inherent desire도 같은 뜻으로, 5번에서는 ‘그대로 유지되는 욕구’이다.", "taste는 여기서 ‘맛’이 아니라 ‘취향, 기호’라는 뜻이다."]}, "20": {"c": "b", "t": "A rather than B : B가 아니라 A", "n": ["A rather than B = B라기보다는 A", "an increase ~ , rather than a change in relative prices = 상대적 가격의 변화가 아니라 ~의 증가", "대조 신호"], "x": ["an increase and then a decrease ~, rather than a change in relative prices ~는 ‘상대적 가격의 변화가 아니라 ~의 증가와 감소’라는 뜻이다.", "rather than 앞이 필자가 비판하는 주장이고, 뒤가 필자가 옳다고 보는 설명이다.", "4번 문장에서는 changes in tastes가 비교 대상으로 나와, 같은 구조가 반복된다."]}, "21": {"c": "g", "t": "relative : 상대적인 (다의어: 친척)", "n": ["relative = 상대적인", "relative price = 상대 가격 (다른 물건 가격과 비교한 가격)", "(다의어) relative = 친척 (명사)"], "x": ["a change in relative prices는 ‘상대적 가격의 변화’라는 뜻이다.", "relative는 다른 것과 비교했을 때의 값을 말한다.", "명사 relative는 ‘친척’이라는 뜻이어서 문맥으로 구분한다.", "against a background of stable preferences는 ‘안정된 선호를 배경으로’라는 뜻이다."]}, "25": {"c": "o", "t": "such an argument = 2번 문장의 주장", "n": ["such an argument = 그러한 주장 (2번 문장)", "출산율 변화를 대중의 취향 변화로 설명하는 주장"], "x": ["such an argument about birth rates는 ‘출산율에 대한 그러한 주장’이라는 뜻이다.", "2번 문장의 ‘출산율의 증감을 취향의 증감으로 설명하는 주장’을 가리킨다.", "such는 앞 내용을 받는 지시어이다."]}, "26": {"c": "g", "t": "equivalent to : ~와 같은, 동등한", "n": ["be equivalent to ~ = ~와 같다, 동등하다", "equivalent = 같은, 동등한"], "x": ["would be equivalent to saying that ~은 ‘~라고 말하는 것과 같을 것이다’라는 뜻이다.", "to는 전치사라서 뒤에 동명사 saying이 왔다.", "would는 ‘만약 그렇게 주장한다면’이라는 가정의 느낌을 더한다."]}, "27": {"c": "g", "t": "be attributed to : ~ 때문이다, ~의 결과로 여겨지다", "n": ["attribute A to B = A를 B의 탓(덕분)으로 돌리다", "A is attributed to B = A는 B 때문이다", "could be attributed to ~ = ~ 때문일 수 있다"], "x": ["기준 : 시험지 원문이 ‘the inherent desire change for death’로 인쇄돼 있다. 그대로 두고 ‘타고난 욕구’로 읽는다.", "a rise and fall in mortality could be attributed to ~는 ‘사망률의 상승과 하락이 ~ 때문이라고 할 수 있다’라는 뜻이다.", "attributed는 동사 attribute의 과거분사이고, could be attributed는 수동태이다.", "attribute to 뒤에는 원인이 온다."]}, "28": {"c": "g", "t": "mortality : 사망률", "n": ["mortality = 사망률, 죽음을 피할 수 없음", "mortal = 죽을 운명의 (형용사)", "↔ immortal = 죽지 않는"], "x": ["a rise and fall in mortality는 ‘사망률의 상승과 하락’이라는 뜻이다.", "mortality는 형용사 mortal(죽을 운명의)의 명사형이다.", "birth rates(출산율)와 짝을 이루는 ‘사망률’이다."]}, "32": {"c": "k", "t": "요지문 : 취향이 아니라 소득과 가격의 변화가 출산율에 영향", "n": ["changes in income and prices = 소득과 가격의 변화", "A, rather than B, affect C = B가 아니라 A가 C에 영향을 미친다", "affect = ~에 영향을 미치다"], "x": ["changes in income and prices, rather than changes in tastes, affect birth rates는 ‘취향의 변화가 아니라 소득과 가격의 변화가 출산율에 영향을 미친다’라는 뜻이다.", "rather than changes in tastes는 삽입된 말이고, 뼈대는 changes ~ affect birth rates이다.", "affect는 동사로 ‘영향을 미치다’라는 뜻이다. effect(결과, 효과)와 헷갈리지 않아야 한다.", "이 글의 요지를 담은 핵심 문장이다."], "e": "쉬운 예시 : 떡볶이를 많이 사 먹는 것은 입맛이 바뀌어서가 아니라, 용돈이 늘었거나 가격이 내렸기 때문이다."}, "34": {"c": "g", "t": "derive from : ~에서 얻다, ~에서 비롯되다", "n": ["derive A from B = B에서 A를 얻다", "be derived from ~ = ~에서 유래하다, ~에서 비롯되다", "derived = derive의 과거분사"], "x": ["more satisfaction derived from children은 ‘자녀로부터 얻는 더 큰 만족감’이라는 뜻이다.", "derived는 동사 derive의 과거분사로, 앞의 satisfaction을 뒤에서 꾸민다.", "from 뒤에 얻어 오는 근원이 온다."]}, "35": {"c": "p", "t": "even if + 절 : 비록 ~하더라도 (양보)", "n": ["even if + 주어 + 동사 = 비록 ~하더라도", "stay the same = 그대로이다, 변하지 않다"], "x": ["even if their inherent desire for children stays the same은 ‘자녀에 대한 그들의 내재적 욕구가 그대로이더라도’라는 뜻이다.", "even if는 가능성이 낮거나 상관없다고 말할 때 쓰는 양보 접속사이다.", "stays는 동사 stay의 3인칭 단수 현재형이고, stay the same은 ‘변하지 않고 같다’라는 뜻이다.", "욕구는 그대로여도 소득이 늘면 결과가 달라진다는 점을 강조한다."]}, "36": {"c": "b", "t": "for example : 예를 들어", "n": ["for example = 예를 들어", "앞 문장 요지의 구체적인 예를 이끎"], "x": ["for example은 ‘예를 들어’라는 뜻의 연결어이다.", "4번의 ‘소득이 영향을 준다’는 주장을 구체적으로 보여 준다.", "쉼표 사이에 삽입되어 있다."]}, "37": {"c": "p", "t": "( or, as you will see later, ~ ) : 삽입된 부연 설명", "n": ["or = 달리 말해, 또는", "as you will see later = 나중에 알게 되겠지만", "more children (or more satisfaction ~) = 더 많은 자녀 (혹은 더 큰 만족감)"], "x": ["(or, as you will see later, more satisfaction derived from children)은 앞의 more children을 바꿔 말하는 괄호이다.", "as you will see later는 ‘나중에 알게 되겠지만’이라는 삽입 표현이다.", "여기서 as는 접속사로 뒤에 주어와 동사 you will see가 온다.", "삽입 부분을 빼면 people want more children, even if ~로 읽힌다."]}, "38": {"c": "k", "t": "결론문 : 소득이 늘면 사람들은 더 많은 자녀를 원한다", "n": ["people want more children = 사람들은 더 많은 자녀를 원한다", "income rises = 소득이 오르다", "욕구는 그대로여도 소득이 늘면 달라짐"], "x": ["When income rises, people want more children은 ‘소득이 오르면 사람들은 더 많은 자녀를 원한다’라는 뜻이다.", "rises는 동사 rise(오르다)의 3인칭 단수 현재형으로, 목적어를 취하지 않는다.", "취향의 변화 없이도 행동이 달라질 수 있다는 앞의 요지를 예로 보여 준다."], "e": "쉬운 예시 : 용돈이 늘면 떡볶이를 좋아하는 정도는 그대로여도 사 먹는 횟수는 늘어난다."}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

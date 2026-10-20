@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>22년 11월 36번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "22년 11월 36번", "sub": "고2 · 잊힐 권리", "one": "잊힐 권리는 사생활 권리와 달리 이미 공개된 정보에도 적용되어 개인이 과거에 영원히 묶이지 않게 하지만, 다른 권리와 충돌할 수 있음", "flow": [{"label": "도입부", "range": "1~3번", "sum": "잊힐 권리는 사생활 권리와 구별되지만 관련됨, 사생활 권리는 비공개 정보 보호 <small>(distinct from but related to privacy)<\/small>", "eg": "비공개 일기장을 지키는 권리와, 이미 올린 옛 게시물을 지워 달라는 권리는 서로 다름"}, {"label": "본론 (1)", "range": "4~5번", "sum": "개인이 특정 시점의 정보에 영원히 규정되지 않을 권리, 삶을 이어 가게 해 주는 것이 동기 <small>(not to be forever defined)<\/small>", "eg": "중학생 때 올린 흑역사 게시물 하나로 어른이 되어서도 평가받지 않을 권리"}, {"label": "본론 (2)", "range": "6번", "sum": "일부 국가에서는 과거 유죄 판결도 결국 소멸되어 삶에 계속 영향을 주지 않아야 한다고 인정 <small>(UK, France)<\/small>", "eg": "오래전 실수 기록은 일정 시간이 지나면 더 이상 따라다니지 않도록 정한 나라들이 있음"}, {"label": "결론", "range": "7~8번", "sum": "잊힐 권리는 다른 권리와 때때로 충돌, 안보·공공 보건 등 공식 예외가 존재 <small>(come into conflict with other rights)<\/small>", "eg": "옛 게시물 삭제 요구가 공익을 위해 남겨야 할 기록과 부딪히면 예외를 둠"}], "sents": [{"n": 1, "mk": "The right [1|to be forgotten] is a right [2|distinct from but related to] a right to privacy.", "ko": "잊힐 권리는 사생활에 대한 권리와는 구별되지만 그와 관련된 권리이다."}, {"n": 2, "mk": "The right to privacy is, among other things, the right [3|for information] traditionally [4|regarded as] protected or personal [3|not to be revealed].", "ko": "사생활에 대한 권리는 무엇보다도 전통적으로 보호되거나 개인적인 것으로 여겨지는 정보가 공개되지 않을 권리이다."}, {"n": 3, "mk": "The right to be forgotten, [7|in contrast], can be [8|applied to] information [9|that has been in] the public [10|domain].", "ko": "반면에 잊힐 권리는 공공의 영역에 있었던 정보에 적용될 수 있다."}, {"n": 4, "mk": "The right to be forgotten broadly includes [13|the right of an individual not to be forever defined by information from a specific point in time].", "ko": "잊힐 권리는 개인이 특정 시점의 정보에 의해 영원히 정의되지 않을 권리를 광범위하게 포함한다."}, {"n": 5, "mk": "One [16|motivation] for [33|such a right] is [17|to allow] individuals to [18|move on with] their lives [17|and not be defined] by a [14|specific] event or period in their lives.", "ko": "그러한 권리의 한 가지 동기는 개인이 자신의 삶을 계속 이어 갈 수 있게 해 주고 자신의 삶의 특정한 사건이나 기간에 의해 정의되지 않도록 해 주는 것이다."}, {"n": 6, "mk": "[20|For example], [21|it has long been recognized] in some countries, such as the UK and France, [21|that] even past criminal [25|convictions] [26|should eventually be “spent”] [27|and not continue to affect] a person’s life.", "ko": "예를 들어, 영국과 프랑스 같은 일부 국가에서는 과거의 범죄 유죄 판결조차 결국 ‘소멸되어야’ 하고 한 사람의 삶에 계속 영향을 미치지 않아야 한다고 오랫동안 인정되어 왔다."}, {"n": 7, "mk": "[28|Despite] the reason for supporting the right to be forgotten, [29|the right to be forgotten can sometimes come into conflict with other rights].", "ko": "잊힐 권리를 지지하는 이유에도 불구하고, 잊힐 권리는 때때로 다른 권리들과 충돌할 수 있다."}, {"n": 8, "mk": "[31|For example], formal [32|exceptions] are sometimes made for security or public health reasons.", "ko": "예를 들어, 공식적인 예외는 안보나 공공 보건의 이유로 때때로 만들어진다."}], "items": {"1": {"c": "p", "t": "the right to be forgotten : 잊힐 권리 (to부정사의 수동형이 명사를 꾸밈)", "n": ["the right to be forgotten = 잊힐 권리", "to be forgotten = 잊히는 (to V의 수동형)", "forget = 잊다 → be forgotten = 잊히다"], "x": ["the right to be forgotten은 ‘잊힐 권리’라는 뜻이다.", "to be forgotten은 앞의 명사 right를 꾸미는 to부정사이다.", "be forgotten은 동사 forget(잊다)의 수동태 be + 과거분사이다. forgotten은 forget의 과거분사이다.", "그래서 ‘잊히는 권리’, 즉 ‘잊힐 권리’로 해석한다."]}, "2": {"c": "g", "t": "distinct from : ~와 구별되는, 별개의", "n": ["distinct = 별개의, 뚜렷한", "distinct from ~ = ~와 구별되는", "related to ~ = ~와 관련된"], "x": ["a right distinct from but related to a right to privacy는 ‘사생활 권리와 구별되지만 관련된 권리’라는 뜻이다.", "distinct from과 related to가 but으로 이어져 a right를 꾸민다.", "distinct from 뒤에 a right to privacy가 중복되어 생략되었다.", "distinct는 ‘별개의’ 외에 ‘뚜렷한’이라는 뜻도 있다."]}, "3": {"c": "p", "t": "the right for A not to be p.p. : A가 ~되지 않을 권리", "n": ["the right for information not to be revealed = 정보가 공개되지 않을 권리", "for information = to be revealed의 의미상 주어", "reveal = 드러내다, 공개하다"], "x": ["the right for information ~ not to be revealed는 ‘정보가 공개되지 않을 권리’라는 뜻이다.", "for information이 to부정사의 의미상 주어이고, not to be revealed는 ‘공개되지 않는’이라는 뜻이다.", "not은 to부정사 바로 앞에 놓아 to V를 부정한다.", "reveal은 ‘드러내다’라는 뜻이고, revealed는 동사 reveal의 과거분사이다.", "중간의 traditionally regarded as protected or personal은 information을 꾸미는 말이다."]}, "4": {"c": "g", "t": "regard A as B : A를 B로 여기다", "n": ["regard A as B = A를 B로 여기다", "be regarded as B = B로 여겨지다", "traditionally = 전통적으로"], "x": ["information traditionally regarded as protected or personal은 ‘전통적으로 보호되거나 개인적인 것으로 여겨지는 정보’라는 뜻이다.", "regarded는 동사 regard의 과거분사로, 앞의 information을 뒤에서 꾸민다.", "information (which is) regarded as ~에서 which is가 생략된 모양으로 보면 쉽다.", "regard는 ‘~으로 여기다’ 외에 ‘~을 (유심히) 보다’라는 뜻도 있다."]}, "7": {"c": "b", "t": "in contrast : 반면에", "n": ["in contrast = 반면에, 대조적으로", "앞의 사생활 권리와 잊힐 권리를 대조"], "x": ["in contrast는 ‘반면에, 대조적으로’라는 뜻의 연결어이다.", "앞 문장은 사생활 권리를, 이 문장은 잊힐 권리를 설명한다.", "두 권리의 차이가 여기서 드러난다."]}, "8": {"c": "g", "t": "apply to : ~에 적용되다", "n": ["apply to ~ = ~에 적용되다", "(다의어) apply for ~ = ~에 지원하다", "(다의어) apply = (연고 등을) 바르다"], "x": ["can be applied to information은 ‘정보에 적용될 수 있다’라는 뜻이다.", "applied는 동사 apply의 과거분사이고, can be applied는 수동태이다.", "apply는 뒤에 오는 전치사에 따라 뜻이 달라지는 다의어이다."]}, "9": {"c": "p", "t": "that + has been : 주격 관계대명사 + 현재완료", "n": ["information that has been in the public domain = 공공의 영역에 있었던 정보", "has been = 현재완료 (지금까지 ~이었다)"], "x": ["information that has been in the public domain은 ‘공공의 영역에 있었던 정보’라는 뜻이다.", "that은 information을 가리키는 주격 관계대명사이다.", "has been은 현재완료로, 이미 공개된 채로 지내 왔다는 느낌이다.", "사생활 권리가 비공개 정보를 다루는 것과 대조되는 지점이다."]}, "10": {"c": "g", "t": "domain : 영역, 분야", "n": ["domain = 영역, 분야", "public domain = 공공의 영역 (누구나 접근하는 영역)", "(다의어) domain = 인터넷 주소 (도메인)"], "x": ["the public domain은 ‘공공의 영역’이라는 뜻이다.", "이미 사람들에게 알려져 누구나 볼 수 있는 곳을 뜻한다.", "인터넷의 ‘도메인 주소’도 같은 단어이다."]}, "13": {"c": "k", "t": "주제문 (1) : 잊힐 권리 = 특정 시점의 정보에 영원히 규정되지 않을 권리", "n": ["the right of an individual not to be forever defined by ~ = 개인이 ~에 의해 영원히 정의되지 않을 권리", "define = 정의하다, 규정하다", "specific point in time = 특정 시점"], "x": ["not to be forever defined by information from a specific point in time은 ‘특정 시점의 정보에 의해 영원히 규정되지 않는’이라는 뜻이다.", "not to be defined는 to부정사의 부정형과 수동태가 합쳐진 모양으로, right를 꾸민다.", "defined는 동사 define의 과거분사이다.", "한 시점의 모습이 평생 그 사람을 설명하지 않게 하자는 것이 핵심이다.", "broadly includes는 ‘광범위하게 포함한다’는 뜻이다."], "e": "쉬운 예시 : 중학생 때 올린 흑역사 게시물 하나가 어른이 되어서도 그 사람을 평가하는 기준이 되면 안 된다."}, "14": {"c": "g", "t": "specific : 특정한, 구체적인", "n": ["specific = 특정한, 구체적인", "specific event = 특정한 사건", "period = 기간, 시기"], "x": ["a specific event or period in their lives는 ‘그들의 삶의 특정한 사건이나 기간’이라는 뜻이다.", "specific은 ‘여러 가지 중 딱 정해진 하나’라는 느낌이다.", "반대말은 general(일반적인)이다."]}, "16": {"c": "g", "t": "motivation : 동기", "n": ["motivation = 동기, 이유", "motivate = 동기를 부여하다 (동사)", "motivation for ~ = ~의 동기"], "x": ["One motivation for such a right는 ‘그러한 권리의 한 가지 동기’라는 뜻이다.", "motivation은 동사 motivate의 명사형이다.", "여기서는 권리가 만들어진 이유를 가리킨다."]}, "17": {"c": "p", "t": "allow + O + to V ~ and (to) not V : 병렬 구조", "n": ["allow + 목적어 + to V = ~가 ...하게 해 주다", "to allow individuals to move on and (to allow individuals) not (to) be defined", "and = 두 개의 to부정사를 이음"], "x": ["to allow individuals to move on with their lives and not be defined by ~는 ‘개인이 삶을 계속 이어 가고 ~에 의해 정의되지 않게 해 주다’라는 뜻이다.", "allow individuals to move on과 allow individuals not to be defined 두 덩어리가 and로 이어진다.", "두 번째에서 반복되는 allow individuals는 생략되었다.", "and 뒤의 not be defined는 앞의 to move on과 같은 위치에 놓이는 병렬 구조이다.", "defined by ~는 ‘~에 의해 정의되는’이라는 뜻의 수동태이다."]}, "18": {"c": "g", "t": "move on with : ~을 계속 이어 가다, 다음으로 넘어가다", "n": ["move on = 다음으로 넘어가다, 앞으로 나아가다", "move on with one’s life = 자기 삶을 계속 살아가다"], "x": ["move on with their lives는 ‘자신의 삶을 계속 이어 가다’라는 뜻이다.", "기준 : move on with를 한 덩어리 구동사 표현으로 봄(move on + with 전치사구로 나누지 않음).", "과거에 얽매이지 않고 앞으로 나아간다는 느낌이다.", "move와 on이 합쳐진 구동사로 한 덩어리로 외운다."]}, "20": {"c": "b", "t": "For example : 예를 들어", "n": ["for example = 예를 들어", "앞 내용을 구체적인 사례로 설명"], "x": ["For example은 ‘예를 들어’라는 뜻의 연결어이다.", "앞 문장 ‘특정 시점에 영원히 규정되지 않을 권리’의 구체적 사례가 이어진다.", "영국과 프랑스의 사례를 든다."]}, "21": {"c": "p", "t": "it has long been recognized that ~ : ~라고 오랫동안 인정되어 왔다", "n": ["It is recognized that + 절 = ~라고 인정된다", "it = that 이하 (진주어)", "has long been recognized = 현재완료 수동태 (오랫동안 인정되어 왔다)"], "x": ["it has long been recognized that ~은 ‘~라고 오랫동안 인정되어 왔다’라는 뜻이다.", "it은 가주어이고, that 이하가 진짜 주어이다.", "has been recognized는 현재완료 수동태이다. recognized는 동사 recognize(인정하다)의 과거분사이다.", "long은 여기서 ‘오랫동안’이라는 뜻의 부사이다."]}, "25": {"c": "g", "t": "conviction : 유죄 판결 (다의어: 확신)", "n": ["conviction = 유죄 판결", "(다의어) conviction = 확신, 신념", "convict = 유죄를 선고하다 (동사)"], "x": ["past criminal convictions는 ‘과거의 범죄 유죄 판결들’이라는 뜻이다.", "criminal은 ‘범죄의’, convictions는 conviction의 복수형이다.", "‘확신’이라는 뜻도 있어서 문맥으로 구분한다."]}, "26": {"c": "g", "t": "be spent : (유죄 판결이) 소멸되다, 효력이 다하다", "n": ["spent = (기록·효력이) 다 소모된, 소멸된", "eventually = 결국, 마침내", "spend = (시간·돈을) 쓰다 → spent = 과거분사"], "x": ["should eventually be ‘spent’는 ‘결국 소멸되어야 한다’라는 뜻이다.", "기준 : be spent를 형용사가 아니라 동사 spend의 수동태(be + 과거분사)로 봄.", "spent는 동사 spend의 과거분사이고, 따옴표로 특별한 뜻으로 쓰였음을 알린다.", "‘돈을 쓰다’의 spend가 아니라, 효력이 모두 소진되어 없어진다는 의미이다.", "일정 시간이 지나면 과거의 유죄 기록이 더 이상 효력을 갖지 않는다는 말이다."]}, "27": {"c": "p", "t": "(should) be spent and (should) not continue to V : 병렬 구조", "n": ["should be spent and not continue to affect = 소멸되어야 하고 영향을 주지 않아야 한다", "continue to V = 계속 ~하다", "affect = ~에 영향을 미치다"], "x": ["and not continue to affect a person’s life는 ‘한 사람의 삶에 계속 영향을 미치지 않아야 한다’라는 뜻이다.", "should가 be spent와 not continue 두 동사에 모두 걸린다.", "두 번째 should는 생략되어 and 앞뒤가 같은 위치의 병렬이다.", "affect는 ‘~에 영향을 미치다’라는 동사이다."]}, "28": {"c": "b", "t": "Despite : ~에도 불구하고 (반전 신호)", "n": ["despite + 명사(구) = ~에도 불구하고", "reason for ~ = ~의 이유"], "x": ["Despite the reason for supporting ~은 ‘~을 지지하는 이유에도 불구하고’라는 뜻이다.", "despite는 전치사라서 뒤에 명사(구)가 온다.", "앞의 좋은 점과 반대되는 내용이 이어진다는 신호이다."]}, "29": {"c": "k", "t": "주제문 (2) : 잊힐 권리는 다른 권리와 충돌할 수 있다", "n": ["come into conflict with ~ = ~와 충돌하게 되다", "conflict = 충돌, 갈등", "other rights = 다른 권리들"], "x": ["the right to be forgotten can sometimes come into conflict with other rights는 ‘잊힐 권리는 때때로 다른 권리들과 충돌할 수 있다’라는 뜻이다.", "come into conflict with는 ‘~와 부딪히게 되다’라는 뜻의 표현이다.", "sometimes가 있어서 항상이 아니라 때때로 충돌한다는 뜻이다.", "이 글의 두 번째 핵심 문장이다."], "e": "쉬운 예시 : 옛 게시물을 지워 달라는 요구가, 모두가 알아야 하는 기록은 남겨야 한다는 요구와 부딪힐 수 있다."}, "31": {"c": "b", "t": "For example : 예를 들어", "n": ["for example = 예를 들어", "충돌의 구체적인 예를 이끎"], "x": ["For example은 ‘예를 들어’라는 뜻의 연결어이다.", "앞의 ‘권리끼리 충돌한다’는 말을 예로 설명한다.", "안보나 공공 보건 같은 이유가 예로 나온다."]}, "32": {"c": "g", "t": "exception : 예외", "n": ["exception = 예외", "make an exception = 예외를 두다", "formal = 공식적인"], "x": ["formal exceptions are sometimes made는 ‘공식적인 예외가 때때로 만들어진다’라는 뜻이다.", "are made는 동사 make의 수동태이고, made는 make의 과거분사이다.", "security는 ‘안보’, public health는 ‘공공 보건’이라는 뜻이다."]}, "33": {"c": "o", "t": "such a right = the right to be forgotten (4번)", "n": ["such a right = 그러한 권리 (잊힐 권리)", "such + a + 명사 = 그러한 ~"], "x": ["such a right는 ‘그러한 권리’라는 뜻이다.", "바로 앞 문장의 the right to be forgotten을 가리킨다.", "such는 앞에서 말한 것을 받는 지시어 역할을 한다."]}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

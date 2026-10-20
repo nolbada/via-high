@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>23년 11월 33번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "23년 11월 33번", "sub": "고2 · 인과 가설의 함정", "one": "상관관계가 주는 통찰은 명확하지만 그 이유를 인과로 설명하려 들면 오히려 흐려지므로 설명 시도는 보류하는 편이 좋음", "flow": [{"label": "도입부", "range": "1~2번", "sum": "상관관계는 통찰이 명확해 강력하지만 인과 관계를 끌어들이면 가려짐 <small>(covered up)<\/small>", "eg": "주황색 중고차는 결함이 적다는 숫자는 분명하지만, 이유를 따지는 순간 흐려짐"}, {"label": "본론 (1)", "range": "3~4번", "sum": "중고차 경매 데이터에서 주황색 차는 결함 가능성이 훨씬 낮게 나옴 <small>(far less likely to have defects)<\/small>", "eg": "경매에 나온 중고차 중 주황색 차는 문제가 거의 없었다는 분석 결과"}, {"label": "본론 (1)", "range": "5~6번", "sum": "이유를 짐작하는 순간 서로 다른 인과 설명이 쏟아짐 <small>(why it might be so)<\/small>", "eg": "주인이 차 애호가여서일까, 눈에 잘 띄어 사고가 적어서일까?"}, {"label": "본론 (2)", "range": "7~8번", "sum": "곧 경쟁하는 인과 가설의 함정에 빠지고, 설명 시도는 더 흐리게 만들 뿐 <small>(a web of competing causal hypotheses)<\/small>", "eg": "추측이 늘수록 주황색 차 이야기는 점점 더 뿌예짐"}, {"label": "본론 (2)", "range": "9~10번", "sum": "상관관계는 수학적으로 보일 수 있지만 인과 관계는 쉽게 그럴 수 없음 <small>(mathematically)<\/small>", "eg": "주황색 차의 결함률은 숫자로 보이지만, 그 이유는 숫자로 못 보임"}, {"label": "결론", "range": "11번", "sum": "상관관계 뒤의 이유를 설명하려는 시도는 보류하는 편이 좋음 <small>(hold off from trying to explain)<\/small>", "eg": "‘주황색 차가 결함이 적다’는 사실만 받아들이고 이유 찾기는 멈춤"}], "sents": [{"n": 1, "mk": "[1|Correlations] are powerful [2|because] the insights they offer are relatively clear.", "ko": "상관관계는 그것들이 제공하는 통찰이 비교적 명확하기 때문에 강력하다."}, {"n": 2, "mk": "These insights are often [3|covered up] when we bring [4|causality] back into [5|the picture].", "ko": "이러한 통찰은 종종 우리가 인과 관계를 다시 그 상황으로 가져올 때 가려진다."}, {"n": 3, "mk": "[6|For instance], a [7|used-car] dealer [8|supplied] data to statisticians to [9|predict] [10|which of the vehicles available for purchase at an auction were likely to have problems].", "ko": "예를 들어, 한 중고차 딜러가 경매에서 구입할 수 있는 차량들 중 어떤 차량이 문제가 발생할 가능성이 있는지를 예측하기 위해 통계학자들에게 데이터를 제공했다."}, {"n": 4, "mk": "A correlation analysis showed [11|that orange-colored cars were far less likely to have defects].", "ko": "한 상관관계 분석은 주황색 차들이 결함을 가질 가능성이 훨씬 적다는 것을 보여 주었다."}, {"n": 5, "mk": "Even as we read this, we already think about [12|why it might be so]: [13|Are orange-colored car owners likely to be car enthusiasts and take better care of their vehicles?]", "ko": "심지어 우리가 이것을 읽으면서도, 우리는 이미 왜 그럴지에 대해 생각한다. 주황색 차 소유자들이 자동차 애호가일 가능성이 있고 자신의 차량을 더 잘 관리할 가능성이 있는가?"}, {"n": 6, "mk": "Or is it because orange-colored cars are more [14|noticeable] on the road and therefore less likely to be in accidents, so [15|they]'re in better condition when resold?", "ko": "아니면 주황색 차들이 도로에서 더 눈에 띄고 그래서 사고가 날 가능성이 적어, 그것들이 재판매될 때 더 좋은 상태이기 때문인가?"}, {"n": 7, "mk": "Quickly we are [16|caught in a web of] [17|competing] causal [18|hypotheses].", "ko": "곧 우리는 경쟁하는 인과적 가설의 함정에 빠진다."}, {"n": 8, "mk": "But our [19|attempts to illuminate things this way] only [20|make them cloudier].", "ko": "하지만 이런 식으로 무언가를 설명하려는 우리의 시도는 그것들을 더 흐리게 만들 뿐이다."}, {"n": 9, "mk": "Correlations exist; we can show them mathematically.", "ko": "상관관계는 존재하며, 우리는 그것들을 수학적으로 보여 줄 수 있다."}, {"n": 10, "mk": "We can't easily do the same for causal links.", "ko": "우리는 인과 관계에 대해서는 쉽게 똑같이 할 수 없다."}, {"n": 11, "mk": "So [21|we would do well to hold off from trying to explain] the reason behind the correlations.", "ko": "따라서 우리는 상관관계 뒤에 있는 이유를 설명하려는 시도를 보류하는 것이 좋을 것이다."}], "items": {"1": {"c": "g", "t": "correlation : 상관관계", "n": ["correlation = 상관관계", "(파생) correlate = 서로 관련이 있다", "causality와 구별 (인과 관계 아님)"], "x": ["Correlations are powerful은 ‘상관관계는 강력하다’라는 뜻이다.", "상관관계는 두 가지가 함께 움직이는 관계이고, 하나가 다른 하나의 원인이라는 뜻은 아니다.", "복수형이라 -s가 붙었고 be동사도 are이다."]}, "2": {"c": "b", "t": "because : ~이기 때문에 (이유 신호)", "n": ["because + 절 = ~이기 때문에", "상관관계가 강력한 이유를 이끎"], "x": ["because the insights they offer are relatively clear는 ‘그것들이 주는 통찰이 비교적 명확하기 때문에’라는 뜻이다.", "앞 문장 ‘상관관계는 강력하다’의 이유를 밝힌다.", "이 글의 첫 흐름은 ‘상관관계는 강력하다’에서 시작한다."]}, "3": {"c": "g", "t": "cover up : 가리다, 덮다", "n": ["cover up = 덮다, 가리다, 은폐하다", "are covered up = 가려진다 (수동태)", "(다의어) cover = 덮다, 다루다"], "x": ["기준 : 구동사 cover up을 한 덩어리로 보고, be + 과거분사의 수동태로 분석함.", "These insights are often covered up은 ‘이 통찰들은 종종 가려진다’라는 뜻이다.", "covered는 동사 cover의 과거분사이다.", "인과 관계를 끌어들이면 원래의 명확한 통찰이 흐려진다는 말이다."]}, "4": {"c": "g", "t": "causality : 인과 관계", "n": ["causality = 인과 관계", "cause = 원인", "(파생) causal = 인과의"], "x": ["bring causality back into the picture는 ‘인과 관계를 다시 그 상황으로 가져오다’라는 뜻이다.", "causality는 cause(원인)에서 나온 명사이다.", "뒤의 causal hypotheses, causal links는 이 단어의 형용사형이다."]}, "5": {"c": "g", "t": "the picture : (전반적인) 상황", "n": ["the picture = 전반적인 상황, 큰 그림", "(다의어) picture = 그림, 사진", "bring A into the picture = A를 상황에 끌어들이다"], "x": ["into the picture는 ‘그 상황 안으로’라는 뜻이다.", "picture는 ‘그림’ 말고 ‘전체적인 상황’이라는 뜻으로도 쓰인다.", "여기서는 상관관계 이야기에 인과 관계를 끌어들이는 것을 말한다."]}, "6": {"c": "b", "t": "For instance : 예를 들어", "n": ["for instance = 예를 들어 (= for example)", "예시가 이어짐을 알리는 신호"], "x": ["For instance는 ‘예를 들어’라는 뜻의 연결어이다.", "앞의 ‘인과를 끌어들이면 통찰이 가려진다’의 구체적인 예가 시작된다.", "중고차 딜러의 사례가 이어진다."]}, "7": {"c": "g", "t": "used : 중고의", "n": ["used = 중고의", "used car = 중고차", "(다의어) be used to V = ~하는 데 쓰이다"], "x": ["a used-car dealer는 ‘중고차 딜러’라는 뜻이다.", "used는 동사 use의 과거분사가 형용사로 굳어진 말로 ‘중고의’라는 뜻이다.", "used-car처럼 하이픈으로 이어서 한 덩어리 명사를 꾸민다."]}, "8": {"c": "g", "t": "supply : 제공하다, 공급하다", "n": ["supply = 제공하다, 공급하다", "supply A to B = A를 B에게 제공하다", "(다의어) supply = 공급(량)"], "x": ["supplied data to statisticians는 ‘통계학자들에게 데이터를 제공했다’라는 뜻이다.", "supplied는 동사 supply의 과거형이다.", "supply는 명사로 ‘공급’이라는 뜻도 있다."]}, "9": {"c": "g", "t": "predict : 예측하다", "n": ["predict = 예측하다", "(파생) prediction = 예측", "to predict = 예측하기 위해 (목적)"], "x": ["to predict which ~는 ‘어떤 ~인지를 예측하기 위해’라는 뜻이다.", "to predict는 목적을 나타내는 to부정사이다.", "pre(미리) + dict(말하다)로 ‘미리 말하다’가 원래 뜻이다."]}, "10": {"c": "p", "t": "which of + 명사절 : 어느 것이 ~인지", "n": ["predict which of the vehicles ... were likely to have problems", "vehicles ← available for purchase at an auction", "be likely to V = ~할 가능성이 있다"], "x": ["which of the vehicles ... were likely to have problems는 ‘차량들 중 어떤 것이 문제를 가질 것 같은지’라는 뜻이다.", "which 이하는 predict의 목적어인 명사절이다.", "which of ~ 뒤에 동사 were가 와서 which가 절의 주어임을 알 수 있다.", "available for purchase at an auction은 vehicles를 뒤에서 꾸미는 형용사구이다."]}, "11": {"c": "p", "t": "far less likely to have : 훨씬 덜 ~할 가능성이 있는", "n": ["far less likely to V = 훨씬 ~할 가능성이 적은", "far = 비교급 less를 강조 (훨씬)", "defect = 결함"], "x": ["orange-colored cars were far less likely to have defects는 ‘주황색 차들이 결함을 가질 가능성이 훨씬 적었다’라는 뜻이다.", "far는 비교급 less를 강조하는 부사로 ‘훨씬’이라는 뜻이다.", "비교급 강조에는 much, a lot, far, still, even을 쓴다.", "defects는 ‘결함’의 복수형이다. 이 사실 자체는 데이터로 확인되는 명확한 통찰이다."]}, "12": {"c": "o", "t": "it = 앞 문장의 결과", "n": ["it might be so = 그럴 수도 있다", "it = 주황색 차가 결함이 적다는 사실", "so = 결함이 적다는 것"], "x": ["why it might be so의 it은 4번 문장의 ‘주황색 차가 결함이 훨씬 적다’는 사실을 가리킨다.", "so도 같은 내용을 받는 말이다.", "‘왜 그럴지’를 따지기 시작하는 순간 인과 가설이 나온다."]}, "13": {"c": "g", "t": "enthusiast : 애호가, 열성적인 팬", "n": ["enthusiast = 애호가, 열성 팬", "(파생) enthusiasm = 열정", "take care of ~ = ~을 돌보다, 관리하다"], "x": ["car enthusiasts는 ‘자동차 애호가들’이라는 뜻이다.", "take better care of their vehicles는 ‘자신의 차량을 더 잘 관리하다’라는 뜻이다.", "첫 번째 인과 가설이다: 애호가가 차를 잘 관리해서 결함이 적다.", "likely to be ... and take ...는 병렬 구조로 be와 take가 and로 이어진다."]}, "14": {"c": "g", "t": "noticeable : 눈에 띄는", "n": ["noticeable = 눈에 띄는, 현저한", "(파생) notice = 알아차리다", "more noticeable = 더 눈에 띄는"], "x": ["more noticeable on the road는 ‘도로에서 더 눈에 띄는’이라는 뜻이다.", "notice에 -able이 붙어 ‘알아차릴 수 있는’이 된 형용사이다.", "두 번째 인과 가설의 이유이다: 눈에 띄어서 사고가 적다."]}, "15": {"c": "o", "t": "they = orange-colored cars", "n": ["they're = they are", "they = orange-colored cars (6번)", "in better condition = 더 좋은 상태에 있는"], "x": ["so they’re in better condition의 they는 같은 문장의 orange-colored cars를 가리킨다.", "they’re는 they are의 줄임말이다.", "so는 ‘그래서’라는 결과를 이끈다."]}, "16": {"c": "g", "t": "be caught in : ~에 빠지다", "n": ["be caught in ~ = ~에 빠지다, 갇히다", "web = 거미줄, 얽힌 상황", "(다의어) catch = 잡다, 붙잡다"], "x": ["기준 : be + 과거분사의 수동태로 분석함.", "we are caught in a web of ~는 ‘우리는 ~의 함정에 빠진다’라는 뜻이다.", "caught는 동사 catch의 과거분사이다.", "web은 ‘거미줄’이고, 거미줄에 걸리듯 얽혀 빠져나오기 어렵다는 뜻이다."]}, "17": {"c": "g", "t": "compete : 경쟁하다", "n": ["competing = 경쟁하는, 서로 맞서는", "compete = 경쟁하다", "competing hypotheses = 서로 맞서는 가설들"], "x": ["competing causal hypotheses는 ‘서로 경쟁하는 인과적 가설들’이라는 뜻이다.", "competing은 동사 compete의 -ing형으로 명사를 꾸미는 현재분사이다.", "5번 문장과 6번 문장의 서로 다른 설명이 서로 맞서는 상황이다."]}, "18": {"c": "g", "t": "hypothesis : 가설", "n": ["hypothesis = 가설", "hypotheses = hypothesis의 복수형", "causal hypothesis = 인과적 가설"], "x": ["causal hypotheses는 ‘인과 관계에 대한 가설들’이라는 뜻이다.", "hypotheses는 hypothesis의 복수형이다.", "확인되지 않은 추측 같은 설명을 뜻한다."]}, "19": {"c": "p", "t": "attempts to illuminate : ~하려는 시도", "n": ["attempt to V = ~하려는 시도", "illuminate = 설명하다, 밝히다", "this way = 이런 식으로"], "x": ["our attempts to illuminate things this way는 ‘이런 식으로 사태를 설명하려는 우리의 시도’라는 뜻이다.", "to illuminate는 앞의 attempts를 꾸미는 to부정사이다.", "illuminate는 원래 ‘밝히다’이고 여기서는 ‘설명하여 이해를 돕다’라는 뜻이다.", "뼈대는 our attempts only make them cloudier이다."]}, "20": {"c": "p", "t": "make + O + 형용사 : O를 ~하게 만들다", "n": ["make + O + 형용사 = O를 ~하게 만들다", "make them cloudier = 그것들을 더 흐리게 만들다", "cloudier = cloudy의 비교급"], "x": ["only make them cloudier는 ‘그것들을 더 흐리게 만들 뿐이다’라는 뜻이다.", "them이 목적어이고 cloudier가 목적격 보어이다.", "cloudier는 형용사 cloudy(흐린)의 비교급이다.", "only는 ‘~할 뿐’이라는 뜻으로 시도의 역효과를 강조한다."]}, "21": {"c": "k", "t": "주장문 : 이유 설명은 보류하는 편이 좋다", "n": ["would do well to V = ~하는 것이 좋을 것이다", "hold off from -ing = ~하는 것을 멈추다, 보류하다", "the reason behind ~ = ~ 뒤에 있는 이유"], "x": ["we would do well to hold off from trying to explain the reason ~은 ‘이유를 설명하려는 시도를 보류하는 편이 좋겠다’라는 뜻이다.", "would do well to V는 ‘~하는 편이 좋다’라는 권유의 표현이다.", "hold off from은 ‘~을 멈추다, 미루다’라는 뜻이다. 빈칸 문제의 정답 문장이다.", "글쓴이의 주장을 담은 마지막 문장이다."], "e": "쉬운 예시 : ‘주황색 차는 결함이 적다’는 사실만 받아들이고, 왜 그런지 이유를 지어내는 일은 멈추는 편이 좋다."}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

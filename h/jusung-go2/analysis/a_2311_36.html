@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>23년 11월 36번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "23년 11월 36번", "sub": "고2 · 종의 크기 변화", "one": "종의 크기는 환경과의 상호작용으로 정해져 큰 쪽으로 변해 왔지만, 지금은 더위 때문에 많은 동물이 작아지고 있음", "flow": [{"label": "도입부", "range": "1~2번", "sum": "종의 크기는 우연이 아니라 환경과의 정교한 상호작용 <small>(fine-tuned interaction)<\/small>", "eg": "들쥐의 몸집이 지금 크기인 데는 사는 숲과의 맞춤이 있음"}, {"label": "주제", "range": "3번", "sum": "크기의 변동은 환경의 상당한 변화를 나타내 왔음 <small>(signalled significant changes)<\/small>", "eg": "들쥐 몸집이 달라지면 숲의 환경이 달라졌다는 신호"}, {"label": "본론 (1)", "range": "4~5번", "sum": "5억 년 동안 동물은 점점 커졌고 해양 동물은 150배 증가 <small>(150-fold)<\/small>", "eg": "숲이 풍요로웠던 오랜 세월 동안 들쥐가 대대로 점점 커져 옴"}, {"label": "본론 (2)", "range": "6~8번", "sum": "그러나 이제 이 경향이 바뀌어 모든 범주의 동물이 작아지고 주된 원인은 더위로 보임 <small>(shrinking)<\/small>", "eg": "그런데 요즘은 여러 숲에서 들쥐가 점점 작아지는 것이 발견됨"}, {"label": "결론", "range": "9~10번", "sum": "알프스의 샤무아 염소는 더위 탓에 먹이 찾기 대신 쉬면서 몇십 년 만에 25퍼센트 작아짐 <small>(25 percent smaller)<\/small>", "eg": "숲이 더워지면 들쥐는 먹이를 찾아다니는 대신 쉬게 되고, 새 세대의 몸집이 줄어듦"}], "sents": [{"n": 1, "mk": "The size of a species is not [1|accidental].", "ko": "종의 크기는 우연한 것이 아니다."}, {"n": 2, "mk": "It's a [2|fine-tuned] interaction between a species and the world [3|it] [4|inhabits].", "ko": "그것은 한 종과 그것이 서식하는 세계 사이의 미세하게 조정된 상호 작용이다."}, {"n": 3, "mk": "Over large periods of time, size [5|fluctuations] have often [6|signalled] [7|significant] changes in the [8|environment].", "ko": "오랜 시간에 걸쳐, 크기의 변동은 종종 환경에서의 상당한 변화를 나타내 왔다."}, {"n": 4, "mk": "[9|Generally speaking], over the last five hundred million years, the trend has been towards animals getting larger.", "ko": "일반적으로 말해서, 지난 5억 년 동안 그 경향은 동물들이 점점 커지는 쪽으로 되어 왔다."}, {"n": 5, "mk": "It's particularly [10|notable] in marine animals, [11|whose average body size has increased 150-fold in this time].", "ko": "그것은 특히 해양 동물에게서 두드러지는데, 그들의 평균 몸 크기는 이 시기에 150배로 증가했다."}, {"n": 6, "mk": "But we are beginning to see changes in this trend.", "ko": "하지만 우리는 이 경향에서 변화를 관찰하기 시작하고 있다."}, {"n": 7, "mk": "Scientists have discovered [12|that many animals are shrinking].", "ko": "과학자들은 많은 동물이 작아지고 있다는 것을 발견해 왔다."}, {"n": 8, "mk": "Around the world, species in every [13|category] have been found to be getting smaller, and one [14|major] cause appears to be the heat.", "ko": "전 세계적으로, 모든 범주의 종들이 점점 작아지고 있는 것으로 발견되어 왔고, 한 가지 주요 원인은 열인 것으로 보인다."}, {"n": 9, "mk": "Animals [15|living in the Italian Alps], [16|for example], have [17|seen temperatures rise by three to four degrees Celsius] since the 1980s.", "ko": "예를 들어, 이탈리아 알프스에 살고 있는 동물들은 1980년대 이후로 기온이 섭씨 3에서 4도 상승하는 것을 보아 왔다."}, {"n": 10, "mk": "To avoid [18|overheating], chamois goats now [19|spend more of their days resting] [20|rather than searching for food], and [21|as a result], in just a few decades, the new [22|generations] of chamois are 25 percent smaller.", "ko": "과열을 피하기 위해, 샤무아 염소들은 이제 먹이를 찾는 것보다 휴식하는 데 그들의 날들을 더 많이 보내고, 결과적으로 단지 몇십 년 만에 새로운 세대의 샤무아는 25퍼센트 더 작아졌다."}], "items": {"1": {"c": "g", "t": "accidental : 우연한", "n": ["accidental = 우연한, 뜻하지 않은", "accident = 사고, 우연", "(반의어) intentional = 의도적인"], "x": ["is not accidental은 ‘우연이 아니다’라는 뜻이다.", "accident(사고, 우연)의 형용사형이다.", "다음 문장에서 ‘정교한 상호 작용’이라고 그 이유를 말한다."]}, "2": {"c": "g", "t": "fine-tune : 미세 조정하다", "n": ["fine-tuned = 미세하게 조정된", "tune = 조정하다", "fine = 세밀한"], "x": ["a fine-tuned interaction은 ‘미세하게 조정된 상호 작용’이라는 뜻이다.", "fine-tuned는 동사 fine-tune의 과거분사가 interaction을 꾸미는 형용사이다.", "종의 크기와 환경이 정교하게 맞춰져 있다는 말이다."]}, "3": {"c": "o", "t": "it = a species", "n": ["it = a species", "the world it inhabits = 그 종이 서식하는 세계", "it 앞에 목적격 관계대명사 생략"], "x": ["the world it inhabits의 it은 앞의 a species를 가리킨다.", "the world와 it 사이에 목적격 관계대명사 which(that)가 생략되어 있다.", "‘그 종이 사는 세계’라는 뜻이다."]}, "4": {"c": "g", "t": "inhabit : 서식하다, 거주하다", "n": ["inhabit = 서식하다, 거주하다", "(파생) inhabitant = 주민", "inhabit + 목적어 (전치사 없음)"], "x": ["the world it inhabits는 ‘그것이 서식하는 세계’라는 뜻이다.", "inhabits는 동사 inhabit의 3인칭 단수 현재형이다.", "inhabit은 타동사라서 전치사 in 없이 바로 목적어를 받는다."]}, "5": {"c": "g", "t": "fluctuation : 변동", "n": ["fluctuation = 변동, 오르내림", "fluctuate = 변동하다", "size fluctuations = 크기의 변동"], "x": ["size fluctuations는 ‘크기의 변동들’이라는 뜻이다.", "복수형이라 -s가 붙었고 동사도 have로 받았다.", "fluctuate(변동하다)의 명사형이다."]}, "6": {"c": "g", "t": "signal : 나타내다, 신호를 보내다", "n": ["signal = 나타내다, 신호를 주다", "(다의어) signal = 신호", "signalled = 동사 signal의 과거분사"], "x": ["have often signalled significant changes는 ‘종종 상당한 변화를 나타내 왔다’라는 뜻이다.", "signalled는 동사 signal의 과거분사로 have와 함께 현재완료를 이룬다.", "signal은 명사로 ‘신호’라는 뜻도 있다."]}, "7": {"c": "g", "t": "significant : 상당한, 중요한", "n": ["significant = 상당한, 중요한", "(파생) significance = 중요성", "significant changes = 상당한 변화"], "x": ["significant changes in the environment는 ‘환경에서의 상당한 변화’라는 뜻이다.", "significant는 ‘중요한’과 ‘상당한’ 두 뜻이 있다.", "이 문장이 글의 주제를 담고 있다."]}, "8": {"c": "k", "t": "주제문 : 크기의 변동은 환경 변화의 신호", "n": ["size fluctuations = 크기의 변동", "signalled significant changes in the environment = 환경의 상당한 변화를 나타냈다", "over large periods of time = 오랜 시간에 걸쳐"], "x": ["종의 크기가 달라지면 환경이 크게 바뀌었다는 뜻이다.", "글의 앞부분은 ‘크기와 환경의 관계’, 뒷부분은 그 사례를 설명한다.", "environment는 ‘환경’이라는 뜻이다."], "e": "쉬운 예시 : 들쥐의 몸집이 몇만 년에 걸쳐 크게 달라졌다면, 숲의 기온이나 먹이가 크게 달라졌다는 신호이다."}, "9": {"c": "g", "t": "generally speaking : 일반적으로 말해서", "n": ["generally speaking = 일반적으로 말해서", "strictly speaking = 엄밀히 말해서", "독립분사구문"], "x": ["기준 : 주어가 일반인(we, people)일 때 주어를 생략하는 독립분사구문 관용 표현으로 봄.", "Generally speaking은 ‘일반적으로 말해서’라는 뜻이다.", "비슷한 표현으로 frankly speaking(솔직히 말해서)이 있다."]}, "10": {"c": "g", "t": "notable : 두드러진, 주목할 만한", "n": ["notable = 두드러진, 주목할 만한", "note = 주목하다", "(유의어) remarkable = 놀라운"], "x": ["notable in marine animals는 ‘해양 동물에게서 두드러지는’이라는 뜻이다.", "note(주목하다)에 -able이 붙은 형용사이다.", "marine animals는 ‘해양 동물’이라는 뜻이다."]}, "11": {"c": "p", "t": "소유 관계대명사 whose + 명사", "n": ["marine animals ← whose average body size has increased", "whose = marine animals’", "-fold = ~배의"], "x": ["whose average body size has increased 150-fold in this time은 ‘이 기간에 그들의 평균 몸 크기가 150배로 증가한’이라는 뜻이다.", "whose는 marine animals를 가리키는 소유격 관계대명사이고 뒤에 명사 average body size가 이어진다.", "150-fold는 ‘150배로’라는 뜻이다.", "has increased는 현재완료이다."]}, "12": {"c": "p", "t": "discover + that절 : ~라는 것을 발견하다", "n": ["discover that + 절 = ~라는 것을 발견하다", "shrink = 줄어들다", "are shrinking = 줄어들고 있다 (현재진행)"], "x": ["Scientists have discovered that many animals are shrinking은 ‘과학자들은 많은 동물이 줄어들고 있음을 발견했다’라는 뜻이다.", "that절은 discovered의 목적어인 명사절이다.", "shrink는 ‘줄어들다’라는 뜻이고 are shrinking은 현재진행형이다.", "앞 문장의 ‘변화’의 내용이 바로 이 문장이다."]}, "13": {"c": "g", "t": "category : 범주, 부류", "n": ["category = 범주, 부류", "every category = 모든 범주", "have been found to be getting smaller = 점점 작아지는 것으로 발견되어 왔다"], "x": ["기준 : find + O + to V의 수동태(be found to V)로 분석함. ‘~하는 것으로 발견되다’로 해석한다.", "species in every category는 ‘모든 범주의 종들’이라는 뜻이다.", "have been found는 현재완료 수동태이다."]}, "14": {"c": "g", "t": "major : 주요한, 중대한", "n": ["major = 주요한, 중대한", "(반의어) minor = 사소한", "(다의어) major = 전공"], "x": ["one major cause는 ‘한 가지 주요 원인’이라는 뜻이다.", "appears to be the heat는 ‘열인 것으로 보인다’라는 뜻이다.", "major는 명사로 ‘전공’, 동사로 ‘전공하다’라는 뜻도 있다."]}, "15": {"c": "p", "t": "현재분사구 : Animals 꾸미기", "n": ["Animals ← living in the Italian Alps", "living = 살고 있는", "have seen = 겪어 왔다"], "x": ["Animals living in the Italian Alps는 ‘이탈리아 알프스에 살고 있는 동물들’이라는 뜻이다.", "living in the Italian Alps는 Animals를 뒤에서 꾸미는 현재분사구이다.", "문장의 동사는 have seen이다."]}, "16": {"c": "b", "t": "for example : 예를 들어", "n": ["for example = 예를 들어", "예시가 시작됨을 알리는 신호", "앞의 ‘열이 원인’의 사례"], "x": ["for example은 ‘예를 들어’라는 뜻의 연결어이다.", "앞 문장의 ‘주요 원인은 열’을 알프스 동물의 사례로 보여 준다.", "문장 안에서 쉼표로 둘러싸여 삽입되어 있다."]}, "17": {"c": "p", "t": "see + O + 동사원형 : O가 ~하는 것을 보다", "n": ["see + O + 동사원형 = O가 ~하는 것을 보다", "seen temperatures rise = 기온이 오르는 것을 보아 왔다", "by three to four degrees Celsius = 섭씨 3~4도만큼"], "x": ["have seen temperatures rise by three to four degrees Celsius는 ‘기온이 섭씨 3~4도 오르는 것을 보아 왔다’라는 뜻이다.", "see는 지각동사라서 목적어 temperatures 뒤에 동사원형 rise가 온다.", "seen은 동사 see의 과거분사이다.", "by는 ‘~만큼’이라는 차이를 나타낸다."]}, "18": {"c": "g", "t": "overheat : 과열되다", "n": ["overheat = 과열되다, 너무 뜨거워지다", "over- = 지나치게", "To avoid overheating = 과열을 피하기 위해"], "x": ["To avoid overheating은 ‘과열을 피하기 위해’라는 뜻이다.", "To avoid는 목적을 나타내는 to부정사이고 overheating은 avoid의 목적어인 동명사이다.", "over-가 ‘지나친’이라는 뜻을 더한다."]}, "19": {"c": "p", "t": "spend + 시간 + -ing : ~하며 시간을 보내다", "n": ["spend + 시간 + -ing = ~하며 시간을 보내다", "spend more of their days resting = 그들의 날들을 더 많이 쉬며 보내다", "chamois goats = 샤무아 염소"], "x": ["chamois goats now spend more of their days resting은 ‘샤무아 염소들은 이제 그들의 날들을 더 많이 쉬며 보낸다’라는 뜻이다.", "spend 뒤에는 시간 표현과 -ing가 온다.", "resting은 동사 rest(쉬다)의 -ing형이다.", "more of their days는 ‘그들의 날들 중 더 많은 부분’이라는 뜻이다."]}, "20": {"c": "p", "t": "A rather than B : B보다는 A", "n": ["A rather than B = B보다는 A", "rather than searching for food = 먹이를 찾는 것보다", "search for ~ = ~을 찾다"], "x": ["resting rather than searching for food는 ‘먹이를 찾는 것보다 쉬는 것’이라는 뜻이다.", "rather than 앞뒤에는 같은 형태가 오므로 resting과 searching이 이어졌다.", "search for는 ‘~을 찾다’라는 뜻이다.", "searching은 동사 search의 -ing형이다."]}, "21": {"c": "b", "t": "as a result : 결과적으로", "n": ["as a result = 결과적으로", "원인 → 결과를 잇는 신호", "in just a few decades = 단지 몇십 년 만에"], "x": ["as a result는 ‘결과적으로’라는 뜻의 연결어이다.", "쉬는 시간이 늘어난 것의 결과로 몸집이 줄었다는 내용이 이어진다.", "decades는 decade(10년)의 복수형이다."]}, "22": {"c": "g", "t": "generation : 세대", "n": ["generation = 세대", "generate = 만들어 내다", "the new generations of chamois = 새로운 세대의 샤무아"], "x": ["the new generations of chamois는 ‘새로운 세대의 샤무아’라는 뜻이다.", "generation은 ‘세대’ 말고 ‘발생’이라는 뜻도 있다.", "are 25 percent smaller는 ‘25퍼센트 더 작다’라는 뜻이다."]}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

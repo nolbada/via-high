@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>23년 11월 23번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"src": "23년 11월 23번", "sub": "고2 · 또래 행동의 설득력", "one": "논리와 광고로 못 움직인 사람들도 또래가 쓰는 모습을 보면 쉽게 따라 하게 됨", "flow": [{"label": "도입부", "range": "1~2번", "sum": "Goldman이 1937년 쇼핑 카트를 발명, 지치지 않고 많이 사게 해 주는 훌륭한 장치 <small>(shopping cart)<\/small>", "eg": "새로 나온 무거운 짐 운반 카트는 쓰기만 하면 편한 물건"}, {"label": "본론 (1)", "range": "3~7번", "sum": "광고와 설명에도 아무도 쓰지 않음, 남성은 약해 보일까 봐, 여성은 유모차가 떠올라서 거부 <small>(reluctant)<\/small>", "eg": "편해 보여도 ‘나약해 보일까 봐’, ‘유모차 같아서’ 아무도 손대지 않는 카트"}, {"label": "본론 (2)", "range": "8~10번", "sum": "다양한 연령의 모델들을 고용해 카트를 쓰며 쇼핑하게 하고 ‘모두 쓰고 있다’고 말하게 함 <small>(models)<\/small>", "eg": "남녀노소 모델이 카트를 밀고 다니며 ‘다들 쓰잖아요’라고 말함"}, {"label": "결론", "range": "11~13번", "sum": "바람잡이들이 논리·설명·광고가 못 한 일을 해냄, 몇 주 만에 쇼핑객들이 카트를 받아들임 <small>(shills)<\/small>", "eg": "모델들이 카트를 쓰는 모습이 몇 주 만에 가게의 분위기를 바꿈"}], "sents": [{"n": 1, "mk": "Sylvan Goldman invented the shopping cart and introduced it in his stores in 1937.", "ko": "Sylvan Goldman은 쇼핑 카트를 발명했고 1937년 그의 가게들에 그것을 도입했다."}, {"n": 2, "star": 1, "mk": "It was an excellent [1|device] [2|that would make it easy for shoppers to buy as much as they wanted] [3|without getting tired or seeking others’ help].", "ko": "그것은 쇼핑객들이 지치거나 다른 사람들의 도움을 구하지 않고 그들이 원했던 만큼 구매하는 것을 쉽게 만들어 줄 훌륭한 장치였다."}, {"n": 3, "mk": "But Goldman discovered that in spite of his [6|repeated] advertisements and explanations, he could not [7|persuade] his shoppers to use the [8|wheeled] carts.", "ko": "하지만 Goldman은 그의 반복적인 광고와 설명에도 불구하고 그의 쇼핑객들에게 바퀴 달린 카트를 사용하도록 설득할 수 없다는 것을 알게 됐다."}, {"n": 4, "mk": "Men were [10|reluctant] because they thought they would appear weak if they pushed such carts instead of carrying their shopping.", "ko": "남성들은 그들의 쇼핑 물건을 들고 다니는 대신 그런 카트들을 민다면 그들이 나약해 보일 것이라고 생각했기 때문에 꺼렸다."}, {"n": 5, "mk": "Women wouldn’t touch them because the carts reminded them of baby carriages.", "ko": "여성들은 카트들이 그들에게 유모차를 연상시키기 때문에 그것들에 손대려 하지 않았다."}, {"n": 6, "mk": "It was only a few elderly shoppers [13|who] used them.", "ko": "그것들을 사용하는 사람은 오직 몇 명의 노인 쇼핑객들뿐이었다."}, {"n": 7, "mk": "[14|That] made the carts even less [15|attractive] to the [16|majority] of the shoppers.", "ko": "그것은 카트들을 대다수 쇼핑객들에게 훨씬 덜 매력적이도록 만들었다."}, {"n": 8, "mk": "Then Goldman [17|hit upon] an idea.", "ko": "그때 Goldman이 한 아이디어를 떠올렸다."}, {"n": 9, "mk": "He [18|hired] several models, men and women, of different ages and [19|asked them to wheel the carts in the store and shop].", "ko": "그는 다른 연령대의 남녀 모델 여러 명을 고용했고, 그들에게 상점에서 카트를 밀고 쇼핑하도록 요청했다."}, {"n": 10, "mk": "A young woman employee standing near the entrance told the regular shoppers, ‘Look, everyone is using the carts. Why don’t you?’", "ko": "입구 근처에 서 있던 한 젊은 여성 직원이 일반 쇼핑객들에게 ‘보세요, 모든 사람이 카트를 사용하고 있습니다. 카트를 해 보는 게 어떠세요.’라고 말했다."}, {"n": 11, "mk": "[22|That was the turning point].", "ko": "그것이 전환점이었다."}, {"n": 12, "mk": "A few [23|shills] [24|disguised] as regular shoppers easily [25|accomplished] [26|what logic, explanations, and advertisements failed to do].", "ko": "일반 쇼핑객으로 위장한 몇 명의 바람잡이들이 논리, 설명, 그리고 광고가 하지 못한 것을 쉽게 달성했다."}, {"n": 13, "mk": "Within a few weeks shoppers [27|readily] accepted those carts.", "ko": "몇 주 만에 쇼핑객들은 그 카트들을 기꺼이 받아들였다."}], "items": {"1": {"c": "g", "t": "device : 장치, 기구", "n": ["device = 장치, 기구", "(파생) devise = 고안하다 (동사)"], "x": ["an excellent device는 ‘훌륭한 장치’라는 뜻으로 shopping cart를 가리킨다.", "device는 명사이고, 동사 devise(고안하다)와 철자와 품사가 다르니 구별한다."]}, "2": {"c": "p", "t": "that + would : 관계대명사절 + make it easy for A to V", "n": ["device ← that would make it easy ...", "make it easy for A to V = A가 ~하기 쉽게 만들다", "it = 가목적어, for shoppers to buy = 진목적어", "as much as they wanted = 그들이 원했던 만큼"], "x": ["that은 device를 꾸미는 주격 관계대명사이다. 뒤에 동사 would make가 바로 온다.", "make it easy for shoppers to buy ~는 ‘쇼핑객들이 ~을 구매하기 쉽게 만들다’라는 뜻이다.", "it은 가목적어이고 진짜 목적어는 to buy 이하이다.", "for shoppers는 to buy의 의미상 주어이다.", "as much as they wanted는 ‘그들이 원했던 만큼 많이’라는 뜻의 비교 표현이다."]}, "3": {"c": "p", "t": "without + -ing : ~하지 않고 (병렬 동명사)", "n": ["without getting tired or seeking others’ help", "getting tired = 지치는 것, seeking help = 도움을 구하는 것", "병렬 : getting ~ or seeking ~"], "x": ["without getting tired or seeking others’ help는 ‘지치거나 다른 사람들의 도움을 구하지 않고’라는 뜻이다.", "without 뒤에는 동명사가 온다. getting과 seeking이 or로 병렬된다.", "get tired는 ‘지치다’, seek는 ‘구하다, 찾다’라는 뜻이다.", "seeking은 동사 seek의 -ing형이다."]}, "6": {"c": "g", "t": "repeated : 반복되는, 거듭된", "n": ["repeated = 반복적인, 거듭된", "repeat = 반복하다 (동사)", "repetition = 반복 (명사)"], "x": ["repeated advertisements and explanations는 ‘반복되는 광고와 설명’이라는 뜻이다.", "repeated는 동사 repeat의 과거분사가 형용사로 쓰인 것이다.", "파생어 repetition(반복)과 함께 외워 둔다."]}, "7": {"c": "g", "t": "persuade : 설득하다", "n": ["persuade A to V = A가 ~하도록 설득하다", "persuasion = 설득 (명사)", "persuasive = 설득력 있는 (형용사)"], "x": ["could not persuade his shoppers to use ~는 ‘쇼핑객들이 ~을 사용하도록 설득할 수 없었다’라는 뜻이다.", "persuade는 목적어 뒤에 to부정사를 쓰는 동사이다.", "persuasive power는 이 글의 제목 표현으로도 나온다."]}, "8": {"c": "g", "t": "wheeled : 바퀴 달린", "n": ["wheeled = 바퀴 달린", "wheel = 바퀴 (명사), 바퀴 달린 것을 밀다 (동사)", "the wheeled carts = 바퀴 달린 카트"], "x": ["the wheeled carts는 ‘바퀴 달린 카트’라는 뜻이다.", "wheeled는 명사 wheel에 -ed가 붙어 ‘바퀴가 달린’이라는 형용사가 된 것이다.", "9번 문장의 wheel은 동사로 ‘(바퀴 달린 것을) 밀다’라는 뜻이다."]}, "10": {"c": "g", "t": "reluctant : 꺼리는, 주저하는", "n": ["reluctant = 꺼리는, 마지못해 하는", "be reluctant to V = ~하기를 꺼리다", "(파생) reluctantly = 마지못해"], "x": ["Men were reluctant because ~는 ‘남성들은 ~때문에 꺼렸다’라는 뜻이다.", "reluctant는 하고 싶지 않아서 망설이는 상태를 나타낸다.", "be reluctant to V의 꼴로 자주 쓴다."]}, "13": {"c": "p", "t": "It was only ~ who + 동사 : 강조구문 (~한 사람은 오직 …)", "n": ["It was only a few elderly shoppers who used them.", "It ~ who 강조구문 = ~한 것은 바로 …", "who = 사람 선행사 (shoppers)"], "x": ["기준 : 아잉카 분석(It ~ who 강조구문).", "It was only a few elderly shoppers who used them은 ‘그것들을 사용한 사람은 오직 몇 명의 노인 쇼핑객들뿐이었다’라는 뜻이다.", "It was와 who 사이의 말이 강조된 부분이다.", "강조되는 말이 사람이면 that 대신 who를 쓸 수도 있다.", "used는 동사 use의 과거형이다."]}, "14": {"c": "o", "t": "That = 6번 문장 내용 (노인 몇 명만 카트를 사용한 사실)", "n": ["That = 6번 문장의 내용 (오직 몇 명의 노인 쇼핑객만 카트를 사용함)", "made the carts even less attractive = 카트들을 훨씬 덜 매력적으로 만들었다"], "x": ["That은 바로 앞 6번 문장 전체의 내용을 가리키는 지시대명사이다.", "‘오직 몇 명의 노인 쇼핑객만 카트를 썼다는 사실’을 받는다.", "That made the carts even less attractive는 ‘그것은 카트들을 훨씬 덜 매력적으로 만들었다’라는 뜻이다.", "make + 목적어 + 형용사는 ‘~을 …하게 만들다’라는 5형식 구조이고, made는 동사 make의 과거형이다."]}, "15": {"c": "g", "t": "attractive : 매력적인", "n": ["attractive = 매력적인, 끌리는", "attract = 끌다 (동사)", "attraction = 매력, 명소 (명사)"], "x": ["less attractive는 ‘덜 매력적인’이라는 뜻이다.", "attractive는 동사 attract(마음을 끌다)에서 나온 형용사이다.", "파생어를 묻는 문제로 나오기 쉽다."]}, "16": {"c": "g", "t": "majority : 대다수", "n": ["majority = 대다수, 과반수", "(반의어) minority = 소수", "the majority of ~ = ~의 대다수"], "x": ["the majority of the shoppers는 ‘대다수의 쇼핑객들’이라는 뜻이다.", "반의어 minority(소수)와 함께 외운다.", "앞의 ‘오직 몇 명의 노인’과 대비되는 말이다."]}, "17": {"c": "g", "t": "hit upon : ~을 우연히 떠올리다", "n": ["hit upon ~ = ~을 문득 떠올리다, 우연히 발견하다", "(비슷한 말) come up with ~", "(다의어) hit = 치다, 때리다"], "x": ["기준 : 구동사 hit upon을 한 덩어리로 본다.", "Goldman hit upon an idea는 ‘Goldman은 한 아이디어를 떠올렸다’라는 뜻이다.", "hit upon은 하나의 덩어리 표현이다.", "hit은 과거형도 hit이라 모양이 같다.", "이 아이디어가 글의 반전(Then)이다."]}, "18": {"c": "g", "t": "hire : 고용하다", "n": ["hire = 고용하다", "(비슷한 말) employ = 고용하다", "employee = 직원"], "x": ["He hired several models는 ‘그는 여러 명의 모델을 고용했다’라는 뜻이다.", "hired는 동사 hire의 과거형이다.", "employ와 바꿔 쓸 수 있고, 10번 문장의 employee(직원)와 이어서 외운다."]}, "19": {"c": "p", "t": "ask + O + to V : O에게 ~하도록 요청하다 (병렬 to wheel and (to) shop)", "n": ["ask A to V = A에게 ~하라고 요청하다", "to wheel ~ and (to) shop = 밀고 쇼핑하라고", "wheel = (바퀴 달린 것을) 밀다"], "x": ["asked them to wheel the carts in the store and shop은 ‘그들에게 상점에서 카트를 밀고 쇼핑하도록 요청했다’라는 뜻이다.", "ask + 목적어 + to V의 5형식 구조이다.", "to wheel과 (to) shop이 and로 이어진 병렬구조이다. 두 번째 to는 생략됐다.", "them은 several models를 가리킨다.", "asked는 동사 ask의 과거형이다."]}, "22": {"c": "k", "t": "전환점 : That was the turning point", "n": ["turning point = 전환점", "That = 9~10번의 모델 작전", "글의 흐름이 바뀌는 지점"], "x": ["That was the turning point는 ‘그것이 전환점이었다’라는 뜻이다.", "That은 앞의 모델들을 고용해 쇼핑하게 한 일을 가리킨다.", "카트가 외면받다가 받아들여지는 흐름이 여기서 바뀐다."], "e": "쉬운 예시 : 아무도 안 쓰던 카트를 남녀노소 모델들이 쓰기 시작하자, 손님들이 그제야 따라서 쓰기 시작했다."}, "23": {"c": "g", "t": "shill : 바람잡이", "n": ["shill = 바람잡이 (손님인 척하는 사람)", "a few shills = 몇 명의 바람잡이"], "x": ["A few shills는 ‘몇 명의 바람잡이들’이라는 뜻이다.", "shill은 손님인 척하면서 다른 사람이 사도록 부추기는 사람이다.", "앞의 models를 가리키는 말이다."]}, "24": {"c": "p", "t": "과거분사 후치수식 : shills disguised as ~", "n": ["shills ← disguised as regular shoppers", "disguise = 위장하다", "disguised = 과거분사 (위장된)"], "x": ["disguised as regular shoppers는 ‘일반 쇼핑객으로 위장한’이라는 뜻으로 shills를 꾸민다.", "disguised는 동사 disguise(위장하다)의 과거분사이다.", "바람잡이가 ‘위장되는’ 수동 관계라서 과거분사를 쓴다.", "disguise A as B는 ‘A를 B로 위장시키다’라는 뜻이다."]}, "25": {"c": "g", "t": "accomplish : 달성하다, 해내다", "n": ["accomplish = 달성하다, 이루다", "(비슷한 말) achieve", "accomplishment = 성취 (명사)"], "x": ["easily accomplished what ~은 ‘~을 쉽게 달성했다’라는 뜻이다.", "accomplished는 동사 accomplish의 과거형이다.", "achieve와 바꿔 쓸 수 있다."]}, "26": {"c": "p", "t": "선행사 포함 관계대명사 what : ~하는 것", "n": ["what logic, explanations, and advertisements failed to do", "what = ~하는 것 (the thing which)", "fail to V = ~하지 못하다"], "x": ["what ~ failed to do는 ‘논리, 설명, 광고가 하지 못한 것’이라는 뜻이다.", "what이 선행사를 포함하는 관계대명사이고 accomplished의 목적어 역할을 하는 명사절이다.", "do 뒤에는 목적어가 없다. what이 do의 목적어이기 때문이다.", "failed는 동사 fail의 과거형이다. fail to V는 ‘~하지 못하다’라는 뜻이다."]}, "27": {"c": "g", "t": "readily : 기꺼이, 쉽게", "n": ["readily = 기꺼이, 선뜻", "ready = 준비된 (형용사)", "(비슷한 말) willingly"], "x": ["readily accepted those carts는 ‘그 카트들을 선뜻 받아들였다’라는 뜻이다.", "readily는 형용사 ready에 -ly가 붙은 부사이다.", "처음에는 거부하던 모습과 대비되는 말이다."]}}};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 주성고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>
