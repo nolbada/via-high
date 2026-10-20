@@ -1,0 +1,32 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><meta name="theme-color" content="#1e2a44"><title>주요 문장 15 정답지</title>
+<link rel="stylesheet" href="key15.css?v=261021">
+<style>:root{--pri:#1d4ed8;--priL:#e8efff}@media(prefers-color-scheme:dark){:root{--pri:#8ab4ff;--priL:#16203a}}
+.pt{margin-top:10px;padding:9px 12px;background:var(--hi);color:var(--hiInk);border-radius:10px;font-size:15px}.pt b{margin-right:6px}
+.row .e{font-size:18px}
+</style></head><body><div class="wrap">
+<div class="top"><h1>주요 문장 15 정답지</h1></div>
+<div class="seg"><button id="all" class="on">전체</button><button id="clr">선택 해제</button></div>
+<div class="grid" id="gr"></div>
+<div id="list"></div>
+<div class="foot">비타민 영어클리닉 · 선생님용</div></div>
+<script src="key15-data.js?v=261021"></script>
+<script>
+function E(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var SEL={};
+function render(){
+  var keys=Object.keys(SEL).map(Number).sort(function(a,b){return a-b});
+  document.getElementById('gr').innerHTML=K15.map(function(s){return '<button class="gn'+(SEL[s.no]?' on':'')+'" data-n="'+s.no+'">'+s.no+'</button>'}).join('');
+  document.getElementById('all').classList.toggle('on',!keys.length);
+  var list=K15.filter(function(s){return !keys.length||SEL[s.no]});
+  document.getElementById('list').innerHTML=list.map(function(s){
+    return '<div class="card"><span class="num">'+s.no+'</span>'
+     +s.ch.map(function(c){return '<div class="row"><div class="e">'+E(c.e)+'</div><div class="k">'+E(c.k)+'</div></div>'}).join('')
+     +'<div class="nat"><b>자연스러운 해석</b>'+E(s.nat)+'</div>'
+     +'<div class="pt"><b>채점 포인트</b>'+E(s.pt)+'</div></div>'}).join('');
+}
+document.addEventListener('click',function(ev){
+  var g=ev.target.closest('.gn');if(g){var n=+g.dataset.n;if(SEL[n])delete SEL[n];else SEL[n]=1;render();return}
+  if(ev.target.closest('#clr')||ev.target.closest('#all')){SEL={};render()}
+});
+render();
+</script></body></html>
