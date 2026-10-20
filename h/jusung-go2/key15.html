@@ -1,0 +1,81 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><meta name="theme-color" content="#0f766e"><title>주요 문장 15</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg"><link rel="apple-touch-icon" href="icon-180.png"><link rel="stylesheet" href="key15.css?v=261021">
+</head><body><div class="wrap">
+<div class="top"><a class="back" href="index.html">← 목록</a><h1>주요 문장 15</h1></div>
+<div class="tabs"><button id="t1" class="on">외우기</button><button id="t2">시험모드</button></div>
+<div id="v1"></div><div id="v2" class="hidden"></div>
+<div class="foot">비타민 영어클리닉 · 주성고 영어II</div></div>
+<script src="key15-data.js?v=261021"></script>
+<script>
+function E(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function ld(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var VIEW=ld('k15:view')||'all', TAB=1, TM=ld('k15:tm')||'A', CUR=1;
+var DONE=ld('k15:done')||{A:{},B:{}};
+
+/* ---------- 외우기 ---------- */
+function chunkRows(s){return s.ch.map(function(c){return '<div class="row"><div class="e">'+E(c.e)+'</div><div class="k">'+E(c.k)+'</div></div>'}).join('')}
+function gramBox(g){
+  var h='<div class="gbox"><div class="gt">'+E(g.t)+'</div><ul>'+g.l.map(function(x){return '<li>'+E(x)+'</li>'}).join('')+'</ul>';
+  if(g.ex)h+='<div class="ex">'+E(g.ex)+'<i>'+E(g.exk)+'</i><i>'+E(g.exr)+'</i></div>';
+  return h+'</div>'}
+function study(){
+  var h='<div class="stick"><div class="seg" id="vseg">'
+   +[['all','전체 보기'],['e','영어 가리기'],['k','해석 가리기']].map(function(b){return '<button data-v="'+b[0]+'"'+(VIEW===b[0]?' class="on"':'')+'>'+b[1]+'</button>'}).join('')+'</div></div>';
+  var last='';
+  K15.forEach(function(s){
+    if(s.grp!==last){h+='<div class="grp">'+E(s.grp)+'</div>';last=s.grp}
+    h+='<div class="card"><span class="num">'+s.no+'</span>'+chunkRows(s)
+     +'<div class="nat"><b>자연스러운 해석</b><span class="nv">'+E(s.nat)+'</span></div>'
+     +s.gram.map(gramBox).join('')
+     +'<div class="voc"><b>단어</b>'+s.voc.map(function(w){return '<span>'+E(w)+'</span>'}).join('')+'</div></div>';
+  });
+  document.getElementById('v1').innerHTML=h;applyView();
+}
+function applyView(){
+  var v=document.getElementById('v1');
+  [].forEach.call(v.querySelectorAll('.e,.k,.nv'),function(el){el.classList.remove('mask')});
+  if(VIEW==='e')[].forEach.call(v.querySelectorAll('.e'),function(el){el.classList.add('mask')});
+  if(VIEW==='k')[].forEach.call(v.querySelectorAll('.k,.nv'),function(el){el.classList.add('mask')});
+  [].forEach.call(document.querySelectorAll('#vseg button'),function(b){b.classList.toggle('on',b.dataset.v===VIEW)});
+}
+document.getElementById('v1').addEventListener('click',function(ev){
+  var b=ev.target.closest('#vseg button');if(b){VIEW=b.dataset.v;sv('k15:view',VIEW);applyView();return}
+  var m=ev.target.closest('.mask');if(m){m.classList.remove('mask')}
+  else{var t=ev.target.closest('.e,.k,.nv');if(t&&VIEW!=='all'&&(VIEW==='e'?t.classList.contains('e'):!t.classList.contains('e')))t.classList.add('mask')}
+});
+
+/* ---------- 시험모드 ---------- */
+function exam(){
+  var h='<div class="seg" id="mseg"><button data-m="A"'+(TM==='A'?' class="on"':'')+'>직역 말하기</button><button data-m="B"'+(TM==='B'?' class="on"':'')+'>자연스러운 해석 말하기</button></div>';
+  h+='<div class="grid" id="gr">'+K15.map(function(s){return '<button class="gn'+(s.no===CUR?' on':'')+(DONE[TM][s.no]?' done':'')+'" data-n="'+s.no+'">'+s.no+'</button>'}).join('')+'</div>';
+  var s=K15[CUR-1];
+  h+='<div class="card" id="qc"><span class="num">'+s.no+'</span>';
+  if(TM==='A'){
+    h+=s.ch.map(function(c,i){return '<div class="row"><div class="k" style="color:var(--ink);font-size:18px;font-weight:600">'+E(c.k)+'</div><div class="e mask" data-i="'+i+'">'+E(c.e)+'</div></div>'}).join('');
+  }else{
+    h+='<div class="big" style="margin-top:8px">'+E(s.nat)+'</div><div id="ans" class="hidden">'+chunkRows(s)+'</div><div class="btns" id="showb"><button class="pri" id="show">정답 보기</button></div>';
+  }
+  h+='<div class="btns"><button class="ok" id="mo">맞음</button><button class="no" id="mx">다시</button></div>';
+  h+='<div class="btns"><button id="pv">이전 번호</button><button id="nx">다음 번호</button></div></div>';
+  var done=Object.keys(DONE[TM]).length;
+  h+='<div style="text-align:center;color:var(--sub);font-size:14px">'+done+' / 15</div>';
+  document.getElementById('v2').innerHTML=h;
+}
+document.getElementById('v2').addEventListener('click',function(ev){
+  var t=ev.target;
+  var mb=t.closest('#mseg button');if(mb){TM=mb.dataset.m;sv('k15:tm',TM);exam();return}
+  var gn=t.closest('.gn');if(gn){CUR=+gn.dataset.n;exam();return}
+  var e=t.closest('.e.mask');if(e){e.classList.remove('mask');return}
+  if(t.closest('#show')){document.getElementById('ans').classList.remove('hidden');document.getElementById('showb').classList.add('hidden');return}
+  if(t.closest('#mo')){DONE[TM][CUR]=1;sv('k15:done',DONE);if(CUR<15)CUR++;exam();return}
+  if(t.closest('#mx')){delete DONE[TM][CUR];sv('k15:done',DONE);exam();return}
+  if(t.closest('#pv')){CUR=CUR>1?CUR-1:15;exam();return}
+  if(t.closest('#nx')){CUR=CUR<15?CUR+1:1;exam();return}
+});
+/* ---------- 탭 ---------- */
+function tab(n){TAB=n;document.getElementById('v1').classList.toggle('hidden',n!==1);document.getElementById('v2').classList.toggle('hidden',n!==2);
+  document.getElementById('t1').classList.toggle('on',n===1);document.getElementById('t2').classList.toggle('on',n===2);if(n===2)exam();window.scrollTo(0,0)}
+document.getElementById('t1').onclick=function(){tab(1)};document.getElementById('t2').onclick=function(){tab(2)};
+study();
+</script></body></html>
