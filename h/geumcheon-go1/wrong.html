@@ -8,13 +8,13 @@
 .gh a.go{background:var(--pri);color:#fff;border-radius:10px;padding:9px 13px;font-weight:800;font-size:14px;text-decoration:none;white-space:nowrap}
 .gi{border-top:1px solid var(--line);padding:0 14px}.gi summary{cursor:pointer;list-style:none;font-size:13px;color:var(--pri);font-weight:700;padding:8px 0}.gi summary::-webkit-details-marker{display:none}
 .it{display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--line);font-size:14.5px}.it span{flex:1}.it small{display:block;color:var(--sub);font-size:12.5px}
-.it button{border:1.5px solid var(--line);background:var(--card);color:var(--sub);border-radius:9px;padding:6px 10px;font:700 12.5px/1 inherit;font-family:inherit;cursor:pointer}
+.it button.sb{border-color:#f59e0b;color:#b45309;font-size:15px;padding:5px 11px}.it button.sb.off{border-color:var(--line);color:var(--sub)}.gh .bt{display:flex;flex-direction:column;gap:6px}.gh a.go.al{background:var(--card);color:var(--pri);border:1.5px solid var(--pri)}.gh span.go.no{background:var(--line);color:var(--sub);border-radius:10px;padding:9px 13px;font-weight:800;font-size:14px;white-space:nowrap}.it button{border:1.5px solid var(--line);background:var(--card);color:var(--sub);border-radius:9px;padding:6px 10px;font:700 12.5px/1 inherit;font-family:inherit;cursor:pointer}
 .empty{text-align:center;color:var(--sub);padding:40px 10px;line-height:1.7}
 .note{font-size:13px;color:var(--sub);line-height:1.6;margin:4px 2px 10px}
 .chips{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 6px}.chip{border:1.5px solid var(--line);background:var(--card);color:var(--navy);border-radius:999px;padding:8px 13px;font:700 14px/1 inherit;font-family:inherit;cursor:pointer}.chip.on{background:var(--pri);border-color:var(--pri);color:#fff}.chip b{margin-left:3px}.pl{border:1px solid var(--line);border-radius:9px;padding:8px 11px;font-size:13.5px;font-weight:700;color:var(--pri);text-decoration:none;background:var(--card)}details.g>summary{cursor:pointer;list-style:none}details.g>summary::-webkit-details-marker{display:none}
 .hd{margin:16px 2px 4px;font-size:14px;font-weight:800;color:var(--sub)}
 </style></head><body><div class="wrap"><div class="top"><a class="back" href="index.html">← 목록</a></div>
-<h1>오답 노트 · 약점 점검</h1><p class="note">틀린 문제가 활동마다 여기에 모여요. 맞혀도 자동으로 빠지지 않아요. 이제 안 봐도 되겠다 싶은 문제만 직접 「빼기」로 빼요.</p>
+<h1>오답 노트 · 약점 점검</h1><p class="note"></p>
 <div id="st"></div>
 <div class="foot" style="text-align:center;color:var(--sub);font-size:13px;margin-top:26px">비타민 영어클리닉</div></div>
 <a class="homefab" href="index.html">⌂ 목록</a>
@@ -50,16 +50,15 @@ function paint(){
   if(!Lf.length){st.innerHTML=h+'<div class="empty">'+(L.length?'고른 유형에는 담긴 문제가 없어요.':'담긴 문제가 아직 없어요.<br>활동에서 틀린 문제가 생기면 여기에 모여요.')+'</div>';return}
   var g={};Lf.forEach(function(x){var k=x.kind+'|'+x.act+'|'+x.part;(g[k]=g[k]||{kind:x.kind,act:x.act,part:x.part,a:[]}).a.push(x)});
   var keys=Object.keys(g).sort(function(a,b){var A=g[a],B=g[b];return (A.kind===B.kind?0:A.kind<B.kind?-1:1)||(ORDER.indexOf(A.act)-ORDER.indexOf(B.act))||(A.part-B.part)});
-  h+='<div class="hd" style="margin-top:2px">모두 '+Lf.length+'개</div>';
+  var SC=Lf.filter(function(x){return x.star!==false}).length;h+='<div class="hd" style="margin-top:2px">전체 '+Lf.length+'개 · 별표 '+SC+'개</div>';
   keys.forEach(function(k){var G=g[k],u=url(G.kind,G.act);
-    h+='<div class="g"><div class="gh"><div class="t">'+E(NM[G.act]||G.act)+' · '+G.a.length+'개<small>'+E(KN[G.kind]||G.kind)+' · '+E(pname(G.kind,G.part))+'</small></div>'+(u?'<a class="go" href="'+u+'?part='+G.part+'&wrong=1">이것만 풀기</a>':'')+'</div>'
-     +'<details class="gi"><summary>목록 보기</summary>'+G.a.map(function(x){return'<div class="it"><span>'+E(x.label||x.qid)+(x.label2?'<small>'+E(x.label2)+'</small>':'')+'</span><button type="button" data-id="'+E(x.id)+'">빼기</button></div>'}).join('')+'</details></div>'});
+    h+='<div class="g"><div class="gh"><div class="t">'+E(NM[G.act]||G.act)+' · '+G.a.length+'개<small>'+E(KN[G.kind]||G.kind)+' · '+E(pname(G.kind,G.part))+'</small></div>'+(u?'<div class="bt">'+(G.a.filter(function(x){return x.star!==false}).length?'<a class="go" href="'+u+'?part='+G.part+'&wrong=1&star=1">별표만 풀기 '+G.a.filter(function(x){return x.star!==false}).length+'</a>':'<span class="go no">별표 0</span>')+'<a class="go al" href="'+u+'?part='+G.part+'&wrong=1">전체 풀기 '+G.a.length+'</a></div>':'')+'</div>'
+     +'<details class="gi"><summary>목록 보기</summary>'+G.a.map(function(x){return'<div class="it"><span>'+E(x.label||x.qid)+(x.label2?'<small>'+E(x.label2)+'</small>':'')+'</span><button type="button" class="sb'+(x.star===false?' off':'')+'" data-id="'+E(x.id)+'" data-on="'+(x.star===false?0:1)+'">'+(x.star===false?'☆':'★')+'</button></div>'}).join('')+'</details></div>'});
   st.innerHTML=h}
 document.getElementById('st').addEventListener('click',function(e){
   var c=e.target.closest('button[data-t]');if(c){SEL[c.dataset.t]=!SEL[c.dataset.t];saveSel();paint();return}
   var b=e.target.closest('button[data-id]');if(!b)return;
-  if(b.dataset.s!=='1'){b.dataset.s='1';b.textContent='정말 뺄까요?';setTimeout(function(){if(b.isConnected){b.dataset.s='';b.textContent='빼기'}},3000);return}
-  WN.remove(b.dataset.id);paint()});
+  WN.setStar(b.dataset.id,b.dataset.on!=='1');paint()});
 paint();
 })();
 </script></body></html>
