@@ -9,7 +9,7 @@
 <div class="grid" id="gr"></div>
 <div id="list"></div>
 <div class="foot">비타민 영어클리닉 · 선생님용</div></div>
-<script src="key15-data.js?v=261021"></script>
+<script src="key15-data.js?v=261022"></script>
 <script>
 function E(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var SEL={};
@@ -22,6 +22,7 @@ function render(){
     return '<div class="card"><span class="num">'+s.no+'</span>'
      +s.ch.map(function(c){return '<div class="row"><div class="e">'+E(c.e)+'</div><div class="k">'+E(c.k)+'</div></div>'}).join('')
      +'<div class="nat"><b>자연스러운 해석</b>'+E(s.nat)+'</div>'
+     +(K15PR[s.no]?'<div class="pt"><b>대명사 정답</b>'+K15PR[s.no].map(function(p){return E(p[0])+' = '+E(p[1])}).join(' / ')+'</div>':'')
      +'<div class="pt"><b>채점 포인트</b>'+E(s.pt)+'</div></div>'}).join('');
 }
 document.addEventListener('click',function(ev){
