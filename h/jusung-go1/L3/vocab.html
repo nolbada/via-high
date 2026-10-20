@@ -92,12 +92,12 @@ function fbk0(q){
   return'<div class="fb2" style="background:var(--priL);border-radius:10px;padding:8px 10px;margin:2px 0 6px">교과서에서 <b>'+E(q.w)+'</b> = <b>'+E(q.bm)+'</b><br><span style="color:var(--sub)">'+E(q.tx.k)+'</span></div>'+q.all.map(function(z){return'<div style="margin-top:6px"><b>'+E(z.m)+'</b><br>'+E(z.e)+'<br><span style="color:var(--sub)">'+E(z.k)+'</span></div>'}).join('')}
 function show(){
   if(S.done)return fin();var q=S.qs[S.i],o=opts(q),sub=S.sub;sel=sub?S.sel:-1;
-  var h='<div class="pg"><i style="width:'+Math.round(S.i/S.qs.length*100)+'%"></i></div><div class="sub">'+(S.i+1)+' / '+S.qs.length+'</div><div class="card">'+ask(q)+'<div id="ol">'+o.map(function(t,i){return'<button class="o" data-i="'+i+'">'+E(t)+'</button>'}).join('')+'</div><div id="fb"></div></div><button class="go" id="sb" disabled>제출</button>';
+  var h='<div class="pg"><i style="width:'+Math.round(S.i/S.qs.length*100)+'%"></i></div><div class="sub">'+(S.i+1)+' / '+S.qs.length+'</div><div class="card">'+ask(q)+'<div id="ol">'+o.map(function(t,i){return'<button class="o" data-i="'+i+'">'+E(t)+'</button>'}).join('')+'</div><div id="fb"></div></div><button class="go" id="sb" disabled>다음</button>';
   st.innerHTML=h;var ol=document.getElementById('ol'),sb=document.getElementById('sb');
   function mark(){var ok=o[sel]===ansTxt(q);[].forEach.call(ol.children,function(b,i){b.disabled=true;if(o[i]===ansTxt(q))b.classList.add('ok');else if(i===sel)b.classList.add('no')});
     document.getElementById('fb').innerHTML='<div class="fb"><b class="'+(ok?'g':'r')+'">'+(ok?'정답이에요 ✓':'아쉬워요 · 정답: '+E(ansTxt(q)))+'</b><br>'+fbk(q)+'</div>';
     sb.disabled=false;sb.textContent=S.i+1>=S.qs.length?'결과 보기':'다음';sb.onclick=function(){S.last=Date.now();S.i++;S.sub=false;if(S.i>=S.qs.length){S.done=true;if(!WN.MODE){try{localStorage.setItem('vhd:'+KEY,String(S.sec||0))}catch(e){}PG.mark(KEY)}}save(S);show()}}
-  ol.onclick=function(e){var b=e.target.closest('.o');if(!b||S.sub)return;sel=+b.dataset.i;[].forEach.call(ol.children,function(x){x.classList.toggle('sel',x===b)});sb.disabled=false};
+  ol.onclick=function(e){var b=e.target.closest('.o');if(!b||S.sub)return;sel=+b.dataset.i;[].forEach.call(ol.children,function(x){x.classList.toggle('sel',x===b)});sb.disabled=false;sb.onclick()};
   sb.onclick=function(){if(sel<0)return;var nw=Date.now();S.sec=(S.sec||0)+Math.min(120,Math.round((nw-(S.last||nw))/1000));S.last=nw;S.sub=true;S.sel=sel;if(o[sel]===ansTxt(q))S.ok++;else{S.wr=(S.wr||0)+1;var lb=wlab(q);WN.add({kind:'L3',part:PART||0,act:'voc',qid:qid(q),label:lb.label,label2:lb.label2,q:q})}save(S);mark()};
   if(sub){mark()}}
 function fin(){var n=S.qs.length;
