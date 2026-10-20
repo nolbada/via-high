@@ -149,7 +149,7 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 <script src="../common/prog.js?v=261019"></script><script src="wrong.js?v=261019"></script><script src="mix-pool.js?v=261019"></script>
 <script src="L4/sx-data.js?v=261019"></script><script>var D4=DATA;</script>
 <script src="mock/sx-data.js?v=261019"></script><script>var DM=DATA;</script>
-<script src="L4/jj.js?v=261019"></script><script src="mock/ez.js?v=261019"></script><script src="key15.js?v=261019"></script><script src="gram.js?v=261019"></script>
+<script src="L4/jj.js?v=261019"></script><script src="mock/ez.js?v=261019"></script><script src="key15.js?v=261019"></script><script src="key15-data.js?v=261021"></script><script src="gram.js?v=261019"></script>
 <script>
 (function(){
 var ACT=[['voc','어휘'],['find','TF'],['eobeop','어법선택'],['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['awk','어색한 곳'],['blank','빈칸추론'],['und','밑줄의 의미']];
@@ -272,10 +272,14 @@ function curUnits(){var o={},lab='';try{lab=ROAD[curWeek(new Date())][2]}catch(e
   o.L4=1;return o}
 function lrow(href,t,sm){return '<a class="row" href="'+href+'"><span>'+t+(sm?'<small>'+sm+'</small>':'')+'</span><span class="go" style="white-space:nowrap">열기</span></a>'}
 function key15(){
-  var h=lrow('key15.html','외우기 · 시험모드')+'<div style="font-size:13px;color:var(--sub);margin:8px 2px 6px">시험에 나올 수 있는 주요 문장 15개예요. 해석을 가리고 먼저 스스로 해석해 봐요.</div><button type="button" id="hide15" class="row on" style="border:0;width:100%;cursor:pointer;font-family:inherit">해석 '+(hide15?'보이기':'가리기')+'</button>',no=0;
-  KEY15.groups.forEach(function(gr){
-    h+='<div style="font-size:13px;font-weight:800;color:var(--sub);margin:12px 2px 2px">'+esc(gr.title)+'</div>';
-    gr.items.forEach(function(it){no++;h+='<div class="s"><div class="en"><b style="color:var(--pri)">'+no+'</b> '+esc(it.en)+'</div>'+(hide15?'':'<div class="ko">'+esc(it.ko)+'</div>')+'</div>'});
+  var h=lrow('key15.html','외우기 · 시험모드')+'<button type="button" id="hide15" class="row on" style="border:0;width:100%;cursor:pointer;font-family:inherit;margin-top:8px">해석 '+(hide15?'보이기':'가리기')+'</button>',last='';
+  K15.forEach(function(s){
+    if(s.grp!==last){h+='<div style="font-size:13px;font-weight:800;color:var(--sub);margin:12px 2px 2px">'+esc(s.grp)+'</div>';last=s.grp}
+    h+='<div class="s"><div style="font-weight:800;color:var(--pri);font-size:15px">'+s.no+'</div>'
+     +s.ch.map(function(c){return '<div style="margin:7px 0 0;padding-left:10px;border-left:4px solid var(--pri)"><div class="en" style="font-weight:700">'+esc(c.e)+'</div>'+(hide15?'':'<div class="ko">'+esc(c.k)+'</div>')+'</div>'}).join('')
+     +(hide15?'':'<div class="ko" style="margin-top:8px;padding:8px 10px;border-radius:10px;background:rgba(127,127,127,.12)">'+esc(s.nat)+'</div>')
+     +s.gram.map(function(g){return '<div style="margin-top:8px;padding:9px 11px;border-left:4px solid var(--pri);background:rgba(127,127,127,.12);border-radius:10px;font-size:14px;line-height:1.6"><div style="font-weight:800;color:var(--pri)">'+esc(g.t)+'</div>'+g.l.map(function(x){return '<div>'+esc(x)+'</div>'}).join('')+(g.ex?'<div style="margin-top:5px;padding-top:5px;border-top:1px dashed var(--line)">'+esc(g.ex)+'<div style="color:var(--sub)">'+esc(g.exk)+'</div><div style="color:var(--sub)">'+esc(g.exr)+'</div></div>':'')+'</div>'}).join('')
+     +'<div style="margin-top:8px;font-size:13.5px;color:var(--sub)"><b>단어</b> '+s.voc.map(esc).join(' · ')+'</div></div>';
   });
   return h}
 function text(){
