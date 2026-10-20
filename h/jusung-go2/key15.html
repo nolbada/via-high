@@ -1,6 +1,6 @@
 <!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><meta name="theme-color" content="#0f766e"><title>주요 문장 15</title>
 <link rel="icon" type="image/svg+xml" href="icon.svg"><link rel="apple-touch-icon" href="icon-180.png"><link rel="stylesheet" href="key15.css?v=261021">
-</head><body><div class="wrap">
+<style>.mask .hl{color:transparent!important;text-decoration-color:transparent!important}</style></head><body><div class="wrap">
 <div class="top"><a class="back" href="index.html">← 목록</a><h1>주요 문장 15</h1></div>
 <div class="tabs"><button id="t1" class="on">외우기</button><button id="t2">시험모드</button></div>
 <div id="v1"></div><div id="v2" class="hidden"></div>
@@ -10,24 +10,24 @@
 function E(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function ld(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
 function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
-var VIEW=ld('k15:view')||'all', TAB=1, TM=ld('k15:tm')||'A', CUR=1;
+var VIEW=(ld('k15:view')==='e'?'e':'all'), TAB=1, TM=ld('k15:tm')||'A', CUR=1;
 var DONE=ld('k15:done')||{A:{},B:{}};
 
 /* ---------- 외우기 ---------- */
-function chunkRows(s){return s.ch.map(function(c){return '<div class="row"><div class="e">'+E(c.e)+'</div><div class="k">'+E(c.k)+'</div></div>'}).join('')}
-function gramBox(g){
-  var h='<div class="gbox"><div class="gt">'+E(g.t)+'</div><ul>'+g.l.map(function(x){return '<li>'+E(x)+'</li>'}).join('')+'</ul>';
+function chunkRows(s){return s.ch.map(function(c,ci){return '<div class="row"><div class="e">'+k15mark(s.no,ci,c.e,E)+'</div><div class="k">'+E(c.k)+'</div></div>'}).join('')}
+function gramBox(g,gi){
+  var pc=K15PEN[gi%4],h='<div class="gbox" style="border-left-color:'+pc+'"><div class="gt" style="color:'+pc+'">'+E(g.t)+'</div><ul>'+g.l.map(function(x){return '<li>'+E(x)+'</li>'}).join('')+'</ul>';
   if(g.ex)h+='<div class="ex">'+E(g.ex)+'<i>'+E(g.exk)+'</i><i>'+E(g.exr)+'</i></div>';
   return h+'</div>'}
 function study(){
   var h='<div class="stick"><div class="seg" id="vseg">'
-   +[['all','전체 보기'],['e','영어 가리기'],['k','해석 가리기']].map(function(b){return '<button data-v="'+b[0]+'"'+(VIEW===b[0]?' class="on"':'')+'>'+b[1]+'</button>'}).join('')+'</div></div>';
+   +[['all','전체 보기'],['e','영어 가리기']].map(function(b){return '<button data-v="'+b[0]+'"'+(VIEW===b[0]?' class="on"':'')+'>'+b[1]+'</button>'}).join('')+'</div></div>';
   var last='';
   K15.forEach(function(s){
     if(s.grp!==last){h+='<div class="grp">'+E(s.grp)+'</div>';last=s.grp}
     h+='<div class="card"><span class="num">'+s.no+'</span>'+chunkRows(s)
      +'<div class="nat"><b>자연스러운 해석</b><span class="nv">'+E(s.nat)+'</span></div>'
-     +s.gram.map(gramBox).join('')
+     +s.gram.map(function(g,gi){return gramBox(g,gi)}).join('')
      +'<div class="voc"><b>단어</b>'+s.voc.map(function(w){return '<span>'+E(w)+'</span>'}).join('')+'</div></div>';
   });
   document.getElementById('v1').innerHTML=h;applyView();
