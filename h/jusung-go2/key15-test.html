@@ -1,0 +1,45 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><meta name="theme-color" content="#c2410c"><title>주요 문장 15 TEST</title>
+<link rel="icon" type="image/svg+xml" href="../exit/icon.svg"><link rel="apple-touch-icon" href="../exit/icon-180.png"><meta name="apple-mobile-web-app-title" content="TEST"><link rel="stylesheet" href="key15.css?v=261021">
+<style>:root{--pri:#c2410c;--priL:#fff1e8}@media(prefers-color-scheme:dark){:root{--pri:#fb923c;--priL:#2d1a10}}
+.badge{display:inline-block;font-size:34px;font-weight:900;color:var(--pri);line-height:1.1}.cnt{float:right;color:var(--sub);font-size:15px;margin-top:8px}
+.res{text-align:center;padding:10px 0}.res .sc{font-size:46px;font-weight:900}.pass{color:var(--ok)}.fail{color:var(--no)}
+</style></head><body><div class="wrap">
+<div class="top"><a class="back" href="exit.html">← TEST</a><h1>주요 문장 15 TEST</h1></div>
+<div id="app"></div>
+<div class="foot">비타민 영어클리닉 · 주성고 영어II</div></div>
+<script src="key15-data.js?v=261021"></script>
+<script>
+function E(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+var N=5,CUT=Math.ceil(N*0.8),MODE='B',Q=[],I=0,R=[],app=document.getElementById('app');
+function start(){
+  app.innerHTML='<div class="card"><div class="seg" id="mseg"><button data-m="A"'+(MODE==='A'?' class="on"':'')+'>직역 말하기</button><button data-m="B"'+(MODE==='B'?' class="on"':'')+'>자연스러운 해석 말하기</button></div>'
+   +'<div class="btns"><button class="pri" id="go">랜덤 '+N+'문장 시작</button></div></div>';
+}
+function draw(){Q=shuffle(K15.map(function(s){return s.no})).slice(0,N);I=0;R=[];ask()}
+function ask(){
+  var s=K15[Q[I]-1],h='<div class="card"><span class="cnt">'+(I+1)+' / '+N+'</span><span class="badge">'+s.no+'번</span>';
+  if(MODE==='A')h+=s.ch.map(function(c){return '<div class="row"><div class="k" style="color:var(--ink);font-size:19px;font-weight:600">'+E(c.k)+'</div></div>'}).join('');
+  else h+='<div class="big" style="margin-top:10px">'+E(s.nat)+'</div>';
+  h+='<div class="btns"><button class="ok" id="o">O</button><button class="no" id="x">X</button></div>'
+   +(I>0?'<div class="btns"><button id="undo">앞 문장으로 되돌리기</button></div>':'')+'</div>';
+  app.innerHTML=h;
+}
+function result(){
+  var sc=R.filter(function(r){return r}).length,pass=sc>=CUT;
+  var wrong=Q.filter(function(n,i){return !R[i]}).sort(function(a,b){return a-b});
+  app.innerHTML='<div class="card res"><div class="sc '+(pass?'pass':'fail')+'">'+sc+' / '+N+'</div><div style="font-size:20px;font-weight:800" class="'+(pass?'pass':'fail')+'">'+(pass?'통과':'불통과')+'</div>'
+   +'<div style="color:var(--sub);margin-top:6px">통과 기준 '+CUT+'문장 이상</div>'
+   +(wrong.length?'<div style="margin-top:12px;font-size:18px">다시 볼 번호 : <b>'+wrong.join('번, ')+'번</b></div>':'')
+   +'<div class="btns"><button class="pri" id="again">다시 시험</button><button id="home">처음으로</button></div></div>';
+}
+app.addEventListener('click',function(ev){
+  var t=ev.target;
+  var m=t.closest('#mseg button');if(m){MODE=m.dataset.m;start();return}
+  if(t.closest('#go')||t.closest('#again')){draw();return}
+  if(t.closest('#home')){start();return}
+  if(t.closest('#o')||t.closest('#x')){R[I]=!!t.closest('#o');I++;if(I>=N)result();else ask();return}
+  if(t.closest('#undo')){I--;ask();return}
+});
+start();
+</script></body></html>
