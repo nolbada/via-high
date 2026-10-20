@@ -28,9 +28,5 @@ var DATA=[
 function e(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
 var U=[];
 document.getElementById('L').innerHTML=DATA.map(function(S){return '<div class="sec">'+S.sec+'</div><div class="sch '+S.g+'">'+S.items.map(function(c){U.push(H+c.u);
- return '<div class="r"><a href="../'+c.u+'"><span><span class="badge" style="margin-right:6px">'+S.b+'</span>'+e(c.n)+'<br><small>'+e(c.s)+'</small></span></a><button class="cp" data-i="'+(U.length-1)+'">복사</button></div>'}).join('')+'</div>'}).join('');
-document.addEventListener('click',function(ev){var b=ev.target.closest('.cp');if(!b)return;var u=U[b.dataset.i];
- function ok(){b.textContent='복사했어요';setTimeout(function(){b.textContent='복사'},1500)}
- function fb(){var t=document.createElement('textarea');t.value=u;document.body.appendChild(t);t.select();try{document.execCommand('copy');ok()}catch(x){}document.body.removeChild(t)}
- try{navigator.clipboard.writeText(u).then(ok,fb)}catch(x){fb()}});
+ return '<div class="r"><a href="../'+c.u+'"><span><span class="badge" style="margin-right:6px">'+S.b+'</span>'+e(c.n)+'<br><small>'+e(c.s)+'</small></span></a></div>'}).join('')+'</div>'}).join('');
 </script></body></html>
