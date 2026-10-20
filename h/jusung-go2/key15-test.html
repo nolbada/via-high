@@ -11,12 +11,13 @@
 <script>
 function E(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
-var N=5,CUT=Math.ceil(N*0.8),MODE='B',Q=[],I=0,R=[],app=document.getElementById('app');
+var N=5,CUT=Math.ceil(N*0.8),MODE='B',RG='all',Q=[],I=0,R=[],app=document.getElementById('app');
 function start(){
   app.innerHTML='<div class="card"><div class="seg" id="mseg"><button data-m="A"'+(MODE==='A'?' class="on"':'')+'>직역 말하기</button><button data-m="B"'+(MODE==='B'?' class="on"':'')+'>자연스러운 해석 말하기</button></div>'
+   +'<div class="seg" id="rseg"><button data-r="1-7"'+(RG==='1-7'?' class="on"':'')+'>1-7번</button><button data-r="8-15"'+(RG==='8-15'?' class="on"':'')+'>8-15번</button><button data-r="all"'+(RG==='all'?' class="on"':'')+'>전체</button></div>'
    +'<div class="btns"><button class="pri" id="go">랜덤 '+N+'문장 시작</button></div></div>';
 }
-function draw(){Q=shuffle(K15.map(function(s){return s.no})).slice(0,N);I=0;R=[];ask()}
+function draw(){Q=shuffle(K15.map(function(s){return s.no}).filter(function(n){return RG==='1-7'?n<=7:RG==='8-15'?n>=8:true})).slice(0,N);I=0;R=[];ask()}
 function ask(){
   var s=K15[Q[I]-1],h='<div class="card"><span class="cnt">'+(I+1)+' / '+N+'</span><span class="badge">'+s.no+'번</span>';
   if(MODE==='A')h+=s.ch.map(function(c){return '<div class="row"><div class="k" style="color:var(--ink);font-size:19px;font-weight:600">'+E(c.k)+'</div></div>'}).join('');
@@ -36,6 +37,7 @@ function result(){
 }
 app.addEventListener('click',function(ev){
   var t=ev.target;
+  var r=t.closest('#rseg button');if(r){RG=r.dataset.r;start();return}
   var m=t.closest('#mseg button');if(m){MODE=m.dataset.m;start();return}
   if(t.closest('#go')||t.closest('#again')){draw();return}
   if(t.closest('#home')){start();return}
