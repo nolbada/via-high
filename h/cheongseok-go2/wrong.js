@@ -17,7 +17,7 @@ var WN=(function(){
     d.style.cssText='position:fixed;left:50%;top:14px;transform:translateX(-50%);background:#b45309;color:#fff;padding:9px 16px;border-radius:999px;font:700 14px sans-serif;z-index:99999;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.25);transition:opacity .6s;white-space:nowrap';
     document.body.appendChild(d);setTimeout(function(){d.style.opacity=0},3200);setTimeout(function(){d.remove()},3900)}
   function base(){var p=location.pathname,k=p.indexOf('/'+school+'/');return k>=0?p.slice(0,k+school.length+2):'./'}
-  var WR=/[?&]wrong=1\b/.test(location.search),MX=!WR&&/[?&]mix=1\b/.test(location.search),MKEY='vhmx:'+school;
+  var WR=/[?&]wrong=1\b/.test(location.search),MX=!WR&&/[?&]mix=1\b/.test(location.search),MKEY='vhmx:'+school,SR=WR&&/[?&]star=1\b/.test(location.search);
   function mxLoad(){try{var o=JSON.parse(localStorage.getItem(MKEY)||'null');return o&&o.cur?o:null}catch(e){return null}}
   function mxSave(o){try{localStorage.setItem(MKEY,JSON.stringify(o))}catch(e){}}
   var MS=MX?mxLoad():null;
@@ -31,7 +31,7 @@ var WN=(function(){
     MODE:WR||MX,
     MIX:MX,
     /* 이어 풀기 기록 키 꼬리: 오답 다시 풀기 ':w', 전체 랜덤 ':m<회차>', 평소 '' */
-    SUF:WR?':w':MX?':m'+(MS?MS.round:0):'',
+    SUF:WR?(SR?':ws':':w'):MX?':m'+(MS?MS.round:0):'',
     mixRound:function(){return MS?MS.round:0},
     /* 이 묶음을 다 풀었다고 표시(활동 페이지가 끝났을 때 부른다) */
     finish:function(){if(!MX)return;var s=mxLoad(),h=here();if(!s||!h.act)return;var k=h.kind+'|'+h.part+'|'+h.act;s.done=s.done||{};if(s.done[k])return;s.done[k]=1;mxSave(s)},
@@ -50,11 +50,26 @@ var WN=(function(){
     has:function(kind,part,act,qid){var id=WN.id(kind,part,act,qid);return load().some(function(x){return x.id===id})},
     /* it = {kind,part,act,qid,label,q?}  이미 있으면 그대로 둔다 */
     add:function(it){var a=load();it.id=WN.id(it.kind,it.part,it.act,it.qid);
-      if(a.some(function(x){return x.id===it.id}))return;
-      it.t=Date.now();a.push(it);save(a);toast(a.length)},
+      var x=a.filter(function(y){return y.id===it.id})[0];
+      if(x){x.w=1;x.star=true;save(a);return}
+      it.t=Date.now();it.w=1;it.star=true;a.push(it);save(a);toast(a.length)},
+    /* 별표: 틀린 문제는 자동으로 켜짐. 맞혔지만 헷갈린 문제도 별표로 담을 수 있다(w=0).
+       별을 끄면 틀린 적 있는 문제는 노트에 남고, 별만 친 문제는 노트에서도 빠진다. */
+    isStar:function(kind,part,act,qid){var id=WN.id(kind,part,act,qid),x=load().filter(function(y){return y.id===id})[0];return !!x&&x.star!==false},
+    star:function(it){var a=load();it.id=WN.id(it.kind,it.part,it.act,it.qid);
+      var x=a.filter(function(y){return y.id===it.id})[0];
+      if(!x){it.t=Date.now();it.w=0;it.star=true;a.push(it);save(a);return true}
+      if(x.star===false){x.star=true;save(a);return true}
+      if(x.w===0){save(a.filter(function(y){return y.id!==it.id}));return false}
+      x.star=false;save(a);return false},
+    setStar:function(id,on){var a=load(),x=a.filter(function(y){return y.id===id})[0];if(!x)return;
+      if(on){x.star=true;save(a);return}
+      if(x.w===0){save(a.filter(function(y){return y.id!==id}));return}
+      x.star=false;save(a)},
+    starCount:function(){return load().filter(function(x){return x.star!==false}).length},
     remove:function(id){save(load().filter(function(x){return x.id!==id}))},
     /* 오답 다시 풀기 모드(?wrong=1)에서 이 활동·구간에 담긴 문제 id 목록 */
-    ids:function(kind,part,act){if(MX)return mxPick(kind,part,act).map(function(x){return x.qid});return load().filter(function(x){return x.kind===kind&&x.part===part&&x.act===act}).map(function(x){return x.qid})},
-    items:function(kind,part,act){if(MX)return mxPick(kind,part,act);return load().filter(function(x){return x.kind===kind&&x.part===part&&x.act===act})}
+    ids:function(kind,part,act){if(MX)return mxPick(kind,part,act).map(function(x){return x.qid});return load().filter(function(x){return x.kind===kind&&x.part===part&&x.act===act&&(!SR||x.star!==false)}).map(function(x){return x.qid})},
+    items:function(kind,part,act){if(MX)return mxPick(kind,part,act);return load().filter(function(x){return x.kind===kind&&x.part===part&&x.act===act&&(!SR||x.star!==false)})}
   }
 })();
