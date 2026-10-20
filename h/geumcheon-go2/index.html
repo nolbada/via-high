@@ -75,7 +75,7 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 .tabs button{background:var(--card);border:1px solid var(--line);border-radius:12px}
 .tabs button.on{background:var(--pri);border-color:var(--pri);color:#fff}
 @media(prefers-color-scheme:dark){.arow a.cell:not(.on){background:#fb923c;border-color:#fb923c;color:#1a1206}.tabs button.on{color:#0b1220}.blk:has(.arow){box-shadow:none}}
-.goal .kgl{font-size:14px;line-height:1.4}
+.goal .kgl{font-size:16px;line-height:1.45;font-weight:800;color:var(--ink);text-align:left;letter-spacing:-.2px}.goal .kgl em{font-size:12px;margin-top:4px}
 </style></head><body><div class="wrap">
 
 <section class="pane on" id="p-today">
@@ -262,5 +262,5 @@ window.addEventListener('pageshow',function(e){var t='today';try{var nv=(perform
 })();
 </script><script>(function(){var EX=new Date(2026,11,7),WDN=['일','월','화','수','목','금','토'];
 function nowD(){var m=/[?&]d=(\d{4})-(\d\d)-(\d\d)/.exec(location.search);return m?new Date(+m[1],+m[2]-1,+m[3],12):new Date()}
-function render(){var el=document.getElementById('goal');if(!el)return;var n=nowD(),d0=new Date(n.getFullYear(),n.getMonth(),n.getDate()),dd=Math.round((EX-d0)/864e5);if(dd<0){el.innerHTML='';return}var big=dd===0?'D-DAY':'D-'+dd;el.innerHTML='<div class="goal"><div class="gs"><span class="kgd"><small>기말 12/7('+WDN[EX.getDay()]+')</small><b>'+big+'</b></span><span class="kgl">성공은 매일 부단하게 반복된 작은 노력의 합산이다.<em>비타민영어클리닉 학원</em></span></div></div>'}
+function render(){var el=document.getElementById('goal');if(!el)return;var n=nowD(),d0=new Date(n.getFullYear(),n.getMonth(),n.getDate()),dd=Math.round((EX-d0)/864e5);if(dd<0){el.innerHTML='';return}var big=dd===0?'D-DAY':'D-'+dd;el.innerHTML='<div class="goal"><div class="gs"><span class="kgd"><small>기말 12/7('+WDN[EX.getDay()]+')</small><b>'+big+'</b></span><span class="kgl">성공은 매일 부단하게 반복된<br>작은 노력의 합산이다.<em>비타민영어클리닉 학원</em></span></div></div>'}
 render();window.addEventListener('pageshow',render)})();</script></body></html>
