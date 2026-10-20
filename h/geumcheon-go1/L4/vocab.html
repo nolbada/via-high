@@ -23,7 +23,7 @@
 <div id="stage"></div>
 <div class="foot" style="text-align:center;color:var(--sub);font-size:13px;margin-top:26px">비타민 영어클리닉 · 금천고1</div></div>
 <a class="homefab" href="../index.html">⌂ 목록</a>
-<script>window.NOTIMER=1</script><script src="../parts.js?v=261019"></script><script src="../wrong.js?v=261019"></script><script src="../../common/prog.js?v=261019"></script><script src="voc-data.js?v=261019b"></script>
+<script>window.NOTIMER=1</script><script src="../parts.js?v=261019"></script><script src="../wrong.js?v=261019"></script><script src="../../common/prog.js?v=261019"></script><script src="voc-data.js?v=261019b"></script><script src="../../common/vocx.js?v=1"></script>
 <script>
 (function(){
 var E=function(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
@@ -86,7 +86,8 @@ function ask(q){
   return'<span class="tag">다의어</span><div class="sub">교과서 문장이에요. 파란 단어와 같은 뜻으로 쓰인 문장을 고르세요.</div><div class="ex">'+hlx(q.tx.e,q.tx.h)+'</div>'}
 function opts(q){return q.t==='O'?['비슷한 뜻','반대 뜻','관련 없음']:q.o}
 function ansTxt(q){return q.t==='O'?{s:'비슷한 뜻',a:'반대 뜻',n:'관련 없음'}[q.a]:q.a}
-function fbk(q){
+function fbk(q){if(window.VX)return VX.fbk(q);return fbk0(q)}
+function fbk0(q){
   if(q.t==='O'){var r=q.a==='s'?'비슷한 뜻이에요':q.a==='a'?'반대 뜻이에요':'서로 관련이 없어요';return'<b>'+E(q.h)+'</b> ('+E(q.m)+')<br>'+E(q.x.l)+' — '+E(q.x.r)+' → '+r}
   return'<div class="fb2" style="background:var(--priL);border-radius:10px;padding:8px 10px;margin:2px 0 6px">교과서에서 <b>'+E(q.w)+'</b> = <b>'+E(q.bm)+'</b><br><span style="color:var(--sub)">'+E(q.tx.k)+'</span></div>'+q.all.map(function(z){return'<div style="margin-top:6px"><b>'+E(z.m)+'</b><br>'+E(z.e)+'<br><span style="color:var(--sub)">'+E(z.k)+'</span></div>'}).join('')}
 function show(){
