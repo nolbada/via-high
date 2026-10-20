@@ -12,6 +12,16 @@
 <script src="key15-data.js?v=261022"></script>
 <script>
 function E(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function qlist(s){
+  var q=[];
+  (K15PR[s.no]||[]).forEach(function(p){q.push(['‘'+p[0]+'’ 는 무엇을 가리키나요?',p[1]])});
+  s.gram.forEach(function(g,gi){
+    var w=((K15HL[s.no]||[])[gi]||[]).map(function(x){return x.split(':')[1]});
+    q.push(['「'+g.t+'」 문장에서 해당하는 부분을 짚고, 왜 그런 형태인지 말해 보세요.',(w.length?'짚을 곳 : '+w.join(', ')+' / ':'')+g.l.join(' ')]);
+  });
+  return q}
+function qbox(s){
+  return '<div class="pt"><b>선생님 질문</b>'+qlist(s).map(function(x,i){return '<div style="margin-top:8px"><b>Q'+(i+1)+'.</b> '+E(x[0])+'<div style="color:var(--sub)">답 : '+E(x[1])+'</div></div>'}).join('')+'</div>'}
 var SEL={};
 function render(){
   var keys=Object.keys(SEL).map(Number).sort(function(a,b){return a-b});
@@ -22,7 +32,7 @@ function render(){
     return '<div class="card"><span class="num">'+s.no+'</span>'
      +s.ch.map(function(c){return '<div class="row"><div class="e">'+E(c.e)+'</div><div class="k">'+E(c.k)+'</div></div>'}).join('')
      +'<div class="nat"><b>자연스러운 해석</b>'+E(s.nat)+'</div>'
-     +(K15PR[s.no]?'<div class="pt"><b>대명사 정답</b>'+K15PR[s.no].map(function(p){return E(p[0])+' = '+E(p[1])}).join(' / ')+'</div>':'')
+     +qbox(s)
      +'<div class="pt"><b>채점 포인트</b>'+E(s.pt)+'</div></div>'}).join('');
 }
 document.addEventListener('click',function(ev){
