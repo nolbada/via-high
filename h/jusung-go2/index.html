@@ -268,8 +268,8 @@ document.getElementById('today').addEventListener('click',function(e){
 });
 var hide15=false;
 function curUnits(){var o={},lab='';try{lab=ROAD[curWeek(new Date())][2]}catch(e){}
-  if(lab.indexOf('3과')>=0)o.L3=1;if(lab.indexOf('4과')>=0)o.L4=1;
-  if(!o.L3&&!o.L4)o.L4=1;return o}
+  if(lab.indexOf('4과')>=0)o.L4=1;
+  o.L4=1;return o}
 function lrow(href,t,sm){return '<a class="row" href="'+href+'"><span>'+t+(sm?'<small>'+sm+'</small>':'')+'</span><span class="go" style="white-space:nowrap">열기</span></a>'}
 function key15(){
   var h='<div style="font-size:13px;color:var(--sub);margin:2px 2px 6px">시험에 나올 수 있는 주요 문장 15개예요. 해석을 가리고 먼저 스스로 해석해 봐요.</div><button type="button" id="hide15" class="row on" style="border:0;width:100%;cursor:pointer;font-family:inherit">해석 '+(hide15?'보이기':'가리기')+'</button>',no=0;
@@ -280,7 +280,7 @@ function key15(){
   return h}
 function text(){
   var cu=curUnits(),h='';
-  [['교과서 4과','L4'],['교과서 3과','L3']].forEach(function(g){
+  [['교과서 4과','L4']].forEach(function(g){
     var k=g[1];
     h+='<details class="acc"'+(cu[k]?' open':'')+'><summary>'+g[0]+'</summary><div class="in">';
     h+=lrow(k+'/jwa.html','좌본문 우해석');
