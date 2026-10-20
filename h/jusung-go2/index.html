@@ -276,9 +276,9 @@ function key15(){
   K15.forEach(function(s){
     if(s.grp!==last){h+='<div style="font-size:13px;font-weight:800;color:var(--sub);margin:12px 2px 2px">'+esc(s.grp)+'</div>';last=s.grp}
     h+='<div class="s"><div style="font-weight:800;color:var(--pri);font-size:15px">'+s.no+'</div>'
-     +s.ch.map(function(c){return '<div style="margin:7px 0 0;padding-left:10px;border-left:4px solid var(--pri)"><div class="en" style="font-weight:700">'+esc(c.e)+'</div>'+(hide15?'':'<div class="ko">'+esc(c.k)+'</div>')+'</div>'}).join('')
+     +s.ch.map(function(c,ci){return '<div style="margin:7px 0 0;padding-left:10px;border-left:4px solid var(--pri)"><div class="en" style="font-weight:700">'+k15mark(s.no,ci,c.e,esc)+'</div>'+(hide15?'':'<div class="ko">'+esc(c.k)+'</div>')+'</div>'}).join('')
      +(hide15?'':'<div class="ko" style="margin-top:8px;padding:8px 10px;border-radius:10px;background:rgba(127,127,127,.12)">'+esc(s.nat)+'</div>')
-     +s.gram.map(function(g){return '<div style="margin-top:8px;padding:9px 11px;border-left:4px solid var(--pri);background:rgba(127,127,127,.12);border-radius:10px;font-size:14px;line-height:1.6"><div style="font-weight:800;color:var(--pri)">'+esc(g.t)+'</div>'+g.l.map(function(x){return '<div>'+esc(x)+'</div>'}).join('')+(g.ex?'<div style="margin-top:5px;padding-top:5px;border-top:1px dashed var(--line)">'+esc(g.ex)+'<div style="color:var(--sub)">'+esc(g.exk)+'</div><div style="color:var(--sub)">'+esc(g.exr)+'</div></div>':'')+'</div>'}).join('')
+     +s.gram.map(function(g,gi){var pc=K15PEN[gi%4];return '<div style="margin-top:8px;padding:9px 11px;border-left:4px solid '+pc+';background:rgba(127,127,127,.12);border-radius:10px;font-size:14px;line-height:1.6"><div style="font-weight:800;color:'+pc+'">'+esc(g.t)+'</div>'+g.l.map(function(x){return '<div>'+esc(x)+'</div>'}).join('')+(g.ex?'<div style="margin-top:5px;padding-top:5px;border-top:1px dashed var(--line)">'+esc(g.ex)+'<div style="color:var(--sub)">'+esc(g.exk)+'</div><div style="color:var(--sub)">'+esc(g.exr)+'</div></div>':'')+'</div>'}).join('')
      +'<div style="margin-top:8px;font-size:13.5px;color:var(--sub)"><b>단어</b> '+s.voc.map(esc).join(' · ')+'</div></div>';
   });
   return h}
