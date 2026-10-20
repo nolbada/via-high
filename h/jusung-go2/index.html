@@ -120,7 +120,7 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 .tabs button{background:var(--card);border:1px solid var(--line);border-radius:12px}
 .tabs button.on{background:var(--pri);border-color:var(--pri);color:#fff}
 @media(prefers-color-scheme:dark){.arow a.cell:not(.on){background:#fb923c;border-color:#fb923c;color:#1a1206}.tabs button.on{color:#0b1220}.blk:has(.arow){box-shadow:none}}
-.goal .kgl{font-size:14px;line-height:1.4}
+.goal .kgl{font-size:16px;line-height:1.45;font-weight:800;color:var(--ink);text-align:left;letter-spacing:-.2px}.goal .kgl em{font-size:12px;margin-top:4px}
 </style></head><body><div class="wrap">
 
 <section class="pane on" id="p-today">
@@ -325,7 +325,7 @@ function render(){
   if(dd<0){el.innerHTML='';return}
   var big=dd===0?'D-DAY':'D-'+dd,ex='12/1('+WDN[EX.getDay()]+') 기말';
   el.innerHTML='<details class="goal"><summary><span class="kgd"><small>기말 12/1('+WDN[EX.getDay()]+')</small><b>'+big+'</b></span>'
-  +'<span class="kgl">성공은 매일 부단하게 반복된 작은 노력의 합산이다.<em>비타민영어클리닉 학원</em></span><i class="kgc"></i></summary>'
+  +'<span class="kgl">성공은 매일 부단하게 반복된<br>작은 노력의 합산이다.<em>비타민영어클리닉 학원</em></span><i class="kgc"></i></summary>'
   +'<div class="ksl">'+cards(big,ex)+'</div><div class="kdt">'+new Array(N+1).join('<i></i>').replace(/<i><\/i>/,'<i class="on"></i>')+'</div></details>';
   var sl=el.querySelector('.ksl'),dots=el.querySelectorAll('.kdt i');
   sl.addEventListener('scroll',function(){var i=Math.round(sl.scrollLeft/sl.clientWidth);[].forEach.call(dots,function(d,k){d.classList.toggle('on',k===i)})});
