@@ -7,7 +7,7 @@
 <div class="top"><a class="back" href="exit.html">← TEST</a><h1>주요 문장 15 TEST</h1></div>
 <div id="app"></div>
 <div class="foot">비타민 영어클리닉 · 주성고 영어II</div></div>
-<script src="key15-data.js?v=261021"></script>
+<script src="key15-data.js?v=261022"></script>
 <script>
 function E(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
@@ -21,6 +21,7 @@ function ask(){
   var s=K15[Q[I]-1],h='<div class="card"><span class="cnt">'+(I+1)+' / '+N+'</span><span class="badge">'+s.no+'번</span>';
   if(MODE==='A')h+=s.ch.map(function(c){return '<div class="row"><div class="k" style="color:var(--ink);font-size:19px;font-weight:600">'+E(c.k)+'</div></div>'}).join('');
   else h+='<div class="big" style="margin-top:10px">'+E(s.nat)+'</div>';
+  if(K15PR[s.no])h+='<div style="margin-top:12px;font-size:17px;font-weight:700">대명사 : '+K15PR[s.no].map(function(p){return E(p[0])}).join(', ')+' 는 무엇을 가리키나요?</div>';
   h+='<div class="btns"><button class="ok" id="o">O</button><button class="no" id="x">X</button></div>'
    +(I>0?'<div class="btns"><button id="undo">앞 문장으로 되돌리기</button></div>':'')+'</div>';
   app.innerHTML=h;
