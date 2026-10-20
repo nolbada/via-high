@@ -3,9 +3,11 @@
 <style>:root{--pri:#1d4ed8;--priL:#e8efff}@media(prefers-color-scheme:dark){:root{--pri:#8ab4ff;--priL:#16203a}}
 .pt{margin-top:10px;padding:9px 12px;background:var(--hi);color:var(--hiInk);border-radius:10px;font-size:15px}.pt b{margin-right:6px}
 .row .e{font-size:18px}
+.bg{display:inline-block;font-size:34px;font-weight:900;color:var(--pri);line-height:1.1}.ans{margin-top:12px;padding:10px 12px;border-left:4px solid var(--pri);background:var(--priL);border-radius:8px}.ans>b{display:block;margin-bottom:4px;font-size:15px;color:var(--pri)}
 </style></head><body><div class="wrap">
 <div class="top"><h1>주요 문장 15 정답지</h1></div>
-<div class="seg"><button id="all" class="on">전체</button><button id="clr">선택 해제</button></div>
+<div class="seg" id="mseg"><button data-m="A">직역 말하기</button><button data-m="B">자연스러운 해석 말하기</button></div>
+<div class="seg" id="rseg"><button data-r="1-7">1-7번</button><button data-r="8-15">8-15번</button><button data-r="all">전체</button></div>
 <div class="grid" id="gr"></div>
 <div id="list"></div>
 <div class="foot">비타민 영어클리닉 · 선생님용</div></div>
@@ -22,22 +24,30 @@ function qlist(s){
   return q}
 function qbox(s){
   return '<div class="pt"><b>선생님 질문</b>'+qlist(s).map(function(x,i){return '<div style="margin-top:8px"><b>Q'+(i+1)+'.</b> '+E(x[0])+'<div style="color:var(--sub)">답 : '+E(x[1])+'</div></div>'}).join('')+'</div>'}
-var SEL={};
+var MODE='B',RG='all',NO=0;
 function render(){
-  var keys=Object.keys(SEL).map(Number).sort(function(a,b){return a-b});
-  document.getElementById('gr').innerHTML=K15.map(function(s){return '<button class="gn'+(SEL[s.no]?' on':'')+'" data-n="'+s.no+'">'+s.no+'</button>'}).join('');
-  document.getElementById('all').classList.toggle('on',!keys.length);
-  var list=K15.filter(function(s){return !keys.length||SEL[s.no]});
-  document.getElementById('list').innerHTML=list.map(function(s){
-    return '<div class="card"><span class="num">'+s.no+'</span>'
-     +s.ch.map(function(c){return '<div class="row"><div class="e">'+E(c.e)+'</div><div class="k">'+E(c.k)+'</div></div>'}).join('')
-     +'<div class="nat"><b>자연스러운 해석</b>'+E(s.nat)+'</div>'
-     +qbox(s)
-     +'<div class="pt"><b>채점 포인트</b>'+E(s.pt)+'</div></div>'}).join('');
+  document.querySelectorAll('#mseg button').forEach(function(b){b.classList.toggle('on',b.dataset.m===MODE)});
+  document.querySelectorAll('#rseg button').forEach(function(b){b.classList.toggle('on',b.dataset.r===RG)});
+  var pool=K15.filter(function(s){return RG==='1-7'?s.no<=7:RG==='8-15'?s.no>=8:true});
+  if(NO&&pool.every(function(s){return s.no!==NO}))NO=0;
+  document.getElementById('gr').innerHTML=pool.map(function(s){return '<button class="gn'+(NO===s.no?' on':'')+'" data-n="'+s.no+'">'+s.no+'</button>'}).join('');
+  var s=K15[NO-1],h='';
+  if(s){
+    h='<div class="card"><span class="bg">'+s.no+'번</span>';
+    if(MODE==='A')h+=s.ch.map(function(c){return '<div class="row"><div class="k" style="color:var(--ink);font-size:19px;font-weight:600">'+E(c.k)+'</div></div>'}).join('');
+    else h+='<div class="big" style="margin-top:10px">'+E(s.nat)+'</div>';
+    if(K15PR[s.no])h+='<div style="margin-top:12px;font-size:17px;font-weight:700">대명사 : '+K15PR[s.no].map(function(p){return E(p[0])}).join(', ')+' 는 무엇을 가리키나요?</div>';
+    h+='<div class="ans"><b>정답</b>';
+    if(MODE==='A')h+=s.ch.map(function(c){return '<div class="row"><div class="e">'+E(c.e)+'</div></div>'}).join('');
+    else h+='<div class="e" style="font-size:18px">'+E(s.en)+'</div>';
+    h+='</div>'+qbox(s)+'<div class="pt"><b>채점 포인트</b>'+E(s.pt)+'</div></div>';
+  }
+  document.getElementById('list').innerHTML=h;
 }
 document.addEventListener('click',function(ev){
-  var g=ev.target.closest('.gn');if(g){var n=+g.dataset.n;if(SEL[n])delete SEL[n];else SEL[n]=1;render();return}
-  if(ev.target.closest('#clr')||ev.target.closest('#all')){SEL={};render()}
+  var t=ev.target,g=t.closest('.gn');if(g){NO=+g.dataset.n;render();return}
+  var m=t.closest('#mseg button');if(m){MODE=m.dataset.m;render();return}
+  var r=t.closest('#rseg button');if(r){RG=r.dataset.r;render()}
 });
 render();
 </script></body></html>
