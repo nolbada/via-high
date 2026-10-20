@@ -149,7 +149,7 @@ var CNT={"mockp1:ko": 5, "mockp1:abc": 6, "mockp1:mun": 6, "mockp1:blank": 4, "m
 var OPT={ko:1},VAR={voc:1,ko:1,abc:1,mun:1,blank:1};
 var EXAMD=['2026-12-01', '2026-12-02', '2026-12-03', '2026-12-04'];
 var EXAM=new Date(2026,11,1);
-var ROAD=[['10/19','10/25','교과서 4과','본문 3개 · 본문마다 모든 활동'],['10/26','11/1','모의고사 1회독 ①','하루 3지문 · 해석과 문법 분석까지 꼼꼼히'],['11/2','11/8','모의고사 1회독 ②','하루 3지문 · 꼼꼼히'],['11/9','11/15','모의고사 1회독 ③','하루 3지문 · 꼼꼼히'],['11/16','11/22','1회독 마무리 · 2회독 시작','2회독은 하루 6지문 · 수업에서 기출 풀이'],['11/23','11/29','2회독 · 최종정리','기출 풀이와 함께 · 28일(토) 최종점검: 틀린 문제 · 약한 유형 골라 풀기']];
+var ROAD=[['10/19','10/25','교과서 4과','본문 3개 · 본문마다 모든 활동'],['10/26','11/1','모의고사 1회독 ①','\n매 수업 첫머리에 지난 회차 틀린 문제 다시\n월 10/26 · 22년 11월 29~32번\n수 10/28 · 22년 11월 33~36번\n토 10/31 · 22년 11월 37·38번 + 23년 11월 21·23번 + 도표(25번)'],['11/2','11/8','모의고사 1회독 ②','\n월 11/2 · 23년 11월 30~33번\n수 11/4 · 23년 11월 34~37번\n토 11/7 · 23년 11월 38~41번'],['11/9','11/15','모의고사 1회독 ③','\n월 11/9 · 24년 10월 22~25번\n수 11/11 · 24년 10월 26~29번\n토 11/14 · 24년 10월 30·33번 + 26년 10월 2개'],['11/16','11/22','1회독 마무리','\n월 11/16 · 26년 10월 4개 (추후 공지)\n수 11/18 · 26년 10월 4개 (추후 공지)\n토 11/21 · 못 한 것 보충 + 총복습 시작'],['11/23','11/29','총복습 · 기출 풀이','\n월 11/23 · 틀린 문제 다시 + 기출 풀이\n수 11/25 · 틀린 문제 다시 + 기출 풀이\n토 11/28 · 최종점검: 틀린 문제 · 약한 유형 골라 풀기']];
 var Y=2026;
 var VIS=[
  [{L:1,t:'교과서 본문 1',s:'본문 ❶~❸'},{L:2,t:'교과서 본문 2',s:'본문 ❹~❺'},{L:3,t:'교과서 본문 3',s:'본문 ❻~❼'}],
@@ -214,7 +214,7 @@ function today(){
    +'<div class="rs">이 화면을 캡처해 두면, 기기가 바뀌어도 어디까지 했는지 바로 알 수 있어요.<br>캡처 시각: '+fmt(Date.now())+'</div>'
    +'<details class="rst"><summary>다른 기기예요 · 기록 옮기기</summary><div class="rsi"><p>캡처해 둔 “마지막으로 끝낸 활동”까지 이 기기에 체크해요.</p><div class="rsel"><select id="rdn">'+flat.map(function(f){return '<option value="'+f.no+'">DAY '+f.no+' ('+(f.x.getMonth()+1)+'/'+f.x.getDate()+')</option>'}).join('')+'</select><select id="rac">'+ACT.map(function(a,i){return '<option value="'+(i+1)+'">'+(i+1)+'. '+a[1]+'</option>'}).join('')+'</select></div><button type="button" class="rbtn" data-rest="1">여기까지 했어요로 체크</button></div></details></div>';
   h+='<div class="road"><div class="rh"><b>시험까지 큰 흐름</b><span>기말고사 (12/1~12/4)</span></div>';
-  ROAD.forEach(function(w,i){h+='<div class="wr'+(i===cw?' cur':'')+(i<cw?' past':'')+'"><span class="wn">'+(i+1)+'주</span><span class="wd2">'+w[0]+'~'+w[1]+'</span><span class="wm"><b>'+esc(w[2])+'</b> '+esc(w[3])+'</span></div>'});
+  ROAD.forEach(function(w,i){h+='<div class="wr'+(i===cw?' cur':'')+(i<cw?' past':'')+'"><span class="wn">'+(i+1)+'주</span><span class="wd2">'+w[0]+'~'+w[1]+'</span><span class="wm"><b>'+esc(w[2])+'</b> '+esc(w[3]).replace(/\n/g,'<br>')+'</span></div>'});
   h+='</div>';
   document.getElementById('today').innerHTML=h;
   document.getElementById('sum').textContent=got+' / '+tot+' 활동';
