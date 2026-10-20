@@ -60,6 +60,21 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 .goal .kgl{flex:1;min-width:0;font-size:15px;font-weight:800;line-height:1.35;word-break:keep-all}
 .goal .kgl em{display:block;font-style:normal;font-size:12px;color:var(--sub);font-weight:700}
 @media(prefers-color-scheme:dark){.goal{--gnv:#3a5190}}
+/* 유형풀코스 강조 · 풀기 버튼 통일 · 하단 탭 배경 (261021) */
+.arow>b{flex:1 1 auto;min-width:0}
+.arow .vr{flex:0 0 auto;width:68px;margin:0;padding:2px 0;text-align:center;box-sizing:border-box}
+.arow .two{flex:0 0 96px}
+.arow .two:has(.cell+.cell){flex:0 0 200px}
+.arow a.cell{font-size:15.5px;font-weight:800;padding:10px 4px;border-radius:12px;box-shadow:0 2px 0 rgba(0,0,0,.16)}
+.arow a.cell:not(.on){background:#f97316;border-color:#f97316;color:#fff}
+.arow a.cell:not(.on)::after{content:" ›"}
+.arow .cell small:empty{display:none}
+.blk:has(.arow){border:2px solid var(--pri);box-shadow:0 4px 14px rgba(29,78,216,.14)}
+.blk:has(.arow)>h2{color:var(--pri);font-size:17px}
+.tabs{background:var(--priL);border-top:2px solid var(--pri);height:52px;gap:6px;padding:6px 8px calc(6px + env(safe-area-inset-bottom))}
+.tabs button{background:var(--card);border:1px solid var(--line);border-radius:12px}
+.tabs button.on{background:var(--pri);border-color:var(--pri);color:#fff}
+@media(prefers-color-scheme:dark){.arow a.cell:not(.on){background:#fb923c;border-color:#fb923c;color:#1a1206}.tabs button.on{color:#0b1220}.blk:has(.arow){box-shadow:none}}
 </style></head><body><div class="wrap">
 
 <section class="pane on" id="p-today">
@@ -246,5 +261,5 @@ window.addEventListener('pageshow',function(e){var t='today';try{var nv=(perform
 })();
 </script><script>(function(){var EX=new Date(2026,11,7),WDN=['일','월','화','수','목','금','토'];
 function nowD(){var m=/[?&]d=(\d{4})-(\d\d)-(\d\d)/.exec(location.search);return m?new Date(+m[1],+m[2]-1,+m[3],12):new Date()}
-function render(){var el=document.getElementById('goal');if(!el)return;var n=nowD(),d0=new Date(n.getFullYear(),n.getMonth(),n.getDate()),dd=Math.round((EX-d0)/864e5);if(dd<0){el.innerHTML='';return}var big=dd===0?'D-DAY':'D-'+dd;el.innerHTML='<div class="goal"><div class="gs"><span class="kgd"><small>기말 12/7('+WDN[EX.getDay()]+')</small><b>'+big+'</b></span><span class="kgl">기말고사<em>시험 기간 12/7 ~ 12/10</em></span></div></div>'}
+function render(){var el=document.getElementById('goal');if(!el)return;var n=nowD(),d0=new Date(n.getFullYear(),n.getMonth(),n.getDate()),dd=Math.round((EX-d0)/864e5);if(dd<0){el.innerHTML='';return}var big=dd===0?'D-DAY':'D-'+dd;el.innerHTML='<div class="goal"><div class="gs"><span class="kgd"><small>기말 12/7('+WDN[EX.getDay()]+')</small><b>'+big+'</b></span><span class="kgl">기말고사 준비 방향<em>비타민 영어클리닉 · 시험 기간 12/7 ~ 12/10</em></span></div></div>'}
 render();window.addEventListener('pageshow',render)})();</script></body></html>
