@@ -34,13 +34,10 @@ function render(){
   var s=K15[NO-1],h='';
   if(s){
     h='<div class="card"><span class="bg">'+s.no+'번</span>';
-    if(MODE==='A')h+=s.ch.map(function(c){return '<div class="row"><div class="k" style="color:var(--ink);font-size:19px;font-weight:600">'+E(c.k)+'</div></div>'}).join('');
-    else h+='<div class="big" style="margin-top:10px">'+E(s.nat)+'</div>';
+    if(MODE==='A')h+=s.ch.map(function(c){return '<div class="row"><div class="k" style="color:var(--ink);font-size:19px;font-weight:600">'+E(c.k)+'</div><div class="e" style="color:var(--pri);font-weight:700">'+E(c.e)+'</div></div>'}).join('');
+    else h+='<div class="big" style="margin-top:10px">'+E(s.nat)+'</div><div class="e" style="font-size:18px;color:var(--pri);font-weight:700;margin-top:6px">'+E(s.en)+'</div>';
     if(K15PR[s.no])h+='<div style="margin-top:12px;font-size:17px;font-weight:700">대명사 : '+K15PR[s.no].map(function(p){return E(p[0])}).join(', ')+' 는 무엇을 가리키나요?</div>';
-    h+='<div class="ans"><b>정답</b>';
-    if(MODE==='A')h+=s.ch.map(function(c){return '<div class="row"><div class="e">'+E(c.e)+'</div></div>'}).join('');
-    else h+='<div class="e" style="font-size:18px">'+E(s.en)+'</div>';
-    h+='</div>'+qbox(s)+'<div class="pt"><b>채점 포인트</b>'+E(s.pt)+'</div></div>';
+    h+='<div style="height:2px"></div>'+qbox(s)+'<div class="pt"><b>채점 포인트</b>'+E(s.pt)+'</div></div>';
   }
   document.getElementById('list').innerHTML=h;
 }
