@@ -275,7 +275,7 @@ function text(){
   document.getElementById('text').innerHTML=h;
 }
 document.getElementById('text').addEventListener('click',function(e){if(e.target.id==='hide15'){hide15=!hide15;text();}});
-var TABS=[['text','원문','<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 17h7"/>'],['keys','답안지','<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-6"/>'],['today','오늘의 학습','<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>']];
+var TABS=[['text','원문','<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 17h7"/>'],['keys','답안지','<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-6"/>'],['today','유형 풀코스','<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>']];
 function show(id){
   TABS.forEach(function(t){document.getElementById('p-'+t[0]).classList.toggle('on',t[0]===id)});
   [].forEach.call(document.querySelectorAll('#tabs button'),function(b){b.classList.toggle('on',b.dataset.t===id)});
