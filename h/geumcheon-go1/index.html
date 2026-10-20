@@ -320,7 +320,7 @@ function render(){
   if(dd<0){el.innerHTML='';return}
   var big=dd===0?'D-DAY':'D-'+dd;
   el.innerHTML='<details class="goal"><summary><span class="kgd"><small>기말 12/7('+WDN[EX.getDay()]+')</small><b>'+big+'</b></span>'
-  +'<span class="kgl">기말 준비 방향<em>지난 중간고사를 숫자로 보면</em></span><i class="kgc"></i></summary>'
+  +'<span class="kgl">기말 준비 방향<em>비타민 영어클리닉 · 지난 중간고사를 숫자로 보면</em></span><i class="kgc"></i></summary>'
   +'<div class="ksl">'+cards()+'</div><div class="kdt">'+new Array(N+1).join('<i></i>').replace(/<i><\/i>/,'<i class="on"></i>')+'</div></details>';
   var sl=el.querySelector('.ksl'),dots=el.querySelectorAll('.kdt i');
   sl.addEventListener('scroll',function(){var i=Math.round(sl.scrollLeft/sl.clientWidth);[].forEach.call(dots,function(d,k){d.classList.toggle('on',k===i)})});
