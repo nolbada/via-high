@@ -272,7 +272,7 @@ function curUnits(){var o={},lab='';try{lab=ROAD[curWeek(new Date())][2]}catch(e
   o.L4=1;return o}
 function lrow(href,t,sm){return '<a class="row" href="'+href+'"><span>'+t+(sm?'<small>'+sm+'</small>':'')+'</span><span class="go" style="white-space:nowrap">열기</span></a>'}
 function key15(){
-  var h='<div style="font-size:13px;color:var(--sub);margin:2px 2px 6px">시험에 나올 수 있는 주요 문장 15개예요. 해석을 가리고 먼저 스스로 해석해 봐요.</div><button type="button" id="hide15" class="row on" style="border:0;width:100%;cursor:pointer;font-family:inherit">해석 '+(hide15?'보이기':'가리기')+'</button>',no=0;
+  var h=lrow('key15.html','외우기 · 시험모드')+'<div style="font-size:13px;color:var(--sub);margin:8px 2px 6px">시험에 나올 수 있는 주요 문장 15개예요. 해석을 가리고 먼저 스스로 해석해 봐요.</div><button type="button" id="hide15" class="row on" style="border:0;width:100%;cursor:pointer;font-family:inherit">해석 '+(hide15?'보이기':'가리기')+'</button>',no=0;
   KEY15.groups.forEach(function(gr){
     h+='<div style="font-size:13px;font-weight:800;color:var(--sub);margin:12px 2px 2px">'+esc(gr.title)+'</div>';
     gr.items.forEach(function(it){no++;h+='<div class="s"><div class="en"><b style="color:var(--pri)">'+no+'</b> '+esc(it.en)+'</div>'+(hide15?'':'<div class="ko">'+esc(it.ko)+'</div>')+'</div>'});
