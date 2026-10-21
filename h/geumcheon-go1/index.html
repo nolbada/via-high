@@ -122,6 +122,27 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 @media(prefers-color-scheme:dark){.arow a.cell:not(.on){background:#fb923c;border-color:#fb923c;color:#1a1206}.tabs button.on{color:#0b1220}.blk:has(.arow){box-shadow:none}}
 .goal .kgl{font-size:16px;line-height:1.45;font-weight:800;color:var(--ink);text-align:left;letter-spacing:-.2px}.goal .kgl em{font-size:12px;margin-top:4px}
 
+/* 유형 줄 · 체크 · 이어 풀기 · 학습 기록 배지 (261022) */
+.arow{gap:0;padding:0}
+.arow .ck{flex:0 0 44px;display:flex;align-items:center;justify-content:center;height:48px;margin:0}
+.arow .ck input{width:20px;height:20px;accent-color:var(--pri);margin:0}
+.arow span.ck{pointer-events:none}
+.arow a.at{flex:1 1 auto;min-width:0;display:flex;align-items:center;flex-wrap:wrap;gap:0 4px;padding:13px 0;color:var(--ink);text-decoration:none;font-size:15.5px;font-weight:700}
+.arow a.at b{font-size:15.5px;font-weight:700;flex:0 0 auto}
+.arow a.at .vr{width:auto;flex:0 0 auto;background:none;color:var(--sub);padding:0 0 0 4px;font-size:11px}
+.arow .mk{flex:0 0 40px;text-align:center;font-size:21px;font-weight:900;color:var(--pri)}
+.arow.dn a.at{color:var(--sub)}
+.qgo{display:block;width:100%;margin:8px 0 6px;border:1.5px solid var(--pri);background:var(--pri);color:var(--onpri);border-radius:12px;padding:12px;font:800 15px/1 inherit;font-family:inherit;cursor:pointer}
+.qgo:disabled{opacity:.35;cursor:default}
+.rsm{display:flex;justify-content:space-between;align-items:center;gap:10px;border:2px solid var(--pri);background:var(--card);color:var(--ink);border-radius:12px;padding:11px 14px;margin:10px 0 4px;text-decoration:none}
+.rsm b{display:block;font-size:15px;color:var(--pri)}.rsm small{display:block;font-size:12.5px;color:var(--sub);margin-top:2px}.rsm .go{font-weight:800;color:var(--pri);font-size:20px}
+.pins{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 2px}
+.pn{display:flex;flex-direction:column;align-items:center;width:40px}
+.pn i{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);color:var(--sub);display:flex;align-items:center;justify-content:center;font:800 14px/1 sans-serif;font-style:normal}
+.pn.on i{background:var(--pri);border-color:var(--pri);color:var(--onpri)}
+.pn.op i{border-style:dashed}
+.pn small{font-size:10px;color:var(--sub);margin-top:2px;white-space:nowrap}
+.pr{margin-top:8px}.pr>b{font-size:13.5px;color:var(--navy)}
 /* 첫 화면 새 달력·진행 (261021) */
 :root{--pu:#7c3aed;--onpri:#fff}
 @media(prefers-color-scheme:dark){:root{--pu:#c4b5fd;--onpri:#0b1220}}
@@ -218,6 +239,7 @@ var TUN=false;
 var RHASH='ec2d006288d72b63de6f7f2b942faa8f084a209531b70a3ff6de7fc59121afe7';
 function sha(s){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)).then(function(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2)}).join('')})}
 function fmtMD(d){return (d.getMonth()+1)+"/"+d.getDate()+"("+WDN[d.getDay()]+")"}
+var QS={};
 function today(){
   var P=PG.get(),h='',nm={},now=(/[?&]d=(\d{4})-(\d\d)-(\d\d)/.exec(location.search)?new Date(+RegExp.$1,+RegExp.$2-1,+RegExp.$3,12):new Date()),ws=weekStart(now),we=new Date(ws);we.setDate(we.getDate()+6);
   var wk0=dkey(ws),wk1=dkey(we),td=dkey(now),cw=curWeek(now),tdd=new Date(now.getFullYear(),now.getMonth(),now.getDate());
@@ -242,6 +264,10 @@ function today(){
   if(chg)try{localStorage.setItem(CK,JSON.stringify(rec))}catch(e){}
   var N=flat.length;
   if(!selNo||selNo<1||selNo>N){selNo=N;for(var i=0;i<N;i++)if(!flat[i].done){selNo=i+1;break}}
+  var bm=null,q0=null,rsm=null;try{bm=JSON.parse(localStorage.getItem('vhbm:'+WN.school)||'null')}catch(e){}try{q0=JSON.parse(localStorage.getItem('vhq:'+WN.school)||'null')}catch(e){}
+  if(bm&&bm.k&&bm.u)flat.forEach(function(ff){ACT.forEach(function(a){if(!rsm&&!ff.v.F&&key(ff.v,a[0])===bm.k&&setOf(ff.v).url[a[0]]&&!isOn(ff.v,a[0]))rsm={f:ff,a:a,u:bm.u}})});
+  if(!rsm&&q0&&q0.l&&Date.now()-(q0.t||0)<43200000){var qn=null;q0.l.forEach(function(x){var e=P[x.k];if(!qn&&!(e&&(e.n||e.t)))qn=x});if(qn)flat.forEach(function(ff){ACT.forEach(function(a){if(!rsm&&key(ff.v,a[0])===qn.k)rsm={f:ff,a:a,u:qn.u}})})}
+  if(rsm)h+='<a class="rsm" href="'+esc(rsm.u)+'"><span><b>이어서 풀기</b><small>'+rsm.f.no+'회 ('+src(rsm.f.v)+') · '+esc(rsm.a[1])+'</small></span><span class="go">›</span></a>';
   var wn=WN.count();h+='<a class="wnb" href="wrong.html"><span><b>오답 노트</b><small>1차 오답은 자동 저장, 2차 오답은 별표(★) 표시</small></span><span class="go">열기</span></a>';
   h+='<a class="wnb mxb" href="mix.html"><span><b>전체 랜덤 20문항</b><small>전체에서 20문항씩, 또는 원하는 유형만 골라 풀어요</small></span><span class="go">시작</span></a>';
   h+='<div class="exam"><b>기말고사 (12/7~12/10)</b><span>'+(wkN>=3?'이번 주 목표 완료 · '+wkN+'회':'이번 주 3회 중 '+wkN+'회')+'</span></div>';
@@ -264,7 +290,11 @@ function today(){
   h+='<div class="blk'+(f.done?' done':'')+'"><h2>유형 풀코스 · '+f.no+'회 ('+src(v)+')'+(f.done?'<span class="tg t">완료</span>':'')+'<small class="rng">'+esc(v.s)+'</small>'+(v.x?'<small class="rng">'+esc(v.x)+'</small>':'')+'</h2><div class="rows">';
   ACT.forEach(function(a){var id=a[0],sc=setOf(v),u=sc.url[id];if(!u)return;
     var on=isOn(v,id);
-    h+='<div class="arow"><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+(CNT[key(v,id)]?' <span class="cn">'+(id==='voc'?'약 ':'')+CNT[key(v,id)]+(id==='find'?'개':'문제')+'</span>':'')+'</b>'+(VAR[id]?'<i class="vr">매번 다른 문제</i>':(id==='wk'||id==='wt')?'':'<i class="vr o">1회성</i>')+'<div class="two" style="grid-template-columns:1fr"><a class="cell'+(on?' on':'')+'" href="'+(v.F?u:u+'?part='+(v.L||v.T||v.D))+'"'+(v.F?' data-fm="'+key(v,id)+'"':'')+'>'+(on?'했어요':'풀기')+'<small>'+(v.F&&WN.solvedBy(id==='wk'?'w':'m')?WN.solvedBy(id==='wk'?'w':'m')+'문제 풀었어요':on?'✓'+durTxt(key(v,id)):'')+'</small></a></div></div>'});
+    var sk=key(v,id),href=(v.F?u:u+'?part='+(v.L||v.T||v.D)),chk=QS[sk]!==undefined?QS[sk]:(!on&&!OPT[id]);
+    h+='<div class="arow'+(on?' dn':'')+'">'+(v.F?'<span class="ck"></span>':'<label class="ck"><input type="checkbox" data-q="'+sk+'"'+(chk?' checked':'')+'></label>')+'<a class="at" href="'+href+'"'+(v.F?' data-fm="'+sk+'"':'')+'><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+'</b>'+(CNT[sk]?' <span class="cn">'+(id==='voc'?'약 ':'')+CNT[sk]+(id==='find'?'개':'문제')+'</span>':'')+(VAR[id]?'<i class="vr">매번 다른 문제</i>':(id==='wk'||id==='wt')?'':'<i class="vr o">1회성</i>')+(v.F&&WN.solvedBy(id==='wk'?'w':'m')?' <span class="cn">'+WN.solvedBy(id==='wk'?'w':'m')+'문제 풀었어요</span>':'')+'</a><span class="mk">'+(on?'✓':'')+'</span></div>'});
+  if(pr.n&&!v.F)h+='<button type="button" class="qgo" data-qgo="1">체크한 유형 이어서 풀기 (<span id="qn">0</span>)</button>';
+  window.QGO=function(){var items=[];ACT.forEach(function(a){var id=a[0],u=setOf(v).url[id];if(!u||v.F)return;var k=key(v,id),cb=document.querySelector('#today input[data-q="'+k+'"]');if(!cb||!cb.checked)return;var U=new URL(u+'?part='+(v.L||v.T||v.D),location.href);items.push({u:U.pathname+U.search,n:nm[id],k:k})});
+    if(!items.length)return;try{localStorage.setItem('vhq:'+WN.school,JSON.stringify({l:items,t:Date.now()}))}catch(e){}location.href=items[0].u};
   if(!pr.n)h+='<div class="soonbox">내용은 준비 중이에요</div>';
   var qt=0;ACT.forEach(function(a){if(setOf(v).url[a[0]]&&CNT[key(v,a[0])])qt+=CNT[key(v,a[0])]});
   if(qt)h+='<div class="qtot"><span>이 회 합계</span><b>약 '+qt+'문제</b></div>';
@@ -284,6 +314,9 @@ function today(){
   function lbl(x){return x.f.no+'회 · '+(ACT.indexOf(x.a)+1)+'. '+x.a[1]}
   h+='<div class="rec"><div class="rh"><b>내 학습 기록</b><span>인증샷용</span></div>'
    +'<div class="rr"><em>마지막으로 끝낸 활동</em><b>'+(last?lbl(last)+'</b><small>'+fmt(last.t):'아직 없어요</b><small>')+'</small></div>'
+   +(function(){var rl=[];flat.forEach(function(f){if(f.v.F)return;var mt=0,any=false;ACT.forEach(function(a){var e=P[key(f.v,a[0])];if(setOf(f.v).url[a[0]]&&e&&(e.n||e.t)){any=true;if((e.t||0)>mt)mt=e.t||0}});if(any)rl.push({f:f,t:mt})});
+     rl.sort(function(a,b){return b.t-a.t});rl=rl.slice(0,3);if(!rl.length)return '';
+     return '<div class="rr"><em>최근 끝낸 유형</em>'+rl.map(function(x){var o='<div class="pr"><b>'+x.f.no+'회 ('+src(x.f.v)+')</b><div class="pins">';ACT.forEach(function(a,ix){var id=a[0];if(!setOf(x.f.v).url[id]||id==='wk'||id==='wt')return;o+='<span class="pn'+(isOn(x.f.v,id)?' on':'')+(OPT[id]?' op':'')+'"><i>'+(ix+1)+'</i><small>'+esc(SH[id]||a[1])+'</small></span>'});return o+'</div></div>'}).join('')+'</div>'})()
    +'<div class="rr nx"><em>다음에 할 활동</em><b>'+(nxt?lbl(nxt):'모두 끝냈어요 🎉')+'</b></div>'
    +'<div class="rr"><em>전체 진행</em><b>'+doneN+' / '+N+'회 완료</b></div>'
    +'<div class="rs">이 화면을 캡처해 두면, 기기가 바뀌어도 어디까지 했는지 바로 알 수 있어요.<br>캡처 시각: '+fmt(Date.now())+'</div>'
@@ -292,6 +325,7 @@ function today(){
   ROAD.forEach(function(w,i){h+='<div class="wr'+(i===cw?' cur':'')+(i<cw?' past':'')+'"><span class="wn">'+(i+1)+'주</span><span class="wd2">'+w[0]+'~'+w[1]+'</span><span class="wm"><b>'+esc(w[2])+'</b> '+esc(w[3])+'</span></div>'});
   h+='</div>';
   document.getElementById('today').innerHTML=h;
+  (function(){var n=document.querySelectorAll('#today input[data-q]:checked').length,sp=document.getElementById('qn'),b=document.querySelector('.qgo');if(sp)sp.textContent=n;if(b)b.disabled=!n})();
   document.getElementById('sum').textContent=doneN>=N?'전체 완료':N+'회 중 '+doneN+'회';
   document.getElementById('sbar').style.width=Math.round(doneN*100/N)+'%';
   var qAll=qN+WN.solved();document.getElementById('qsum').textContent=qAll?'지금까지 '+qAll+'문제':'';
@@ -314,7 +348,9 @@ function keys(){
   });
   document.getElementById('keys').innerHTML=h;
 }
+document.getElementById('today').addEventListener('change',function(e){var c=e.target.closest('input[data-q]');if(!c)return;QS[c.dataset.q]=c.checked;var n=document.querySelectorAll('#today input[data-q]:checked').length,sp=document.getElementById('qn'),b=document.querySelector('.qgo');if(sp)sp.textContent=n;if(b)b.disabled=!n});
 document.getElementById('today').addEventListener('click',function(e){
+  if(e.target.closest('[data-qgo]')){if(window.QGO)window.QGO();return}
   var fm=e.target.closest('[data-fm]');if(fm){try{PG.mark(fm.dataset.fm)}catch(x){}return}
   var nt=e.target.closest('[data-note]');if(nt){e.preventDefault();var kk=nt.dataset.note,en=PG.get()[kk];if(en&&en.n&&en.t>=weekStart(new Date()).getTime())PG.unmark(kk);else PG.mark(kk);today();return}
   var rb=e.target.closest('[data-rest]');if(rb){
