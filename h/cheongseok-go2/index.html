@@ -107,6 +107,34 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 .rnav button:disabled{opacity:.35;cursor:default}
 .tgh{display:flex;justify-content:space-between;align-items:center;margin-top:8px}.tgh b{font-size:14px;color:var(--pri)}.tgh button{border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:700 12px/1 inherit;font-family:inherit;border-radius:10px;padding:7px 12px;cursor:pointer}.tgt{border-collapse:collapse;width:100%;table-layout:fixed;margin-top:6px}.tgt th,.tgt td{border:1px solid var(--line);text-align:center;font-size:11px;padding:0;height:34px}.tgt thead th{height:auto;padding:5px 0;font-size:10.5px;color:var(--sub);font-weight:700}.tgt th.rw{width:50px;font-size:12px;font-weight:800;color:var(--navy);cursor:pointer;background:var(--card)}.tgt th.rw small{display:block;font-size:9.5px;font-weight:500;color:var(--sub)}.tgt td.c{cursor:pointer;font-size:15px;font-weight:800;color:#fff}.tgt td.c.on{background:var(--pri)}.tgt td.na{background:#f1f2f5}
 .tgt th.rw{width:62px}.tgt th.rw small{font-size:9px;white-space:nowrap}
+/* 유형 줄 · 체크 · 이어 풀기 · 학습 기록 배지 (261022) */
+.arow{gap:0;padding:0}
+.arow .ck{flex:0 0 44px;display:flex;align-items:center;justify-content:center;height:48px;margin:0}
+.arow .ck input{width:20px;height:20px;accent-color:#94a3b8;margin:0}
+.arow span.ck{pointer-events:none}
+.arow .ck i.okb{width:20px;height:20px;border-radius:5px;background:var(--pri);color:var(--onpri);display:flex;align-items:center;justify-content:center;font:900 14px/1 sans-serif;font-style:normal}
+.arow a.at{flex:1 1 auto;min-width:0;display:flex;align-items:center;flex-wrap:wrap;gap:0 4px;padding:13px 0;color:var(--ink);text-decoration:none;font-size:15.5px;font-weight:700}
+.arow a.at b{font-size:15.5px;font-weight:700;flex:0 0 auto}
+.arow a.at .vr{width:auto;flex:0 0 auto;background:none;color:var(--sub);padding:0 0 0 4px;font-size:11px}
+.arow .mk{flex:0 0 40px;display:flex;align-items:center;justify-content:center}
+.arow .mk i{width:24px;height:24px;border-radius:50%;background:var(--pri);color:var(--onpri);display:flex;align-items:center;justify-content:center;font:900 14px/1 sans-serif;font-style:normal}
+.qsel{display:flex;gap:14px;justify-content:flex-end;margin:6px 2px 0}.qsel button{border:0;background:none;color:var(--sub);font:700 12.5px/1 inherit;font-family:inherit;text-decoration:underline;padding:4px 2px;cursor:pointer}
+.arow.dn a.at{color:var(--sub)}
+.qgo{display:block;width:100%;margin:8px 0 6px;border:1.5px solid var(--pri);background:var(--pri);color:var(--onpri);border-radius:12px;padding:12px;font:800 15px/1 inherit;font-family:inherit;cursor:pointer}
+.qgo:disabled{opacity:.35;cursor:default}
+.rsm{display:flex;justify-content:space-between;align-items:center;gap:10px;border:2px solid var(--pri);background:var(--card);color:var(--ink);border-radius:12px;padding:11px 14px;margin:10px 0 4px;text-decoration:none}
+.rsm b{display:block;font-size:15px;color:var(--pri)}.rsm small{display:block;font-size:12.5px;color:var(--sub);margin-top:2px}.rsm .go{font-weight:800;color:var(--pri);font-size:20px}
+.pins{display:flex;flex-wrap:wrap;gap:3px;margin:5px 0 1px}
+.pn{display:flex;align-items:center}
+
+.pn i{width:19px;height:19px;border-radius:50%;border:1.5px solid var(--line);color:var(--sub);display:flex;align-items:center;justify-content:center;font:800 10.5px/1 sans-serif;font-style:normal}
+.pn.on i{background:var(--pri);border-color:var(--pri);color:var(--onpri)}
+.pn.op i{border-style:dashed}
+.pn small{font-size:9px;color:var(--sub);margin-top:2px;white-space:nowrap}
+.pr{margin-top:8px}.pr .ph{display:flex;justify-content:space-between;align-items:baseline}.pr .ph b{font-size:14px;color:var(--navy)}.pr .ph span{font-size:12px;color:var(--sub)}
+.ncg .d[data-day]{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ncg .d.sel::after{content:"";position:absolute;bottom:0;left:50%;width:16px;height:3px;margin-left:-8px;border-radius:2px;background:var(--ink)}
+.pr .ph[data-go]{cursor:pointer}.pr .ph .gt{font-style:normal;font-weight:800;color:var(--sub);margin-left:6px}
 </style></head><body><div class="wrap">
 
 <section class="pane on" id="p-today">
@@ -148,8 +176,9 @@ var CNT={"L4p1:find": 7, "L4p1:awk": 4, "L4p1:eobeop": 7, "L4p1:ko": 2, "L4p1:ab
 var OPT={ko:1},VAR={voc:1,ko:1,abc:1,mun:1,blank:1};
 var EXAMD=['2026-12-07', '2026-12-08', '2026-12-09', '2026-12-10', '2026-12-11'];
 var EXAM=new Date(2026,11,7);
-var ROAD=[['10/19','10/25','4과','1~3회 (4과)'],['10/26','11/1','4과 · 3과','4회 (4과) → 1~2회 (3과)'],['11/2','11/8','3과 · 모의고사','3~4회 (3과) → 1회 (모의고사)'],['11/9','11/15','모의고사','2~4회 (모의고사)'],['11/16','11/22','모의고사','5~7회 (모의고사)'],['11/23','11/29','모의고사','8~10회 (모의고사)'],['11/30','12/6','최종점검','틀린 문제 · 약한 유형 골라 풀기']];
+var ROAD=[['10/19','10/25',"1~3회","1~3회 (4과)"],['10/26','11/1',"4~6회","4회 (4과) → 5~6회 (3과)"],['11/2','11/8',"7~9회","7~8회 (3과) → 9회 (모의고사)"],['11/9','11/15',"10~12회","10~12회 (모의고사)"],['11/16','11/22',"13~15회","13~15회 (모의고사)"],['11/23','11/29',"16~18회","16~18회 (모의고사)"],['11/30','12/6',"19~21회","19~21회 (최종점검) · 틀린 문제, 약한 유형 골라 풀기"]];
 var Y=2026;
+function rdt(s){var a=s.split('/');return fmtMD(new Date(Y,a[0]-1,+a[1]))}
 var SOON='내용은 준비 중이에요';
 var VIS=[
  [{L:1,s:'본문 ❶~❷'},{L:2,s:'본문 ❸~❹'},{L:3,s:'본문 ❺'}],
@@ -166,14 +195,15 @@ function nowD(){var m=/[?&]d=(\d{4})-(\d\d)-(\d\d)/.exec(location.search);return
 var WD=['월','화','수','목','금','토','일'],vy=nowD().getFullYear(),vm=nowD().getMonth();
 function dkey(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
 function weekStart(d){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()-((x.getDay()+6)%7));return x}
-var selNo=0,cmode="m",wsel=null;
+var selNo=0,cmode="m",wsel=null,rsel=null;
 var TUN=false;
 var RHASH='3e7dee935691796c0e75b4c83391e3f82a774c32a39cec3ec20bf6b6cfef565a';
 function sha(s){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)).then(function(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2)}).join('')})}
 function fmtMD(d){return (d.getMonth()+1)+"/"+d.getDate()+"("+WDN[d.getDay()]+")"}
+var QS={};function td0(){var d=/[?&]d=(\d{4})-(\d\d)-(\d\d)/.exec(location.search)?new Date(+RegExp.$1,+RegExp.$2-1,+RegExp.$3,12):new Date();return dkey(d)}
 function today(){
   var P=PG.get(),h='',nm={},now=nowD(),ws=weekStart(now),we=new Date(ws);we.setDate(we.getDate()+6);
-  var wk0=dkey(ws),wk1=dkey(we),td=dkey(now),cw=curWeek(now),tdd=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  var wk0=dkey(ws),wk1=dkey(we),td=dkey(now),rd0=rsel||td,rdD=new Date(+rd0.slice(0,4),+rd0.slice(5,7)-1,+rd0.slice(8,10)),cw=curWeek(now),tdd=new Date(now.getFullYear(),now.getMonth(),now.getDate());
   ACT.forEach(function(a){nm[a[0]]=a[1]});
   function key(v,id){return v.L?'L4p'+v.L+':'+id:v.T?'L3p'+v.T+':'+id:v.F?'Fp'+v.F+':'+id:'mockp'+v.D+':'+id}
   function stem(v){return v.L?'L4p'+v.L:v.T?'L3p'+v.T:v.F?'Fp'+v.F:'mockp'+v.D}
@@ -197,6 +227,10 @@ function today(){
   if(chg)try{localStorage.setItem(CK,JSON.stringify(rec))}catch(e){}
   var N=flat.length;
   if(!selNo||selNo<1||selNo>N){selNo=N;for(var i=0;i<N;i++)if(!flat[i].done){selNo=i+1;break}}
+  var bm=null,q0=null,rsm=null;try{bm=JSON.parse(localStorage.getItem('vhbm:'+WN.school)||'null')}catch(e){}try{q0=JSON.parse(localStorage.getItem('vhq:'+WN.school)||'null')}catch(e){}
+  if(bm&&bm.k&&bm.u)flat.forEach(function(ff){ACT.forEach(function(a){if(!rsm&&!ff.v.F&&key(ff.v,a[0])===bm.k&&setOf(ff.v).url[a[0]]&&!isOn(ff.v,a[0]))rsm={f:ff,a:a,u:bm.u}})});
+  if(!rsm&&q0&&q0.l&&Date.now()-(q0.t||0)<43200000){var qn=null;q0.l.forEach(function(x){var e=P[x.k];if(!qn&&!(e&&(e.n||e.t)))qn=x});if(qn)flat.forEach(function(ff){ACT.forEach(function(a){if(!rsm&&key(ff.v,a[0])===qn.k)rsm={f:ff,a:a,u:qn.u}})})}
+  if(rsm)h+='<a class="rsm" href="'+esc(rsm.u)+'"><span><b>이어서 풀기</b><small>'+rsm.f.no+'회 ('+src(rsm.f.v)+') · '+esc(rsm.a[1])+'</small></span><span class="go">›</span></a>';
   var wn=WN.count();h+='<a class="wnb" href="wrong.html"><span><b>오답 노트</b><small>1차 오답은 자동 저장, 2차 오답은 별표(★) 표시</small></span><span class="go">열기</span></a>';
   h+='<a class="wnb mxb" href="mix.html"><span><b>전체 랜덤 20문항</b><small>전체에서 20문항씩, 또는 원하는 유형만 골라 풀어요</small></span><span class="go">시작</span></a>';
   h+='<div class="exam"><b>기말고사 (12/7~12/11)</b><span>'+(wkN>=3?'이번 주 목표 완료 · '+wkN+'회':'이번 주 3회 중 '+wkN+'회')+'</span></div>';
@@ -204,7 +238,7 @@ function today(){
   var MIN=new Date(2026,9,1),MAX=new Date(2026,11,1),W0=weekStart(new Date(2026,9,19)),W1=weekStart(EXAM);
   if(!wsel)wsel=weekStart(now);
   function cellH(dt){var k=dkey(dt),n=cnt[k]||0,wd=(dt.getDay()+6)%7;
-    return '<span class="d'+(wd===6?' sun':'')+(EXAMD.indexOf(k)>=0?' ex':'')+(k===td?' tod':'')+(n?' dn':'')+'"><span class="n">'+dt.getDate()+'</span>'+(n>1?'<i class="bd">'+n+'</i>':'')+'</span>'}
+    return '<span class="d'+(wd===6?' sun':'')+(EXAMD.indexOf(k)>=0?' ex':'')+(k===td?' tod':'')+(n?' dn':'')+(rsel&&k===rsel?' sel':'')+'" data-day="'+k+'"><span class="n">'+dt.getDate()+'</span>'+(n>1?'<i class="bd">'+n+'</i>':'')+'</span>'}
   var cm=cmode==='m',title,pv,nx,cells='';
   if(cm){var first=new Date(vy,vm,1),lead=(first.getDay()+6)%7,days=new Date(vy,vm+1,0).getDate();
     title=vy+'년 '+(vm+1)+'월';pv=new Date(vy,vm,1)<=MIN;nx=new Date(vy,vm,1)>=MAX;
@@ -216,10 +250,15 @@ function today(){
   h+=cells+'</div><div class="nlg"><span><i class="lt"></i>오늘</span><span><i class="lc"></i>완료한 날</span><span><i class="lx"></i>시험</span></div><button type="button" class="nfold" data-fold="1">'+(cm?'주간으로 접기':'월간 달력 펼치기')+'</button></div>';
   /* 선택한 회 */
   var f=flat[selNo-1],v=f.v,pr=prog(v);
-  h+='<div class="blk'+(f.done?' done':'')+'"><h2>유형 풀코스 · '+nlab(v)+(f.done?'<span class="tg t">완료</span>':'')+'<small class="rng">'+esc(v.s)+'</small>'+(v.x?'<small class="rng">'+esc(v.x)+'</small>':'')+'</h2><div class="rows">';
+  h+='<div class="blk'+(f.done?' done':'')+'"><h2>유형 풀코스 · '+f.no+'회 ('+src(v)+')'+(f.done?'<span class="tg t">완료</span>':'')+'<small class="rng">'+esc(v.s)+'</small>'+(v.x?'<small class="rng">'+esc(v.x)+'</small>':'')+'</h2><div class="rows">';
   ACT.forEach(function(a){var id=a[0],sc=setOf(v),u=sc.url[id];if(!u)return;
     var on=isOn(v,id);
-    h+='<div class="arow"><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+(CNT[key(v,id)]?' <span class="cn">'+(id==='voc'?'약 ':'')+CNT[key(v,id)]+(id==='find'?'개':'문제')+'</span>':'')+'</b>'+(VAR[id]?'<i class="vr">매번 다른 문제</i>':(id==='wk'||id==='wt')?'':'<i class="vr o">1회성</i>')+'<div class="two" style="grid-template-columns:1fr"><a class="cell'+(on?' on':'')+'" href="'+(v.F?u:u+'?part='+(v.L||v.T||v.D))+'"'+(v.F?' data-fm="'+key(v,id)+'"':'')+'>'+(on?'했어요':'풀기')+'<small>'+(v.F&&WN.solvedBy(id==='wk'?'w':'m')?WN.solvedBy(id==='wk'?'w':'m')+'문제 풀었어요':on?'✓'+durTxt(key(v,id)):'')+'</small></a></div></div>'});
+    var sk=key(v,id),href=(v.F?u:u+'?part='+(v.L||v.T||v.D)),chk=QS[sk]!==undefined?QS[sk]:(!on&&!OPT[id]);
+    h+='<div class="arow'+(on?' dn':'')+'">'+(on?'<span class="ck"><i class="okb">✓</i></span>':v.F?'<span class="ck"></span>':'<label class="ck"><input type="checkbox" data-q="'+sk+'"'+(chk?' checked':'')+'></label>')+'<a class="at" href="'+href+'"'+(v.F?' data-fm="'+sk+'"':'')+'><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+'</b>'+(CNT[sk]?' <span class="cn">'+(id==='voc'?'약 ':'')+CNT[sk]+(id==='find'?'개':'문제')+'</span>':'')+(VAR[id]?'<i class="vr">매번 다른 문제</i>':(id==='wk'||id==='wt')?'':'<i class="vr o">1회성</i>')+(v.F&&WN.solvedBy(id==='wk'?'w':'m')?' <span class="cn">'+WN.solvedBy(id==='wk'?'w':'m')+'문제 풀었어요</span>':'')+'</a></div>'});
+  if(pr.n&&!v.F)h+='<div class="qsel"><button type="button" data-qall="1">전체 선택</button><button type="button" data-qall="0">전체 해제</button></div>';
+  if(pr.n&&!v.F)h+='<button type="button" class="qgo" data-qgo="1">체크한 유형 이어서 풀기 (<span id="qn">0</span>)</button>';
+  window.QGO=function(){var items=[];ACT.forEach(function(a){var id=a[0],u=setOf(v).url[id];if(!u||v.F)return;var k=key(v,id),cb=document.querySelector('#today input[data-q="'+k+'"]');if(!cb||!cb.checked)return;var U=new URL(u+'?part='+(v.L||v.T||v.D),location.href);items.push({u:U.pathname+U.search,n:nm[id],k:k})});
+    if(!items.length)return;try{localStorage.setItem('vhq:'+WN.school,JSON.stringify({l:items,t:Date.now()}))}catch(e){}location.href=items[0].u};
   if(!pr.n)h+='<div class="soonbox">내용은 준비 중이에요</div>';
   var qt=0;ACT.forEach(function(a){if(setOf(v).url[a[0]]&&CNT[key(v,a[0])])qt+=CNT[key(v,a[0])]});
   if(qt)h+='<div class="qtot"><span>이 회 합계</span><b>약 '+qt+'문제</b></div>';
@@ -229,24 +268,28 @@ function today(){
     ACT.forEach(function(a){var any=false;flat.forEach(function(f){if(setOf(f.v).url[a[0]]&&!OPT[a[0]])any=true});if(any)cols.push(a)});
     var o='<div style="overflow-x:auto"><table class="tgt"><thead><tr><th></th>'+cols.map(function(a){return '<th>'+esc(SH[a[0]]||a[1])+'</th>'}).join('')+'</tr></thead><tbody>';
     flat.forEach(function(f){var ks=[],tds=cols.map(function(a){if(!setOf(f.v).url[a[0]]||OPT[a[0]])return '<td class="na"></td>';var k=key(f.v,a[0]);ks.push(k);var e=Q[k],on=!!(e&&(e.n||e.t));return '<td class="c'+(on?' on':'')+'" data-tc="'+k+'">'+(on?'\u2713':'')+'</td>'}).join('');
-      if(!ks.length)return;o+='<tr><th class="rw" data-tr="'+ks.join(',')+'">'+sn(f.v)+'회<small>'+src(f.v)+'</small></th>'+tds+'</tr>'});
+      if(!ks.length)return;o+='<tr><th class="rw" data-tr="'+ks.join(',')+'">'+f.no+'회<small>'+src(f.v)+'</small></th>'+tds+'</tr>'});
     return o+'</tbody></table></div>'}
   window.TGR=TGR;
   /* 학습 기록 카드 (인증샷용 · 새 기기 복구용) */
   var last=null,nxt=null,doneDays=0;
   flat.forEach(function(f){var all=true;ACT.forEach(function(a){if(!setOf(f.v).url[a[0]]||OPT[a[0]])return;var e=P[key(f.v,a[0])];if(e&&e.t&&(!last||e.t>=last.t))last={t:e.t,f:f,a:a};if(!isOn(f.v,a[0])){all=false;if(!nxt)nxt={f:f,a:a}}});if(all)doneDays++});
   function fmt(t){var d=new Date(t);return (d.getMonth()+1)+'/'+d.getDate()+' ('+WDN[d.getDay()]+') '+('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)}
-  function lbl(x){return nlab(x.f.v)+' · '+(ACT.indexOf(x.a)+1)+'. '+x.a[1]}
+  function lbl(x){return x.f.no+'회 ('+src(x.f.v)+') · '+(ACT.indexOf(x.a)+1)+'. '+x.a[1]}
   h+='<div class="rec"><div class="rh"><b>내 학습 기록</b><span>인증샷용</span></div>'
-   +'<div class="rr"><em>마지막으로 끝낸 활동</em><b>'+(last?lbl(last)+'</b><small>'+fmt(last.t):'아직 없어요</b><small>')+'</small></div>'
+   +(function(){var tl='',any=0;flat.forEach(function(f){if(f.v.F)return;var ts=0,hit=0;ACT.forEach(function(a){var k=key(f.v,a[0]),e=P[k];if(setOf(f.v).url[a[0]]&&e&&e.t&&dkey(new Date(e.t))===rd0){hit=1;try{ts+=(+localStorage.getItem('vhd:'+k)||0)}catch(x){}}});if(!hit)return;any=1;
+     var o='<div class="pr"><div class="ph" data-go="'+f.no+'"><b>'+f.no+'회 ('+src(f.v)+')</b><span>'+(ts?'소요 '+(ts>=60?Math.round(ts/60)+'분':ts+'초'):'')+'<i class="gt">\u203a</i></span></div><div class="pins">';
+     ACT.forEach(function(a,ix){var id=a[0];if(!setOf(f.v).url[id]||id==='wk'||id==='wt')return;o+='<span class="pn'+(isOn(f.v,id)?' on':'')+(OPT[id]?' op':'')+'"><i>'+(ix+1)+'</i></span>'});tl+=o+'</div></div>'});
+     return '<div class="rr"><em>'+(rd0===td?'오늘의 학습':'학습 기록')+' · '+fmtMD(rdD)+'</em>'+(any?tl:'<b>'+(rd0===td?'아직 없어요':'이 날은 기록이 없어요')+'</b>')+'</div>'})()
    +'<div class="rr nx"><em>다음에 할 활동</em><b>'+(nxt?lbl(nxt):'모두 끝냈어요')+'</b></div>'
    +'<div class="rr"><em>전체 진행</em><b>'+doneN+' / '+N+'회 완료</b></div>'
    +'<div class="rs">이 화면을 캡처해 두면, 기기가 바뀌어도 어디까지 했는지 바로 알 수 있어요.<br>캡처 시각: '+fmt(Date.now())+'</div>'
    +(TUN?'<div class="tgh"><b>선생님 확인</b><button type="button" data-rest="9">닫기</button></div><div id="tg">'+TGR()+'</div>':'<details class="rst"><summary>기록 옮기기 · 선생님 확인</summary><div class="rsi"><div class="rsel" style="margin-top:8px"><input id="rpin" type="password" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="선생님 확인 번호" style="flex:1;min-width:0;font:inherit;font-size:14px;padding:9px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)"><button type="button" class="rbtn" data-rest="3" style="margin-top:0;width:auto;padding:9px 16px">확인</button></div><div id="rmsg" style="font-size:12.5px;color:#dc2626;margin-top:6px"></div></div></details>')+'</div>';
   h+='<div class="road"><div class="rh"><b>시험까지 큰 흐름</b><span>기말고사 (12/7~12/11)</span></div>';
-  ROAD.forEach(function(w,i){h+='<div class="wr'+(i===cw?' cur':'')+(i<cw?' past':'')+'"><span class="wn">'+(i+1)+'주</span><span class="wd2">'+w[0]+'~'+w[1]+'</span><span class="wm"><b>'+esc(w[2])+'</b> '+esc(w[3])+'</span></div>'});
+  ROAD.forEach(function(w,i){h+='<div class="wr'+(i===cw?' cur':'')+(i<cw?' past':'')+'"><span class="wn">'+(i+1)+'주</span><span class="wd2">'+rdt(w[0])+'~'+rdt(w[1])+'</span><span class="wm">'+esc(w[3])+'</span></div>'});
   h+='</div>';
   document.getElementById('today').innerHTML=h;
+  (function(){var n=document.querySelectorAll('#today input[data-q]:checked').length,sp=document.getElementById('qn'),b=document.querySelector('.qgo');if(sp)sp.textContent=n;if(b)b.disabled=!n})();
   document.getElementById('sum').textContent=doneN>=N?'전체 완료':N+'회 중 '+doneN+'회';
   document.getElementById('sbar').style.width=Math.round(doneN*100/N)+'%';
   var qAll=qN+WN.solved();document.getElementById('qsum').textContent=qAll?'지금까지 '+qAll+'문제':'';
@@ -270,6 +313,10 @@ function keys(){
   document.getElementById('keys').innerHTML=h;
 }
 document.getElementById('today').addEventListener('click',function(e){
+  var dy=e.target.closest('[data-day]');if(dy){rsel=dy.dataset.day===td0()?null:dy.dataset.day;today();var rc=document.querySelector('#today .rec');if(rc)rc.scrollIntoView({behavior:'smooth',block:'start'});return}
+  var gg=e.target.closest('[data-go]');if(gg){selNo=+gg.dataset.go;today();var bk=document.querySelector('#today .blk');if(bk)bk.scrollIntoView({behavior:'smooth',block:'start'});return}
+  var qa=e.target.closest('[data-qall]');if(qa){var on1=qa.dataset.qall==='1';document.querySelectorAll('#today input[data-q]').forEach(function(c){c.checked=on1;QS[c.dataset.q]=on1});var n1=on1?document.querySelectorAll('#today input[data-q]').length:0,sp1=document.getElementById('qn'),b1=document.querySelector('.qgo');if(sp1)sp1.textContent=n1;if(b1)b1.disabled=!n1;return}
+  if(e.target.closest('[data-qgo]')){if(window.QGO)window.QGO();return}
   var fm=e.target.closest('[data-fm]');if(fm){try{PG.mark(fm.dataset.fm)}catch(x){}return}
   var nt=e.target.closest('[data-note]');if(nt){e.preventDefault();var kk=nt.dataset.note,en=PG.get()[kk];if(en&&en.n&&en.t>=weekStart(new Date()).getTime())PG.unmark(kk);else PG.mark(kk);today();return}
   var rb=e.target.closest('[data-rest]');if(rb){
@@ -286,6 +333,8 @@ document.getElementById('today').addEventListener('click',function(e){
   var fd=e.target.closest('[data-fold]');if(fd){if(cmode==='m'){cmode='w';wsel=weekStart(nowD())}else{cmode='m';vy=nowD().getFullYear();vm=nowD().getMonth()}today();return}
   var c=e.target.closest('[data-cal]');if(c){if(c.disabled)return;if(cmode==='m'){vm+=+c.dataset.cal;if(vm<0){vm=11;vy--}if(vm>11){vm=0;vy++}}else{wsel=new Date(wsel);wsel.setDate(wsel.getDate()+7*(+c.dataset.cal))}today()}
 });
+document.getElementById('today').addEventListener('change',function(e){var c=e.target.closest('input[data-q]');if(!c)return;QS[c.dataset.q]=c.checked;var n=document.querySelectorAll('#today input[data-q]:checked').length,sp=document.getElementById('qn'),b=document.querySelector('.qgo');if(sp)sp.textContent=n;if(b)b.disabled=!n});
+
 var hide15=false;
 function curUnits(){var o={},lab='';try{lab=ROAD[curWeek(new Date())][2]}catch(e){}
   if(lab.indexOf('3과')>=0)o.L3=1;if(lab.indexOf('4과')>=0)o.L4=1;if(lab.indexOf('모의고사')>=0)o.mock=1;
