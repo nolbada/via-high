@@ -25,7 +25,7 @@ var WN=(function(){
     var a={'vocab':'voc','find':'find','awkward-test':'awk','eobeop-test':'eobeop','sunseo-ko':'ko','sunseo-abc':'abc','sunseo-mun':'mun','blank':'blank'}[f];
     var m=/[?&]part=(\d+)/.exec(location.search);return{kind:k,part:m?+m[1]:0,act:a}}
   function mxPick(kind,part,act){return ((MS&&MS.cur)||[]).filter(function(x){return x.kind===kind&&x.part===part&&x.act===act})}
-  if(MX){var go=function(){[].forEach.call(document.querySelectorAll('a.back'),function(a){a.href=base()+'mix.html';a.textContent='← 전체 랜덤'})};
+  if(MX){var go=function(){[].forEach.call(document.querySelectorAll('a.back'),function(a){a.href=base()+'mix.html';a.textContent='← 랜덤 문제'})};
     if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go()}
   /* 오답 다시 풀기(?wrong=1) 보강: 안내 문구 정리, 다음 묶음 이어가기, 푼 문제 수 기록 (261021) */
   if(WR){
@@ -38,7 +38,7 @@ var WN=(function(){
       if(!hit)return;
       hit.nodeValue=hit.nodeValue.replace(/이제 안 봐도 되는 문제는[^.]*\./,'이 묶음을 다 풀었어요.');
       var h=here();
-      if(!counted&&h.act){counted=1;var c=WN.ids(h.kind,h.part,h.act).length,s=sget();s.n=(s.n||0)+c;try{localStorage.setItem(SK,JSON.stringify(s))}catch(e){}}
+      if(!counted&&h.act){counted=1;WN.addSolved(WN.ids(h.kind,h.part,h.act).length,'w')}
       var q=null;try{q=JSON.parse(sessionStorage.getItem('wq')||'null')}catch(e){}
       var a=document.createElement('a'),nx=q&&q.urls&&q.urls[q.i+1];
       a.style.cssText='display:inline-block;margin-left:6px;color:#0f766e;text-decoration:underline;font-weight:700';
@@ -55,16 +55,18 @@ var WN=(function(){
     SUF:WR?(SR?':ws':':w'):MX?':m'+(MS?MS.round:0):'',
     mixRound:function(){return MS?MS.round:0},
     /* 이 묶음을 다 풀었다고 표시(활동 페이지가 끝났을 때 부른다) */
-    finish:function(){if(!MX)return;var s=mxLoad(),h=here();if(!s||!h.act)return;var k=h.kind+'|'+h.part+'|'+h.act;s.done=s.done||{};if(s.done[k])return;s.done[k]=1;mxSave(s)},
-    mixNote:function(fin){if(fin)WN.finish();return'<b>전체 랜덤 '+WN.mixRound()+'회차</b> · 이번 회차에 뽑힌 문제만 보여요. <a href="'+base()+'mix.html" style="color:#0f766e;text-decoration:underline">전체 랜덤으로 ›</a>'+(fin?'<div style="margin-top:6px">이 묶음을 다 풀었어요. 틀린 문제는 <a href="'+base()+'wrong.html" style="color:#0f766e;text-decoration:underline">오답 노트</a>에 담겨요.</div>':'')},
-    mixInfo:function(){return'<div class="how" style="border-color:#b45309"><b>전체 랜덤 '+WN.mixRound()+'회차</b> · 이번 회차에 뽑힌 지문으로 문제를 새로 풀어요. <a href="'+base()+'mix.html">전체 랜덤으로 ›</a></div>'},
-    mixSum:function(){WN.finish();return'<p class="wn-l" style="margin:12px 0 0;font-size:14px">이 묶음을 다 풀었어요. 틀린 문제는 <a href="'+base()+'wrong.html">오답 노트</a>에 담겨요.<br><a href="'+base()+'mix.html">전체 랜덤으로 돌아가기 ›</a></p>'},
+    finish:function(){if(!MX)return;var s=mxLoad(),h=here();if(!s||!h.act)return;var k=h.kind+'|'+h.part+'|'+h.act;s.done=s.done||{};if(s.done[k])return;s.done[k]=1;mxSave(s);var n=0;(s.cur||[]).forEach(function(x){if(x.kind===h.kind&&x.part===h.part&&x.act===h.act)n+=(x.w||0)});WN.addSolved(n,'m')},
+    mixNote:function(fin){if(fin)WN.finish();return'<b>랜덤 '+WN.mixRound()+'회</b> · 이번 세트에 뽑힌 문제만 보여요. <a href="'+base()+'mix.html" style="color:#0f766e;text-decoration:underline">랜덤 문제로 ›</a>'+(fin?'<div style="margin-top:6px">이 묶음을 다 풀었어요. 틀린 문제는 <a href="'+base()+'wrong.html" style="color:#0f766e;text-decoration:underline">오답 노트</a>에 담겨요.</div>':'')},
+    mixInfo:function(){return'<div class="how" style="border-color:#b45309"><b>랜덤 '+WN.mixRound()+'회</b> · 이번 세트에 뽑힌 지문으로 문제를 새로 풀어요. <a href="'+base()+'mix.html">랜덤 문제로 ›</a></div>'},
+    mixSum:function(){WN.finish();return'<p class="wn-l" style="margin:12px 0 0;font-size:14px">이 묶음을 다 풀었어요. 틀린 문제는 <a href="'+base()+'wrong.html">오답 노트</a>에 담겨요.<br><a href="'+base()+'mix.html">랜덤 문제로 돌아가기 ›</a></p>'},
     /* 전체 랜덤 현황(MIXPOOL 이 있을 때): 회차, 전체/남은 문항 */
     mixStat:function(){var s=mxLoad(),P=window.MIXPOOL,tot=0,use={};if(s)(s.used||[]).forEach(function(i){use[i]=1});var left=0;
       if(P)P.units.forEach(function(u){tot+=u[4];if(!use[u[0]+':'+u[1]+':'+u[2]+':'+u[3]])left+=u[4]});
       var ks={},nd=0;((s&&s.cur)||[]).forEach(function(x){ks[x.kind+'|'+x.part+'|'+x.act]=1});Object.keys(ks).forEach(function(k){if(!(s.done&&s.done[k]))nd++});
       return{round:s?s.round:0,total:tot,left:left,bundles:Object.keys(ks).length,undone:nd}},
     school:school,
+    addSolved:function(n,k){if(!(n>0))return;var s={};try{s=JSON.parse(localStorage.getItem('vhs:'+school)||'{}')}catch(e){}s.n=(s.n||0)+n;if(k)s[k]=(s[k]||0)+n;try{localStorage.setItem('vhs:'+school,JSON.stringify(s))}catch(e){}},
+    solvedBy:function(k){try{return(JSON.parse(localStorage.getItem('vhs:'+school)||'{}')[k])||0}catch(e){return 0}},
     solved:function(){try{return(JSON.parse(localStorage.getItem('vhs:'+school)||'{}').n)||0}catch(e){return 0}},
     list:function(){return load()},
     count:function(){return load().length},
