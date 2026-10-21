@@ -277,7 +277,7 @@ function today(){
    +'<div class="rr nx"><em>다음에 할 활동</em><b>'+(nxt?lbl(nxt):'모두 끝냈어요 🎉')+'</b></div>'
    +'<div class="rr"><em>전체 진행</em><b>'+doneN+' / '+N+'회 완료</b></div>'
    +'<div class="rs">이 화면을 캡처해 두면, 기기가 바뀌어도 어디까지 했는지 바로 알 수 있어요.<br>캡처 시각: '+fmt(Date.now())+'</div>'
-   +(SHARED?'':'<details class="rst"><summary>다른 기기예요 · 기록 옮기기</summary><div class="rsi"><p>캡처해 둔 “마지막으로 끝낸 활동”까지 이 기기에 체크해요.</p><div class="rsel"><select id="rdn">'+flat.map(function(f){return '<option value="'+f.no+'">'+f.no+'회 ('+src(f.v)+')</option>'}).join('')+'</select><select id="rac">'+ACT.map(function(a,i){return '<option value="'+(i+1)+'">'+(i+1)+'. '+a[1]+'</option>'}).join('')+'</select></div><button type="button" class="rbtn" data-rest="1">여기까지 했어요로 체크</button></div></details>')+'</div>';
+   +('<details class="rst"><summary>기록 옮기기 · 선생님 확인</summary><div class="rsi"><p>캡처해 둔 “마지막으로 끝낸 활동”까지 이 기기에 체크해요.</p><div class="rsel"><select id="rdn">'+flat.map(function(f){return '<option value="'+f.no+'">'+f.no+'회 ('+src(f.v)+')</option>'}).join('')+'</select><select id="rac">'+ACT.map(function(a,i){return '<option value="'+(i+1)+'">'+(i+1)+'. '+a[1]+'</option>'}).join('')+'</select></div><button type="button" class="rbtn" data-rest="1">여기까지 했어요로 체크</button></div></details>')+'</div>';
   h+='<div class="road"><div class="rh"><b>시험까지 큰 흐름</b><span>기말고사 (12/7~12/10)</span></div>';
   ROAD.forEach(function(w,i){h+='<div class="wr'+(i===cw?' cur':'')+(i<cw?' past':'')+'"><span class="wn">'+(i+1)+'주</span><span class="wd2">'+w[0]+'~'+w[1]+'</span><span class="wm"><b>'+esc(w[2])+'</b> '+esc(w[3])+'</span></div>'});
   h+='</div>';
