@@ -125,12 +125,14 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 /* 유형 줄 · 체크 · 이어 풀기 · 학습 기록 배지 (261022) */
 .arow{gap:0;padding:0}
 .arow .ck{flex:0 0 44px;display:flex;align-items:center;justify-content:center;height:48px;margin:0}
-.arow .ck input{width:20px;height:20px;accent-color:var(--pri);margin:0}
+.arow .ck input{width:20px;height:20px;accent-color:#94a3b8;margin:0}
 .arow span.ck{pointer-events:none}
 .arow a.at{flex:1 1 auto;min-width:0;display:flex;align-items:center;flex-wrap:wrap;gap:0 4px;padding:13px 0;color:var(--ink);text-decoration:none;font-size:15.5px;font-weight:700}
 .arow a.at b{font-size:15.5px;font-weight:700;flex:0 0 auto}
 .arow a.at .vr{width:auto;flex:0 0 auto;background:none;color:var(--sub);padding:0 0 0 4px;font-size:11px}
-.arow .mk{flex:0 0 40px;text-align:center;font-size:21px;font-weight:900;color:var(--pri)}
+.arow .mk{flex:0 0 40px;display:flex;align-items:center;justify-content:center}
+.arow .mk i{width:24px;height:24px;border-radius:50%;background:var(--pri);color:var(--onpri);display:flex;align-items:center;justify-content:center;font:900 14px/1 sans-serif;font-style:normal}
+.qsel{display:flex;gap:14px;justify-content:flex-end;margin:6px 2px 0}.qsel button{border:0;background:none;color:var(--sub);font:700 12.5px/1 inherit;font-family:inherit;text-decoration:underline;padding:4px 2px;cursor:pointer}
 .arow.dn a.at{color:var(--sub)}
 .qgo{display:block;width:100%;margin:8px 0 6px;border:1.5px solid var(--pri);background:var(--pri);color:var(--onpri);border-radius:12px;padding:12px;font:800 15px/1 inherit;font-family:inherit;cursor:pointer}
 .qgo:disabled{opacity:.35;cursor:default}
@@ -291,7 +293,8 @@ function today(){
   ACT.forEach(function(a){var id=a[0],sc=setOf(v),u=sc.url[id];if(!u)return;
     var on=isOn(v,id);
     var sk=key(v,id),href=(v.F?u:u+'?part='+(v.L||v.T||v.D)),chk=QS[sk]!==undefined?QS[sk]:(!on&&!OPT[id]);
-    h+='<div class="arow'+(on?' dn':'')+'">'+(v.F?'<span class="ck"></span>':'<label class="ck"><input type="checkbox" data-q="'+sk+'"'+(chk?' checked':'')+'></label>')+'<a class="at" href="'+href+'"'+(v.F?' data-fm="'+sk+'"':'')+'><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+'</b>'+(CNT[sk]?' <span class="cn">'+(id==='voc'?'약 ':'')+CNT[sk]+(id==='find'?'개':'문제')+'</span>':'')+(VAR[id]?'<i class="vr">매번 다른 문제</i>':(id==='wk'||id==='wt')?'':'<i class="vr o">1회성</i>')+(v.F&&WN.solvedBy(id==='wk'?'w':'m')?' <span class="cn">'+WN.solvedBy(id==='wk'?'w':'m')+'문제 풀었어요</span>':'')+'</a><span class="mk">'+(on?'✓':'')+'</span></div>'});
+    h+='<div class="arow'+(on?' dn':'')+'">'+(v.F?'<span class="ck"></span>':'<label class="ck"><input type="checkbox" data-q="'+sk+'"'+(chk?' checked':'')+'></label>')+'<a class="at" href="'+href+'"'+(v.F?' data-fm="'+sk+'"':'')+'><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+'</b>'+(CNT[sk]?' <span class="cn">'+(id==='voc'?'약 ':'')+CNT[sk]+(id==='find'?'개':'문제')+'</span>':'')+(VAR[id]?'<i class="vr">매번 다른 문제</i>':(id==='wk'||id==='wt')?'':'<i class="vr o">1회성</i>')+(v.F&&WN.solvedBy(id==='wk'?'w':'m')?' <span class="cn">'+WN.solvedBy(id==='wk'?'w':'m')+'문제 풀었어요</span>':'')+'</a><span class="mk">'+(on?'<i>✓</i>':'')+'</span></div>'});
+  if(pr.n&&!v.F)h+='<div class="qsel"><button type="button" data-qall="1">전체 선택</button><button type="button" data-qall="0">전체 해제</button></div>';
   if(pr.n&&!v.F)h+='<button type="button" class="qgo" data-qgo="1">체크한 유형 이어서 풀기 (<span id="qn">0</span>)</button>';
   window.QGO=function(){var items=[];ACT.forEach(function(a){var id=a[0],u=setOf(v).url[id];if(!u||v.F)return;var k=key(v,id),cb=document.querySelector('#today input[data-q="'+k+'"]');if(!cb||!cb.checked)return;var U=new URL(u+'?part='+(v.L||v.T||v.D),location.href);items.push({u:U.pathname+U.search,n:nm[id],k:k})});
     if(!items.length)return;try{localStorage.setItem('vhq:'+WN.school,JSON.stringify({l:items,t:Date.now()}))}catch(e){}location.href=items[0].u};
@@ -350,6 +353,7 @@ function keys(){
 }
 document.getElementById('today').addEventListener('change',function(e){var c=e.target.closest('input[data-q]');if(!c)return;QS[c.dataset.q]=c.checked;var n=document.querySelectorAll('#today input[data-q]:checked').length,sp=document.getElementById('qn'),b=document.querySelector('.qgo');if(sp)sp.textContent=n;if(b)b.disabled=!n});
 document.getElementById('today').addEventListener('click',function(e){
+  var qa=e.target.closest('[data-qall]');if(qa){var on1=qa.dataset.qall==='1';document.querySelectorAll('#today input[data-q]').forEach(function(c){c.checked=on1;QS[c.dataset.q]=on1});var n1=on1?document.querySelectorAll('#today input[data-q]').length:0,sp1=document.getElementById('qn'),b1=document.querySelector('.qgo');if(sp1)sp1.textContent=n1;if(b1)b1.disabled=!n1;return}
   if(e.target.closest('[data-qgo]')){if(window.QGO)window.QGO();return}
   var fm=e.target.closest('[data-fm]');if(fm){try{PG.mark(fm.dataset.fm)}catch(x){}return}
   var nt=e.target.closest('[data-note]');if(nt){e.preventDefault();var kk=nt.dataset.note,en=PG.get()[kk];if(en&&en.n&&en.t>=weekStart(new Date()).getTime())PG.unmark(kk);else PG.mark(kk);today();return}
