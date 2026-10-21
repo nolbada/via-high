@@ -320,7 +320,7 @@ function render(){
   var n=nowD(),d0=new Date(n.getFullYear(),n.getMonth(),n.getDate()),dd=Math.round((EX-d0)/864e5);
   if(dd<0){el.innerHTML='';return}
   var big=dd===0?'D-DAY':'D-'+dd;
-  el.innerHTML='<details class="goal"><summary><span class="kgd"><small>기말 12/7('+WDN[EX.getDay()]+')</small><b>'+big+'</b></span>'
+  el.innerHTML='<details class="goal"><summary><span class="kgd"><small style="font-size:12px;font-weight:800;opacity:1">금천고1</small><small>기말 12/7('+WDN[EX.getDay()]+')</small><b>'+big+'</b></span>'
   +'<span class="kgl">성공은 매일 부단하게 반복된<br>작은 노력의 합산이다.<em>비타민영어클리닉 학원</em></span><i class="kgc"></i></summary>'
   +'<div class="ksl">'+cards()+'</div><div class="kdt">'+new Array(N+1).join('<i></i>').replace(/<i><\/i>/,'<i class="on"></i>')+'</div></details>';
   var sl=el.querySelector('.ksl'),dots=el.querySelectorAll('.kdt i');
