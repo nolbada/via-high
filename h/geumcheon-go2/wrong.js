@@ -81,7 +81,7 @@ var WN=(function(){
     manual:function(p){if(MX||WR)return null;
       var b=document.createElement('button');b.type='button';b.className='wn-man';
       function paint(){var on=WN.has(p.kind,p.part,p.act,p.qid);b.textContent=on?'오답 노트에 담겼어요':'틀렸거나 헷갈렸어요 · 오답 노트에 담기';b.disabled=on;
-        b.style.cssText='display:inline-block;margin:6px 0 0;padding:7px 12px;border-radius:999px;font:700 12.5px/1.2 inherit;font-family:inherit;cursor:'+(on?'default':'pointer')+';border:1.5px solid '+(on?'#a8a29e':'#0f766e')+';background:'+(on?'#f5f5f4':'#fff')+';color:'+(on?'#78716c':'#0f766e')}
+        b.style.cssText='display:inline-block;margin:6px 0 0;padding:7px 12px;border-radius:999px;font-weight:700;font-size:12.5px;line-height:1.2;font-family:inherit;cursor:'+(on?'default':'pointer')+';border:1.5px solid '+(on?'#a8a29e':'#0f766e')+';background:'+(on?'#f5f5f4':'#fff')+';color:'+(on?'#78716c':'#0f766e')}
       b.onclick=function(e){e.stopPropagation();e.preventDefault();if(WN.has(p.kind,p.part,p.act,p.qid))return;WN.add(p);paint()};
       b.onkeydown=function(e){e.stopPropagation()};
       paint();return b},
