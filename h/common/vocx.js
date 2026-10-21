@@ -152,7 +152,7 @@ st.textContent='.vxh{color:var(--pri);font-weight:800;text-decoration:underline;
 +'.vxt{display:inline-block;font-size:11.5px;font-weight:800;color:var(--pri);border:1px solid var(--pri);border-radius:999px;padding:0 7px;margin-left:6px;vertical-align:1px}.vxt.d{color:var(--sub);border-color:var(--line)}'
 +'.vxb{border-radius:10px;padding:8px 10px;margin:6px 0;background:var(--card);border:1px solid var(--line)}.vxb.same{border-color:var(--pri);background:var(--priL)}'
 +'.vxb .vxn{font-size:13.5px;font-weight:700;margin-bottom:4px;color:var(--sub)}.vxb.same .vxn{color:var(--ink)}.vxb .vxn b{color:var(--pri)}'
-+'.vxsr{display:flex;justify-content:flex-end;margin-top:8px}.vxst{border:1.5px solid var(--line);background:var(--card);color:var(--sub);border-radius:999px;padding:7px 14px;font:700 14px/1 inherit;font-family:inherit;cursor:pointer}.vxst.on{border-color:#f59e0b;color:#b45309;background:#fff7e0}'
++'.vxsr{display:flex;justify-content:flex-end;margin-top:8px}.vxst{border:1.5px solid var(--line);background:var(--card);color:var(--sub);border-radius:999px;padding:7px 14px;font-weight:700;font-size:14px;line-height:1;font-family:inherit;cursor:pointer}.vxst.on{border-color:#f59e0b;color:#b45309;background:#fff7e0}'
 +'.vxe{font-size:15.5px;line-height:1.55}.vxk{font-size:14.5px;line-height:1.55;color:var(--sub);margin-top:2px}';
 document.head.appendChild(st);
 window.VX={fbk:fbk,mw:mw,KHL:KHL,EHL:EHL,WM:WM};
