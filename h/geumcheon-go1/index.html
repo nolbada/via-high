@@ -220,7 +220,7 @@ var CNT={"L3p1:ko": 2, "L3p2:ko": 2, "L3p3:ko": 2, "L3p4:ko": 2, "L3p1:abc": 6, 
 var OPT={ko:1},VAR={voc:1,ko:1,abc:1,mun:1,blank:1};
 var EXAMD=["2026-12-07", "2026-12-08", "2026-12-09", "2026-12-10"];
 var EXAM=new Date(2026,11,7);
-var ROAD=[['10/19','10/25',"3과","3과 1~3회"],['10/26','11/1',"3과 · 4과","3과 4회 → 4과 1~2회"],['11/2','11/8',"4과 · 모의고사","4과 3~4회 → 모의고사 1회"],['11/9','11/15',"모의고사","모의고사 2~4회"],['11/16','11/22',"모의고사","모의고사 5~7회"],['11/23','11/29',"모의고사","모의고사 8~10회"],['11/30','12/6',"최종점검","틀린 문제 · 약한 유형 골라 풀기"]];
+var ROAD=[['10/19','10/25',"1~3회","1~3회 (3과)"],['10/26','11/1',"4~6회","4회 (3과) → 5~6회 (4과)"],['11/2','11/8',"7~9회","7~8회 (4과) → 9회 (모의고사)"],['11/9','11/15',"10~12회","10~12회 (모의고사)"],['11/16','11/22',"13~15회","13~15회 (모의고사)"],['11/23','11/29',"16~18회","16~18회 (모의고사)"],['11/30','12/6',"19~21회","19~21회 (최종점검) · 틀린 문제, 약한 유형 골라 풀기"]];
 var Y=2026;
 var SOON='내용은 준비 중이에요';
 var VIS=[
@@ -328,7 +328,7 @@ function today(){
    +'<div class="rs">이 화면을 캡처해 두면, 기기가 바뀌어도 어디까지 했는지 바로 알 수 있어요.<br>캡처 시각: '+fmt(Date.now())+'</div>'
    +(TUN?'<div class="tgh"><b>선생님 확인</b><button type="button" data-rest="9">닫기</button></div><div id="tg">'+TGR()+'</div>':'<details class="rst"><summary>기록 옮기기 · 선생님 확인</summary><div class="rsi"><div class="rsel" style="margin-top:8px"><input id="rpin" type="password" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="선생님 확인 번호" style="flex:1;min-width:0;font:inherit;font-size:14px;padding:9px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)"><button type="button" class="rbtn" data-rest="3" style="margin-top:0;width:auto;padding:9px 16px">확인</button></div><div id="rmsg" style="font-size:12.5px;color:#dc2626;margin-top:6px"></div></div></details>')+'</div>';
   h+='<div class="road"><div class="rh"><b>시험까지 큰 흐름</b><span>기말고사 (12/7~12/10)</span></div>';
-  ROAD.forEach(function(w,i){h+='<div class="wr'+(i===cw?' cur':'')+(i<cw?' past':'')+'"><span class="wn">'+(i+1)+'주</span><span class="wd2">'+w[0]+'~'+w[1]+'</span><span class="wm"><b>'+esc(w[2])+'</b> '+esc(w[3])+'</span></div>'});
+  ROAD.forEach(function(w,i){h+='<div class="wr'+(i===cw?' cur':'')+(i<cw?' past':'')+'"><span class="wn">'+(i+1)+'주</span><span class="wd2">'+w[0]+'~'+w[1]+'</span><span class="wm">'+esc(w[3])+'</span></div>'});
   h+='</div>';
   document.getElementById('today').innerHTML=h;
   (function(){var n=document.querySelectorAll('#today input[data-q]:checked').length,sp=document.getElementById('qn'),b=document.querySelector('.qgo');if(sp)sp.textContent=n;if(b)b.disabled=!n})();
