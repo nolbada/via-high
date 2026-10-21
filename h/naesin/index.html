@@ -21,11 +21,11 @@ h2{font-size:14px;color:var(--sub);font-weight:700;margin:28px 0 8px;letter-spac
 <div class="nav"><a href="#m2" style="--c:#0f766e">중2<span>용아중</span></a><a href="#h1" style="--c:#c2410c">고1<span>금천·청석·주성</span></a><a href="#h2" style="--c:#4338ca">고2<span>금천·청석·주성</span></a></div>
 <div id="L"></div></main>
 <script>
-var M='https://nolbada.github.io/via/mid/dongah-yun/',H='https://nolbada.github.io/via-high/h/';
+var M='https://nolbada.github.io/via-mid/m/yonga-mid2/',H='https://nolbada.github.io/via-high/h/';
 var C={용아:'#0f766e',금천:'#c2410c',청석:'#4338ca',주성:'#be185d'};
 var DATA=[
  {id:'m2',t:'중2',rows:[
-  ['용아','용아중 2학년 2학기 기말','동아(윤정미) · 교과서 7과·8과 (앱 안에서 전환) · 오늘 수업은 주소 끝에 ?today=1,2 처럼 본문 번호 지정',M]]},
+  ['용아','용아중 2학년 2학기 기말','원문·답안지·유형 풀코스 · 동아(윤정미) · 7과 10회 → 8과 → 최종점검 (기말 12/9)',M]]},
  {id:'h1',t:'고1',rows:[
   ['금천','금천고 고1','원문·답안지·유형 풀코스 · 공통영어2 미래엔(김) · 3과 → 4과 → 모의고사 (기말 12/7)',H+'geumcheon-go1/'],
   ['청석','청석고 고1','원문·답안지·유형 풀코스 · 공통영어2 능률(민) · 3과 → 4과 → 모의고사 (기말 12/7)',H+'cheongseok-go1/'],
@@ -39,6 +39,6 @@ function e(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
 var U=[];
 document.getElementById('L').innerHTML=DATA.map(function(S){return '<h2 id="'+S.id+'">'+S.t+'</h2>'+S.rows.map(function(r){U.push(r[3]);
  return '<div class="r" style="--c:'+C[r[0]]+'"><a href="'+r[3]+'"><b>'+e(r[1])+'</b><small>'+e(r[2])+'</small></a></div>'}).join('')}).join('')
- +'<div class="note">중등은 오늘 할 본문을 주소 끝 today=1,2 처럼 정해 줘요. 다른 학교·학년은 모으는 대로 이곳에 한 칸씩 더해져요.</div>';
+ +'<div class="note">다른 학교·학년은 모으는 대로 이곳에 한 칸씩 더해져요.</div>';
 
 </script></body></html>
