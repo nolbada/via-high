@@ -43,6 +43,14 @@ var WN=(function(){
       if(P)P.units.forEach(function(u){tot+=u[4];if(!use[u[0]+':'+u[1]+':'+u[2]+':'+u[3]])left+=u[4]});
       var ks={},nd=0;((s&&s.cur)||[]).forEach(function(x){ks[x.kind+'|'+x.part+'|'+x.act]=1});Object.keys(ks).forEach(function(k){if(!(s.done&&s.done[k]))nd++});
       return{round:s?s.round:0,total:tot,left:left,bundles:Object.keys(ks).length,undone:nd}},
+    /* 직접 담기: 다른 기기에서 풀었다가 기억나는 틀린 문제를 담는 버튼. p = add() 항목. 오답 다시 풀기·랜덤 모드에서는 만들지 않는다. 담기만 되고 빼기는 없다. */
+    manual:function(p){if(MX||WR)return null;
+      var b=document.createElement('button');b.type='button';b.className='wn-man';
+      function paint(){var on=WN.has(p.kind,p.part,p.act,p.qid);b.textContent=on?'오답 노트에 담겼어요':'틀렸거나 헷갈렸어요 · 오답 노트에 담기';b.disabled=on;
+        b.style.cssText='display:inline-block;margin:6px 0 0;padding:7px 12px;border-radius:999px;font:700 12.5px/1.2 inherit;font-family:inherit;cursor:'+(on?'default':'pointer')+';border:1.5px solid '+(on?'#a8a29e':'#0f766e')+';background:'+(on?'#f5f5f4':'#fff')+';color:'+(on?'#78716c':'#0f766e')}
+      b.onclick=function(e){e.stopPropagation();e.preventDefault();if(WN.has(p.kind,p.part,p.act,p.qid))return;WN.add(p);paint()};
+      b.onkeydown=function(e){e.stopPropagation()};
+      paint();return b},
     school:school,
     list:function(){return load()},
     count:function(){return load().length},
