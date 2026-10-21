@@ -7,7 +7,7 @@
 .q em{font-style:normal;color:var(--pri)}
 .sub{color:var(--sub);font-size:14px;margin:0 0 6px}
 .ex{font-size:16.5px;line-height:1.55;margin:6px 0 4px}.ex b{color:var(--pri)}
-.o{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:600 16.5px/1.4 inherit;font-family:inherit;border-radius:12px;padding:12px 13px;margin:8px 0;cursor:pointer}
+.o{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-weight:600;font-size:17.5px;line-height:1.45;font-family:inherit;border-radius:12px;padding:12px 13px;margin:8px 0;cursor:pointer}
 .o.sel{border-color:var(--pri);background:var(--priL)}
 .o.ok{border-color:#16803c;background:#e3f5e8;color:#0f5b2a}.o.no{border-color:var(--ans);background:#fdeaea;color:var(--ans)}
 .go{display:block;width:100%;border:0;background:var(--pri);color:#fff;font:800 16px/1 inherit;font-family:inherit;border-radius:12px;padding:14px;margin:12px 0;cursor:pointer}
@@ -23,7 +23,7 @@
 <div id="stage"></div>
 <div class="foot" style="text-align:center;color:var(--sub);font-size:13px;margin-top:26px">비타민 영어클리닉 · 주성고1</div></div>
 <a class="homefab" href="../index.html">⌂ 목록</a>
-<script>window.NOTIMER=1</script><script src="../parts.js?v=261019"></script><script src="../wrong.js?v=261019"></script><script src="../../common/prog.js?v=261019"></script><script src="voc-data.js?v=261019b"></script><script src="../../common/vocx.js?v=1"></script>
+<script>window.NOTIMER=1</script><script src="../parts.js?v=261019"></script><script src="../wrong.js?v=261019"></script><script src="../../common/prog.js?v=261019"></script><script src="voc-data.js?v=261022"></script><script src="../../common/vocx.js?v=1"></script>
 <script>
 (function(){
 var E=function(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
@@ -41,10 +41,8 @@ function dist(h,n,extra){var ex=clusterOf(fam(h)),p=pos(h.pos),seen={},r=[];
   var sp=shuf(POOL);sp.forEach(function(x){if(x.p!==p||ex[x.w]||seen[x.w]||(extra&&extra.indexOf(x.w)>=0))return;seen[x.w]=1;r.push(x.w)});if(r.length<n)sp.forEach(function(x){if(r.length<n&&!ex[x.w]&&!seen[x.w]){seen[x.w]=1;r.push(x.w)}});return r.slice(0,n)}
 function hlx(e,h){return E(e).replace(new RegExp('\\b('+h+')\\b','gi'),'<b>$1</b>')}
 function mkO(h,r,b,swap){var x=swap?{l:b,r:h.h}:{l:h.h,r:b};return{t:'O',h:h.h,m:h.m,x:x,b:b,a:r}}
-function mkP(p,r){var B=r?r.b:p.b,X=(r?r.x:p.x)||[],it=p.items[B],o=[it.e],d=[];
-  VOC.POLY.forEach(function(q){if(q.w!==p.w)q.items.forEach(function(z){d.push(z)})});
-  var own=p.items.filter(function(z,i){return i!==B&&X.indexOf(i)<0}),pool=shuf(own);pool.slice(0,3).forEach(function(z){if(o.indexOf(z.e)<0)o.push(z.e)});
-  shuf(d).forEach(function(z){if(o.length<3&&o.indexOf(z.e)<0)o.push(z.e)});
+function mkP(p,r){var B=r?r.b:p.b,X=(r?r.x:p.x)||[],it=p.items[B],o=[it.e];
+  var own=p.items.filter(function(z,i){return i!==B&&X.indexOf(i)<0}),pool=shuf(own);pool.slice(0,2).forEach(function(z){if(o.indexOf(z.e)<0)o.push(z.e)});
   var all=p.items.map(function(z){return{e:z.e,m:z.m,k:z.k}});
   return{t:'P',w:p.w,bm:it.m,a:it.e,o:shuf(o),all:all,tx:r?r.t:p.t,r:r?1:0}}
 function kq(q){return q.t==='P'?'P:'+q.w:'O:'+q.h}
@@ -53,8 +51,8 @@ function build(n){var q=[];HEADS.forEach(function(h){
     h.syn.forEach(function(w){q.push(mkO(h,'s',w,Math.random()<.5))});
     h.ant.forEach(function(a){q.push(mkO(h,'a',a.w,Math.random()<.5))});
     var k=Math.max(1,Math.round((h.syn.length+h.ant.length)*.7)),nn=dist(h,k);nn.forEach(function(w){q.push(mkO(h,'n',w,Math.random()<.5))})});
-  POLY.forEach(function(p){q.push(mkP(p))});
-  REPS.forEach(function(p){q.push(mkP(p,p.r))});
+  POLY.forEach(function(p){var m=mkP(p);if(m.o.length>=2)q.push(m)});
+  REPS.forEach(function(p){var m=mkP(p,p.r);if(m.o.length>=2)q.push(m)});
   return spread(q);}
 function load(){try{return JSON.parse(localStorage.getItem(SK)||'null')}catch(e){return null}}
 function save(S){try{localStorage.setItem(SK,JSON.stringify(S))}catch(e){}}
