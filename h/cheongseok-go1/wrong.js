@@ -27,6 +27,19 @@ var WN=(function(){
   function mxPick(kind,part,act){return ((MS&&MS.cur)||[]).filter(function(x){return x.kind===kind&&x.part===part&&x.act===act})}
   if(MX){var go=function(){[].forEach.call(document.querySelectorAll('a.back'),function(a){a.href=base()+'mix.html';a.textContent='← 랜덤 문제'})};
     if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go()}
+  /* 랜덤 이어 풀기: 묶음이 끝나면 아래에 다음 유형 바 (261022) */
+  if(MX){(function(){var h0=here(),K0=h0.kind+'|'+h0.part+'|'+h0.act,QK='vhmq:'+school,shown='';
+    function bar(){var q=null;try{q=JSON.parse(localStorage.getItem(QK)||'null')}catch(e){}
+      var s=mxLoad();if(!q||!q.l||!s||q.r!==s.round||!(s.done&&s.done[K0]))return;
+      var idx=-1;q.l.forEach(function(x,i){if(x.k===K0)idx=i});if(idx<0)return;
+      var nx=null;for(var i=idx+1;i<q.l.length;i++){if(!(s.done&&s.done[q.l[i].k])){nx=q.l[i];break}}
+      var key=nx?nx.k:'end';if(shown===key||!document.body)return;shown=key;
+      var old=document.getElementById('vhmnext');if(old)old.remove();
+      var a=document.createElement('a');a.id='vhmnext';a.href=base()+(nx?nx.u:'mix.html');a.textContent=nx?'다음 유형: '+nx.n+' \u203a':'체크한 유형을 모두 끝냈어요 \u00b7 랜덤 문제로';
+      a.onclick=function(){if(nx){var s2=mxLoad();if(s2){s2.open=s2.open||{};s2.open[nx.k]=1;mxSave(s2)}}else{try{localStorage.removeItem(QK)}catch(e){}}};
+      a.style.cssText='position:fixed;left:12px;right:104px;bottom:12px;z-index:9998;background:#1e2a44;color:#fff;text-align:center;font:800 15px/1.2 sans-serif;padding:15px 12px;border-radius:14px;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,.3)';
+      document.body.appendChild(a)}
+    setInterval(bar,700)})()}
   /* 오답 다시 풀기(?wrong=1) 보강: 안내 문구 정리, 다음 묶음 이어가기, 푼 문제 수 기록 (261021) */
   if(WR){
     var SK='vhs:'+school,counted=0;
