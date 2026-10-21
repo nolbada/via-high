@@ -127,6 +127,15 @@ def main():
             if 'if(q.w!==p.w)q.items.forEach' in vt: vb.append(os.path.basename(os.path.dirname(vp))+' 다른 단어 문장으로 보기 채움')
             if 'font:600 16.5px/1.4 inherit' in vt: vb.append(os.path.basename(os.path.dirname(vp))+' 보기 글씨 지정이 무효(font 줄임식)')
         for x in vb: bad.append('어휘 퀴즈: '+x)
+        # 글꼴 줄임식에 inherit를 섞으면 지정 전체가 무효 -> 학교 폴더 전체 금지
+        fb=[]
+        for dp,dn,fn in os.walk(os.path.join(ROOT,'h',sc)):
+            if os.sep+'analysis' in dp or os.sep+'mock' in dp: continue
+            for f in fn:
+                if f.endswith(('.html','.js','.css')):
+                    tx=open(os.path.join(dp,f),encoding='utf8').read()
+                    if re.search(r'font:\d{3} [0-9.]+px(/[0-9.]+)? inherit',tx): fb.append(os.path.relpath(os.path.join(dp,f),os.path.join(ROOT,'h',sc)))
+        for x in fb[:5]: bad.append('글꼴 줄임식 무효(font:... inherit): '+x)
         for n in ['ROAD 글씨 겹침 없음','랜덤 화면 구조']:
             if not S[n]: bad.append('%s 실패'%n)
         print('%-16s %s  (유형줄 %s, 최대 %s회)'%(sc,'PASS' if not bad else 'FAIL',S['유형 줄 수'],S['ROAD 최대 회']))
