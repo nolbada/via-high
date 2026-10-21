@@ -14,7 +14,7 @@ h2{font-size:14px;color:var(--sub);font-weight:700;margin:28px 0 8px;letter-spac
 .r a{flex:1;min-width:0;color:var(--ink);text-decoration:none;display:block}
 .r b{display:block;font-size:18px;font-weight:700}
 .r small{display:block;font-size:13px;color:var(--sub);margin-top:3px;line-height:1.5}
-.cp{font:inherit;font-size:14px;color:var(--ink);background:none;border:1px solid var(--line);border-radius:999px;padding:3px 13px;cursor:pointer;flex:none}
+
 .cp:active{background:var(--line)}
 .note{color:var(--sub);font-size:13px;margin:22px 2px 0}
 </style></head><body><main><h1>내신 링크 모음</h1><div class="sub">선생님용 · 학년별 학교 앱 주소 (학생에게는 해당 학교 주소만 전달)</div>
@@ -38,10 +38,7 @@ var DATA=[
 function e(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
 var U=[];
 document.getElementById('L').innerHTML=DATA.map(function(S){return '<h2 id="'+S.id+'">'+S.t+'</h2>'+S.rows.map(function(r){U.push(r[3]);
- return '<div class="r" style="--c:'+C[r[0]]+'"><a href="'+r[3]+'"><b>'+e(r[1])+'</b><small>'+e(r[2])+'</small></a><button class="cp" data-i="'+(U.length-1)+'">복사</button></div>'}).join('')}).join('')
+ return '<div class="r" style="--c:'+C[r[0]]+'"><a href="'+r[3]+'"><b>'+e(r[1])+'</b><small>'+e(r[2])+'</small></a></div>'}).join('')}).join('')
  +'<div class="note">중등은 오늘 할 본문을 주소 끝 today=1,2 처럼 정해 줘요. 다른 학교·학년은 모으는 대로 이곳에 한 칸씩 더해져요.</div>';
-document.addEventListener('click',function(ev){var b=ev.target.closest('.cp');if(!b)return;var u=U[b.dataset.i];
- function ok(){b.textContent='복사했어요';setTimeout(function(){b.textContent='복사'},1500)}
- function fb(){var t=document.createElement('textarea');t.value=u;document.body.appendChild(t);t.select();try{document.execCommand('copy');ok()}catch(x){}document.body.removeChild(t)}
- try{navigator.clipboard.writeText(u).then(ok,fb)}catch(x){fb()}});
+
 </script></body></html>
