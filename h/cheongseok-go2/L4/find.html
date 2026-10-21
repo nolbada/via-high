@@ -86,7 +86,9 @@ function wnEmpty(host){
   host.parentNode.insertBefore(m,host.nextSibling)}
 var wn=wnNote(nav);wnRender(wn,false);
 if(WEMPTY){nav.style.display='none';wnEmpty(wn)}
-function wnWrong(g){WN.add({kind:'L4',part:PART,act:'find',qid:String(g._i),label:'본문 '+g.part+' · '+g.title});wnRender(wn,false)}
+function wnItem(g){return{kind:'L4',part:PART,act:'find',qid:String(g._i),label:'본문 '+g.part+' · '+g.title}}
+function wnMan(g){var m=g._wm;if(!m)return;m.innerHTML='';var b=WN.manual(wnItem(g));if(b)m.appendChild(b)}
+function wnWrong(g){WN.add(wnItem(g));wnMan(g);wnRender(wn,false)}
 var secs={};
 D.parts.forEach(function(p){var b=el('button',null,p[1]);b.onclick=function(){secs[p[0]].scrollIntoView({behavior:'smooth',block:'start'})};nav.appendChild(b)});
 var bClose=el('button','closeall','답 모두 닫기');bClose.onclick=function(){S={};save();paint();window.scrollTo({top:0,behavior:'smooth'})};nav.insertBefore(bClose,nav.firstChild);nav.appendChild(prog);
@@ -123,7 +125,7 @@ D.parts.forEach(function(p){
     var tools=el('div','tools');
     var bAll=el('button',null,'나머지 해설 모두 열기');bAll.onclick=function(){var fd=btns.filter(function(x){return S[x.id]&&x.it.ans==='F'}).length;if(fd<nF)wnWrong(g);btns.forEach(function(x){S[x.id]=1});save();paint(true)};
     var bReset=el('button',null,'이 소단락 다시 하기');bReset.onclick=function(){btns.forEach(function(x){delete S[x.id]});save();paint()};
-    tools.appendChild(bAll);tools.appendChild(bReset);card.appendChild(tools);
+    tools.appendChild(bAll);tools.appendChild(bReset);card.appendChild(tools);var wm=el('div','wm');g._wm=wm;card.appendChild(wm);wnMan(g);
     var flow=el('div','flow');flow.appendChild(el('span','tag','이 소단락 정리'));flow.appendChild(document.createTextNode(g.flow));card.appendChild(flow);
     root.appendChild(card);
     cards.push({g:g,btns:btns,cnt:cnt,flow:flow,nF:nF});
