@@ -11,7 +11,7 @@
 .g1 .badge{background:var(--g1)}.g2 .badge{background:var(--g2)}.g3 .badge{background:var(--g3)}
 .r{display:flex;align-items:center;gap:8px;padding:10px 4px;border-top:1px solid var(--line)}.r:first-of-type{border-top:0}
 .r a{flex:1;display:block;color:inherit;text-decoration:none}.r small{color:var(--sub)}
-.cp{font:inherit;font-size:14px;color:var(--pri);background:none;border:1px solid var(--pri);border-radius:999px;padding:1px 12px;cursor:pointer}
+
 </style></head><body><div class="wrap"><h1>TEST 링크 모음</h1><div class="sub">선생님용 · 교재별 내신 테스트 주소 (학생에게 전달하지 않음)</div><div id="L"></div></div>
 <script>
 var H='https://nolbada.github.io/via-high/h/';
@@ -30,9 +30,6 @@ var DATA=[
 function e(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
 var U=[];
 document.getElementById('L').innerHTML=DATA.map(function(S){return '<div class="sec">'+S.sec+'</div><div class="sch '+S.g+'">'+S.items.map(function(c){var ab=/^https?:/.test(c.u);U.push(ab?c.u:H+c.u);
- return '<div class="r"><a href="'+(ab?c.u:'../'+c.u)+'"><span><span class="badge" style="margin-right:6px">'+S.b+'</span>'+e(c.n)+'<br><small>'+e(c.s)+'</small></span></a><button class="cp" data-i="'+(U.length-1)+'">복사</button></div>'}).join('')+'</div>'}).join('');
-document.addEventListener('click',function(ev){var b=ev.target.closest('.cp');if(!b)return;var u=U[b.dataset.i];
- function ok(){b.textContent='복사했어요';setTimeout(function(){b.textContent='복사'},1500)}
- function fb(){var t=document.createElement('textarea');t.value=u;document.body.appendChild(t);t.select();try{document.execCommand('copy');ok()}catch(x){}document.body.removeChild(t)}
- try{navigator.clipboard.writeText(u).then(ok,fb)}catch(x){fb()}});
+ return '<div class="r"><a href="'+(ab?c.u:'../'+c.u)+'"><span><span class="badge" style="margin-right:6px">'+S.b+'</span>'+e(c.n)+'<br><small>'+e(c.s)+'</small></span></a></div>'}).join('')+'</div>'}).join('');
+
 </script></body></html>
