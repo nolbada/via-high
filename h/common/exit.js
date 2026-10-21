@@ -292,7 +292,7 @@
     var st = SETUP || lsGet(K_SET) || {}; SETUP = st;
     var ks = kinds(); st.sel = st.sel || {}; st.n = st.n || 10;
     var h = head();
-    h += '<div class="exs"><div class="sh">범위</div>';
+    h += '<div class="exs"><div class="sh">풀코스 문제 풀기</div><div class="rn">범위</div>';
     ks.forEach(function (k) {
       var ps = partNums(k), cur = st.sel[k] || [], all = ps.length && ps.every(function (p) { return cur.indexOf(p) >= 0; });
       h += '<div class="rg"><div class="rn">' + KN[k] + '</div><div class="chips"><button type="button" class="ch' + (all ? ' on' : '') + '" data-act="all" data-k="' + k + '">전체</button>';
