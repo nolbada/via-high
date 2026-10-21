@@ -1,0 +1,26 @@
+/* 이어서 풀기(책갈피) · 체크한 유형 이어 풀기 (261022) */
+(function(){
+  if(/[?&](wrong|mix)=1\b/.test(location.search))return;
+  var sg=location.pathname.split('/'),hi=sg.indexOf('h'),SC=(hi>=0&&sg[hi+1])||'x';
+  var m=/\/(L3|L4)\/([a-z-]+)\.html$/.exec(location.pathname);if(!m||!PART)return;
+  var A={'vocab':'voc','find':'find','eobeop-test':'eobeop','sunseo-ko':'ko','sunseo-abc':'abc','sunseo-mun':'mun','awkward-test':'awk','blank':'blank'}[m[2]];if(!A)return;
+  var K=m[1]+'p'+PART+':'+A,CUR=location.pathname+location.search;
+  try{localStorage.setItem('vhbm:'+SC,JSON.stringify({u:CUR,k:K,t:Date.now()}))}catch(e){}
+  function isDone(k){try{var e=PG.get()[k];return !!(e&&(e.n||e.t))}catch(x){return false}}
+  function bar(){
+    var q=null;try{q=JSON.parse(localStorage.getItem('vhq:'+SC)||'null')}catch(e){}
+    if(!q||!q.l)return;var idx=-1;q.l.forEach(function(x,i){if(x.k===K)idx=i});
+    if(idx<0||!isDone(K))return;
+    var nx=null;for(var i=idx+1;i<q.l.length;i++){if(!isDone(q.l[i].k)){nx=q.l[i];break}}
+    var old=document.getElementById('vhnext');if(old)old.remove();
+    var a=document.createElement('a');a.id='vhnext';a.href=nx?nx.u:'../index.html';a.textContent=nx?'다음 유형: '+nx.n+' \u203a':'체크한 유형을 모두 끝냈어요 \u00b7 목록으로';
+    a.style.cssText='position:fixed;left:12px;right:104px;bottom:12px;z-index:9998;background:#1e2a44;color:#fff;text-align:center;font:800 15px/1 sans-serif;padding:15px 12px;border-radius:14px;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,.3)';
+    document.body.appendChild(a);
+    if(!nx){try{localStorage.removeItem('vhq:'+SC)}catch(e){}}
+  }
+  addEventListener('load',function(){
+    if(typeof PG==='undefined')return;
+    var pm=PG.mark;PG.mark=function(){var r=pm.apply(PG,arguments);setTimeout(bar,400);return r};
+    bar();
+  });
+})();
