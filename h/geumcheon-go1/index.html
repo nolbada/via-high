@@ -317,8 +317,9 @@ function today(){
   flat.forEach(function(f){var all=true;ACT.forEach(function(a){if(!setOf(f.v).url[a[0]]||OPT[a[0]])return;var e=P[key(f.v,a[0])];if(e&&e.t&&(!last||e.t>=last.t))last={t:e.t,f:f,a:a};if(!isOn(f.v,a[0])){all=false;if(!nxt)nxt={f:f,a:a}}});if(all)doneDays++});
   function fmt(t){var d=new Date(t);return (d.getMonth()+1)+'/'+d.getDate()+' ('+WDN[d.getDay()]+') '+('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)}
   function lbl(x){return x.f.no+'회 ('+src(x.f.v)+') · '+(ACT.indexOf(x.a)+1)+'. '+x.a[1]}
+  var lt=(last&&dkey(new Date(last.t))===td)?last:null;
   h+='<div class="rec"><div class="rh"><b>내 학습 기록</b><span>인증샷용</span></div>'
-   +'<div class="rr"><em>마지막으로 끝낸 활동</em><b>'+(last?lbl(last)+'</b><small>'+fmt(last.t)+(durTxt(key(last.f.v,last.a[0]))?' · 소요'+durTxt(key(last.f.v,last.a[0])):''):'아직 없어요</b><small>')+'</small>'+(last&&!last.f.v.F?(function(){var o='<div class="pins">';ACT.forEach(function(a,ix){var id=a[0];if(!setOf(last.f.v).url[id]||id==='wk'||id==='wt')return;o+='<span class="pn'+(isOn(last.f.v,id)?' on':'')+(OPT[id]?' op':'')+'"><i>'+(ix+1)+'</i></span>'});return o+'</div>'})():'')+'</div>'
+   +'<div class="rr"><em>오늘의 학습</em><b>'+(lt?lbl(lt)+'</b><small>'+fmt(lt.t)+(durTxt(key(lt.f.v,lt.a[0]))?' · 소요'+durTxt(key(lt.f.v,lt.a[0])):''):'오늘은 아직 없어요</b><small>')+'</small>'+(lt&&!lt.f.v.F?(function(){var o='<div class="pins">';ACT.forEach(function(a,ix){var id=a[0];if(!setOf(lt.f.v).url[id]||id==='wk'||id==='wt')return;o+='<span class="pn'+(isOn(lt.f.v,id)?' on':'')+(OPT[id]?' op':'')+'"><i>'+(ix+1)+'</i></span>'});return o+'</div>'})():'')+'</div>'
    +'<div class="rr nx"><em>다음에 할 활동</em><b>'+(nxt?lbl(nxt):'모두 끝냈어요 🎉')+'</b></div>'
    +'<div class="rr"><em>전체 진행</em><b>'+doneN+' / '+N+'회 완료</b></div>'
    +'<div class="rs">이 화면을 캡처해 두면, 기기가 바뀌어도 어디까지 했는지 바로 알 수 있어요.<br>캡처 시각: '+fmt(Date.now())+'</div>'
