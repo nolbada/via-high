@@ -44,12 +44,12 @@ function partKey(kind){return PART?kind+'p'+PART:kind}
   function isDone(k){try{var e=PG.get()[k];return !!(e&&(e.n||e.t))}catch(x){return false}}
   function bar(){
     var q=null;try{q=JSON.parse(localStorage.getItem('vhq:'+SC)||'null')}catch(e){}
-    if(!q||!q.l)return;var idx=-1;q.l.forEach(function(x,i){if(x.k===K)idx=i});
+    if(!q||!q.l||(q.t&&Date.now()-q.t>43200000))return;var idx=-1;q.l.forEach(function(x,i){if(x.k===K)idx=i});
     if(idx<0||!isDone(K))return;
     var nx=null;for(var i=idx+1;i<q.l.length;i++){if(!isDone(q.l[i].k)){nx=q.l[i];break}}
     var old=document.getElementById('vhnext');if(old)old.remove();
     var a=document.createElement('a');a.id='vhnext';a.href=nx?nx.u:'../index.html';a.textContent=nx?'다음 유형: '+nx.n+' \u203a':'체크한 유형을 모두 끝냈어요 \u00b7 목록으로';
-    a.style.cssText='position:fixed;left:12px;right:104px;bottom:12px;z-index:9998;background:#1e2a44;color:#fff;text-align:center;font:800 15px/1 sans-serif;padding:15px 12px;border-radius:14px;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,.3)';
+    a.style.cssText='position:fixed;left:12px;right:104px;bottom:62px;z-index:9998;background:#1e2a44;color:#fff;text-align:center;font:800 15px/1 sans-serif;padding:15px 12px;border-radius:14px;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,.3)';
     document.body.appendChild(a);
     if(!nx){try{localStorage.removeItem('vhq:'+SC)}catch(e){}}
   }
