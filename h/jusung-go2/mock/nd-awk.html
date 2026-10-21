@@ -37,8 +37,9 @@ h1{font-size:22px;margin:6px 0 2px}.fc{font-size:11px;font-weight:700;letter-spa
 <a class="homefab" href="../index.html">⌂ 목록</a>
 <script src="../../common/prog.js?v=261020"></script>
 <script src="nd-data.js?v=261020"></script>
-<script>var NOTIMER=0;</script>
+<script>var NOTIMER=/[?&](wrong|mix)=1\b/.test(location.search)?1:0;</script>
 <script src="../parts.js?v=261020"></script>
+<script src="../wrong.js?v=261022"></script>
 <script>
 (function(){
 var TY={
@@ -56,10 +57,13 @@ var H=document.getElementById('stage'),CNT=document.getElementById('cnt'),PB=doc
 document.getElementById('h1').innerHTML='유형 풀코스 · '+TY[T].n+' <span class="fc">FULL COURSE</span>';
 document.getElementById('rng').textContent=P?('이번 범위: '+PARTS.names.mock[P]):'';
 document.getElementById('how').style.display='none';
+var ACTN=T==='eob'?'eobeop':T;
+if(WN.MODE){document.getElementById('h1').insertAdjacentHTML('afterend',WN.MIX?WN.mixInfo():'<div class="how" style="border-color:#b45309"><b>오답 다시 풀기</b> · 오답 노트에 담은 문제만 보여요. <a href="../wrong.html">오답 노트 ›</a></div>')}
 var all=[];
 ids.forEach(function(pid){var d=ND[pid];if(!d||!d[T])return;d[T].forEach(function(it,i){all.push({id:pid+'#'+i,pid:pid,it:it,lab:pid.replace(/^(\d\d)(\d\d)-(\d+)$/,'$1년 $2월 $3번')})})});
-if(!all.length){H.innerHTML='<div class="card sum"><h3>이 범위에는 이 유형 문제가 없어요</h3></div>';return}
-var SK='nd:'+K,S;try{S=JSON.parse(localStorage.getItem(SK)||'null')}catch(e){}
+if(WN.MODE){var _wi=WN.ids('mock',P,ACTN);all=all.filter(function(x){return _wi.indexOf(x.id)>=0})}
+if(!all.length){H.innerHTML=WN.MODE?'<div class="card sum"><h3>오답 노트에 담긴 문제가 없어요</h3><a class="nx sub" style="text-decoration:none;text-align:center" href="../wrong.html">오답 노트 ›</a></div>':'<div class="card sum"><h3>이 범위에는 이 유형 문제가 없어요</h3></div>';return}
+var SK='nd:'+K+WN.SUF,S;try{S=JSON.parse(localStorage.getItem(SK)||'null')}catch(e){}
 if(!S||S.n!==all.length)S={n:all.length,done:{},round:1,wrong:{},fin:0};
 function save(){try{localStorage.setItem(SK,JSON.stringify(S))}catch(e){}}
 var queue=[],pos=0;
@@ -85,11 +89,14 @@ function show(){
   var t=it.t.replace(/\[\[(\d)\|([^\]]+)\]\]/g,function(m,n,w){return '<button class="sp2" type="button" data-i="'+n+'"><sup>'+'①②③④⑤'[n-1]+'</sup>'+esc(w)+'</button>'});
   h+='<div class="ctx" style="font-size:16.5px">'+t+'</div><div class="ask">문맥상 어색한 곳은?</div><div id="spx"></div>';
  }
- h+='<div id="fb"></div></div>';H.innerHTML=h;
+ h+='<div id="fb"></div><div id="wnm"></div></div>';H.innerHTML=h;
+ function wnItem(){return{kind:'mock',part:P,act:ACTN,qid:x.id,label:x.lab+' · '+TY[T].n}}
+ function wnMan(){var m=document.getElementById('wnm');if(!m)return;m.innerHTML='';var b=WN.manual(wnItem());if(b)m.appendChild(b)}
+ wnMan();
  var locked=0;
  function pass(ok,txt,ex){
   if(locked)return;locked=1;
-  if(ok){S.done[x.id]=1}else{S.wrong[x.id]=(S.wrong[x.id]||0)+1}
+  if(ok){S.done[x.id]=1}else{S.wrong[x.id]=(S.wrong[x.id]||0)+1;try{WN.add(wnItem());wnMan()}catch(e){}}
   save();top();
   var fb=document.getElementById('fb');
   fb.innerHTML=((T==='und'||T==='voc'||T==='eob')&&it.tr?'<div class="trb"><b>'+(T==='und'?'밑줄 해석':'문장 해석')+'</b>'+esc(it.tr)+'</div>':'')+'<div class="why"><b class="'+(ok?'r':'w')+'">'+(ok?'정답!':'아쉬워요')+'</b> '+txt+'</div>'+(T==='eob'&&it.g?'<div class="trb"><b>쉬운 문법 설명</b>'+esc(it.g).replace(/\n/g,'<br>')+'</div>':'')+(T==='voc'&&it.alt?'<div class="trb"><b>바꿔 쓸 수 있는 말</b>'+esc(it.alt)+'</div>':'')+(ex||(it.e?'<div class="ez"><b>쉽게 말해</b>'+esc(it.e)+'</div>':''))+'<button class="nx" id="nx" type="button">'+(pos+1<queue.length?'다음 ›':'이 돌기 마치기 ›')+'</button>';
@@ -117,11 +124,11 @@ function show(){
     pass(ok,txt)}});
 }
 function fin(){
- if(!S.fin){S.fin=1;save();try{PG.mark(K)}catch(e){}}
+ if(!S.fin){S.fin=1;save();if(!WN.MODE){try{PG.mark(K)}catch(e){}}}
  var tot=0,w=0;Object.keys(S.wrong).forEach(function(k){w++});
- H.innerHTML='<div class="card sum"><div class="big">✓</div><h3>'+TY[T].n+' 끝!</h3><p>'+all.length+'문제를 모두 맞혔어요.'+(w?'<br>한 번 이상 틀렸던 문제는 <b>'+w+'개</b>예요. 다음 수업 첫머리에 한 번 더 훑어 보면 눈에 남아요.':'<br>한 번에 다 맞혔어요!')+'</p><button class="nx sub" id="rst" type="button">처음부터 다시 풀기</button><a class="nx" style="text-decoration:none;text-align:center" href="../index.html">← 목록</a></div>';
+ H.innerHTML='<div class="card sum"><div class="big">✓</div><h3>'+TY[T].n+' 끝!</h3><p>'+all.length+'문제를 모두 맞혔어요.'+(w?'<br>한 번 이상 틀렸던 문제는 <b>'+w+'개</b>예요. 다음 수업 첫머리에 한 번 더 훑어 보면 눈에 남아요.':'<br>한 번에 다 맞혔어요!')+'</p>'+(WN.MODE?(WN.MIX?WN.mixSum():'<p class="wn-l" style="margin:12px 0 0;font-size:14px;color:var(--sub)">이제 안 봐도 되는 문제는 오답 노트에서 \'빼기\'로 뺄 수 있어요.</p>'):'<button class="nx sub" id="rst" type="button">처음부터 다시 풀기</button>')+'<a class="nx" style="text-decoration:none;text-align:center" href="../index.html">← 목록</a></div>';
  PB.style.width='100%';CNT.textContent='완료';
- document.getElementById('rst').onclick=function(){S={n:all.length,done:{},round:1,wrong:{},fin:1};save();build();show()};
+ var _r=document.getElementById('rst');if(_r)_r.onclick=function(){S={n:all.length,done:{},round:1,wrong:{},fin:1};save();build();show()};
 }
 build();show();
 })();
