@@ -22,6 +22,21 @@
 .hd2{margin:12px 2px 6px;font-size:13.5px;font-weight:800;color:var(--sub)}
 .chips{display:flex;flex-wrap:wrap;justify-content:flex-start!important;gap:7px;margin:0 0 4px}.chip{border:1.5px solid var(--line);background:var(--card);color:var(--navy);border-radius:999px;padding:9px 14px;font:700 14px/1 inherit;font-family:inherit;cursor:pointer}.chip.on{background:var(--pri);border-color:var(--pri);color:#fff}
 .rem{font-size:12.5px;color:var(--sub);margin:8px 2px 0}
+/* 묶음 줄 · 체크 · 이어 풀기 (261022) */
+.mg .arow{display:flex;align-items:center;border-top:1px solid var(--line);padding:0}
+.mg .arow:first-child{border-top:0}
+.arow .ck{flex:0 0 44px;display:flex;align-items:center;justify-content:center;height:48px;margin:0}
+.arow .ck input{width:20px;height:20px;accent-color:#94a3b8;margin:0}
+.arow span.ck{pointer-events:none}
+.arow .ck i.okb{width:20px;height:20px;border-radius:5px;background:var(--pri);color:var(--onpri,#fff);display:flex;align-items:center;justify-content:center;font:900 14px/1 sans-serif;font-style:normal}
+.arow a.at{flex:1 1 auto;min-width:0;display:flex;align-items:center;flex-wrap:wrap;gap:0 6px;padding:13px 8px 13px 0;color:var(--ink);text-decoration:none}
+.arow a.at b{font-size:15.5px;font-weight:700;flex:0 0 auto}
+.arow a.at .cn{font-size:12px;font-weight:700;color:var(--sub)}
+.arow.dn a.at{color:var(--sub)}
+.qsel{display:flex;gap:14px;justify-content:flex-end;margin:6px 2px 0}.qsel button{border:0;background:none;color:var(--sub);font:700 12.5px/1 inherit;font-family:inherit;text-decoration:underline;padding:4px 2px;cursor:pointer}
+.qgo{display:block;width:100%;margin:8px 0 6px;border:1.5px solid var(--pri);background:var(--pri);color:var(--onpri,#fff);border-radius:12px;padding:12px;font-weight:800;font-size:15px;line-height:1;font-family:inherit;cursor:pointer}
+.qgo:disabled{opacity:.35;cursor:default}
+@media(prefers-color-scheme:dark){:root{--onpri:#0b1220}}
 @media(prefers-color-scheme:dark){.chip.on,.btn{color:#0b1220}}
 </style></head><body><div class="wrap"><div class="top"><a class="back" href="index.html">← 목록</a></div>
 <h1>전체 랜덤 20문항</h1>
@@ -70,11 +85,12 @@ function draw(S0,sel){
     var u=rnd(o.l.filter(function(u){return(bk[u.k+':'+u.p]||0)===bm}));
     cur.push({kind:u.k,part:u.p,act:u.a,qid:u.q,w:u.w});curS[u.id]=1;tot+=u.w;acc[u.a]=(acc[u.a]||0)+u.w;bk[u.k+':'+u.p]=(bk[u.k+':'+u.p]||0)+1}
   var nu=Object.keys(used);cur.forEach(function(x){nu.push(uid(x.kind,x.part,x.act,x.qid))});
-  return{round:(S0.round||0)+1,used:nu,cur:cur,done:{},open:{},cyc:(S0.cyc||0)+(wrapped?1:0),wrap:wrapped?1:0,sel:sel,desc:(RANGES.length>1?RN[sel.range]:RN[RANGES[0]]||'전체')+' · '+(sel.types.length?sel.types.map(function(a){return NM[a]}).join(', '):'전체 유형')}}
+  return{round:(S0.round||0)+1,used:nu,cur:cur,done:{},open:{},chk:{},cyc:(S0.cyc||0)+(wrapped?1:0),wrap:wrapped?1:0,sel:sel,desc:(RANGES.length>1?RN[sel.range]:RN[RANGES[0]]||'전체')+' · '+(sel.types.length?sel.types.map(function(a){return NM[a]}).join(', '):'전체 유형')}}
 
 function bundles(S){var g={};S.cur.forEach(function(x){var k=x.kind+'|'+x.part+'|'+x.act;(g[k]=g[k]||{kind:x.kind,part:x.part,act:x.act,k:k,n:0}).n+=x.w});
   return Object.keys(g).map(function(k){return g[k]}).sort(function(a,b){return(ORDER.indexOf(a.act)-ORDER.indexOf(b.act))||(a.kind<b.kind?-1:a.kind>b.kind?1:0)||(a.part-b.part)})}
 
+function HR(b){return b.kind+'/'+FILE[b.act]+'?part='+b.part+'&mix=1'}
 var sel=document.getElementById('sel'),st=document.getElementById('st'),confirmT=0;
 var SEL={range:'all',types:[]};
 (function(){var S=load();if(S&&S.sel&&S.sel.range&&S.sel.types)SEL={range:S.sel.range,types:S.sel.types.slice()}})();
@@ -108,15 +124,21 @@ function paint(){
   var h='<div class="st"><div class="r">랜덤 '+S.round+'회 · '+n+'문항</div><div class="s">'+E(S.desc||'')+' · 묶음 '+nd+' / '+B.length+' 끝</div><div class="mbar"><i style="width:'+Math.round(nd/B.length*100)+'%"></i></div>'
    +(S.wrap?'<div class="cy">고른 문제를 한 바퀴 다 풀어서, 문제를 새로 섞었어요.</div>':'')+'</div>';
   if(all)h+='<div class="mfin"><b>랜덤 '+S.round+'회 끝</b></div>';
-  h+='<div class="hd">이번 세트 묶음</div>';
-  B.forEach(function(b){var d=S.done&&S.done[b.k],o=S.open&&S.open[b.k];
-    h+='<div class="mg'+(d?' dn':'')+'"><div class="gh"><div class="t">'+E(NM[b.act]||b.act)+(d?'<span class="mok">✓ 끝</span>':'')+'<small>'+E(KN[b.kind]||b.kind)+' · '+E(pname(b.kind,b.part))+' · '+b.n+'문항</small></div>'
-     +'<a class="go" data-k="'+E(b.k)+'" href="'+b.kind+'/'+FILE[b.act]+'?part='+b.part+'&mix=1">'+(d?'다시 보기':o?'이어서 풀기':'풀기')+'</a></div>'
-     +(d?'':'<button type="button" class="mmk" data-k="'+E(b.k)+'">다 풀었어요 (끝냈다고 표시)</button>')+'</div>'});
+  h+='<div class="hd">이번 세트 묶음</div><div class="mg">';
+  var nck=0;
+  B.forEach(function(b){var d=S.done&&S.done[b.k],on=!!(S.chk&&S.chk[b.k]);if(!d&&on)nck++;
+    h+='<div class="arow'+(d?' dn':'')+'">'+(d?'<span class="ck"><i class="okb">\u2713</i></span>':'<label class="ck"><input type="checkbox" data-b="'+E(b.k)+'"'+(on?' checked':'')+'></label>')
+     +'<a class="at" data-k="'+E(b.k)+'" href="'+HR(b)+'"><b>'+E(NM[b.act]||b.act)+'</b><span class="cn">'+E(KN[b.kind]||b.kind)+' \u00b7 '+E(pname(b.kind,b.part))+' \u00b7 '+b.n+'문항</span></a></div>'});
+  h+='</div>';
+  if(B.some(function(b){return!(S.done&&S.done[b.k])}))h+='<div class="qsel"><button type="button" data-qall="1">전체 선택</button><button type="button" data-qall="0">전체 해제</button></div><button type="button" class="qgo" id="qgo"'+(nck?'':' disabled')+'>체크한 유형 이어서 풀기 (<span id="qn">'+nck+'</span>)</button>';
   st.innerHTML=h}
+function cntChk(){var S=load(),n=0;if(!S)return;bundles(S).forEach(function(b){if(!(S.done&&S.done[b.k])&&S.chk&&S.chk[b.k])n++});var sp=document.getElementById('qn'),g=document.getElementById('qgo');if(sp)sp.textContent=n;if(g)g.disabled=!n}
+st.addEventListener('change',function(e){var c=e.target.closest('input[data-b]');if(!c)return;var S=load();if(!S)return;S.chk=S.chk||{};S.chk[c.dataset.b]=c.checked?1:0;save(S);cntChk()});
 st.addEventListener('click',function(e){
-  var a=e.target.closest('a.go');if(a){var S=load();if(S){S.open=S.open||{};S.open[a.dataset.k]=1;save(S)}return}
-  var m=e.target.closest('button.mmk');if(m){var S2=load();if(S2){S2.done=S2.done||{};if(!S2.done[m.dataset.k]){var n=0;S2.cur.forEach(function(x){if(x.kind+'|'+x.part+'|'+x.act===m.dataset.k)n+=x.w});if(window.WN&&WN.addSolved)WN.addSolved(n,'m')}S2.done[m.dataset.k]=1;save(S2);paint()}}});
+  var qa=e.target.closest('[data-qall]');if(qa){var S=load();if(!S)return;S.chk={};if(qa.dataset.qall==='1')bundles(S).forEach(function(b){if(!(S.done&&S.done[b.k]))S.chk[b.k]=1});save(S);paint();return}
+  if(e.target.closest('#qgo')){var S1=load();if(!S1)return;var items=[];bundles(S1).forEach(function(b){if(!(S1.done&&S1.done[b.k])&&S1.chk&&S1.chk[b.k])items.push({k:b.k,u:HR(b),n:(NM[b.act]||b.act)+' \u00b7 '+(KN[b.kind]||b.kind)+' \u00b7 '+pname(b.kind,b.part)})});
+    if(!items.length)return;S1.open=S1.open||{};S1.open[items[0].k]=1;save(S1);try{localStorage.setItem('vhmq:'+WN.school,JSON.stringify({r:S1.round,l:items,t:Date.now()}))}catch(x){}location.href=items[0].u;return}
+  var a=e.target.closest('a.at');if(a){var S2=load();if(S2){S2.open=S2.open||{};S2.open[a.dataset.k]=1;save(S2)}try{localStorage.removeItem('vhmq:'+WN.school)}catch(x){}}});
 /* 풀이 화면에서 돌아오면 최신 상태로 */
 addEventListener('pageshow',function(){paint()});
 paint();
