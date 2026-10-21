@@ -62,6 +62,12 @@ def measure(pg,base,sc):
     S['ROAD 회번호 연속(1~N)']=(sorted(nums)==list(range(1,max(nums)+1))) if nums else False
     S['ROAD 최대 회']=max(nums) if nums else 0
     S['회 선택 표기']=pg.inner_text('.blk h2').split('\n')[0]
+    S['ROAD 글씨 겹침 없음']=pg.evaluate("""()=>{var bad=0;document.querySelectorAll('.wr').forEach(function(w){var k=[].map.call(w.children,function(c){return c.getBoundingClientRect()});for(var i=1;i<k.length;i++){if(k[i].top<k[i-1].bottom-1&&k[i].left<k[i-1].right-1)bad++}});return bad===0}""")
+    pg.evaluate("localStorage.removeItem('vhmx:'+WN.school)");pg.goto(base+'h/%s/mix.html'%sc);pg.wait_for_timeout(400)
+    if pg.locator('#go').count():
+        pg.click('#go');pg.wait_for_timeout(300)
+        S['랜덤 화면 구조']=(pg.locator('.mg .arow input[type=checkbox]').count()>=2 and pg.locator('.mg .arow input:checked').count()==0 and pg.locator('.qsel button').count()==2 and pg.locator('#qgo').count()==1)
+    else: S['랜덤 화면 구조']=False
     body=pg.inner_text('body')
     hit=[t for t in BAD_TEXT if t in body]+EMOJI.findall(body)
     S['금지 문구/이모지 없음']=not hit
@@ -104,11 +110,17 @@ def main():
         if not re.match(r'^유형 풀코스 · \d+회 \(.+\)$',S['회 선택 표기']): bad.append('회 표기 형식: '+S['회 선택 표기'])
         if not S['학습기록 제목'].startswith('오늘의 학습 · ') or not re.search(r'\d+/\d+\([월화수목금토일]\)',S['학습기록 제목']): bad.append('학습기록 제목: '+S['학습기록 제목'])
         if errs: bad.append('JS 오류: %s'%errs)
+        import urllib.request
         if live:
-            import urllib.request
             pj=urllib.request.urlopen(base+'h/%s/parts.js?x=%d'%(sc,time.time())).read().decode('utf8')
         else: pj=open(os.path.join(ROOT,'h',sc,'parts.js'),encoding='utf8').read()
         if '(261022)' not in pj: bad.append('parts.js 이어서 풀기 코드 없음')
+        if live:
+            wj=urllib.request.urlopen(base+'h/%s/wrong.js?x=%d'%(sc,time.time())).read().decode('utf8')
+        else: wj=open(os.path.join(ROOT,'h',sc,'wrong.js'),encoding='utf8').read()
+        if 'vhmnext' not in wj: bad.append('wrong.js 랜덤 다음 유형 바 코드 없음')
+        for n in ['ROAD 글씨 겹침 없음','랜덤 화면 구조']:
+            if not S[n]: bad.append('%s 실패'%n)
         print('%-16s %s  (유형줄 %s, 최대 %s회)'%(sc,'PASS' if not bad else 'FAIL',S['유형 줄 수'],S['ROAD 최대 회']))
         for x in bad: print('   -',x)
         fails+=bool(bad)
