@@ -152,6 +152,9 @@ function draw(q){
   $('qn').textContent=nm(q)+' ('+(idx+1)+'/'+Q.length+')';
   $('ask').innerHTML='밑줄 친 곳 중 <b>'+(q.kind==='ctx'?'문맥상':'어법상')+' 어색한 것 '+n+'개</b>를 고르세요.';
   var ps=$('ps');ps.innerHTML='';ps.classList.toggle('locked',r.done);
+  var _om=$('wman');if(_om)_om.remove();
+  var _mb=WN.manual({kind:'L3',part:PART,act:'awk',qid:q.id,label:'어색한 곳('+(q.kind==='ctx'?'문맥':'어법')+') · '+(q.ko||'').replace(/\s+/g,' ').slice(0,16)+'…'});
+  if(_mb){var _mw=document.createElement('div');_mw.id='wman';_mw.appendChild(_mb);$('ask').parentNode.insertBefore(_mw,$('ask').nextSibling)}
   if(q.title){var tp=el('p','ptitle');tp.textContent=q.title+' ';var sp=el('span',null,'('+q.tko+')');sp.style.cssText='color:var(--sub);font-size:15px;font-weight:600';tp.appendChild(sp);ps.appendChild(tp)}
   var T=truth(q);
   q.paras.forEach(function(p){
