@@ -126,7 +126,8 @@ function setK(v){document.body.classList.toggle('kon',v);[].forEach.call(documen
 var _k=false;try{_k=localStorage.getItem(KK)==='1'}catch(e){}
 /* 카드마다 제출 / 다음 문제 버튼 */
 C.forEach(function(c,i){var d=document.createElement('div');d.className='qctl';
- d.innerHTML='<button class="nx go" type="button" disabled>제출</button><button class="nx nextq" type="button" style="display:none">'+(i===T-1?'결과 보기':'다음 문제')+'</button>';c.appendChild(d)});
+ d.innerHTML='<button class="nx go" type="button" disabled>제출</button><button class="nx nextq" type="button" style="display:none">'+(i===T-1?'결과 보기':'다음 문제')+'</button>';c.appendChild(d);man(i)});
+function man(i){var c=C[i],o=c.querySelector('.wn-man');if(o)o.remove();var b=WN.manual({kind:'L3',part:PART,act:'eobeop',qid:c.dataset.orig,label:'어법 선택 '+c.dataset.orig+'번'});if(b)c.querySelector('.qctl').appendChild(b)}
 function allSel(i){return run.sel[i].every(function(x){return x>=0})}
 function paint(i){var c=C[i];c.classList.remove('done');
  S[i].forEach(function(s,j){s.bs.forEach(function(b,k){b.classList.remove('ok','ng');b.classList.toggle('sel',run.sel[i][j]===k)})});
@@ -167,7 +168,7 @@ host.addEventListener('click',function(e){
  if(e.target.closest('.ktg')){setK(!document.body.classList.contains('kon'));return}
  var it=e.target.closest('.it');if(!it)return;var i=IT.indexOf(it);
  if(e.target.closest('.go')){if(run.res[i]>=0||!allSel(i))return;
-  var m=0;S[i].forEach(function(s,j){if(run.sel[i][j]===s.a)m++});run.res[i]=m;if(m!==NS[i]){WN.add({kind:'L3',part:PART,act:'eobeop',qid:C[i].dataset.orig,label:'어법 선택 '+C[i].dataset.orig+'번'});wnRender(wn,false)}save();paint(i);view();return}
+  var m=0;S[i].forEach(function(s,j){if(run.sel[i][j]===s.a)m++});run.res[i]=m;if(m!==NS[i]){WN.add({kind:'L3',part:PART,act:'eobeop',qid:C[i].dataset.orig,label:'어법 선택 '+C[i].dataset.orig+'번'});man(i);wnRender(wn,false)}save();paint(i);view();return}
  if(e.target.closest('.nextq')){if(run.cur>=T)vi=T;else{run.cur=i+1;vi=run.cur;save();if(run.cur>=T){gk();if(!WN.MODE){try{PG.mark(partKey('L3')+':eobeop')}catch(e){}}}}view();window.scrollTo(0,0);return}
  if(run.res[i]>=0)return;
  var b=e.target.closest('.ob,.bk button');if(!b)return;
