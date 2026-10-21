@@ -139,9 +139,10 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 .qgo:disabled{opacity:.35;cursor:default}
 .rsm{display:flex;justify-content:space-between;align-items:center;gap:10px;border:2px solid var(--pri);background:var(--card);color:var(--ink);border-radius:12px;padding:11px 14px;margin:10px 0 4px;text-decoration:none}
 .rsm b{display:block;font-size:15px;color:var(--pri)}.rsm small{display:block;font-size:12.5px;color:var(--sub);margin-top:2px}.rsm .go{font-weight:800;color:var(--pri);font-size:20px}
-.pins{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 2px}
-.pn{display:flex;flex-direction:column;align-items:center;width:34px}
-.pn i{width:25px;height:25px;border-radius:50%;border:1.5px solid var(--line);color:var(--sub);display:flex;align-items:center;justify-content:center;font:800 12px/1 sans-serif;font-style:normal}
+.pins{display:flex;flex-wrap:wrap;gap:3px;margin:5px 0 1px}
+.pn{display:flex;align-items:center}
+
+.pn i{width:19px;height:19px;border-radius:50%;border:1.5px solid var(--line);color:var(--sub);display:flex;align-items:center;justify-content:center;font:800 10.5px/1 sans-serif;font-style:normal}
 .pn.on i{background:var(--pri);border-color:var(--pri);color:var(--onpri)}
 .pn.op i{border-style:dashed}
 .pn small{font-size:9px;color:var(--sub);margin-top:2px;white-space:nowrap}
@@ -315,12 +316,9 @@ function today(){
   var last=null,nxt=null,doneDays=0;
   flat.forEach(function(f){var all=true;ACT.forEach(function(a){if(!setOf(f.v).url[a[0]]||OPT[a[0]])return;var e=P[key(f.v,a[0])];if(e&&e.t&&(!last||e.t>=last.t))last={t:e.t,f:f,a:a};if(!isOn(f.v,a[0])){all=false;if(!nxt)nxt={f:f,a:a}}});if(all)doneDays++});
   function fmt(t){var d=new Date(t);return (d.getMonth()+1)+'/'+d.getDate()+' ('+WDN[d.getDay()]+') '+('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)}
-  function lbl(x){return x.f.no+'회 · '+(ACT.indexOf(x.a)+1)+'. '+x.a[1]}
+  function lbl(x){return x.f.no+'회 ('+src(x.f.v)+') · '+(ACT.indexOf(x.a)+1)+'. '+x.a[1]}
   h+='<div class="rec"><div class="rh"><b>내 학습 기록</b><span>인증샷용</span></div>'
-   +'<div class="rr"><em>마지막으로 끝낸 활동</em><b>'+(last?lbl(last)+'</b><small>'+fmt(last.t):'아직 없어요</b><small>')+'</small></div>'
-   +(function(){var rl=[];flat.forEach(function(f){if(f.v.F)return;var mt=0,any=false;ACT.forEach(function(a){var e=P[key(f.v,a[0])];if(setOf(f.v).url[a[0]]&&e&&(e.n||e.t)&&e.t&&dkey(new Date(e.t))===td){any=true;if((e.t||0)>mt)mt=e.t||0}});if(any)rl.push({f:f,t:mt})});
-     rl.sort(function(a,b){return b.t-a.t});rl=rl.slice(0,3);if(!rl.length)return '';
-     return '<div class="rr"><em>오늘 한 학습</em>'+rl.map(function(x){var o='<div class="pr"><b>'+x.f.no+'회 ('+src(x.f.v)+')</b><div class="pins">';ACT.forEach(function(a,ix){var id=a[0];if(!setOf(x.f.v).url[id]||id==='wk'||id==='wt')return;o+='<span class="pn'+(isOn(x.f.v,id)?' on':'')+(OPT[id]?' op':'')+'"><i>'+(ix+1)+'</i><small>'+esc(SH[id]||a[1])+'</small></span>'});return o+'</div></div>'}).join('')+'</div>'})()
+   +'<div class="rr"><em>마지막으로 끝낸 활동</em><b>'+(last?lbl(last)+'</b><small>'+fmt(last.t)+(durTxt(key(last.f.v,last.a[0]))?' · 소요'+durTxt(key(last.f.v,last.a[0])):''):'아직 없어요</b><small>')+'</small>'+(last&&!last.f.v.F?(function(){var o='<div class="pins">';ACT.forEach(function(a,ix){var id=a[0];if(!setOf(last.f.v).url[id]||id==='wk'||id==='wt')return;o+='<span class="pn'+(isOn(last.f.v,id)?' on':'')+(OPT[id]?' op':'')+'"><i>'+(ix+1)+'</i></span>'});return o+'</div>'})():'')+'</div>'
    +'<div class="rr nx"><em>다음에 할 활동</em><b>'+(nxt?lbl(nxt):'모두 끝냈어요 🎉')+'</b></div>'
    +'<div class="rr"><em>전체 진행</em><b>'+doneN+' / '+N+'회 완료</b></div>'
    +'<div class="rs">이 화면을 캡처해 두면, 기기가 바뀌어도 어디까지 했는지 바로 알 수 있어요.<br>캡처 시각: '+fmt(Date.now())+'</div>'
