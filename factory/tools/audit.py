@@ -119,6 +119,14 @@ def main():
             wj=urllib.request.urlopen(base+'h/%s/wrong.js?x=%d'%(sc,time.time())).read().decode('utf8')
         else: wj=open(os.path.join(ROOT,'h',sc,'wrong.js'),encoding='utf8').read()
         if 'vhmnext' not in wj: bad.append('wrong.js 랜덤 다음 유형 바 코드 없음')
+        # 어휘 퀴즈: 다른 단어 문장으로 보기 채우기 금지, 보기 글씨 17px 이상
+        import glob
+        vb=[]
+        for vp in glob.glob(os.path.join(ROOT,'h',sc,'L[34]','vocab.html')):
+            vt=open(vp,encoding='utf8').read()
+            if 'if(q.w!==p.w)q.items.forEach' in vt: vb.append(os.path.basename(os.path.dirname(vp))+' 다른 단어 문장으로 보기 채움')
+            if 'font:600 16.5px/1.4 inherit' in vt: vb.append(os.path.basename(os.path.dirname(vp))+' 보기 글씨 지정이 무효(font 줄임식)')
+        for x in vb: bad.append('어휘 퀴즈: '+x)
         for n in ['ROAD 글씨 겹침 없음','랜덤 화면 구조']:
             if not S[n]: bad.append('%s 실패'%n)
         print('%-16s %s  (유형줄 %s, 최대 %s회)'%(sc,'PASS' if not bad else 'FAIL',S['유형 줄 수'],S['ROAD 최대 회']))
