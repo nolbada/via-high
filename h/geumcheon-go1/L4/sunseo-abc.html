@@ -53,7 +53,18 @@ GM.run=function(cfg){
     try{if(!was&&cfg.done(p,st)&&!cfg.ok(p,st)){
       var q=qidOf(p,ps);if(q)WN.add({kind:'L4',part:PART,act:ACT,qid:q.id,label:q.lab+' · '+ACTN})}}catch(e){}
     return r};
-  return gr.call(GM,cfg)};
+  var rv=gr.call(GM,cfg);try{manInit(cfg)}catch(e){}
+  return rv};
+/* 직접 담기 버튼: 지금 화면의 문제 카드에 붙인다(자동 담기와 같은 항목) */
+function manInit(cfg){
+  var stg=document.getElementById('stage');if(!stg||!window.__gm)return;
+  function paint(){try{
+    var q=stg.querySelector('.q');if(!q||q.querySelector('.wn-man'))return;
+    var r=window.__gm.run();if(!r||r.fin)return;
+    var p=r.probs[r.cur],ps=G.byId(cfg.D)[p.pid],u=qidOf(p,ps);if(!u)return;
+    var b=WN.manual({kind:'L4',part:PART,act:ACT,qid:u.id,label:u.lab+' · '+ACTN});if(b)q.appendChild(b)}catch(e){}}
+  if(window.MutationObserver)new MutationObserver(paint).observe(stg,{childList:true});
+  paint()}
 /* 문제가 가리키는 지문(원래 지문 id): 이어 붙인 글/창에서의 문장 위치 -> 어느 지문인지 */
 function qidOf(p,ps){
   var idx,len=1;
