@@ -121,15 +121,42 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 .tabs button.on{background:var(--pri);border-color:var(--pri);color:#fff}
 @media(prefers-color-scheme:dark){.arow a.cell:not(.on){background:#fb923c;border-color:#fb923c;color:#1a1206}.tabs button.on{color:#0b1220}.blk:has(.arow){box-shadow:none}}
 .goal .kgl{font-size:16px;line-height:1.45;font-weight:800;color:var(--ink);text-align:left;letter-spacing:-.2px}.goal .kgl em{font-size:12px;margin-top:4px}
+/* 첫 화면 새 달력·진행 (261021) */
+:root{--pu:#7c3aed;--onpri:#fff}
+@media(prefers-color-scheme:dark){:root{--pu:#c4b5fd;--onpri:#0b1220}}
+.ncal{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 10px 10px;margin:10px 0}
+.nch{display:flex;align-items:center;justify-content:space-between;padding:0 2px 6px}
+.nch b{font-size:15.5px}
+.nch button{border:0;background:none;font-size:24px;line-height:1;width:40px;height:36px;color:var(--pri);cursor:pointer}
+.nch button:disabled{opacity:.25;cursor:default}
+.ncg{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}
+.ncg .w{text-align:center;font-size:12px;color:var(--sub);padding-bottom:2px}
+.ncg .w.sun,.ncg .d.sun{color:#c2410c}
+.ncg .d{height:38px;display:flex;align-items:center;justify-content:center;position:relative;font-size:14.5px}
+.ncg .d .n{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.ncg .d.dn .n{background:var(--pri);color:var(--onpri);font-weight:700}
+.ncg .d.tod .n{width:37px;height:37px;border:2.5px solid var(--pu);color:var(--pu);font-weight:800}
+.ncg .d.tod.dn .n{background:var(--pri);color:var(--onpri);box-shadow:inset 0 0 0 2px var(--card)}
+.ncg .d.ex .n{color:#dc2626;font-weight:800;padding-top:6px}
+.ncg .d.ex::before{content:"시험";position:absolute;top:1px;left:0;right:0;text-align:center;font-size:8.5px;line-height:1;font-weight:700;color:#dc2626}
+.ncg .d .bd{position:absolute;top:0;right:calc(50% - 22px);min-width:15px;height:15px;padding:0 3px;border-radius:8px;background:var(--card);color:var(--pri);border:1.5px solid var(--pri);font:800 9.5px/12px sans-serif;text-align:center;font-style:normal}
+.nlg{display:flex;justify-content:center;gap:14px;margin:8px 0 8px;font-size:11.5px;color:var(--sub)}
+.nlg span{display:flex;align-items:center;gap:5px}
+.nlg i{display:inline-block;width:11px;height:11px;border-radius:50%}
+.nlg .lt{border:2px solid var(--pu)}.nlg .lc{background:var(--pri)}.nlg .lx{background:#dc2626}
+.nfold{display:block;width:100%;border:1.5px solid var(--pri);background:none;color:var(--pri);border-radius:10px;padding:9px;font:800 13px/1 inherit;font-family:inherit;cursor:pointer}
+.qtot{display:flex;justify-content:space-between;align-items:baseline;padding:10px 2px 6px;border-top:2px solid var(--line);font-size:14px;color:var(--sub)}.qtot b{font-size:16px;color:var(--pri)}
+.rnav{display:flex;gap:8px;margin:8px 0 6px}
+.rnav button{flex:1;border:1.5px solid var(--line);background:var(--card);color:var(--pri);border-radius:10px;padding:9px;font:800 13px/1 inherit;font-family:inherit;cursor:pointer}
+.rnav button:disabled{opacity:.35;cursor:default}
 </style></head><body><div class="wrap">
 
 <section class="pane on" id="p-today">
 
 <div id="goal"></div>
 <div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline"><b>전체 진행</b><b id="sum" style="color:var(--pri)"></b></div><div class="bar"><i id="sbar" style="width:0"></i></div>
-<div style="font-size:12.5px;color:var(--sub)">끝난 활동은 체크 표시가 되면서 진하게 바뀌어요.</div></div>
+<div id="qsum" style="font-size:12.5px;color:var(--sub)"></div></div>
 <div id="today"></div>
-<div class="note">내 진도는 내가 정해요. 활동을 누르면 바로 열리고, 풀던 곳부터 이어서 할 수 있어요. 기록은 이 폰에만 저장돼요. 점선은 준비 중이에요.</div>
 </section>
 
 <section class="pane" id="p-keys">
@@ -146,108 +173,142 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 
 <nav class="tabs" id="tabs"></nav>
 
-<script src="../common/prog.js?v=261019"></script><script src="wrong.js?v=261019"></script><script src="mix-pool.js?v=261019"></script>
+<script src="../common/prog.js?v=261019"></script><script src="wrong.js?v=261022"></script><script src="mix-pool.js?v=261022"></script>
 <script src="L4/sx-data.js?v=261019"></script><script>var D4=DATA;</script>
 <script src="mock/sx-data.js?v=261019"></script><script>var DM=DATA;</script>
 <script src="L4/jj.js?v=261019"></script><script src="mock/ez.js?v=261019"></script><script src="key15.js?v=261019"></script><script src="key15-data.js?v=261022"></script><script src="gram.js?v=261019"></script>
 <script>
 (function(){
-var ACT=[['voc','어휘'],['find','TF'],['eobeop','어법선택'],['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['awk','어색한 곳'],['blank','빈칸추론'],['und','밑줄의 의미']];
+var ACT=[['voc','어휘'],['find','TF'],['eobeop','어법선택'],['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['awk','어색한 곳'],['blank','빈칸추론'],['und','밑줄의 의미'],['wk','틀린 문제 다시 풀기'],['wt','약한 유형 골라 풀기']];
 var SEC=[
  {label:'교과서 4과',set:'L4',url:{ko:'L4/sunseo-ko.html',abc:'L4/sunseo-abc.html',mun:'L4/sunseo-mun.html',blank:'L4/blank.html',find:'L4/find.html',awk:'L4/awkward-test.html',eobeop:'L4/eobeop-test.html',voc:'L4/vocab.html'}},
- {label:'모의고사 (22년 11월 · 23년 11월 · 24년 10월)',set:'mock',url:{ko:'mock/sunseo-ko.html',abc:'mock/sunseo-abc.html',mun:'mock/sunseo-mun.html',blank:'mock/blank.html',voc:'mock/nd-voc.html',find:'mock/nd-find.html',eobeop:'mock/nd-eob.html',awk:'mock/nd-awk.html',und:'mock/nd-und.html'}}
+ {label:'모의고사 (22년 11월 · 23년 11월 · 24년 10월)',set:'mock',url:{ko:'mock/sunseo-ko.html',abc:'mock/sunseo-abc.html',mun:'mock/sunseo-mun.html',blank:'mock/blank.html',voc:'mock/nd-voc.html',find:'mock/nd-find.html',eobeop:'mock/nd-eob.html',awk:'mock/nd-awk.html',und:'mock/nd-und.html'}},
+ {label:'최종점검',set:'F',url:{wk:'wrong.html',wt:'mix.html'}}
 ];
-var NDR={1:1,2:1,3:1,4:1,5:1,6:1,7:1,8:1};/* 유형 풀코스 5유형이 준비된 DAY (순차 공개) */
+var NDR={1:1,2:1,3:1,4:1,5:1,6:1,7:1,8:1};/* 유형 풀코스 5유형이 준비된 회 (순차 공개) */
 var NDT={voc:1,find:1,eobeop:1,awk:1,und:1};
-function secOf(v){if(v.L)return SEC[0];if(v.P)return{label:SEC[1].label,set:'mock',url:{}};var u={};for(var k in SEC[1].url)if(!NDT[k]||NDR[v.D])u[k]=SEC[1].url[k];return{label:SEC[1].label,set:'mock',url:u}}
-function vrt(id,sc){return (sc.set==='mock'&&NDT[id])?'<i class="vr o">틀린 것만 반복</i>':(VAR[id]?'<i class="vr">매번 다른 문제</i>':'<i class="vr o">1회성</i>')}
+function secOf(v){if(v.F)return SEC[2];if(v.L)return SEC[0];if(v.P)return{label:SEC[1].label,set:'mock',url:{}};var u={};for(var k in SEC[1].url)if(!NDT[k]||NDR[v.D])u[k]=SEC[1].url[k];return{label:SEC[1].label,set:'mock',url:u}}
+function vrt(id,sc){if(id==='wk'||id==='wt')return '';return (sc.set==='mock'&&NDT[id])?'<i class="vr o">틀린 것만 반복</i>':(VAR[id]?'<i class="vr">매번 다른 문제</i>':'<i class="vr o">1회성</i>')}
 function durTxt(k){var t=0;try{t=+localStorage.getItem('vhd:'+k)||0}catch(e){}if(!t)return '';return ' '+(t>=60?Math.floor(t/60)+'분':t+'초')}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var CNT={"L4p1:find": 10, "L4p1:awk": 4, "L4p1:eobeop": 12, "L4p1:ko": 2, "L4p1:abc": 6, "L4p1:mun": 6, "L4p1:blank": 3, "L4p2:find": 9, "L4p2:awk": 4, "L4p2:eobeop": 12, "L4p2:ko": 3, "L4p2:abc": 6, "L4p2:mun": 6, "L4p2:blank": 2, "L4p3:find": 7, "L4p3:awk": 4, "L4p3:eobeop": 10, "L4p3:ko": 3, "L4p3:abc": 6, "L4p3:mun": 6, "L4p3:blank": 2, "L4p1:voc": 54, "L4p2:voc": 48, "L4p3:voc": 39, "mockp1:ko": 6, "mockp1:abc": 6, "mockp1:mun": 6, "mockp1:blank": 5, "mockp2:ko": 6, "mockp2:abc": 6, "mockp2:mun": 6, "mockp2:blank": 5, "mockp3:ko": 6, "mockp3:abc": 4, "mockp3:mun": 6, "mockp3:blank": 5, "mockp4:ko": 5, "mockp4:abc": 4, "mockp4:mun": 6, "mockp4:blank": 5, "mockp5:ko": 6, "mockp5:abc": 6, "mockp5:mun": 6, "mockp5:blank": 5, "mockp6:ko": 6, "mockp6:abc": 6, "mockp6:mun": 6, "mockp6:blank": 5, "mockp1:voc": 27, "mockp1:find": 40, "mockp1:eobeop": 9, "mockp1:awk": 18, "mockp1:und": 12, "mockp2:voc": 28, "mockp2:find": 40, "mockp2:eobeop": 12, "mockp2:awk": 20, "mockp2:und": 12, "mockp3:voc": 28, "mockp3:find": 40, "mockp3:eobeop": 12, "mockp3:awk": 20, "mockp3:und": 12, "mockp4:voc": 28, "mockp4:find": 40, "mockp4:eobeop": 12, "mockp4:awk": 20, "mockp4:und": 12, "mockp5:voc": 28, "mockp5:find": 40, "mockp5:eobeop": 12, "mockp5:awk": 20, "mockp5:und": 12, "mockp6:voc": 28, "mockp6:find": 40, "mockp6:eobeop": 12, "mockp6:awk": 20, "mockp6:und": 12, "mockp7:ko": 5, "mockp7:abc": 3, "mockp7:mun": 6, "mockp7:blank": 5, "mockp7:voc": 28, "mockp7:find": 40, "mockp7:eobeop": 12, "mockp7:awk": 20, "mockp7:und": 12, "mockp8:ko": 5, "mockp8:abc": 4, "mockp8:mun": 6, "mockp8:blank": 2, "mockp8:voc": 14, "mockp8:find": 20, "mockp8:eobeop": 6, "mockp8:awk": 10, "mockp8:und": 6};
 var OPT={ko:1},VAR={voc:1,ko:1,abc:1,mun:1,blank:1};
 var EXAMD=['2026-12-01', '2026-12-02', '2026-12-03', '2026-12-04'];
 var EXAM=new Date(2026,11,1);
-var ROAD=[['10/19','10/25','교과서 4과','본문 3개 · 본문마다 모든 활동'],['10/26','11/1','모의고사 1회독 ①','\n매 수업 첫머리에 지난 회차 틀린 문제 다시\n월 10/26 · 22년 11월 29~32번\n수 10/28 · 22년 11월 33~36번\n토 10/31 · 22년 11월 37·38번 + 23년 11월 21·23번 + 도표(25번)'],['11/2','11/8','모의고사 1회독 ②','\n월 11/2 · 23년 11월 30~33번\n수 11/4 · 23년 11월 34~37번\n토 11/7 · 23년 11월 38~41번'],['11/9','11/15','모의고사 1회독 ③','\n월 11/9 · 24년 10월 22·23·24·29번\n수 11/11 · 24년 10월 30·33번 + 26년 10월 2개\n토 11/14 · 26년 10월 4개 (추후 공지)'],['11/16','11/22','1회독 마무리 · 기출 농축 복습','\n월 11/16 · 26년 10월 4개 (추후 공지)\n수 11/18 · 모고 기출 농축 복습 ① (DAY 1~5 틀린 문제)\n토 11/21 · 모고 기출 농축 복습 ② (DAY 6~10 틀린 문제)'],['11/23','11/29','교과서 기출 풀기','\n월 11/23 · 교과서 기출 풀기 1회\n수 11/25 · 교과서 기출 풀기 2회\n토 11/28 · 교과서 기출 풀기 3회'],['11/30','12/6','총복습','\n월 11/30 · 총복습 (틀린 문제 · 약한 유형)']];
+var ROAD=[['10/19','10/25','교과서 4과','1~3회 (4과) · 본문 3개 · 본문마다 모든 활동'],['10/26','11/1','모의고사 1회독 ①','\n매 수업 첫머리에 지난 회 틀린 문제 다시\n월 10/26 · 1회 (모의고사) · 22년 11월 29~32번\n수 10/28 · 2회 (모의고사) · 22년 11월 33~36번\n토 10/31 · 3회 (모의고사) · 22년 11월 37·38번 + 23년 11월 21·23번 + 도표(25번)'],['11/2','11/8','모의고사 1회독 ②','\n월 11/2 · 4회 (모의고사) · 23년 11월 30~33번\n수 11/4 · 5회 (모의고사) · 23년 11월 34~37번\n토 11/7 · 6회 (모의고사) · 23년 11월 38~41번'],['11/9','11/15','모의고사 1회독 ③','\n월 11/9 · 7회 (모의고사) · 24년 10월 22·23·24·29번\n수 11/11 · 8회 (모의고사) · 24년 10월 30·33번 + 26년 10월 2개\n토 11/14 · 9회 (모의고사) · 26년 10월 4개 (추후 공지)'],['11/16','11/22','1회독 마무리 · 기출 농축 복습','\n월 11/16 · 10회 (모의고사) · 26년 10월 4개 (추후 공지)\n수 11/18 · 1회 (기출 복습) · 모고 기출 농축 복습 ① (모의고사 1~5회 틀린 문제)\n토 11/21 · 2회 (기출 복습) · 모고 기출 농축 복습 ② (모의고사 6~10회 틀린 문제)'],['11/23','11/29','교과서 기출 풀기','\n월 11/23 · 1회 (교과서 기출)\n수 11/25 · 2회 (교과서 기출)\n토 11/28 · 3회 (교과서 기출)'],['11/30','12/6','총복습','\n월 11/30 · 1회 (최종점검) · 틀린 문제 · 약한 유형']];
 var Y=2026;
+var SOON='내용은 준비 중이에요';
+var RD='원문 탭에서 해석·문법 분석을 먼저 읽어요',PD='공지가 나오면 앱 문제가 열려요',CL='수업 중심 · 틀린 문제는 오답 노트에서 다시';
+/* 회 순서 = 풀이 순서(총 19회). src = 회 번호를 세는 출처("2회 (4과)"). 기록 키: L4p<n> / mockp<n> / Fp<n> (예전과 같음) */
 var VIS=[
-  [{L:1,t:'교과서 본문 1',s:'본문 ❶~❸'},{L:2,t:'교과서 본문 2',s:'본문 ❹~❺'},{L:3,t:'교과서 본문 3',s:'본문 ❻~❼'}],
- [{D:1,t:'1회독',s:'22년 11월 29~32번 (4지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'},{D:2,t:'1회독',s:'22년 11월 33~36번 (4지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'},{D:3,t:'1회독',s:'22년 11월 37·38번 · 23년 11월 21·23번 (4지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'}],
- [{D:4,t:'1회독',s:'23년 11월 30~33번 (4지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'},{D:5,t:'1회독',s:'23년 11월 34~37번 (4지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'},{D:6,t:'1회독',s:'23년 11월 38~41번 (4지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'}],
- [{D:7,t:'1회독',s:'24년 10월 22·23·24·29번 (4지문)',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'},{D:8,t:'1회독',s:'24년 10월 30·33번 · 26년 10월 2개',x:'원문 탭에서 해석·문법 분석을 먼저 읽어요'},{D:9,P:1,t:'1회독',s:'26년 10월 4개 (추후 공지)',x:'공지가 나오면 앱 문제가 열려요'}],
- [{D:10,P:1,t:'1회독',s:'26년 10월 4개 (추후 공지)',x:'공지가 나오면 앱 문제가 열려요'},{D:11,P:1,t:'기출 복습',s:'모고 기출 농축 복습 ① · DAY 1~5 틀린 문제',x:'틀린 문제만 고정 회차로 다시 풀어요'},{D:12,P:1,t:'기출 복습',s:'모고 기출 농축 복습 ② · DAY 6~10 틀린 문제',x:'틀린 문제만 고정 회차로 다시 풀어요'}],
- [{D:13,P:1,t:'기출 풀기',s:'교과서 기출 풀기 1회',x:'수업 중심 · 틀린 문제는 오답 노트에서 다시'},{D:14,P:1,t:'기출 풀기',s:'교과서 기출 풀기 2회',x:'수업 중심 · 틀린 문제는 오답 노트에서 다시'},{D:15,P:1,t:'기출 풀기',s:'교과서 기출 풀기 3회',x:'수업 중심 · 틀린 문제는 오답 노트에서 다시'}],
- [{D:16,P:1,t:'총복습',s:'총복습 · 틀린 문제 · 약한 유형 골라 풀기',x:'수업 중심 · 틀린 문제는 오답 노트에서 다시'}]
- ];
-var ORD=['DAY 1','DAY 2','DAY 3'],DOFF=[0,2,5],WDN=['일','월','화','수','목','금','토'];
+ {L:1,src:'4과',t:'교과서 본문 1',s:'본문 ❶~❸'},
+ {L:2,src:'4과',t:'교과서 본문 2',s:'본문 ❹~❺'},
+ {L:3,src:'4과',t:'교과서 본문 3',s:'본문 ❻~❼'},
+ {D:1,src:'모의고사',t:'1회독',s:'22년 11월 29~32번 (4지문)',x:RD},
+ {D:2,src:'모의고사',t:'1회독',s:'22년 11월 33~36번 (4지문)',x:RD},
+ {D:3,src:'모의고사',t:'1회독',s:'22년 11월 37·38번 · 23년 11월 21·23번 (4지문)',x:RD},
+ {D:4,src:'모의고사',t:'1회독',s:'23년 11월 30~33번 (4지문)',x:RD},
+ {D:5,src:'모의고사',t:'1회독',s:'23년 11월 34~37번 (4지문)',x:RD},
+ {D:6,src:'모의고사',t:'1회독',s:'23년 11월 38~41번 (4지문)',x:RD},
+ {D:7,src:'모의고사',t:'1회독',s:'24년 10월 22·23·24·29번 (4지문)',x:RD},
+ {D:8,src:'모의고사',t:'1회독',s:'24년 10월 30·33번 · 26년 10월 2개',x:RD},
+ {D:9,P:1,src:'모의고사',t:'1회독',s:'26년 10월 4개 (추후 공지)',x:PD},
+ {D:10,P:1,src:'모의고사',t:'1회독',s:'26년 10월 4개 (추후 공지)',x:PD},
+ {D:11,P:1,src:'기출 복습',t:'기출 복습',s:'모고 기출 농축 복습 ① · 모의고사 1~5회 틀린 문제',x:'틀린 문제만 정해진 묶음으로 다시 풀어요'},
+ {D:12,P:1,src:'기출 복습',t:'기출 복습',s:'모고 기출 농축 복습 ② · 모의고사 6~10회 틀린 문제',x:'틀린 문제만 정해진 묶음으로 다시 풀어요'},
+ {D:13,P:1,src:'교과서 기출',t:'기출 풀기',s:'교과서 기출 풀기',x:CL},
+ {D:14,P:1,src:'교과서 기출',t:'기출 풀기',s:'교과서 기출 풀기',x:CL},
+ {D:15,P:1,src:'교과서 기출',t:'기출 풀기',s:'교과서 기출 풀기',x:CL},
+ {F:1,src:'최종점검',t:'총복습',s:'총복습 · 틀린 문제 · 약한 유형 골라 풀기'}
+];
+var PERSRC=true;/* true: 번호를 출처 안에서 센다(1회 (4과), 1회 (모의고사)) · false: 전체 연번 */
+var WDN=['일','월','화','수','목','금','토'];
 function curWeek(now){var w=0;ROAD.forEach(function(r,i){var a=r[0].split('/');if(now>=new Date(Y,a[0]-1,+a[1]))w=i});return w}
 var WD=['월','화','수','목','금','토','일'],vy=new Date().getFullYear(),vm=new Date().getMonth();
 function dkey(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
 function weekStart(d){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()-((x.getDay()+6)%7));return x}
-var selD=null,TUN=false;
+var selNo=0,cmode="m",wsel=null;
+var TUN=false;
 var RHASH='7b8f38c75f59ff24b0e3d603e0a2aef2852531aa3015ac806f4f288b0bbb2a3c';
 function sha(s){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)).then(function(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return ('0'+x.toString(16)).slice(-2)}).join('')})}
+function fmtMD(d){return (d.getMonth()+1)+"/"+d.getDate()+"("+WDN[d.getDay()]+")"}
 function today(){
-  var P=PG.get(),h='',tot=0,got=0,nm={},now=(/[?&]d=(\d{4})-(\d\d)-(\d\d)/.exec(location.search)?new Date(+RegExp.$1,+RegExp.$2-1,+RegExp.$3,12):new Date()),ws=weekStart(now),we=new Date(ws);we.setDate(we.getDate()+6);
+  var P=PG.get(),h='',nm={},now=(/[?&]d=(\d{4})-(\d\d)-(\d\d)/.exec(location.search)?new Date(+RegExp.$1,+RegExp.$2-1,+RegExp.$3,12):new Date()),ws=weekStart(now),we=new Date(ws);we.setDate(we.getDate()+6);
   var wk0=dkey(ws),wk1=dkey(we),td=dkey(now),cw=curWeek(now),tdd=new Date(now.getFullYear(),now.getMonth(),now.getDate());
   ACT.forEach(function(a){nm[a[0]]=a[1]});
-  function key(v,id){return v.L?'L4p'+v.L+':'+id:'mockp'+v.D+':'+id}
+  function key(v,id){return v.L?'L4p'+v.L+':'+id:v.F?'Fp'+v.F+':'+id:'mockp'+v.D+':'+id}
+  function stem(v){return v.L?'L4p'+v.L:v.F?'Fp'+v.F:'mockp'+v.D}
   function setOf(v){return secOf(v)}
   function isOn(v,id){var e=P[key(v,id)];return !!(e&&(e.n||e.t))}
   function prog(v){var n=0,d=0;ACT.forEach(function(a){if(setOf(v).url[a[0]]&&!OPT[a[0]]){n++;if(isOn(v,a[0]))d++}});return{n:n,d:d}}
-  var flat=[],map={};
-  VIS.forEach(function(V,wi){var r0=ROAD[wi][0].split('/');V.forEach(function(v,vi){var x=new Date(Y,r0[0]-1,+r0[1]+DOFF[vi]);var f={v:v,vi:vi,wi:wi,x:x,k:dkey(x),no:flat.length+1};flat.push(f);map[f.k]=f})});
-  flat.forEach(function(f){ACT.forEach(function(a){if(setOf(f.v).url[a[0]]){tot++;if(isOn(f.v,a[0]))got++}})});
-  if(!selD||!map[selD]){var ti=0;flat.forEach(function(f,i){if(f.x<=tdd)ti=i});selD=flat[ti].k}
-  if(now.getDay()===0){var left=0,ds=[];flat.forEach(function(x){if(x.wi!==cw)return;var q=prog(x.v);if(q.d<q.n){left+=q.n-q.d;ds.push('DAY '+x.no)}});
-    if(left)h+='<div class="warn"><b>오늘은 이번 주 마지막 날이에요</b><br>아직 안 끝난 활동이 '+left+'개 있어요 ('+ds.join(' · ')+'). 오늘 안에 하나라도 더 끝내 봐요. 시간이 없으면 지금 하는 DAY부터 이어서 해요.</div>'}
-  var wn=WN.count();h+='<a class="wnb" href="wrong.html"><span><b>오답 노트</b><small>'+(wn?'틀린 문제 '+wn+'개가 모여 있어요':'틀린 문제가 생기면 여기에 모여요')+'</small></span><span class="go">'+(wn?'다시 풀기':'열기')+'</span></a>';
-  var mx=WN.mixStat();h+='<a class="wnb mxb" href="mix.html"><span><b>전체 랜덤 20문항</b><small>'+(mx.round?mx.round+'회차 · 남은 문제 '+mx.left+'개':'교과서 전체에서 20문항씩, 겹치지 않게 풀어요')+'</small></span><span class="go">'+(!mx.round?'시작':mx.undone?'이어서 풀기':'다음 회차')+'</span></a>';
-  h+='<div class="exam"><b>기말고사 (12/1~12/4)</b><span>날짜를 눌러 그날 활동을 해요</span></div>';
-  var first=new Date(vy,vm,1),lead=(first.getDay()+6)%7,days=new Date(vy,vm+1,0).getDate();
-  h+='<div class="cal"><div class="calh"><button type="button" data-cal="-1">‹</button><b>'+vy+'년 '+(vm+1)+'월</b><button type="button" data-cal="1">›</button></div><div class="calg">';
-  WD.forEach(function(w,i){h+='<span class="wd'+(i===6?' sun':'')+'">'+w+'</span>'});
-  for(var i=0;i<lead;i++)h+='<span></span>';
-  for(var d=1;d<=days;d++){var k=dkey(new Date(vy,vm,d)),f=map[k],inw=k>=wk0&&k<=wk1,c='dd'+(EXAMD.indexOf(k)>=0?' ex':'')+(inw?' wk':'')+(k===td?' tod':'')+(((lead+d-1)%7)===6?' sun':'')+(k===selD?' sel':'');
-    if(f){var pr=prog(f.v);c+=' cl '+((pr.n>0&&pr.d>=pr.n)?'p2':pr.d>0?'p1':'p0');
-      h+='<button type="button" class="'+c+'" data-d="'+k+'">'+d+((pr.n>0&&pr.d>=pr.n)?'<small>✓</small>':'')+'</button>'}
-    else h+='<span class="'+c+'">'+d+'</span>'}
-  h+='</div><div class="lg"><span><i class="l0"></i>수업 날짜</span><span><i class="l1"></i>일부 했어요</span><span><i class="l2"></i>모두 했어요</span><span><i class="lx"></i>시험</span></div></div>';
-  var f=map[selD];
-  var wkd=flat.filter(function(x){return x.wi===f.wi});
-  h+='<div class="wkt"><div class="wkh"><b>'+(f.wi+1)+'주차 한눈에</b><span>'+esc(ROAD[f.wi][2])+'</span></div><table><thead><tr><th></th>'+wkd.map(function(x){var q=prog(x.v);return '<th><button type="button" data-d="'+x.k+'" class="'+(x.k===selD?'on':'')+'">DAY '+x.no+'<small>'+WDN[x.x.getDay()]+' '+(x.x.getMonth()+1)+'/'+x.x.getDate()+'</small></button></th>'}).join('')+'</tr></thead><tbody>'
-  +ACT.map(function(a,ai){return '<tr><td class="an">'+(ai+1)+'. '+esc(a[1])+(OPT[a[0]]?'<em>선택</em>':'')+'</td>'+wkd.map(function(x){var u=setOf(x.v).url[a[0]],c=CNT[key(x.v,a[0])];if(!u)return '<td class="no">준비 중</td>';var on=isOn(x.v,a[0]);return '<td class="'+(on?'dn':'')+(x.k===selD?' sl':'')+'">'+(on?'✓ ':'')+(c?(a[0]==='voc'?'약 ':'')+c+(a[0]==='find'?'개':''):'')+'</td>'}).join('')+'</tr>'}).join('')
-  +'</tbody></table></div>';
-  var v=f.v,pr=prog(v),late=f.x<tdd&&pr.d<pr.n;
-  h+='<div class="blk'+((pr.n>0&&pr.d>=pr.n)?' done':'')+'"><h2>'+(NDR[f.v.D]?'유형 풀코스 ':'')+'DAY '+f.no+((pr.n>0&&pr.d>=pr.n)?'<span class="tg t">완료</span>':'')+'<small class="rng">추천일 '+(f.x.getMonth()+1)+'/'+f.x.getDate()+' ('+WDN[f.x.getDay()]+') · 요일이 달라도 DAY 순서대로 하면 돼요</small>'+'<small class="rng"><b>'+esc(v.t)+'</b> · '+esc(v.s)+'</small>'+(v.x?'<small class="rng">'+esc(v.x)+'</small>':'')+'</h2><div class="rows">';
+  function isDone(v){if(v.F)return isOn(v,'wk')||isOn(v,'wt');var q=prog(v);return q.n>0&&q.d>=q.n}
+  var flat=[],sc={};
+  VIS.forEach(function(v){sc[v.src]=(sc[v.src]||0)+1;flat.push({v:v,src:v.src,n:sc[v.src],no:flat.length+1})});
+  function lblNo(f){return (PERSRC?f.n:f.no)+'회'}
+  function lblFull(f){return lblNo(f)+' ('+f.src+')'}
+  /* 완료 날짜 기록(추가 저장소): 처음 완료로 확인된 회의 날짜를 한 번만 적는다 */
+  var CK='vhc:'+WN.school,rec={},chg=0,cnt={},doneN=0,wkN=0,qN=0;
+  try{rec=JSON.parse(localStorage.getItem(CK)||'{}')}catch(e){rec={}}
+  flat.forEach(function(f){f.done=isDone(f.v);if(!f.done)return;doneN++;var st=stem(f.v);
+    if(!rec[st]){var mt=0;ACT.forEach(function(a){var e=P[key(f.v,a[0])];if(e&&e.t&&e.t>mt)mt=e.t});rec[st]=dkey(mt?new Date(mt):now);chg=1}
+    cnt[rec[st]]=(cnt[rec[st]]||0)+1;if(rec[st]>=wk0&&rec[st]<=wk1)wkN++;
+    ACT.forEach(function(a){if(isOn(f.v,a[0])&&CNT[key(f.v,a[0])])qN+=CNT[key(f.v,a[0])]})});
+  if(chg)try{localStorage.setItem(CK,JSON.stringify(rec))}catch(e){}
+  var N=flat.length;
+  if(!selNo||selNo<1||selNo>N){selNo=N;for(var i=0;i<N;i++)if(!flat[i].done){selNo=i+1;break}}
+  var wn=WN.count();h+='<a class="wnb" href="wrong.html"><span><b>오답 노트</b><small>1차 오답은 자동 저장, 2차 오답은 별표(★) 표시</small></span><span class="go">열기</span></a>';
+  h+='<a class="wnb mxb" href="mix.html"><span><b>랜덤 문제 풀기</b><small>범위와 유형을 골라 20문항씩 풀어요</small></span><span class="go">시작</span></a>';
+  h+='<div class="exam"><b>기말고사 (12/1(화)~12/4(금))</b><span>'+(wkN>=3?'이번 주 목표 완료 · '+wkN+'회':'이번 주 3회 중 '+wkN+'회')+'</span></div>';
+  /* 달력 */
+  var MIN=new Date(2026,9,1),MAX=new Date(2026,11,1),W0=weekStart(new Date(2026,9,19)),W1=weekStart(EXAM);
+  if(!wsel)wsel=weekStart(now);
+  function cellH(dt){var k=dkey(dt),n=cnt[k]||0,wd=(dt.getDay()+6)%7;
+    return '<span class="d'+(wd===6?' sun':'')+(EXAMD.indexOf(k)>=0?' ex':'')+(k===td?' tod':'')+(n?' dn':'')+'"><span class="n">'+dt.getDate()+'</span>'+(n>1?'<i class="bd">'+n+'</i>':'')+'</span>'}
+  var cm=cmode==='m',title,pv,nx,cells='';
+  if(cm){var first=new Date(vy,vm,1),lead=(first.getDay()+6)%7,days=new Date(vy,vm+1,0).getDate();
+    title=vy+'년 '+(vm+1)+'월';pv=new Date(vy,vm,1)<=MIN;nx=new Date(vy,vm,1)>=MAX;
+    for(var i=0;i<lead;i++)cells+='<span></span>';for(var d=1;d<=days;d++)cells+=cellH(new Date(vy,vm,d))}
+  else{var e7=new Date(wsel);e7.setDate(e7.getDate()+6);title=fmtMD(wsel)+' ~ '+fmtMD(e7);pv=wsel<=W0;nx=wsel>=W1;
+    for(var i=0;i<7;i++){var dd=new Date(wsel);dd.setDate(dd.getDate()+i);cells+=cellH(dd)}}
+  h+='<div class="ncal"><div class="nch"><button type="button" data-cal="-1"'+(pv?' disabled':'')+'>‹</button><b>'+title+'</b><button type="button" data-cal="1"'+(nx?' disabled':'')+'>›</button></div><div class="ncg">';
+  WD.forEach(function(w,i){h+='<span class="w'+(i===6?' sun':'')+'">'+w+'</span>'});
+  h+=cells+'</div><div class="nlg"><span><i class="lt"></i>오늘</span><span><i class="lc"></i>완료한 날</span><span><i class="lx"></i>시험</span></div><button type="button" class="nfold" data-fold="1">'+(cm?'주간으로 접기':'월간 달력 펼치기')+'</button></div>';
+  /* 선택한 회 */
+  var f=flat[selNo-1],v=f.v,pr=prog(v);
+  h+='<div class="blk'+(f.done?' done':'')+'"><h2>유형 풀코스 · '+lblFull(f)+(f.done?'<span class="tg t">완료</span>':'')+'<small class="rng">'+(v.t?'<b>'+esc(v.t)+'</b> · ':'')+esc(v.s)+'</small>'+(v.x?'<small class="rng">'+esc(v.x)+'</small>':'')+'</h2><div class="rows">';
   ACT.forEach(function(a){var id=a[0],sc=setOf(v),u=sc.url[id];if(!u)return;
     var on=isOn(v,id);
-    h+='<div class="arow"><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+(CNT[key(v,id)]?' <span class="cn">'+(id==='voc'&&v.L?'약 ':'')+CNT[key(v,id)]+(id==='find'?'개':'문제')+'</span>':'')+'</b>'+vrt(id,sc)+'<div class="two" style="grid-template-columns:1fr"><a class="cell'+(on?' on':'')+'" href="'+u+'?part='+(v.L||v.D)+'">'+(on?'했어요':'풀기')+'<small>'+(on?'✓'+durTxt(key(v,id)):'')+'</small></a></div></div>'});
-  h+='</div></div>';
-  var SH={voc:'어휘',find:'TF',eobeop:'어법',ko:'한글',abc:'ABC',mun:'삽입',awk:'어색',blank:'빈칸',und:'밑줄'};
+    h+='<div class="arow"><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+(CNT[key(v,id)]?' <span class="cn">'+(id==='voc'&&v.L?'약 ':'')+CNT[key(v,id)]+(id==='find'?'개':'문제')+'</span>':'')+'</b>'+vrt(id,sc)+'<div class="two" style="grid-template-columns:1fr"><a class="cell'+(on?' on':'')+'" href="'+(v.F?u:u+'?part='+(v.L||v.D))+'"'+(v.F?' data-fm="'+key(v,id)+'"':'')+'>'+(on?'했어요':'풀기')+'<small>'+(v.F&&WN.solvedBy(id==='wk'?'w':'m')?WN.solvedBy(id==='wk'?'w':'m')+'문제 풀었어요':on?'✓'+durTxt(key(v,id)):'')+'</small></a></div></div>'});
+  if(!pr.n)h+='<div class="soonbox">내용은 준비 중이에요</div>';
+  var qt=0;ACT.forEach(function(a){if(setOf(v).url[a[0]]&&CNT[key(v,a[0])])qt+=CNT[key(v,a[0])]});
+  if(qt)h+='<div class="qtot"><span>이 회 합계</span><b>약 '+qt+'문제</b></div>';
+  h+='</div></div><div class="rnav"><button type="button" data-no="-1"'+(selNo<=1?' disabled':'')+'>이전 회</button><button type="button" data-no="1"'+(selNo>=N?' disabled':'')+'>다음 회</button></div>';
+  var SH={voc:'어휘',find:'TF',eobeop:'어법',ko:'한글',abc:'ABC',mun:'삽입',awk:'어색',blank:'빈칸',und:'밑줄',wk:'오답',wt:'약점'};
   function TGR(){var Q=PG.get(),cols=[];
     ACT.forEach(function(a){var any=false;flat.forEach(function(f){if(setOf(f.v).url[a[0]]&&!OPT[a[0]])any=true});if(any)cols.push(a)});
     var o='<div style="overflow-x:auto"><table class="tgt"><thead><tr><th></th>'+cols.map(function(a){return '<th>'+esc(SH[a[0]]||a[1])+'</th>'}).join('')+'</tr></thead><tbody>';
-    flat.forEach(function(f){var ks=[],tds=cols.map(function(a){if(!setOf(f.v).url[a[0]]||OPT[a[0]])return '<td class="na"></td>';var k=key(f.v,a[0]);ks.push(k);var e=Q[k],on=!!(e&&(e.n||e.t));return '<td class="c'+(on?' on':'')+'" data-tc="'+k+'">'+(on?'\u2713':'')+'</td>'}).join('');
-      if(!ks.length)return;o+='<tr><th class="rw" data-tr="'+ks.join(',')+'">DAY '+f.no+'<small>'+(f.v.L?'본문 '+f.v.L:(f.x.getMonth()+1)+'/'+f.x.getDate())+'</small></th>'+tds+'</tr>'});
+    flat.forEach(function(f){var ks=[],tds=cols.map(function(a){if(!setOf(f.v).url[a[0]]||OPT[a[0]])return '<td class="na"></td>';var k=key(f.v,a[0]);ks.push(k);var e=Q[k],on=!!(e&&(e.n||e.t));return '<td class="c'+(on?' on':'')+'" data-tc="'+k+'">'+(on?'✓':'')+'</td>'}).join('');
+      if(!ks.length)return;o+='<tr><th class="rw" data-tr="'+ks.join(',')+'">'+lblNo(f)+'<small>'+esc(f.src)+'</small></th>'+tds+'</tr>'});
     return o+'</tbody></table></div>'}
   window.TGR=TGR;
   /* 학습 기록 카드 (인증샷용 · 새 기기 복구용) */
   var last=null,nxt=null,doneDays=0;
-  flat.forEach(function(f){var all=true,hasA=false;ACT.forEach(function(a){if(!setOf(f.v).url[a[0]]||OPT[a[0]])return;hasA=true;var e=P[key(f.v,a[0])];if(e&&e.t&&(!last||e.t>=last.t))last={t:e.t,f:f,a:a};if(!isOn(f.v,a[0])){all=false;if(!nxt)nxt={f:f,a:a}}});if(all&&hasA)doneDays++});
+  flat.forEach(function(f){var all=true;ACT.forEach(function(a){if(!setOf(f.v).url[a[0]]||OPT[a[0]])return;var e=P[key(f.v,a[0])];if(e&&e.t&&(!last||e.t>=last.t))last={t:e.t,f:f,a:a};if(!isOn(f.v,a[0])){all=false;if(!nxt)nxt={f:f,a:a}}});if(all)doneDays++});
   function fmt(t){var d=new Date(t);return (d.getMonth()+1)+'/'+d.getDate()+' ('+WDN[d.getDay()]+') '+('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)}
-  function lbl(x){return 'DAY '+x.f.no+' · '+(ACT.indexOf(x.a)+1)+'. '+x.a[1]}
+  function lbl(x){return lblFull(x.f)+' · '+(ACT.indexOf(x.a)+1)+'. '+x.a[1]}
   h+='<div class="rec"><div class="rh"><b>내 학습 기록</b><span>인증샷용</span></div>'
    +'<div class="rr"><em>마지막으로 끝낸 활동</em><b>'+(last?lbl(last)+'</b><small>'+fmt(last.t):'아직 없어요</b><small>')+'</small></div>'
-   +'<div class="rr nx"><em>다음에 할 활동</em><b>'+(nxt?lbl(nxt):'모두 끝냈어요 🎉')+'</b></div>'
-   +'<div class="rr"><em>전체 진행</em><b>'+got+' / '+tot+' 활동 · '+doneDays+' / '+flat.filter(function(f){return Object.keys(setOf(f.v).url).length}).length+' DAY 완료</b></div>'
+   +'<div class="rr nx"><em>다음에 할 활동</em><b>'+(nxt?lbl(nxt):'모두 끝냈어요')+'</b></div>'
+   +'<div class="rr"><em>전체 진행</em><b>'+doneN+' / '+N+'회 완료</b></div>'
    +'<div class="rs">이 화면을 캡처해 두면, 기기가 바뀌어도 어디까지 했는지 바로 알 수 있어요.<br>캡처 시각: '+fmt(Date.now())+'</div>'
    +(TUN?'<div class="tgh"><b>선생님 확인</b><button type="button" data-rest="9">닫기</button></div><div id="tg">'+TGR()+'</div>':'<details class="rst"><summary>기록 옮기기 · 선생님 확인</summary><div class="rsi"><div class="rsel" style="margin-top:8px"><input id="rpin" type="password" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="선생님 확인 번호" style="flex:1;min-width:0;font:inherit;font-size:14px;padding:9px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)"><button type="button" class="rbtn" data-rest="3" style="margin-top:0;width:auto;padding:9px 16px">확인</button></div><div id="rmsg" style="font-size:12.5px;color:#dc2626;margin-top:6px"></div></div></details>')+'</div>';
-  h+='<div class="road"><div class="rh"><b>시험까지 큰 흐름</b><span>기말고사 (12/1~12/4)</span></div>';
+  h+='<div class="road"><div class="rh"><b>시험까지 큰 흐름</b><span>기말고사 (12/1(화)~12/4(금))</span></div>';
   ROAD.forEach(function(w,i){h+='<div class="wr'+(i===cw?' cur':'')+(i<cw?' past':'')+'"><span class="wn">'+(i+1)+'주</span><span class="wd2">'+w[0]+'~'+w[1]+'</span><span class="wm"><b>'+esc(w[2])+'</b> '+esc(w[3]).replace(/\n/g,'<br>')+'</span></div>'});
   h+='</div>';
   document.getElementById('today').innerHTML=h;
-  document.getElementById('sum').textContent=got+' / '+tot+' 활동';
-  document.getElementById('sbar').style.width=(tot?Math.round(got*100/tot):0)+'%';
+  document.getElementById('sum').textContent=doneN>=N?'전체 완료':N+'회 중 '+doneN+'회';
+  document.getElementById('sbar').style.width=Math.round(doneN*100/N)+'%';
+  var qAll=qN+WN.solved();document.getElementById('qsum').textContent=qAll?'지금까지 '+qAll+'문제':'';
 }
 var KEYS=[
  {"g":"교과서 4과","open":1,"subs":[{"t":"","items":[["빈칸 우리말 정답","정답·해설","L4/hangeul.html","key:L4:hangeul"],["어법 선택형","정답·해설","L4/eobeop.html","key:L4:eobeop"],["동사형","정답·해설","L4/dongsa.html","key:L4:dongsa"],["빈칸 영어 정답","정답·해설","L4/yeongeo.html","key:L4:yeongeo"]]}]},
@@ -267,6 +328,7 @@ function keys(){
   document.getElementById('keys').innerHTML=h;
 }
 document.getElementById('today').addEventListener('click',function(e){
+  var fm=e.target.closest('[data-fm]');if(fm){try{PG.mark(fm.dataset.fm)}catch(x){}return}
   var nt=e.target.closest('[data-note]');if(nt){e.preventDefault();var kk=nt.dataset.note,en=PG.get()[kk];if(en&&en.n&&en.t>=weekStart(new Date()).getTime())PG.unmark(kk);else PG.mark(kk);today();return}
   var rb=e.target.closest('[data-rest]');if(rb){
     if(rb.dataset.rest==='9'){TUN=false;today();return}
@@ -275,11 +337,12 @@ document.getElementById('today').addEventListener('click',function(e){
         if(hx!==RHASH){var m=document.getElementById('rmsg');if(m)m.textContent='번호가 맞지 않아요';return}
         TUN=true;today()})}
     return}
-  var tc=e.target.closest('[data-tc]');if(tc){var kk2=tc.dataset.tc,en2=PG.get()[kk2];if(en2&&(en2.n||en2.t))PG.unmark(kk2);else PG.mark(kk2);document.getElementById('tg').innerHTML=window.TGR();return}
+  var tc=e.target.closest('[data-tc]');if(tc){var kk2=tc.dataset.tc,en2=PG.get()[kk2];if(en2&&(en2.n||en2.t))PG.unmark(kk2);else PG.mark(kk2);today();return}
   var tr=e.target.closest('[data-tr]');if(tr){var ks=tr.dataset.tr.split(','),Q2=PG.get(),allOn=ks.every(function(x){var q=Q2[x];return q&&(q.n||q.t)});
-    ks.forEach(function(x){var q=Q2[x],on=q&&(q.n||q.t);if(allOn)PG.unmark(x);else if(!on)PG.mark(x)});document.getElementById('tg').innerHTML=window.TGR();return}
-  var dsel=e.target.closest('[data-d]');if(dsel){selD=dsel.dataset.d;today();return}
-  var c=e.target.closest('[data-cal]');if(c){vm+=+c.dataset.cal;if(vm<0){vm=11;vy--}if(vm>11){vm=0;vy++}today()}
+    ks.forEach(function(x){var q=Q2[x],on=q&&(q.n||q.t);if(allOn)PG.unmark(x);else if(!on)PG.mark(x)});today();return}
+  var ns=e.target.closest('[data-no]');if(ns){selNo+=+ns.dataset.no;today();return}
+  var fd=e.target.closest('[data-fold]');if(fd){if(cmode==='m'){cmode='w';wsel=weekStart(new Date())}else{cmode='m';vy=new Date().getFullYear();vm=new Date().getMonth()}today();return}
+  var c=e.target.closest('[data-cal]');if(c){if(c.disabled)return;if(cmode==='m'){vm+=+c.dataset.cal;if(vm<0){vm=11;vy--}if(vm>11){vm=0;vy++}}else{wsel=new Date(wsel);wsel.setDate(wsel.getDate()+7*(+c.dataset.cal))}today()}
 });
 var hide15=false;
 function curUnits(){var o={},lab='';try{lab=ROAD[curWeek(new Date())][2]}catch(e){}
