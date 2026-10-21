@@ -19,9 +19,13 @@
 .mfin{background:var(--priL);border-radius:14px;padding:14px;margin:12px 0;text-align:center}.mfin b{font-size:17px;color:var(--navy)}.mfin p{margin:4px 0 0;font-size:14px;color:var(--sub)}
 .hd{margin:16px 2px 4px;font-size:14px;font-weight:800;color:var(--sub)}
 .cy{font-size:13px;color:#b45309;margin:8px 0 0}
+.hd2{margin:12px 2px 6px;font-size:13.5px;font-weight:800;color:var(--sub)}
+.chips{display:flex;flex-wrap:wrap;justify-content:flex-start!important;gap:7px;margin:0 0 4px}.chip{border:1.5px solid var(--line);background:var(--card);color:var(--navy);border-radius:999px;padding:9px 14px;font:700 14px/1 inherit;font-family:inherit;cursor:pointer}.chip.on{background:var(--pri);border-color:var(--pri);color:#fff}
+.rem{font-size:12.5px;color:var(--sub);margin:8px 2px 0}
+@media(prefers-color-scheme:dark){.chip.on,.btn{color:#0b1220}}
 </style></head><body><div class="wrap"><div class="top"><a class="back" href="index.html">← 목록</a></div>
 <h1>전체 랜덤 20문항</h1>
-<p class="note">교과서 전체에서 여러 유형을 골고루 섞어 한 회차에 20문항씩 내요. 한 번 나온 문제는 다음 회차에 나오지 않아요. 풀다가 나가도 같은 회차를 이어서 풀 수 있어요. 틀린 문제는 오답 노트에 담겨요.</p>
+<div id="sel"></div>
 <div id="st"></div>
 <div class="foot" style="text-align:center;color:var(--sub);font-size:13px;margin-top:26px">비타민 영어클리닉</div></div>
 <a class="homefab" href="index.html">⌂ 목록</a>
@@ -29,10 +33,10 @@
 <script>
 (function(){
 var KEY='vhmx:'+WN.school,QUOTA=20;
-var NM={voc:'어휘',find:'TF',eobeop:'어법선택',ko:'한글 순서',mun:'문장삽입',awk:'어색한 곳',blank:'빈칸추론'};
-var ORDER=['voc','find','eobeop','ko','mun','awk','blank'];
+var NM={voc:'어휘',find:'TF',eobeop:'어법선택',ko:'한글 순서',abc:'ABC 순서',mun:'문장삽입',awk:'어색한 곳',blank:'빈칸추론'};
+var ORDER=['voc','find','eobeop','ko','abc','mun','awk','blank'];
 var FILE={voc:'vocab.html',find:'find.html',eobeop:'eobeop-test.html',ko:'sunseo-ko.html',abc:'sunseo-abc.html',mun:'sunseo-mun.html',awk:'awkward-test.html',blank:'blank.html'};
-var KN={L3:'교과서 3과',L4:'교과서 4과',mock:'모의고사'};
+var KN={L3:'교과서 3과',L4:'교과서 4과',mock:'모의고사'},RN={all:'전체',L3:'3과',L4:'4과',mock:'모의고사'};
 function E(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function pname(k,p){var n=PARTS.names&&PARTS.names[k]&&PARTS.names[k][p];return n||(p?('구간 '+p):'전체')}
 function uid(k,p,a,q){return k+':'+p+':'+a+':'+q}
@@ -41,61 +45,78 @@ function save(o){try{localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}}
 function rnd(a){return a[Math.floor(Math.random()*a.length)]}
 var POOL=(window.MIXPOOL?MIXPOOL.units:[]).map(function(u){return{k:u[0],p:u[1],a:u[2],q:u[3],w:u[4],id:uid(u[0],u[1],u[2],u[3])}});
 var TOTAL=POOL.reduce(function(n,u){return n+u.w},0);
+var RANGES=['L3','L4','mock'].filter(function(k){return POOL.some(function(u){return u.k===k})});
 function acts(){var s={};POOL.forEach(function(u){s[u.a]=1});return ORDER.filter(function(a){return s[a]})}
 
-/* 새 회차 뽑기: 안 쓴 문제만, 유형·구간이 골고루 */
-function draw(S0){
-  var used={};(S0.used||[]).forEach(function(i){used[i]=1});
+/* 새 세트 뽑기: 고른 범위·유형에서 안 푼 문제만, 유형·구간이 골고루. 고른 문제가 다 소진되면 그 문제들만 새로 섞는다. */
+function filt(sel){return POOL.filter(function(u){return(sel.range==='all'||u.k===sel.range)&&(!sel.types.length||sel.types.indexOf(u.a)>=0)})}
+function usedMap(S0){var m={};(S0.used||[]).forEach(function(i){m[i]=1});return m}
+function remain(S0,sel){var m=usedMap(S0);return filt(sel).reduce(function(n,u){return n+(m[u.id]?0:u.w)},0)}
+function draw(S0,sel){
+  var used=usedMap(S0),F=filt(sel),wrapped=false;
   var prev={};(S0.cur||[]).forEach(function(x){prev[uid(x.kind,x.part,x.act,x.qid)]=1});
-  var A=acts(),cur=[],curS={},tot=0,acc={},bk={},reset=false,relax=false,guard=0,wrapped=false;
-  function pool(a){return POOL.filter(function(u){return u.a===a&&!used[u.id]&&!curS[u.id]&&(relax||!prev[u.id])})}
+  if(!F.some(function(u){return!used[u.id]})){wrapped=true;F.forEach(function(u){delete used[u.id]})}
+  var A=ORDER.filter(function(a){return F.some(function(u){return u.a===a})}),cur=[],curS={},tot=0,acc={},bk={},relax=!wrapped,guard=0;
+  function pool(a){return F.filter(function(u){return u.a===a&&!used[u.id]&&!curS[u.id]&&(relax||!prev[u.id])})}
   while(tot<QUOTA&&guard++<500){
     var rem=QUOTA-tot,lim=rem,opts;
     for(var pass=0;pass<2;pass++){
       opts=A.map(function(a){return{a:a,l:pool(a).filter(function(u){return u.w<=lim})}}).filter(function(o){return o.l.length});
       if(opts.length)break;lim=rem+2}
-    if(!opts.length){
-      if(A.some(function(a){return pool(a).length}))break;
-      if(!reset){reset=true;wrapped=true;used={};continue}
-      if(!relax){relax=true;continue}
-      break}
+    if(!opts.length){if(!relax){relax=true;continue}break}
     var mn=Math.min.apply(null,opts.map(function(o){return acc[o.a]||0}));
     var o=rnd(opts.filter(function(o){return(acc[o.a]||0)===mn}));
     var bm=Math.min.apply(null,o.l.map(function(u){return bk[u.k+':'+u.p]||0}));
     var u=rnd(o.l.filter(function(u){return(bk[u.k+':'+u.p]||0)===bm}));
     cur.push({kind:u.k,part:u.p,act:u.a,qid:u.q,w:u.w});curS[u.id]=1;tot+=u.w;acc[u.a]=(acc[u.a]||0)+u.w;bk[u.k+':'+u.p]=(bk[u.k+':'+u.p]||0)+1}
-  var nu=(wrapped?[]:(S0.used||[]).slice());cur.forEach(function(x){nu.push(uid(x.kind,x.part,x.act,x.qid))});
-  return{round:(S0.round||0)+1,used:nu,cur:cur,done:{},open:{},cyc:(S0.cyc||0)+(wrapped?1:0),wrap:wrapped?1:0}}
+  var nu=Object.keys(used);cur.forEach(function(x){nu.push(uid(x.kind,x.part,x.act,x.qid))});
+  return{round:(S0.round||0)+1,used:nu,cur:cur,done:{},open:{},cyc:(S0.cyc||0)+(wrapped?1:0),wrap:wrapped?1:0,sel:sel,desc:(RANGES.length>1?RN[sel.range]:RN[RANGES[0]]||'전체')+' · '+(sel.types.length?sel.types.map(function(a){return NM[a]}).join(', '):'전체 유형')}}
 
 function bundles(S){var g={};S.cur.forEach(function(x){var k=x.kind+'|'+x.part+'|'+x.act;(g[k]=g[k]||{kind:x.kind,part:x.part,act:x.act,k:k,n:0}).n+=x.w});
   return Object.keys(g).map(function(k){return g[k]}).sort(function(a,b){return(ORDER.indexOf(a.act)-ORDER.indexOf(b.act))||(a.kind<b.kind?-1:a.kind>b.kind?1:0)||(a.part-b.part)})}
-function left(S){var u={};(S.used||[]).forEach(function(i){u[i]=1});return POOL.reduce(function(n,p){return n+(u[p.id]?0:p.w)},0)}
 
-var st=document.getElementById('st'),confirmT=0;
+var sel=document.getElementById('sel'),st=document.getElementById('st'),confirmT=0;
+var SEL={range:'all',types:[]};
+(function(){var S=load();if(S&&S.sel&&S.sel.range&&S.sel.types)SEL={range:S.sel.range,types:S.sel.types.slice()}})();
+function paintSel(){
+  var S=load()||{used:[],cur:[],round:0},av={};POOL.forEach(function(u){av[u.a]=1});
+  var types=ORDER.filter(function(a){return av[a]}),rem=remain(S,SEL),tot=filt(SEL).reduce(function(n,u){return n+u.w},0);
+  if(RANGES.length<2)SEL.range='all';else if(SEL.range!=='all'&&RANGES.indexOf(SEL.range)<0)SEL.range='all';
+  var h=(RANGES.length>1?'<div class="hd2">범위</div><div class="chips">'+['all'].concat(RANGES).map(function(r){return'<button type="button" class="chip'+(SEL.range===r?' on':'')+'" data-r="'+r+'">'+RN[r]+'</button>'}).join('')+'</div>':'')
+   +'<div class="hd2">유형</div><div class="chips"><button type="button" class="chip'+(SEL.types.length?'':' on')+'" data-t="all">전체</button>'+types.map(function(a){return'<button type="button" class="chip'+(SEL.types.indexOf(a)>=0?' on':'')+'" data-t="'+a+'">'+NM[a]+'</button>'}).join('')+'</div>'
+   +'<div class="rem">남은 문제 '+rem+'개 (전체 '+tot+'개)</div>';
+  var lab=!tot?'':rem===0?'새로 섞어서 '+Math.min(QUOTA,tot)+'문항 시작':rem<QUOTA?'남은 '+rem+'문항 풀기':QUOTA+'문항 시작';
+  var undone=S.cur&&S.cur.length&&bundles(S).some(function(b){return!(S.done&&S.done[b.k])});
+  h+=tot?'<button class="btn" id="go">'+(confirmT?'풀던 세트가 있어요. 정말 새로 시작할까요?':lab)+'</button>':'<div class="rem">이 범위에는 해당 유형 문제가 없어요.</div>';
+  sel.innerHTML=h;
+  var go=document.getElementById('go');
+  if(go)go.onclick=function(){
+    var S1=load()||{used:[],cur:[],round:0},und=S1.cur&&S1.cur.length&&bundles(S1).some(function(b){return!(S1.done&&S1.done[b.k])});
+    if(und&&!confirmT){confirmT=1;paintSel();setTimeout(function(){if(confirmT){confirmT=0;paintSel()}},4000);return}
+    confirmT=0;save(draw(S1,{range:SEL.range,types:SEL.types.slice()}));window.scrollTo(0,0);paint()}}
+sel.addEventListener('click',function(e){
+  var r=e.target.closest('button[data-r]');if(r){SEL.range=r.dataset.r;confirmT=0;paintSel();return}
+  var t=e.target.closest('button[data-t]');if(!t)return;confirmT=0;
+  if(t.dataset.t==='all')SEL.types=[];else{var i=SEL.types.indexOf(t.dataset.t);if(i>=0)SEL.types.splice(i,1);else SEL.types.push(t.dataset.t)}
+  paintSel()});
 function paint(){
+  paintSel();
   var S=load();
   if(!POOL.length){st.innerHTML='<div class="note">아직 준비된 문제가 없어요.</div>';return}
-  if(!S||!S.round){
-    st.innerHTML='<div class="st"><div class="r">아직 시작 전이에요</div><div class="s">준비된 문제 '+TOTAL+'개 중에서 뽑아요</div><button class="btn" id="go">1회차 시작</button></div>';
-    document.getElementById('go').onclick=function(){save(draw({used:[],cur:[],round:0}));paint()};return}
+  if(!S||!S.round||!S.cur||!S.cur.length){st.innerHTML='';return}
   var B=bundles(S),nd=B.filter(function(b){return S.done&&S.done[b.k]}).length,all=nd===B.length,n=S.cur.reduce(function(a,x){return a+x.w},0);
-  var h='<div class="st"><div class="r">'+S.round+'회차 · '+n+'문항</div><div class="s">남은 문제 '+left(S)+'개 (전체 '+TOTAL+'개) · 묶음 '+nd+' / '+B.length+' 끝</div><div class="mbar"><i style="width:'+Math.round(nd/B.length*100)+'%"></i></div>'
-   +(S.wrap?'<div class="cy">준비된 문제를 한 바퀴 다 풀어서, 문제를 새로 섞었어요.</div>':'')
-   +(all?'':'<button class="btn l" id="nw">'+(confirmT?'남은 묶음이 있어요. 정말 새 회차로 갈까요?':'새 회차 시작')+'</button>')+'</div>';
-  if(all)h+='<div class="mfin"><b>'+S.round+'회차 끝</b><p>잘했어요. 다음 회차에는 지금까지 나온 문제가 다시 나오지 않아요.</p></div><button class="btn" id="nw">다음 회차 시작</button>';
-  h+='<div class="hd">이번 회차 묶음 · 눌러서 풀기</div>';
+  var h='<div class="st"><div class="r">랜덤 '+S.round+'회 · '+n+'문항</div><div class="s">'+E(S.desc||'')+' · 묶음 '+nd+' / '+B.length+' 끝</div><div class="mbar"><i style="width:'+Math.round(nd/B.length*100)+'%"></i></div>'
+   +(S.wrap?'<div class="cy">고른 문제를 한 바퀴 다 풀어서, 문제를 새로 섞었어요.</div>':'')+'</div>';
+  if(all)h+='<div class="mfin"><b>랜덤 '+S.round+'회 끝</b></div>';
+  h+='<div class="hd">이번 세트 묶음</div>';
   B.forEach(function(b){var d=S.done&&S.done[b.k],o=S.open&&S.open[b.k];
     h+='<div class="mg'+(d?' dn':'')+'"><div class="gh"><div class="t">'+E(NM[b.act]||b.act)+(d?'<span class="mok">✓ 끝</span>':'')+'<small>'+E(KN[b.kind]||b.kind)+' · '+E(pname(b.kind,b.part))+' · '+b.n+'문항</small></div>'
      +'<a class="go" data-k="'+E(b.k)+'" href="'+b.kind+'/'+FILE[b.act]+'?part='+b.part+'&mix=1">'+(d?'다시 보기':o?'이어서 풀기':'풀기')+'</a></div>'
      +(d?'':'<button type="button" class="mmk" data-k="'+E(b.k)+'">다 풀었어요 (끝냈다고 표시)</button>')+'</div>'});
-  st.innerHTML=h;
-  var nw=document.getElementById('nw');
-  if(nw)nw.onclick=function(){
-    if(!all&&!confirmT){confirmT=1;paint();setTimeout(function(){if(confirmT){confirmT=0;paint()}},4000);return}
-    confirmT=0;var S1=load();save(draw(S1));window.scrollTo(0,0);paint()}}
+  st.innerHTML=h}
 st.addEventListener('click',function(e){
   var a=e.target.closest('a.go');if(a){var S=load();if(S){S.open=S.open||{};S.open[a.dataset.k]=1;save(S)}return}
-  var m=e.target.closest('button.mmk');if(m){var S2=load();if(S2){S2.done=S2.done||{};S2.done[m.dataset.k]=1;save(S2);paint()}}});
+  var m=e.target.closest('button.mmk');if(m){var S2=load();if(S2){S2.done=S2.done||{};if(!S2.done[m.dataset.k]){var n=0;S2.cur.forEach(function(x){if(x.kind+'|'+x.part+'|'+x.act===m.dataset.k)n+=x.w});if(window.WN&&WN.addSolved)WN.addSolved(n,'m')}S2.done[m.dataset.k]=1;save(S2);paint()}}});
 /* 풀이 화면에서 돌아오면 최신 상태로 */
 addEventListener('pageshow',function(){paint()});
 paint();
