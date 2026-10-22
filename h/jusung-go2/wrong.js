@@ -118,3 +118,5 @@ var WN=(function(){
     items:function(kind,part,act){if(MX)return mxPick(kind,part,act);return load().filter(function(x){return x.kind===kind&&x.part===part&&x.act===act&&(!SR||x.star!==false)})}
   }
 })();
+/* REC 연동 불러오기 (고등 앱 폴더에서만 작동) */
+(function(){try{if(window.__recl||!/\/h\/(geumcheon|jusung|cheongseok)-(gimal|go2)\//.test(location.pathname))return;window.__recl=1;var s=document.createElement('script');s.src=location.pathname.replace(/\/h\/.*$/,'/h/rec.js')+'?v=1';(document.head||document.documentElement).appendChild(s)}catch(e){}})();
