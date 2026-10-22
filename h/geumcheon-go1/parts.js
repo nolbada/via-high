@@ -60,17 +60,3 @@ function partKey(kind){return PART?kind+'p'+PART:kind}
   });
 })();
 
-/* 상단 고정 이름표 (261022): 스크롤해도 맨 위에 작게 보이는 학원 이름 */
-(function(){
-  var HH=20;
-  function go(){
-    if(document.getElementById('vbrand')||!document.body)return;
-    var d=document.createElement('div');d.id='vbrand';d.textContent='비타민 영어클리닉';
-    d.style.cssText='position:fixed;top:0;left:0;right:0;height:'+HH+'px;text-align:center;font-weight:600;font-size:11px;line-height:'+HH+'px;font-family:sans-serif;letter-spacing:.14em;color:var(--sub,#64748b);background:var(--bg,#fff);z-index:50;pointer-events:none';
-    document.body.appendChild(d);
-    var pt=parseFloat(getComputedStyle(document.body).paddingTop)||0;document.body.style.paddingTop=(pt+HH)+'px';
-    var els=document.querySelectorAll('body *');
-    for(var i=0;i<els.length;i++){var s=getComputedStyle(els[i]);if(s.position==='sticky'&&parseFloat(s.top)===0)els[i].style.top=HH+'px'}
-  }
-  if(document.readyState==='complete')go();else addEventListener('load',go);
-})();
