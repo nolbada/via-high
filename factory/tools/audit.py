@@ -24,6 +24,8 @@ PROBES=[
  ('기록 소요시간','.pr .ph span','fontSize'),
  ('학습 기록 카드','.rec','borderTopWidth,borderRadius,paddingTop,paddingLeft'),
  ('기록 소제목','.rr em','fontSize'),
+ ('총 소요시간 줄','.dtot','fontSize,marginTop,paddingTop'),
+ ('활동별 소요시간','.pn small','fontSize'),
 ]
 COLORS=[('완료 체크칸 배경','.arow .ck i.okb','backgroundColor','--pri'),('완료 체크 글자','.arow .ck i.okb','color','--onpri'),
  ('체크한 유형 버튼 배경','.qgo','backgroundColor','--pri'),('켜진 배지 배경','.pn.on i','backgroundColor','--pri'),('켜진 배지 글자','.pn.on i','color','--onpri'),
@@ -53,6 +55,7 @@ def measure(pg,base,sc):
     S['이어서 풀기 카드']=pg.locator('.rsm').count()==1
     S['학습기록 제목']=(pg.locator('.rec .rr em').first.inner_text() if pg.locator('.rec .rr em').count() else '')
     S['학습기록 회 머리글']=pg.locator('.pr .ph').first.inner_text().replace('\n',' ') if pg.locator('.pr .ph').count() else None
+    S['소요시간 표시(총합+활동별)']=pg.locator('.dtot').count()==1 and pg.locator('.pn small').count()>=1
     S['달력 날짜 눌러보기']=pg.locator('.ncg .d[data-day]').count()>0
     S['ROAD 날짜 요일']=bool(re.match(r'^\d+/\d+\([월화수목금토일]\)~\d+/\d+\([월화수목금토일]\)$',pg.locator('.wr .wd2').first.inner_text())) if pg.locator('.wr .wd2').count() else False
     road=' '.join(pg.eval_on_selector_all('.wr .wm','e=>e.map(x=>x.innerText)'))
@@ -104,7 +107,7 @@ def main():
             if R[n]!=ref[0][n]: bad.append('%s 수치 다름: %s (기준 %s)'%(n,R[n],ref[0][n]))
         for n in C:
             if C[n] is None or C[n][0]!=C[n][1]: bad.append('%s 색이 테마색과 다름: %s'%(n,C[n]))
-        for n in ['체크한 유형 이어서 풀기','전체 선택/해제','이어서 풀기 카드','달력 날짜 눌러보기','ROAD 날짜 요일','ROAD 회번호 연속(1~N)','금지 문구/이모지 없음']:
+        for n in ['체크한 유형 이어서 풀기','전체 선택/해제','이어서 풀기 카드','소요시간 표시(총합+활동별)','달력 날짜 눌러보기','ROAD 날짜 요일','ROAD 회번호 연속(1~N)','금지 문구/이모지 없음']:
             if not S[n]: bad.append('%s 실패 %s'%(n,S.get('금지 목록','') if n.startswith('금지') else ''))
         if S['유형 줄 수']<8: bad.append('유형 줄 수 %s'%S['유형 줄 수'])
         if not re.match(r'^유형 풀코스 · \d+회 \(.+\)$',S['회 선택 표기']): bad.append('회 표기 형식: '+S['회 선택 표기'])
@@ -147,6 +150,15 @@ def main():
             nl=len(re.findall(r'href="#(?:quick|k\d+)"',yt))
             if nb and nl<nb: bad.append('정답 페이지 문항별 되돌아가기 링크 부족(%d/%d): %s'%(nl,nb,rp))
             if 'id="fab"' in yt or 'class="fab"' in yt and 'id="fq"' in yt: bad.append('정답 페이지 빠른정답 버튼 중복: '+rp)
+        # 다른 학교 이름이 학생 화면에 남는 사고 방지 (복사 잔재): 학교 폴더 안에 다른 학교 이름 금지
+        NM={'geumcheon':'금천고','cheongseok':'청석고','jusung':'주성고'}
+        own=sc.split('-')[0]
+        for dp,dn,fn in os.walk(os.path.join(ROOT,'h',sc)):
+            for f in fn:
+                if f.endswith(('.html','.js')):
+                    tx=open(os.path.join(dp,f),encoding='utf8').read()
+                    for k,nm in NM.items():
+                        if k!=own and nm in tx: bad.append('다른 학교 이름(%s)이 들어 있음: %s'%(nm,os.path.relpath(os.path.join(dp,f),os.path.join(ROOT,'h',sc))))
         for n in ['ROAD 글씨 겹침 없음','랜덤 화면 구조']:
             if not S[n]: bad.append('%s 실패'%n)
         print('%-16s %s  (유형줄 %s, 최대 %s회)'%(sc,'PASS' if not bad else 'FAIL',S['유형 줄 수'],S['ROAD 최대 회']))
