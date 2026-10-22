@@ -138,7 +138,7 @@
         if(prevId&&prevId!==('REC|'+KIND+'|'+v+'|'+NUM))push(prevId,false).catch(function(){}).then(go);else go();
       };
     }else{
-      box.innerHTML='<span style="flex:1"><b>'+name.replace(/[<>&"]/g,'')+'</b> 기록 저장 중</span><button id="rec-x" type="button" style="font-size:13px;padding:7px 12px;border:1px solid var(--line,#dbe4e1);border-radius:8px;background:transparent;color:inherit">다른 이름으로</button>';
+      box.innerHTML='<span style="flex:1"><b>'+name.replace(/[<>&"]/g,'')+'</b> 기록 저장 중</span><button id="rec-x" type="button" style="font-size:13px;padding:7px 12px;border:1px solid var(--line,#dbe4e1);border-radius:8px;background:transparent;color:inherit">저장하고 나가기</button>';
       host.insertBefore(box,host.firstChild);
       D.getElementById('rec-x').onclick=function(){
         var b=this,id=g(UK);b.disabled=true;b.textContent='저장하는 중...';
