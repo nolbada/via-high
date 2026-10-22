@@ -18,17 +18,14 @@ PROBES=[
  ('이어서 풀기 카드','.rsm','borderTopWidth,borderRadius,paddingTop,paddingLeft,marginTop'),
  ('이어서 풀기 제목','.rsm b','fontSize'),
  ('이어서 풀기 부제','.rsm small','fontSize'),
- ('번호 배지','.pn i','width,height,fontSize,fontWeight,borderTopWidth'),
  ('배지 줄','.pins','gap,marginTop'),
- ('기록 회 제목','.pr .ph b','fontSize'),
- ('기록 소요시간','.pr .ph span','fontSize'),
  ('학습 기록 카드','.rec','borderTopWidth,borderRadius,paddingTop,paddingLeft'),
  ('기록 소제목','.rr em','fontSize'),
- ('총 소요시간 줄','.dtot','fontSize,marginTop,paddingTop'),
- ('활동별 소요시간','.pn small','fontSize'),
+ ('이용 시간 소제목 줄','.rec .lrd','fontSize,marginTop'),
+ ('기록 카드 큰 칸','.rec .lrs>div','paddingTop,borderTopLeftRadius'),
 ]
 COLORS=[('완료 체크칸 배경','.arow .ck i.okb','backgroundColor','--pri'),('완료 체크 글자','.arow .ck i.okb','color','--onpri'),
- ('체크한 유형 버튼 배경','.qgo','backgroundColor','--pri'),('켜진 배지 배경','.pn.on i','backgroundColor','--pri'),('켜진 배지 글자','.pn.on i','color','--onpri'),
+ ('체크한 유형 버튼 배경','.qgo','backgroundColor','--pri'),
  ('이어서 풀기 테두리','.rsm','borderTopColor','--pri'),('이어서 풀기 제목색','.rsm b','color','--pri'),('기록 카드 테두리','.rec','borderTopColor','--pri')]
 BAD_TEXT=['내 진도는 내가 정해요','번호를 누르면','다시 누르면 접힙니다','🎉']
 EMOJI=re.compile('[\U0001F300-\U0001FAFF\u2B50\u2705\u274C\u2728\u26A0\u2764\u2B06\u2B07]')  # 별표 U+2605, 체크 U+2713, 원숫자는 허용
@@ -53,9 +50,8 @@ def measure(pg,base,sc):
     S['체크한 유형 이어서 풀기']=pg.locator('.qgo').count()==1
     S['전체 선택/해제']=pg.locator('.qsel button').count()==2
     S['이어서 풀기 카드']=pg.locator('.rsm').count()==1
-    S['학습기록 제목']=(pg.locator('.rec .rr em').first.inner_text() if pg.locator('.rec .rr em').count() else '')
-    S['학습기록 회 머리글']=pg.locator('.pr .ph').first.inner_text().replace('\n',' ') if pg.locator('.pr .ph').count() else None
-    S['소요시간 표시(총합+활동별)']=pg.locator('.dtot').count()==1 and pg.locator('.pn small').count()>=1
+    S['학습기록 제목']=' / '.join(pg.eval_on_selector_all('.rec .rr em','e=>e.map(x=>x.innerText)'))
+    S['소요시간 표시(총합+활동별)']=pg.locator('.rec .lrs>div').count()==2 and pg.locator('.rec .lrd').count()==2 and pg.locator('.rec .lrv>div').count()==3
     S['달력 날짜 눌러보기']=pg.locator('.ncg .d[data-day]').count()>0
     S['ROAD 날짜 요일']=bool(re.match(r'^\d+/\d+\([월화수목금토일]\)~\d+/\d+\([월화수목금토일]\)$',pg.locator('.wr .wd2').first.inner_text())) if pg.locator('.wr .wd2').count() else False
     road=' '.join(pg.eval_on_selector_all('.wr .wm','e=>e.map(x=>x.innerText)'))
@@ -111,7 +107,7 @@ def main():
             if not S[n]: bad.append('%s 실패 %s'%(n,S.get('금지 목록','') if n.startswith('금지') else ''))
         if S['유형 줄 수']<8: bad.append('유형 줄 수 %s'%S['유형 줄 수'])
         if not re.match(r'^유형 풀코스 · \d+회 \(.+\)$',S['회 선택 표기']): bad.append('회 표기 형식: '+S['회 선택 표기'])
-        if not S['학습기록 제목'].startswith('오늘의 학습 · ') or not re.search(r'\d+/\d+\([월화수목금토일]\)',S['학습기록 제목']): bad.append('학습기록 제목: '+S['학습기록 제목'])
+        if not S['학습기록 제목'].startswith('누적 이용 시간 / 오늘 · ') or not re.search(r'\d+/\d+\([월화수목금토일]\)',S['학습기록 제목']): bad.append('학습기록 제목: '+S['학습기록 제목'])
         if errs: bad.append('JS 오류: %s'%errs)
         import urllib.request
         if live:
