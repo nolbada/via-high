@@ -292,7 +292,7 @@ function today(){
      var o='<div class="pr"><div class="ph" data-go="'+f.no+'"><b>'+f.no+'회 ('+src(f.v)+')</b><span>'+(ts?'소요 '+(ts>=60?Math.round(ts/60)+'분':ts+'초'):'')+'<i class="gt">›</i></span></div><div class="pins">';
      ACT.forEach(function(a,ix){var id=a[0];if(!setOf(f.v).url[id]||id==='wk'||id==='wt')return;o+='<span class="pn'+(isOn(f.v,id)?' on':'')+(OPT[id]?' op':'')+'"><i>'+(ix+1)+'</i>'+(function(){var s=0;try{s=+localStorage.getItem('vhd:'+key(f.v,id))||0}catch(x){}return s?'<small>'+(s>=60?Math.round(s/60)+'분':s+'초')+'</small>':''})()+'</span>'});tl+=o+'</div></div>'});
      return '<div class="rr"><em>'+DAYT+'</em>'+DAYB+(any?tl:'')+'</div>'})()
-   +(TUN?'<div class="tgh"><b>선생님 확인</b><button type="button" data-rest="9">닫기</button></div><div id="tg">'+TGR()+'</div>':'<details class="rst"><summary>기록 옮기기 · 선생님 확인</summary><div class="rsi"><div class="rsel" style="margin-top:8px"><input id="rpin" type="password" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="선생님 확인 번호" style="flex:1;min-width:0;font:inherit;font-size:14px;padding:9px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)"><button type="button" class="rbtn" data-rest="3" style="margin-top:0;width:auto;padding:9px 16px">확인</button></div><div id="rmsg" style="font-size:12.5px;color:#dc2626;margin-top:6px"></div></div></details>')+'</div>';
+   +'</div>';
   h+='<div class="road"><div class="rh"><b>시험까지 큰 흐름</b><span>기말고사 (12/1~12/4)</span></div>';
   ROAD.forEach(function(w,i){h+='<div class="wr'+(i===cw?' cur':'')+(i<cw?' past':'')+'"><span class="wn">'+(i+1)+'주</span><span class="wd2">'+rdt(w[0])+'~'+rdt(w[1])+'</span><span class="wm">'+esc(w[3])+'</span></div>'});
   h+='</div>';
