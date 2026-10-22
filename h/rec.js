@@ -18,7 +18,8 @@
     if(!k||typeof k!=='string')return false;
     if(k.indexOf('rec_')===0||k.indexOf('hub_')===0||k.indexOf('mogo')===0)return false;
     if(/-code$/.test(k)||/teacher/i.test(k))return false;
-    return true;
+    /* 고등 앱 폴더가 쓰는 기록만 연동. 같은 주소의 다른 앱(V시그널·M1·워마2000 등) 기록은 건드리지 않는다 */
+    return /^(vh[a-z]*:|vq:|nd:|vsig-tb-|vsig-g1|vsig-e-wq|vsig-y-wb|xray-v1|mock|gk-|gk26-|gm2-|sx-|cs-|kc-find-|jusung-find-|voca:|verb_study_)/.test(k);
   }
   function keys(){var o=[],i,k;for(i=0;i<LS.length;i++){k=LS.key(i);if(mirrored(k))o.push(k)}return o}
   function ident(){
@@ -62,6 +63,7 @@
     return post({act:'put',id:id,data:{}}).then(function(r){
       var rem=r.data||{},meta=jg(MK)||{},rl=false,skip={},k;
       for(k in rem){
+        if(!mirrored(k))continue;
         var rs=unwrap(rem[k].v);if(rs===null)continue;
         var lv=g(k);
         if(lv===rs){meta[k]=rs;continue}
@@ -121,8 +123,10 @@
     var host=D.querySelector('.wrap')||D.body;if(!host)return;
     var name=g(NK),box=D.createElement('div');
     box.style.cssText='margin:12px 16px;padding:12px 14px;border:1px solid var(--line,#dbe4e1);border-radius:12px;background:var(--card,#fff);color:var(--ink,#16211f);font-size:15px;display:flex;gap:8px;align-items:center;flex-wrap:wrap';
+    if(!name)box.style.cssText='margin:12px 16px;padding:14px;border:2px solid #e0a800;border-radius:12px;background:#fff4c2;color:#3a2e00;font-size:15px;display:flex;gap:8px;align-items:center;flex-wrap:wrap';
+    else box.style.cssText='margin:6px 16px;padding:5px 10px;border:0;border-radius:8px;background:transparent;color:var(--mute,#7a8683);font-size:12px;display:flex;gap:8px;align-items:center;justify-content:space-between';
     if(!name){
-      box.innerHTML='<b style="flex:1 1 100%">이름</b><input id="rec-n" type="text" autocomplete="off" placeholder="이름" style="flex:1;min-width:120px;font-size:16px;padding:9px 10px;border:1px solid var(--line,#dbe4e1);border-radius:8px;background:transparent;color:inherit"><button id="rec-b" type="button" style="font-size:15px;font-weight:700;padding:9px 16px;border:0;border-radius:8px;background:var(--pri,#1d4ed8);color:#fff">시작</button><div id="rec-m" style="flex:1 1 100%;font-size:13px;color:var(--sub,#5a6b67)"></div>';
+      box.innerHTML='<b style="flex:1 1 100%">이름을 넣어야 기록이 저장돼요</b><input id="rec-n" type="text" autocomplete="off" placeholder="이름" style="flex:1;min-width:120px;font-size:16px;padding:9px 10px;border:1px solid var(--line,#dbe4e1);border-radius:8px;background:transparent;color:inherit"><button id="rec-b" type="button" style="font-size:15px;font-weight:700;padding:9px 16px;border:0;border-radius:8px;background:var(--pri,#1d4ed8);color:#fff">시작</button><div id="rec-m" style="flex:1 1 100%;font-size:13px;color:var(--sub,#5a6b67)"></div>';
       host.insertBefore(box,host.firstChild);
       D.getElementById('rec-b').onclick=function(){
         var v=(D.getElementById('rec-n').value||'').replace(/\s+/g,'');
@@ -138,9 +142,10 @@
         if(prevId&&prevId!==('REC|'+KIND+'|'+v+'|'+NUM))push(prevId,false).catch(function(){}).then(go);else go();
       };
     }else{
-      box.innerHTML='<span style="flex:1"><b>'+name.replace(/[<>&"]/g,'')+'</b> 기록 저장 중</span><button id="rec-x" type="button" style="font-size:13px;padding:7px 12px;border:1px solid var(--line,#dbe4e1);border-radius:8px;background:transparent;color:inherit">저장하고 나가기</button>';
+      box.innerHTML='<span style="flex:1"><b>'+name.replace(/[<>&"]/g,'')+'</b> 기록 저장 중</span><button id="rec-x" type="button" style="font-size:11.5px;padding:4px 9px;border:1px solid var(--line,#dbe4e1);border-radius:8px;background:transparent;color:inherit">저장하고 나가기</button>';
       host.insertBefore(box,host.firstChild);
       D.getElementById('rec-x').onclick=function(){
+        if(!W.confirm('이름이 풀립니다. 학원 기기에서 다 풀고 나갈 때만 누르세요. 저장하고 나갈까요?'))return;
         var b=this,id=g(UK);b.disabled=true;b.textContent='저장하는 중...';
         (id?push(id,false):Promise.resolve()).then(function(){wipe();d(NK);d(UK);location.reload()},function(){b.disabled=false;b.textContent='저장이 안 됐어요. 다시 눌러 주세요'});
       };
