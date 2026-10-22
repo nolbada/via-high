@@ -161,7 +161,7 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 
 <script src="../common/prog.js?v=261019"></script><script src="wrong.js?v=261019"></script><script src="mix-pool.js?v=261019"></script>
 <script src="L4/sx-data.js?v=261019"></script><script>var D4=DATA;</script>
-<script src="L4/jj.js?v=261019"></script><script src="key15.js?v=261019"></script><script src="gram.js?v=261019"></script>
+<script src="L4/jj.js?v=261019"></script><script src="gram.js?v=261019"></script>
 <script>
 (function(){
 var ACT=[['voc','어휘'],['find','TF'],['eobeop','어법선택'],['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['awk','어색한 곳'],['blank','빈칸추론'],['wk','틀린 문제 다시 풀기'],['wt','약한 유형 골라 풀기']];
@@ -336,18 +336,10 @@ document.getElementById('today').addEventListener('click',function(e){
 });
 document.getElementById('today').addEventListener('change',function(e){var c=e.target.closest('input[data-q]');if(!c)return;QS[c.dataset.q]=c.checked;var n=document.querySelectorAll('#today input[data-q]:checked').length,sp=document.getElementById('qn'),b=document.querySelector('.qgo');if(sp)sp.textContent=n;if(b)b.disabled=!n});
 
-var hide15=false;
 function curUnits(){var o={},lab='';try{lab=ROAD[curWeek(new Date())][2]}catch(e){}
   if(lab.indexOf('3과')>=0)o.L3=1;if(lab.indexOf('4과')>=0)o.L4=1;if(lab.indexOf('모의고사')>=0)o.mock=1;
   if(!o.L3&&!o.L4&&!o.mock)o.L4=1;return o}
 function lrow(href,t,sm){return '<a class="row" href="'+href+'"><span>'+t+(sm?'<small>'+sm+'</small>':'')+'</span><span class="go" style="white-space:nowrap">열기</span></a>'}
-function key15(){
-  var h='<div style="font-size:13px;color:var(--sub);margin:2px 2px 6px">시험에 나올 수 있는 주요 문장 15개예요. 해석을 가리고 먼저 스스로 해석해 봐요.</div><button type="button" id="hide15" class="row on" style="border:0;width:100%;cursor:pointer;font-family:inherit">해석 '+(hide15?'보이기':'가리기')+'</button>',no=0;
-  KEY15.groups.forEach(function(gr){
-    h+='<div style="font-size:13px;font-weight:800;color:var(--sub);margin:12px 2px 2px">'+esc(gr.title)+'</div>';
-    gr.items.forEach(function(it){no++;h+='<div class="s"><div class="en"><b style="color:var(--pri)">'+no+'</b> '+esc(it.en)+'</div>'+(hide15?'':'<div class="ko">'+esc(it.ko)+'</div>')+'</div>'});
-  });
-  return h}
 function text(){
   var cu=curUnits(),h='';
   [['교과서 4과','L4'],['교과서 3과','L3']].forEach(function(g){
@@ -355,13 +347,11 @@ function text(){
     h+='<details class="acc"'+(cu[k]?' open':'')+'><summary>'+g[0]+'</summary><div class="in">';
     h+=lrow(k+'/jwa.html','좌본문 우해석');
     h+=lrow(k+'/gram/','문법 분석');
-    if(k==='L4')h+='<details class="acc sub"'+(window.K15O?' open':'')+' ontoggle="window.K15O=this.open"><summary>주요 문장 15</summary><div class="in">'+key15()+'</div></details>';
     h+='</div></details>';
   });
-  h+='<details class="acc"'+(cu.mock?' open':'')+'><summary>모의고사</summary><div class="in">'+lrow('jwa-mogo/','모의고사 좌본문 우해석','26년 10월 · 지문 17개')+'</div></details>';
+  h+='<details class="acc"'+(cu.mock?' open':'')+'><summary>모의고사</summary><div class="in">'+lrow('jwa-mogo/','모의고사 좌본문 우해석','26년 10월 · 지문 17개')+lrow('analysis/','모의고사 분석지','26년 10월 · 지문 17개')+'</div></details>';
   document.getElementById('text').innerHTML=h;
 }
-document.getElementById('text').addEventListener('click',function(e){if(e.target.id==='hide15'){hide15=!hide15;text();}});
 var TABS=[['text','원문','<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 17h7"/>'],['keys','답안지','<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-6"/>'],['today','유형 풀코스','<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>']];
 function show(id){
   TABS.forEach(function(t){document.getElementById('p-'+t[0]).classList.toggle('on',t[0]===id)});

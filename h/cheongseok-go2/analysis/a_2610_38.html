@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>26년 10월 38번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"num": "38", "sub": "고2 · 용도에 따라 다른 수질 기준", "one": "물이 깨끗하다는 것은 겉모습이 아니라 정해진 기준을 따르는 것이며, 물은 쓰임새가 다양하므로 용도에 따라 서로 다른 안전 허용치가 정해진다는 것", "flow": [{"label": "도입부", "range": "1~2번", "sum": "‘깨끗한 물’은 마실 물처럼 보이는 물이 아니라 일정한 기준, 곧 지표를 따르는 물 <small>(criteria, benchmarks)</small>", "eg": "맑아 보이는 계곡물도 그냥 마시면 배탈이 날 수 있음"}, {"label": "본론 (1)", "range": "3~4번", "sum": "기준은 물속에 물리적·화학적·생물학적 물질이 얼마나 있어도 되는지 알려 주고, 마시기·농사·산업용 보일러 등 어떤 용도든 물이 안전하도록 보장 <small>(guidelines / ensure)</small>", "eg": "과자 봉지에 ‘이 성분은 이만큼까지만’이라고 정해진 기준이 있는 것"}, {"label": "요지", "range": "5번", "sum": "물을 아주 다양하게 쓰기 때문에 모두에게 똑같은 ‘일률적인’ 규칙은 쓸 수 없음 <small>(one size fits all)</small>", "eg": "‘프리사이즈’ 옷이 모든 사람에게 꼭 맞지는 않는 것"}, {"label": "본론 (2) 예시", "range": "6번", "sum": "발전기를 식히는 물은 주방 수돗물만큼 깨끗할 필요가 없음 <small>(doesn’t need to be as clean as)</small>", "eg": "걸레를 빠는 물을 마시는 물만큼 까다롭게 고르지 않는 것"}, {"label": "결론", "range": "7번", "sum": "그래서 물이 어떻게 쓰일지에 따라 각기 다른 안전 허용치를 정함 <small>(different safety limits)</small>", "eg": "어항 물과 마시는 물을 서로 다른 기준으로 관리하는 것"}], "sents": [{"n": 1, "mk": "[1|When we say that water is “clean,”] we [2|don’t just mean] that [3|it] [4|looks like a glass of water].", "ko": "우리가 물이 ‘깨끗하다’라고 말할 때, 우리는 단지 그것이 마실 물 한 잔처럼 보인다는 것을 의미하지는 않는다."}, {"n": 2, "mk": "[5|Water quality] [6|is about following] a certain set of [7|criteria], [8|or] “[9|benchmarks].”", "ko": "수질은 특정한 기준들의 집합, 즉 ‘지표들’을 따르는 것에 관한 것이다."}, {"n": 3, "mk": "[10|These guidelines] [11|inform us] [12|exactly how much] [13|physical, chemical, or biological stuff] can be in the water.", "ko": "이러한 지침들은 우리에게 정확히 얼마나 많은 물리적, 화학적, 혹은 생물학적인 것들이 물 안에 있을 수 있는지를 알려 준다."}, {"n": 4, "mk": "[14|These rules] [15|ensure the water is safe] for [16|anything we want to do with it], [17|whether that’s drinking it at home], watering crops on a farm, or [18|running it through] a huge industrial boiler.", "ko": "이러한 규칙들은 우리가 물로 하고 싶은 것이 집에서 물을 마시는 것이든, 농장에서 작물들에 물을 주는 것이든, 혹은 거대한 산업용 보일러를 통해 물을 흘려보내는 것이든 간에 그것에서 그 물이 안전하다고 보장한다."}, {"n": 5, "mk": "We can’t [19|utilize] the same [20|“one size fits all” rule] for everyone [21|because] we use water for so many [22|diverse] things.", "ko": "우리가 물을 아주 많은 다양한 일에 사용하기 때문에 우리는 동일한 ‘일률적인’ 규칙을 모두에게 활용할 수 없다.", "star": true}, {"n": 6, "mk": "[23|For instance], the water [24|that cools down] a huge power plant generator [25|doesn’t need to be as clean as] [26|the water you drink] from the [27|kitchen tap].", "ko": "예를 들어, 거대한 발전소의 발전기를 식히는 물은 여러분이 주방 수도꼭지로부터 마시는 물만큼 깨끗할 필요가 없다.", "star": true}, {"n": 7, "mk": "[28|This is why] groups set different [29|“safety limits”] for the water [30|dependent on] [31|how it will be utilized].", "ko": "이것이 물이 어떻게 활용될지에 따라 집단들이 그것에 대한 각기 다른 ‘안전 허용치’를 설정하는 이유이다.", "star": true}], "items": {"1": {"c": "k", "t": "도입 : 우리가 말하는 ‘깨끗한 물’의 진짜 뜻", "n": ["“clean” = 따옴표로 단어의 뜻을 따져 봄", "When we say ~ = 우리가 ~라고 말할 때", "흔한 생각(겉보기)을 먼저 꺼냄"], "x": ["When we say that water is “clean,”은 ‘우리가 물이 깨끗하다라고 말할 때’라는 뜻이다.", "clean에 따옴표를 쳐서, 우리가 쉽게 쓰는 이 말이 실제로 무엇을 뜻하는지 따져 보겠다는 신호이다.", "이 글은 겉보기 기준 → 과학적 기준 → 용도별 기준으로 생각을 넓혀 간다."]}, "2": {"c": "p", "t": "부분부정 : not just ~ = 단지 ~만은 아니다", "n": ["don’t just mean that ~ = 단지 ~라는 뜻만은 아니다", "not just = not only = not merely", "겉보기 말고 다른 기준이 있음을 암시"], "x": ["we don’t just mean that ~은 ‘우리는 단지 ~라는 것을 뜻하지는 않는다’라는 뜻이다.", "‘전혀 아니다’가 아니라 ‘그것만은 아니다’라는 부분부정이다.", "그 ‘다른 기준’이 바로 2번의 criteria이다."]}, "3": {"c": "o", "t": "it = water (물)", "n": ["it = water"], "x": ["it looks like ~의 it은 앞의 water를 가리킨다."]}, "4": {"c": "p", "t": "look like + 명사 : ~처럼 보이다", "n": ["look like + 명사 = ~처럼 보이다", "look + 형용사 = ~하게 보이다", "a glass of water = 물 한 잔 (마실 물)"], "x": ["it looks like a glass of water는 ‘그것이 마실 물 한 잔처럼 보인다’라는 뜻이다.", "뒤에 명사 a glass of water가 오므로 look 뒤에 전치사 like가 필요하다.", "눈으로 보기에 맑다는 ‘겉보기 기준’을 말한다."]}, "5": {"c": "g", "t": "water quality : 수질 (물의 질)", "n": ["quality = 질, 품질", "(다의어) quality = 자질, 특성", "water quality = 수질"], "x": ["Water quality는 ‘수질’이라는 뜻이다.", "1번의 ‘깨끗하다’를 과학적인 말로 바꾼 표현이다."]}, "6": {"c": "p", "t": "be about + 동명사 : ~에 관한 것이다", "n": ["be about -ing = ~하는 것에 관한 것이다", "about은 전치사 → 동명사 following", "follow = 따르다"], "x": ["Water quality is about following a certain set of criteria는 ‘수질은 특정한 기준들의 집합을 따르는 것에 관한 것이다’라는 뜻이다.", "전치사 about 뒤이므로 동사 follow가 동명사 following으로 바뀌었다."]}, "7": {"c": "g", "t": "criteria : 기준들 (단수 criterion)", "n": ["criterion = 기준 (단수)", "criteria = 기준들 (복수)", "a set of criteria = 기준들의 묶음"], "x": ["a certain set of criteria는 ‘특정한 기준들의 집합’이라는 뜻이다.", "criteria는 복수형이고 단수형은 criterion이다. a criteria처럼 쓰면 틀린다."]}, "8": {"c": "b", "t": "바꿔 말하기 or : 즉, 다시 말해", "n": ["A, or B = A, 즉 B", "criteria = benchmarks (같은 것)", "쉼표 + or = 다른 말로 하면"], "x": ["criteria, or “benchmarks.”는 ‘기준들, 즉 지표들’이라는 뜻이다.", "여기서 or는 ‘또는’이라는 선택이 아니라 앞의 말을 다른 말로 바꾸어 주는 역할이다."]}, "9": {"c": "g", "t": "benchmark : 기준점, 지표", "n": ["benchmark = 기준점, 비교의 기준", "(같은 뜻) standard, criterion", "측정하고 비교할 수 있는 수치"], "x": ["“benchmarks”는 ‘지표들, 기준점들’이라는 뜻이다.", "안전한지 아닌지를 재고 비교할 수 있는 기준 수치를 말한다."]}, "10": {"c": "o", "t": "These guidelines = criteria, benchmarks (기준들)", "n": ["These guidelines = 2번의 criteria / benchmarks", "guideline = 지침"], "x": ["These guidelines는 앞 문장의 criteria와 benchmarks를 다른 말로 받은 것이다.", "4번의 These rules도 같은 기준들을 가리킨다. 글이 같은 대상을 criteria → guidelines → rules로 바꿔 부르고 있다."]}, "11": {"c": "p", "t": "inform + 사람 + 명사절 : ~에게 …을 알려 주다", "n": ["inform A of B = A에게 B를 알리다", "inform us + how much ~ = 우리에게 얼마나 ~인지 알려 주다", "information = 정보"], "x": ["These guidelines inform us exactly how much ~는 ‘이 지침들은 우리에게 정확히 얼마나 많은 ~인지 알려 준다’라는 뜻이다.", "inform 뒤에 사람 목적어 us와 간접의문문 명사절이 이어진다."]}, "12": {"c": "p", "t": "간접의문문 : how much + 명사 + 주어 + 동사", "n": ["how much stuff can be in the water = 얼마나 많은 물질이 물속에 있을 수 있는지", "의문사구 how much stuff가 주어 역할", "exactly = 정확히"], "x": ["exactly how much physical, chemical, or biological stuff can be in the water는 ‘정확히 얼마나 많은 물리적, 화학적, 또는 생물학적 물질이 물속에 있을 수 있는지’라는 뜻이다.", "의문사구가 그대로 주어이므로 바로 동사 can be가 이어진다.", "기준이란 ‘0이어야 한다’가 아니라 ‘이만큼까지는 괜찮다’는 허용량이라는 점이 7번 safety limits와 연결된다."]}, "13": {"c": "g", "t": "physical / chemical / biological : 물리적 / 화학적 / 생물학적", "n": ["physical = 물리적인 (흙, 찌꺼기 등)", "chemical = 화학적인 (화학 물질)", "biological = 생물학적인 (세균 등)", "stuff = 것, 물질"], "x": ["physical, chemical, or biological stuff는 ‘물리적, 화학적, 또는 생물학적인 것들’이라는 뜻이다.", "stuff는 셀 수 없는 명사로 ‘물질, 것’을 두루 가리키는 말이다."]}, "14": {"c": "o", "t": "These rules = 수질 기준 (criteria, guidelines)", "n": ["These rules = criteria = benchmarks = guidelines", "같은 대상을 다른 말로 반복"], "x": ["These rules는 2~3번에서 말한 수질 기준들을 가리킨다."]}, "15": {"c": "p", "t": "ensure (that) 주어 + 동사 : ~임을 보장하다", "n": ["ensure that S V = 반드시 ~이도록 하다", "명사절 접속사 that 생략", "ensure = 보장하다 (같은 뜻 guarantee)"], "x": ["These rules ensure the water is safe는 ‘이 규칙들은 물이 안전하다는 것을 보장한다’라는 뜻이다.", "ensure 뒤에 접속사 that이 생략되고 절(the water is safe)이 바로 왔다."]}, "16": {"c": "p", "t": "목적격 관계대명사 생략 : anything (that) we want to do", "n": ["anything (that) we want to do with it = 우리가 그것으로 하고 싶은 어떤 것", "it = the water", "do A with B = B로 A를 하다"], "x": ["for anything we want to do with it은 ‘우리가 물로 하고 싶은 어떤 것에 대해서든’이라는 뜻이다.", "anything과 we 사이에 목적격 관계대명사 that이 생략되어 있다.", "it은 the water를 가리킨다."]}, "17": {"c": "p", "t": "whether A, B, or C : A이든, B이든, C이든 (동명사 병렬)", "n": ["whether that’s A, B, or C = 그것이 A이든 B이든 C이든", "drinking / watering / running = 동명사 세 개 병렬", "water = (동사) 물을 주다"], "x": ["whether that’s drinking it at home, watering crops on a farm, or running it through ~는 ‘그것이 집에서 마시는 것이든, 농장에서 작물에 물을 주는 것이든, ~을 통해 흘려보내는 것이든’이라는 뜻이다.", "that’s 뒤에 동명사 drinking, watering, running이 or로 병렬 연결되어 있다.", "watering crops의 water는 ‘물을 주다’라는 동사이다.", "물의 쓰임이 이렇게 다양하다는 점이 5번 요지의 근거가 된다."]}, "18": {"c": "g", "t": "run A through B : A를 B에 통과시키다, 흘려보내다", "n": ["run A through B = A를 B에 흘려보내다", "(다의어) run = 달리다, 운영하다, 흐르게 하다", "industrial boiler = 산업용 보일러"], "x": ["running it through a huge industrial boiler는 ‘거대한 산업용 보일러에 물을 흘려보내는 것’이라는 뜻이다.", "run은 여기서 ‘달리다’가 아니라 물을 ‘흐르게 하다’라는 뜻이다."]}, "19": {"c": "g", "t": "utilize : 활용하다, 이용하다", "n": ["utilize = use = 활용하다", "utilization = 활용", "7번 be utilized에서 반복"], "x": ["We can’t utilize the same rule은 ‘우리는 같은 규칙을 활용할 수 없다’라는 뜻이다.", "utilize는 use와 같은 뜻으로, 이 글에서 여러 번 반복된다."]}, "20": {"c": "k", "t": "핵심 비유 : one size fits all (일률적인)", "n": ["one size fits all = 한 치수로 모두에게 맞춤", "= 모두에게 똑같이 적용하는, 일률적인", "물의 용도별 기준 ↔ 하나의 기준"], "x": ["the same “one size fits all” rule for everyone은 ‘모두에게 똑같은 일률적인 규칙’이라는 뜻이다.", "원래는 ‘한 치수로 모든 사람에게 맞는’ 옷에서 나온 말로, 모든 경우에 하나의 기준을 쓰는 것을 비유한다.", "이 글의 요지는 ‘물에는 하나의 기준을 쓸 수 없다’이므로 빈칸으로 가장 많이 나오는 표현이다."], "e": "쉬운 예시 : 프리사이즈 신발이 발이 작은 사람에게는 헐렁하고 큰 사람에게는 꽉 끼는 것처럼, 하나의 수질 기준도 모든 용도에 맞지 않는다."}, "21": {"c": "b", "t": "because : 이유 (일률적 규칙을 못 쓰는 까닭)", "n": ["because + 주어 + 동사 = ~이기 때문에", "결과: 같은 규칙 X / 이유: 물을 다양하게 씀"], "x": ["because we use water for so many diverse things는 ‘우리가 물을 아주 많은 다양한 일에 쓰기 때문에’라는 뜻이다.", "4번의 마시기, 농사, 보일러라는 다양한 쓰임이 이 이유의 바탕이 된다."]}, "22": {"c": "g", "t": "diverse : 다양한", "n": ["diverse = 다양한 (같은 뜻 various)", "diversity = 다양성", "so many diverse things = 아주 많은 다양한 일"], "x": ["so many diverse things는 ‘아주 많은 다양한 일들’이라는 뜻이다.", "diverse는 ‘서로 다른 여러 가지’라는 느낌으로, one size fits all과 반대되는 개념이다."]}, "23": {"c": "b", "t": "For instance : 예를 들어", "n": ["For instance = For example", "요지(5번) → 구체적 예시(6번)"], "x": ["For instance는 ‘예를 들어’라는 뜻으로, 5번의 주장을 구체적인 예로 뒷받침한다.", "발전소 물과 마시는 물의 대비가 시작되는 지점이라 문장삽입 문제로 나오기 좋다."]}, "24": {"c": "p", "t": "주격 관계대명사 that + 단수 동사", "n": ["the water that cools down ~ = ~을 식히는 물", "cool down = 식히다", "선행사 the water(단수) → cools"], "x": ["the water that cools down a huge power plant generator는 ‘거대한 발전소의 발전기를 식히는 물’이라는 뜻이다.", "선행사 the water가 단수이므로 관계사절 동사도 cools이고, 문장의 동사도 doesn’t need이다.", "power plant는 ‘발전소’, generator는 ‘발전기’이다."]}, "25": {"c": "p", "t": "need to V + 원급 비교 as ~ as", "n": ["doesn’t need to be ~ = ~일 필요가 없다", "as clean as ~ = ~만큼 깨끗한", "not as ~ as = ~만큼 …하지 않은"], "x": ["doesn’t need to be as clean as the water you drink는 ‘여러분이 마시는 물만큼 깨끗할 필요가 없다’라는 뜻이다.", "as와 as 사이에 형용사 원급 clean이 들어간다. cleaner로 바꾸면 틀린다.", "용도가 다르면 필요한 깨끗함의 정도도 다르다는 것을 보여 주는 예시의 핵심이다."]}, "26": {"c": "p", "t": "목적격 관계대명사 생략 : the water (that) you drink", "n": ["the water (that) you drink = 여러분이 마시는 물", "drink의 목적어가 빠짐"], "x": ["the water you drink from the kitchen tap은 ‘여러분이 주방 수도꼭지에서 받아 마시는 물’이라는 뜻이다.", "water와 you 사이에 목적격 관계대명사 that이 생략되어 있다."]}, "27": {"c": "g", "t": "tap : 수도꼭지 (다의어: 가볍게 두드리다)", "n": ["tap = 수도꼭지 (같은 뜻 faucet)", "tap water = 수돗물", "(다의어) tap = 톡톡 두드리다"], "x": ["the kitchen tap은 ‘주방 수도꼭지’라는 뜻이다.", "스마트폰 화면을 ‘탭하다’의 tap은 ‘가볍게 두드리다’라는 다른 뜻이다."]}, "28": {"c": "b", "t": "This is why ~ : 이것이 ~하는 이유이다 (결론)", "n": ["This is why + 결과 = 이것이 ~인 이유다 (앞 = 원인)", "This is because + 원인 = 이것은 ~ 때문이다", "This = 5~6번 내용"], "x": ["This is why groups set ~은 ‘이것이 집단들이 ~을 정하는 이유이다’라는 뜻이다.", "This는 ‘물을 다양하게 써서 용도마다 필요한 깨끗함이 다르다’는 앞 내용이고, why 뒤가 그 결과이다.", "This is because와 헷갈리지 않도록 앞뒤의 원인·결과 방향을 확인해야 한다."]}, "29": {"c": "k", "t": "결론 : 용도별 safety limits (안전 허용치)", "n": ["safety limit = 안전 허용치, 안전 한계", "set different safety limits = 각기 다른 안전 허용치를 정하다", "= 글의 요지"], "x": ["set different “safety limits” for the water는 ‘물에 대한 각기 다른 안전 허용치를 정하다’라는 뜻이다.", "3번의 ‘얼마나 많은 물질이 있어도 되는지’가 바로 이 허용치이다.", "1번 겉보기 기준에서 출발해, 용도에 따라 다른 기준이 정해진다는 결론에 도착했다."], "e": "쉬운 예시 : 수영장 물은 소독약 냄새가 나도 괜찮지만, 마시는 물은 그러면 안 되는 것처럼 쓰임새마다 기준이 다르다."}, "30": {"c": "p", "t": "dependent on ~ : ~에 따라, ~에 달려 있는", "n": ["dependent on ~ = depending on ~ = ~에 따라", "depend on = ~에 달려 있다", "(반의) independent of = ~와 무관한"], "x": ["dependent on how it will be utilized는 ‘그것이 어떻게 활용될지에 따라’라는 뜻이다.", "형용사 dependent가 전치사 on과 함께 ‘~에 따라 달라지는’이라는 뜻을 만든다."]}, "31": {"c": "p", "t": "간접의문문 + 수동태 : how it will be p.p.", "n": ["how it will be utilized = 그것이 어떻게 활용될지", "it = the water", "물은 활용되는 대상 → 수동태"], "x": ["how it will be utilized는 ‘그것(물)이 어떻게 활용될지’라는 뜻으로 전치사 on의 목적어이다.", "물은 사람이 활용하는 대상이므로 will be utilized라는 수동태가 쓰였다."]}}, "src": "26년 10월 38번"};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 청석고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>모의고사 분석지</title><style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+
+h2{font-size:15px;margin:18px 2px 8px;color:var(--sub)}
+.row{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:7px;color:var(--ink);text-decoration:none}
+.row b{min-width:42px;color:var(--pri)}.row span{font-weight:700;font-size:15px}.row small{display:block;font-weight:400;color:var(--sub);font-size:12.5px;margin-top:2px}
+</style></head><body><div class="wrap"><h1>모의고사 분석지</h1><p class="sub">고2 · 청석고 영어II</p><h2>26년 10월</h2><a class="row" href="a_2610_21.html"><b>21번</b><span>이자율과 시간의 가치<small>이자율은 빌려준 돈을 못 받을 위험과 그 돈을 지금 쓰지 못하고 기다리는 대가, 곧 시간의 가치를 돈의 가격으로 매긴 것</small></span></a><a class="row" href="a_2610_22.html"><b>22번</b><span>콘텐츠 제작자의 사회적 책임<small>영향력이 큰 콘텐츠 제작자는 상품 홍보를 넘어 사회적·환경적 책임을 고려하고 자신의 플랫폼을 긍정적 변화에 써야 한다는 것</small></span></a><a class="row" href="a_2610_23.html"><b>23번</b><span>문어의 분산된 신경계<small>문어는 뉴런의 절반 이상이 다리에 퍼져 있어 다리가 뇌의 상세한 지시 없이 스스로 움직이고 반응하며, 빨판으로는 만지는 것을 맛볼 수도 있다는 것</small></span></a><a class="row" href="a_2610_24.html"><b>24번</b><span>아리스토텔레스 사상의 시대적 한계<small>위대한 사상가 아리스토텔레스도 자기 시대와 특권층의 시각에 갇혀 있었으므로, 그의 사상은 잘한 점이 있음에도 깊은 결함을 지닌다는 것</small></span></a><a class="row" href="a_2610_29.html"><b>29번</b><span>자연과 과거 인류의 높은 초기 사망률<small>자연과 과거 인류는 태어난 생명 대부분이 일찍 죽는 상태였고, 이 높은 초기 사망률이 오랫동안 인구 증가를 가로막은 장벽</small></span></a><a class="row" href="a_2610_30.html"><b>30번</b><span>말보다 더 믿게 되는 비언어적 신호<small>말과 표정·몸짓이 어긋날 때 사람들은 비언어적 신호를 더 믿기 때문에, 비언어가 따라 주지 않는 말로 남을 조종하려는 시도는 실패하기 쉬움</small></span></a><a class="row" href="a_2610_31.html"><b>31번</b><span>결함이 아닌 설계의 승리, 기본 설정<small>평생 행동 대부분이 오래전 정해진 기본 설정대로 자동으로 돌아가는 것은 결함이 아니라, 느리고 비싼 의식을 꼭 필요한 문제에만 쓰게 해 복잡한 삶을 감당 가능하게 만드는 핵심 설계</small></span></a><a class="row" href="a_2610_32.html"><b>32번</b><span>대중문화와 사법의 독립<small>재판과 정의는 SNS라는 가상의 광장에서 쏟아지는 여론이 아니라 대중의 압력에 흔들리지 않는 법정에서 이루어져야 함</small></span></a><a class="row" href="a_2610_33.html"><b>33번</b><span>인간 발달의 가소성<small>인간 발달은 정해진 단계가 아니라 가소성 덕분에 평생 계속되는 유연한 과정이며, 인간은 삶의 모든 단계에서 변화할 수 있는 능동적 주체</small></span></a><a class="row" href="a_2610_34.html"><b>34번</b><span>상호 연결과 복합적 실패<small>정보 기술로 모든 것이 서로 연결되면서, 예전에는 벽 안에 머물던 작은 실패가 순식간에 퍼져 예측하기 어려운 새로운 취약성이 생김</small></span></a><a class="row" href="a_2610_35.html"><b>35번</b><span>감염병과 싸워 온 의학의 진보<small>의학의 과학적 발전과 기술이 페니실린·백신·위생 관리·치료법을 통해 감염병의 치료와 예방에 엄청난 진보를 가져옴</small></span></a><a class="row" href="a_2610_36.html"><b>36번</b><span>사용성 테스트로 디자인 개선하기<small>디자이너는 사용자가 아니므로, 실제 사용자가 직접 써 보게 하는 사용성 테스트로 디자인의 문제를 찾아 고쳐 나가야 한다는 것</small></span></a><a class="row" href="a_2610_37.html"><b>37번</b><span>감정 조절과 재평가<small>같은 사건도 어떻게 해석하느냐에 따라 감정이 달라지므로, 상황을 다르게 바라보는 재평가가 감정을 뿌리부터 바꾸고 결국 회복 탄력성의 열쇠가 될 수 있다는 것</small></span></a><a class="row" href="a_2610_38.html"><b>38번</b><span>용도에 따라 다른 수질 기준<small>물이 깨끗하다는 것은 겉모습이 아니라 정해진 기준을 따르는 것이며, 물은 쓰임새가 다양하므로 용도에 따라 서로 다른 안전 허용치가 정해진다는 것</small></span></a><a class="row" href="a_2610_39.html"><b>39번</b><span>사회사학자가 기록을 읽는 법<small>평범한 사람들은 기록을 거의 남기지 못했기 때문에, 사회사학자들은 엘리트가 만든 자료를 액면 그대로 믿지 않고 ‘결을 거슬러’ 읽어 그 속에 숨은 보통 사람들의 모습을 찾아낸다는 것</small></span></a><a class="row" href="a_2610_40.html"><b>40번</b><span>돌고래 뇌의 병렬 처리<small>돌고래의 청각 피질은 반향 정위 신호의 여러 측면을 특화된 구역들이 나누어 맡아 동시에 처리하므로, 인지 부하가 줄고 환경 변화에 빠르게 반응할 수 있음</small></span></a><a class="row" href="a_2610_41-42.html"><b>41~42번</b><span>무료함의 가치와 자기 성찰<small>무료함은 방치하면 해로운 감정을 낳지만 본래 안전할 때만 누리는 사치이므로, 한가한 시간을 낭비가 아닌 자기 성찰과 성장의 기회로 활용해야 함</small></span></a><div style="text-align:center;color:var(--sub);font-size:12px;margin-top:22px">비타민 영어클리닉 · 청석고 영어II</div></div></body></html>

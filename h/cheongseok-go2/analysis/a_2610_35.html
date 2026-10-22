@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>26년 10월 35번 분석</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--off:#e9eef8;--note:#fffbe6;--noteL:#d9c76a;--noteT:#8a6d00;--noteLn:#efe6b3;
+ --gd:#15803d;--gl:#c6efcf;--bd:#1d4ed8;--bl:#cfe0fb;--kd:#be185d;--kl:#fbcfe3;--od:#c2570c;--ol:#ffe0b8;--pd:#6d28d9;--pl:#e4d9fb}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--off:#222c3d;--note:#33290a;--noteL:#6b5a1a;--noteT:#f1dc8a;--noteLn:#4a3d12;
+ --gd:#4ade80;--gl:#16361f;--bd:#8ab4ff;--bl:#1a2a4a;--kd:#f472b6;--kl:#401a30;--od:#fb923c;--ol:#43270f;--pd:#c4a8ff;--pl:#2c2147}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.55;font-size:16px}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 56px}
+h1{font-size:19px;margin:4px 2px 2px}
+.sub{font-size:13px;color:var(--sub);margin:0 2px 10px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.chip{font-size:12.5px;font-weight:800;border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:4px 11px}
+.c-g{--d:var(--gd);--l:var(--gl)}.c-b{--d:var(--bd);--l:var(--bl)}.c-k{--d:var(--kd);--l:var(--kl)}.c-o{--d:var(--od);--l:var(--ol)}.c-p{--d:var(--pd);--l:var(--pl)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.lab{font-size:13px;font-weight:800;margin:0 0 6px;color:var(--sub)}
+.one{font-size:16px;font-weight:800;line-height:1.5}
+.flow{display:flex;flex-direction:column;gap:6px}
+.fr{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.5}
+.fr b{flex:none;width:74px;font-size:12.5px;color:#fff;background:var(--pri);border-radius:8px;padding:3px 0;text-align:center}
+@media(prefers-color-scheme:dark){.fr b{color:#0b1220}}
+.fr span{padding-top:2px}.fr strong{font-weight:800}.fr small{font-weight:600;color:var(--sub);font-size:12.5px}.eg2{margin-top:4px;color:var(--pri);font-size:13.5px;font-weight:600;border-left:3px solid var(--pri);padding-left:8px}
+.fr em{font-style:normal;color:var(--sub);font-size:12.5px;font-weight:800;margin-right:4px}
+.ps{font-size:16px;line-height:2;display:flex;gap:8px;border-top:1px solid var(--line);padding-top:4px;margin-top:4px}.ps:first-of-type{border-top:0;margin-top:0}
+.ps i{font-style:normal;font-size:12px;font-weight:800;color:var(--pri);flex:none;width:20px;padding-top:1px;cursor:pointer}
+.ps .ko{display:none;font-size:13.5px;color:var(--sub);line-height:1.6;margin-top:2px}.ps.open .ko{display:block}
+.hlk{background:var(--l);border-bottom:2px solid var(--d);border-radius:3px;padding:0 2px;cursor:pointer}
+.tabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-radius:999px;font:800 13px inherit;font-family:inherit;background:var(--card);color:var(--ink);border:1.5px solid var(--d,var(--line));cursor:pointer}
+.tabs button.on{background:var(--d,var(--pri));color:#fff;border-color:var(--d,var(--pri))}
+@media(prefers-color-scheme:dark){.tabs button.on{color:#0b1220}}
+.it{background:var(--l);border:1.5px solid var(--d);border-radius:14px;padding:12px 14px 13px;margin-bottom:10px}
+.it h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:8px;line-height:1.35}
+.it h4 .tl{flex:1}
+.tag{font-size:11.5px;color:#fff;background:var(--d);border-radius:99px;padding:2px 9px;flex:none;font-weight:800}
+@media(prefers-color-scheme:dark){.tag{color:#0b1220}}
+.quote{background:var(--card);border-radius:10px;padding:7px 10px;margin:0 0 8px;font-size:14.5px;line-height:1.7}
+.quote .qk{font-size:13px;color:var(--sub);margin-top:2px;line-height:1.5}
+.it .xs{margin:7px 0 0;font-size:14px;line-height:1.65}
+.it .xs div{margin-top:3px}
+.it .eg{margin-top:8px;font-size:13.5px;color:var(--sub);border-left:3px solid var(--d);padding-left:9px}
+.note{background:var(--note);border:1.5px dashed var(--noteL);border-radius:10px;padding:7px 11px;background-image:repeating-linear-gradient(transparent,transparent 25px,var(--noteLn) 25px,var(--noteLn) 26px)}
+.note .nl{font-size:11.5px;font-weight:800;color:var(--noteT);margin-bottom:2px}.note .ln{font-size:14px;font-weight:700;line-height:26px;color:var(--ink)}
+.bkb{margin-top:8px;border:1.5px solid var(--d);background:var(--card);color:var(--d);border-radius:999px;padding:6px 14px;font:700 13px inherit;font-family:inherit;cursor:pointer}
+.flash{animation:fl 1.4s ease}@keyframes fl{0%,60%{box-shadow:0 0 0 4px #f5c84288}100%{box-shadow:none}}
+.qz{background:var(--card);border:1.5px solid var(--pri);border-radius:14px;padding:12px 14px 14px;margin-bottom:10px}.qz .qt{font-size:15.5px;font-weight:800;margin-bottom:8px}.nb{display:flex;gap:6px;flex-wrap:wrap}.nb button{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:800 16px inherit;font-family:inherit;cursor:pointer}.nb button.bad{background:#fde2e2;border-color:#d33;color:#a11;text-decoration:line-through}.w{cursor:pointer;border-radius:3px}.w.ok{background:var(--bl);border-bottom:2px solid var(--bd);font-weight:800}.w.bad{background:#fde2e2}.rec{font-size:13px;font-weight:800;color:var(--sub);margin:0 2px 10px}.ft{text-align:center;font-size:12.5px;color:var(--sub);margin-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+var CAT={g:"어휘",o:"대명사",b:"연결어",k:"핵심 문장",p:"구문"};
+var P={"num": "35", "sub": "고2 · 감염병과 싸워 온 의학의 진보", "one": "의학의 과학적 발전과 기술이 페니실린·백신·위생 관리·치료법을 통해 감염병의 치료와 예방에 엄청난 진보를 가져옴", "flow": [{"label": "도입부", "range": "1번", "sum": "의료 현장의 과학적 발전과 기술이 감염병의 치료와 예방에 엄청난 진보를 가져옴 <small>(enormous progress)</small>", "eg": "예전에는 목숨을 걸어야 했던 병을 이제는 주사 한 대, 약 몇 알로 이겨 내는 모습"}, {"label": "본론 (1)", "range": "2번", "sum": "1928년 Fleming의 페니실린 발견이 감염병과의 싸움에서 가장 큰 돌파구 중 하나 <small>(breakthroughs)</small>", "eg": "오랫동안 막혀 있던 게임 관문을 단번에 뚫어 주는 결정적 아이템"}, {"label": "본론 (2)", "range": "3~4번", "sum": "Jenner가 무해한 우두에 노출되면 천연두로부터 보호된다는 것을 발견, 실험실 백신이 질병 부담을 줄이고 천연두 계열 바이러스(poxvirus) 퇴치까지 이끔 <small>(elimination of poxvirus)</small>", "eg": "약한 상대와 미리 연습 경기를 치러 진짜 강적에 대비하는 원리"}, {"label": "결론", "range": "5번", "sum": "콜레라·말라리아는 통제와 위생 관리로 부담이 줄고, 다른 병은 치료법이 치명적인 바이러스 질환을 관리 가능한 만성 질환으로 바꿈 <small>(chronic manageable diseases)</small>", "eg": "손 씻기와 깨끗한 물로 병을 막고, 매일 약을 먹으며 병과 함께 일상을 지키는 모습"}], "sents": [{"n": 1, "mk": "Scientific developments and technologies [1|in medical practice] [2|have brought us enormous progress] in [3|the treatment and prevention] of [4|infectious] diseases.", "ko": "의료 행위에서의 과학적 발전들과 기술들은 우리에게 전염병의 치료와 예방에 있어 엄청난 진보를 가져다주었다.", "star": true}, {"n": 2, "mk": "The discovery of penicillin in 1928 by Alexander Fleming, [5|for which he later received the Nobel Prize], [6|was] [7|one of the biggest breakthroughs] [8|in the battle against] infectious diseases.", "ko": "1928년에 Alexander Fleming에 의한 페니실린의 발견은 전염병과의 싸움에서 가장 큰 획기적 발전들 중 하나였으며, 그것에 대해 그는 후에 노벨상을 받았다.", "star": true}, {"n": 3, "mk": "Edward Jenner [9|discovered around 1796 that] humans [10|were protected against] the [11|deadly] smallpox virus after [12|exposure to] the cowpox virus, [13|which is harmless to humans].", "ko": "1796년경 Edward Jenner는 인간들에게 무해한 우두 바이러스에 인간들이 노출된 후 치명적인 천연두 바이러스로부터 보호된다는 점을 발견했다."}, {"n": 4, "mk": "[14|Vaccines developed in laboratories] [15|have contributed enormously to] the reduction of the [16|burden] of [17|bacterial and viral] diseases [18|and have even led to] the [19|elimination] of poxvirus.", "ko": "실험실에서 개발된 백신은 세균성 질병과 바이러스성 질병의 부담의 감소에 엄청나게 기여했으며, 심지어 수두 바이러스의 퇴치로 이끌었다."}, {"n": 5, "mk": "[20|For other infectious diseases] (for example cholera and malaria), control and [21|hygiene] management measures have reduced [22|their] burden, [23|while] for [24|others] treatment therapies [25|turned viral diseases that were deadly into chronic manageable diseases].", "ko": "예를 들어 콜레라와 말라리아 같은 다른 전염병의 경우에는 통제와 위생 관리 조치들이 그것들의 부담을 줄였으며, 또 다른 것들의 경우에는 치료법이 치명적인 바이러스성 질병을 만성적인 관리 가능한 질병으로 바꾸었다.", "star": true}], "items": {"1": {"c": "g", "t": "practice : (의료) 행위, 업무", "n": ["medical practice = 의료 행위, 의료 현장", "(다의어) practice = 연습, 관행", "practice medicine = 의사로 일하다"], "x": ["Scientific developments and technologies in medical practice는 ‘의료 행위에서의 과학적 발전과 기술’이라는 뜻이다.", "practice는 여기서 ‘연습’이 아니라 실제로 환자를 치료하는 ‘의료 행위’이다.", "책 속 이론이 아니라 병원에서 쓰이는 기술이라는 느낌이다."]}, "2": {"c": "p", "t": "4형식 bring + 간접목적어 + 직접목적어", "n": ["have brought us enormous progress", "bring A B = A에게 B를 가져다주다", "= have brought enormous progress to us (3형식)"], "x": ["have brought us enormous progress는 ‘우리에게 엄청난 진보를 가져다주었다’라는 뜻이다.", "us가 간접목적어, enormous progress가 직접목적어인 4형식 문장이다.", "현재완료로 과거부터 쌓인 발전이 지금까지 이어짐을 나타낸다.", "이 글의 주제를 담은 첫 문장이다."]}, "3": {"c": "g", "t": "treatment and prevention : 치료와 예방", "n": ["treatment = 치료 / treat = 치료하다", "prevention = 예방 / prevent = 예방하다", "2번 = 치료 (페니실린), 3~4번 = 예방 (백신)"], "x": ["the treatment and prevention of infectious diseases는 ‘전염병의 치료와 예방’이라는 뜻이다.", "이 두 단어가 뒤에 나올 사례들을 미리 나누어 준다.", "페니실린은 치료, 백신은 예방 쪽의 예이다."]}, "4": {"c": "g", "t": "infectious : 전염성의, 감염성의", "n": ["infectious = 전염성의", "infection = 감염 / infect = 감염시키다", "(비슷한 말) contagious = 전염성의"], "x": ["infectious diseases는 ‘전염병, 감염병’이라는 뜻이다.", "다른 사람에게 옮을 수 있는 병을 말한다.", "이 글 전체가 다루는 대상이다."]}, "5": {"c": "p", "t": "전치사 + 관계대명사 : for which", "n": ["for which he later received the Nobel Prize", "= he later received the Nobel Prize for the discovery", "for that (X)"], "x": ["for which he later received the Nobel Prize는 ‘그것으로 그는 후에 노벨상을 받았다’라는 뜻이다.", "원래 for the discovery였던 부분이 for which가 되어 앞으로 나왔다.", "which 뒤에 주어와 목적어를 다 갖춘 완전한 절이 온다.", "전치사 바로 뒤나 쉼표 뒤에는 관계대명사 that을 쓸 수 없다."]}, "6": {"c": "p", "t": "주어와 동사의 수일치 : The discovery ~ was", "n": ["주어 = The discovery (단수)", "동사 = was", "사이의 삽입절 for which ~ 는 건너뜀"], "x": ["이 문장의 주어는 The discovery이고 동사는 was이다.", "중간의 of penicillin, by Alexander Fleming, for which ~ 절은 모두 주어를 꾸미는 말이다.", "주어가 단수라서 were가 아니라 was를 쓴다."]}, "7": {"c": "g", "t": "one of the + 최상급 + 복수 명사 : 가장 ~한 것 중 하나", "n": ["one of the biggest breakthroughs", "breakthrough = 획기적 발전, 돌파구", "(반의어) setback = 차질, 후퇴"], "x": ["one of the biggest breakthroughs는 ‘가장 큰 획기적 발전 중 하나’라는 뜻이다.", "one of the 뒤에는 최상급과 복수 명사가 온다.", "breakthrough는 막힌 벽을 뚫고 나가는 큰 발전을 뜻한다."]}, "8": {"c": "k", "t": "핵심 비유 : the battle against infectious diseases (감염병과의 전투)", "n": ["battle = 전투, 싸움", "the battle against ~ = ~와의 싸움", "의학 = 무기, 감염병 = 적"], "x": ["in the battle against infectious diseases는 ‘감염병과의 싸움에서’라는 뜻이다.", "감염병 극복을 전쟁에 빗대어, 의학의 발전을 새로운 무기처럼 보여 준다.", "이 비유 덕분에 페니실린, 백신, 위생 관리, 치료법이 차례로 나오는 무기 목록처럼 읽힌다."], "e": "쉬운 예시 : 맨손으로 싸우던 군대가 방패와 무기를 하나씩 갖추어 가는 것처럼, 의학은 감염병과 싸울 무기를 하나씩 늘려 왔다."}, "9": {"c": "p", "t": "명사절 접속사 that : discovered의 목적어", "n": ["discovered (around 1796) that + 완전한 문장", "around 1796 = 1796년경 (삽입된 부사구)", "that 이하 = 발견한 내용"], "x": ["Edward Jenner discovered around 1796 that ~은 ‘Edward Jenner는 1796년경 ~라는 것을 발견했다’라는 뜻이다.", "that은 discovered의 목적어가 되는 명사절을 이끈다.", "that 뒤가 완전한 문장이므로 what을 쓰지 않는다."]}, "10": {"c": "p", "t": "수동태 be protected against : ~로부터 보호되다", "n": ["protect A against B = B로부터 A를 보호하다", "→ A is protected against B", "humans = 보호받는 대상"], "x": ["humans were protected against the deadly smallpox virus는 ‘인간이 치명적인 천연두 바이러스로부터 보호되었다’라는 뜻이다.", "인간이 보호를 받는 쪽이라서 수동태를 쓴다.", "예방, 곧 백신의 원리를 보여 주는 문장이다."]}, "11": {"c": "g", "t": "deadly ↔ harmless : 치명적인 ↔ 무해한", "n": ["deadly = 치명적인 (-ly지만 형용사)", "harmless = 무해한", "smallpox = 천연두, cowpox = 우두"], "x": ["the deadly smallpox virus는 ‘치명적인 천연두 바이러스’라는 뜻이다.", "deadly는 -ly로 끝나지만 부사가 아니라 형용사이다.", "같은 문장의 harmless와 맞서 ‘무해한 것으로 치명적인 것을 막는다’는 원리를 보여 준다."]}, "12": {"c": "g", "t": "exposure to : ~에 노출됨", "n": ["exposure to ~ = ~에 노출됨", "expose A to B = A를 B에 노출시키다", "after exposure to ~ = ~에 노출된 후에"], "x": ["after exposure to the cowpox virus는 ‘우두 바이러스에 노출된 후에’라는 뜻이다.", "exposure는 동사 expose에서 나온 명사이다.", "약한 바이러스에 먼저 노출되어 몸이 방어를 준비한다는 뜻이다."]}, "13": {"c": "p", "t": "계속적 용법 which : the cowpox virus를 덧붙여 설명", "n": ["the cowpox virus, which is harmless to humans", "which = the cowpox virus", "harmless to ~ = ~에게 무해한"], "x": ["which is harmless to humans는 ‘그런데 그것은 인간에게 무해하다’라는 뜻이다.", "쉼표 뒤의 which가 앞의 the cowpox virus를 받아 설명을 덧붙인다.", "선행사가 단수라서 is를 쓴다."]}, "14": {"c": "p", "t": "과거분사 후치 수식 + 수일치 : Vaccines developed ~ have", "n": ["Vaccines ← developed in laboratories", "develop = 개발하다 → 백신은 개발되는 대상", "주어 Vaccines (복수) → have"], "x": ["Vaccines developed in laboratories는 ‘실험실에서 개발된 백신’이라는 뜻이다.", "developed가 앞의 Vaccines를 뒤에서 꾸미는 과거분사이다.", "백신은 개발되는 것이라서 수동의 과거분사를 쓴다.", "주어가 복수라서 동사 have contributed가 온다."]}, "15": {"c": "g", "t": "contribute to : ~에 기여하다", "n": ["contribute to ~ = ~에 기여하다, ~의 원인이 되다", "contribution = 기여 (명사)", "to = 전치사 → 뒤에 명사 (the reduction)"], "x": ["have contributed enormously to the reduction ~은 ‘~의 감소에 엄청나게 기여해 왔다’라는 뜻이다.", "contribute to의 to는 전치사라서 뒤에 명사 the reduction이 온다.", "enormously는 1번의 enormous progress와 이어지는 말이다."]}, "16": {"c": "g", "t": "burden : 부담, 짐", "n": ["burden = 부담, 짐", "the burden of diseases = 질병의 부담 (환자 수, 고통, 비용)", "(반의어) relief = 경감"], "x": ["the reduction of the burden of bacterial and viral diseases는 ‘세균성·바이러스성 질병의 부담 감소’라는 뜻이다.", "burden은 질병이 사람과 사회에 주는 고통과 피해를 뜻한다.", "5번에서 reduced their burden으로 다시 나온다."]}, "17": {"c": "g", "t": "bacterial and viral : 세균성의, 바이러스성의", "n": ["bacterial = 세균의 / bacteria = 세균", "viral = 바이러스의 / virus = 바이러스"], "x": ["bacterial and viral diseases는 ‘세균성 질병과 바이러스성 질병’이라는 뜻이다.", "두 형용사가 and로 이어져 diseases를 꾸민다.", "병의 원인에 따라 감염병을 두 종류로 나눈 말이다."]}, "18": {"c": "p", "t": "병렬 : have contributed ~ and have even led to ~", "n": ["Vaccines [have contributed ~] and [have even led to ~]", "lead to ~ = ~으로 이어지다", "even = 심지어"], "x": ["and have even led to the elimination of poxvirus는 ‘그리고 심지어 천연두 계열 바이러스(poxvirus)의 퇴치로 이어졌다’라는 뜻이다.", "주어 Vaccines의 두 동사가 같은 현재완료 형태로 이어진 병렬구조이다.", "even은 백신의 성과 중 가장 큰 것을 강조한다."]}, "19": {"c": "g", "t": "elimination : 제거, 퇴치", "n": ["elimination = 제거, 퇴치", "poxvirus = 천연두 계열 바이러스 (수두 바이러스가 아님)", "eliminate = 제거하다 (동사)", "(비슷한 말) eradication = 근절"], "x": ["the elimination of poxvirus는 ‘천연두 계열 바이러스의 퇴치’라는 뜻이다.", "poxvirus는 천연두 바이러스가 속한 바이러스 무리이다.", "poxvirus는 3번의 smallpox(천연두)를 일으키는 바이러스 무리이므로, 이름이 비슷한 수두(chickenpox)와 헷갈리지 않아야 한다.", "질병을 줄이는 것을 넘어 아예 없앴다는 최고의 성과를 말한다."]}, "20": {"c": "b", "t": "For other infectious diseases : 백신 밖의 다른 방법으로 전환", "n": ["for other ~ = 다른 ~의 경우에는", "2~4번 = 페니실린·백신", "5번 = 위생 관리·치료법"], "x": ["For other infectious diseases는 ‘다른 감염병의 경우에는’이라는 뜻이다.", "백신 이야기에서 다른 병과 다른 대응 방법으로 넘어가는 신호이다.", "괄호 속 cholera(콜레라)와 malaria(말라리아)가 그 예이다."]}, "21": {"c": "g", "t": "hygiene : 위생", "n": ["hygiene = 위생", "hygienic = 위생적인", "control and hygiene management measures = 통제 및 위생 관리 조치"], "x": ["control and hygiene management measures는 ‘통제와 위생 관리 조치’라는 뜻이다.", "measure는 여기서 ‘측정하다’가 아니라 ‘조치, 대책’이라는 명사이다.", "병을 직접 고치기보다 퍼지는 길을 막는 방법이다."]}, "22": {"c": "o", "t": "their = other infectious diseases (콜레라, 말라리아 등)", "n": ["their burden = 다른 감염병들의 부담", "their = other infectious diseases"], "x": ["have reduced their burden의 their는 앞의 other infectious diseases를 가리킨다.", "콜레라와 말라리아 같은 병의 피해가 줄었다는 뜻이다."]}, "23": {"c": "b", "t": "while : 반면에 (대조)", "n": ["while = ~인 반면에", "앞 = 위생 관리로 부담 감소", "뒤 = 치료법으로 만성 질환화", "(다의어) while = ~하는 동안"], "x": ["while for others ~는 ‘반면에 또 다른 병들의 경우에는 ~’이라는 뜻이다.", "while은 두 가지 서로 다른 대응 방법을 나란히 비교한다.", "여기서는 ‘~하는 동안’이 아니라 ‘반면에’라는 뜻이다."]}, "24": {"c": "o", "t": "others = other infectious diseases (또 다른 감염병들)", "n": ["others = 또 다른 감염병들", "앞의 other infectious diseases와 다른 무리"], "x": ["for others의 others는 콜레라·말라리아와는 다른 또 다른 감염병들을 가리킨다.", "뒤에 나오는 viral diseases that were deadly가 그 병들이다."]}, "25": {"c": "p", "t": "turn A into B + 관계사절 : A를 B로 바꾸다", "n": ["turn A into B = A를 B로 바꾸다", "A = viral diseases that were deadly", "B = chronic manageable diseases", "chronic = 만성의 / (반의어) acute = 급성의"], "x": ["turned viral diseases that were deadly into chronic manageable diseases는 ‘치명적이었던 바이러스성 질병을 만성적인 관리 가능한 질병으로 바꾸었다’라는 뜻이다.", "목적어 viral diseases 뒤에 관계사절 that were deadly가 붙어 길어졌으니, into까지 한 덩어리로 보아야 한다.", "manageable은 ‘관리할 수 있는’이라는 뜻이다.", "죽음에 이르던 병이 약으로 다스리며 살 수 있는 병이 되었다는 결론이다."]}}, "src": "26년 10월 35번"};var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var S=P.sents,I=P.items,FLOW=P.flow.map(function(f){return [f.label,f.range,f.sum,f.eg];});
+var cur="all";
+function textHTML(){var h='';S.forEach(function(s){h+='<div class="ps" id="s'+s.n+'"><i>'+s.n+(s.star?'<br>★':'')+'</i><div><div class="en">'+hl(s.mk)+'</div><div class="ko">'+s.ko+'</div></div></div>';});return h;}
+function strip(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,"$2");}
+function hl(s){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,id,t){var it=I[id];if(cur!='all'&&it.c!=cur)return t;return '<span class="hlk c-'+it.c+'" data-id="'+id+'">'+t+'</span>';});}
+function render(){
+ var h='<h1>'+P.src+'</h1><div class="sub">'+P.sub+'</div>';
+
+ h+='<div class="card" id="onec"><div class="lab">결국 이 얘기</div><div class="one">'+P.one+'</div></div>';
+ h+='<div class="card"><div class="lab">글의 뼈대</div><div class="flow">';
+ FLOW.forEach(function(f){h+='<div class="fr"><b>'+f[0]+'</b><span><em>'+f[1]+'</em><strong>'+f[2]+'</strong><div class="eg2">예) '+f[3]+'</div></span></div>';});
+ h+='</div></div>';
+ h+='<div class="card" id="text">'+textHTML()+'</div>';
+ h+='<div class="tabs" id="tabs"><button data-c="all" class="on">전체</button>';
+ Object.keys(CAT).forEach(function(c){h+='<button data-c="'+c+'" class="c-'+c+'">'+CAT[c]+'</button>';});
+ h+='</div><div id="items"></div>';
+ h+='<div class="ft">비타민 영어클리닉 · 청석고 영어II</div>';
+ document.getElementById("app").innerHTML=h;
+ items();
+}
+function items(){
+ var out="",seen={};
+ S.forEach(function(s){
+  var ids=[];s.mk.replace(/\[(\d+)\|/g,function(m,id){if(!seen[id]){seen[id]=1;ids.push(id);}});
+  ids.forEach(function(id){var it=I[id];if(cur!="all"&&it.c!=cur)return;
+   out+='<div class="it c-'+it.c+'" id="it'+id+'"><h4><span class="tl">'+it.t+'</span><span class="tag">'+CAT[it.c]+'</span></h4>';
+   out+='<div class="quote">'+s.n+'. '+hl2(s.mk,id)+'<div class="qk">'+s.ko+'</div></div>';
+   out+='<div class="note"><div class="nl">노트 정리</div>'+it.n.map(function(l){return '<div class="ln">'+l+'</div>';}).join("")+'</div>';
+   out+='<div class="xs">'+it.x.map(function(l){return '<div>'+l+'</div>';}).join("")+'</div>';
+   if(it.e)out+='<div class="eg">'+it.e+'</div>';
+   out+='<button class="bkb" data-back="'+s.n+'">본문으로 돌아가기</button></div>';
+  });
+ });
+ document.getElementById("items").innerHTML=out;
+}
+function hl2(s,id){return s.replace(/\[(\d+)\|([^\]]+)\]/g,function(m,i,t){return i==id?'<span class="hlk c-'+I[i].c+'">'+t+'</span>':t;});}
+document.addEventListener("click",function(e){
+ var t=e.target;
+ 
+ if(t.dataset&&t.dataset.id){var el=document.getElementById("it"+t.dataset.id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.remove("flash");void el.offsetWidth;el.classList.add("flash");}return;}
+ if(t.closest&&t.closest("#tabs")&&t.dataset.c){cur=t.dataset.c;setTabs();document.getElementById("text").innerHTML=textHTML();items();return;}
+ if(t.dataset&&t.dataset.back){var p=document.getElementById("s"+t.dataset.back);p.scrollIntoView({behavior:"smooth",block:"center"});return;}
+ if(t.tagName=="I"&&t.parentNode.classList.contains("ps")){t.parentNode.classList.toggle("open");}
+});
+function setTabs(){[].forEach.call(document.querySelectorAll("#tabs button"),function(b){b.classList.toggle("on",b.dataset.c==cur);});}
+render();
+</script>
+</body>
+</html>
