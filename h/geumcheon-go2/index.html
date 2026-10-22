@@ -123,12 +123,13 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 .rsm{display:flex;justify-content:space-between;align-items:center;gap:10px;border:2px solid var(--pri);background:var(--card);color:var(--ink);border-radius:12px;padding:11px 14px;margin:10px 0 4px;text-decoration:none}
 .rsm b{display:block;font-size:15px;color:var(--pri)}.rsm small{display:block;font-size:12.5px;color:var(--sub);margin-top:2px}.rsm .go{font-weight:800;color:var(--pri);font-size:20px}
 .pins{display:flex;flex-wrap:wrap;gap:3px;margin:5px 0 1px}
-.pn{display:flex;align-items:center}
+.pn{display:flex;flex-direction:column;align-items:center}
 
 .pn i{width:19px;height:19px;border-radius:50%;border:1.5px solid var(--line);color:var(--sub);display:flex;align-items:center;justify-content:center;font:800 10.5px/1 sans-serif;font-style:normal}
 .pn.on i{background:var(--pri);border-color:var(--pri);color:var(--onpri)}
 .pn.op i{border-style:dashed}
-.pn small{font-size:9px;color:var(--sub);margin-top:2px;white-space:nowrap}
+.dtot{margin-top:8px;padding-top:7px;border-top:1px dashed var(--line);font-size:13px;color:var(--sub)}.dtot b{color:var(--navy);font-size:15px}
+.pn small{font-size:10px;color:var(--sub);margin-top:2px;white-space:nowrap}
 .pr{margin-top:8px}.pr .ph{display:flex;justify-content:space-between;align-items:baseline}.pr .ph b{font-size:14px;color:var(--navy)}.pr .ph span{font-size:12px;color:var(--sub)}
 .ncg .d[data-day]{cursor:pointer;-webkit-tap-highlight-color:transparent}
 .ncg .d.sel::after{content:"";position:absolute;bottom:0;left:50%;width:16px;height:3px;margin-left:-8px;border-radius:2px;background:var(--ink)}
@@ -275,10 +276,10 @@ function today(){
   function fmt(t){var d=new Date(t);return (d.getMonth()+1)+'/'+d.getDate()+' ('+WDN[d.getDay()]+') '+('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)}
   function lbl(x){return x.f.no+'회 ('+src(x.f.v)+') · '+(ACT.indexOf(x.a)+1)+'. '+x.a[1]}
   h+='<div class="rec"><div class="rh"><b>내 학습 기록</b><span>인증샷용</span></div>'
-   +(function(){var tl='',any=0;flat.forEach(function(f){if(f.v.F)return;var ts=0,hit=0;ACT.forEach(function(a){var k=key(f.v,a[0]),e=P[k];if(setOf(f.v).url[a[0]]&&e&&e.t&&dkey(new Date(e.t))===rd0){hit=1;try{ts+=(+localStorage.getItem('vhd:'+k)||0)}catch(x){}}});if(!hit)return;any=1;
+   +(function(){var tl='',any=0,dT=0;flat.forEach(function(f){if(f.v.F)return;var ts=0,hit=0;ACT.forEach(function(a){var k=key(f.v,a[0]),e=P[k];if(setOf(f.v).url[a[0]]&&e&&e.t&&dkey(new Date(e.t))===rd0){hit=1;try{ts+=(+localStorage.getItem('vhd:'+k)||0)}catch(x){}}});if(!hit)return;any=1;dT+=ts;
      var o='<div class="pr"><div class="ph" data-go="'+f.no+'"><b>'+f.no+'회 ('+src(f.v)+')</b><span>'+(ts?'소요 '+(ts>=60?Math.round(ts/60)+'분':ts+'초'):'')+'<i class="gt">\u203a</i></span></div><div class="pins">';
-     ACT.forEach(function(a,ix){var id=a[0];if(!setOf(f.v).url[id]||id==='wk'||id==='wt')return;o+='<span class="pn'+(isOn(f.v,id)?' on':'')+(OPT[id]?' op':'')+'"><i>'+(ix+1)+'</i></span>'});tl+=o+'</div></div>'});
-     return '<div class="rr"><em>'+(rd0===td?'오늘의 학습':'학습 기록')+' · '+fmtMD(rdD)+'</em>'+(any?tl:'<b>'+(rd0===td?'아직 없어요':'이 날은 기록이 없어요')+'</b>')+'</div>'})()
+     ACT.forEach(function(a,ix){var id=a[0];if(!setOf(f.v).url[id]||id==='wk'||id==='wt')return;o+='<span class="pn'+(isOn(f.v,id)?' on':'')+(OPT[id]?' op':'')+'"><i>'+(ix+1)+'</i>'+(function(){var s=0;try{s=+localStorage.getItem('vhd:'+key(f.v,id))||0}catch(x){}return s?'<small>'+(s>=60?Math.round(s/60)+'분':s+'초')+'</small>':''})()+'</span>'});tl+=o+'</div></div>'});
+     return '<div class="rr"><em>'+(rd0===td?'오늘의 학습':'학습 기록')+' · '+fmtMD(rdD)+'</em>'+(any?tl:'<b>'+(rd0===td?'아직 없어요':'이 날은 기록이 없어요')+'</b>')+(dT?'<div class="dtot">총 소요시간 <b>'+(dT>=60?Math.round(dT/60)+'분':dT+'초')+'</b></div>':'')+'</div>'})()
    +'<div class="rr nx"><em>다음에 할 활동</em><b>'+(nxt?lbl(nxt):'모두 끝냈어요')+'</b></div>'
    +'<div class="rr"><em>전체 진행</em><b>'+doneN+' / '+N+'회 완료</b></div>'
    +'<div class="rs">이 화면을 캡처해 두면, 기기가 바뀌어도 어디까지 했는지 바로 알 수 있어요.<br>캡처 시각: '+fmt(Date.now())+'</div>'
