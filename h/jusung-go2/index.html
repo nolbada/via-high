@@ -347,8 +347,8 @@ function today(){
      [localStorage,sessionStorage].forEach(function(S){try{for(var i=0;i<S.length;i++){var k=S.key(i),mm=re.exec(k||'');if(!mm)continue;var v=+S.getItem(k)||0;TM[mm[2]]+=v;if(mm[1]===rd0)TM['t'+mm[2]]+=v}}catch(x){}});
      Object.keys(CNK).forEach(function(k){var e=P[k];if(e&&e.n){qg+=CNK[k];if(e.t&&dkey(new Date(e.t))===rd0)qd+=CNK[k]}});
      var tot=TM.q+TM.w+TM.h,tt=TM.tq+TM.tw+TM.th;
-     DAYT=(rd0===td?'오늘':'학습 기록')+' · '+fmtMD(rdD);DAYB=trio(['이용 시간',tt?fd(tt):'-','완료 회차',doneN+' / '+N+'회','채점 문항',qd+'개'])+sub(TM,'t');
-     return '<div class="lrs"><div><em>누적 채점 문항</em><b>'+qg+'<small>개</small></b></div><div><em>누적 유형 풀코스</em><b>'+qN+'<small>문제</small></b></div></div><div class="rr"><em>누적 이용 시간</em><b class="lrb">'+(tot?fd(tot):'-')+'</b>'+sub(TM,'')+'</div>'})()
+     DAYT=(rd0===td?'오늘':'학습 기록')+' · '+fmtMD(rdD);DAYB=trio(['이용 시간',tt?fd(tt):'-','완료 회차',doneN+' / '+N+'회','채점 문항',qd+'문제'])+sub(TM,'t');
+     return '<div class="lrs"><div><em>누적 채점 문항</em><b>'+qg+'<small>문제</small></b></div><div><em>누적 유형 풀코스</em><b>'+qN+'<small>문제</small></b></div></div><div class="rr"><em>누적 이용 시간</em><b class="lrb">'+(tot?fd(tot):'-')+'</b>'+sub(TM,'')+'</div>'})()
    +'<div class="rr"><em>'+DAYT+'</em>'+DAYB+'</div></div>';
   h+='<div class="road"><div class="rh"><b>시험까지 큰 흐름</b><span>기말고사 (12/1(화)~12/4(금))</span></div>';
   ROAD.forEach(function(w,i){h+='<div class="wr'+(i===cw?' cur':'')+(i<cw?' past':'')+'"><span class="wn">'+(i+1)+'주</span><span class="wd2">'+rdt(w[0])+'~'+rdt(w[1])+'</span><span class="wm"><b>'+esc(w[2])+'</b> '+esc(w[3]).replace(/\n/g,'<br>')+'</span></div>'});
