@@ -119,7 +119,7 @@
   /* go1·go2: 이름 입력 카드 (첫 화면에서만) */
   function mountCard(){
     if(KIND==='gimal')return;
-    if(!/\/(index\.html)?$/.test(P)||!/-(go1|go2)\/(index\.html)?$/.test(P))return;
+    if(!/-(go1|go2)\/(index\.html|tth\.html)?$/.test(P))return;
     var host=D.querySelector('.wrap')||D.body;if(!host)return;
     var name=g(NK),box=D.createElement('div');
     box.style.cssText='margin:12px 16px;padding:12px 14px;border:1px solid var(--line,#dbe4e1);border-radius:12px;background:var(--card,#fff);color:var(--ink,#16211f);font-size:15px;display:flex;gap:8px;align-items:center;flex-wrap:wrap';
