@@ -35,6 +35,7 @@ summary{cursor:pointer;font-weight:700}
 textarea{width:100%;min-height:120px;margin-top:8px;padding:10px;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:inherit;font-size:15px}
 .pv{font-size:14px;color:var(--sub);margin-top:6px}
 .foot{margin-top:28px;font-size:13px;color:var(--sub);text-align:center}
+.fl{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.fl .bt{padding:7px 13px;font-size:15px}
 </style></head><body>
 <div class="w" id="app"></div>
 <script>
@@ -106,16 +107,25 @@ function info(id){
   }
   return o;
 }
+var FG='',FS='';try{FG=localStorage.getItem('rec_fg')||'';FS=localStorage.getItem('rec_fs')||''}catch(e){}
+function fbtn(a,val,label,n){return '<button class="bt'+(val===(a==='g'?FG:FS)?' p':'')+'" data-f'+a+'="'+esc(val)+'">'+esc(label)+' '+n+'</button>'}
 function draw(){
   var ids=Object.keys(ALL).filter(function(id){return id.indexOf('REC|')===0&&id!=='REC|names'});
-  var rows=ids.map(info).sort(function(a,b){return b.last-a.last});
+  var all0=ids.map(info).sort(function(a,b){return b.last-a.last});
+  var rows=all0.filter(function(r){return (!FG||r.grade===FG)&&(!FS||(FS==='-'?!r.school:r.school===FS))});
   var t0=day0(Date.now()),todayN=rows.filter(function(r){return r.last>=t0}).length;
   var late=rows.filter(function(r){return !r.last||t0-day0(r.last)>=3*86400000});
   var h=head()+'<div class="row"><button class="bt p" id="rf">새로고침</button><button class="bt" id="lo">나가기</button></div>';
+  var gs=['고1','고2'].filter(function(g){return all0.some(function(r){return r.grade===g})});
+  var inG=all0.filter(function(r){return !FG||r.grade===FG});
+  var scs=[];inG.forEach(function(r){if(r.school&&scs.indexOf(r.school)<0)scs.push(r.school)});
+  var noSc=inG.some(function(r){return !r.school});
+  h+='<div class="fl">'+fbtn('g','','전체',all0.length)+gs.map(function(g){return fbtn('g',g,g,all0.filter(function(r){return r.grade===g}).length)}).join('')+'</div>';
+  if(scs.length>1||FS)h+='<div class="fl">'+fbtn('s','','학교 전체',inG.length)+scs.map(function(s){return fbtn('s',s,s,inG.filter(function(r){return r.school===s}).length)}).join('')+(noSc?fbtn('s','-','미확인',inG.filter(function(r){return !r.school}).length):'')+'</div>';
   h+='<div class="sum"><b>학생 '+rows.length+'명</b> · 오늘 기록 있는 학생 '+todayN+'명';
   if(late.length)h+='<div class="late">3일 이상 기록 없음: '+late.map(function(r){return esc(r.name||r.code||'?')}).join(', ')+'</div>';
   h+='</div>';
-  if(!rows.length)h+='<div class="msg">아직 기록이 있는 학생이 없어요.</div>';
+  if(!rows.length)h+='<div class="msg">'+(all0.length?'이 조건에 맞는 학생이 없어요.':'아직 기록이 있는 학생이 없어요.')+'</div>';
   rows.forEach(function(r){
     h+='<div class="rc"><div class="h"><div><b>'+esc(r.name||('코드 '+r.code))+'</b> <span class="s">'+esc((r.school?r.school+' ':'')+r.grade)+'</span></div><span class="l">'+(r.last?'마지막 '+fd(r.last):'')+'</span></div><div class="ch">'+r.chips.map(function(c){return '<i>'+esc(c)+'</i>'}).join('')+'</div></div>';
   });
@@ -123,9 +133,11 @@ function draw(){
   h+='<div class="foot">비타민 영어클리닉</div>';
   app.innerHTML=h;
   document.getElementById('rf').onclick=load;
+  [].forEach.call(document.querySelectorAll('[data-fg]'),function(b){b.onclick=function(){FG=b.getAttribute('data-fg');try{localStorage.setItem('rec_fg',FG)}catch(e){}draw()}});
+  [].forEach.call(document.querySelectorAll('[data-fs]'),function(b){b.onclick=function(){FS=b.getAttribute('data-fs');try{localStorage.setItem('rec_fs',FS)}catch(e){}draw()}});
   document.getElementById('lo').onclick=function(){try{localStorage.removeItem(PK)}catch(e){}pw='';login('')};
   var tx=document.getElementById('tx'),pv=document.getElementById('pv'),cur={};
-  var codes={};rows.forEach(function(r){if(r.code)codes[r.code]=1});
+  var codes={};all0.forEach(function(r){if(r.code)codes[r.code]=1});
   tx.oninput=function(){cur=parse(tx.value,codes);var n=Object.keys(cur).length;pv.textContent=n?n+'명 인식: '+Object.keys(cur).map(function(c){return cur[c]}).join(', '):'인식된 학생이 없어요.'};
   document.getElementById('sv').onclick=function(){
     var n=Object.keys(cur).length;if(!n){pv.textContent='붙여넣은 내용에서 이름과 개인링크(또는 코드)를 찾지 못했어요.';return}
