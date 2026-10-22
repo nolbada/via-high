@@ -76,15 +76,16 @@ function info(id){
     var m=/^(gk|js|cs)26-/.exec(k)||/(geumcheon|jusung|cheongseok)-go[12]/.exec(k);if(m&&!o.school)o.school=SC[m[1]]});
   if(o.go2){
     var p=id.split('|');o.name=p[2];o.grade=id.indexOf('REC|go1|')===0?'고1':'고2';
-    var tm={q:0,w:0,h:0,t:0},wrong=0,qg=0,qd=0,t0=day0(Date.now());
+    var tm={q:0,w:0,h:0,t:0},wrong=0,qg=0,qd=0,pre=0,t0=day0(Date.now()),CUT=Date.parse('2026-10-22T13:22:50Z');
     ks.forEach(function(k){
       var m=/^vhts:[^:]+:(\d{4})-(\d\d)-(\d\d):[^:]+:([qwh])$/.exec(k);
       if(m){var v=+val(d[k])||0;tm[m[4]]+=v;if(new Date(+m[1],+m[2]-1,+m[3]).getTime()===t0)tm.t+=v}
+      if(k.indexOf('vhd:')===0){var pv0=+val(d[k])||0;if(pv0>0&&d[k].t<CUT)pre+=pv0}
       if(k.indexOf('vhw:')===0){var w=val(d[k]);if(Array.isArray(w))wrong+=w.length}
       if(k.indexOf('vhp:')===0){var tb=CNK[k.slice(4)],pv=val(d[k]);if(tb&&pv&&typeof pv==='object')Object.keys(tb).forEach(function(q){var e=pv[q];if(e&&e.n){qg+=tb[q];if(e.t&&day0(e.t)===t0)qd+=tb[q]}})}
     });
-    var tt=tm.q+tm.w+tm.h;
-    o.chips.push('누적 이용 시간 '+dur(tt)+' (문제 풀이 '+dur(tm.q)+' · 오답 복습 '+dur(tm.w)+' · 그 외 '+dur(tm.h)+')');
+    var tt=tm.q+tm.w+tm.h+pre;
+    o.chips.push('누적 이용 시간 '+dur(tt)+' (문제 풀이 '+dur(tm.q)+' · 오답 복습 '+dur(tm.w)+' · 그 외 '+dur(tm.h)+(pre?' · 이전 측정 '+dur(pre):'')+')');
     o.chips.push('오늘 이용 시간 '+dur(tm.t));
     o.chips.push('누적 채점 문항 '+qg+'문제 (오늘 '+qd+'문제)');
     o.chips.push('오답노트 '+wrong+'개');
