@@ -1,8 +1,8 @@
-/* REC: 고등 학생 기록을 기기 간에 잇는 공용 스크립트. 고1(gimal)=개인 코드, 고2(go2)=이름+6900.
+/* REC: 고등 학생 기록을 기기 간에 잇는 공용 스크립트. 고1 개인 링크(gimal)=개인 코드, 고1 공용 링크(go1)와 고2(go2)=이름+6900.
    기존 구글 시트 서버(HUB.sync와 같은 주소·같은 요청 형식)를 쓰고, id는 REC 로 시작해 허브 기록과 섞이지 않는다. */
 (function(){
   var W=window,D=document,P=location.pathname;
-  var m=/\/h\/(geumcheon|jusung|cheongseok)-(gimal|go2)\//.exec(P);
+  var m=/\/h\/(geumcheon|jusung|cheongseok)-(gimal|go1|go2)\//.exec(P);
   if(!m||W.__rec)return;
   W.__rec=1;
   var URL_=W.REC_URL||'https://script.google.com/macros/s/AKfycbw1YQfKsgAXNk8NYoxOfz4bsCSy66fiim7HoFAUk162ksxrEbmspMs2UifNZ-93sdf05A/exec';
@@ -23,7 +23,7 @@
   function keys(){var o=[],i,k;for(i=0;i<LS.length;i++){k=LS.key(i);if(mirrored(k))o.push(k)}return o}
   function ident(){
     if(KIND==='gimal'){var c=(g(CODEKEY)||'').toLowerCase();return /^[a-z0-9]{3,12}$/.test(c)?'REC|'+c:''}
-    var n=(g(NK)||'').replace(/\s+/g,'');return n?'REC|go2|'+n+'|'+NUM:'';
+    var n=(g(NK)||'').replace(/\s+/g,'');return n?'REC|'+KIND+'|'+n+'|'+NUM:'';
   }
   function dm(a,b){
     if(a===b)return a;
@@ -114,10 +114,10 @@
     });
     W.addEventListener('pagehide',function(){push(id,true).catch(function(){})});
   }
-  /* 고2: 이름 입력 카드 (첫 화면에서만) */
+  /* go1·go2: 이름 입력 카드 (첫 화면에서만) */
   function mountCard(){
-    if(KIND!=='go2')return;
-    if(!/\/(index\.html)?$/.test(P)||!/-go2\/(index\.html)?$/.test(P))return;
+    if(KIND==='gimal')return;
+    if(!/\/(index\.html)?$/.test(P)||!/-(go1|go2)\/(index\.html)?$/.test(P))return;
     var host=D.querySelector('.wrap')||D.body;if(!host)return;
     var name=g(NK),box=D.createElement('div');
     box.style.cssText='margin:12px 16px;padding:12px 14px;border:1px solid var(--line,#dbe4e1);border-radius:12px;background:var(--card,#fff);color:var(--ink,#16211f);font-size:15px;display:flex;gap:8px;align-items:center;flex-wrap:wrap';
@@ -135,7 +135,7 @@
           s(UK,id);d(MK);
           sync(id,true).then(function(){location.reload()},function(){d(NK);d(UK);b.disabled=false;D.getElementById('rec-m').textContent='연결이 안 됐어요. 인터넷을 확인하고 다시 눌러 주세요.'});
         };
-        if(prevId&&prevId!==('REC|go2|'+v+'|'+NUM))push(prevId,false).catch(function(){}).then(go);else go();
+        if(prevId&&prevId!==('REC|'+KIND+'|'+v+'|'+NUM))push(prevId,false).catch(function(){}).then(go);else go();
       };
     }else{
       box.innerHTML='<span style="flex:1"><b>'+name.replace(/[<>&"]/g,'')+'</b> 기록 저장 중</span><button id="rec-x" type="button" style="font-size:13px;padding:7px 12px;border:1px solid var(--line,#dbe4e1);border-radius:8px;background:transparent;color:inherit">다른 이름으로</button>';
