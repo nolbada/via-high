@@ -136,6 +136,13 @@ def main():
                     tx=open(os.path.join(dp,f),encoding='utf8').read()
                     if re.search(r'font:\d{3} [0-9.]+px(/[0-9.]+)? inherit',tx): fb.append(os.path.relpath(os.path.join(dp,f),os.path.join(ROOT,'h',sc)))
         for x in fb[:5]: bad.append('글꼴 줄임식 무효(font:... inherit): '+x)
+        # 정답·해설 페이지: 문항마다 '빠른정답으로' 되돌아가는 링크가 있어야 함(문항 수와 같거나 많게)
+        for yp in glob.glob(os.path.join(ROOT,'h',sc,'L[34]','yesang*','index.html')):
+            yt=open(yp,encoding='utf8').read()
+            if yt.count('href="#quick"')<yt.count('class="sc"') or 'id="quick"' not in yt:
+                bad.append('정답 페이지 되돌아가기 링크 부족: '+os.path.relpath(yp,os.path.join(ROOT,'h',sc)))
+            if sc=='geumcheon-go1' and 'id="fq"' not in yt:
+                bad.append('정답 페이지 빠른정답 떠 있는 버튼 없음: '+os.path.relpath(yp,os.path.join(ROOT,'h',sc)))
         for n in ['ROAD 글씨 겹침 없음','랜덤 화면 구조']:
             if not S[n]: bad.append('%s 실패'%n)
         print('%-16s %s  (유형줄 %s, 최대 %s회)'%(sc,'PASS' if not bad else 'FAIL',S['유형 줄 수'],S['ROAD 최대 회']))
