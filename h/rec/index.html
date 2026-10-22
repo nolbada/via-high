@@ -67,6 +67,8 @@ function readNames(){
   try{NAMES=JSON.parse(localStorage.getItem(NK)||'{}')||{}}catch(e){NAMES={}}
   var n=ALL['REC|names'];if(n&&n.map){var v=val(n.map);if(v&&typeof v==='object'){for(var k in v)NAMES[k]=v[k]}}
 }
+function dur(s){return s>=3600?Math.floor(s/3600)+'시간 '+Math.round(s%3600/60)+'분':s>=60?Math.round(s/60)+'분':s+'초'}
+var CNK={"geumcheon-go1":{"key:L3:hangeul":40,"key:L3:eobeop":32,"key:L3:dongsa":41,"key:L3:check":84,"key:L3:yeongeo":40,"key:L3:yesang1":20,"key:L3:yesang2":21,"key:L3:yesang3":20,"key:L3:yesang4":20,"key:L4:hangeul":42,"key:L4:eobeop":42,"key:L4:dongsa":46,"key:L4:check":120,"key:L4:yeongeo":42,"key:L4:yesang1":20,"key:L4:yesang2":20,"key:L4:yesang3":20,"key:L4:yesang4":20,"key:plus:c2-mirae-kim-34:g1":22,"key:plus:c2-mirae-kim-34:g2":22,"key:plus:c2-mirae-kim-34:g3":21},"geumcheon-go2":{"key:L4:hangeul":60,"key:L4:eobeop":34,"key:L4:dongsa":42,"key:L4:yeongeo":60},"cheongseok-go1":{"key:L3:hangeul":38,"key:L3:eobeop":38,"key:L3:dongsa":38,"key:L3:check":85,"key:L3:yeongeo":38,"key:L3:yesang1":20,"key:L3:yesang2":20,"key:L3:yesang3":20,"key:L3:yesang4":20,"key:L4:hangeul":51,"key:L4:eobeop":51,"key:L4:dongsa":51,"key:L4:check":111,"key:L4:yeongeo":51,"key:L4:yesang1":20,"key:L4:yesang2":20,"key:L4:yesang3":20,"key:L4:yesang4":20,"key:plus:c2-neungryul-min-34:g1":25,"key:plus:c2-neungryul-min-34:g2":25,"key:plus:c2-neungryul-min-34:g3":25,"key:plus:c2-neungryul-min-34:g4":25,"key:plus:c2-neungryul-min-34:n3_1":25,"key:plus:c2-neungryul-min-34:n3_2":25,"key:plus:c2-neungryul-min-34:n4_1":25,"key:plus:c2-neungryul-min-34:n4_2":25},"cheongseok-go2":{"key:L4:hangeul":60,"key:L4:eobeop":34,"key:L4:dongsa":42,"key:L4:yeongeo":60},"jusung-go1":{"key:L3:hangeul":47,"key:L3:eobeop":47,"key:L3:dongsa":47,"key:L3:check":112,"key:L3:yeongeo":47,"key:L3:yesang1":20,"key:L3:yesang2":20,"key:L3:yesang3":20,"key:L3:yesang4":20,"key:L4:hangeul":52,"key:L4:eobeop":44,"key:L4:dongsa":52,"key:L4:check":98,"key:L4:yeongeo":52,"key:L4:yesang1":20,"key:L4:yesang2":20,"key:L4:yesang3":20,"key:L4:yesang4":20,"key:plus:c2-neungryul-oh-34:g1":23,"key:plus:c2-neungryul-oh-34:g2":22,"key:plus:c2-neungryul-oh-34:g3":23,"key:plus:c2-neungryul-oh-34:g4":23,"key:plus:c2-neungryul-oh-34:g5":23,"key:plus:c2-neungryul-oh-34:n3_1":25,"key:plus:c2-neungryul-oh-34:n3_2":25,"key:plus:c2-neungryul-oh-34:n4_1":25,"key:plus:c2-neungryul-oh-34:n4_2":25},"jusung-go2":{"key:L4:hangeul":60,"key:L4:eobeop":34,"key:L4:dongsa":42,"key:L4:yeongeo":60,"key:mock:hangeul-2211":86,"key:mock:eobeop-2211":84,"key:mock:dongsa-2211":85,"key:mock:yeongeo-2211":86,"key:mock:hangeul-2311":118,"key:mock:eobeop-2311":117,"key:mock:dongsa-2311":117,"key:mock:yeongeo-2311":118,"key:mock:hangeul-2410":54,"key:mock:eobeop-2410":54,"key:mock:dongsa-2410":54,"key:mock:yeongeo-2410":54}};
 var SC={gk:'금천',js:'주성',cs:'청석',geumcheon:'금천',jusung:'주성',cheongseok:'청석'};
 function info(id){
   var d=ALL[id],ks=Object.keys(d),o={id:id,last:0,go2:/^REC\|go[12]\|/.test(id),school:'',chips:[]};
@@ -74,12 +76,17 @@ function info(id){
     var m=/^(gk|js|cs)26-/.exec(k)||/(geumcheon|jusung|cheongseok)-go[12]/.exec(k);if(m&&!o.school)o.school=SC[m[1]]});
   if(o.go2){
     var p=id.split('|');o.name=p[2];o.grade=id.indexOf('REC|go1|')===0?'고1':'고2';
-    var sec=0,wrong=0;
+    var tm={q:0,w:0,h:0,t:0},wrong=0,qg=0,qd=0,t0=day0(Date.now());
     ks.forEach(function(k){
-      if(k.indexOf('vhd:')===0){var v=+val(d[k]);if(v>0)sec+=v}
+      var m=/^vhts:[^:]+:(\d{4})-(\d\d)-(\d\d):[^:]+:([qwh])$/.exec(k);
+      if(m){var v=+val(d[k])||0;tm[m[4]]+=v;if(new Date(+m[1],+m[2]-1,+m[3]).getTime()===t0)tm.t+=v}
       if(k.indexOf('vhw:')===0){var w=val(d[k]);if(Array.isArray(w))wrong+=w.length}
+      if(k.indexOf('vhp:')===0){var tb=CNK[k.slice(4)],pv=val(d[k]);if(tb&&pv&&typeof pv==='object')Object.keys(tb).forEach(function(q){var e=pv[q];if(e&&e.n){qg+=tb[q];if(e.t&&day0(e.t)===t0)qd+=tb[q]}})}
     });
-    o.chips.push('학습 시간 '+(sec>=60?Math.floor(sec/60)+'분':sec+'초'));
+    var tt=tm.q+tm.w+tm.h;
+    o.chips.push('누적 이용 시간 '+dur(tt)+' (문제 풀이 '+dur(tm.q)+' · 오답 복습 '+dur(tm.w)+' · 그 외 '+dur(tm.h)+')');
+    o.chips.push('오늘 이용 시간 '+dur(tm.t));
+    o.chips.push('누적 채점 문항 '+qg+'개 (오늘 '+qd+'개)');
     o.chips.push('오답노트 '+wrong+'개');
   }else{
     o.code=id.split('|')[1];o.grade='고1';
