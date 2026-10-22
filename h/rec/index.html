@@ -69,11 +69,11 @@ function readNames(){
 }
 var SC={gk:'금천',js:'주성',cs:'청석',geumcheon:'금천',jusung:'주성',cheongseok:'청석'};
 function info(id){
-  var d=ALL[id],ks=Object.keys(d),o={id:id,last:0,go2:id.indexOf('REC|go2|')===0,school:'',chips:[]};
+  var d=ALL[id],ks=Object.keys(d),o={id:id,last:0,go2:/^REC\|go[12]\|/.test(id),school:'',chips:[]};
   ks.forEach(function(k){var t=d[k].t;if(t>1&&t>o.last)o.last=t;
-    var m=/^(gk|js|cs)26-/.exec(k)||/(geumcheon|jusung|cheongseok)-go2/.exec(k);if(m&&!o.school)o.school=SC[m[1]]});
+    var m=/^(gk|js|cs)26-/.exec(k)||/(geumcheon|jusung|cheongseok)-go[12]/.exec(k);if(m&&!o.school)o.school=SC[m[1]]});
   if(o.go2){
-    var p=id.split('|');o.name=p[2];o.grade='고2';
+    var p=id.split('|');o.name=p[2];o.grade=id.indexOf('REC|go1|')===0?'고1':'고2';
     var sec=0,wrong=0;
     ks.forEach(function(k){
       if(k.indexOf('vhd:')===0){var v=+val(d[k]);if(v>0)sec+=v}
