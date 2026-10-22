@@ -90,7 +90,6 @@ var wn=wnNote(document.getElementById('wnhost'));wnRender(wn,false);if(WEMPTY){v
 </script><script>(function(){var T=document.querySelectorAll('.tq'),tot=0,got=0,dn=0,bar=document.getElementById('cnt'),sum=document.getElementById('sum');
 T.forEach(function(q){tot+=q.querySelectorAll('.bk').length});
 T.forEach(function(q){var _mb=WN.manual({kind:'L3',part:PART,act:'eobeop',qid:q.dataset.orig,label:'어법 선택 '+q.dataset.orig+'번'});if(!_mb)return;var _h=q.querySelector('.th'),_mw=document.createElement('div');_mw.appendChild(_mb);_h.parentNode.insertBefore(_mw,_h.nextSibling)});
-var wn=wnNote(document.getElementById('wnhost'));wnRender(wn,false);if(WEMPTY){document.querySelector('.bar').style.display='none';wnEmpty(wn)}
 function up(){bar.innerHTML=dn+' / '+T.length+' 문제 · 정답 <b>'+got+'</b> / '+tot+'칸'}
 function chk(q){var ok=true;q.querySelectorAll('.bk').forEach(function(b){if(!b.querySelector('.sel'))ok=false});q.querySelector('.go').disabled=!ok}
 T.forEach(function(q){q.addEventListener('click',function(e){var b=e.target.closest('.bk button');if(b&&!q.classList.contains('done')){b.parentNode.querySelectorAll('button').forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');chk(q);return}
