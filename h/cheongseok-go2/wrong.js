@@ -30,13 +30,13 @@ var WN=(function(){
   /* 랜덤 이어 풀기: 묶음이 끝나면 아래에 다음 유형 바 (261022) */
   if(MX){(function(){var h0=here(),K0=h0.kind+'|'+h0.part+'|'+h0.act,QK='vhmq:'+school,shown='';
     function bar(){var q=null;try{q=JSON.parse(localStorage.getItem(QK)||'null')}catch(e){}
-      var s=mxLoad();if(!q||!q.l||!s||q.r!==s.round||!(s.done&&s.done[K0]))return;
+      var s=mxLoad();if(!q||!q.l||!s||q.r!==s.round)return;var rdy=!!(s.done&&s.done[K0]);if(!rdy){var rb=document.querySelectorAll('button');for(var j=0;j<rb.length;j++){if(rb[j].offsetParent&&/결과 보기/.test(rb[j].textContent)){rdy=true;break}}}if(!rdy)return;
       var idx=-1;q.l.forEach(function(x,i){if(x.k===K0)idx=i});if(idx<0)return;
       var nx=null;for(var i=idx+1;i<q.l.length;i++){if(!(s.done&&s.done[q.l[i].k])){nx=q.l[i];break}}
       var key=nx?nx.k:'end';if(shown===key||!document.body)return;shown=key;
       var old=document.getElementById('vhmnext');if(old)old.remove();
       var a=document.createElement('a');a.id='vhmnext';a.href=base()+(nx?nx.u:'mix.html');a.textContent=nx?'다음 유형: '+nx.n+' \u203a':'체크한 유형을 모두 끝냈어요 \u00b7 랜덤 문제로';
-      a.onclick=function(){if(nx){var s2=mxLoad();if(s2){s2.open=s2.open||{};s2.open[nx.k]=1;mxSave(s2)}}else{try{localStorage.removeItem(QK)}catch(e){}}};
+      a.onclick=function(){try{var s3=mxLoad();if(s3&&!(s3.done&&s3.done[K0]))WN.finish()}catch(e){}if(nx){var s2=mxLoad();if(s2){s2.open=s2.open||{};s2.open[nx.k]=1;mxSave(s2)}}else{try{localStorage.removeItem(QK)}catch(e){}}};
       a.style.cssText='position:fixed;left:12px;right:104px;bottom:12px;z-index:9998;background:#1e2a44;color:#fff;text-align:center;font:800 15px/1.2 sans-serif;padding:15px 12px;border-radius:14px;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,.3)';
       document.body.appendChild(a)}
     setInterval(bar,700)})()}
