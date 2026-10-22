@@ -155,3 +155,22 @@
   function ready(){start();mountCard()}
   if(D.readyState==='complete')ready();else W.addEventListener('load',ready);
 })();
+
+/* 이용 시간: 화면 종류별로 합산한다. q=문제 풀이, w=오답 복습, h=그 외. 화면이 보이고 최근 60초 안에 조작이 있을 때만 센다.
+   키 vhts:학교:날짜:기기:종류 (기기마다 따로 저장해 두 기기를 써도 합쳐서 계산) */
+(function(){try{
+  var P=location.pathname,m=/\/h\/((?:geumcheon|jusung|cheongseok)-(?:gimal|go1|go2))\//.exec(P);
+  if(!m||window.__vhts)return;window.__vhts=1;
+  var Q={mix:1,vocab:1,find:1,blank:1,'sunseo-abc':1,'sunseo-ko':1,'sunseo-mun':1,'awkward-test':1,'eobeop-test':1,'dongsa-test':1,'nd-voc':1,'nd-und':1,'nd-find':1,'nd-eob':1,'nd-awk':1,'key15-test':1};
+  var f=P.split('/').pop().replace(/\.html$/,''),b=f==='wrong'?'w':(Q[f]?'q':'h'),L=window.localStorage;
+  function two(n){return('0'+n).slice(-2)}
+  function dev(){var v='x';try{v=L.getItem('rec_dev');if(!v){v=Math.random().toString(36).slice(2,6);L.setItem('rec_dev',v)}}catch(e){}return v}
+  function key(){var d=new Date();return 'vhts:'+m[1]+':'+d.getFullYear()+'-'+two(d.getMonth()+1)+'-'+two(d.getDate())+':'+dev()+':'+b}
+  var acc=0,last=Date.now(),act=Date.now();
+  function bump(){act=Date.now()}
+  ['touchstart','click','scroll','keydown','pointerdown'].forEach(function(e){addEventListener(e,bump,{passive:true,capture:true})});
+  function flush(){if(!acc)return;try{var k=key();L.setItem(k,String((+L.getItem(k)||0)+acc))}catch(e){}acc=0}
+  setInterval(function(){var n=Date.now();if(document.visibilityState==='visible'&&n-act<60000&&n-last<5000)acc+=Math.round((n-last)/1000);last=n;if(acc>=5)flush()},1000);
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState!=='visible')flush();else{last=Date.now();act=Date.now()}});
+  addEventListener('pagehide',flush);
+}catch(e){}})();
