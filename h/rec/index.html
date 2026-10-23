@@ -36,6 +36,24 @@ textarea{width:100%;min-height:120px;margin-top:8px;padding:10px;border:1px soli
 .pv{font-size:14px;color:var(--sub);margin-top:6px}
 .foot{margin-top:28px;font-size:13px;color:var(--sub);text-align:center}
 .fl{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.fl .bt{padding:7px 13px;font-size:15px}
+.sub{margin-bottom:14px}
+.kp{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.kp div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.kp span{display:block;font-size:12.5px;color:var(--sub)}
+.kp b{font-size:24px;font-weight:700;line-height:1.3}.kp small{font-size:13px;font-weight:400;color:var(--sub);margin-left:2px}
+.fl .bt{border-color:var(--line);color:var(--sub);background:var(--card);border-radius:8px;padding:6px 12px;font-size:14px}
+.fl .bt.p{background:var(--pri);border-color:var(--pri);color:#fff;font-weight:600}
+.lst{margin:12px 0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.rw{display:flex;gap:12px;padding:14px;border-top:1px solid var(--line)}.rw:first-child{border-top:0}
+.av{flex:none;width:40px;height:40px;border-radius:50%;background:var(--pri);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px}
+.bd{flex:1;min-width:0}
+.tp{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.nm{display:flex;align-items:baseline;gap:8px;min-width:0}.nm b{font-size:17px}.nm .s{font-size:13px;color:var(--sub)}
+.tp .l{font-size:12.5px;color:var(--sub);white-space:nowrap}
+.gr{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 14px;margin-top:10px}
+.gr span{display:block;font-size:12px;color:var(--sub)}.gr b{font-size:16px;font-weight:600}
+.mt{margin-top:6px;font-size:14px;color:var(--sub)}
+@media(min-width:560px){.gr{grid-template-columns:repeat(4,1fr)}}
 </style></head><body>
 <div class="w" id="app"></div>
 <script>
@@ -68,7 +86,7 @@ function readNames(){
   try{NAMES=JSON.parse(localStorage.getItem(NK)||'{}')||{}}catch(e){NAMES={}}
   var n=ALL['REC|names'];if(n&&n.map){var v=val(n.map);if(v&&typeof v==='object'){for(var k in v)NAMES[k]=v[k]}}
 }
-function dur(s){return s>=3600?Math.floor(s/3600)+'시간 '+Math.round(s%3600/60)+'분':s>=60?Math.round(s/60)+'분':s+'초'}
+function dur(s){s=Math.round(s);if(s<=0)return '0분';if(s<60)return '1분 미만';return s>=3600?Math.floor(s/3600)+'시간 '+Math.round(s%3600/60)+'분':Math.round(s/60)+'분'}
 var CNK={"geumcheon-go1":{"key:L3:hangeul":40,"key:L3:eobeop":32,"key:L3:dongsa":41,"key:L3:check":84,"key:L3:yeongeo":40,"key:L3:yesang1":20,"key:L3:yesang2":21,"key:L3:yesang3":20,"key:L3:yesang4":20,"key:L4:hangeul":42,"key:L4:eobeop":42,"key:L4:dongsa":46,"key:L4:check":120,"key:L4:yeongeo":42,"key:L4:yesang1":20,"key:L4:yesang2":20,"key:L4:yesang3":20,"key:L4:yesang4":20,"key:plus:c2-mirae-kim-34:g1":22,"key:plus:c2-mirae-kim-34:g2":22,"key:plus:c2-mirae-kim-34:g3":21},"geumcheon-go2":{"key:L4:hangeul":60,"key:L4:eobeop":34,"key:L4:dongsa":42,"key:L4:yeongeo":60},"cheongseok-go1":{"key:L3:hangeul":38,"key:L3:eobeop":38,"key:L3:dongsa":38,"key:L3:check":85,"key:L3:yeongeo":38,"key:L3:yesang1":20,"key:L3:yesang2":20,"key:L3:yesang3":20,"key:L3:yesang4":20,"key:L4:hangeul":51,"key:L4:eobeop":51,"key:L4:dongsa":51,"key:L4:check":111,"key:L4:yeongeo":51,"key:L4:yesang1":20,"key:L4:yesang2":20,"key:L4:yesang3":20,"key:L4:yesang4":20,"key:plus:c2-neungryul-min-34:g1":25,"key:plus:c2-neungryul-min-34:g2":25,"key:plus:c2-neungryul-min-34:g3":25,"key:plus:c2-neungryul-min-34:g4":25,"key:plus:c2-neungryul-min-34:n3_1":25,"key:plus:c2-neungryul-min-34:n3_2":25,"key:plus:c2-neungryul-min-34:n4_1":25,"key:plus:c2-neungryul-min-34:n4_2":25},"cheongseok-go2":{"key:L4:hangeul":60,"key:L4:eobeop":34,"key:L4:dongsa":42,"key:L4:yeongeo":60},"jusung-go1":{"key:L3:hangeul":47,"key:L3:eobeop":47,"key:L3:dongsa":47,"key:L3:check":112,"key:L3:yeongeo":47,"key:L3:yesang1":20,"key:L3:yesang2":20,"key:L3:yesang3":20,"key:L3:yesang4":20,"key:L4:hangeul":52,"key:L4:eobeop":44,"key:L4:dongsa":52,"key:L4:check":98,"key:L4:yeongeo":52,"key:L4:yesang1":20,"key:L4:yesang2":20,"key:L4:yesang3":20,"key:L4:yesang4":20,"key:plus:c2-neungryul-oh-34:g1":23,"key:plus:c2-neungryul-oh-34:g2":22,"key:plus:c2-neungryul-oh-34:g3":23,"key:plus:c2-neungryul-oh-34:g4":23,"key:plus:c2-neungryul-oh-34:g5":23,"key:plus:c2-neungryul-oh-34:n3_1":25,"key:plus:c2-neungryul-oh-34:n3_2":25,"key:plus:c2-neungryul-oh-34:n4_1":25,"key:plus:c2-neungryul-oh-34:n4_2":25},"jusung-go2":{"key:L4:hangeul":60,"key:L4:eobeop":34,"key:L4:dongsa":42,"key:L4:yeongeo":60,"key:mock:hangeul-2211":86,"key:mock:eobeop-2211":84,"key:mock:dongsa-2211":85,"key:mock:yeongeo-2211":86,"key:mock:hangeul-2311":118,"key:mock:eobeop-2311":117,"key:mock:dongsa-2311":117,"key:mock:yeongeo-2311":118,"key:mock:hangeul-2410":54,"key:mock:eobeop-2410":54,"key:mock:dongsa-2410":54,"key:mock:yeongeo-2410":54}};
 var SC={gk:'금천',js:'주성',cs:'청석',geumcheon:'금천',jusung:'주성',cheongseok:'청석'};
 function info(id){
@@ -87,10 +105,7 @@ function info(id){
       if(k.indexOf('vhp:')===0){var tb=CNK[k.slice(4)],pv=val(d[k]);if(tb&&pv&&typeof pv==='object')Object.keys(tb).forEach(function(q){var e=pv[q];if(e&&e.n){qg+=tb[q];if(e.t&&day0(e.t)===t0)qd+=tb[q]}})}
     });
     var tt=tm.q+tm.w+tm.h+pre;
-    o.chips.push('누적 이용 시간 '+dur(tt)+' (문제 풀이 '+dur(tm.q)+' · 오답 복습 '+dur(tm.w)+' · 그 외 '+dur(tm.h)+(pre?' · 이전 측정 '+dur(pre):'')+')');
-    o.chips.push('오늘 이용 시간 '+dur(tm.t));
-    o.chips.push('누적 채점 문항 '+qg+'문제 (오늘 '+qd+'문제)');
-    o.chips.push('오답노트 '+wrong+'개');
+    o.stats=[['누적 이용시간',dur(tt)],['오늘 이용시간',dur(tm.t)],['누적 채점문항',qg+'문제'],['오답노트',wrong+'개']];
   }else{
     o.code=id.split('|')[1];o.grade='고1';
     var done=0,today=0,rep=0,sum=0,hw=0,t0=day0(Date.now());
@@ -122,13 +137,13 @@ function draw(){
   var noSc=inG.some(function(r){return !r.school});
   h+='<div class="fl">'+fbtn('g','','전체',all0.length)+gs.map(function(g){return fbtn('g',g,g,all0.filter(function(r){return r.grade===g}).length)}).join('')+'</div>';
   if(scs.length>1||FS)h+='<div class="fl">'+fbtn('s','','학교 전체',inG.length)+scs.map(function(s){return fbtn('s',s,s,inG.filter(function(r){return r.school===s}).length)}).join('')+(noSc?fbtn('s','-','미확인',inG.filter(function(r){return !r.school}).length):'')+'</div>';
-  h+='<div class="sum"><b>학생 '+rows.length+'명</b> · 오늘 기록 있는 학생 '+todayN+'명';
+  h+='<div class="kp"><div><span>학생</span><b>'+rows.length+'<small>명</small></b></div><div><span>오늘 기록</span><b>'+todayN+'<small>명</small></b></div><div><span>3일 이상 없음</span><b>'+late.length+'<small>명</small></b></div></div>';
   if(late.length)h+='<div class="late">3일 이상 기록 없음: '+late.map(function(r){return esc(r.name||r.code||'?')}).join(', ')+'</div>';
-  h+='</div>';
   if(!rows.length)h+='<div class="msg">'+(all0.length?'이 조건에 맞는 학생이 없어요.':'아직 기록이 있는 학생이 없어요.')+'</div>';
-  rows.forEach(function(r){
-    h+='<div class="rc"><div class="h"><div><b>'+esc(r.name||('코드 '+r.code))+'</b> <span class="s">'+esc((r.school?r.school+' ':'')+r.grade)+'</span></div><span class="l">'+(r.last?'마지막 '+fd(r.last):'')+'</span></div><div class="ch">'+r.chips.map(function(c){return '<i>'+esc(c)+'</i>'}).join('')+'</div></div>';
-  });
+  if(rows.length){h+='<div class="lst">';rows.forEach(function(r){var nm=r.name||('코드 '+r.code);
+    h+='<div class="rw"><div class="av">'+esc(nm.replace(/^코드 /,'').charAt(0)||'?')+'</div><div class="bd"><div class="tp"><div class="nm"><b>'+esc(nm)+'</b><span class="s">'+esc((r.school?r.school+' ':'')+r.grade)+'</span></div><span class="l">'+(r.last?fd(r.last):'기록 없음')+'</span></div>'
+    +(r.stats?'<div class="gr">'+r.stats.map(function(c){return '<div><span>'+esc(c[0])+'</span><b>'+esc(c[1])+'</b></div>'}).join('')+'</div>':'<div class="mt">'+r.chips.map(esc).join(' · ')+'</div>')+'</div></div>';
+  });h+='</div>'}
   h+='<details id="nm"><summary>이름 연결 (고1, 처음 한 번)</summary><div class="pv">학생 개인링크 시트에서 이름과 개인링크가 있는 칸을 복사해 아래에 붙여넣어 주세요. 이름은 구글 시트에만 저장되고 공개 저장소에는 들어가지 않아요.</div><textarea id="tx" placeholder="여기에 붙여넣기"></textarea><div class="pv" id="pv"></div><div class="row"><button class="bt p" id="sv">저장</button></div></details>';
   h+='<div class="foot">비타민 영어클리닉</div>';
   app.innerHTML=h;
