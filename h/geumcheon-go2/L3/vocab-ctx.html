@@ -1,0 +1,71 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1d4ed8"><title>3과 어휘 문맥 시범</title>
+<link rel="icon" type="image/svg+xml" href="../icon.svg"><link rel="apple-touch-icon" href="../icon-180.png">
+<link rel="stylesheet" href="../../common/sx.css?v=261019">
+<style>
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);border:1px solid var(--pri);border-radius:999px;padding:0 9px;margin-bottom:8px}
+.sub{color:var(--sub);font-size:14px;margin:0 0 6px}
+.ex{font-size:18px;line-height:1.65;margin:6px 0 8px}
+.ex b{color:var(--pri)}.ex u{text-decoration:none;border-bottom:3px solid var(--pri);font-weight:800}
+.ex .br{display:inline-block;font-weight:800;color:var(--pri);background:var(--priL);border-radius:8px;padding:0 6px}
+.post{font-size:15.5px;line-height:1.55;color:var(--sub);margin:0 0 8px}
+.o{display:block;width:100%;text-align:left;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-weight:600;font-size:17px;line-height:1.45;font-family:inherit;border-radius:12px;padding:12px 13px;margin:8px 0;cursor:pointer}
+.o.two{display:inline-block;width:calc(50% - 5px);text-align:center;font-size:19px;font-weight:800}
+.o.ok{border-color:#16803c;background:#e3f5e8;color:#0f5b2a}.o.no{border-color:var(--ans);background:#fdeaea;color:var(--ans)}
+.go{display:block;width:100%;border:0;background:var(--pri);color:#fff;font-weight:800;font-size:16px;line-height:1;font-family:inherit;border-radius:12px;padding:14px;margin:12px 0;cursor:pointer}
+.go.l{background:var(--card);color:var(--pri);border:1.5px solid var(--pri)}
+.pg{height:6px;background:var(--grayL);border-radius:9px;overflow:hidden;margin:6px 0 10px}.pg i{display:block;height:100%;background:var(--pri)}
+.story{border-left:4px solid var(--pri);background:var(--priL);border-radius:6px;padding:9px 12px;margin:10px 0;font-weight:800;color:var(--navy);font-size:16px;line-height:1.5}
+.fb{border-radius:12px;padding:10px 12px;margin:10px 0;font-size:15.5px;line-height:1.6;background:var(--grayL)}
+.fb ul{margin:4px 0 0;padding-left:18px}.fb li{margin:3px 0}
+.fb .res.g{color:#16803c;font-weight:800}.fb .res.r{color:var(--ans);font-weight:800}
+.ko{color:var(--sub);font-size:15px;margin:2px 0 6px}
+.wd{margin-top:8px;border-top:1px dashed var(--line);padding-top:6px;font-size:15px}.wd div{margin:3px 0}.wd span{color:var(--sub)}
+.sn{margin:8px 0;padding:8px 10px;border-radius:10px;background:var(--card);border:1px solid var(--line)}.sn.hit{border-color:#16803c;background:#e3f5e8}
+.sn b{display:block}.sn .k{color:var(--sub)}
+</style></head><body><div class="wrap"><div class="top"><a class="back" href="../index.html">← 목록</a></div>
+<h1>3과 · 어휘 문맥</h1><p class="lede" style="font-weight:800;color:var(--navy)">이번 범위: 본문 ❶~❸</p>
+<div id="stage"></div>
+<div class="foot" style="text-align:center;color:var(--sub);font-size:13px;margin-top:26px">비타민 영어클리닉 · 금천고 영어II</div></div>
+<script src="ctx-data.js"></script>
+<script>
+(function(){
+var E=function(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+var st=document.getElementById('stage'),Q=CTX.slice(),i=0,ok=0,wr=[],round=1,total=Q.length;
+var LAB={A:'반의어 고르기',S:'바꿔 쓸 수 있는 단어',P:'다의어'};
+function shuf(a){a=a.slice();for(var k=a.length-1;k>0;k--){var j=Math.floor(Math.random()*(k+1)),t=a[k];a[k]=a[j];a[j]=t}return a}
+function sent(q){var h=E(q.en);
+  if(q.t==='A'){var n=+q.id.slice(1),sw=n%2===0;return h.replace(/\{\{([^|]+)\|([^}]+)\}\}/,function(m,a,b){return'<span class="br">['+(sw?b+' / '+a:a+' / '+b)+']</span>'})}
+  return h.replace(/\{\{([^}]+)\}\}/,'<u>$1</u>')}
+function filled(q){return E(q.en).replace(/\{\{([^|}]+)(\|[^}]+)?\}\}/,function(m,a){return'<b>'+(q.t==='A'?E(q.ans):a)+'</b>'})}
+function show(){
+  var q=Q[i],o,h;
+  if(q.t==='A'){var sw=(+q.id.slice(1))%2===0,b=q.en.match(/\{\{([^|]+)\|([^}]+)\}\}/);o=sw?[b[2],b[1]]:[b[1],b[2]]}
+  else if(q.t==='S')o=q.opts.slice();
+  else{o=shuf(q.senses.map(function(s,k){return{e:s[1],k:k}}).filter(function(x){return !q.use||q.use.indexOf(x.k)>=0}))}
+  var ask=q.t==='A'?'':q.t==='S'?'<div class="sub">밑줄 친 단어와 바꿔 쓸 수 있는 것은?</div>':'<div class="sub">밑줄 친 <b>'+E(q.w)+'</b>와 같은 뜻으로 쓰인 문장은?</div>';
+  h='<div class="pg"><i style="width:'+Math.round(i/total*100)+'%"></i></div><div class="sub">'+(i+1)+' / '+total+'</div><div class="card"><span class="tag">'+LAB[q.t]+'</span><div class="ex">'+sent(q)+'</div>'+(q.post?'<div class="post">'+E(q.post)+'</div>':'')+ask+'<div id="ol">'+o.map(function(x,k){return'<button class="o'+(q.t==='A'?' two':'')+'" data-k="'+k+'">'+E(q.t==='P'?x.e:x)+'</button>'}).join('')+'</div><div id="fb"></div></div><div id="nx"></div>';
+  st.innerHTML=h;
+  document.getElementById('ol').onclick=function(e){var b=e.target.closest('.o');if(!b||b.disabled)return;var k=+b.dataset.k,right;
+    if(q.t==='P')right=o[k].k===q.ans;else right=o[k]===q.ans;
+    [].forEach.call(this.children,function(x,m){x.disabled=true;var r=q.t==='P'?o[m].k===q.ans:o[m]===q.ans;if(r)x.classList.add('ok');else if(m===k)x.classList.add('no')});
+    if(right)ok++;else wr.push(q);
+    document.getElementById('fb').innerHTML=fb(q,right);
+    var last=i+1>=Q.length;document.getElementById('nx').innerHTML='<button class="go" id="g">'+(last?'결과 보기':'다음')+'</button>';
+    document.getElementById('g').onclick=function(){i++;if(i>=Q.length)fin();else show()};
+    var s=document.querySelector('.story');if(s&&s.scrollIntoView)s.scrollIntoView({block:'nearest',behavior:'smooth'})}}
+function words(q){return'<div class="wd">'+q.words.map(function(w){return'<div><b>'+E(w[0])+'</b> '+E(w[1])+(w[2]?' <span>· '+E(w[2])+'</span>':'')+'</div>'}).join('')+'</div>'}
+function fb(q,right){
+  var h='<div class="fb"><div class="res '+(right?'g':'r')+'">'+(right?'정답':'아쉬워요')+'</div><div class="story">'+E(q.story)+'</div>';
+  if(q.t==='A'){h+='<div>'+filled(q)+'</div><div class="ko">'+E(q.ko)+'</div><ul>'+q.why.map(function(x){return'<li>'+E(x)+'</li>'}).join('')+'</ul>'}
+  else if(q.t==='S'){h+='<div>'+filled(q).replace(/<b>[^<]*<\/b>/,'<b>'+E(q.ans)+'</b>')+'</div><div class="ko">'+E(q.ko)+'</div>'+q.rows.map(function(r){return'<div style="margin-top:4px"><b>'+E(r[0])+'</b> '+E(r[1])+' <span style="color:var(--sub)">· '+E(r[2])+'</span></div>'}).join('')}
+  else{h+='<div>'+E(q.en).replace(/\{\{([^}]+)\}\}/,'<b>$1</b>')+'</div><div class="ko">'+E(q.ko)+'</div>'+q.senses.map(function(s,k){return'<div class="sn'+(k===q.ans?' hit':'')+'"><b>'+(k+1)+'. '+E(s[0])+'</b>'+E(s[1])+'<div class="k">'+E(s[2])+'</div></div>'}).join('')}
+  return h+words(q)+'</div>'}
+function fin(){var h='<div class="card" style="text-align:center"><div class="q" style="font-size:20px;font-weight:800">끝 · '+ok+' / '+(Q.length)+' 맞았어요</div></div>';
+  if(wr.length)h+='<button class="go" id="rw">틀린 '+wr.length+'개 다시 풀기</button>';
+  h+='<button class="go l" id="ag">처음부터</button>';st.innerHTML=h;
+  var rw=document.getElementById('rw');if(rw)rw.onclick=function(){Q=wr.slice();wr=[];i=0;ok=0;total=Q.length;show()};
+  document.getElementById('ag').onclick=function(){Q=CTX.slice();wr=[];i=0;ok=0;total=Q.length;show()}}
+show();
+})();
+</script></body></html>
