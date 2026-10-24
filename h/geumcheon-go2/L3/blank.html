@@ -1,0 +1,91 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1d4ed8"><title>3과 빈칸 추론 (매번 다른 문제)</title>
+<link rel="icon" type="image/svg+xml" href="../icon.svg"><link rel="apple-touch-icon" href="../icon-180.png">
+<link rel="stylesheet" href="../../common/sx.css?v=261019">
+</head><body><div class="wrap"><div class="top"><a class="back" href="../index.html">← 목록</a></div>
+<h1>3과 · 빈칸 추론 (매번 다른 문제)</h1><p class="lede">빈칸에 들어갈 말을 골라요.</p>
+<div id="mockinfo"></div>
+<div class="how">빈칸에 들어갈 말을 골라요. 고르면 정답과 해석, 그리고 이 빈칸이 글 흐름의 어디인지(노란 박스)가 나와요. 이 문제는 <b>매번 바뀌어요</b>. 풀다가 나가도 이어서 풀 수 있어요.</div>
+<div class="bar"><span id="cnt"></span><span class="sp"></span><button id="kt" type="button">한글 해석 보기</button><button id="rs" type="button">새 문제로 다시 풀기</button></div>
+<div id="stage"></div>
+<div class="foot">비타민 영어클리닉 · 금천고 영어II</div></div>
+<a class="homefab" href="../index.html">⌂ 목록</a>
+<script src="../../common/prog.js?v=261019"></script><script src="../../common/sx.js?v=261019"></script>
+<script src="sx-data.js?v=261019"></script>
+<script>if(/[?&](wrong|mix)=1\b/.test(location.search))window.NOTIMER=1;</script>
+<script src="../parts.js?v=261019"></script>
+<script src="../wrong.js?v=261019"></script>
+<script>(function(){var K='L3';DATA.passages=DATA.passages.filter(function(p){return inPart(K,p.id)});DATA.set=partKey(K);
+if(PART){var l=document.querySelector('.lede');if(l)l.insertAdjacentHTML('afterend','<p class="lede" style="margin-top:-6px;font-weight:700">이번 범위: '+PARTS.names[K][PART]+'</p>');
+try{var g=GM.ls,og=g.get,os=g.set,dl=g.del,m=function(k){return String(k).indexOf('sx-res:')===0?k+'p'+PART:k};g.get=function(k){return og.call(g,m(k))};g.set=function(k,v){return os.call(g,m(k),v)};g.del=function(k){return dl.call(g,m(k))}}catch(e){}}})();</script>
+<script>(function(ACT,ACTN){
+var W=WN.MODE,P0=DATA.passages.slice();
+function mine(){return WN.ids('L3',PART,ACT)}
+try{var _a=ACT,_n=ACT==='ko'?'ko':ACT==='mun'?'mi':ACT;if(typeof G!=='undefined'&&G.catalog(SX.prep({set:DATA.set,title:DATA.title,lesson:DATA.lesson,passages:P0},_a),_n).length===0){
+  var _s=document.getElementById('stage'),_b=document.querySelector('.bar'),_h=document.querySelector('.how');
+  if(_b)_b.style.display='none';if(_h)_h.style.display='none';
+  _s.innerHTML='<div class="sum"><h3>이번 범위에는 이 활동이 없어요</h3><p class="lede">글이 짧거나 이어지는 흐름이 맞지 않아 문제를 만들 수 없어요. 다른 범위나 활동을 풀어 주세요.</p><a class="nx sub" href="../index.html">← 목록</a></div>';
+  window.SXNO=1;return}}catch(e){}
+if(W){
+  try{PG.mark=function(){}}catch(e){}
+  var ids=mine(),h=document.querySelector('h1');
+  var info=WN.MIX?WN.mixInfo():'<div class="how" style="border-color:#b45309"><b>오답 다시 풀기</b> · 오답 노트에 담은 지문으로 문제를 새로 풀어요. <a href="../wrong.html">오답 노트 ›</a></div>';
+  if(h)h.insertAdjacentHTML('afterend',info);
+  var f=DATA.passages.filter(function(p){return ids.indexOf(p.id)>=0});
+  if(f.length&&typeof G!=='undefined'){ /* 고른 지문만으로 문제를 만들 수 없으면 이번 범위 전체로 */
+    var T={set:DATA.set,title:DATA.title,lesson:DATA.lesson,passages:f};
+    try{var app=ACT==='mun'?'mun':ACT,need=ACT==='ko'?'ko':ACT==='mun'?'mi':ACT;var ok=G.catalog(SX.prep(T,app),need).length>0;if(!ok){f=P0;h&&h.insertAdjacentHTML('afterend','<p class="lede">고른 지문만으로는 문제를 만들기 어려워 이번 범위 전체에서 내요.</p>')}}catch(e){}
+  }
+  if(!f.length){
+    var st=document.getElementById('stage'),b=document.querySelector('.bar'),hw=document.querySelector('.how:not([style])');
+    if(b)b.style.display='none';if(hw)hw.style.display='none';
+    st.innerHTML='<div class="sum"><h3>오답 노트에 담긴 문제가 없어요</h3><a class="nx sub" href="../wrong.html">오답 노트 ›</a><a class="nx sub" href="../index.html">← 목록</a></div>';
+    window.SXNO=1;
+  }else DATA.passages=f;
+  var g=GM.ls,og=g.get,os=g.set,dl=g.del,m=function(k){k=String(k);return (k.indexOf('sx-res:')===0||k.indexOf('sx-used:')===0)?k+WN.SUF:k};
+  g.get=function(k){return og.call(g,m(k))};g.set=function(k,v){return os.call(g,m(k),v)};g.del=function(k){return dl.call(g,m(k))};
+}
+/* 훅: 한 문제를 제출해 틀린 것으로 판정되는 순간(cfg.act 직후)을 잡는다 */
+var gr=GM.run;
+GM.run=function(cfg){
+  var oa=cfg.act;
+  cfg.act=function(a,t,p,st,ps){
+    var was=cfg.done(p,st),r=oa.apply(this,arguments);
+    try{if(!was&&cfg.done(p,st)&&!cfg.ok(p,st)){
+      var q=qidOf(p,ps);if(q)WN.add({kind:'L3',part:PART,act:ACT,qid:q.id,label:q.lab+' · '+ACTN})}}catch(e){}
+    return r};
+  var rv=gr.call(GM,cfg);try{manInit(cfg)}catch(e){}
+  return rv};
+/* 직접 담기 버튼: 지금 화면의 문제 카드에 붙인다(자동 담기와 같은 항목) */
+function manInit(cfg){
+  var stg=document.getElementById('stage');if(!stg||!window.__gm)return;
+  function paint(){try{
+    var q=stg.querySelector('.q');if(!q||q.querySelector('.wn-man'))return;
+    var r=window.__gm.run();if(!r||r.fin)return;
+    var p=r.probs[r.cur],ps=G.byId(cfg.D)[p.pid],u=qidOf(p,ps);if(!u)return;
+    var b=WN.manual({kind:'L3',part:PART,act:ACT,qid:u.id,label:u.lab+' · '+ACTN});if(b)q.appendChild(b)}catch(e){}}
+  if(window.MutationObserver)new MutationObserver(paint).observe(stg,{childList:true});
+  paint()}
+/* 문제가 가리키는 지문(원래 지문 id): 이어 붙인 글/창에서의 문장 위치 -> 어느 지문인지 */
+function qidOf(p,ps){
+  var idx,len=1;
+  if(ACT==='blank'){var o=P0.filter(function(x){return x.id===p.pid})[0];return o&&{id:o.id,lab:lab(o)}}
+  if(ACT==='ko')idx=[p.a];
+  else if(ACT==='mun')idx=[p.j];
+  else{idx=[];for(var i=0;i<ps.en.length;i++)idx.push((ps.g0||0)+i)}
+  var off=0,cnt={},best=null;
+  P0.forEach(function(x){var n=x.en.length;idx.forEach(function(k){if(k>=off&&k<off+n)cnt[x.id]=(cnt[x.id]||0)+1});off+=n});
+  P0.forEach(function(x){if(cnt[x.id]&&(!best||cnt[x.id]>cnt[best.id]))best=x});
+  return best&&{id:best.id,lab:lab(best)}}
+function lab(x){var m=/[❶-❿]/.exec(x.label);return m?'본문 '+m[0]:x.label}
+/* 완료 화면 아래: 틀린 문제가 있으면 오답 노트 링크, 다시 풀기 모드면 빼기 안내 */
+var stg=document.getElementById('stage');
+if(stg&&window.MutationObserver)new MutationObserver(function(){
+  var s=stg.querySelector('.sum');if(!s||s.querySelector('.wn-l')||window.SXNO)return;
+  var add='';
+  if(W&&WN.MIX)add=WN.mixSum();
+  else if(W)add='<p class="wn-l" style="margin:12px 0 0;font-size:14px;color:#6b7280">이제 안 봐도 되는 문제는 오답 노트에서 \'빼기\'로 뺄 수 있어요. <a href="../wrong.html">오답 노트 보기 ›</a></p>';
+  else if(s.querySelector('.chips .x'))add='<p class="wn-l" style="margin:12px 0 0;font-size:14px"><a href="../wrong.html">오답 노트 보기 ›</a></p>';
+  if(add)s.insertAdjacentHTML('beforeend',add)}).observe(stg,{childList:true});
+})('blank','빈칸 추론');</script>
+<script>if(!window.SXNO)SX.start('blank',DATA,{set:DATA.set,hw:WN.MODE?null:(DATA.hw&&DATA.hw['blank'])});</script>
+</body></html>
