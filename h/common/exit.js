@@ -291,7 +291,7 @@
   function setupView() {
     var st = SETUP || lsGet(K_SET) || {}; SETUP = st;
     var ks = kinds(); st.sel = st.sel || {}; st.n = st.n || 10;
-    var h = head();
+    var h = '<a class="homebtn" href="../exit/">← TEST 링크 모음</a>' + head();
     h += '<div class="exs"><div class="sh">풀코스 문제 풀기</div><div class="rn">범위</div>';
     ks.forEach(function (k) {
       var ps = partNums(k), cur = st.sel[k] || [], all = ps.length && ps.every(function (p) { return cur.indexOf(p) >= 0; });
@@ -335,6 +335,7 @@
       });
     } else h += '<p class="lede" style="text-align:center">전부 맞았어요.</p>';
     h += '<button type="button" class="go" data-act="again">새 시험</button>';
+    h += '<a class="go homego" href="../exit/">메인으로 (TEST 링크 모음)</a>';
     root.innerHTML = h; window.scrollTo(0, 0);
   }
 
