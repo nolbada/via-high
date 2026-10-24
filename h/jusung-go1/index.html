@@ -257,13 +257,13 @@ function today(){
   h+=cells+'</div><div class="nlg"><span><i class="lt"></i>오늘</span><span><i class="lc"></i>완료한 날</span><span><i class="lx"></i>시험</span></div><button type="button" class="nfold" data-fold="1">'+(cm?'주간으로 접기':'월간 달력 펼치기')+'</button></div>';
   /* 선택한 회 */
   {h+='<div class="sgh"><b>유형 풀코스</b><span>'+N+'회 중 '+doneN+'회</span></div><div class="sgrid">';
-    flat.forEach(function(f){var c=stState(f.no),bd=f.v.T?'3과':f.v.L?'4과':f.v.F?'최종':'모의';h+='<button type="button" class="stb '+c+(f.no===selNo?' sel':'')+'" data-stage="'+f.no+'" aria-label="'+src(f.v)+' '+(f.vi+1)+'회"><span class="sbd">'+bd+'</span><span class="sno">'+(f.v.T||f.v.L||f.v.D||f.v.F)+'회</span></button>'});
+    flat.forEach(function(f){var c=stState(f.no),bd=f.v.T?'3과':f.v.L?'4과':f.v.F?'최종':'모의';h+='<button type="button" class="stb '+c+(f.no===selNo?' sel':'')+'" data-stage="'+f.no+'" aria-label="'+f.no+'회 ('+src(f.v)+')"><span class="sbd">'+bd+'</span><span class="sno">'+f.no+'회</span></button>'});
     h+='</div>';
   }
   if(selNo){
   var f=flat[selNo-1],v=f.v,pr=prog(v);
-  var stt=stState(selNo),need='';if(stt==='lock'){for(var j=0;j<selNo-1;j++)if(!flat[j].done){need=src(flat[j].v)+' '+(flat[j].v.T||flat[j].v.L||flat[j].v.D||flat[j].v.F)+'회';break}}
-  h+='<div class="blk'+(f.done?' done':'')+'"><h2>'+src(v)+' '+(v.T||v.L||v.D||v.F)+'회</h2>'+(stt==='lock'?'<div class="slk">'+(need?esc(need)+' 먼저 끝내요':'준비 중이에요')+'</div>':'')+'<div class="rows">';
+  var stt=stState(selNo),need='';if(stt==='lock'){for(var j=0;j<selNo-1;j++)if(!flat[j].done){need=(j+1)+'회';break}}
+  h+='<div class="blk'+(f.done?' done':'')+'"><h2>'+f.no+'회 ('+src(v)+')</h2>'+(stt==='lock'?'<div class="slk">'+(need?esc(need)+' 먼저 끝내요':'준비 중이에요')+'</div>':'')+'<div class="rows">';
   ACT.forEach(function(a){var id=a[0],sc=setOf(v),u=sc.url[id];if(!u||stt==='lock')return;
     var on=isOn(v,id);
     var sk=key(v,id),href=(v.F?u:u+'?part='+(v.L||v.T||v.D)),chk=QS[sk]!==undefined?QS[sk]:(!on&&!OPT[id]);
