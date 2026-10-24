@@ -1,5 +1,8 @@
-"""6개 학교 앱을 기준(금천고1)과 기계적으로 대조한다. 사용: python3 audit.py [학교 ...] [--live]  /  python3 audit.py --dump
---live : 저장소 없이 실제 사이트(nolbada.github.io/via-high)를 검사 / --dump : 기준 수치 표 출력
+"""6개 학교 앱을 기준(금천고1)과 기계적으로 대조한다. (v2 기준, 261025)
+사용: python3 audit.py [학교 ...]        <- 기본: 내 컴퓨터의 저장소 파일을 검사(인터넷 필요 없음, 로컬 모드)
+      python3 audit.py --live            <- 저장소 없이 실제 사이트(nolbada.github.io/via-high)를 검사
+      python3 audit.py --dump            <- 기준 수치 표 출력(SPEC_values.md 갱신용)
+v2 = 메인 화면 '유형 풀코스'가 회차 버튼(.sgrid/.stb) + 단계식 열림(done/lock/now). 버튼을 눌러야 유형 목록이 열린다.
 필요: pip install playwright && playwright install chromium"""
 import sys,os,re,json,subprocess,socket,time,hashlib
 from playwright.sync_api import sync_playwright
@@ -24,6 +27,21 @@ PROBES=[
  ('이용 시간 소제목 줄','.rec .lrd','fontSize,marginTop'),
  ('기록 카드 큰 칸','.rec .lrs>div','paddingTop,borderTopLeftRadius'),
 ]
+# v2 회차 버튼(유형 풀코스 그리드). 1회 끝냄 상태(done/now/lock이 모두 보이는 상태)에서 잰다
+STAGE_PROBES=[
+ ('풀코스 제목','.sgh b','fontSize,fontWeight,borderLeftWidth,paddingLeft'),
+ ('풀코스 진행 알약','.sgh span','fontSize,fontWeight,borderTopLeftRadius'),
+ ('회차 그리드','.sgrid','columnGap,rowGap,marginBottom'),
+ ('회차 버튼','.stb','width,height,borderTopWidth,borderTopLeftRadius,paddingTop,paddingBottom'),
+ ('회차 단원 뱃지','.stb .sbd','fontSize,fontWeight'),
+ ('회차 번호','.stb .sno','fontSize,fontWeight'),
+ ('잠금 점','.stb.lock','::after'),
+]
+STAGE_COLORS=[('끝난 회차 배경','.stb.done','backgroundColor','--priL'),('끝난 회차 테두리','.stb.done','borderTopColor','--pri'),
+ ('끝난 회차 숫자','.stb.done .sno','color','--pri'),('지금 회차 테두리','.stb.now','borderTopColor','--pri'),
+ ('잠긴 회차 배경','.stb.lock','backgroundColor','--off'),('잠긴 회차 숫자','.stb.lock .sno','color','--offInk'),
+ ('풀코스 제목 막대','.sgh b','borderLeftColor','--pri'),('풀코스 진행 알약 배경','.sgh span','backgroundColor','--priL')]
+BADGES={'3과','4과','모의','최종'}
 COLORS=[('완료 체크칸 배경','.arow .ck i.okb','backgroundColor','--pri'),('완료 체크 글자','.arow .ck i.okb','color','--onpri'),
  ('체크한 유형 버튼 배경','.qgo','backgroundColor','--pri'),
  ('이어서 풀기 테두리','.rsm','borderTopColor','--pri'),('이어서 풀기 제목색','.rsm b','color','--pri'),('기록 카드 테두리','.rec','borderTopColor','--pri')]
@@ -33,19 +51,42 @@ def free_port():
     s=socket.socket();s.bind(('',0));p=s.getsockname()[1];s.close();return p
 def measure(pg,base,sc):
     pg.goto(base+'h/%s/index.html'%sc);pg.wait_for_timeout(400)
+    pg.evaluate("localStorage.clear()");pg.reload();pg.wait_for_timeout(400)
+    S={}
+    S['처음엔 회차 버튼만(목록 닫힘)']=pg.locator('.sgrid .stb').count()>0 and pg.locator('#today .blk').count()==0 and pg.locator('.arow').count()==0
+    S['이전 회/다음 회 없음']=pg.locator('.rnav').count()==0
+    nos=pg.eval_on_selector_all('.stb .sno','e=>e.map(x=>x.innerText.trim())')
+    bds=pg.eval_on_selector_all('.stb .sbd','e=>e.map(x=>x.innerText.trim())')
+    st0=pg.eval_on_selector_all('.stb','e=>e.map(x=>x.className)')
+    S['회차 버튼 수']=len(nos)
+    S['회차 번호 1~N 이어짐']=nos==['%d회'%(i+1) for i in range(len(nos))]
+    S['단원 뱃지 2글자']=bool(bds) and all(b in BADGES for b in bds)
+    S['처음 상태 1회 now, 나머지 lock']=bool(st0) and 'now' in st0[0].split() and all(('lock' in c.split()) for c in st0[1:])
+    pg.click('.stb[data-stage="1"]');pg.wait_for_timeout(200)
+    S['누르면 목록 열림']=pg.locator('#today .blk .arow').count()>0
+    S['열린 목록 제목']=pg.inner_text('#today .blk h2').split('\n')[0] if pg.locator('#today .blk h2').count() else ''
     keys=pg.eval_on_selector_all('input[data-q]','e=>e.map(x=>x.dataset.q)')
     hrefs=pg.eval_on_selector_all('.arow a.at','e=>e.map(x=>x.getAttribute("href"))')
     now=int(time.time()*1000)
     pg.evaluate("""a=>{var o={};o[a[0]]={n:1,t:a[3]};o[a[1]]={n:1,t:a[3]};localStorage.setItem('vhp:'+WN.school,JSON.stringify(o));
       localStorage.setItem('vhbm:'+WN.school,JSON.stringify({k:a[2],u:a[4],t:a[3]}));localStorage.setItem('vhd:'+a[0],'75')}""",[keys[0],keys[1],keys[2],now,hrefs[2]])
+    pg.click('.stb[data-stage="1"]');pg.wait_for_timeout(200)
+    S['다시 누르면 닫힘']=pg.locator('#today .blk').count()==0
+    lk=pg.locator('.stb.lock').count()
+    if lk:
+        n3=pg.get_attribute('.stb.lock >> nth=0','data-stage');pg.click('.stb[data-stage="%s"]'%n3);pg.wait_for_timeout(200)
+        t=pg.inner_text('#today .blk .slk') if pg.locator('#today .blk .slk').count() else ''
+        S['잠금 안내 문구']=t
+        S['잠긴 회차는 목록 없음']=pg.locator('#today .blk .arow').count()==0
+    else: S['잠금 안내 문구']='1회 먼저 끝내요';S['잠긴 회차는 목록 없음']=True
     pg.reload();pg.wait_for_timeout(500)
+    pg.click('.stb[data-stage="1"]');pg.wait_for_timeout(200)
     R={}
     for n,sel,props in PROBES:
         R[n]=pg.evaluate("""([sel,props])=>{var e=document.querySelector(sel);if(!e)return null;var c=getComputedStyle(e),o={};props.split(',').forEach(function(p){o[p]=c[p]});return o}""",[sel,props])
     C={}
     for n,sel,prop,var in COLORS:
         C[n]=pg.evaluate("""([sel,prop,v])=>{var e=document.querySelector(sel);if(!e)return null;var t=document.createElement('i');t.style.color='var('+v+')';document.body.appendChild(t);var want=getComputedStyle(t).color;t.remove();return [getComputedStyle(e)[prop],want]}""",[sel,prop,var])
-    S={}
     S['유형 줄 수']=pg.locator('.arow').count(); S['체크박스 수(진행 중 제외 완료)']=pg.locator('input[data-q]').count()
     S['체크한 유형 이어서 풀기']=pg.locator('.qgo').count()==1
     S['전체 선택/해제']=pg.locator('.qsel button').count()==2
@@ -60,8 +101,23 @@ def measure(pg,base,sc):
         for k in range(int(a),int(b or a)+1): nums.add(k)
     S['ROAD 회번호 연속(1~N)']=(sorted(nums)==list(range(1,max(nums)+1))) if nums else False
     S['ROAD 최대 회']=max(nums) if nums else 0
-    S['회 선택 표기']=pg.inner_text('.blk h2').split('\n')[0]
+    S['회 선택 표기']=S['열린 목록 제목']
     S['ROAD 글씨 겹침 없음']=pg.evaluate("""()=>{var bad=0;document.querySelectorAll('.wr').forEach(function(w){var k=[].map.call(w.children,function(c){return c.getBoundingClientRect()});for(var i=1;i<k.length;i++){if(k[i].top<k[i-1].bottom-1&&k[i].left<k[i-1].right-1)bad++}});return bad===0}""")
+    # 1회를 모두 끝낸 상태: done / now / lock 버튼이 모두 보인다
+    pg.evaluate("""k=>{var o={},t=Date.now();k.forEach(function(x){o[x]={n:1,t:t}});localStorage.setItem('vhp:'+WN.school,JSON.stringify(o));localStorage.removeItem('vhbm:'+WN.school)}""",keys)
+    pg.reload();pg.wait_for_timeout(500)
+    st1=pg.eval_on_selector_all('.stb','e=>e.map(x=>x.className)')
+    S['1회 끝내면 1회 done·2회 now']=len(st1)>1 and 'done' in st1[0].split() and 'now' in st1[1].split()
+    S['끝난 버튼에 글자 끝 없음']=('끝' not in pg.inner_text('.stb.done')) if pg.locator('.stb.done').count() else False
+    S['진행 알약']=pg.inner_text('.sgh span') if pg.locator('.sgh span').count() else ''
+    S['풀코스 제목 글자']=pg.inner_text('.sgh b') if pg.locator('.sgh b').count() else ''
+    for n,sel,props in STAGE_PROBES:
+        if props=='::after':
+            R[n]=pg.evaluate("""sel=>{var e=document.querySelector(sel);if(!e)return null;var c=getComputedStyle(e,'::after');return {width:c.width,height:c.height,borderRadius:c.borderTopLeftRadius,right:c.right,top:c.top}}""",sel)
+        else:
+            R[n]=pg.evaluate("""([sel,props])=>{var e=document.querySelector(sel);if(!e)return null;var c=getComputedStyle(e),o={};props.split(',').forEach(function(p){o[p]=c[p]});return o}""",[sel,props])
+    for n,sel,prop,var in STAGE_COLORS:
+        C[n]=pg.evaluate("""([sel,prop,v])=>{var e=document.querySelector(sel);if(!e)return null;var t=document.createElement('i');t.style.color='var('+v+')';document.body.appendChild(t);var want=getComputedStyle(t).color;t.remove();return [getComputedStyle(e)[prop],want]}""",[sel,prop,var])
     pg.evaluate("localStorage.removeItem('vhmx:'+WN.school)");pg.goto(base+'h/%s/mix.html'%sc);pg.wait_for_timeout(400)
     if pg.locator('#go').count():
         pg.click('#go');pg.wait_for_timeout(300)
@@ -95,7 +151,7 @@ def main():
         print('# 기준 수치 (%s, 390px 화면)\n'%REF)
         for n,v in ref[0].items(): print('- %s: %s'%(n,json.dumps(v,ensure_ascii=False)))
         print('\n# 색 (테마 변수 연결)\n')
-        for n,sel,prop,var in COLORS: print('- %s: %s %s = var(%s) -> %s'%(n,sel,prop,var,ref[1][n][0] if ref[1][n] else None))
+        for n,sel,prop,var in COLORS+STAGE_COLORS: print('- %s: %s %s = var(%s) -> %s'%(n,sel,prop,var,ref[1][n][0] if ref[1][n] else None))
         return
     for sc in schools:
         R,C,S,errs=res[sc];bad=[]
@@ -106,7 +162,13 @@ def main():
         for n in ['체크한 유형 이어서 풀기','전체 선택/해제','이어서 풀기 카드','소요시간 표시(총합+활동별)','달력 날짜 눌러보기','ROAD 날짜 요일','ROAD 회번호 연속(1~N)','금지 문구/이모지 없음']:
             if not S[n]: bad.append('%s 실패 %s'%(n,S.get('금지 목록','') if n.startswith('금지') else ''))
         if S['유형 줄 수']<8: bad.append('유형 줄 수 %s'%S['유형 줄 수'])
-        if not re.match(r'^유형 풀코스 · \d+회 \(.+\)$',S['회 선택 표기']): bad.append('회 표기 형식: '+S['회 선택 표기'])
+        if not re.match(r'^1회 \(.+\)$',S['회 선택 표기']): bad.append('열린 목록 제목 형식(N회 (출처)): '+S['회 선택 표기'])
+        for n in ['처음엔 회차 버튼만(목록 닫힘)','이전 회/다음 회 없음','회차 번호 1~N 이어짐','단원 뱃지 2글자','처음 상태 1회 now, 나머지 lock','누르면 목록 열림','다시 누르면 닫힘','잠긴 회차는 목록 없음','1회 끝내면 1회 done·2회 now','끝난 버튼에 글자 끝 없음']:
+            if not S[n]: bad.append('v2 회차 버튼: %s 실패'%n)
+        if not re.match(r'^\d+회 먼저 끝내요$|^준비 중이에요$',S['잠금 안내 문구']): bad.append('잠금 안내 문구: '+S['잠금 안내 문구'])
+        if S['풀코스 제목 글자']!='유형 풀코스': bad.append('풀코스 제목: '+S['풀코스 제목 글자'])
+        if not re.match(r'^%d회 중 1회$'%S['회차 버튼 수'],S['진행 알약']): bad.append('진행 알약: '+S['진행 알약'])
+        if S['ROAD 최대 회'] and S['회차 버튼 수']!=S['ROAD 최대 회']: bad.append('회차 버튼 수(%s)와 ROAD 최대 회(%s)가 다름'%(S['회차 버튼 수'],S['ROAD 최대 회']))
         if not S['학습기록 제목'].startswith('누적 이용 시간 / 오늘 · ') or not re.search(r'\d+/\d+\([월화수목금토일]\)',S['학습기록 제목']): bad.append('학습기록 제목: '+S['학습기록 제목'])
         if errs: bad.append('JS 오류: %s'%errs)
         import urllib.request

@@ -1,4 +1,4 @@
-/* 유형 줄 · 체크 · 이어 풀기 · 학습 기록 배지 (261022) */
+/* 유형 줄 · 체크 · 이어 풀기 · 학습 기록 배지 (261022, v2 글꼴 줄임식 정리) */
 .arow{gap:0;padding:0}
 .arow .ck{flex:0 0 44px;display:flex;align-items:center;justify-content:center;height:48px;margin:0}
 .arow .ck input{width:20px;height:20px;accent-color:#94a3b8;margin:0}
@@ -9,20 +9,53 @@
 .arow a.at .vr{width:auto;flex:0 0 auto;background:none;color:var(--sub);padding:0 0 0 4px;font-size:11px}
 .arow .mk{flex:0 0 40px;display:flex;align-items:center;justify-content:center}
 .arow .mk i{width:24px;height:24px;border-radius:50%;background:var(--pri);color:var(--onpri);display:flex;align-items:center;justify-content:center;font:900 14px/1 sans-serif;font-style:normal}
-.qsel{display:flex;gap:14px;justify-content:flex-end;margin:6px 2px 0}.qsel button{border:0;background:none;color:var(--sub);font:700 12.5px/1 inherit;font-family:inherit;text-decoration:underline;padding:4px 2px;cursor:pointer}
+.qsel{display:flex;gap:14px;justify-content:flex-end;margin:6px 2px 0}.qsel button{border:0;background:none;color:var(--sub);font-weight:700;font-size:12.5px;line-height:1;font-family:inherit;text-decoration:underline;padding:4px 2px;cursor:pointer}
 .arow.dn a.at{color:var(--sub)}
-.qgo{display:block;width:100%;margin:8px 0 6px;border:1.5px solid var(--pri);background:var(--pri);color:var(--onpri);border-radius:12px;padding:12px;font:800 15px/1 inherit;font-family:inherit;cursor:pointer}
+.qgo{display:block;width:100%;margin:8px 0 6px;border:1.5px solid var(--pri);background:var(--pri);color:var(--onpri);border-radius:12px;padding:12px;font-weight:800;font-size:15px;line-height:1;font-family:inherit;cursor:pointer}
 .qgo:disabled{opacity:.35;cursor:default}
 .rsm{display:flex;justify-content:space-between;align-items:center;gap:10px;border:2px solid var(--pri);background:var(--card);color:var(--ink);border-radius:12px;padding:11px 14px;margin:10px 0 4px;text-decoration:none}
 .rsm b{display:block;font-size:15px;color:var(--pri)}.rsm small{display:block;font-size:12.5px;color:var(--sub);margin-top:2px}.rsm .go{font-weight:800;color:var(--pri);font-size:20px}
 .pins{display:flex;flex-wrap:wrap;gap:3px;margin:5px 0 1px}
-.pn{display:flex;align-items:center}
+.pn{display:flex;flex-direction:column;align-items:center}
 
 .pn i{width:19px;height:19px;border-radius:50%;border:1.5px solid var(--line);color:var(--sub);display:flex;align-items:center;justify-content:center;font:800 10.5px/1 sans-serif;font-style:normal}
 .pn.on i{background:var(--pri);border-color:var(--pri);color:var(--onpri)}
 .pn.op i{border-style:dashed}
-.pn small{font-size:9px;color:var(--sub);margin-top:2px;white-space:nowrap}
+.dtot{margin-top:8px;padding-top:7px;border-top:1px dashed var(--line);font-size:13px;color:var(--sub)}.dtot b{color:var(--navy);font-size:15px}
+.pn small{font-size:10px;color:var(--sub);margin-top:2px;white-space:nowrap}
 .pr{margin-top:8px}.pr .ph{display:flex;justify-content:space-between;align-items:baseline}.pr .ph b{font-size:14px;color:var(--navy)}.pr .ph span{font-size:12px;color:var(--sub)}
+/* 첫 화면 새 달력·진행 (261021) */
+:root{--pu:#7c3aed;--onpri:#fff}
+@media(prefers-color-scheme:dark){:root{--pu:#c4b5fd;--onpri:#0b1220}}
+.ncal{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 10px 10px;margin:10px 0}
+.nch{display:flex;align-items:center;justify-content:space-between;padding:0 2px 6px}
+.nch b{font-size:15.5px}
+.nch button{border:0;background:none;font-size:24px;line-height:1;width:40px;height:36px;color:var(--pri);cursor:pointer}
+.nch button:disabled{opacity:.25;cursor:default}
+.ncg{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px}
+.ncg .w{text-align:center;font-size:12px;color:var(--sub);padding-bottom:2px}
+.ncg .w.sun,.ncg .d.sun{color:#c2410c}
+.ncg .d{height:38px;display:flex;align-items:center;justify-content:center;position:relative;font-size:14.5px}
+.ncg .d .n{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.ncg .d.dn .n{background:var(--pri);color:var(--onpri);font-weight:700}
+.ncg .d.tod .n{width:37px;height:37px;border:2.5px solid var(--pu);color:var(--pu);font-weight:800}
+.ncg .d.tod.dn .n{background:var(--pri);color:var(--onpri);box-shadow:inset 0 0 0 2px var(--card)}
+.ncg .d.ex .n{color:#dc2626;font-weight:800;padding-top:6px}
+.ncg .d.ex::before{content:"시험";position:absolute;top:1px;left:0;right:0;text-align:center;font-size:8.5px;line-height:1;font-weight:700;color:#dc2626}
+.ncg .d .bd{position:absolute;top:0;right:calc(50% - 22px);min-width:15px;height:15px;padding:0 3px;border-radius:8px;background:var(--card);color:var(--pri);border:1.5px solid var(--pri);font:800 9.5px/12px sans-serif;text-align:center;font-style:normal}
+.nlg{display:flex;justify-content:center;gap:14px;margin:8px 0 8px;font-size:11.5px;color:var(--sub)}
+.nlg span{display:flex;align-items:center;gap:5px}
+.nlg i{display:inline-block;width:11px;height:11px;border-radius:50%}
+.nlg .lt{border:2px solid var(--pu)}.nlg .lc{background:var(--pri)}.nlg .lx{background:#dc2626}
+.nfold{display:block;width:100%;border:1.5px solid var(--pri);background:none;color:var(--pri);border-radius:10px;padding:9px;font-weight:800;font-size:13px;line-height:1;font-family:inherit;cursor:pointer}
+.qtot{display:flex;justify-content:space-between;align-items:baseline;padding:10px 2px 6px;border-top:2px solid var(--line);font-size:14px;color:var(--sub)}.qtot b{font-size:16px;color:var(--pri)}
+.rnav{display:flex;gap:8px;margin:8px 0 6px}
+.rnav button{flex:1;border:1.5px solid var(--line);background:var(--card);color:var(--pri);border-radius:10px;padding:9px;font-weight:800;font-size:13px;line-height:1;font-family:inherit;cursor:pointer}
+.rnav button:disabled{opacity:.35;cursor:default}
+.tgh{display:flex;justify-content:space-between;align-items:center;margin-top:8px}.tgh b{font-size:14px;color:var(--pri)}.tgh button{border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-weight:700;font-size:12px;line-height:1;font-family:inherit;border-radius:10px;padding:7px 12px;cursor:pointer}.tgt{border-collapse:collapse;width:100%;table-layout:fixed;margin-top:6px}.tgt th,.tgt td{border:1px solid var(--line);text-align:center;font-size:11px;padding:0;height:34px}.tgt thead th{height:auto;padding:5px 0;font-size:10.5px;color:var(--sub);font-weight:700}.tgt th.rw{width:50px;font-size:12px;font-weight:800;color:var(--navy);cursor:pointer;background:var(--card)}.tgt th.rw small{display:block;font-size:9.5px;font-weight:500;color:var(--sub)}.tgt td.c{cursor:pointer;font-size:15px;font-weight:800;color:#fff}.tgt td.c.on{background:var(--pri)}.tgt td.na{background:#f1f2f5}
+.ncg .d[data-day]{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ncg .d.sel:not(.dn) .n{background:var(--off)}.ncg .d.sel.dn .n{box-shadow:0 0 0 3px var(--line)}
+.pr .ph[data-go]{cursor:pointer}.pr .ph .gt{font-style:normal;font-weight:800;color:var(--sub);margin-left:6px}
 .rec .lrs{display:flex;gap:8px;margin:8px 0 4px}.rec .lrs>div{flex:1;background:var(--bg);border-radius:12px;padding:12px 6px;text-align:center}.rec .lrs em{display:block;font-style:normal;font-size:12px;color:var(--sub)}.rec .lrs b{font-size:26px;color:var(--navy)}.rec .lrs small{font-size:13px;color:var(--sub);font-weight:600}
 .rec .lrb{font-size:16px;color:var(--navy)}.rec .lrd{display:block;font-size:12px;color:var(--sub);margin-top:2px}
 .rec .lrv{display:flex;gap:6px;margin-top:3px}.rec .lrv>div{flex:1}.rec .lrv small{display:block;font-size:11.5px;color:var(--sub)}.rec .lrv b{font-size:16px;color:var(--navy)}

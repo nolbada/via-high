@@ -5,7 +5,8 @@ R=os.path.join(HERE,'..','..','h')+os.sep
 def rd(p): return open(p,encoding='utf-8').read()
 SN=os.path.join(HERE,'..','snippets')
 def sn(n): return rd(os.path.join(SN,n+'.txt'))
-css,rsm,rows,rec,cnt,hand,chg,iife=[sn(n) for n in ['css','rsm','rows','rec','cnt','hand','chg','iife']]
+# v1(261022) 구조를 만드는 도구. v1 조각(v1_css·v1_rows·v1_hand)을 쓴다. 만든 뒤 port_v2.py 로 v2(회차 버튼)로 바꾼다.
+css,rsm,rows,rec,cnt,hand,chg,iife=[sn(n) for n in ['v1_css','rsm','v1_rows','rec','cnt','v1_hand','chg','iife']]
 def once(s,a,b,name):
     assert s.count(a)==1,(name,s.count(a)); return s.replace(a,b)
 def port(school,road=None,mock=False):
