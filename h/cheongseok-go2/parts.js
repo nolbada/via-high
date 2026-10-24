@@ -3,13 +3,14 @@
    모의고사   : 1~10=1회독(하루 3지문) 11~15=2회독(하루 6지문) (mock 폴더 페이지)
    기록 키    : "<구간>p<번호>:<활동>"  예) L4p1:ko, mockp12:abc */
 var PARTS={
+  L2:{1:['L2-1','L2-2'],2:['L2-3','L2-4'],3:['L2-5'],4:['L2-6','L2-7']},
   L4:{1:['L4-1','L4-2'],2:['L4-3','L4-4'],3:['L4-5'],4:['L4-6','L4-7']},
-  names:{L4:{1:'본문 ❶~❷',2:'본문 ❸~❹',3:'본문 ❺',4:'본문 ❻~❼'}}
+  names:{L2:{1:'본문 ❶~❷',2:'본문 ❸~❹',3:'본문 ❺',4:'본문 ❻~❼'},L4:{1:'본문 ❶~❷',2:'본문 ❸~❹',3:'본문 ❺',4:'본문 ❻~❼'}}
 };
 var PART=(function(){var m=/[?&]part=(1[0-5]|[1-9])\b/.exec(location.search);return m?+m[1]:0})();
 /* 패시지 id가 이 덩어리에 속하는지. kind: 'L4' 또는 'mock' */
 function inPart(kind,pid,part){part=part||PART;if(!part)return true;
-  if(kind==='L4')return PARTS.L4[part].indexOf(pid)>=0;
+  if(kind==='L4'||kind==='L2')return PARTS[kind][part].indexOf(pid)>=0;
   return PARTS.mock[part].indexOf(String(pid))>=0}
 function partKey(kind){return PART?kind+'p'+PART:kind}
 
@@ -35,7 +36,7 @@ function partKey(kind){return PART?kind+'p'+PART:kind}
 (function(){
   if(/[?&](wrong|mix)=1\b/.test(location.search))return;
   var sg=location.pathname.split('/'),hi=sg.indexOf('h'),SC=(hi>=0&&sg[hi+1])||'x';
-  var m=/\/(L3|L4)\/([a-z-]+)\.html$/.exec(location.pathname);if(!m||!PART)return;
+  var m=/\/(L2|L3|L4)\/([a-z-]+)\.html$/.exec(location.pathname);if(!m||!PART)return;
   var A={'vocab':'voc','find':'find','eobeop-test':'eobeop','sunseo-ko':'ko','sunseo-abc':'abc','sunseo-mun':'mun','awkward-test':'awk','blank':'blank'}[m[2]];if(!A)return;
   var K=m[1]+'p'+PART+':'+A,CUR=location.pathname+location.search;
   try{localStorage.setItem('vhbm:'+SC,JSON.stringify({u:CUR,k:K,t:Date.now()}))}catch(e){}
