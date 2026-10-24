@@ -168,12 +168,12 @@ var ACT=[['voc','어휘'],['find','TF'],['eobeop','어법선택'],['ko','한글 
 var SEC=[
  {label:'교과서 4과',set:'L4',url:{ko:'L4/sunseo-ko.html',abc:'L4/sunseo-abc.html',mun:'L4/sunseo-mun.html',blank:'L4/blank.html',find:'L4/find.html',awk:'L4/awkward-test.html',eobeop:'L4/eobeop-test.html',voc:'L4/vocab.html'}},
  {label:'모의고사 (26년 10월)',set:'mock',url:{}},
- {label:'교과서 3과',set:'L3',url:{}},
+ {label:'교과서 3과',set:'L3',url:{ko:'L3/sunseo-ko.html',abc:'L3/sunseo-abc.html',mun:'L3/sunseo-mun.html',blank:'L3/blank.html',find:'L3/find.html',awk:'L3/awkward-test.html',eobeop:'L3/eobeop-test.html',voc:'L3/vocab.html'}},
  {label:'최종점검',set:'F',url:{wk:'wrong.html',wt:'mix.html'}}
 ];
 function durTxt(k){var t=0;try{t=+localStorage.getItem('vhd:'+k)||0}catch(e){}if(!t)return '';return ' '+(t>=60?Math.floor(t/60)+'분':t+'초')}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-var CNT={"L4p1:find": 7, "L4p1:awk": 4, "L4p1:eobeop": 7, "L4p1:ko": 2, "L4p1:abc": 6, "L4p1:mun": 5, "L4p1:blank": 2, "L4p1:voc": 40, "L4p2:find": 6, "L4p2:awk": 2, "L4p2:eobeop": 11, "L4p2:ko": 2, "L4p2:abc": 6, "L4p2:mun": 4, "L4p2:blank": 2, "L4p2:voc": 45, "L4p3:find": 6, "L4p3:awk": 2, "L4p3:eobeop": 6, "L4p3:ko": 2, "L4p3:abc": 6, "L4p3:mun": 3, "L4p3:blank": 2, "L4p3:voc": 31, "L4p4:find": 7, "L4p4:awk": 4, "L4p4:eobeop": 10, "L4p4:ko": 3, "L4p4:abc": 6, "L4p4:mun": 6, "L4p4:blank": 2, "L4p4:voc": 25};
+var CNT={"L3p1:find": 7, "L3p2:find": 7, "L3p3:find": 6, "L3p4:find": 6, "L3p1:awk": 3, "L3p2:awk": 4, "L3p3:awk": 2, "L3p4:awk": 2, "L3p1:eobeop": 14, "L3p2:eobeop": 11, "L3p3:eobeop": 6, "L3p4:eobeop": 8, "L3p1:ko": 2, "L3p2:ko": 4, "L3p3:ko": 2, "L3p4:ko": 2, "L3p1:abc": 6, "L3p2:abc": 6, "L3p3:abc": 6, "L3p4:abc": 6, "L3p1:mun": 6, "L3p2:mun": 6, "L3p3:mun": 5, "L3p4:mun": 3, "L3p1:blank": 2, "L3p2:blank": 3, "L3p3:blank": 2, "L3p4:blank": 2, "L3p1:voc": 39, "L3p2:voc": 50, "L3p3:voc": 31, "L3p4:voc": 26, "L4p1:find": 7, "L4p1:awk": 4, "L4p1:eobeop": 7, "L4p1:ko": 2, "L4p1:abc": 6, "L4p1:mun": 5, "L4p1:blank": 2, "L4p1:voc": 40, "L4p2:find": 6, "L4p2:awk": 2, "L4p2:eobeop": 11, "L4p2:ko": 2, "L4p2:abc": 6, "L4p2:mun": 4, "L4p2:blank": 2, "L4p2:voc": 45, "L4p3:find": 6, "L4p3:awk": 2, "L4p3:eobeop": 6, "L4p3:ko": 2, "L4p3:abc": 6, "L4p3:mun": 3, "L4p3:blank": 2, "L4p3:voc": 31, "L4p4:find": 7, "L4p4:awk": 4, "L4p4:eobeop": 10, "L4p4:ko": 3, "L4p4:abc": 6, "L4p4:mun": 6, "L4p4:blank": 2, "L4p4:voc": 25};
 var OPT={ko:1},VAR={voc:1,ko:1,abc:1,mun:1,blank:1};
 var EXAMD=['2026-12-07', '2026-12-08', '2026-12-09', '2026-12-10'];
 var EXAM=new Date(2026,11,7);
@@ -182,8 +182,8 @@ var Y=2026;
 var SOON='내용은 준비 중이에요';
 var VIS=[
  [{L:1,t:'1회 (4과)',s:'본문 ❶~❷'},{L:2,t:'2회 (4과)',s:'본문 ❸~❹'},{L:3,t:'3회 (4과)',s:'본문 ❺'}],
- [{L:4,t:'4회 (4과)',s:'본문 ❻~❼'},{T:1,t:'1회 (3과)',s:'3과 본문',x:SOON},{T:2,t:'2회 (3과)',s:'3과 본문',x:SOON}],
- [{T:3,t:'3회 (3과)',s:'3과 본문',x:SOON},{T:4,t:'4회 (3과)',s:'3과 본문',x:SOON},{D:1,t:'1회 (모의고사)',s:'26년 10월 모의고사',x:SOON}],
+ [{L:4,t:'4회 (4과)',s:'본문 ❻~❼'},{T:1,t:'1회 (3과)',s:'본문 ❶~❸'},{T:2,t:'2회 (3과)',s:'본문 ❹~❺'}],
+ [{T:3,t:'3회 (3과)',s:'본문 ❻'},{T:4,t:'4회 (3과)',s:'본문 ❼'},{D:1,t:'1회 (모의고사)',s:'26년 10월 모의고사',x:SOON}],
  [{D:2,t:'2회 (모의고사)',s:'26년 10월 모의고사',x:SOON},{D:3,t:'3회 (모의고사)',s:'26년 10월 모의고사',x:SOON},{D:4,t:'4회 (모의고사)',s:'26년 10월 모의고사',x:SOON}],
  [{D:5,t:'5회 (모의고사)',s:'26년 10월 모의고사',x:SOON},{D:6,t:'6회 (모의고사)',s:'26년 10월 모의고사',x:SOON},{D:7,t:'7회 (모의고사)',s:'26년 10월 모의고사',x:SOON}],
  [{D:8,t:'8회 (모의고사)',s:'26년 10월 모의고사',x:SOON},{D:9,t:'9회 (모의고사)',s:'26년 10월 모의고사',x:SOON},{D:10,t:'10회 (모의고사)',s:'26년 10월 모의고사',x:SOON}],
@@ -279,7 +279,7 @@ function today(){
   function lbl(x){return x.f.no+'회 ('+src(x.f.v)+') · '+(ACT.indexOf(x.a)+1)+'. '+x.a[1]}
   var DAYT='',DAYB='';
   h+='<div class="rec"><div class="rh"><b>나의 학습 기록</b></div>'
-   +(function(){var CNK={"key:L4:hangeul":60,"key:L4:eobeop":34,"key:L4:dongsa":42,"key:L4:yeongeo":60},qg=0,qd=0,TM={q:0,w:0,h:0,tq:0,tw:0,th:0},sc=WN.school,re=new RegExp('^(?:S:)?vhts:'+sc+':(\\d{4}-\\d\\d-\\d\\d):[^:]+:([qwh])$');
+   +(function(){var CNK={"key:L3:hangeul":62,"key:L3:eobeop":39,"key:L3:dongsa":46,"key:L3:yeongeo":62,"key:L4:hangeul":60,"key:L4:eobeop":34,"key:L4:dongsa":42,"key:L4:yeongeo":60},qg=0,qd=0,TM={q:0,w:0,h:0,tq:0,tw:0,th:0},sc=WN.school,re=new RegExp('^(?:S:)?vhts:'+sc+':(\\d{4}-\\d\\d-\\d\\d):[^:]+:([qwh])$');
      function fd(s){return s>=3600?Math.floor(s/3600)+'시간 '+Math.round(s%3600/60)+'분':s>=60?Math.round(s/60)+'분':s+'초'}
      function trio(x){var o='<div class="lrv">';for(var i=0;i<x.length;i+=2)o+='<div><small>'+x[i]+'</small><b>'+x[i+1]+'</b></div>';return o+'</div>'}
      function sub(o,p){return '<span class="lrd">문제 풀이 '+fd(o[p+'q'])+' · 오답 복습 '+fd(o[p+'w'])+' · 그 외 '+fd(o[p+'h'])+'</span>'}
@@ -300,7 +300,7 @@ function today(){
 }
 var KEYS=[
  {"g":"교과서 4과","open":1,"subs":[{"t":"","items":[["빈칸 우리말 정답","정답·해설","L4/hangeul.html","key:L4:hangeul"],["어법 선택형","정답·해설","L4/eobeop.html","key:L4:eobeop"],["동사형","정답·해설","L4/dongsa.html","key:L4:dongsa"],["빈칸 영어 정답","정답·해설","L4/yeongeo.html","key:L4:yeongeo"]]}]},
- {"g":"교과서 3과","subs":[{"t":"","items":[]}]},
+ {"g":"교과서 3과","subs":[{"t":"","items":[["빈칸 우리말 정답","정답·해설","L3/hangeul.html","key:L3:hangeul"],["어법 선택형","정답·해설","L3/eobeop.html","key:L3:eobeop"],["동사형","정답·해설","L3/dongsa.html","key:L3:dongsa"],["빈칸 영어 정답","정답·해설","L3/yeongeo.html","key:L3:yeongeo"]]}]},
  {"g":"모의고사","subs":[{"t":"","items":[]}]},
  {"g":"플러스 자료","subs":[{"t":"","items":[]}]}
 ];
