@@ -19,6 +19,7 @@
 .fb{border-radius:12px;padding:10px 12px;margin:10px 0;font-size:15.5px;line-height:1.6;background:var(--grayL)}
 .fb ul{margin:4px 0 0;padding-left:18px}.fb li{margin:3px 0}
 .fb .res.g{color:#16803c;font-weight:800}.fb .res.r{color:var(--ans);font-weight:800}
+.tbw{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin:8px 0;font-size:15.5px;line-height:1.6}.tbw span{color:var(--sub);font-size:13.5px}
 .ko{color:var(--sub);font-size:15px;margin:2px 0 6px}
 .wd{margin-top:8px;border-top:1px dashed var(--line);padding-top:6px;font-size:15px}.wd div{margin:3px 0}.wd span{color:var(--sub)}
 .sn{margin:8px 0;padding:8px 10px;border-radius:10px;background:var(--card);border:1px solid var(--line)}.sn.hit{border-color:#16803c;background:#e3f5e8}
@@ -57,6 +58,8 @@ function show(){
 function words(q){return'<div class="wd">'+q.words.map(function(w){return'<div><b>'+E(w[0])+'</b> '+E(w[1])+(w[2]?' <span>· '+E(w[2])+'</span>':'')+'</div>'}).join('')+'</div>'}
 function fb(q,right){
   var h='<div class="fb"><div class="res '+(right?'g':'r')+'">'+(right?'정답':'아쉬워요')+'</div><div class="story">'+E(q.story)+'</div>';
+  var t=q.tb,other='';if(q.t==='A'){other=q.en.match(/\{\{([^|]+)\|([^}]+)\}\}/).slice(1).filter(function(x){return x!==q.ans})[0]}
+  h+='<div class="tbw"><div><span>본문 단어</span> <b>'+E(t[0])+'</b>'+(t[0]!==t[1]?' <span>(원형 '+E(t[1])+')</span>':'')+'</div><div><span>교과서 뜻</span> <b>'+E(t[2])+'</b></div>'+(other?'<div><span>다른 보기</span> '+E(other)+'</div>':'')+'</div>';
   if(q.t==='A'){h+='<div>'+filled(q)+'</div><div class="ko">'+E(q.ko)+'</div><ul>'+q.why.map(function(x){return'<li>'+E(x)+'</li>'}).join('')+'</ul>'}
   else if(q.t==='S'){h+='<div>'+filled(q).replace(/<b>[^<]*<\/b>/,'<b>'+E(q.ans)+'</b>')+'</div><div class="ko">'+E(q.ko)+'</div>'+q.rows.map(function(r){return'<div style="margin-top:4px"><b>'+E(r[0])+'</b> '+E(r[1])+' <span style="color:var(--sub)">· '+E(r[2])+'</span></div>'}).join('')}
   else{h+='<div>'+E(q.en).replace(/\{\{([^}]+)\}\}/,'<b>$1</b>')+'</div><div class="ko">'+E(q.ko)+'</div>'+q.senses.map(function(s,k){return'<div class="sn'+(k===q.ans?' hit':'')+'"><b>'+(k+1)+'. '+E(s[0])+'</b>'+E(s[1])+'<div class="k">'+E(s[2])+'</div></div>'}).join('')}
