@@ -3,13 +3,14 @@
    모의고사   : 1~10=1회독(하루 3지문) 11~15=2회독(하루 6지문) (mock 폴더 페이지)
    기록 키    : "<구간>p<번호>:<활동>"  예) L4p1:ko, mockp12:abc */
 var PARTS={
+  L3:{1:['L3-1','L3-2','L3-3'],2:['L3-4','L3-5'],3:['L3-6'],4:['L3-7']},
   L4:{1:['L4-1','L4-2'],2:['L4-3','L4-4'],3:['L4-5'],4:['L4-6','L4-7']},
-  names:{L4:{1:'본문 ❶~❷',2:'본문 ❸~❹',3:'본문 ❺',4:'본문 ❻~❼'}}
+  names:{L3:{1:'본문 ❶~❸',2:'본문 ❹~❺',3:'본문 ❻',4:'본문 ❼'},L4:{1:'본문 ❶~❷',2:'본문 ❸~❹',3:'본문 ❺',4:'본문 ❻~❼'}}
 };
 var PART=(function(){var m=/[?&]part=(1[0-5]|[1-9])\b/.exec(location.search);return m?+m[1]:0})();
 /* 패시지 id가 이 덩어리에 속하는지. kind: 'L4' 또는 'mock' */
 function inPart(kind,pid,part){part=part||PART;if(!part)return true;
-  if(kind==='L4')return PARTS.L4[part].indexOf(pid)>=0;
+  if(kind==='L4'||kind==='L3')return PARTS[kind][part].indexOf(pid)>=0;
   return PARTS.mock[part].indexOf(String(pid))>=0}
 function partKey(kind){return PART?kind+'p'+PART:kind}
 
