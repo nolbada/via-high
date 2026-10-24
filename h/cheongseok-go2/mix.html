@@ -51,7 +51,7 @@ var KEY='vhmx:'+WN.school,QUOTA=20;
 var NM={voc:'어휘',find:'TF',eobeop:'어법선택',ko:'한글 순서',abc:'ABC 순서',mun:'문장삽입',awk:'어색한 곳',blank:'빈칸추론'};
 var ORDER=['voc','find','eobeop','ko','abc','mun','awk','blank'];
 var FILE={voc:'vocab.html',find:'find.html',eobeop:'eobeop-test.html',ko:'sunseo-ko.html',abc:'sunseo-abc.html',mun:'sunseo-mun.html',awk:'awkward-test.html',blank:'blank.html'};
-var KN={L3:'교과서 3과',L4:'교과서 4과',mock:'모의고사'},RN={all:'전체',L3:'3과',L4:'4과',mock:'모의고사'};
+var KN={L2:'교과서 2과',L3:'교과서 3과',L4:'교과서 4과',mock:'모의고사'},RN={all:'전체',L2:'2과',L3:'3과',L4:'4과',mock:'모의고사'};
 function E(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function pname(k,p){var n=PARTS.names&&PARTS.names[k]&&PARTS.names[k][p];return n||(p?('구간 '+p):'전체')}
 function uid(k,p,a,q){return k+':'+p+':'+a+':'+q}
@@ -60,7 +60,7 @@ function save(o){try{localStorage.setItem(KEY,JSON.stringify(o))}catch(e){}}
 function rnd(a){return a[Math.floor(Math.random()*a.length)]}
 var POOL=(window.MIXPOOL?MIXPOOL.units:[]).map(function(u){return{k:u[0],p:u[1],a:u[2],q:u[3],w:u[4],id:uid(u[0],u[1],u[2],u[3])}});
 var TOTAL=POOL.reduce(function(n,u){return n+u.w},0);
-var RANGES=['L3','L4','mock'].filter(function(k){return POOL.some(function(u){return u.k===k})});
+var RANGES=['L2','L3','L4','mock'].filter(function(k){return POOL.some(function(u){return u.k===k})});
 function acts(){var s={};POOL.forEach(function(u){s[u.a]=1});return ORDER.filter(function(a){return s[a]})}
 
 /* 새 세트 뽑기: 고른 범위·유형에서 안 푼 문제만, 유형·구간이 골고루. 고른 문제가 다 소진되면 그 문제들만 새로 섞는다. */
