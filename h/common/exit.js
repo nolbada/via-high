@@ -7,7 +7,7 @@
   'use strict';
   var CFG = window.EXIT_CFG || {};
   var SCHOOL = CFG.school || 'x';
-  var KN = { L3: '3과', L4: '4과', mock: '모의고사' };
+  var KN = { L2: '2과', L3: '3과', L4: '4과', mock: '모의고사' };
   var TYPE_NAME = { find: 'TF', eob: '어법선택', awk: '어색한 곳', abc: 'ABC 순서', mun: '문장삽입', blank: '빈칸추론' };
   var WEIGHT = { find: 3, eob: 3, abc: 3, mun: 2, awk: 2, blank: 2 };
   var SXAPP = { abc: 'abc', mun: 'mun', blank: 'blank' };
@@ -25,7 +25,7 @@
   var root = document.getElementById('ex');
 
   /* ---------- 범위 ---------- */
-  function kinds() { return ['L3', 'L4', 'mock'].filter(function (k) { return window.PARTS && PARTS[k]; }); }
+  function kinds() { return ['L2', 'L3', 'L4', 'mock'].filter(function (k) { return window.PARTS && PARTS[k]; }); }
   function partNums(k) { return Object.keys(PARTS[k]).map(Number).sort(function (a, b) { return a - b; }); }
   function partName(k, p) { var n = PARTS.names && PARTS.names[k] && PARTS.names[k][p]; return n || ('구간 ' + p); }
   function inP(k, pid, part) { var l = PARTS[k] && PARTS[k][part]; return !!l && l.map(String).indexOf(String(pid)) >= 0; }
