@@ -31,7 +31,7 @@ var NM={voc:'어휘',find:'TF',eobeop:'어법선택',ko:'한글 순서',abc:'ABC
 var ORDER=['voc','find','eobeop','ko','abc','mun','awk','blank'];
 var FILE={voc:'vocab.html',find:'find.html',eobeop:'eobeop-test.html',ko:'sunseo-ko.html',abc:'sunseo-abc.html',mun:'sunseo-mun.html',awk:'awkward-test.html',blank:'blank.html'};
 var MOCKACT=['ko','abc','mun','blank'];
-var KN={L3:'교과서 3과',L4:'교과서 4과',mock:'모의고사'};
+var KN={L2:'교과서 2과',L3:'교과서 3과',L4:'교과서 4과',mock:'모의고사'};
 var KINDS=Object.keys(PARTS).filter(function(k){return k!=='names'&&PARTS[k]});
 function url(kind,act){if(kind==='mock'&&MOCKACT.indexOf(act)<0)return null;return kind+'/'+FILE[act]}
 function E(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
