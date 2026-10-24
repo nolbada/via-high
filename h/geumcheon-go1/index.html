@@ -182,7 +182,8 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 .pr .ph[data-go]{cursor:pointer}.pr .ph .gt{font-style:normal;font-weight:800;color:var(--sub);margin-left:6px}
 .rec .lrs{display:flex;gap:8px;margin:8px 0 4px}.rec .lrs>div{flex:1;background:var(--bg);border-radius:12px;padding:12px 6px;text-align:center}.rec .lrs em{display:block;font-style:normal;font-size:12px;color:var(--sub)}.rec .lrs b{font-size:26px;color:var(--navy)}.rec .lrs small{font-size:13px;color:var(--sub);font-weight:600}
 .rec .lrb{font-size:16px;color:var(--navy)}.rec .lrd{display:block;font-size:12px;color:var(--sub);margin-top:2px}
-.rec .lrv{display:flex;gap:6px;margin-top:3px}.rec .lrv>div{flex:1}.rec .lrv small{display:block;font-size:11.5px;color:var(--sub)}.rec .lrv b{font-size:16px;color:var(--navy)}</style></head><body><div class="wrap">
+.rec .lrv{display:flex;gap:6px;margin-top:3px}.rec .lrv>div{flex:1}.rec .lrv small{display:block;font-size:11.5px;color:var(--sub)}.rec .lrv b{font-size:16px;color:var(--navy)}</style><style>.sgh{display:flex;justify-content:space-between;align-items:baseline;margin:16px 2px 8px}.sgh b{font-size:16px}.sgh span{font-size:12.5px;color:var(--sub)}.sgrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-bottom:14px}.stb{position:relative;border:1.5px solid var(--line);background:var(--card);border-radius:11px;padding:5px 0 6px;display:flex;flex-direction:column;align-items:center;gap:1px;min-width:0;font-family:inherit;cursor:pointer}.stb .sbd{font-size:10.5px;font-weight:800;line-height:1.2;color:var(--pri)}.stb .sno{font-size:16px;font-weight:800;line-height:1.25;color:var(--ink)}.stb.done{background:var(--priL);border-color:var(--pri)}.stb.sel{outline:2px solid var(--ink);outline-offset:1px}.stb.done .sbd,.stb.done .sno{color:var(--pri)}.stb.now{border-color:var(--pri);box-shadow:0 0 0 2px rgba(29,78,216,.18)}.stb.lock{background:var(--off);border-color:var(--off)}.stb.lock .sbd,.stb.lock .sno{color:var(--offInk)}.stb.lock::after{content:"";position:absolute;right:4px;top:4px;width:5px;height:5px;border-radius:50%;background:var(--offInk);opacity:.6}.sback{border:0;background:none;font:800 14px inherit;font-family:inherit;color:var(--pri);padding:12px 2px 0;cursor:pointer}.slk{margin:4px 0 8px;padding:10px 12px;border-radius:12px;background:var(--line);color:var(--sub);font-size:14px}</style>
+</head><body><div class="wrap">
 
 <section class="pane on" id="p-today">
 
@@ -274,7 +275,9 @@ function today(){
     ACT.forEach(function(a){if(isOn(f.v,a[0])&&CNT[key(f.v,a[0])])qN+=CNT[key(f.v,a[0])]})});
   if(chg)try{localStorage.setItem(CK,JSON.stringify(rec))}catch(e){}
   var N=flat.length;
-  if(!selNo||selNo<1||selNo>N){selNo=N;for(var i=0;i<N;i++)if(!flat[i].done){selNo=i+1;break}}
+  var firstOpen=0;for(var i=0;i<N;i++)if(!flat[i].done){firstOpen=i+1;break}
+  function stState(n){var f=flat[n-1];if(f.done)return'done';for(var j=0;j<n-1;j++)if(!flat[j].done)return'lock';return f.v.x?'lock':'now'}
+  if(selNo>N)selNo=0;
   var bm=null,q0=null,rsm=null;try{bm=JSON.parse(localStorage.getItem('vhbm:'+WN.school)||'null')}catch(e){}try{q0=JSON.parse(localStorage.getItem('vhq:'+WN.school)||'null')}catch(e){}
   if(bm&&bm.k&&bm.u)flat.forEach(function(ff){ACT.forEach(function(a){if(!rsm&&!ff.v.F&&key(ff.v,a[0])===bm.k&&setOf(ff.v).url[a[0]]&&!isOn(ff.v,a[0]))rsm={f:ff,a:a,u:bm.u}})});
   if(!rsm&&q0&&q0.l&&Date.now()-(q0.t||0)<43200000){var qn=null;q0.l.forEach(function(x){var e=P[x.k];if(!qn&&!(e&&(e.n||e.t)))qn=x});if(qn)flat.forEach(function(ff){ACT.forEach(function(a){if(!rsm&&key(ff.v,a[0])===qn.k)rsm={f:ff,a:a,u:qn.u}})})}
@@ -298,20 +301,27 @@ function today(){
   WD.forEach(function(w,i){h+='<span class="w'+(i===6?' sun':'')+'">'+w+'</span>'});
   h+=cells+'</div><div class="nlg"><span><i class="lt"></i>오늘</span><span><i class="lc"></i>완료한 날</span><span><i class="lx"></i>시험</span></div><button type="button" class="nfold" data-fold="1">'+(cm?'주간으로 접기':'월간 달력 펼치기')+'</button></div>';
   /* 선택한 회 */
+  {h+='<div class="sgh"><b>유형 풀코스</b><span>'+N+'회 중 '+doneN+'회</span></div><div class="sgrid">';
+    flat.forEach(function(f){var c=stState(f.no),bd=f.v.T?'3과':f.v.L?'4과':f.v.F?'최종':'모의';h+='<button type="button" class="stb '+c+(f.no===selNo?' sel':'')+'" data-stage="'+f.no+'" aria-label="'+src(f.v)+' '+(f.vi+1)+'회"><span class="sbd">'+bd+'</span><span class="sno">'+(f.v.T||f.v.L||f.v.D||f.v.F)+'</span></button>'});
+    h+='</div>';
+  }
+  if(selNo){
   var f=flat[selNo-1],v=f.v,pr=prog(v);
-  h+='<div class="blk'+(f.done?' done':'')+'"><h2>유형 풀코스 · '+f.no+'회 ('+src(v)+')'+(f.done?'<span class="tg t">완료</span>':'')+'<small class="rng">'+esc(v.s)+'</small>'+(v.x?'<small class="rng">'+esc(v.x)+'</small>':'')+'</h2><div class="rows">';
-  ACT.forEach(function(a){var id=a[0],sc=setOf(v),u=sc.url[id];if(!u)return;
+  var stt=stState(selNo),need='';if(stt==='lock'){for(var j=0;j<selNo-1;j++)if(!flat[j].done){need=src(flat[j].v)+' '+(flat[j].v.T||flat[j].v.L||flat[j].v.D||flat[j].v.F)+'회';break}}
+  h+='<div class="blk'+(f.done?' done':'')+'">'+(stt==='lock'?'<div class="slk">'+(need?esc(need)+' 먼저 끝내요':'준비 중이에요')+'</div>':'')+'<div class="rows">';
+  ACT.forEach(function(a){var id=a[0],sc=setOf(v),u=sc.url[id];if(!u||stt==='lock')return;
     var on=isOn(v,id);
     var sk=key(v,id),href=(v.F?u:u+'?part='+(v.L||v.T||v.D)),chk=QS[sk]!==undefined?QS[sk]:(!on&&!OPT[id]);
     h+='<div class="arow'+(on?' dn':'')+'">'+(on?'<span class="ck"><i class="okb">✓</i></span>':v.F?'<span class="ck"></span>':'<label class="ck"><input type="checkbox" data-q="'+sk+'"'+(chk?' checked':'')+'></label>')+'<a class="at" href="'+href+'"'+(v.F?' data-fm="'+sk+'"':'')+'><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+'</b>'+(CNT[sk]?' <span class="cn">'+(id==='voc'?'약 ':'')+CNT[sk]+(id==='find'?'개':'문제')+'</span>':'')+(VAR[id]?'<i class="vr">매번 다른 문제</i>':(id==='wk'||id==='wt')?'':'<i class="vr o">1회성</i>')+(v.F&&WN.solvedBy(id==='wk'?'w':'m')?' <span class="cn">'+WN.solvedBy(id==='wk'?'w':'m')+'문제 풀었어요</span>':'')+'</a></div>'});
-  if(pr.n&&!v.F)h+='<div class="qsel"><button type="button" data-qall="1">전체 선택</button><button type="button" data-qall="0">전체 해제</button></div>';
-  if(pr.n&&!v.F)h+='<button type="button" class="qgo" data-qgo="1">체크한 유형 이어서 풀기 (<span id="qn">0</span>)</button>';
+  if(pr.n&&!v.F&&stt!=='lock')h+='<div class="qsel"><button type="button" data-qall="1">전체 선택</button><button type="button" data-qall="0">전체 해제</button></div>';
+  if(pr.n&&!v.F&&stt!=='lock')h+='<button type="button" class="qgo" data-qgo="1">체크한 유형 이어서 풀기 (<span id="qn">0</span>)</button>';
   window.QGO=function(){var items=[];ACT.forEach(function(a){var id=a[0],u=setOf(v).url[id];if(!u||v.F)return;var k=key(v,id),cb=document.querySelector('#today input[data-q="'+k+'"]');if(!cb||!cb.checked)return;var U=new URL(u+'?part='+(v.L||v.T||v.D),location.href);items.push({u:U.pathname+U.search,n:nm[id],k:k})});
     if(!items.length)return;try{localStorage.setItem('vhq:'+WN.school,JSON.stringify({l:items,t:Date.now()}))}catch(e){}location.href=items[0].u};
-  if(!pr.n)h+='<div class="soonbox">내용은 준비 중이에요</div>';
+  if(!pr.n&&stt!=='lock')h+='<div class="soonbox">준비 중이에요</div>';
   var qt=0;ACT.forEach(function(a){if(setOf(v).url[a[0]]&&CNT[key(v,a[0])])qt+=CNT[key(v,a[0])]});
-  if(qt)h+='<div class="qtot"><span>이 회 합계</span><b>약 '+qt+'문제</b></div>';
-  h+='</div></div><div class="rnav"><button type="button" data-no="-1"'+(selNo<=1?' disabled':'')+'>이전 회</button><button type="button" data-no="1"'+(selNo>=N?' disabled':'')+'>다음 회</button></div>';
+  if(qt&&stt!=='lock')h+='<div class="qtot"><span>이 회 합계</span><b>약 '+qt+'문제</b></div>';
+  h+='</div></div>';
+  }
   var SH={voc:'어휘',find:'TF',eobeop:'어법',ko:'한글',abc:'ABC',mun:'삽입',awk:'어색',blank:'빈칸',wk:'오답',wt:'약점'};
   function TGR(){var Q=PG.get(),cols=[];
     ACT.forEach(function(a){var any=false;flat.forEach(function(f){if(setOf(f.v).url[a[0]]&&!OPT[a[0]])any=true});if(any)cols.push(a)});
@@ -383,6 +393,8 @@ document.getElementById('today').addEventListener('click',function(e){
   var tc=e.target.closest('[data-tc]');if(tc){var kk2=tc.dataset.tc,en2=PG.get()[kk2];if(en2&&(en2.n||en2.t))PG.unmark(kk2);else PG.mark(kk2);document.getElementById('tg').innerHTML=window.TGR();return}
   var tr=e.target.closest('[data-tr]');if(tr){var ks=tr.dataset.tr.split(','),Q2=PG.get(),allOn=ks.every(function(x){var q=Q2[x];return q&&(q.n||q.t)});
     ks.forEach(function(x){var q=Q2[x],on=q&&(q.n||q.t);if(allOn)PG.unmark(x);else if(!on)PG.mark(x)});document.getElementById('tg').innerHTML=window.TGR();return}
+  var sb=e.target.closest('[data-stage]');if(sb){selNo=(selNo===+sb.dataset.stage)?0:+sb.dataset.stage;today();return}
+  if(e.target.closest('[data-back]')){selNo=0;today();return}
   var ns=e.target.closest('[data-no]');if(ns){selNo+=+ns.dataset.no;today();return}
   var fd=e.target.closest('[data-fold]');if(fd){if(cmode==='m'){cmode='w';wsel=weekStart(new Date())}else{cmode='m';vy=new Date().getFullYear();vm=new Date().getMonth()}today();return}
   var c=e.target.closest('[data-cal]');if(c){if(c.disabled)return;if(cmode==='m'){vm+=+c.dataset.cal;if(vm<0){vm=11;vy--}if(vm>11){vm=0;vy++}}else{wsel=new Date(wsel);wsel.setDate(wsel.getDate()+7*(+c.dataset.cal))}today()}
