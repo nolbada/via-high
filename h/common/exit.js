@@ -295,7 +295,8 @@
     h += '<div class="exs"><div class="sh">풀코스 문제 풀기</div><div class="rn">범위</div>';
     ks.forEach(function (k) {
       var ps = partNums(k), cur = st.sel[k] || [], all = ps.length && ps.every(function (p) { return cur.indexOf(p) >= 0; });
-      h += '<div class="rg"><div class="rn">' + KN[k] + '</div><div class="chips"><button type="button" class="ch' + (all ? ' on' : '') + '" data-act="all" data-k="' + k + '">전체</button>';
+      if (!document.getElementById('rgcss')) { var rs = document.createElement('style'); rs.id = 'rgcss'; rs.textContent = '#ex .rgh{margin:0 0 6px}#ex .rgb{border:0;background:transparent;color:var(--sub);font:inherit;font-weight:800;font-size:14px;padding:2px 2px;cursor:pointer}#ex .rgb.pk{color:var(--pri)}#ex .rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}#ex .rgrid.one{grid-template-columns:1fr}#ex .rgrid .ch{width:100%;padding:10px 4px;text-align:center;border-radius:12px}'; document.head.appendChild(rs); }
+      h += '<div class="rg"><div class="rgh"><button type="button" class="rgb' + (all ? ' pk' : '') + '" data-act="all" data-k="' + k + '">' + KN[k] + '</button></div><div class="rgrid' + (k === 'mock' ? ' one' : '') + '">';
       ps.forEach(function (p) { h += '<button type="button" class="ch' + (cur.indexOf(p) >= 0 ? ' on' : '') + '" data-act="part" data-k="' + k + '" data-p="' + p + '">' + E(partName(k, p)) + '</button>'; });
       h += '</div></div>';
     });
