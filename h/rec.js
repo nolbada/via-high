@@ -37,9 +37,27 @@
     return b;
   }
   function merge(loc,rem){try{return JSON.stringify(dm(JSON.parse(loc),JSON.parse(rem)))}catch(e){return rem}}
+  /* go1·go2: 서버가 "명단에 없는 이름"이라고 하면 이 기기의 이름 등록과 기록을 풀어 잠금 화면으로 돌린다 */
+  function deny(){if(KIND==='gimal'||!g(NK))return;wipe();d(NK);d(UK);d(MK);reloadOnce()}
   function post(body,keep){
     return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(body),keepalive:!!keep})
-      .then(function(r){return r.json()}).then(function(r){if(!r||!r.ok)throw new Error('rec');return r});
+      .then(function(r){return r.json()}).then(function(r){if(!r||!r.ok){var e=new Error('rec');e.code=r&&r.err;if(e.code==='noname')deny();throw e}return r});
+  }
+  /* 이름 등록 전 확인(기존 등록을 건드리지 않는다) */
+  function chk(id){
+    return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({act:'put',id:id,data:{}})})
+      .then(function(r){return r.json()}).then(function(r){if(!r)throw new Error('rec');return r});
+  }
+  /* 공폰 모드(?shared=1)와 내신 테스트(exit)는 이름 없이도 연다 */
+  function exempt(){
+    try{if(sessionStorage.getItem('vhshared')==='1')return true}catch(e){}
+    return /\/exit(\.html|\/)/.test(P);
+  }
+  /* 이름이 등록되지 않은 기기에서는 화면을 덮는다 */
+  function overlay(){
+    var o=D.createElement('div');
+    o.style.cssText='position:fixed;left:0;top:0;right:0;bottom:0;z-index:99999;overflow:auto;background:var(--bg,#f6f8f7);color:var(--ink,#16211f);padding:24px 0';
+    (D.body||D.documentElement).appendChild(o);return o;
   }
   function unwrap(v){return(v&&typeof v==='object'&&typeof v.s==='string')?v.s:null}
   var busy=false,again=false;
@@ -121,25 +139,31 @@
     if(KIND==='gimal')return;
     if(!/-(go1|go2)\/(index\.html|tth\.html)?$/.test(P))return;
     var host=D.querySelector('.wrap')||D.body;if(!host)return;
-    var name=g(NK),box=D.createElement('div');
+    var name=g(NK),box=D.createElement('div'),lockIt=!name&&!exempt();
     box.style.cssText='margin:12px 16px;padding:12px 14px;border:1px solid var(--line,#dbe4e1);border-radius:12px;background:var(--card,#fff);color:var(--ink,#16211f);font-size:15px;display:flex;gap:8px;align-items:center;flex-wrap:wrap';
     if(!name)box.style.cssText='margin:12px 16px;padding:14px;border:2px solid #e0a800;border-radius:12px;background:#fff4c2;color:#3a2e00;font-size:15px;display:flex;gap:8px;align-items:center;flex-wrap:wrap';
     else box.style.cssText='margin:6px 16px;padding:5px 10px;border:0;border-radius:8px;background:transparent;color:var(--mute,#7a8683);font-size:12px;display:flex;gap:8px;align-items:center;justify-content:space-between';
     if(!name){
-      box.innerHTML='<b style="flex:1 1 100%">이름을 넣어야 기록이 저장돼요</b><input id="rec-n" type="text" autocomplete="off" placeholder="이름" style="flex:1;min-width:120px;font-size:16px;padding:9px 10px;border:1px solid var(--line,#dbe4e1);border-radius:8px;background:transparent;color:inherit"><button id="rec-b" type="button" style="font-size:15px;font-weight:700;padding:9px 16px;border:0;border-radius:8px;background:var(--pri,#1d4ed8);color:#fff">시작</button><div id="rec-m" style="flex:1 1 100%;font-size:13px;color:var(--sub,#5a6b67)"></div>';
-      host.insertBefore(box,host.firstChild);
+      box.innerHTML='<b style="flex:1 1 100%">이름을 등록해야 시작할 수 있어요</b><input id="rec-n" type="text" autocomplete="off" placeholder="이름" style="flex:1;min-width:120px;font-size:16px;padding:9px 10px;border:1px solid var(--line,#dbe4e1);border-radius:8px;background:transparent;color:inherit"><button id="rec-b" type="button" style="font-size:15px;font-weight:700;padding:9px 16px;border:0;border-radius:8px;background:var(--pri,#1d4ed8);color:#fff">시작</button><div id="rec-m" style="flex:1 1 100%;font-size:13px;color:var(--sub,#5a6b67)"></div>';
+      if(lockIt)overlay().appendChild(box);else host.insertBefore(box,host.firstChild);
       D.getElementById('rec-b').onclick=function(){
         var v=(D.getElementById('rec-n').value||'').replace(/\s+/g,'');
         if(!v){D.getElementById('rec-m').textContent='이름을 적어 주세요.';return}
-        var b=this;b.disabled=true;D.getElementById('rec-m').textContent='기록을 불러오는 중...';
-        var prevId=g(UK);
+        var b=this;b.disabled=true;D.getElementById('rec-m').textContent='확인하는 중...';
+        var prevId=g(UK),newId='REC|'+KIND+'|'+v+'|'+NUM;
+        var fail=function(t){b.disabled=false;D.getElementById('rec-m').textContent=t};
+        var net='연결이 안 됐어요. 인터넷을 확인하고 다시 눌러 주세요.';
         var go=function(){
+          D.getElementById('rec-m').textContent='기록을 불러오는 중...';
           s(NK,v);var id=ident();
           if(prevId&&prevId!==id){wipe()}
           s(UK,id);d(MK);
-          sync(id,true).then(function(){location.reload()},function(){d(NK);d(UK);b.disabled=false;D.getElementById('rec-m').textContent='연결이 안 됐어요. 인터넷을 확인하고 다시 눌러 주세요.'});
+          sync(id,true).then(function(){location.reload()},function(){d(NK);d(UK);fail(net)});
         };
-        if(prevId&&prevId!==('REC|'+KIND+'|'+v+'|'+NUM))push(prevId,false).catch(function(){}).then(go);else go();
+        chk(newId).then(function(r){
+          if(!r.ok){fail(r.err==='noname'?'등록된 학생 이름이 아니에요. 이름을 다시 확인하거나 선생님께 알려 주세요.':net);return}
+          if(prevId&&prevId!==newId)push(prevId,false).catch(function(){}).then(go);else go();
+        },function(){fail(net)});
       };
     }else{
       box.innerHTML='<span style="flex:1"><b>'+name.replace(/[<>&"]/g,'')+'</b> 기록 저장 중</span><button id="rec-x" type="button" style="font-size:11.5px;padding:4px 9px;border:1px solid var(--line,#dbe4e1);border-radius:8px;background:transparent;color:inherit">저장하고 나가기</button>';
@@ -152,7 +176,14 @@
     }
   }
   W.REC={id:ident,sync:function(){var id=ident();return id?sync(id,true):Promise.resolve(false)}};
-  function ready(){start();mountCard()}
+  /* 첫 화면이 아닌 곳: 이름이 없으면 문제 화면을 열지 않고 첫 화면으로 안내 */
+  function lockOther(){
+    if(KIND==='gimal'||g(NK)||exempt())return;
+    if(/-(go1|go2)\/(index\.html|tth\.html)?$/.test(P))return;
+    var o=overlay(),home=P.replace(/(\/h\/[a-z]+-(?:go1|go2)\/).*$/,'$1');
+    o.innerHTML='<div style="max-width:520px;margin:0 auto;padding:36px 20px;font-size:17px;line-height:1.6"><b style="display:block;margin-bottom:14px">이름을 먼저 등록해야 문제를 풀 수 있어요</b><a href="'+home+'" style="display:block;text-align:center;font-weight:700;padding:14px;border-radius:10px;background:var(--pri,#1d4ed8);color:#fff;text-decoration:none">처음 화면에서 이름 등록</a></div>';
+  }
+  function ready(){if(W.__recReady)return;W.__recReady=1;start();mountCard();lockOther()}
   if(D.readyState==='complete')ready();else W.addEventListener('load',ready);
 })();
 
