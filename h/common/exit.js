@@ -290,14 +290,14 @@
 
   function setupView() {
     var st = SETUP || lsGet(K_SET) || {}; SETUP = st;
-    var ks = kinds(); st.sel = st.sel || {}; st.n = st.n || 10;
+    var ks = kinds().sort(function (a, b) { return rMin(a) - rMin(b); }); st.sel = st.sel || {}; st.n = st.n || 10;
     var h = '<a class="homebtn" href="../exit/">← TEST 링크 모음</a>' + head();
     h += '<div class="exs"><div class="sh">풀코스 문제 풀기</div><div class="rn">범위</div>';
     ks.forEach(function (k) {
       var ps = partNums(k), cur = st.sel[k] || [], all = ps.length && ps.every(function (p) { return cur.indexOf(p) >= 0; });
-      if (!document.getElementById('rgcss')) { var rs = document.createElement('style'); rs.id = 'rgcss'; rs.textContent = '#ex .rgh{margin:0 0 6px}#ex .rgb{border:0;background:transparent;color:var(--sub);font:inherit;font-weight:800;font-size:14px;padding:2px 2px;cursor:pointer}#ex .rgb.pk{color:var(--pri)}#ex .rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}#ex .rgrid.one{grid-template-columns:1fr}#ex .rgrid .ch{width:100%;padding:10px 4px;text-align:center;border-radius:12px}'; document.head.appendChild(rs); }
-      h += '<div class="rg"><div class="rgh"><button type="button" class="rgb' + (all ? ' pk' : '') + '" data-act="all" data-k="' + k + '">' + KN[k] + '</button></div><div class="rgrid' + (k === 'mock' ? ' one' : '') + '">';
-      ps.forEach(function (p) { h += '<button type="button" class="ch' + (cur.indexOf(p) >= 0 ? ' on' : '') + '" data-act="part" data-k="' + k + '" data-p="' + p + '">' + E(partName(k, p)) + '</button>'; });
+      if (!document.getElementById('rgcss')) { var rs = document.createElement('style'); rs.id = 'rgcss'; rs.textContent = '#ex .rgh{margin:0 0 6px}#ex .rgb{border:0;background:transparent;color:var(--sub);font:inherit;font-weight:800;font-size:14px;padding:2px 2px;cursor:pointer}#ex .rgb.pk{color:var(--pri)}#ex .rgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}#ex .rgrid .ch{width:100%;padding:10px 0;text-align:center;border-radius:12px;display:flex;align-items:center;justify-content:center}'; document.head.appendChild(rs); }
+      h += '<div class="rg"><div class="rgh"><button type="button" class="rgb' + (all ? ' pk' : '') + '" data-act="all" data-k="' + k + '">' + KN[k] + '</button></div><div class="rgrid">';
+      ps.forEach(function (p) { h += '<button type="button" class="ch' + (cur.indexOf(p) >= 0 ? ' on' : '') + '" data-act="part" data-k="' + k + '" data-p="' + p + '">' + E(rLabel(k, p)) + '</button>'; });
       h += '</div></div>';
     });
     h += '<div class="sh">문항 수</div><div class="chips">';
@@ -407,9 +407,38 @@
     paintCard(i2); updCount(); save();
   });
 
+  /* ---------- 회차 이름: 앱 첫 화면의 N회 번호와 같게 ---------- */
+  var RMAP = null;
+  function rLabel(k, p) { var n = RMAP && RMAP[k] && RMAP[k][p]; return n ? n + '회' : partName(k, p); }
+  function rMin(k) { var m = 999; if (RMAP && RMAP[k]) for (var p in RMAP[k]) if (RMAP[k][p] < m) m = RMAP[k][p]; return m; }
+  function loadRounds() {
+    return fetch('index.html').then(function (r) { if (!r.ok) throw 0; return r.text(); }).then(function (t) {
+      var i = t.search(/\bVIS\s*=\s*\[/); if (i < 0) return;
+      i = t.indexOf('[', i);
+      var d = 0, q = '', esc = false, j = i;
+      for (; j < t.length; j++) {
+        var c = t.charAt(j);
+        if (q) { if (esc) esc = false; else if (c === '\\') esc = true; else if (c === q) q = ''; continue; }
+        if (c === "'" || c === '"') { q = c; continue; }
+        if (c === '[') d++; else if (c === ']') { d--; if (d === 0) { j++; break; } }
+      }
+      var src = t.slice(i, j).replace(/(\b[xP]\s*:\s*)[A-Za-z_$][\w$]*/g, function (m, a) { return a + '0'; });
+      var arr = (new Function('return ' + src))();
+      function fl(a) { return a.reduce(function (r, x) { return r.concat(Array.isArray(x) ? fl(x) : [x]); }, []); }
+      var m = {};
+      fl(arr).forEach(function (v, n) {
+        var k = v.T != null ? (PARTS.L3 ? 'L3' : 'L2') : v.L != null ? 'L4' : v.D != null ? 'mock' : null;
+        var p = v.T != null ? v.T : v.L != null ? v.L : v.D;
+        if (!k || !PARTS[k]) return;
+        (m[k] = m[k] || {})[p] = n + 1;
+      });
+      RMAP = m;
+    }).catch(function () {});
+  }
+
   /* ---------- 시작 ---------- */
   var cur0 = lsGet(K_CUR);
   if (!window.PARTS || typeof G === 'undefined') { root.innerHTML = '<p>화면을 불러오지 못했어요.</p>'; return; }
   if (cur0 && cur0.q && cur0.done) lsDel(K_CUR);
-  setupView();
+  loadRounds().then(function () { if (!EX) setupView(); });
 })();
