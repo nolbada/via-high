@@ -295,7 +295,7 @@ function today(){
   h+='<div class="rec"><div class="rh"><b>나의 학습 기록</b></div>'
    +(function(){var CNK={"key:L2:hangeul":59,"key:L2:eobeop":47,"key:L2:dongsa":49,"key:L2:yeongeo":59,"key:L2:yesang1":20,"key:L2:yesang2":20,"key:L2:yesang3":20,"key:L2:yesang4":20,"key:L4:hangeul":60,"key:L4:eobeop":34,"key:L4:dongsa":42,"key:L4:yeongeo":60,"key:L4:yesang1":20,"key:L4:yesang2":20,"key:L4:yesang3":20,"key:L4:yesang4":20},qg=0,qd=0,TM={q:0,w:0,h:0,tq:0,tw:0,th:0},sc=WN.school,re=new RegExp('^(?:S:)?vhts:'+sc+':(\\d{4}-\\d\\d-\\d\\d):[^:]+:([qwh])$');
      function fd(s){return s>=3600?Math.floor(s/3600)+'시간 '+Math.round(s%3600/60)+'분':s>=60?Math.round(s/60)+'분':s+'초'}
-     function wk(){var NMW={voc:'어휘',find:'TF',eobeop:'어법선택',ko:'한글 순서',abc:'ABC 순서',mun:'문장삽입',awk:'어색한 곳',blank:'빈칸추론'},c={},n=0;try{WN.list().forEach(function(x){if(x.w===0||x.act==='dj')return;var v=x.c||1;c[x.act]=(c[x.act]||0)+v;n+=v})}catch(e){}
+     function wk(){var NMW={voc:'어휘',find:'TF',eobeop:'어법선택',ko:'한글 순서',abc:'ABC 순서',mun:'문장삽입',awk:'어색한 곳',blank:'빈칸추론'},c={},n=0;try{WN.list().forEach(function(x){if(x.w===0)return;var v=x.c||1,ea=x.kind==='dj'?((x.qid||'').charAt(0)==='g'?'eobeop':'voc'):x.act;c[ea]=(c[ea]||0)+v;n+=v})}catch(e){}
      var a=Object.keys(c).sort(function(p,q){return c[q]-c[p]}).slice(0,3),o='<div class="rr"><em>나의 약점 유형 TOP3</em>';
      if(n<5||!a.length)return o+'<small>오답이 조금 더 쌓이면 나와요</small></div>';
      return o+'<ol class="wk">'+a.map(function(k,i){return '<li><i>'+(i+1)+'</i><b>'+(NMW[k]||k)+'</b><span>'+c[k]+'번 틀림</span></li>'}).join('')+'</ol></div>'}
