@@ -5,7 +5,8 @@
 var PARTS={
   L3:{1:['L3-1','L3-2','L3-3'],2:['L3-4','L3-5'],3:['L3-6'],4:['L3-7']},
   L4:{1:['L4-1','L4-2'],2:['L4-3','L4-4'],3:['L4-5'],4:['L4-6','L4-7']},
-  names:{L3:{1:'본문 ❶~❸',2:'본문 ❹~❺',3:'본문 ❻',4:'본문 ❼'},L4:{1:'본문 ❶~❷',2:'본문 ❸~❹',3:'본문 ❺',4:'본문 ❻~❼'}}
+  mock:{'1':["2510-20", "2510-21", "2510-22", "2510-23"],'2':["2510-24", "2510-29", "2510-30"],'3':["2510-31", "2510-32", "2510-33"],'4':["2510-35", "2510-36", "2510-37"],'5':["2510-38", "2510-39", "2510-40"]},
+  names:{mock:{'1':'25년 10월 20~23번','2':'25년 10월 24·29·30번','3':'25년 10월 31~33번','4':'25년 10월 35~37번','5':'25년 10월 38~40번'},L3:{1:'본문 ❶~❸',2:'본문 ❹~❺',3:'본문 ❻',4:'본문 ❼'},L4:{1:'본문 ❶~❷',2:'본문 ❸~❹',3:'본문 ❺',4:'본문 ❻~❼'}}
 };
 var PART=(function(){var m=/[?&]part=(1[0-5]|[1-9])\b/.exec(location.search);return m?+m[1]:0})();
 /* 패시지 id가 이 덩어리에 속하는지. kind: 'L4' 또는 'mock' */
@@ -36,8 +37,8 @@ function partKey(kind){return PART?kind+'p'+PART:kind}
 (function(){
   if(/[?&](wrong|mix)=1\b/.test(location.search))return;
   var sg=location.pathname.split('/'),hi=sg.indexOf('h'),SC=(hi>=0&&sg[hi+1])||'x';
-  var m=/\/(L3|L4)\/([a-z-]+)\.html$/.exec(location.pathname);if(!m||!PART)return;
-  var A={'vocab':'voc','find':'find','eobeop-test':'eobeop','sunseo-ko':'ko','sunseo-abc':'abc','sunseo-mun':'mun','awkward-test':'awk','blank':'blank'}[m[2]];if(!A)return;
+  var m=/\/(L3|L4|mock)\/([a-z-]+)\.html$/.exec(location.pathname);if(!m||!PART)return;
+  var A={'vocab':'voc','find':'find','eobeop-test':'eobeop','sunseo-ko':'ko','sunseo-abc':'abc','sunseo-mun':'mun','awkward-test':'awk','blank':'blank','nd-voc':'voc','nd-find':'find','nd-eob':'eobeop','nd-awk':'awk','nd-und':'und'}[m[2]];if(!A)return;
   var K=m[1]+'p'+PART+':'+A,CUR=location.pathname+location.search;
   try{localStorage.setItem('vhbm:'+SC,JSON.stringify({u:CUR,k:K,t:Date.now()}))}catch(e){}
   function isDone(k){try{var e=PG.get()[k];return !!(e&&(e.n||e.t))}catch(x){return false}}
