@@ -36,21 +36,21 @@ var KINDS=Object.keys(PARTS).filter(function(k){return k!=='names'&&PARTS[k]});
 function url(kind,act){if(kind==='dj')return 'dajigi.html';if(kind==='mock'&&MOCKACT.indexOf(act)<0)return null;return kind+'/'+FILE[act]}
 function E(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function pname(k,p){var n=PARTS.names&&PARTS.names[k]&&PARTS.names[k][p];return n||(p?('구간 '+p):'전체')}
-var TY={};function tyOK(x){var k=Object.keys(TY).filter(function(a){return TY[a]});return !k.length||TY[x.act]}
+var TY={};function EA(x){return x.kind==='dj'?((x.qid||'').charAt(0)==='g'?'eobeop':'voc'):x.act}function tyOK(x){var k=Object.keys(TY).filter(function(a){return TY[a]});return !k.length||TY[EA(x)]}
 function qurl(star){var L=WN.list().filter(function(x){return (!star||x.star!==false)&&tyOK(x)}),g={};
-  L.forEach(function(x){var k=x.kind+'|'+x.act+'|'+x.part;(g[k]=g[k]||{kind:x.kind,act:x.act,part:x.part})});
+  L.forEach(function(x){var k=x.kind+'|'+EA(x)+'|'+x.part;(g[k]=g[k]||{kind:x.kind,act:EA(x),part:x.part})});
   return Object.keys(g).map(function(k){return g[k]}).sort(function(A,B){return (A.kind===B.kind?0:A.kind<B.kind?-1:1)||(ORDER.indexOf(A.act)-ORDER.indexOf(B.act))||(A.part-B.part)})
-    .map(function(G){var u=url(G.kind,G.act);return u?u+'?part='+G.part+'&wrong=1'+(star?'&star=1':''):null}).filter(Boolean)}
+    .map(function(G){var u=url(G.kind,G.act);return u?u+'?part='+G.part+'&wrong=1'+(star?'&star=1':'')+(G.kind==='dj'?'&dt='+G.act:''):null}).filter(Boolean)}
 function paint(){
   var L=WN.list(),st=document.getElementById('st');
   if(!L.length){st.innerHTML='<div class="empty">담긴 오답이 아직 없어요.</div>';return}
   var SC=L.filter(function(x){return x.star!==false}).length,solved=WN.solved(),LF=L.filter(tyOK),SCF=LF.filter(function(x){return x.star!==false}).length,fil=Object.keys(TY).some(function(a){return TY[a]}),tc={};
-  L.forEach(function(x){tc[x.act]=(tc[x.act]||0)+1});var tk=ORDER.filter(function(a){return tc[a]});
+  L.forEach(function(x){tc[EA(x)]=(tc[EA(x)]||0)+1});var tk=ORDER.filter(function(a){return tc[a]});
   var h='<div class="sum"><b>담긴 오답 '+L.length+'개</b><span>별표 '+SC+'개'+(solved?' · 지금까지 '+solved+'문제 풀었어요':'')+'</span></div>'
    +(tk.length>1?'<div class="hd">유형 골라 풀기</div><div class="chips">'+tk.map(function(a){return '<button type="button" class="chip'+(TY[a]?' on':'')+'" data-ty="'+a+'">'+E(NM[a]||a)+'<b>'+tc[a]+'</b></button>'}).join('')+'</div>':'')
    +'<button type="button" class="big" data-run="all">'+(fil?'고른 유형 풀기 · '+LF.length+'개':'담긴 오답 전체 풀기')+'</button>'
    +(SCF?'<button type="button" class="big st2" data-run="star">'+(fil?'고른 유형 별표만 · '+SCF+'개':'별표만 풀기')+'</button>':'<button type="button" class="big dis" disabled>별표만 풀기</button>');
-  var g={};L.forEach(function(x){var k=x.kind+'|'+x.act+'|'+x.part;(g[k]=g[k]||{kind:x.kind,act:x.act,part:x.part,a:[]}).a.push(x)});
+  var g={};L.forEach(function(x){var k=x.kind+'|'+EA(x)+'|'+x.part;(g[k]=g[k]||{kind:x.kind,act:EA(x),part:x.part,a:[]}).a.push(x)});
   var keys=Object.keys(g).sort(function(a,b){var A=g[a],B=g[b];return (A.kind===B.kind?0:A.kind<B.kind?-1:1)||(ORDER.indexOf(A.act)-ORDER.indexOf(B.act))||(A.part-B.part)});
   keys.forEach(function(k){var G=g[k],ns=G.a.filter(function(x){return x.star!==false}).length;
     h+='<details class="g"><summary class="gh"><div class="t">'+E(NM[G.act]||G.act)+' · '+G.a.length+'개<small>'+E(KN[G.kind]||G.kind)+' · '+E(pname(G.kind,G.part))+(ns?' · 별표 '+ns+'개':'')+'</small></div></summary>'
