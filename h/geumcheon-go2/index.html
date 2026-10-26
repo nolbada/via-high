@@ -167,16 +167,16 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 <script src="L4/jj.js?v=261019"></script><script src="gram.js?v=261019"></script>
 <script>
 (function(){
-var ACT=[['voc','어휘'],['find','TF'],['eobeop','어법선택'],['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['awk','어색한 곳'],['blank','빈칸추론'],['wk','틀린 문제 다시 풀기'],['wt','약한 유형 골라 풀기']];
+var ACT=[['voc','어휘'],['find','TF'],['eobeop','어법선택'],['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['awk','어색한 곳'],['blank','빈칸추론'],['und','밑줄의 의미'],['wk','틀린 문제 다시 풀기'],['wt','약한 유형 골라 풀기']];
 var SEC=[
  {label:'교과서 4과',set:'L4',url:{ko:'L4/sunseo-ko.html',abc:'L4/sunseo-abc.html',mun:'L4/sunseo-mun.html',blank:'L4/blank.html',find:'L4/find.html',awk:'L4/awkward-test.html',eobeop:'L4/eobeop-test.html',voc:'L4/vocab.html'}},
- {label:'모의고사 (26년 10월)',set:'mock',url:{}},
+ {label:'모의고사 (25년 10월 · 26년 10월)',set:'mock',url:{voc:'mock/nd-voc.html',find:'mock/nd-find.html',eobeop:'mock/nd-eob.html',awk:'mock/nd-awk.html',und:'mock/nd-und.html'}},
  {label:'교과서 3과',set:'L3',url:{ko:'L3/sunseo-ko.html',abc:'L3/sunseo-abc.html',mun:'L3/sunseo-mun.html',blank:'L3/blank.html',find:'L3/find.html',awk:'L3/awkward-test.html',eobeop:'L3/eobeop-test.html',voc:'L3/vocab.html'}},
  {label:'최종점검',set:'F',url:{wk:'wrong.html',wt:'mix.html'}}
 ];
 function durTxt(k){var t=0;try{t=+localStorage.getItem('vhd:'+k)||0}catch(e){}if(!t)return '';return ' '+(t>=60?Math.floor(t/60)+'분':t+'초')}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-var CNT={"L3p1:find": 7, "L3p2:find": 7, "L3p3:find": 6, "L3p4:find": 6, "L3p1:awk": 3, "L3p2:awk": 4, "L3p3:awk": 2, "L3p4:awk": 2, "L3p1:eobeop": 14, "L3p2:eobeop": 11, "L3p3:eobeop": 6, "L3p4:eobeop": 8, "L3p1:ko": 2, "L3p2:ko": 4, "L3p3:ko": 2, "L3p4:ko": 2, "L3p1:abc": 6, "L3p2:abc": 6, "L3p3:abc": 6, "L3p4:abc": 6, "L3p1:mun": 6, "L3p2:mun": 6, "L3p3:mun": 5, "L3p4:mun": 3, "L3p1:blank": 2, "L3p2:blank": 3, "L3p3:blank": 2, "L3p4:blank": 2, "L3p1:voc": 39, "L3p2:voc": 50, "L3p3:voc": 31, "L3p4:voc": 26, "L4p1:find": 7, "L4p1:awk": 4, "L4p1:eobeop": 7, "L4p1:ko": 2, "L4p1:abc": 6, "L4p1:mun": 5, "L4p1:blank": 2, "L4p1:voc": 40, "L4p2:find": 6, "L4p2:awk": 2, "L4p2:eobeop": 11, "L4p2:ko": 2, "L4p2:abc": 6, "L4p2:mun": 4, "L4p2:blank": 2, "L4p2:voc": 45, "L4p3:find": 6, "L4p3:awk": 2, "L4p3:eobeop": 6, "L4p3:ko": 2, "L4p3:abc": 6, "L4p3:mun": 3, "L4p3:blank": 2, "L4p3:voc": 31, "L4p4:find": 7, "L4p4:awk": 4, "L4p4:eobeop": 10, "L4p4:ko": 3, "L4p4:abc": 6, "L4p4:mun": 6, "L4p4:blank": 2, "L4p4:voc": 25};
+var CNT={"mockp1:voc": 36, "mockp1:find": 40, "mockp1:eobeop": 20, "mockp1:awk": 17, "mockp1:und": 20, "mockp2:voc": 27, "mockp2:find": 34, "mockp2:eobeop": 15, "mockp2:awk": 13, "mockp2:und": 15, "mockp3:voc": 27, "mockp3:find": 31, "mockp3:eobeop": 14, "mockp3:awk": 11, "mockp3:und": 15, "mockp4:voc": 27, "mockp4:find": 34, "mockp4:eobeop": 11, "mockp4:awk": 12, "mockp4:und": 15, "mockp5:voc": 27, "mockp5:find": 42, "mockp5:eobeop": 15, "mockp5:awk": 17, "mockp5:und": 15, "L3p1:find": 7, "L3p2:find": 7, "L3p3:find": 6, "L3p4:find": 6, "L3p1:awk": 3, "L3p2:awk": 4, "L3p3:awk": 2, "L3p4:awk": 2, "L3p1:eobeop": 14, "L3p2:eobeop": 11, "L3p3:eobeop": 6, "L3p4:eobeop": 8, "L3p1:ko": 2, "L3p2:ko": 4, "L3p3:ko": 2, "L3p4:ko": 2, "L3p1:abc": 6, "L3p2:abc": 6, "L3p3:abc": 6, "L3p4:abc": 6, "L3p1:mun": 6, "L3p2:mun": 6, "L3p3:mun": 5, "L3p4:mun": 3, "L3p1:blank": 2, "L3p2:blank": 3, "L3p3:blank": 2, "L3p4:blank": 2, "L3p1:voc": 39, "L3p2:voc": 50, "L3p3:voc": 31, "L3p4:voc": 26, "L4p1:find": 7, "L4p1:awk": 4, "L4p1:eobeop": 7, "L4p1:ko": 2, "L4p1:abc": 6, "L4p1:mun": 5, "L4p1:blank": 2, "L4p1:voc": 40, "L4p2:find": 6, "L4p2:awk": 2, "L4p2:eobeop": 11, "L4p2:ko": 2, "L4p2:abc": 6, "L4p2:mun": 4, "L4p2:blank": 2, "L4p2:voc": 45, "L4p3:find": 6, "L4p3:awk": 2, "L4p3:eobeop": 6, "L4p3:ko": 2, "L4p3:abc": 6, "L4p3:mun": 3, "L4p3:blank": 2, "L4p3:voc": 31, "L4p4:find": 7, "L4p4:awk": 4, "L4p4:eobeop": 10, "L4p4:ko": 3, "L4p4:abc": 6, "L4p4:mun": 6, "L4p4:blank": 2, "L4p4:voc": 25};
 var OPT={ko:1},VAR={voc:1,ko:1,abc:1,mun:1,blank:1};
 var EXAMD=['2026-12-07', '2026-12-08', '2026-12-09', '2026-12-10'];
 var EXAM=new Date(2026,11,7);
@@ -186,9 +186,9 @@ var SOON='내용은 준비 중이에요';
 var VIS=[
  [{L:1,t:'1회 (4과)',s:'본문 ❶~❷'},{L:2,t:'2회 (4과)',s:'본문 ❸~❹'},{L:3,t:'3회 (4과)',s:'본문 ❺'}],
  [{L:4,t:'4회 (4과)',s:'본문 ❻~❼'},{T:1,t:'1회 (3과)',s:'본문 ❶~❸'},{T:2,t:'2회 (3과)',s:'본문 ❹~❺'}],
- [{T:3,t:'3회 (3과)',s:'본문 ❻'},{T:4,t:'4회 (3과)',s:'본문 ❼'},{D:1,t:'1회 (모의고사)',s:'26년 10월 모의고사',x:SOON}],
- [{D:2,t:'2회 (모의고사)',s:'26년 10월 모의고사',x:SOON},{D:3,t:'3회 (모의고사)',s:'26년 10월 모의고사',x:SOON},{D:4,t:'4회 (모의고사)',s:'26년 10월 모의고사',x:SOON}],
- [{D:5,t:'5회 (모의고사)',s:'26년 10월 모의고사',x:SOON},{D:6,t:'6회 (모의고사)',s:'26년 10월 모의고사',x:SOON},{D:7,t:'7회 (모의고사)',s:'26년 10월 모의고사',x:SOON}],
+ [{T:3,t:'3회 (3과)',s:'본문 ❻'},{T:4,t:'4회 (3과)',s:'본문 ❼'},{D:1,t:'1회 (모의고사)',s:'25년 10월 20~23번'}],
+ [{D:2,t:'2회 (모의고사)',s:'25년 10월 24·29·30번'},{D:3,t:'3회 (모의고사)',s:'25년 10월 31~33번'},{D:4,t:'4회 (모의고사)',s:'25년 10월 35~37번'}],
+ [{D:5,t:'5회 (모의고사)',s:'25년 10월 38~40번'},{D:6,t:'6회 (모의고사)',s:'26년 10월 모의고사',x:SOON},{D:7,t:'7회 (모의고사)',s:'26년 10월 모의고사',x:SOON}],
  [{D:8,t:'8회 (모의고사)',s:'26년 10월 모의고사',x:SOON},{D:9,t:'9회 (모의고사)',s:'26년 10월 모의고사',x:SOON},{D:10,t:'10회 (모의고사)',s:'26년 10월 모의고사',x:SOON}],
  [{F:1,t:'1회 (최종점검)',s:'틀린 문제 · 약한 유형 골라 풀기'},{F:2,t:'2회 (최종점검)',s:'틀린 문제 · 약한 유형 골라 풀기'},{F:3,t:'3회 (최종점검)',s:'틀린 문제 · 약한 유형 골라 풀기'}]
 ];
@@ -276,7 +276,7 @@ function today(){
   if(qt&&stt!=='lock')h+='<div class="qtot"><span>이 회 합계</span><b>약 '+qt+'문제</b></div>';
   h+='</div></div>';
   }
-  var SH={voc:'어휘',find:'TF',eobeop:'어법',ko:'한글',abc:'ABC',mun:'삽입',awk:'어색',blank:'빈칸',wk:'오답',wt:'약점'};
+  var SH={voc:'어휘',find:'TF',eobeop:'어법',ko:'한글',abc:'ABC',mun:'삽입',awk:'어색',blank:'빈칸',und:'밑줄',wk:'오답',wt:'약점'};
   function TGR(){var Q=PG.get(),cols=[];
     ACT.forEach(function(a){var any=false;flat.forEach(function(f){if(setOf(f.v).url[a[0]]&&!OPT[a[0]])any=true});if(any)cols.push(a)});
     var o='<div style="overflow-x:auto"><table class="tgt"><thead><tr><th></th>'+cols.map(function(a){return '<th>'+esc(SH[a[0]]||a[1])+'</th>'}).join('')+'</tr></thead><tbody>';
