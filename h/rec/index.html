@@ -53,7 +53,7 @@ textarea{width:100%;min-height:120px;margin-top:8px;padding:10px;border:1px soli
 .gr{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 14px;margin-top:10px}
 .gr span{display:block;font-size:12px;color:var(--sub)}.gr b{font-size:16px;font-weight:600}
 .mt{margin-top:6px;font-size:14px;color:var(--sub)}
-@media(min-width:560px){.gr{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:560px){.gr{grid-template-columns:repeat(2,1fr)}}
 .mn{margin:10px 0 4px}.mr{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line)}.mr:first-child{border-top:0;padding-top:0}
 .ml{flex:none;width:30px;padding-top:7px;font-size:13px;font-weight:700;color:var(--sub)}
 .pls{display:flex;flex-wrap:wrap;gap:8px;flex:1}
@@ -108,17 +108,18 @@ function info(id){
     var m=/^(gk|js|cs)26-/.exec(k)||/(geumcheon|jusung|cheongseok)-go[12]/.exec(k);if(m&&!o.school)o.school=SC[m[1]]});
   if(o.go2){
     var p=id.split('|');o.name=p[2];o.grade=id.indexOf('REC|go1|')===0?'고1':'고2';
-    var tm={q:0,w:0,h:0,t:0},wrong=0,qg=0,qd=0,qf=0,pre=0,t0=day0(Date.now()),CUT=Date.parse('2026-10-22T13:22:50Z');
+    var tm={q:0,w:0,h:0,t:0},wrong=0,qg=0,qd=0,qf=0,rt=0,pre=0,t0=day0(Date.now()),CUT=Date.parse('2026-10-22T13:22:50Z');
     var PT={};ks.forEach(function(k){if(k.indexOf('vhp:')===0){var o2=val(d[k]);if(o2&&typeof o2==='object')Object.keys(o2).forEach(function(q){var e=o2[q];if(e&&e.t&&(!PT[q]||e.t>PT[q]))PT[q]=e.t})}});
     ks.forEach(function(k){
       var m=/^vhts:[^:]+:(\d{4})-(\d\d)-(\d\d):[^:]+:([qwh])$/.exec(k);
       if(m){var v=+val(d[k])||0;tm[m[4]]+=v;if(new Date(+m[1],+m[2]-1,+m[3]).getTime()===t0)tm.t+=v}
       if(k.indexOf('vhd:')===0){var pv0=+val(d[k])||0,pt0=PT[k.slice(4)];if(pv0>0&&pt0&&pt0<CUT)pre+=pv0}
+      if(k.indexOf('vhc:')===0){var cv=val(d[k]),dd=new Date(t0),ts=dd.getFullYear()+'-'+('0'+(dd.getMonth()+1)).slice(-2)+'-'+('0'+dd.getDate()).slice(-2);if(cv&&typeof cv==='object')Object.keys(cv).forEach(function(q){if(cv[q]===ts)rt++})}
       if(k.indexOf('vhw:')===0){var w=val(d[k]);if(Array.isArray(w))wrong+=w.length}
       if(k.indexOf('vhp:')===0){var tb=CNK[k.slice(4)],pv=val(d[k]);if(tb&&pv&&typeof pv==='object')Object.keys(tb).forEach(function(q){var e=pv[q];if(e&&e.n){qg+=tb[q];if(e.t&&day0(e.t)===t0)qd+=tb[q]}});var tp=CNP[k.slice(4)];if(tp&&pv&&typeof pv==='object')Object.keys(tp).forEach(function(q){var e=pv[q];if(e&&(e.n||e.t))qf+=tp[q]})}
     });
     var tt=tm.q+tm.w+tm.h+pre;
-    o.stats=[['누적 이용시간',dur(tt)],['오늘 이용시간',dur(tm.t)],['누적 풀코스',qf+'문제'],['오답노트',wrong+'개'],['누적 채점',qg+'문제']];
+    o.stats=[['누적 이용시간',dur(tt)],['오늘 이용시간',dur(tm.t)],['누적 풀코스',qf+'문제'],['오늘 회차',rt+'회'],['누적 채점',qg+'문제'],['오답노트',wrong+'개']];
   }else{
     o.code=id.split('|')[1];o.grade='고1';
     var done=0,today=0,rep=0,sum=0,hw=0,t0=day0(Date.now());
