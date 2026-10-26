@@ -68,7 +68,7 @@
 <script>
 (function(){
 var QUOTA=20;
-var seg=location.pathname.split('/'),si=seg.indexOf('h'),SCH=(si>=0&&seg[si+1])||'x',KEY='vhdj:'+SCH,WRM=/[?&]wrong=1\b/.test(location.search),SRM=WRM&&/[?&]star=1\b/.test(location.search);if(WRM)KEY+=SRM?':ws':':w';
+var seg=location.pathname.split('/'),si=seg.indexOf('h'),SCH=(si>=0&&seg[si+1])||'x',KEY='vhdj:'+SCH,WRM=/[?&]wrong=1\b/.test(location.search),SRM=WRM&&/[?&]star=1\b/.test(location.search);var DT=(/[?&]dt=(\w+)/.exec(location.search)||[])[1]||'';if(WRM)KEY+=(SRM?':ws':':w')+(DT?':'+DT:'');
 var ITEMS=(window.DAJIGI&&DAJIGI.items)||[],BY={};ITEMS.forEach(function(it){BY[it.id]=it});
 var LN={L2:'2과',L3:'3과',L4:'4과'},TN={g:'문법',v:'어휘'};
 var RANGES=[];['L2','L3','L4'].forEach(function(k){if(ITEMS.some(function(it){return it.L===k}))RANGES.push([k,LN[k]])});
@@ -97,7 +97,7 @@ function startWrong(){
   if(h1)h1.textContent='풀코스 추가문제 · 오답 다시 풀기';if(bk){bk.href='wrong.html';bk.textContent='← 오답 노트'}
   var c=S.cur;
   if(!(c&&c.wr&&c.ids&&c.i>0&&c.i<c.ids.length)){
-    var ids=shuf(WN.ids('dj',0,'dj').filter(function(i){return BY[i]}));
+    var ids=shuf(WN.ids('dj',0,'dj').filter(function(i){return BY[i]&&(!DT||BY[i].t===(DT==='eobeop'?'g':'v'))}));
     if(!ids.length){app.innerHTML='<div class="note">담긴 추가문제 오답이 없어요.</div><a class="btn l" style="text-align:center;text-decoration:none" href="wrong.html">오답 노트로</a>';return}
     S.cur={ids:ids,i:0,sub:{},wr:1};save(S)}
   quiz()}
