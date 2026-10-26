@@ -100,7 +100,7 @@ function paintSel(){
   var types=ORDER.filter(function(a){return av[a]}),rem=remain(S,SEL),tot=filt(SEL).reduce(function(n,u){return n+u.w},0);
   var R=ranges(),h=(R.length?'<div class="hd2">범위</div><div class="chips">'+R.map(function(r){return'<button type="button" class="chip'+(SEL.range===r?' on':'')+'" data-r="'+r+'">'+RN[r]+'</button>'}).join('')+'</div>':'')
    +'<div class="hd2">유형</div><div class="chips"><button type="button" class="chip'+(SEL.types.length?'':' on')+'" data-t="all">전체</button>'+types.map(function(a){return'<button type="button" class="chip'+(SEL.types.indexOf(a)>=0?' on':'')+'" data-t="'+a+'">'+NM[a]+'</button>'}).join('')+'</div>'
-   +'<div class="rem">남은 문제 '+rem+'개 (전체 '+tot+'개 · 20문항씩 약 '+Math.ceil(tot/QUOTA)+'회분)</div><div class="note"><b>전체 랜덤</b> · 앱 활동(어휘·어법·순서·빈칸 등)의 문제를 섞어 풀기, 틀린 문제는 오답노트에 담김<br><b>스페셜 · 교과서 다지기</b> · 활동에 없는 별도 문제(본문 어법 고르기·단어 관계), 오답노트와 별개</div>';
+   +'<div class="rem">남은 문제 '+rem+'개 (전체 '+tot+'개 · 20문항씩 약 '+Math.ceil(tot/QUOTA)+'회분)</div><div class="note"><b>전체 랜덤</b> · 풀코스(어휘·어법·순서·빈칸 등) 문제를 섞어 풀기<br><b>풀코스 추가문제</b> · 풀코스에 못 담은 문제만 따로 모은 코너, 틀린 문제는 똑같이 오답 노트로</div>';
   var lab=!tot?'':rem===0?'새로 섞어서 '+Math.min(QUOTA,tot)+'문항 시작':rem<QUOTA?'남은 '+rem+'문항 풀기':QUOTA+'문항 시작';
   var undone=S.cur&&S.cur.length&&bundles(S).some(function(b){return!(S.done&&S.done[b.k])});
   h+=tot?'<button class="btn" id="go">'+(confirmT?'풀던 세트가 있어요. 정말 새로 시작할까요?':lab)+'</button>':'<div class="rem">이 범위에는 해당 유형 문제가 없어요.</div>';
