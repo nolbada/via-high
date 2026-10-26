@@ -1,0 +1,135 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1d4ed8"><title>유형 풀코스</title>
+<link rel="icon" type="image/svg+xml" href="../icon.svg"><link rel="apple-touch-icon" href="../icon-180.png">
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#17202e;--sub:#5b677a;--line:#d9e0ec;--pri:#1d4ed8;--priL:#e6edfc;--ok:#15803d;--okL:#e3f5e9;--no:#b91c1c;--noL:#fdeaea;--yel:#fffbe3;--yelL:#efd96b;--yelInk:#6b5200;--navy:#1e2a44}
+@media(prefers-color-scheme:dark){:root{--bg:#0e131c;--card:#161d2a;--ink:#e8edf6;--sub:#9aa7bd;--line:#2a3548;--pri:#8ab4ff;--priL:#1a2a4a;--ok:#6ee7a0;--okL:#12301f;--no:#ff9b9b;--noL:#3a1717;--yel:#33290a;--yelL:#6b5a1a;--yelInk:#f1dc8a;--navy:#e8edf6}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.6;font-size:17px;padding-bottom:84px}
+.wrap{max-width:640px;margin:0 auto;padding:16px}
+.back{color:var(--pri);font-weight:700;text-decoration:none;font-size:14px}
+h1{font-size:22px;margin:6px 0 2px}.fc{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--sub);vertical-align:middle;margin-left:4px}.lede{color:var(--sub);font-size:14.5px;margin:0 0 8px}
+.how{background:var(--priL);border-radius:12px;padding:10px 14px;font-size:15px;margin:8px 0}
+.bar{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--sub);margin:10px 0}.bar .sp{flex:1}
+.prog{height:8px;background:var(--line);border-radius:99px;overflow:hidden}.prog i{display:block;height:100%;background:var(--pri);width:0;transition:width .3s}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:16px;margin:12px 0}
+.tag{display:inline-block;font-size:12.5px;font-weight:700;color:var(--pri);background:var(--priL);border-radius:99px;padding:1px 10px;margin-bottom:6px}
+.ctx{font-size:17.5px;line-height:1.7;margin:2px 0 8px}.ctx u{text-decoration-thickness:2px;text-underline-offset:3px;font-weight:700;background:var(--yel)}
+.ask{font-weight:800;color:var(--navy);margin:6px 0 8px}
+.ch{display:block;width:100%;text-align:left;font:inherit;font-size:16.5px;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;margin:7px 0;cursor:pointer}
+.ch.ok{border-color:var(--ok);background:var(--okL)}.ch.no{border-color:var(--no);background:var(--noL)}.ch:disabled{cursor:default;color:var(--ink);opacity:1}
+.tf{display:flex;gap:10px}.tf .ch{text-align:center;font-weight:800}
+.why{margin-top:10px;background:var(--yel);border:1.5px solid var(--yelL);color:var(--ink);border-radius:12px;padding:10px 12px;font-size:15.5px}
+.why b.r{color:var(--ok)}.why b.w{color:var(--no)}
+.nx{display:block;width:100%;margin-top:12px;border:0;border-radius:12px;background:var(--pri);color:#fff;font:800 16px inherit;font-family:inherit;padding:12px;cursor:pointer}
+.nx.sub{background:var(--card);color:var(--pri);border:1.5px solid var(--pri)}
+.sp2{display:inline-block;border:1.5px dashed var(--line);border-radius:8px;padding:0 6px;margin:0 1px;cursor:pointer;font-weight:700;background:var(--card);color:var(--ink);font:inherit;font-weight:700}
+.sp2 sup{color:var(--pri);font-size:11px;margin-right:2px}.sp2.pick{background:var(--priL);border-color:var(--pri)}.sp2.ok{background:var(--okL);border-color:var(--ok)}.sp2.no{background:var(--noL);border-color:var(--no);text-decoration:line-through}
+.trb{margin-top:12px;border:1.5px solid var(--pri);border-radius:12px;padding:10px 12px;font-size:16px}.trb b{display:block;font-size:12.5px;color:var(--pri);margin-bottom:2px}.ez{margin-top:8px;border-left:4px solid var(--pri);background:var(--priL);border-radius:0 10px 10px 0;padding:8px 10px;font-size:15px}.ez b{display:block;font-size:12.5px;color:var(--pri);margin-bottom:2px}.spc{margin-top:10px;background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;font-size:15.5px}.spc.bad{border-color:var(--no);background:var(--noL)}.spt{font-weight:800;margin-bottom:2px}.spt .vd{font-size:12.5px;font-weight:700;color:var(--ok);margin-left:6px}.spc.bad .vd{color:var(--no)}.spw .nt{color:var(--sub);font-size:14px}.spx{margin:8px 0;background:var(--priL);border-radius:12px;padding:10px 12px;font-size:15.5px}.spx:empty{display:none}.spx .nt{color:var(--sub);font-size:14px}.sum{text-align:center}.sum h3{margin:6px 0}.sum .big{font-size:40px;font-weight:800;color:var(--pri)}
+.homefab{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:99;background:var(--pri);color:#fff;text-decoration:none;font-weight:800;font-size:14px;border-radius:99px;padding:11px 16px}
+.foot{text-align:center;color:var(--sub);font-size:13px;margin-top:24px}
+</style></head><body><div class="wrap">
+<a class="back" href="../index.html">← 목록</a>
+<h1 id="h1">유형 풀코스</h1><p class="lede" id="rng"></p>
+<div class="how" id="how"></div>
+<div class="bar"><span id="cnt"></span><span class="sp"></span></div><div class="prog"><i id="pb"></i></div>
+<div id="stage"></div>
+<div class="foot">비타민 영어클리닉 · 금천고2</div></div>
+<a class="homefab" href="../index.html">⌂ 목록</a>
+<script src="../../common/prog.js?v=261020"></script>
+<script src="nd-data.js?v=261020"></script>
+<script>var NOTIMER=/[?&](wrong|mix)=1\b/.test(location.search)?1:0;</script>
+<script src="../parts.js?v=261020"></script>
+<script src="../wrong.js?v=261022"></script>
+<script>
+(function(){
+var TY={
+ voc:{n:'어휘',how:''},
+ find:{n:'TF',how:''},
+ eob:{n:'어법선택',how:''},
+ awk:{n:'어색한 곳',how:''},
+ und:{n:'밑줄의 의미',how:''}
+};
+var q=location.search,T=(/nd-(voc|find|eob|awk|und)\.html/.exec(location.pathname)||/[?&]t=(voc|find|eob|awk|und)/.exec(q)||[])[1]||'voc';
+var pk=(/[?&]part=(\d+)/.exec(q)||[])[1];var P=pk?+pk:0;
+var K=P?('mockp'+P+':'+(T==='eob'?'eobeop':T==='awk'?'awk':T)):'mock:'+T;
+var ids=(PARTS.mock[P]||[]);
+var H=document.getElementById('stage'),CNT=document.getElementById('cnt'),PB=document.getElementById('pb');
+document.getElementById('h1').innerHTML='유형 풀코스 · '+TY[T].n+' <span class="fc">FULL COURSE</span>';
+document.getElementById('rng').textContent=P?('이번 범위: '+PARTS.names.mock[P]):'';
+document.getElementById('how').style.display='none';
+var ACTN=T==='eob'?'eobeop':T;
+if(WN.MODE){document.getElementById('h1').insertAdjacentHTML('afterend',WN.MIX?WN.mixInfo():'<div class="how" style="border-color:#b45309"><b>오답 다시 풀기</b> · 오답 노트에 담은 문제만 보여요. <a href="../wrong.html">오답 노트 ›</a></div>')}
+var all=[];
+ids.forEach(function(pid){var d=ND[pid];if(!d||!d[T])return;d[T].forEach(function(it,i){all.push({id:pid+'#'+i,pid:pid,it:it,lab:pid.replace(/^(\d\d)(\d\d)-(\d+)$/,'$1년 $2월 $3번')})})});
+if(WN.MODE){var _wi=WN.ids('mock',P,ACTN);all=all.filter(function(x){return _wi.indexOf(x.id)>=0})}
+if(!all.length){H.innerHTML=WN.MODE?'<div class="card sum"><h3>오답 노트에 담긴 문제가 없어요</h3><a class="nx sub" style="text-decoration:none;text-align:center" href="../wrong.html">오답 노트 ›</a></div>':'<div class="card sum"><h3>이 범위에는 이 유형 문제가 없어요</h3></div>';return}
+var SK='nd:'+K+WN.SUF,S;try{S=JSON.parse(localStorage.getItem(SK)||'null')}catch(e){}
+if(!S||S.n!==all.length)S={n:all.length,done:{},round:1,wrong:{},fin:0};
+function save(){try{localStorage.setItem(SK,JSON.stringify(S))}catch(e){}}
+var queue=[],pos=0;
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function build(){queue=all.filter(function(x){return !S.done[x.id]});pos=0}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function top(){var d=Object.keys(S.done).length;CNT.textContent=(S.round>1?(S.round+'번째 돌기 · '):'')+'맞힌 문제 '+d+' / '+all.length;PB.style.width=(d/all.length*100)+'%'}
+function show(){
+ top();
+ if(pos>=queue.length){
+  var left=all.filter(function(x){return !S.done[x.id]});
+  if(!left.length){return fin()}
+  H.innerHTML='<div class="card sum"><h3>'+S.round+'번째 돌기 끝</h3><p>틀린 문제 <b>'+left.length+'개</b>만 다시 풀어요.</p><button class="nx" id="again" type="button">틀린 것만 다시 ›</button></div>';
+  document.getElementById('again').onclick=function(){S.round++;save();build();show()};return}
+ var x=queue[pos],it=x.it,h='<div class="card"><span class="tag">'+x.lab+' · '+(pos+1)+'/'+queue.length+'</span>';
+ if(T==='voc'||T==='eob'||T==='und'){
+  var ord=shuf(it.ch.map(function(c,i){return i}));
+  h+='<div class="ctx">'+(T==='eob'?esc(it.s).replace('( ______ )','<b>(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</b>'):it.q)+'</div>'+(it.ask?'<div class="ask">'+it.ask+'</div>':'<div class="ask">알맞은 것을 고르세요.</div>');
+  ord.forEach(function(i){h+='<button class="ch" type="button" data-i="'+i+'">'+it.ch[i]+'</button>'});
+ }else if(T==='find'){
+  h+='<div class="ctx">'+esc(it.s)+'</div><div class="ask">지문 내용과 맞을까요?</div><div class="tf"><button class="ch" data-i="1" type="button">맞아요 (T)</button><button class="ch" data-i="0" type="button">틀려요 (F)</button></div>';
+ }else{
+  var t=it.t.replace(/\[\[(\d)\|([^\]]+)\]\]/g,function(m,n,w){return '<button class="sp2" type="button" data-i="'+n+'"><sup>'+'①②③④⑤'[n-1]+'</sup>'+esc(w)+'</button>'});
+  h+='<div class="ctx" style="font-size:16.5px">'+t+'</div><div class="ask">문맥상 어색한 곳은?</div><div id="spx"></div>';
+ }
+ h+='<div id="fb"></div><div id="wnm"></div></div>';H.innerHTML=h;
+ function wnItem(){return{kind:'mock',part:P,act:ACTN,qid:x.id,label:x.lab+' · '+TY[T].n}}
+ function wnMan(){var m=document.getElementById('wnm');if(!m)return;m.innerHTML='';var b=WN.manual(wnItem());if(b)m.appendChild(b)}
+ wnMan();
+ var locked=0;
+ function pass(ok,txt,ex){
+  if(locked)return;locked=1;
+  if(ok){S.done[x.id]=1}else{S.wrong[x.id]=(S.wrong[x.id]||0)+1;try{WN.add(wnItem());wnMan()}catch(e){}}
+  save();top();
+  var fb=document.getElementById('fb');
+  fb.innerHTML=((T==='und'||T==='voc'||T==='eob')&&it.tr?'<div class="trb"><b>'+(T==='und'?'밑줄 해석':'문장 해석')+'</b>'+esc(it.tr)+'</div>':'')+'<div class="why"><b class="'+(ok?'r':'w')+'">'+(ok?'정답!':'아쉬워요')+'</b> '+txt+'</div>'+(T==='eob'&&it.g?'<div class="trb"><b>쉬운 문법 설명</b>'+esc(it.g).replace(/\n/g,'<br>')+'</div>':'')+(T==='voc'&&it.alt?'<div class="trb"><b>바꿔 쓸 수 있는 말</b>'+esc(it.alt)+'</div>':'')+(ex||(it.e?'<div class="ez"><b>쉽게 말해</b>'+esc(it.e)+'</div>':''))+'<button class="nx" id="nx" type="button">'+(pos+1<queue.length?'다음 ›':'이 돌기 마치기 ›')+'</button>';
+  document.getElementById('nx').onclick=function(){pos++;show()};
+  document.getElementById('nx').focus();
+ }
+ var bs=H.querySelectorAll('.ch,.sp2');
+ [].forEach.call(bs,function(b){b.onclick=function(){
+  if(locked&&T!=='awk')return;var i=+b.getAttribute('data-i'),ok,txt;
+  if(T==='voc'||T==='eob'||T==='und'){ok=i===it.a;
+   [].forEach.call(bs,function(o){var oi=+o.getAttribute('data-i');o.disabled=true;if(oi===it.a)o.classList.add('ok');else if(oi===i)o.classList.add('no')});
+   txt=esc(it.why)}
+  else if(T==='find'){var ans=it.a?1:0;ok=i===ans;
+   [].forEach.call(bs,function(o){var oi=+o.getAttribute('data-i');o.disabled=true;if(oi===ans)o.classList.add('ok');else if(oi===i)o.classList.add('no')});
+   txt='정답은 <b>'+(it.a?'맞아요(T)':'틀려요(F)')+'</b>. '+esc(it.why)}
+  else{
+   if(locked){var cd=document.getElementById('sc'+i);if(cd)cd.scrollIntoView({behavior:'smooth',block:'center'});return}
+   ok=i===it.a;[].forEach.call(bs,function(o){var oi=+o.getAttribute('data-i');if(oi===it.a)o.classList.add('ok');else if(oi===i)o.classList.add('no')});
+   var shown=function(n){return (new RegExp('\\[\\['+n+'\\|([^\\]]+)\\]\\]').exec(it.t)||[])[1]};
+   var cards='';it.sp.forEach(function(sp,k){var n=k+1,bad=n===it.a;
+    cards+='<div class="spc'+(bad?' bad':'')+'" id="sc'+n+'"><div class="spt"><b>'+'①②③④⑤'[k]+' '+esc(shown(n))+'</b> <span class="vd">'+(bad?'어색함':'맞음')+'</span></div>'
+     +'<div class="spw"><b>'+esc(sp.b)+'</b> : '+esc(sp.m)+(sp.n?'<br><span class="nt">'+esc(sp.n)+'</span>':'')+'</div>'
+     +'<div>'+esc(sp.y)+'</div>'+(sp.e?'<div class="ez"><b>쉽게 말해</b>'+esc(sp.e)+'</div>':'')+'</div>'});
+   pass(ok,(ok?'찾았어요. ':'')+'어색한 곳은 <b>'+'①②③④⑤'[it.a-1]+' '+esc(shown(it.a))+'</b>, 원래 말은 <b>'+esc(it.fix)+'</b>.',cards);return}
+    pass(ok,txt)}});
+}
+function fin(){
+ if(!S.fin){S.fin=1;save();if(!WN.MODE){try{PG.mark(K)}catch(e){}}}
+ var tot=0,w=0;Object.keys(S.wrong).forEach(function(k){w++});
+ H.innerHTML='<div class="card sum"><div class="big">✓</div><h3>'+TY[T].n+' 끝!</h3><p>'+all.length+'문제를 모두 맞혔어요.'+(w?'<br>한 번 이상 틀렸던 문제는 <b>'+w+'개</b>예요. 다음 수업 첫머리에 한 번 더 훑어 보면 눈에 남아요.':'<br>한 번에 다 맞혔어요!')+'</p>'+(WN.MODE?(WN.MIX?WN.mixSum():'<p class="wn-l" style="margin:12px 0 0;font-size:14px;color:var(--sub)">이제 안 봐도 되는 문제는 오답 노트에서 \'빼기\'로 뺄 수 있어요.</p>'):'<button class="nx sub" id="rst" type="button">처음부터 다시 풀기</button>')+'<a class="nx" style="text-decoration:none;text-align:center" href="../index.html">← 목록</a></div>';
+ PB.style.width='100%';CNT.textContent='완료';
+ var _r=document.getElementById('rst');if(_r)_r.onclick=function(){S={n:all.length,done:{},round:1,wrong:{},fin:1};save();build();show()};
+}
+build();show();
+})();
+</script></body></html>
