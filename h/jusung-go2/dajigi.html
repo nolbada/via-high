@@ -85,10 +85,9 @@ function draw(S,sel){
   var P=pool(sel),used={};(S.used||[]).forEach(function(i){used[i]=1});
   var fresh=P.filter(function(it){return!used[it.id]}),wrap=0;
   if(!fresh.length){wrap=1;S.used=[];used={};fresh=P.slice()}
-  var g=shuf(fresh.filter(function(i){return i.t==='g'})),v=shuf(fresh.filter(function(i){return i.t==='v'})),pick=[];
+  var g=fresh.filter(function(i){return i.t==='g'}),v=fresh.filter(function(i){return i.t==='v'}),pick=[];
   if(sel.type==='g')pick=g.slice(0,QUOTA);else if(sel.type==='v')pick=v.slice(0,QUOTA);
-  else{var ng=Math.min(g.length,Math.ceil(QUOTA/2)),nv=Math.min(v.length,QUOTA-ng);ng=Math.min(g.length,QUOTA-nv);pick=g.slice(0,ng).concat(v.slice(0,nv))}
-  pick=shuf(pick);
+  else{var ng=Math.min(g.length,Math.ceil(QUOTA/2)),nv=Math.min(v.length,QUOTA-ng);ng=Math.min(g.length,QUOTA-nv);var pg=g.slice(0,ng),pv=v.slice(0,nv);pick=[];for(var k=0;k<Math.max(pg.length,pv.length);k++){if(pg[k])pick.push(pg[k]);if(pv[k])pick.push(pv[k])}}
   S.used=(S.used||[]).concat(pick.map(function(i){return i.id}));
   S.round=(S.round||0)+1;S.cur={ids:pick.map(function(i){return i.id}),i:0,sub:{},wrapped:wrap,sel:sel,retry:0};
   return S}
@@ -108,15 +107,15 @@ function home(){
   var rem=P.filter(function(it){return!used[it.id]}).length;
   var h='';
   if(!ITEMS.length){app.innerHTML='<div class="note">아직 준비된 문제가 없어요.</div>';return}
-  h+='<div class="note">풀코스에 균등하게 담다가 미처 넣지 못한 문제를 추가로 모은 코너 · 풀코스에 있는 문제는 빠져 있어 전체 랜덤과 겹치지 않음 · 문법 고르기와 어휘(비슷한 뜻·반대 뜻) · 틀린 문제는 오답 노트에 담김</div>';
+  h+='<div class="note">풀코스에 균등하게 담다가 미처 넣지 못한 문제를 추가로 모은 코너 · 랜덤이 아니라 담긴 순서대로 앞에서부터 20문항씩 이어 풀어요 (새 문제는 뒤에 계속 쌓여요) · 풀코스유형별 20문항과 겹치지 않음 · 문법 고르기와 어휘(비슷한 뜻·반대 뜻) · 틀린 문제는 오답 노트에 담김</div>';
   var cur=S.cur;
   if(cur&&cur.ids&&cur.i<cur.ids.length){
-    h+='<div class="st"><div class="r">풀던 세트 '+(cur.i)+' / '+cur.ids.length+'</div><div class="s">'+(cur.retry?'틀린 문제 다시 풀기':'랜덤 '+S.round+'회')+'</div><div class="pbar"><i style="width:'+Math.round(cur.i/cur.ids.length*100)+'%"></i></div></div>';
+    h+='<div class="st"><div class="r">풀던 세트 '+(cur.i)+' / '+cur.ids.length+'</div><div class="s">'+(cur.retry?'틀린 문제 다시 풀기':S.round+'번째 묶음')+'</div><div class="pbar"><i style="width:'+Math.round(cur.i/cur.ids.length*100)+'%"></i></div></div>';
     h+='<button class="btn" id="resume">이어서 풀기</button><div class="hd2">새로 시작</div>'}
   h+='<div class="hd2">범위</div><div class="chips">'+[['all','전체']].concat(RANGES).map(function(r){return'<button type="button" class="chip'+(SEL.range===r[0]?' on':'')+'" data-r="'+r[0]+'">'+r[1]+'</button>'}).join('')+'</div>';
   h+='<div class="hd2">유형</div><div class="chips">'+[['all','전체'],['g','문법'],['v','어휘']].map(function(r){return'<button type="button" class="chip'+(SEL.type===r[0]?' on':'')+'" data-t="'+r[0]+'">'+r[1]+'</button>'}).join('')+'</div>';
-  h+='<div class="rem">남은 문제 '+rem+'개 (전체 '+P.length+'개 · 20문항씩 약 '+Math.ceil(P.length/QUOTA)+'회분)</div>';
-  var lab=!P.length?'':rem===0?'새로 섞어서 '+Math.min(QUOTA,P.length)+'문항 시작':rem<QUOTA?'남은 '+rem+'문항 풀기':QUOTA+'문항 시작';
+  var dn=P.length-rem;h+='<div class="rem" style="text-align:left">총 '+P.length+'문항 · 20문항씩 약 '+Math.ceil(P.length/QUOTA)+'회분<br>랜덤이 아니라 담긴 순서대로 이어서 풀어요<br>지금까지 '+dn+'문항 풀었고, 남은 문제는 '+rem+'개예요</div>';
+  var lab=!P.length?'':rem===0?'처음부터 다시 '+Math.min(QUOTA,P.length)+'문항 시작':rem<QUOTA?'남은 '+rem+'문항 풀기':dn?'이어서 다음 '+QUOTA+'문항 풀기':QUOTA+'문항 시작';
   h+=P.length?'<button class="btn'+(cur&&cur.ids&&cur.i<cur.ids.length?' l':'')+'" id="go">'+lab+'</button>':'<div class="rem">이 범위에는 해당 유형 문제가 없어요.</div>';
   var WD=WN.list().filter(function(x){return x.kind==='dj'&&BY[x.qid]}).length;
   if(WD)h+='<a class="btn l" style="text-align:center;text-decoration:none" href="wrong.html">오답 노트에서 다시 풀기 ('+WD+')</a>';
@@ -180,7 +179,7 @@ function finish(){
   var W=bad,q2=null;
   if(bad.length&&!WRM)h+='<a class="btn" style="text-align:center;text-decoration:none" href="wrong.html">오답 노트로 ›</a>';
   if(WRM){try{q2=JSON.parse(sessionStorage.getItem('wq')||'null')}catch(e){}var nx=q2&&q2.urls&&q2.urls[q2.i+1];if(nx)h+='<a class="btn" id="nxw" style="text-align:center;text-decoration:none" href="'+nx+'">다음 묶음 풀기 ›</a>';h+='<a class="btn l" style="text-align:center;text-decoration:none" href="wrong.html">오답 노트로 돌아가기</a>';if(!cur.cnt){cur.cnt=1;save(S);WN.addSolved(n,'w')}}
-  else h+='<button class="btn'+(W.length?' l':'')+'" id="again">새로 20문항 풀기</button><a class="btn l" style="text-align:center;text-decoration:none" href="index.html">목록으로</a>';
+  else h+='<button class="btn'+(W.length?' l':'')+'" id="again">다음 20문항 풀기</button><a class="btn l" style="text-align:center;text-decoration:none" href="index.html">목록으로</a>';
   app.innerHTML=h;window.scrollTo(0,0);
   if(WRM){var nw=document.getElementById('nxw');if(nw)nw.onclick=function(){q2.i++;try{sessionStorage.setItem('wq',JSON.stringify(q2))}catch(e){}}}
   var a=document.getElementById('again');if(a)a.onclick=function(){S.cur=null;save(S);home()};
