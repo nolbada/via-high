@@ -1,6 +1,6 @@
 /* 오답 노트: 틀린 문제를 이 기기(브라우저)에 모아 두고, 모아서 다시 풀게 한다.
    저장 위치: localStorage "vhw:<학교폴더>" = [{id,kind,part,act,qid,label,t,q?}]
-   kind: 'L4' | 'mock' | ..., act: voc|find|awk|eobeop|ko|abc|mun|blank
+   kind: 'L4' | 'mock' | ..., act: voc|find|awk|eobeop|ko|abc|mun|blank|und(밑줄의 의미, 모의고사 전용)|und(밑줄의 의미, 모의고사 전용)|und(밑줄의 의미, 모의고사 전용)
    qid : 활동 안에서 그 문제를 가리키는 값(문자열). voc 은 문제 전체를 q 에 저장.
    전체 랜덤(?mix=1): 같은 활동 페이지를 '이번 회차에 뽑힌 문제만' 보여 주는 모드로 재사용한다.
    저장 위치: localStorage "vhmx:<학교폴더>" = {round,used:[id..],cur:[{kind,part,act,qid,w}],done:{},open:{},cyc}
@@ -22,7 +22,7 @@ var WN=(function(){
   function mxSave(o){try{localStorage.setItem(MKEY,JSON.stringify(o))}catch(e){}}
   var MS=MX?mxLoad():null;
   function here(){var p=location.pathname,k=(/\/(L\d+|mock)\//.exec(p)||[])[1]||'',f=p.split('/').pop().replace('.html','');
-    var a={'vocab':'voc','find':'find','awkward-test':'awk','eobeop-test':'eobeop','sunseo-ko':'ko','sunseo-abc':'abc','sunseo-mun':'mun','blank':'blank'}[f];
+    var a={'vocab':'voc','find':'find','awkward-test':'awk','eobeop-test':'eobeop','sunseo-ko':'ko','sunseo-abc':'abc','sunseo-mun':'mun','blank':'blank','nd-voc':'voc','nd-find':'find','nd-eob':'eobeop','nd-awk':'awk','nd-und':'und'}[f];
     var m=/[?&]part=(\d+)/.exec(location.search);return{kind:k,part:m?+m[1]:0,act:a}}
   function mxPick(kind,part,act){return ((MS&&MS.cur)||[]).filter(function(x){return x.kind===kind&&x.part===part&&x.act===act})}
   if(MX){var go=function(){[].forEach.call(document.querySelectorAll('a.back'),function(a){a.href=base()+'mix.html';a.textContent='← 랜덤 문제'})};
