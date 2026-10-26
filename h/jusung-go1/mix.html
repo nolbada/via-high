@@ -1,4 +1,4 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1d4ed8"><title>전체 랜덤 20문항</title>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1d4ed8"><title>풀코스유형별 20문항</title>
 <link rel="icon" type="image/svg+xml" href="icon.svg"><link rel="apple-touch-icon" href="icon-180.png">
 <link rel="stylesheet" href="../common/sx.css?v=261019">
 <style>
@@ -39,7 +39,7 @@
 @media(prefers-color-scheme:dark){:root{--onpri:#0b1220}}
 @media(prefers-color-scheme:dark){.chip.on,.btn{color:#0b1220}}
 </style></head><body><div class="wrap"><div class="top"><a class="back" href="index.html">← 목록</a></div>
-<h1>전체 랜덤 20문항</h1>
+<h1>풀코스유형별 20문항</h1>
 <div id="sel"></div>
 <div id="st"></div>
 <div class="foot" style="text-align:center;color:var(--sub);font-size:13px;margin-top:26px">비타민 영어클리닉</div></div>
@@ -98,7 +98,7 @@ function paintSel(){
   var types=ORDER.filter(function(a){return av[a]}),rem=remain(S,SEL),tot=filt(SEL).reduce(function(n,u){return n+u.w},0);
   var h='<div class="hd2">범위</div><div class="chips">'+['all','L3','L4'].map(function(r){return'<button type="button" class="chip'+(SEL.range===r?' on':'')+'" data-r="'+r+'">'+RN[r]+'</button>'}).join('')+'</div>'
    +'<div class="hd2">유형</div><div class="chips"><button type="button" class="chip'+(SEL.types.length?'':' on')+'" data-t="all">전체</button>'+types.map(function(a){return'<button type="button" class="chip'+(SEL.types.indexOf(a)>=0?' on':'')+'" data-t="'+a+'">'+NM[a]+'</button>'}).join('')+'</div>'
-   +'<div class="rem">남은 문제 '+rem+'개 (전체 '+tot+'개 · 20문항씩 약 '+Math.ceil(tot/QUOTA)+'회분)</div><div class="note"><b>전체 랜덤</b> · 앱 활동(어휘·어법·순서·빈칸 등)의 문제를 섞어 풀기, 틀린 문제는 오답노트에 담김<br><b>스페셜 · 교과서 다지기</b> · 활동에 없는 별도 문제(본문 어법 고르기·단어 관계), 오답노트와 별개</div>';
+   +'<div class="rem">남은 문제 '+rem+'개 (전체 '+tot+'개 · 20문항씩 약 '+Math.ceil(tot/QUOTA)+'회분)</div><div class="note"><b>풀코스유형별 20문항</b> · 나왔던 문제지만 회차에 매이지 않고, 유형별로 20문항씩 풀어요<br><b>풀코스 추가문제</b> · 풀코스에 못 담은 문제만 따로 모은 코너, 틀린 문제는 똑같이 오답 노트로</div>';
   var lab=!tot?'':rem===0?'새로 섞어서 '+Math.min(QUOTA,tot)+'문항 시작':rem<QUOTA?'남은 '+rem+'문항 풀기':QUOTA+'문항 시작';
   var undone=S.cur&&S.cur.length&&bundles(S).some(function(b){return!(S.done&&S.done[b.k])});
   h+=tot?'<button class="btn" id="go">'+(confirmT?'풀던 세트가 있어요. 정말 새로 시작할까요?':lab)+'</button>':'<div class="rem">이 범위에는 해당 유형 문제가 없어요.</div>';
