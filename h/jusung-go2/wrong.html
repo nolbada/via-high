@@ -36,17 +36,20 @@ var KINDS=Object.keys(PARTS).filter(function(k){return k!=='names'&&PARTS[k]});
 function url(kind,act){var f=kind==='mock'?FILEM[act]:FILE[act];return f?kind+'/'+f:null}
 function E(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function pname(k,p){var n=PARTS.names&&PARTS.names[k]&&PARTS.names[k][p];return n||(p?('구간 '+p):'전체')}
-function qurl(star){var L=WN.list().filter(function(x){return !star||x.star!==false}),g={};
+var TY={};function tyOK(x){var k=Object.keys(TY).filter(function(a){return TY[a]});return !k.length||TY[x.act]}
+function qurl(star){var L=WN.list().filter(function(x){return (!star||x.star!==false)&&tyOK(x)}),g={};
   L.forEach(function(x){var k=x.kind+'|'+x.act+'|'+x.part;(g[k]=g[k]||{kind:x.kind,act:x.act,part:x.part})});
   return Object.keys(g).map(function(k){return g[k]}).sort(function(A,B){return (A.kind===B.kind?0:A.kind<B.kind?-1:1)||(ORDER.indexOf(A.act)-ORDER.indexOf(B.act))||(A.part-B.part)})
     .map(function(G){var u=url(G.kind,G.act);return u?u+'?part='+G.part+'&wrong=1'+(star?'&star=1':''):null}).filter(Boolean)}
 function paint(){
   var L=WN.list(),st=document.getElementById('st');
   if(!L.length){st.innerHTML='<div class="empty">담긴 오답이 아직 없어요.</div>';return}
-  var SC=L.filter(function(x){return x.star!==false}).length,solved=WN.solved();
+  var SC=L.filter(function(x){return x.star!==false}).length,solved=WN.solved(),LF=L.filter(tyOK),SCF=LF.filter(function(x){return x.star!==false}).length,fil=Object.keys(TY).some(function(a){return TY[a]}),tc={};
+  L.forEach(function(x){tc[x.act]=(tc[x.act]||0)+1});var tk=ORDER.filter(function(a){return tc[a]});
   var h='<div class="sum"><b>담긴 오답 '+L.length+'개</b><span>별표 '+SC+'개'+(solved?' · 지금까지 '+solved+'문제 풀었어요':'')+'</span></div>'
-   +'<button type="button" class="big" data-run="all">담긴 오답 전체 풀기</button>'
-   +(SC?'<button type="button" class="big st2" data-run="star">별표만 풀기</button>':'<button type="button" class="big dis" disabled>별표만 풀기</button>');
+   +(tk.length>1?'<div class="hd">유형 골라 풀기</div><div class="chips">'+tk.map(function(a){return '<button type="button" class="chip'+(TY[a]?' on':'')+'" data-ty="'+a+'">'+E(NM[a]||a)+'<b>'+tc[a]+'</b></button>'}).join('')+'</div>':'')
+   +'<button type="button" class="big" data-run="all">'+(fil?'고른 유형 풀기 · '+LF.length+'개':'담긴 오답 전체 풀기')+'</button>'
+   +(SCF?'<button type="button" class="big st2" data-run="star">'+(fil?'고른 유형 별표만 · '+SCF+'개':'별표만 풀기')+'</button>':'<button type="button" class="big dis" disabled>별표만 풀기</button>');
   var g={};L.forEach(function(x){var k=x.kind+'|'+x.act+'|'+x.part;(g[k]=g[k]||{kind:x.kind,act:x.act,part:x.part,a:[]}).a.push(x)});
   var keys=Object.keys(g).sort(function(a,b){var A=g[a],B=g[b];return (A.kind===B.kind?0:A.kind<B.kind?-1:1)||(ORDER.indexOf(A.act)-ORDER.indexOf(B.act))||(A.part-B.part)});
   keys.forEach(function(k){var G=g[k],ns=G.a.filter(function(x){return x.star!==false}).length;
@@ -54,6 +57,7 @@ function paint(){
      +'<div class="gi">'+G.a.map(function(x){return'<div class="it"><span>'+E(x.label||x.qid)+(x.label2?'<small>'+E(x.label2)+'</small>':'')+'</span>'+(x.star!==false?'<em class="star">★</em>':'')+'</div>'}).join('')+'</div></details>'});
   st.innerHTML=h}
 document.getElementById('st').addEventListener('click',function(e){
+  var ty=e.target.closest('button[data-ty]');if(ty){var a0=ty.dataset.ty;TY[a0]=!TY[a0];paint();return}
   var b=e.target.closest('button[data-run]');if(!b)return;
   var urls=qurl(b.dataset.run==='star');if(!urls.length)return;
   try{sessionStorage.setItem('wq',JSON.stringify({urls:urls,i:0}))}catch(x){}
