@@ -138,6 +138,7 @@ KEYMAP={ # 접두사: (조회 화면이 읽나, 뜻)
  'vhmx':(0,'유형별 20문항 진행'),'vhmq':(0,'유형별 이어 풀기 목록'),'vhq':(0,'체크 유형 이어 풀기 목록'),
  'vhbm':(0,'책갈피'),'vhs':(0,'오답 푼 수'),'vhtm':(0,'활동 타이머'),'vhex':(0,'exit test'),'vh:days':(1,'요일 선택(tth=화목반)')}
 KEYIGN=('vhshared','vh-tab','wq')  # sessionStorage 쪽 키(탭을 닫으면 사라짐)
+KEYLEG=('gm2','mock_fs','nd','vq','vsig','mogo26','verb_study_','voca')  # vh 로 시작하지 않는 옛 키 동결 목록(261027). 이 목록은 늘리지 않는다
 def key_literals(txt):
     out=set()
     for m in re.finditer(r"(?:getItem|setItem|removeItem)\(\s*(['\"])([^'\"]+)\1",txt): out.add(m.group(2))
@@ -161,8 +162,10 @@ def check_keys(sc):
     for pre,fs in sorted(seen.items()):
         if pre.startswith('vh'):
             if pre not in KEYMAP: bad.append('계약표에 없는 저장 키 %s: %s (SPEC 저장 키 계약표와 조회 화면을 먼저 정한다)'%(pre,sorted(fs)[0]))
+        elif pre in KEYLEG:
+            warn.append('옛 키 %s (동결 목록: 늘리지 않는다. 학교 구분이 없을 수 있음): %s'%(pre,sorted(fs)[0]))
         else:
-            warn.append('vh 로 시작하지 않는 저장 키 %s (공용폰 모드·학교 구분에서 빠짐): %s'%(pre,sorted(fs)[0]))
+            bad.append('vh 로 시작하지 않는 새 저장 키 %s: %s (vh<소문자>:<학교폴더> 모양으로 만든다)'%(pre,sorted(fs)[0]))
     vw=open(os.path.join(ROOT,'h','rec','index.html'),encoding='utf8').read()
     for pre,(rd,_) in KEYMAP.items():
         if rd and not re.search(r"['\"/^]%s[:'\"]"%re.escape(pre),vw): bad.append('조회 화면(h/rec/index.html)이 읽어야 하는 키 %s 를 더 이상 읽지 않음'%pre)
