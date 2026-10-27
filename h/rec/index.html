@@ -109,7 +109,7 @@ function info(id){
     var m=/^(gk|js|cs)26-/.exec(k)||/(geumcheon|jusung|cheongseok)-go[12]/.exec(k);if(m&&!o.school)o.school=SC[m[1]]});
   if(o.go2){
     var p=id.split('|');o.name=p[2];o.grade=id.indexOf('REC|go1|')===0?'고1':'고2';
-    var tm={q:0,w:0,h:0,t:0},wrong=0,qg=0,qd=0,qf=0,rt=0,lc=null,pre=0,t0=day0(Date.now()),CUT=Date.parse('2026-10-22T13:22:50Z');
+    var DJT={"geumcheon-go1":139,"geumcheon-go2":108,"jusung-go1":119,"jusung-go2":52,"cheongseok-go1":124,"cheongseok-go2":104},djn=0,djt=0,tm={q:0,w:0,h:0,t:0},wrong=0,qg=0,qd=0,qf=0,rt=0,lc=null,pre=0,t0=day0(Date.now()),CUT=Date.parse('2026-10-22T13:22:50Z');
     var PT={};ks.forEach(function(k){if(k.indexOf('vhp:')===0){var o2=val(d[k]);if(o2&&typeof o2==='object')Object.keys(o2).forEach(function(q){var e=o2[q];if(e&&e.t&&(!PT[q]||e.t>PT[q]))PT[q]=e.t})}});
     ks.forEach(function(k){
       var m=/^vhts:[^:]+:(\d{4})-(\d\d)-(\d\d):[^:]+:([qwh])$/.exec(k);
@@ -117,10 +117,11 @@ function info(id){
       if(k.indexOf('vhd:')===0){var pv0=+val(d[k])||0,pt0=PT[k.slice(4)];if(pv0>0&&pt0&&pt0<CUT)pre+=pv0}
       if(k.indexOf('vhc:')===0){var cv=val(d[k]),dd=new Date(t0),ts=dd.getFullYear()+'-'+('0'+(dd.getMonth()+1)).slice(-2)+'-'+('0'+dd.getDate()).slice(-2);if(cv&&typeof cv==='object')Object.keys(cv).forEach(function(q){if(cv[q]===ts)rt++;var mm=/^L(\d+)p(\d+)$/.exec(q),sk=String(cv[q])+('0'+(mm?mm[1]:0)).slice(-2)+('0'+(mm?mm[2]:0)).slice(-2);if(!lc||sk>lc.sk)lc={sk:sk,q:q,d:String(cv[q])}})}
       if(k.indexOf('vhw:')===0){var w=val(d[k]);if(Array.isArray(w))wrong+=w.length}
+      if(/^vhdj:[^:]+$/.test(k)){var dv=val(d[k]);if(dv&&Array.isArray(dv.used)){djn+=dv.used.length;djt+=DJT[k.slice(5)]||0}}
       if(k.indexOf('vhp:')===0){var tb=CNK[k.slice(4)],pv=val(d[k]);if(tb&&pv&&typeof pv==='object')Object.keys(tb).forEach(function(q){var e=pv[q];if(e&&e.n){qg+=tb[q];if(e.t&&day0(e.t)===t0)qd+=tb[q]}});var tp=CNP[k.slice(4)];if(tp&&pv&&typeof pv==='object')Object.keys(tp).forEach(function(q){var e=pv[q];if(e&&(e.n||e.t))qf+=tp[q]})}
     });
     var tt=tm.q+tm.w+tm.h+pre;
-    o.stats=[['누적 이용시간',dur(tt)],['오늘 이용시간',dur(tm.t)],['누적 풀코스',qf+'문제'],['마지막 회차',lc?lastR(lc):'없음'],['누적 채점',qg+'문제'],['오답노트',wrong+'개']];
+    o.stats=[['누적 이용시간',dur(tt)],['오늘 이용시간',dur(tm.t)],['누적 풀코스',qf+'문제'],['마지막 회차',lc?lastR(lc):'없음'],['누적 채점',qg+'문제'],['오답노트',wrong+'개']];if(djt)o.stats.push(['풀코스 추가문제',djn+' / '+djt+'문항']);
   }else{
     o.code=id.split('|')[1];o.grade='고1';
     var done=0,today=0,rep=0,sum=0,hw=0,t0=day0(Date.now());
