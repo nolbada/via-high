@@ -45,7 +45,7 @@ textarea{width:100%;min-height:120px;margin-top:8px;padding:10px;border:1px soli
 .fl .bt.p{background:var(--pri);border-color:var(--pri);color:#fff;font-weight:600}
 .lst{margin:12px 0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
 .rw{display:flex;gap:12px;padding:14px;border-top:1px solid var(--line)}.rw:first-child{border-top:0}
-.av{flex:none;width:40px;height:40px;border-radius:50%;background:var(--pri);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px}
+.av{flex:none;width:40px;height:40px;border-radius:50%;background:var(--sc,var(--pri));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;letter-spacing:-.3px}
 .bd{flex:1;min-width:0}
 .tp{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .nm{display:flex;align-items:baseline;gap:8px;min-width:0}.nm b{font-size:17px}.nm .s{font-size:13px;color:var(--sub)}
@@ -157,7 +157,7 @@ function draw(){
     if(late.length)h+='<div class="late">3일 이상 기록 없음: '+late.map(function(r){return esc(r.name||r.code||'?')}).join(', ')+'</div>'}
   if(!all0.length)h+='<div class="msg">아직 기록이 있는 학생이 없어요.</div>';
   if(rows.length){h+='<div class="lst">';rows.forEach(function(r){var nm=r.name||('코드 '+r.code);
-    h+='<div class="rw"><div class="av">'+esc(nm.replace(/^코드 /,'').charAt(0)||'?')+'</div><div class="bd"><div class="tp"><div class="nm"><b>'+esc(nm)+'</b><span class="s">'+esc((r.school?r.school+' ':'')+r.grade)+'</span></div><span class="l">'+(r.last?fd(r.last):'기록 없음')+'</span></div>'
+    h+='<div class="rw"><div class="av" style="--sc:'+(SCC[r.school]||'#94a3b8')+'">'+esc(r.school||nm.replace(/^코드 /,'').charAt(0)||'?')+'</div><div class="bd"><div class="tp"><div class="nm"><b>'+esc(nm)+'</b><span class="s">'+esc((r.school?r.school+' ':'')+r.grade)+'</span></div><span class="l">'+(r.last?fd(r.last):'기록 없음')+'</span></div>'
     +(r.stats?'<div class="gr">'+r.stats.map(function(c){return '<div><span>'+esc(c[0])+'</span><b>'+esc(c[1])+'</b></div>'}).join('')+'</div>':'<div class="mt">'+r.chips.map(esc).join(' · ')+'</div>')+'</div></div>';
   });h+='</div>'}
   h+='<details id="nm"><summary>이름 연결 (고1, 처음 한 번)</summary><div class="pv">학생 개인링크 시트에서 이름과 개인링크가 있는 칸을 복사해 아래에 붙여넣어 주세요. 이름은 구글 시트에만 저장되고 공개 저장소에는 들어가지 않아요.</div><textarea id="tx" placeholder="여기에 붙여넣기"></textarea><div class="pv" id="pv"></div><div class="row"><button class="bt p" id="sv">저장</button></div></details>';
