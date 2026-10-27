@@ -8,7 +8,9 @@
   }
   if(ss.getItem('vhshared')!=='1')return;
   var P=Storage.prototype,g=P.getItem,s=P.setItem,r=P.removeItem,L=window.localStorage;
-  function ok(t,k){return t===L&&typeof k==='string'&&k.indexOf('vh')===0}
+  /* vh 로 시작하지 않는 옛 키(261027 동결 목록, factory/SPEC.md 저장 키 계약)도 공용폰에서는 이 탭에만 둔다. 새 키는 vh<소문자>:<학교폴더> 모양으로 만든다 */
+  var LEG=/^(nd:|gm2-res:|vq:|vsig-|mock_fs$)/;
+  function ok(t,k){return t===L&&typeof k==='string'&&(k.indexOf('vh')===0||LEG.test(k))}
   P.getItem=function(k){return ok(this,k)?g.call(ss,'S:'+k):g.call(this,k)};
   P.setItem=function(k,v){return ok(this,k)?s.call(ss,'S:'+k,v):s.call(this,k,v)};
   P.removeItem=function(k){return ok(this,k)?r.call(ss,'S:'+k):r.call(this,k)};
