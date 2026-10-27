@@ -1,7 +1,9 @@
 """6개 학교 앱을 기준(금천고1)과 기계적으로 대조한다. (v2 기준, 261025)
 사용: python3 audit.py [학교 ...]        <- 기본: 내 컴퓨터의 저장소 파일을 검사(인터넷 필요 없음, 로컬 모드)
       python3 audit.py --live            <- 저장소 없이 실제 사이트(nolbada.github.io/via-high)를 검사
+      python3 audit.py --keys            <- 브라우저 없이 저장 키 계약만 점검(빠름)
       python3 audit.py --dump            <- 기준 수치 표 출력(SPEC_values.md 갱신용)
+저장 키 계약(261027): 앱이 쓰는 저장 키가 SPEC 「저장 키 계약표」에 있는지, 조회 화면이 읽어야 하는 키를 읽는지 같이 본다(위반=FAIL, vh 로 시작하지 않는 옛 키=주의).
 v2 = 메인 화면 '유형 풀코스'가 회차 버튼(.sgrid/.stb) + 단계식 열림(done/lock/now). 버튼을 눌러야 유형 목록이 열린다.
 필요: pip install playwright && playwright install chromium"""
 import sys,os,re,json,subprocess,socket,time,hashlib
@@ -128,9 +130,54 @@ def measure(pg,base,sc):
     S['금지 문구/이모지 없음']=not hit
     if hit: S['금지 목록']=hit
     return R,C,S
+# ---- 저장 키 계약 점검 (261027) ----
+# 앱이 localStorage 에 쓰는 키의 앞부분(접두사)이 SPEC 「저장 키 계약표」와 같은지, 조회 화면(h/rec/index.html)이 읽어야 하는 키를 아직 읽는지 본다.
+KEYMAP={ # 접두사: (조회 화면이 읽나, 뜻)
+ 'vhp':(1,'진행 기록 {키:{n,t}}'),'vhd':(1,'걸린 시간(초)'),'vhc':(1,'회차 완료일'),'vhw':(1,'오답노트 목록'),
+ 'vhts':(1,'이용 시간(rec.js가 씀)'),'vhdj':(1,'풀코스 추가문제 진도 {used:[id]}'),
+ 'vhmx':(0,'유형별 20문항 진행'),'vhmq':(0,'유형별 이어 풀기 목록'),'vhq':(0,'체크 유형 이어 풀기 목록'),
+ 'vhbm':(0,'책갈피'),'vhs':(0,'오답 푼 수'),'vhtm':(0,'활동 타이머'),'vhex':(0,'exit test'),'vh:days':(1,'요일 선택(tth=화목반)')}
+KEYIGN=('vhshared','vh-tab','wq')  # sessionStorage 쪽 키(탭을 닫으면 사라짐)
+def key_literals(txt):
+    out=set()
+    for m in re.finditer(r"(?:getItem|setItem|removeItem)\(\s*(['\"])([^'\"]+)\1",txt): out.add(m.group(2))
+    for m in re.finditer(r"\b(?:KEY|MKEY|QK|SK|TK|CK|K_[A-Z]+)\s*=\s*(['\"])([^'\"]+)\1",txt): out.add(m.group(2))
+    return out
+def key_prefix(s):
+    m=re.match(r'^(vh:days|vh[a-z]*)(?=:|$)',s)
+    if m: return m.group(1)
+    m=re.match(r'^([A-Za-z0-9_]+)[:_]?',s); return m.group(1) if m else s
+def check_keys(sc):
+    bad=[];warn=[]
+    files=[]
+    for dp,dn,fn in os.walk(os.path.join(ROOT,'h',sc)):
+        files+=[os.path.join(dp,f) for f in fn if f.endswith(('.html','.js'))]
+    cm=os.path.join(ROOT,'h','common'); files+=[os.path.join(cm,f) for f in os.listdir(cm) if f.endswith('.js')]
+    seen={}
+    for fp in files:
+        for lit in key_literals(open(fp,encoding='utf8',errors='ignore').read()):
+            if lit in KEYIGN: continue
+            seen.setdefault(key_prefix(lit),set()).add(os.path.relpath(fp,os.path.join(ROOT,'h')))
+    for pre,fs in sorted(seen.items()):
+        if pre.startswith('vh'):
+            if pre not in KEYMAP: bad.append('계약표에 없는 저장 키 %s: %s (SPEC 저장 키 계약표와 조회 화면을 먼저 정한다)'%(pre,sorted(fs)[0]))
+        else:
+            warn.append('vh 로 시작하지 않는 저장 키 %s (공용폰 모드·학교 구분에서 빠짐): %s'%(pre,sorted(fs)[0]))
+    vw=open(os.path.join(ROOT,'h','rec','index.html'),encoding='utf8').read()
+    for pre,(rd,_) in KEYMAP.items():
+        if rd and not re.search(r"['\"/^]%s[:'\"]"%re.escape(pre),vw): bad.append('조회 화면(h/rec/index.html)이 읽어야 하는 키 %s 를 더 이상 읽지 않음'%pre)
+    return bad,warn
+
 def main():
     args=[a for a in sys.argv[1:] if not a.startswith('--')]; dump='--dump' in sys.argv
     schools=args or SCHOOLS
+    if '--keys' in sys.argv:  # 브라우저 없이 저장 키 계약만 빠르게 점검
+        fk=0
+        for sc in schools:
+            kb,kw=check_keys(sc);print('%-16s %s'%(sc,'PASS' if not kb else 'FAIL'));fk+=bool(kb)
+            for x in kb: print('   -',x)
+            for x in kw: print('   ~ 주의:',x)
+        sys.exit(1 if fk else 0)
     live='--live' in sys.argv
     if live: srv=None;base='https://nolbada.github.io/via-high/'
     else:
@@ -217,10 +264,12 @@ def main():
                     tx=open(os.path.join(dp,f),encoding='utf8').read()
                     for k,nm in NM.items():
                         if k!=own and nm in tx: bad.append('다른 학교 이름(%s)이 들어 있음: %s'%(nm,os.path.relpath(os.path.join(dp,f),os.path.join(ROOT,'h',sc))))
+        kb,kw=check_keys(sc);bad+=kb
         for n in ['ROAD 글씨 겹침 없음','랜덤 화면 구조']:
             if not S[n]: bad.append('%s 실패'%n)
         print('%-16s %s  (유형줄 %s, 최대 %s회)'%(sc,'PASS' if not bad else 'FAIL',S['유형 줄 수'],S['ROAD 최대 회']))
         for x in bad: print('   -',x)
+        for x in kw: print('   ~ 주의:',x)
         fails+=bool(bad)
     sys.exit(1 if fails else 0)
 main()
