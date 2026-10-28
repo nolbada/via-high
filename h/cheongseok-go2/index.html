@@ -258,7 +258,7 @@ function today(){
   h+=cells+'</div><div class="nlg"><span><i class="lt"></i>오늘</span><span><i class="lc"></i>완료한 날</span><span><i class="lx"></i>시험</span></div><button type="button" class="nfold" data-fold="1">'+(cm?'주간으로 접기':'월간 달력 펼치기')+'</button></div>';
   /* 선택한 회 */
   {h+='<div class="sgh"><b>유형 풀코스</b><span>'+N+'회 중 '+doneN+'회</span></div><div class="sgrid">';
-    flat.forEach(function(f){var c=stState(f.no),bd=f.v.T?'3과':f.v.L?'4과':f.v.F?'최종':'모의';h+='<button type="button" class="stb '+c+(f.no===selNo?' sel':'')+'" data-stage="'+f.no+'" aria-label="'+f.no+'회 ('+src(f.v)+')"><span class="sbd">'+bd+'</span><span class="sno">'+f.no+'회</span></button>'});
+    flat.forEach(function(f){var c=stState(f.no),bd=f.v.T?'2과':f.v.L?'4과':f.v.F?'최종':'모의';h+='<button type="button" class="stb '+c+(f.no===selNo?' sel':'')+'" data-stage="'+f.no+'" aria-label="'+f.no+'회 ('+src(f.v)+')"><span class="sbd">'+bd+'</span><span class="sno">'+f.no+'회</span></button>'});
     h+='</div>';
   }
   if(selNo){
