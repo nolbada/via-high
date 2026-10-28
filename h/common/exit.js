@@ -292,6 +292,7 @@
     var st = SETUP || lsGet(K_SET) || {}; SETUP = st;
     var ks = kinds().sort(function (a, b) { return rMin(a) - rMin(b); }); st.sel = st.sel || {}; st.n = st.n || 10;
     var h = '<a class="homebtn" href="../exit/">← TEST 링크 모음</a>' + head();
+    if (CFG.speak && CFG.speak.u) h += '<div class="sh">말하기 시험</div><a href="' + E(CFG.speak.u) + '" style="display:block;padding:14px 16px;border:1.5px solid var(--pri);border-radius:14px;background:var(--card);color:var(--pri);font-weight:800;font-size:17px;text-decoration:none">' + E(CFG.speak.n) + '<br><span style="font-size:14px;font-weight:600;color:var(--sub)">' + E(CFG.speak.s || '') + '</span></a>';
     h += '<div class="exs"><div class="sh">풀코스 문제 풀기</div><div class="rn">범위</div>';
     ks.forEach(function (k) {
       var ps = partNums(k), cur = st.sel[k] || [], all = ps.length && ps.every(function (p) { return cur.indexOf(p) >= 0; });
