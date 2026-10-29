@@ -341,7 +341,7 @@ function today(){
   var lt=(last&&dkey(new Date(last.t))===td)?last:null;
   var DAYT='',DAYB='';
   h+='<div class="rec"><div class="rh"><b>나의 학습 기록</b></div>'
-   +(function(){var CNK={"key:L3:hangeul":40,"key:L3:eobeop":32,"key:L3:dongsa":41,"key:L3:check":84,"key:L3:yeongeo":40,"key:L3:yesang1":20,"key:L3:yesang2":21,"key:L3:yesang3":20,"key:L3:yesang4":20,"key:L4:hangeul":42,"key:L4:eobeop":42,"key:L4:dongsa":46,"key:L4:check":120,"key:L4:yeongeo":42,"key:L4:yesang1":20,"key:L4:yesang2":20,"key:L4:yesang3":20,"key:L4:yesang4":20,"key:plus:c2-mirae-kim-34:g1":22,"key:plus:c2-mirae-kim-34:g2":22,"key:plus:c2-mirae-kim-34:g3":21,"key:plus:c2-mirae-kim-34:b3_1":25,"key:plus:c2-mirae-kim-34:b3_2":25,"key:plus:c2-mirae-kim-34:b4_1":25,"key:plus:c2-mirae-kim-34:b4_2":25,"key:plus:c2-mirae-kim-34:b34_1":25},qg=0,qd=0,TM={q:0,w:0,h:0,tq:0,tw:0,th:0},sc=WN.school,re=new RegExp('^(?:S:)?vhts:'+sc+':(\\d{4}-\\d\\d-\\d\\d):[^:]+:([qwh])$');
+   +(function(){var CNK={"key:mock:21:qa":8,"key:mock:22:qa":7,"key:mock:23:qa":7,"key:mock:24:qa":7,"key:mock:29:qa":8,"key:mock:30:qa":8,"key:mock:31:qa":8,"key:mock:32:qa":7,"key:mock:33:qa":7,"key:mock:34:qa":8,"key:mock:35:qa":7,"key:mock:36:qa":7,"key:mock:37:qa":7,"key:mock:38:qa":7,"key:mock:39:qa":7,"key:mock:40:qa":7,"key:mock:41-42:qa":8,"key:L3:hangeul":40,"key:L3:eobeop":32,"key:L3:dongsa":41,"key:L3:check":84,"key:L3:yeongeo":40,"key:L3:yesang1":20,"key:L3:yesang2":21,"key:L3:yesang3":20,"key:L3:yesang4":20,"key:L4:hangeul":42,"key:L4:eobeop":42,"key:L4:dongsa":46,"key:L4:check":120,"key:L4:yeongeo":42,"key:L4:yesang1":20,"key:L4:yesang2":20,"key:L4:yesang3":20,"key:L4:yesang4":20,"key:plus:c2-mirae-kim-34:g1":22,"key:plus:c2-mirae-kim-34:g2":22,"key:plus:c2-mirae-kim-34:g3":21,"key:plus:c2-mirae-kim-34:b3_1":25,"key:plus:c2-mirae-kim-34:b3_2":25,"key:plus:c2-mirae-kim-34:b4_1":25,"key:plus:c2-mirae-kim-34:b4_2":25,"key:plus:c2-mirae-kim-34:b34_1":25},qg=0,qd=0,TM={q:0,w:0,h:0,tq:0,tw:0,th:0},sc=WN.school,re=new RegExp('^(?:S:)?vhts:'+sc+':(\\d{4}-\\d\\d-\\d\\d):[^:]+:([qwh])$');
      function fd(s){return s>=3600?Math.floor(s/3600)+'시간 '+Math.round(s%3600/60)+'분':s>=60?Math.round(s/60)+'분':s+'초'}
      function wk(){var NMW={voc:'어휘',find:'TF',eobeop:'어법선택',ko:'한글 순서',abc:'ABC 순서',mun:'문장삽입',awk:'어색한 곳',blank:'빈칸추론'},c={},n=0;try{WN.list().forEach(function(x){if(x.w===0)return;var v=x.c||1,ea=x.kind==='dj'?((x.qid||'').charAt(0)==='g'?'eobeop':'voc'):x.act;c[ea]=(c[ea]||0)+v;n+=v})}catch(e){}
      var a=Object.keys(c).sort(function(p,q){return c[q]-c[p]}).slice(0,3),o='<div class="rr"><em>나의 약점 유형 TOP3</em>';
@@ -422,7 +422,7 @@ function text(){
     h+=lrow(k+'/hk/','문장 성분 연습','기본')+lrow(k+'/hs/','문장 성분 연습','심화');
     h+='</div></details>';
   });
-  h+='<details class="acc"'+(cu.mock?' open':'')+'><summary>모의고사</summary><div class="in">'+lrow('jwa-mogo/','모의고사 좌본문 우해석','26년 10월 · 지문 17개')+'</div></details>';
+  h+='<details class="acc"'+(cu.mock?' open':'')+'><summary>모의고사</summary><div class="in">'+lrow('jwa-mogo/','모의고사 좌본문 우해석','26년 10월 · 지문 17개')+lrow('jwa-mogo/voca.html','어휘 다지기','26년 10월 · 지문 17개')+lrow('jwa-mogo/naeyong.html','내용 다지기','26년 10월 · 지문 17개')+'</div></details>';
   document.getElementById('text').innerHTML=h;
 }
 document.getElementById('text').addEventListener('click',function(e){if(e.target.id==='hide15'){hide15=!hide15;text();}});
