@@ -352,7 +352,7 @@ function today(){
   function lbl(x){return lblFull(x.f)+' · '+(ACT.indexOf(x.a)+1)+'. '+x.a[1]}
   var DAYT='',DAYB='';
   h+='<div class="rec"><div class="rh"><b>나의 학습 기록</b></div>'
-   +(function(){var CNK={"key:L4:hangeul":60,"key:L4:eobeop":34,"key:L4:dongsa":42,"key:L4:yeongeo":60,"key:L4:yesang1":20,"key:L4:yesang2":20,"key:L4:yesang3":20,"key:L4:yesang4":20,"key:mock:hangeul-2211":86,"key:mock:eobeop-2211":84,"key:mock:dongsa-2211":85,"key:mock:yeongeo-2211":86,"key:mock:hangeul-2311":118,"key:mock:eobeop-2311":117,"key:mock:dongsa-2311":117,"key:mock:yeongeo-2311":118,"key:mock:hangeul-2410":54,"key:mock:eobeop-2410":54,"key:mock:dongsa-2410":54,"key:mock:yeongeo-2410":54},qg=0,qd=0,TM={q:0,w:0,h:0,tq:0,tw:0,th:0},sc=WN.school,re=new RegExp('^(?:S:)?vhts:'+sc+':(\\d{4}-\\d\\d-\\d\\d):[^:]+:([qwh])$');
+   +(function(){var CNK={"key:mock:21:qa":7,"key:mock:23:qa":8,"key:mock:24:qa":8,"key:mock:29:qa":8,"key:mock:32:qa":8,"key:mock:33:qa":7,"key:mock:37:qa":8,"key:mock:39:qa":7,"key:mock:40:qa":8,"key:mock:41-42:qa":8,"key:L4:hangeul":60,"key:L4:eobeop":34,"key:L4:dongsa":42,"key:L4:yeongeo":60,"key:L4:yesang1":20,"key:L4:yesang2":20,"key:L4:yesang3":20,"key:L4:yesang4":20,"key:mock:hangeul-2211":86,"key:mock:eobeop-2211":84,"key:mock:dongsa-2211":85,"key:mock:yeongeo-2211":86,"key:mock:hangeul-2311":118,"key:mock:eobeop-2311":117,"key:mock:dongsa-2311":117,"key:mock:yeongeo-2311":118,"key:mock:hangeul-2410":54,"key:mock:eobeop-2410":54,"key:mock:dongsa-2410":54,"key:mock:yeongeo-2410":54},qg=0,qd=0,TM={q:0,w:0,h:0,tq:0,tw:0,th:0},sc=WN.school,re=new RegExp('^(?:S:)?vhts:'+sc+':(\\d{4}-\\d\\d-\\d\\d):[^:]+:([qwh])$');
      function fd(s){return s>=3600?Math.floor(s/3600)+'시간 '+Math.round(s%3600/60)+'분':s>=60?Math.round(s/60)+'분':s+'초'}
      function wk(){var NMW={voc:'어휘',find:'TF',eobeop:'어법선택',ko:'한글 순서',abc:'ABC 순서',mun:'문장삽입',awk:'어색한 곳',blank:'빈칸추론'},c={},n=0;try{WN.list().forEach(function(x){if(x.w===0)return;var v=x.c||1,ea=x.kind==='dj'?((x.qid||'').charAt(0)==='g'?'eobeop':'voc'):x.act;c[ea]=(c[ea]||0)+v;n+=v})}catch(e){}
      var a=Object.keys(c).sort(function(p,q){return c[q]-c[p]}).slice(0,3),o='<div class="rr"><em>나의 약점 유형 TOP3</em>';
@@ -443,7 +443,7 @@ function text(){
     if(k==='L4')h+='<details class="acc sub"'+(window.K15O?' open':'')+' ontoggle="window.K15O=this.open"><summary>주요 문장 15</summary><div class="in">'+key15()+'</div></details>';
     h+='</div></details>';
   });
-  h+='<div class="acc">'+lrow('jwa-mogo/','모의고사 좌본문 우해석','26년 10월 · 24년 10월 · 23년 11월 · 22년 11월 · 지문 47개')+'</div>';
+  h+='<div class="acc">'+lrow('jwa-mogo/','모의고사 좌본문 우해석','26년 10월 · 24년 10월 · 23년 11월 · 22년 11월 · 지문 47개')+lrow('jwa-mogo/voca.html','어휘 다지기','26년 10월 · 지문 10개')+lrow('jwa-mogo/naeyong.html','내용 다지기','26년 10월 · 지문 10개')+'</div>';
   h+='<div class="acc">'+lrow('analysis/','모의고사 분석지','26년 10월 · 24년 10월 · 23년 11월 · 22년 11월 · 지문 51개')+'</div>';
   document.getElementById('text').innerHTML=h;
 }
