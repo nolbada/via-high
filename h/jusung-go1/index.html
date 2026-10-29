@@ -231,7 +231,7 @@ function today(){
     ACT.forEach(function(a){if(isOn(f.v,a[0])&&CNT[key(f.v,a[0])])qN+=CNT[key(f.v,a[0])]})});
   if(chg)try{localStorage.setItem(CK,JSON.stringify(rec))}catch(e){}
   var N=flat.length;
-  function stState(n){var f=flat[n-1];if(f.done)return'done';for(var j=0;j<n-1;j++)if(!flat[j].done)return'lock';return f.v.x?'lock':'now'}
+  function stState(n){var f=flat[n-1];if(f.done)return'done';if(!window.VHDEV)for(var j=0;j<n-1;j++)if(!flat[j].done)return'lock';return f.v.x?'lock':'now'}
   if(selNo>N)selNo=0;
   var bm=null,q0=null,rsm=null;try{bm=JSON.parse(localStorage.getItem('vhbm:'+WN.school)||'null')}catch(e){}try{q0=JSON.parse(localStorage.getItem('vhq:'+WN.school)||'null')}catch(e){}
   if(bm&&bm.k&&bm.u)flat.forEach(function(ff){ACT.forEach(function(a){if(!rsm&&!ff.v.F&&key(ff.v,a[0])===bm.k&&setOf(ff.v).url[a[0]]&&!isOn(ff.v,a[0]))rsm={f:ff,a:a,u:bm.u}})});
