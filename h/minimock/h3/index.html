@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>고3 미니모의고사</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#fff;--soft:#f5f6f8;--accent:#23406b;--bad:#c2392b;--good:#1f7a4d}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+body{padding-bottom:84px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .wrap{height:54px;display:flex;align-items:center}
+h1{font-size:18px;margin:0}
+.rd{display:grid;grid-template-columns:54px 1fr 1fr;gap:8px;align-items:stretch;padding:8px 0;border-bottom:1px solid var(--line)}
+.rn{display:flex;align-items:center;font-weight:800;font-size:17px}
+a.set{display:flex;flex-direction:column;justify-content:center;gap:2px;min-height:58px;padding:8px 12px;border-radius:10px;background:var(--soft);border:1.5px solid transparent;color:var(--ink);text-decoration:none;font-size:16px;font-weight:700}
+a.set small{font-weight:400;font-size:13px;color:var(--sub);min-height:17px}
+a.set.done{border-color:var(--good)}
+a.set.done small{color:var(--good);font-weight:700}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
+.btn{display:block;width:100%;max-width:652px;margin:0 auto;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;font-weight:700;font-family:inherit}
+.btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>고3 미니모의고사</h1></div></header>
+<div class="wrap" id="list"></div>
+<div class="bar"><button class="btn" id="reset">처음부터 다시 (다음 학생)</button></div>
+<script>
+var GCODE="h3";
+var PFX='via_mm_'+GCODE+'_';
+function st(f){try{var r=localStorage.getItem(PFX+f);if(r)return JSON.parse(r);}catch(e){}return null;}
+function info(f){
+  var s=st(f);if(!s)return {done:false,txt:''};
+  var parts=[];
+  if(s.locked&&Object.keys(s.locked).length)parts.push('단어');
+  if(s.sub)parts.push(s.sub.s+' / 6');
+  return {done:!!s.sub,txt:parts.join(' · ')};
+}
+function render(){
+  var h='';
+  for(var r=1;r<=24;r++){
+    h+='<div class="rd"><div class="rn">'+r+'회</div>';
+    ['a','b'].forEach(function(x,k){
+      var f=(r<10?'0':'')+r+x,i=info(f);
+      h+='<a class="set '+(i.done?'done':'')+'" href="'+f+'.html">'+(k?'07–12번':'01–06번')+'<small>'+i.txt+'</small></a>';
+    });
+    h+='</div>';
+  }
+  document.getElementById('list').innerHTML=h;
+}
+var armed=false,btn=document.getElementById('reset');
+btn.onclick=function(){
+  if(!armed){armed=true;btn.className='btn arm';btn.textContent='한 번 더 누르면 이 학년 기록이 모두 지워집니다';return;}
+  try{Object.keys(localStorage).filter(function(k){return k.indexOf(PFX)===0;}).forEach(function(k){localStorage.removeItem(k);});}catch(e){}
+  armed=false;btn.className='btn';btn.textContent='처음부터 다시 (다음 학생)';render();
+};
+render();
+</script>
+</body>
+</html>

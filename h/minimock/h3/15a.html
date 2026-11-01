@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>고3 미니모의고사 15회 01–06번</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f6f8;--accent:#23406b;--bad:#c2392b;--badbg:#fdeceb;--good:#1f7a4d;--goodbg:#e8f5ee;--hl:#fff3b0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+body{padding-bottom:84px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .row1{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+h1{font-size:16px;margin:0;font-weight:700;line-height:1.3}
+.tabs{display:flex;gap:0}
+.tab{flex:1;border:0;background:none;font-family:inherit;font-size:15px;font-weight:700;color:var(--sub);padding:11px 0;border-bottom:3px solid transparent}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tab[disabled]{opacity:.35}
+.link{text-decoration:none;border:0;background:none;color:var(--accent);font-size:15px;font-weight:700;padding:10px 4px;font-family:inherit}
+.hd2{display:flex;align-items:center;justify-content:space-between;height:54px}
+.hd2 h1{font-size:17px}
+.row{padding:12px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.no{color:var(--sub);font-size:13px;min-width:20px}
+.word{font-size:19px;font-weight:700}
+.src{color:var(--sub);font-size:12px;margin-left:auto}
+.cells{display:flex;flex-direction:column;gap:6px}
+.cell{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 12px;border-radius:8px;background:var(--soft);border:1.5px solid transparent;font-size:16px;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.cell .tag,.part .tag{font-size:12px;font-weight:700;color:#fff;border-radius:4px;padding:2px 7px;min-width:34px;text-align:center;background:#7a8594}
+.cell.s .tag,.part.s .tag{background:#2d62a8}.cell.a .tag,.part.a .tag{background:#b4472f}
+.ko{color:var(--sub);font-size:14px;margin-left:6px}
+.cell.bad{background:var(--badbg);border-color:var(--bad)}
+.cell.bad .tag{background:var(--bad)}
+.locked .cell{pointer-events:none}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:6}
+.bar .wrap{display:flex;gap:10px;padding:0}
+.btn{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;line-height:1.25;font-weight:700;font-family:inherit}
+.btn.pri{background:var(--accent);color:#fff}
+.btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn[disabled]{opacity:.4}
+.note-item{padding:14px 0;border-bottom:1px solid var(--line)}
+.note-item .w{font-size:19px;font-weight:700}
+.meta{color:var(--sub);font-size:12px;margin-left:8px;font-weight:400}
+.part{display:flex;gap:10px;align-items:baseline;padding:6px 0 0;font-size:16px}
+.part .tag{align-self:center}
+.part.bad{color:var(--bad);font-weight:700}
+.part.bad .tag{background:var(--bad)}
+.part .ko{font-weight:400}
+.part .res{margin-left:auto;font-size:13px;font-weight:700}
+.res.o{color:var(--good)}.res.x{color:var(--bad)}
+.empty{color:var(--sub);text-align:center;padding:60px 0;font-size:16px}
+.q{padding:22px 0 8px}
+.q .cnt{color:var(--sub);font-size:14px}
+.q .ask{font-size:15px;color:var(--sub);margin-top:14px}
+.q .target{font-size:28px;font-weight:700;margin:6px 0 18px}
+.opt{display:block;width:100%;text-align:left;min-height:56px;padding:10px 14px;margin-bottom:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:18px;font-family:inherit;color:var(--ink)}
+.opt .ko{display:block;margin:2px 0 0}
+.opt.right{border-color:var(--good);background:var(--goodbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.done .opt{pointer-events:none}
+.score{font-size:34px;font-weight:700;text-align:center;margin:30px 0 6px}
+.score small{font-size:18px;color:var(--sub);font-weight:400}
+.foot{color:var(--sub);font-size:12px;text-align:center;padding:26px 0 8px}
+/* submit */
+.qrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.qno{font-weight:800;font-size:20px;width:34px;flex:none}
+.opts{display:flex;gap:8px;flex:1}
+.opt2{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:20px;font-family:inherit;color:var(--ink)}
+.opt2.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.opt2[disabled]{opacity:.55}
+.opt2.on[disabled]{opacity:1}
+/* explanation */
+h2{font-size:17px;margin:26px 0 10px}
+.quick div{padding:3px 0;font-size:17px}
+.quick .o{color:var(--good)}.quick .x{color:var(--bad)}
+.sub{color:var(--sub)}
+details.qd{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;background:var(--bg)}
+details.qd>summary{list-style:none;cursor:pointer;padding:14px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+details.qd>summary::-webkit-details-marker{display:none}
+details.qd>summary small{font-weight:400;color:var(--sub);font-size:13px}
+.res2{margin-left:auto;font-size:14px}
+.res2.o{color:var(--good)}.res2.x{color:var(--bad)}
+.qx{padding:0 14px 14px}
+.qx h4{font-size:15px;margin:18px 0 8px;color:var(--accent)}
+.qx p{margin:6px 0;line-height:1.75;font-size:16px}
+.ansline b{font-size:17px}
+.en{font-size:16px;line-height:1.7;background:var(--soft);padding:10px 12px;border-radius:8px}
+.kolist{list-style:none;margin:6px 0;padding:0}
+.kolist li{font-size:15px;line-height:1.7}
+.kolist .n{font-size:12px;color:var(--sub);margin-right:6px}
+.why p{margin:4px 0;font-size:15px}
+.c{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.c.ok{border-color:var(--good);background:var(--goodbg)}
+.c .ct{font-weight:700;font-size:16px;line-height:1.5}
+.c .tg{display:inline-block;font-size:12px;color:#fff;background:#7a8594;border-radius:4px;padding:1px 7px;margin-right:6px;font-weight:700}
+.c.ok .tg{background:var(--good)}
+.c p{margin:4px 0 0;font-size:15px}
+.r{color:var(--sub);font-size:13px}
+/* direct reading practice */
+details.dk{margin:16px 0 4px;border:1px solid var(--line);border-radius:10px}
+details.dk>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700;color:var(--accent);font-size:15px}
+details.dk>summary::-webkit-details-marker{display:none}
+.dkbody{padding:0 12px 12px}
+.tool{display:flex;gap:8px;margin:2px 0 10px}
+.tbtn{flex:1;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:inherit;font-size:14px;font-weight:700;color:var(--accent)}
+.s{padding:10px 0 12px;border-top:1px dashed var(--line)}
+.s.ev{background:linear-gradient(90deg,#fffbe8,#fff);margin:0 -6px;padding-left:6px;padding-right:6px}
+.sn{margin-bottom:6px}
+.lb{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--sub);margin-right:6px}
+.lb.ev{background:var(--hl);color:#7a5b00}
+.ch{padding:9px 11px;margin-bottom:6px;border-radius:8px;background:var(--soft);cursor:pointer;border-bottom:2px dotted #c9cfd6}
+.ch .ce{font-size:16px;line-height:1.6}
+.ch .ce b{background:linear-gradient(transparent 55%,var(--hl) 55%)}
+.ch .ck{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--line);color:var(--accent);font-size:15px;line-height:1.65}
+.ch.open{background:#eef2f8;border-bottom-color:transparent}
+.ch.open .ck{display:block}
+.lay{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:14px;line-height:1.7}
+.lay.on{display:block}
+.stg{width:100%;min-height:42px;margin-top:6px;border:1px solid var(--accent);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const WORDS={"sets": [{"id": "g3r15p1", "title": "고3 미니모의고사 15회 01–06번", "range": "01–06번", "words": [{"src": "01", "w": "complimentary", "m": "칭찬하는", "s": null, "a": null}, {"src": "02", "w": "satisfaction", "m": "만족", "s": null, "a": ["dissatisfaction", "불만"]}, {"src": "03", "w": "rare", "m": "드문, 희귀한", "s": null, "a": ["frequent", "잦은, 빈번한"]}, {"src": "04", "w": "permission", "m": "허락, 허가", "s": null, "a": null}, {"src": "05", "w": "famed", "m": "유명한, 이름난", "s": null, "a": null}, {"src": "06", "w": "fabulous", "m": "멋진, 굉장한", "s": ["marvelous", "놀라운, 굉장한"], "a": null}, {"src": "07", "w": "variety", "m": "다양성", "s": null, "a": ["uniformity", "획일성"]}, {"src": "08", "w": "admission", "m": "입장, 입장 허가", "s": null, "a": null}, {"src": "09", "w": "exclusively", "m": "독점적으로, 오로지", "s": null, "a": null}, {"src": "10", "w": "availability", "m": "이용 가능성", "s": null, "a": null}, {"src": "11", "w": "simultaneously", "m": "동시에", "s": ["concurrently", "동시에"], "a": null}, {"src": "12", "w": "subconsciously", "m": "잠재의식적으로", "s": null, "a": ["consciously", "의식적으로"]}, {"src": "13", "w": "respectively", "m": "각각, 저마다", "s": null, "a": null}, {"src": "14", "w": "constant", "m": "끊임없는", "s": ["continual", "계속 이어지는"], "a": ["intermittent", "간헐적인"]}, {"src": "15", "w": "graciously", "m": "친절하게, 정중하게", "s": null, "a": ["rudely", "무례하게"]}, {"src": "16", "w": "ridiculous", "m": "어리석은, 터무니없는", "s": ["absurd", "터무니없는"], "a": ["sensible", "분별 있는"]}, {"src": "17", "w": "virtually", "m": "사실상, 거의", "s": null, "a": null}, {"src": "18", "w": "dismiss", "m": "묵살하다, 일축하다", "s": null, "a": ["acknowledge", "인정하다"]}, {"src": "19", "w": "inferior", "m": "열등한", "s": null, "a": ["superior", "우월한"]}, {"src": "20", "w": "rigid", "m": "완고한, 경직된", "s": ["inflexible", "융통성 없는"], "a": ["flexible", "유연한"]}], "dist": [["prompt", "즉각적인"], ["naive", "순진한"], ["vague", "모호한"]]}]};
+var D=[{"no": "01", "typ": "글의 목적", "src": "2016년 3월 18번", "evn": [5, 8], "ev_en": "It’s very rare that the customers take time to give thanks for the services, so we would like to use this letter as an example of the customer’s satisfactory remarks in our new brochure if you give us permission to do so. / We will be contacting you soon to hear your decision regarding putting your remarks in the brochure.", "ev_ko": [[5, "고객이 서비스에 대해 감사함을 전하기 위해 시간을 들이는 것은 매우 드문 일이기 때문에, 만약 귀하께서 그렇게 하는 것을 저희에게 허락해 주신다면, 저희는 이 편지를 저희의 새로운 홍보 책자에 고객의 만족스러운 의견의 한 예로 사용하고 싶습니다."], [8, "홍보 책자에 귀하의 의견을 싣는 것에 대한 귀하의 결정을 듣기 위해 저희가 (귀하에게) 곧 연락을 드리겠습니다."]], "why": ["(2)~(4)는 칭찬 편지에 대한 <b>감사 인사<\/b>입니다", "진짜 용건은 (5)에서 처음 나옵니다", "이 편지를 새 <b>홍보 책자(brochure)<\/b>에 예로 쓰고 싶다고 합니다", "단, <b>if you give us permission<\/b>(허락해 주신다면)이라는 조건이 붙어 있습니다", "(8)에서도 책자에 의견을 싣는 것에 대한 <b>결정(decision)<\/b>을 듣겠다고 합니다", "그래서 이 편지는 <b>책자에 편지를 실어도 되는지 허락을 구하는<\/b> 글입니다."], "ch": [{"n": "①", "t": "고객 맞춤 서비스를 홍보하려고", "g": "", "ok": false, "e": ["홍보 책자에 실으려는 것은 <b>고객의 칭찬 편지<\/b>입니다", "고객 맞춤 서비스는 글에 나오지 않습니다."]}, {"n": "②", "t": "서비스 개선을 위한 제안을 부탁하려고", "g": "", "ok": false, "e": ["(3)에 <b>improve our service<\/b>가 나옵니다", "하지만 칭찬 편지가 서비스를 개선하도록 이끈다는 말일 뿐입니다", "새로운 제안을 부탁하는 말은 없습니다."]}, {"n": "③", "t": "단골 고객을 위한 특별 행사를 알리려고", "g": "", "ok": false, "e": ["단골 고객이나 특별 행사에 대한 내용은 없습니다."]}, {"n": "④", "t": "고객 불만 사항에 대한 시정 조치를 설명하려고", "g": "", "ok": false, "e": ["(2)에서 받은 편지는 불만이 아니라 <b>칭찬 편지(complimentary letter)<\/b>입니다", "시정 조치에 대한 설명도 없습니다."]}, {"n": "⑤", "t": "홍보 책자에 편지를 싣는 것에 대한 허락을 구하려고", "g": "", "ok": true, "e": ["(5)의 <b>use this letter<\/b>(이 편지를 사용하다), <b>in our new brochure<\/b>(새 홍보 책자에), <b>if you give us permission<\/b>(허락해 주신다면)과 (8)의 <b>your decision regarding putting your remarks in the brochure<\/b>가 그대로 일치합니다."]}], "tr": ["친애하는 Brown 씨께,", "저희 서비스에 관해 저희에게 보내 주셨던 칭찬 편지에 대해 감사를 드립니다.", "이런 편지는 저희가 계속 의욕을 가지게 하고 서비스를 개선하도록 이끕니다.", "고객의 만족이 저희 서비스의 주된 모토이기 때문에 저희는 귀하의 의견을 기쁘게 생각합니다.", "고객이 서비스에 대해 감사함을 전하기 위해 시간을 들이는 것은 매우 드문 일이기 때문에, 만약 귀하께서 그렇게 하는 것을 저희에게 허락해 주신다면, 저희는 이 편지를 저희의 새로운 홍보 책자에 고객의 만족스러운 의견의 한 예로 사용하고 싶습니다.", "만족한 고객들로부터 온 그런 의견을 볼 때, 사람들은 그 서비스와 상품들을 더 신뢰합니다.", "저희는 귀하가 이런 점에서 저희를 도와주셨으면 합니다.", "홍보 책자에 귀하의 의견을 싣는 것에 대한 귀하의 결정을 듣기 위해 저희가 (귀하에게) 곧 연락을 드리겠습니다.", "진심을 담아, Oliver Watson (드림)"], "ps": [{"n": 1, "ch": [{"e": "Dear Ms. Brown,", "k": "친애하는 Brown 씨께,"}], "easy": "Brown 씨에게 보내는 편지의 첫인사예요.", "gist": "편지의 시작이에요."}, {"n": 2, "ch": [{"e": "We are <b>thankful<\/b> for", "k": "저희는 감사드립니다"}, {"e": "the <b>complimentary<\/b> letter", "k": "칭찬 편지에 대해"}, {"e": "you have sent to us", "k": "귀하가 저희에게 보내 주셨던"}, {"e": "<b>regarding<\/b> our service.", "k": "저희 서비스에 관해."}], "link": "저희는 귀하가 저희 서비스에 관해 저희에게 보내 주셨던 칭찬 편지에 대해 감사드립니다.", "easy": "Brown 씨가 서비스를 칭찬하는 편지를 보내 줘서 고맙다는 말이에요.", "gist": "칭찬 편지에 대한 감사 인사예요."}, {"n": 3, "ch": [{"e": "Letters like this", "k": "이런 편지는"}, {"e": "keep us <b>motivated<\/b>", "k": "저희가 계속 의욕을 가지게 합니다"}, {"e": "and guide us", "k": "그리고 저희를 이끕니다"}, {"e": "to <b>improve<\/b> our service.", "k": "저희 서비스를 개선하도록."}], "link": "이런 편지는 저희가 계속 의욕을 가지게 하고 저희가 서비스를 개선하도록 이끕니다.", "easy": "칭찬 편지를 받으면 힘이 나고, 서비스를 더 좋게 만들게 된다는 말이에요.", "gist": "감사 인사가 이어져요."}, {"n": 4, "ch": [{"e": "We are <b>pleased<\/b> about your comment", "k": "저희는 귀하의 의견을 기쁘게 생각합니다"}, {"e": "as customers’ <b>satisfaction<\/b>", "k": "고객의 만족이 ~이기 때문에"}, {"e": "is the main <b>motto<\/b> of our service.", "k": "저희 서비스의 주된 모토."}], "link": "고객의 만족이 저희 서비스의 주된 모토이기 때문에 저희는 귀하의 의견을 기쁘게 생각합니다.", "easy": "고객 만족을 가장 중요하게 여기기 때문에 칭찬이 특히 기쁘다는 말이에요.", "gist": "아직 감사 인사예요. 용건은 다음 문장에서 나와요."}, {"n": 5, "ch": [{"e": "It’s very <b>rare<\/b>", "k": "매우 드문 일입니다"}, {"e": "that the customers <b>take time<\/b>", "k": "고객이 시간을 들이는 것은"}, {"e": "to give thanks for the services,", "k": "서비스에 대해 감사함을 전하기 위해,"}, {"e": "so we <b>would like to<\/b> use this letter", "k": "그래서 저희는 이 편지를 사용하고 싶습니다"}, {"e": "as an example of the customer’s <b>satisfactory remarks<\/b>", "k": "고객의 만족스러운 의견의 한 예로"}, {"e": "in our new <b>brochure<\/b>", "k": "저희의 새로운 홍보 책자에"}, {"e": "if you give us <b>permission<\/b>", "k": "귀하께서 저희에게 허락해 주신다면"}, {"e": "to do so.", "k": "그렇게 하는 것을<span class=\"r\">(= 이 편지를 책자에 사용하는 것)<\/span>."}], "link": "고객이 서비스에 대해 감사함을 전하기 위해 시간을 들이는 것은 매우 드문 일이기 때문에, 귀하께서 허락해 주신다면 저희는 이 편지를 새로운 홍보 책자에 고객의 만족스러운 의견의 한 예로 사용하고 싶습니다.", "easy": "칭찬 편지는 아주 드물어서, 허락만 해 주시면 이 편지를 새 홍보 책자에 예로 싣고 싶다는 말이에요.", "gist": "글의 목적 — 편지를 책자에 실어도 되는지 허락을 구해요. (정답 근거)"}, {"n": 6, "ch": [{"e": "When people see such remarks", "k": "사람들이 그런 의견을 볼 때"}, {"e": "from satisfied customers,", "k": "만족한 고객들로부터 온,"}, {"e": "they trust the service and products more.", "k": "그들<span class=\"r\">(= 사람들)<\/span>은 그 서비스와 상품들을 더 신뢰합니다."}], "link": "만족한 고객들로부터 온 그런 의견을 볼 때, 사람들은 그 서비스와 상품들을 더 신뢰합니다.", "easy": "만족한 고객의 칭찬을 보면 사람들이 그 서비스와 상품을 더 믿게 된다는 말이에요.", "gist": "편지를 책자에 싣고 싶은 이유예요."}, {"n": 7, "ch": [{"e": "We hope", "k": "저희는 바랍니다"}, {"e": "you will help us", "k": "귀하가 저희를 도와주시기를"}, {"e": "<b>in this regard<\/b>.", "k": "이런 점에서<span class=\"r\">(= 편지를 책자에 싣는 일)<\/span>."}], "easy": "편지를 책자에 싣는 일을 도와주시면 좋겠다는 부탁이에요.", "gist": "허락해 달라는 부탁을 한 번 더 해요."}, {"n": 8, "ch": [{"e": "We will be contacting you soon", "k": "저희가 곧 귀하에게 연락을 드리겠습니다"}, {"e": "to hear your <b>decision<\/b>", "k": "귀하의 결정을 듣기 위해"}, {"e": "regarding putting your remarks", "k": "귀하의 의견을 싣는 것에 대한"}, {"e": "in the brochure.", "k": "홍보 책자에."}], "link": "홍보 책자에 귀하의 의견을 싣는 것에 대한 귀하의 결정을 듣기 위해 저희가 곧 연락을 드리겠습니다.", "easy": "책자에 실어도 될지 답을 들으려고 곧 연락하겠다는 말이에요.", "gist": "목적을 다시 확인하며 마무리해요. (정답 근거)"}, {"n": 9, "ch": [{"e": "Sincerely,", "k": "진심을 담아,"}, {"e": "Oliver Watson", "k": "Oliver Watson (드림)"}], "easy": "Oliver Watson이 보낸 편지라는 끝인사예요.", "gist": "편지의 끝맺음이에요."}]}, {"no": "02", "typ": "안내문 불일치", "src": "2016학년도 수능 27번", "evn": [6], "ev_en": "• Dates: November 1 – 30", "ev_ko": [[6, "• 날짜: 11월 1일 – 30일"]], "why": ["(6)의 날짜는 <b>November 1 – 30<\/b>, 즉 11월 1일부터 30일까지입니다", "11월 <b>한 달<\/b> 동안 열리는 것이지 두 달이 아닙니다", "그래서 ④ '두 달 동안 열린다'가 안내문과 일치하지 않습니다", "안내문 문항에서는 날짜·시간·가격 같은 숫자를 선지와 하나씩 맞춰 보세요."], "ch": [{"n": "①", "t": "스무 번째 개최되는 행사이다.", "g": "", "ok": false, "e": ["(2)의 <b>the 20th Virginia Art Show<\/b>와 일치합니다", "<b>20th<\/b>는 '스무 번째'라는 뜻입니다."]}, {"n": "②", "t": "유명한 예술가의 작품이 전시된다.", "g": "", "ok": false, "e": ["(3)의 <b>Works by famous artists such as Mabel Green, Theresa Peterson, and Ronald McKuen will be displayed<\/b>와 일치합니다."]}, {"n": "③", "t": "행사 첫날 Virginia Philharmonic의 공연이 있다.", "g": "", "ok": false, "e": ["(4)의 <b>will perform on the first day of the show<\/b>와 일치합니다."]}, {"n": "④", "t": "두 달 동안 열린다.", "g": "", "ok": true, "e": ["(6)의 날짜는 <b>November 1 – 30<\/b>, 즉 11월 한 달입니다", "두 달이 아니므로 일치하지 않습니다."]}, {"n": "⑤", "t": "Virginia 주민의 무료입장이 가능하다.", "g": "", "ok": false, "e": ["(12)의 <b>Free admission for Virginia residents<\/b>와 일치합니다."]}], "tr": ["Virginia 미술 전시회 2015", "저희는 전시품들의 다양성과 우수성으로 대서양 연안 일대에서 유명한 제20회 Virginia 미술 전시회에 함께하도록 여러분을 초대합니다.", "Mabel Green, Theresa Peterson, Ronald McKuen과 같은 유명한 예술가들의 작품이 전시될 것입니다.", "Virginia Philharmonic이 전시회 첫날에 공연을 할 것입니다.", "오셔서 멋진 그림, 조각, 사진, 디지털 작품, 그리고 훌륭한 음악을 즐기십시오!", "• 날짜: 11월 1일 – 30일", "• 시간: 오전 10시 – 오후 9시", "• 장소: Westchester Art Center", "• 입장료:", "– 성인: 하루 15달러", "– 아동: 하루 7달러", "Virginia 주민들은 무료입장", "추가적인 정보를 원하시면, 저희 웹사이트인 www.virginiaartshow.org를 방문하십시오."], "ps": [{"n": 1, "ch": [{"e": "<b>Virginia Art Show 2015<\/b>", "k": "Virginia 미술 전시회 2015"}], "easy": "2015년 Virginia 미술 전시회를 알리는 안내문의 제목이에요.", "gist": "안내문 제목이에요."}, {"n": 2, "ch": [{"e": "We <b>invite<\/b> you", "k": "저희는 여러분을 초대합니다"}, {"e": "to join us at the <b>20th<\/b> Virginia Art Show,", "k": "제20회 Virginia 미술 전시회에 함께하도록,"}, {"e": "<b>famed<\/b> all along the east coast", "k": "대서양 연안 일대에서 유명한"}, {"e": "for the <b>variety<\/b> and quality of its <b>exhibits<\/b>.", "k": "그것<span class=\"r\">(= 전시회)<\/span>의 전시품들의 다양성과 우수성으로."}], "link": "저희는 전시품들의 다양성과 우수성으로 대서양 연안 일대에서 유명한 제20회 Virginia 미술 전시회에 함께하도록 여러분을 초대합니다.", "easy": "다양하고 훌륭한 전시품으로 동부 해안 전체에 이름난 스무 번째 전시회에 오시라는 초대예요.", "gist": "① 스무 번째 행사 — 일치해요."}, {"n": 3, "ch": [{"e": "Works by <b>famous artists<\/b>", "k": "유명한 예술가들의 작품이"}, {"e": "such as Mabel Green, Theresa Peterson, and Ronald McKuen", "k": "Mabel Green, Theresa Peterson, Ronald McKuen과 같은"}, {"e": "will be <b>displayed<\/b>.", "k": "전시될 것입니다."}], "easy": "유명한 예술가들의 작품이 전시된다는 말이에요.", "gist": "② 유명한 예술가의 작품 전시 — 일치해요."}, {"n": 4, "ch": [{"e": "The Virginia Philharmonic", "k": "Virginia Philharmonic이"}, {"e": "will <b>perform<\/b>", "k": "공연을 할 것입니다"}, {"e": "on the <b>first day<\/b> of the show.", "k": "전시회 첫날에."}], "easy": "전시회 첫날에 Virginia Philharmonic이 공연한다는 말이에요.", "gist": "③ 첫날 공연 — 일치해요."}, {"n": 5, "ch": [{"e": "Come and enjoy", "k": "오셔서 즐기십시오"}, {"e": "the <b>fabulous<\/b> drawings, <b>sculptures<\/b>, photographs, digital works,", "k": "멋진 그림, 조각, 사진, 디지털 작품,"}, {"e": "and the great music!", "k": "그리고 훌륭한 음악을!"}], "easy": "그림·조각·사진·디지털 작품과 음악을 즐기러 오라는 말이에요.", "gist": "전시회에 오라는 권유예요."}, {"n": 6, "ch": [{"e": "• <b>Dates<\/b>: November 1 – 30", "k": "• 날짜: 11월 1일 – 30일"}], "easy": "11월 1일부터 30일까지, 11월 한 달 동안 열려요.", "gist": "④ '두 달 동안'과 맞지 않아요. (정답 근거)"}, {"n": 7, "ch": [{"e": "• Hours: 10:00 a.m. – 9:00 p.m.", "k": "• 시간: 오전 10시 – 오후 9시"}], "easy": "여는 시간은 오전 10시부터 오후 9시까지예요.", "gist": "운영 시간 안내예요."}, {"n": 8, "ch": [{"e": "• Place: Westchester Art Center", "k": "• 장소: Westchester Art Center"}], "easy": "장소는 Westchester Art Center예요.", "gist": "장소 안내예요."}, {"n": 9, "ch": [{"e": "• <b>Entrance Fees<\/b>:", "k": "• 입장료:"}], "easy": "아래에 입장료가 나와요.", "gist": "입장료 안내가 시작돼요."}, {"n": 10, "ch": [{"e": "– Adults: $15 one day", "k": "– 성인: 하루 15달러"}], "easy": "어른은 하루에 15달러예요.", "gist": "성인 입장료예요."}, {"n": 11, "ch": [{"e": "– Children: $7 one day", "k": "– 아동: 하루 7달러"}], "easy": "어린이는 하루에 7달러예요.", "gist": "아동 입장료예요."}, {"n": 12, "ch": [{"e": "<i>Free <b>admission<\/b> for Virginia <b>residents<\/b><\/i>", "k": "Virginia 주민들은 무료입장"}], "easy": "Virginia에 사는 사람은 돈을 내지 않고 들어갈 수 있어요.", "gist": "⑤ 주민 무료입장 — 일치해요."}, {"n": 13, "ch": [{"e": "For <b>further<\/b> information,", "k": "추가적인 정보를 원하시면,"}, {"e": "please visit our website", "k": "저희 웹사이트를 방문하십시오"}, {"e": "at www.virginiaartshow.org.", "k": "www.virginiaartshow.org인."}], "easy": "더 궁금한 점은 웹사이트에서 확인하라는 말이에요.", "gist": "추가 정보 안내로 끝나요."}]}, {"no": "03", "typ": "글의 요지", "src": "2021학년도 수능 22번", "evn": [7], "ev_en": "Thus, instead of music reviews guiding popular opinion toward art (as they did in preinternet times), music reviews began to reflect — consciously or subconsciously — public opinion.", "ev_ko": [[7, "따라서, 음악 비평이 (그것들이 인터넷 이전 시대에 그랬듯이) 예술에 대한 여론을 이끄는 대신에, 음악 비평은 의식적으로든 혹은 잠재의식적으로든 여론을 반영하기 시작했다."]], "why": ["(1)~(2)는 인터넷 이전에 비평가만 먼저 음악을 듣던 시절 이야기입니다", "(3)~(5)에서 인터넷과 소셜 미디어 덕분에 누구나 동시에 새 음악을 듣고 의견을 나누게 됩니다", "(6)에서 비평가는 비평을 쓰기 전에 <b>대중의 의견<\/b>을 접할 수 있게 됩니다", "결론은 (7)의 <b>Thus<\/b> 문장입니다", "비평이 여론을 <b>이끄는(guiding)<\/b> 대신, 여론을 <b>반영하기(reflect)<\/b> 시작했다고 합니다", "그래서 요지는 ① '미디어 환경의 변화로 음악 비평이 대중의 영향을 받게 되었다'입니다."], "ch": [{"n": "①", "t": "미디어 환경의 변화로 음악 비평이 대중의 영향을 받게 되었다.", "g": "", "ok": true, "e": ["(7)의 <b>music reviews began to reflect<\/b>(음악 비평이 반영하기 시작했다)와 <b>public opinion<\/b>(여론)이 그대로 일치합니다", "(3)~(5)의 인터넷·소셜 미디어 등장이 '미디어 환경의 변화'입니다."]}, {"n": "②", "t": "인터넷의 발달로 다양한 장르의 음악을 접하는 것이 가능해졌다.", "g": "", "ok": false, "e": ["(3)에 인터넷으로 음악을 쉽게 접하게 되었다는 말은 있습니다", "하지만 그것은 결론으로 가는 배경일 뿐입니다", "'다양한 장르'라는 말도 글에 없습니다."]}, {"n": "③", "t": "비평가의 음악 비평은 자신의 주관적인 경험을 기반으로 한다.", "g": "", "ok": false, "e": ["글은 반대로, 비평이 <b>대중의 의견(public opinion)<\/b>을 반영하게 되었다고 말합니다."]}, {"n": "④", "t": "오늘날 새로운 음악은 대중의 기호를 확인한 후에 공개된다.", "g": "", "ok": false, "e": ["(6)에서 대중의 의견을 먼저 접하는 것은 <b>비평가<\/b>이고, 그 뒤에 쓰는 것은 <b>비평<\/b>입니다", "음악이 대중의 기호를 확인한 뒤 공개된다는 말은 없습니다."]}, {"n": "⑤", "t": "온라인 환경의 대두로 음악 비평의 질이 전반적으로 상승하였다.", "g": "", "ok": false, "e": ["비평의 <b>질(quality)<\/b>이 좋아졌는지는 글에 나오지 않습니다", "글은 비평이 여론을 이끄는지, 반영하는지를 말합니다."]}], "tr": ["파일 공유 서비스(의 등장) 이전에, 음악 앨범은 발매 전에 음악 비평가의 수중에 독점적으로 들어갔다.", "이러한 비평가들은 일반 대중이 들을 수 있기 훨씬 전에 그것들을 듣고, 세상의 나머지 사람들을 위해 자신의 비평에 그것들에 대한 시사평을 쓰곤 했다.", "일단 인터넷이 음악을 쉽게 접할 수 있게 만들고 심지어 사전 발매 음반마저도 온라인 소셜 네트워크를 통해 유포될 수 있게 하자, 새로운 음악의 이용 가능성이 민주화되었고, 이는 비평가들이 더 이상 유일한 접근권을 갖지 않는다는 것을 의미했다.", "즉, 비평가와 비전문가는 모두 동시에 새로운 음악을 얻을 수 있었다.", "소셜 미디어 서비스는 또한 사람들이 새로운 곡에 대한 자신의 견해를 알리는 것, 자신의 소셜 미디어 약력에 자신이 좋아하는 새로운 밴드의 목록을 작성하는 것, 그리고 게시판에서 새로운 음악에 대해 끊임없이 논쟁하는 것을 가능하게 했다.", "그 결과는 비평가들이 이제 자신의 비평을 쓰기 전에 특정한 앨범에 관한 대중의 의견을 접할 수 있다는 것이었다.", "따라서, 음악 비평이 (그것들이 인터넷 이전 시대에 그랬듯이) 예술에 대한 여론을 이끄는 대신에, 음악 비평은 의식적으로든 혹은 잠재의식적으로든 여론을 반영하기 시작했다."], "ps": [{"n": 1, "ch": [{"e": "<b>Prior to<\/b> file-sharing services,", "k": "파일 공유 서비스(의 등장) 이전에,"}, {"e": "music albums landed", "k": "음악 앨범은 들어갔다"}, {"e": "<b>exclusively<\/b> in the hands of music <b>critics<\/b>", "k": "음악 비평가의 수중에 독점적으로"}, {"e": "before their <b>release<\/b>.", "k": "그것들<span class=\"r\">(= 음악 앨범)<\/span>의 발매 전에."}], "link": "파일 공유 서비스(의 등장) 이전에, 음악 앨범은 발매 전에 음악 비평가의 수중에 독점적으로 들어갔다.", "easy": "예전에는 앨범이 나오기 전에 비평가들만 먼저 그 음악을 받아 들을 수 있었어요.", "gist": "과거 — 비평가만 먼저 음악을 들었어요."}, {"n": 2, "ch": [{"e": "These critics would listen to them", "k": "이러한 비평가들은 그것들<span class=\"r\">(= 음악 앨범)<\/span>을 듣곤 했다"}, {"e": "well before the general public could", "k": "일반 대중이 들을 수 있기 훨씬 전에"}, {"e": "and <b>preview<\/b> them", "k": "그리고 그것들<span class=\"r\">(= 음악 앨범)<\/span>에 대한 시사평을 쓰곤 했다"}, {"e": "for the rest of the world", "k": "세상의 나머지 사람들을 위해"}, {"e": "in their reviews.", "k": "자신의 비평에."}], "link": "이러한 비평가들은 일반 대중이 들을 수 있기 훨씬 전에 그것들을 듣고, 세상의 나머지 사람들을 위해 자신의 비평에 그것들에 대한 시사평을 쓰곤 했다.", "easy": "비평가가 먼저 듣고 그 앨범에 대한 평을 써서 다른 사람들에게 알려 줬다는 말이에요.", "gist": "과거 — 비평가가 대중보다 앞서 있었어요."}, {"n": 3, "ch": [{"e": "Once the internet made music easily <b>accessible<\/b>", "k": "일단 인터넷이 음악을 쉽게 접할 수 있게 만들고"}, {"e": "and allowed even advanced releases", "k": "심지어 사전 발매 음반마저도 ~할 수 있게 하자"}, {"e": "to spread through online social networks,", "k": "온라인 소셜 네트워크를 통해 유포될,"}, {"e": "<b>availability<\/b> of new music became <b>democratized<\/b>,", "k": "새로운 음악의 이용 가능성이 민주화되었고,"}, {"e": "which meant", "k": "이는<span class=\"r\">(= 새 음악의 이용 가능성이 민주화된 것)<\/span> 의미했다"}, {"e": "critics no longer had <b>unique access<\/b>.", "k": "비평가들이 더 이상 유일한 접근권을 갖지 않는다는 것을."}], "link": "일단 인터넷이 음악을 쉽게 접할 수 있게 만들고 심지어 사전 발매 음반마저도 온라인 소셜 네트워크를 통해 유포될 수 있게 하자, 새로운 음악의 이용 가능성이 민주화되었고, 이는 비평가들이 더 이상 유일한 접근권을 갖지 않는다는 것을 의미했다.", "easy": "인터넷 덕분에 누구나 새 음악을 들을 수 있게 되어서, 비평가만 먼저 듣던 특권이 사라졌다는 말이에요.", "gist": "변화 — 인터넷으로 음악 접근이 모두에게 열렸어요."}, {"n": 4, "ch": [{"e": "<b>That is<\/b>,", "k": "즉,"}, {"e": "critics and <b>laypeople<\/b> alike", "k": "비평가와 비전문가는 모두"}, {"e": "could obtain new music <b>simultaneously<\/b>.", "k": "동시에 새로운 음악을 얻을 수 있었다."}], "easy": "이제 비평가와 일반인이 똑같이 같은 때에 새 음악을 듣게 됐다는 말이에요.", "gist": "앞 문장을 쉽게 다시 말해요."}, {"n": 5, "ch": [{"e": "Social media services also enabled people", "k": "소셜 미디어 서비스는 또한 사람들이 ~하는 것을 가능하게 했다"}, {"e": "to <b>publicize<\/b> their views on new songs,", "k": "새로운 곡에 대한 자신의 견해를 알리는 것,"}, {"e": "list their new favorite bands", "k": "자신이 좋아하는 새로운 밴드의 목록을 작성하는 것"}, {"e": "in their social media <b>bios<\/b>,", "k": "자신의 소셜 미디어 약력에,"}, {"e": "and argue over new music endlessly", "k": "그리고 새로운 음악에 대해 끊임없이 논쟁하는 것"}, {"e": "on message boards.", "k": "게시판에서."}], "link": "소셜 미디어 서비스는 또한 사람들이 새로운 곡에 대한 자신의 견해를 알리고, 자신의 소셜 미디어 약력에 좋아하는 새로운 밴드의 목록을 작성하고, 게시판에서 새로운 음악에 대해 끊임없이 논쟁하는 것을 가능하게 했다.", "easy": "사람들이 SNS에 새 노래 감상을 올리고, 좋아하는 새 밴드를 프로필에 적고, 게시판에서 음악 이야기로 끝없이 논쟁하게 되었다는 말이에요.", "gist": "변화 — 대중이 음악에 대한 의견을 쏟아 내요."}, {"n": 6, "ch": [{"e": "The result was", "k": "그 결과는 ~이었다"}, {"e": "that critics now could access", "k": "비평가들이 이제 접할 수 있다는 것"}, {"e": "the opinions of <b>the masses<\/b> on a particular album", "k": "특정한 앨범에 관한 대중의 의견을"}, {"e": "before writing their reviews.", "k": "자신의 비평을 쓰기 전에."}], "link": "그 결과는 비평가들이 이제 자신의 비평을 쓰기 전에 특정한 앨범에 관한 대중의 의견을 접할 수 있다는 것이었다.", "easy": "비평가가 평을 쓰기 전에 사람들이 그 앨범을 어떻게 생각하는지 먼저 볼 수 있게 됐다는 말이에요.", "gist": "결과 — 비평가가 대중의 의견을 먼저 보게 돼요."}, {"n": 7, "ch": [{"e": "<b>Thus<\/b>, instead of music reviews", "k": "따라서, 음악 비평이 ~하는 대신에"}, {"e": "<b>guiding<\/b> popular opinion toward art", "k": "예술에 대한 여론을 이끄는"}, {"e": "(as they did in preinternet times),", "k": "인터넷 이전 시대에 음악 비평이 그랬듯이,"}, {"e": "music reviews began to <b>reflect<\/b>", "k": "음악 비평은 반영하기 시작했다"}, {"e": "— consciously or <b>subconsciously<\/b> —", "k": "의식적으로든 혹은 잠재의식적으로든"}, {"e": "public opinion.", "k": "여론을."}], "link": "따라서, 음악 비평이 인터넷 이전 시대에 그랬듯이 예술에 대한 여론을 이끄는 대신에, 음악 비평은 의식적으로든 혹은 잠재의식적으로든 여론을 반영하기 시작했다.", "easy": "예전에는 비평이 사람들의 생각을 이끌었는데, 이제는 거꾸로 비평이 사람들의 생각을 따라가게 되었다는 말이에요.", "gist": "결론(요지) — 비평이 여론을 이끌다가 여론을 반영하게 됐어요. (정답 근거)"}]}, {"no": "04", "typ": "도표 불일치", "src": "2019년 4월 25번", "evn": [5], "ev_en": "While the number of rats dropped below 10,000 in 2015, their ranking among all the animals remained the same as in 2014.", "ev_ko": [[5, "2015년에 쥐의 수가 1만 마리 아래로 떨어진 반면, 모든 동물 중에서 그들(쥐)의 순위는 2014년과 여전히 동일했다(→ 2014년 7위에서 2015년 6위로 바뀌었다)."]], "why": ["(5)는 쥐(rats)의 <b>수<\/b>와 <b>순위<\/b>를 한 문장에 함께 말합니다", "수는 <b>11,807 → 9,387<\/b>로 1만 마리 아래가 맞습니다", "순위는 다릅니다", "2014년에는 Cattle·Mice·Sheep·Fish·Birds·Deer 다음인 <b>7위<\/b>입니다", "2015년에는 Cattle·Mice·Fish·Sheep·Birds 다음인 <b>6위<\/b>입니다", "순위가 바뀌었으므로 '순위가 동일했다'는 표와 맞지 않습니다", "수치와 순위가 한 문장에 함께 나오면 둘을 따로 확인하세요."], "ch": [{"n": "①", "t": "2015년에 연구에 사용된 동물의 총수는 2014년보다 적었다.", "g": "", "ok": false, "e": ["Total이 <b>310,287 → 225,310<\/b>으로 줄었습니다", "표와 일치합니다."]}, {"n": "②", "t": "소가 두 해 모두 1위였고, 그 뒤를 생쥐가 각각 18%·21% 넘게 차지하며 이었다.", "g": "", "ok": false, "e": ["2014년 Cattle 24.3%·Mice 18.8%, 2015년 Cattle 26.3%·Mice 21.5%입니다", "표와 일치합니다."]}, {"n": "③", "t": "2014년에는 양이 어류보다 순위가 높았으나 2015년에 서로 자리를 바꿨다.", "g": "", "ok": false, "e": ["2014년 Sheep 3위·Fish 4위, 2015년 Fish 3위·Sheep 4위입니다", "표와 일치합니다."]}, {"n": "④", "t": "2015년에 쥐의 수는 1만 마리 아래로 떨어졌고, 순위는 2014년과 동일했다.", "g": "", "ok": true, "e": ["수는 <b>11,807 → 9,387<\/b>로 1만 마리 아래가 맞습니다", "하지만 순위는 <b>7위 → 6위<\/b>로 바뀌었습니다", "순위가 동일했다는 부분이 표와 맞지 않습니다."]}, {"n": "⑤", "t": "영장류는 전혀 사용되지 않았고, 고양이와 개는 두 해 모두 1% 미만이었다.", "g": "", "ok": false, "e": ["Primates는 두 해 모두 <b>0<\/b>입니다", "Dogs는 0.3%·0.4%, Cats는 0.2%·0.2%로 모두 1% 미만입니다", "표와 일치합니다."]}], "tr": ["위의 표는 2014년과 2015년에 뉴질랜드에서 연구에 사용된 동물들에 관한 통계를 보여 준다.", "2015년에 연구에 사용된 동물들의 총계는 2014년에 사용된 동물들의 총계보다 더 낮았다.", "2014년과 2015년 둘 다에서 소는 연구에서 가장 많이 사용된 동물이었으며, (2014년과 2015년에) 각각 18퍼센트 넘게 그리고 21퍼센트 넘게 차지했던 생쥐가 그 뒤를 이었다.", "양은 2014년에 어류보다 더 높은 순위를 차지했지만, 그들의 순위는 2015년에 서로 자리를 바꿨다(어류가 양보다 높은 순위를 차지했다).", "2015년에 쥐의 수가 1만 마리 아래로 떨어진 반면, 모든 동물 중에서 그들(쥐)의 순위는 2014년과 여전히 동일했다(→ 2014년 7위에서 2015년 6위로 바뀌었다).", "한편, 영장류는 전혀 사용되지 않았으며, 고양이와 개는 2014년과 2015년 둘 다에서 연구에 사용된 모든 동물들의 1퍼센트 미만이었다."], "ps": [{"n": 1, "ch": [{"e": "The tables above show <b>statistics<\/b>", "k": "위의 표는 통계를 보여 준다"}, {"e": "on animals used in research", "k": "연구에 사용된 동물들에 관한"}, {"e": "in New Zealand in 2014 and 2015.", "k": "2014년과 2015년에 뉴질랜드에서."}], "easy": "2014년과 2015년에 뉴질랜드에서 연구에 쓰인 동물들을 정리한 표라는 말이에요.", "gist": "표의 소개예요."}, {"n": 2, "ch": [{"e": "① The total number of animals used in research in 2015", "k": "① 2015년에 연구에 사용된 동물들의 총계는"}, {"e": "was lower than", "k": "~보다 더 낮았다"}, {"e": "that of animals used in 2014.", "k": "2014년에 사용된 동물들의 그것<span class=\"r\">(= 총계)<\/span>."}], "link": "2015년에 연구에 사용된 동물들의 총계는 2014년에 사용된 동물들의 총계보다 더 낮았다.", "easy": "연구에 쓰인 동물 총수가 2014년 310,287마리에서 2015년 225,310마리로 줄었어요.", "gist": "표와 일치하는 문장이에요."}, {"n": 3, "ch": [{"e": "② <b>Cattle<\/b> were the most used animals in research", "k": "② 소는 연구에서 가장 많이 사용된 동물이었다"}, {"e": "both in 2014 and in 2015,", "k": "2014년과 2015년 둘 다에서,"}, {"e": "<b>followed by<\/b> mice", "k": "그리고 생쥐가 그 뒤를 이었다"}, {"e": "which <b>accounted for<\/b> over 18% and over 21% <b>respectively<\/b>.", "k": "각각 18퍼센트 넘게 그리고 21퍼센트 넘게 차지했던."}], "link": "2014년과 2015년 둘 다에서 소는 연구에서 가장 많이 사용된 동물이었으며, 각각 18퍼센트 넘게 그리고 21퍼센트 넘게 차지했던 생쥐가 그 뒤를 이었다.", "easy": "두 해 모두 소가 1위, 생쥐가 2위였고, 생쥐는 2014년 18.8%, 2015년 21.5%였어요.", "gist": "표와 일치하는 문장이에요."}, {"n": 4, "ch": [{"e": "③ Sheep <b>ranked<\/b> higher than fish in 2014,", "k": "③ 양은 2014년에 어류보다 더 높은 순위를 차지했다,"}, {"e": "but their ranks", "k": "하지만 그들<span class=\"r\">(= 양과 어류)<\/span>의 순위는"}, {"e": "<b>switched places<\/b> with each other in 2015.", "k": "2015년에 서로 자리를 바꿨다."}], "link": "양은 2014년에 어류보다 더 높은 순위를 차지했지만, 그들의 순위는 2015년에 서로 자리를 바꿨다.", "easy": "2014년엔 양 3위·어류 4위였는데, 2015년엔 어류 3위·양 4위로 바뀌었어요.", "gist": "표와 일치하는 문장이에요."}, {"n": 5, "ch": [{"e": "④ While the number of rats", "k": "④ 쥐의 수가 ~한 반면"}, {"e": "<b>dropped below<\/b> 10,000 in 2015,", "k": "2015년에 1만 마리 아래로 떨어진,"}, {"e": "their <b>ranking<\/b> among all the animals", "k": "모든 동물 중에서 그들<span class=\"r\">(= 쥐)<\/span>의 순위는"}, {"e": "<b>remained the same<\/b> as in 2014.", "k": "2014년과 여전히 동일했다."}], "link": "2015년에 쥐의 수가 1만 마리 아래로 떨어진 반면, 모든 동물 중에서 그들의 순위는 2014년과 여전히 동일했다.", "easy": "쥐 수가 11,807마리에서 9,387마리로 줄어든 건 맞아요. 하지만 순위는 7위에서 6위로 바뀌었어요. 그래서 순위가 같다는 말은 틀려요.", "gist": "표와 맞지 않는 문장 — 순위가 바뀌었어요. (정답 근거)"}, {"n": 6, "ch": [{"e": "⑤ <b>Meanwhile<\/b>, <b>primates<\/b> were never used,", "k": "⑤ 한편, 영장류는 전혀 사용되지 않았다,"}, {"e": "and cats and dogs were less than 1%", "k": "그리고 고양이와 개는 1퍼센트 미만이었다"}, {"e": "of all the animals used in research", "k": "연구에 사용된 모든 동물들의"}, {"e": "both in 2014 and in 2015.", "k": "2014년과 2015년 둘 다에서."}], "link": "한편, 영장류는 전혀 사용되지 않았으며, 고양이와 개는 2014년과 2015년 둘 다에서 연구에 사용된 모든 동물들의 1퍼센트 미만이었다.", "easy": "영장류는 두 해 모두 0마리였고, 개(0.3%, 0.4%)와 고양이(0.2%, 0.2%)는 모두 1%가 안 됐어요.", "gist": "표와 일치하는 문장이에요."}]}, {"no": "05", "typ": "어법", "src": "2015년 3월 28번", "evn": [8], "ev_en": "I realized that I had wanted a reward: If I do this nice thing for you, you (or someone else) will do an equally nice thing for me.", "ev_ko": [[8, "나는 내가 보상을 원했었다는 사실을 깨달았는데, 내가 당신에게 이런 친절을 베푼다면 당신이 (또는 어떤 다른 사람이) 나에게 동등하게 친절을 베풀 것이라는 생각이었다."]], "why": ["⑤ what 뒤를 보면 <b>I(주어) had wanted(동사) a reward(목적어)<\/b>입니다", "빠진 자리가 없는 <b>완전한 문장<\/b>입니다", "관계대명사 what은 뒤에 주어나 목적어 같은 자리가 <b>비어 있어야<\/b> 쓸 수 있습니다", "그래서 what은 여기서 할 역할이 없습니다", "realized의 목적어가 되는 명사절을 이끄는 <b>접속사 that<\/b>으로 고쳐야 합니다."], "ch": [{"n": "①", "t": "having", "g": "가지고 있는, 겪는 — have very little luck: 운이 거의 따르지 않다", "ok": false, "e": ["<b>지각동사 saw + 목적어 a woman + 목적격 보어<\/b> 구조입니다", "a woman이 직접 하는 일이므로(능동) 현재분사가 맞습니다", "앞의 <b>trying<\/b>과 <b>and<\/b>로 나란히 이어져 있습니다."]}, {"n": "②", "t": "irritated", "g": "짜증 난", "ok": false, "e": ["<b>found + 목적어 myself + 목적격 보어<\/b> 구조입니다", "myself가 짜증을 <b>느끼는<\/b> 쪽이므로 과거분사 irritated가 맞습니다."]}, {"n": "③", "t": "how", "g": "얼마나", "ok": false, "e": ["realized의 목적어가 되는 <b>명사절<\/b>을 이끄는 의문부사입니다", "<b>how ridiculous I was being<\/b>(내가 얼마나 어리석게 굴고 있는지) 어순이 맞습니다."]}, {"n": "④", "t": "came", "g": "왔다 — came floating: 떠올랐다", "ok": false, "e": ["주어는 <b>a phrase<\/b>입니다", "<b>I once read<\/b>는 목적격 관계대명사가 생략된 수식어입니다", "그래서 주어 a phrase의 동사가 필요하고, 과거시제 came이 맞습니다."]}, {"n": "⑤", "t": "what", "g": "~하는 것", "ok": true, "e": ["뒤에 <b>I had wanted a reward<\/b>라는 완전한 문장이 옵니다", "관계대명사 what은 쓸 수 없고, 명사절 접속사 <b>that<\/b>으로 고쳐야 합니다."]}], "tr": ["며칠 전에 직장에서 집으로 오면서, 나는 어떤 여자가 (운전 중) 큰 길로 들어서려고(끼어들려고) 애쓰는데 끊임없는 차량들의 물결 때문에 매우 운이 따라 주지 않는(끼어들지 못하는) 것을 봤다.", "나는 속도를 줄이고 그녀가 내 앞으로 끼어들게 해주었다.", "나는 두어 블록을 간 후에, 그녀가 차선으로 몇 대의 차들이 끼어들 수 있도록 멈추었던 때까지는 기분이 꽤 좋았는데, 그 바람에 우리 둘 다 다음 신호를 놓치게 되었다.", "나는 그녀에게 완전히 짜증 났다.", "내가 그렇게 친절하게 그녀가 끼어들게 해주었는데 어떻게 감히 그녀가 나를 느리게 가게 한단 말인가!", "내가 안달하면서 거기(자동차)에 앉아 있을 때, 나는 내 자신이 얼마나 어리석게 굴고 있는지 깨달았다.", "불현듯 내가 언젠가 읽었던 문구 하나가 마음속에 떠올랐는데, ‘누군가 점수를 매기고 있기 때문이거나, 당신이 하지 않으면 처벌을 받기 때문이 아니라 내적 동기로 사람들에게 친절을 베풀어야 한다.’는 문구였다.", "나는 내가 보상을 원했었다는 사실을 깨달았는데, 내가 당신에게 이런 친절을 베푼다면 당신이 (또는 어떤 다른 사람이) 나에게 동등하게 친절을 베풀 것이라는 생각이었다."], "ps": [{"n": 1, "ch": [{"e": "Coming home from work the other day,", "k": "며칠 전에 직장에서 집으로 오면서,"}, {"e": "I saw a woman", "k": "나는 어떤 여자를 봤다"}, {"e": "trying to <b>turn onto<\/b> the main street", "k": "큰 길로 들어서려고 애쓰는"}, {"e": "and <b>having<\/b> very little luck", "k": "그리고 운이 매우 따라 주지 않는"}, {"e": "because of the <b>constant<\/b> stream of traffic.", "k": "끊임없는 차량들의 물결 때문에."}], "link": "며칠 전에 직장에서 집으로 오면서, 나는 어떤 여자가 큰 길로 들어서려고 애쓰는데 끊임없는 차량들의 물결 때문에 운이 매우 따라 주지 않는 것을 봤다.", "easy": "퇴근길에 한 여자 운전자가 큰길로 들어서려고 하는데, 차가 끊임없이 와서 좀처럼 못 들어서는 걸 봤다는 말이에요.", "gist": "이야기의 시작 — 끼어들지 못하는 운전자를 봐요."}, {"n": 2, "ch": [{"e": "I slowed", "k": "나는 속도를 줄였다"}, {"e": "and allowed her to turn", "k": "그리고 그녀가 끼어들게 해주었다"}, {"e": "in front of me.", "k": "내 앞으로."}], "easy": "내가 속도를 줄여서 그 여자가 내 앞으로 들어오게 해 줬다는 말이에요.", "gist": "나의 친절한 행동이에요."}, {"n": 3, "ch": [{"e": "I was feeling pretty good", "k": "나는 기분이 꽤 좋았다"}, {"e": "until, a couple of blocks later,", "k": "두어 블록을 간 후에, ~할 때까지는"}, {"e": "she stopped", "k": "그녀가 멈추었다"}, {"e": "to let a few more cars into the line,", "k": "몇 대의 차들을 더 차선으로 끼워 주려고,"}, {"e": "causing us both", "k": "그 바람에 우리 둘 다"}, {"e": "to miss the next light.", "k": "다음 신호를 놓치게 되었다."}], "link": "나는 두어 블록을 간 후에 그녀가 차 몇 대를 더 차선에 끼워 주려고 멈추었던 때까지는 기분이 꽤 좋았는데, 그 바람에 우리 둘 다 다음 신호를 놓치게 되었다.", "easy": "기분 좋게 가다가, 그 여자가 다른 차들까지 끼워 주느라 멈추는 바람에 나까지 신호를 놓쳤다는 말이에요.", "gist": "사건 — 그녀 때문에 신호를 놓쳐요."}, {"n": 4, "ch": [{"e": "I found myself", "k": "나는 내 자신이 ~한 것을 알았다"}, {"e": "completely <b>irritated<\/b> with her.", "k": "그녀에게 완전히 짜증 난."}], "easy": "그 여자에게 정말 짜증이 났다는 말이에요.", "gist": "나의 감정 — 짜증이 나요."}, {"n": 5, "ch": [{"e": "<b>How dare<\/b> she slow me down", "k": "어떻게 감히 그녀가 나를 느리게 가게 한단 말인가"}, {"e": "after I had so <b>graciously<\/b> let her", "k": "내가 그렇게 친절하게 그녀가 ~하게 해주었는데"}, {"e": "into the traffic!", "k": "차량 행렬로 끼어들게!"}], "link": "내가 그렇게 친절하게 그녀가 끼어들게 해주었는데 어떻게 감히 그녀가 나를 느리게 가게 한단 말인가!", "easy": "내가 친절하게 끼워 줬는데 감히 나를 늦게 만들다니, 하고 화가 났다는 말이에요.", "gist": "짜증의 이유 — 친절을 베풀었는데 손해를 봤어요."}, {"n": 6, "ch": [{"e": "As I was sitting there <b>stewing<\/b>,", "k": "내가 안달하면서 거기<span class=\"r\">(= 자동차 안)<\/span>에 앉아 있을 때,"}, {"e": "I realized", "k": "나는 깨달았다"}, {"e": "<b>how<\/b> <b>ridiculous<\/b> I was being.", "k": "내 자신이 얼마나 어리석게 굴고 있는지."}], "easy": "차 안에서 씩씩대다가, 내가 참 어리석게 굴고 있다는 걸 깨달았다는 말이에요.", "gist": "전환 — 나의 어리석음을 깨달아요."}, {"n": 7, "ch": [{"e": "Suddenly, a phrase I once read", "k": "불현듯 내가 언젠가 읽었던 문구 하나가"}, {"e": "<b>came<\/b> floating into my mind:", "k": "마음속에 떠올랐다:"}, {"e": "‘You must do him or her a kindness", "k": "‘사람들에게 친절을 베풀어야 한다"}, {"e": "for <b>inner reasons<\/b>,", "k": "내적 동기로,"}, {"e": "not because someone is <b>keeping score<\/b>", "k": "누군가 점수를 매기고 있기 때문이 아니라"}, {"e": "or because you will be <b>punished<\/b> if you don’t.’", "k": "또는 당신이 하지 않으면 처벌을 받기 때문이 아니라.’"}], "link": "불현듯 내가 언젠가 읽었던 문구 하나가 마음속에 떠올랐다. ‘누군가 점수를 매기고 있기 때문이거나 당신이 하지 않으면 처벌을 받기 때문이 아니라, 내적 동기로 사람들에게 친절을 베풀어야 한다.’", "easy": "‘누가 점수를 매겨서나 벌 받을까 봐서가 아니라, 내 마음에서 우러나서 친절해야 한다’는 글귀가 떠올랐다는 말이에요.", "gist": "깨달음의 계기 — 친절은 마음에서 우러나야 해요."}, {"n": 8, "ch": [{"e": "I realized", "k": "나는 깨달았다"}, {"e": "<b>that<\/b> I had wanted a <b>reward<\/b>:", "k": "내가 보상을 원했었다는 것을: <span class=\"r\">※ 문제지엔 what으로 되어 있음<\/span>"}, {"e": "If I do this nice thing for you,", "k": "내가 당신에게 이런 친절을 베푼다면,"}, {"e": "you (or someone else)", "k": "당신이 (또는 어떤 다른 사람이)"}, {"e": "will do an <b>equally<\/b> nice thing for me.", "k": "나에게 동등하게 친절을 베풀 것이라는."}], "link": "나는 내가 보상을 원했었다는 것을 깨달았는데, 내가 당신에게 이런 친절을 베푼다면 당신이 (또는 어떤 다른 사람이) 나에게 동등하게 친절을 베풀 것이라는 생각이었다.", "easy": "친절을 베풀면서 속으로 ‘나도 똑같이 돌려받겠지’ 하고 보상을 바랐다는 걸 깨달았다는 말이에요.", "gist": "글의 결론 — 나는 친절의 대가를 바랐어요. 어법 포인트(⑤)가 여기 있어요. (정답 근거)"}]}, {"no": "06", "typ": "어휘", "src": "2021년 3월 30번", "evn": [3], "ev_en": "Many continue to cling with an almost religious passion to this cultural paradigm about the power of science — more specifically, the power that science gives them.", "ev_ko": [[3, "많은 사람이 과학의 힘, 더 구체적으로는 과학이 그들에게 주는 힘에 관한 이 문화적 패러다임에 거의 종교적 열정을 갖고 계속 반대한다(→ 집착한다)."]], "why": ["이 글은 <b>서양 과학만 믿는 완고한 사람들<\/b>을 비판합니다", "(1)에서 그들은 오감으로 감지되지 않는 것을 무시하고, (4)에서 다른 패러다임을 묵살하며, (6)에서 설명할 수 없는 결과를 부정합니다", "그렇다면 (3)에서 그들은 과학의 힘에 관한 패러다임에 <b>반대(object)<\/b>하는 것이 아니라 <b>집착(cling)<\/b>해야 흐름이 맞습니다", "<b>an almost religious passion<\/b>(거의 종교적인 열정)도 집착과 어울립니다", "그래서 ② object는 <b>cling<\/b>(집착하다)으로 고쳐야 합니다."], "ch": [{"n": "①", "t": "ignored", "g": "무시한", "ok": false, "e": ["서양 과학 연구에만 매달리는 사람들이 오감으로 감지되지 않는 것을 <b>무시해 왔다<\/b>는 것은 글의 흐름과 맞습니다."]}, {"n": "②", "t": "object", "g": "반대하다", "ok": true, "e": ["<b>object<\/b>는 '반대하다'라는 뜻입니다", "서양 과학만 믿는 사람들은 과학의 힘에 관한 패러다임에 <b>집착<\/b>한다고 해야 맞습니다", "<b>cling<\/b>(집착하다)으로 고쳐야 합니다."]}, {"n": "③", "t": "counter", "g": "반격하다, 대응하다", "ok": false, "e": ["완고한 구성원들이 대체 요법과 연구가 가하는 위협에 <b>반격하려 한다(counter)<\/b>는 것은 자연스럽습니다", "앞의 <b>By dismissing<\/b>(묵살함으로써)이 그 방법입니다."]}, {"n": "④", "t": "concern", "g": "관련되다, 관련시키다", "ok": false, "e": ["여기서 concern은 '걱정시키다'가 아니라 '<b>~와 관련되다<\/b>'라는 뜻입니다", "대체 의학 시술자들과 관련된 현상이라는 뜻이므로 맞습니다."]}, {"n": "⑤", "t": "deny", "g": "부정하다", "ok": false, "e": ["<b>rather than modify the scientific model<\/b>(과학적 모델을 수정하기보다는)과 짝을 이룹니다", "모델을 고치는 대신 결과를 <b>부정해 왔다<\/b>는 것이므로 맞습니다."]}], "tr": ["서양의 과학 연구에 국한되는 사람들은 오감으로 감지되지 않고 반복적으로 측정되거나 정량화되지 못하는 것은 어떤 것이든 거의 무시해 왔다.", "연구는 원인과 결과에 의해 과학적으로 설명될 수 없다면 미신적이고 근거가 없다고 일축된다.", "많은 사람이 과학의 힘, 더 구체적으로는 과학이 그들에게 주는 힘에 관한 이 문화적 패러다임에 거의 종교적 열정을 갖고 계속 반대한다(→ 집착한다).", "비서양의 과학적 패러다임을 기껏해야 열등하고 최악의 경우 부정확하다고 묵살함으로써, 전통적인 의학 연구 단체의 가장 완고한 구성원들은 대체 의학 요법과 연구가 자신들의 연구, 자신들의 행복, 그리고 자신들의 세계관에 가하는 위협에 반격하려 한다.", "그럼에도 불구하고, 생물 의학 연구는 돌봄 치료 과정에 관해서 대체 의학 시술자들과 관련된 현상들 중 많은 것을 설명할 수 없다.", "침술 또는 동종 요법 같은 치료법이 생물 의학적 모델로 설명될 수 없는 생리적 또는 임상적 반응을 초래하는 것이 관찰될 때, 많은 이들이 과학적 모델을 수정하기보다는 그 결과를 애써 부정해 왔다."], "ps": [{"n": 1, "ch": [{"e": "Those who limit themselves", "k": "자신을 국한하는 사람들은"}, {"e": "to Western scientific research", "k": "서양의 과학 연구에"}, {"e": "have <b>virtually<\/b> <b>ignored<\/b> anything", "k": "어떤 것이든 거의 무시해 왔다"}, {"e": "that cannot be <b>perceived<\/b> by the five senses", "k": "오감으로 감지되지 않는"}, {"e": "and repeatedly measured or <b>quantified<\/b>.", "k": "그리고 반복적으로 측정되거나 정량화되지 못하는."}], "link": "서양의 과학 연구에 자신을 국한하는 사람들은 오감으로 감지되지 않고 반복적으로 측정되거나 정량화되지 못하는 것은 어떤 것이든 거의 무시해 왔다.", "easy": "서양 과학만 믿는 사람들은 감각으로 확인하거나 숫자로 잴 수 없는 것은 거의 다 무시해 왔다는 말이에요.", "gist": "서양 과학만 믿는 사람들의 태도예요."}, {"n": 2, "ch": [{"e": "Research is <b>dismissed<\/b> as <b>superstitious<\/b> and <b>invalid<\/b>", "k": "연구는 미신적이고 근거가 없다고 일축된다"}, {"e": "if it cannot be scientifically explained", "k": "그것<span class=\"r\">(= 연구)<\/span>이 과학적으로 설명될 수 없다면"}, {"e": "by cause and effect.", "k": "원인과 결과에 의해."}], "link": "연구는 원인과 결과에 의해 과학적으로 설명될 수 없다면 미신적이고 근거가 없다고 일축된다.", "easy": "원인과 결과로 설명이 안 되는 연구는 ‘미신이다, 근거 없다’ 하고 무시당한다는 말이에요.", "gist": "과학으로 설명 못 하면 무시당해요."}, {"n": 3, "ch": [{"e": "Many continue to <b>cling<\/b>", "k": "많은 사람이 계속 집착한다 <span class=\"r\">※ 문제지엔 object로 되어 있음<\/span>"}, {"e": "with an almost religious <b>passion<\/b>", "k": "거의 종교적 열정을 갖고"}, {"e": "to this cultural <b>paradigm<\/b> about the power of science", "k": "과학의 힘에 관한 이 문화적 패러다임에"}, {"e": "— more specifically,", "k": "— 더 구체적으로는,"}, {"e": "the power that science gives them.", "k": "과학이 그들<span class=\"r\">(= 많은 사람)<\/span>에게 주는 힘."}], "link": "많은 사람이 과학의 힘, 더 구체적으로는 과학이 그들에게 주는 힘에 관한 이 문화적 패러다임에 거의 종교적 열정을 갖고 계속 집착한다.", "easy": "많은 사람이 ‘과학의 힘’이라는 생각에 마치 신앙처럼 꽉 매달려 있다는 말이에요.", "gist": "어휘 포인트(②) — object가 아니라 cling(집착하다)이 맞아요. (정답 근거)"}, {"n": 4, "ch": [{"e": "By <b>dismissing<\/b> non-Western scientific paradigms", "k": "비서양의 과학적 패러다임을 묵살함으로써"}, {"e": "as <b>inferior<\/b> <b>at best<\/b> and <b>inaccurate<\/b> at worst,", "k": "기껏해야 열등하고 최악의 경우 부정확하다고,"}, {"e": "the most <b>rigid<\/b> members", "k": "가장 완고한 구성원들은"}, {"e": "of the <b>conventional<\/b> medical research community", "k": "전통적인 의학 연구 단체의"}, {"e": "try to <b>counter<\/b> the threat", "k": "위협에 반격하려 한다"}, {"e": "that alternative therapies and research <b>pose<\/b> to their work,", "k": "대체 의학 요법과 연구가 그들<span class=\"r\">(= 가장 완고한 구성원들)<\/span>의 연구에 가하는,"}, {"e": "their well-being, and their worldviews.", "k": "그들의 행복, 그리고 그들의 세계관에."}], "link": "비서양의 과학적 패러다임을 기껏해야 열등하고 최악의 경우 부정확하다고 묵살함으로써, 전통적인 의학 연구 단체의 가장 완고한 구성원들은 대체 의학 요법과 연구가 자신들의 연구, 자신들의 행복, 그리고 자신들의 세계관에 가하는 위협에 반격하려 한다.", "easy": "가장 고집 센 전통 의학 연구자들은 서양 밖의 과학을 ‘수준 낮고 틀렸다’고 깎아내리면서, 대체 의학이 자기들의 일과 생각에 주는 위협에 맞서려 한다는 말이에요.", "gist": "완고한 사람들은 다른 방식을 깎아내려요."}, {"n": 5, "ch": [{"e": "<b>And yet<\/b>,", "k": "그럼에도 불구하고,"}, {"e": "biomedical research cannot explain", "k": "생물 의학 연구는 설명할 수 없다"}, {"e": "many of the <b>phenomena<\/b>", "k": "현상들 중 많은 것을"}, {"e": "that <b>concern<\/b> alternative <b>practitioners<\/b>", "k": "대체 의학 시술자들과 관련된"}, {"e": "regarding caring-healing processes.", "k": "돌봄 치료 과정에 관해서."}], "link": "그럼에도 불구하고, 생물 의학 연구는 돌봄 치료 과정에 관해서 대체 의학 시술자들과 관련된 현상들 중 많은 것을 설명할 수 없다.", "easy": "그런데 정작 생물 의학 연구는 대체 의학 시술자들과 관련된 치료 현상들 중 많은 것을 설명하지 못한다는 말이에요.", "gist": "반전 — 생물 의학도 설명 못 하는 것이 많아요."}, {"n": 6, "ch": [{"e": "When therapies such as <b>acupuncture<\/b> or <b>homeopathy<\/b>", "k": "침술 또는 동종 요법 같은 치료법이"}, {"e": "are observed to result in", "k": "초래하는 것이 관찰될 때"}, {"e": "a <b>physiological<\/b> or clinical response", "k": "생리적 또는 임상적 반응을"}, {"e": "that cannot be explained by the biomedical model,", "k": "생물 의학적 모델로 설명될 수 없는,"}, {"e": "many have tried to <b>deny<\/b> the results", "k": "많은 이들이 그 결과를 애써 부정해 왔다"}, {"e": "rather than <b>modify<\/b> the scientific model.", "k": "과학적 모델을 수정하기보다는."}], "link": "침술 또는 동종 요법 같은 치료법이 생물 의학적 모델로 설명될 수 없는 생리적 또는 임상적 반응을 초래하는 것이 관찰될 때, 많은 이들이 과학적 모델을 수정하기보다는 그 결과를 애써 부정해 왔다.", "easy": "침술 같은 치료에서 생물 의학으로 설명 못 하는 몸의 반응이 나타나도, 많은 사람은 과학적 모델을 고치기보다 그 결과를 부정해 왔다는 말이에요.", "gist": "결국 — 과학 모델을 고치지 않고 결과를 부정해요."}]}];
+var ENC="=EakivDpRK+OjGp47AakivzoRK+OkGp4";
+var SETID="g3r15p1", N=D.length, TITLE="고3 미니모의고사 15회 01–06번";
+var CIRC="①②③④⑤";
+function dec(s){var b=atob(s.split("").reverse().join(""));var u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder("utf-8").decode(u);}
+var ANS=dec(ENC).split(";").map(function(x){return x.split("|").map(function(c){return CIRC.indexOf(c)+1;});});
+function isRight(i,a){return ANS[i].indexOf(a)>=0;}
+function ansText(i){return ANS[i].map(function(n){return CIRC[n-1];}).join(", ");}
+
+var GCODE="h3", GRADE="고3", FILE="15a", NEXT="15b.html";
+const KEY='via_mm_'+GCODE+'_'+FILE;
+let S={checks:{},locked:{},res:{},sub:null,q:[]};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* REC 연결 지점: 지금은 기기 안에 대기열로만 쌓음 */
+function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localStorage.getItem('via_minimock_rec_queue')||'[]');q.push(ev);localStorage.setItem('via_minimock_rec_queue',JSON.stringify(q));}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const app=$('#app');
+let view='word',quiz=null,armed=null;
+function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function shuffle(arr,seed){const a=arr.slice();let s=hash(seed)||1;for(let i=a.length-1;i>0;i--){s=Math.imul(s^(s>>>15),2246822519)>>>0;const j=s%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+const WS=WORDS.sets[0];
+
+function hdr(){
+  const on=id=>(view===id)?'on':'';
+  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><a class="link" href="index.html">목록</a></div><div class="tabs"><button class="tab ${on('word')}" data-v="word">단어</button><button class="tab ${on('submit')}" data-v="submit">답 제출</button><button class="tab ${on('exp')}" data-v="exp" ${S.sub?'':'disabled'}>해설</button></div></div></header>`;
+}
+function noteList(){
+  const out=[],ck=S.checks[WS.id]||{};
+  WS.words.forEach((w,i)=>{
+    const c=ck[i];if(!c)return;
+    const parts=['m','s','a'].filter(p=>c[p]&&(p==='m'||w[p]));
+    if(parts.length)out.push({i:i,w:w,parts:parts});
+  });
+  return out;
+}
+function render(){
+  if(view==='word')renderWord();
+  else if(view==='note')renderNote();
+  else if(view==='quiz')renderQuiz();
+  else if(view==='result')renderResult();
+  else if(view==='submit')renderSubmit();
+  else if(view==='exp')renderExp();
+  window.scrollTo(0,0);
+}
+/* ---- 단어 확인 ---- */
+function renderWord(){
+  const ck=S.checks[WS.id]||{},locked=!!S.locked[WS.id],n=noteList().length;
+  let h=hdr()+`<div class="wrap ${locked?'locked':''}">`;
+  WS.words.forEach((w,i)=>{
+    const c=ck[i]||{};
+    h+=`<div class="row"><div class="top"><span class="no">${i+1}</span><span class="word">${esc(w.w)}</span><span class="src">${esc(w.src)}번</span></div><div class="cells">`;
+    h+=`<button class="cell m ${c.m?'bad':''}" data-i="${i}" data-p="m"><span class="tag">뜻</span><span>${esc(w.m)}</span></button>`;
+    if(w.s)h+=`<button class="cell s ${c.s?'bad':''}" data-i="${i}" data-p="s"><span class="tag">유</span><span>${esc(w.s[0])}<span class="ko">${esc(w.s[1])}</span></span></button>`;
+    if(w.a)h+=`<button class="cell a ${c.a?'bad':''}" data-i="${i}" data-p="a"><span class="tag">반</span><span>${esc(w.a[0])}<span class="ko">${esc(w.a[1])}</span></span></button>`;
+    h+=`</div></div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap">`;
+  h+=locked?`<button class="btn" disabled>확인 끝</button>`:`<button class="btn ${armed==='lock'?'arm':''}" id="lock">${armed==='lock'?'한 번 더 누르면 확인 끝':'확인 끝'}</button>`;
+  h+=`<button class="btn pri" id="gonote">단어 오답노트 ${n}</button></div></div>`;
+  app.innerHTML=h;
+  app.querySelectorAll('.cell').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,p=b.dataset.p;
+    S.checks[WS.id]=S.checks[WS.id]||{};
+    const c=S.checks[WS.id][i]=S.checks[WS.id][i]||{};
+    c[p]=c[p]?0:1;save();
+    b.classList.toggle('bad',!!c[p]);
+    $('#gonote').textContent='단어 오답노트 '+noteList().length;
+  });
+  const lk=$('#lock');if(lk)lk.onclick=()=>{
+    if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
+      recSend({type:'word',marks:noteList().map(it=>({w:it.w.w,parts:it.parts}))});}
+    else armed='lock';
+    render();
+  };
+  $('#gonote').onclick=()=>{view='note';armed=null;render();};
+}
+function renderNote(){
+  const list=noteList();
+  let h=`<header><div class="wrap hd2"><h1>단어 오답노트 <span class="meta">${list.length}개</span></h1><button class="link" id="back">확인표</button></div></header><div class="wrap">`;
+  if(!list.length)h+=`<div class="empty">아직 표시한 단어가 없습니다</div>`;
+  list.forEach(it=>{
+    const w=it.w,r=(S.res[WS.id]||{})[it.i]||{};
+    h+=`<div class="note-item"><span class="w">${esc(w.w)}</span><span class="meta">${esc(w.src)}번</span>`;
+    const row=(p,tag,txt,ko)=>{
+      const bad=it.parts.includes(p);
+      const rs=r[p]===1?'<span class="res o">맞춤</span>':r[p]===0?'<span class="res x">틀림</span>':'';
+      return `<div class="part ${p} ${bad?'bad':''}"><span class="tag">${tag}</span><span>${esc(txt)}${ko?`<span class="ko"> ${esc(ko)}</span>`:''}</span>${bad?rs:''}</div>`;
+    };
+    h+=row('m','뜻',w.m,'');
+    if(w.s)h+=row('s','유',w.s[0],w.s[1]);
+    if(w.a)h+=row('a','반',w.a[0],w.a[1]);
+    h+=`</div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap"><button class="btn" id="back2">확인표</button><button class="btn pri" id="start" ${list.length?'':'disabled'}>복습 시작</button></div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='word';armed=null;render();};
+  $('#back2').onclick=()=>{view='word';render();};
+  $('#start').onclick=()=>{quiz={qs:buildQuestions(),n:0,right:0,done:false,shown:false};view='quiz';render();};
+}
+function buildQuestions(){
+  const qs=[];
+  noteList().forEach(it=>{
+    const w=it.w;
+    it.parts.forEach(p=>{
+      let q={i:it.i,p:p,w:w.w};
+      if(p==='m'){
+        const toks=x=>x.split(/[,，]\s*/).map(t=>t.trim());
+        const ct=toks(w.m);
+        const pool=[...new Set(WS.words.filter(o=>o!==w).map(o=>o.m))].filter(m=>!toks(m).some(t=>ct.includes(t)));
+        const wrong=shuffle(pool,WS.id+w.w+'m').slice(0,3);
+        q.type='choice';q.ask='뜻을 고르세요';
+        q.opts=shuffle([{t:w.m,ok:1}].concat(wrong.map(t=>({t:t,ok:0}))),WS.id+w.w+'mo');
+      }else{
+        const ans=w[p],d=WS.dist||[];
+        q.ask=p==='s'?'유의어를 고르세요':'반의어를 고르세요';
+        if(d.length>=3){
+          q.type='choice';
+          q.opts=shuffle([{t:ans[0],ko:ans[1],ok:1}].concat(shuffle(d,WS.id+w.w+p).slice(0,3).map(x=>({t:x[0],ko:x[1],ok:0}))),WS.id+w.w+p+'o');
+        }else{q.type='flip';q.ans=ans;}
+      }
+      qs.push(q);
+    });
+  });
+  return qs;
+}
+function recordRes(q,ok){S.res[WS.id]=S.res[WS.id]||{};const r=S.res[WS.id][q.i]=S.res[WS.id][q.i]||{};r[q.p]=ok?1:0;save();}
+function renderQuiz(){
+  const q=quiz.qs[quiz.n];
+  let h=`<header><div class="wrap hd2"><h1>복습</h1><button class="link" id="back">오답노트</button></div></header><div class="wrap ${quiz.done?'done':''}"><div class="q"><div class="cnt">${quiz.n+1} / ${quiz.qs.length}</div><div class="ask">${q.ask}</div><div class="target">${esc(q.w)}</div>`;
+  if(q.type==='choice'){
+    q.opts.forEach((o,k)=>{
+      let cls='';
+      if(quiz.done){if(o.ok)cls='right';else if(k===quiz.pick)cls='wrong';}
+      h+=`<button class="opt ${cls}" data-k="${k}">${esc(o.t)}${o.ko?`<span class="ko">${esc(o.ko)}</span>`:''}</button>`;
+    });
+  }else if(quiz.shown)h+=`<div class="opt right">${esc(q.ans[0])}<span class="ko">${esc(q.ans[1])}</span></div>`;
+  h+=`</div></div><div class="bar"><div class="wrap">`;
+  if(q.type==='flip'&&!quiz.shown)h+=`<button class="btn pri" id="show">정답 보기</button>`;
+  else if(q.type==='flip')h+=`<button class="btn" id="no">몰랐음</button><button class="btn pri" id="yes">알았음</button>`;
+  else h+=`<button class="btn pri" id="next" ${quiz.done?'':'disabled'}>${quiz.n+1===quiz.qs.length?'결과':'다음'}</button>`;
+  h+=`</div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='note';render();};
+  app.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+    if(quiz.done)return;
+    const k=+b.dataset.k;quiz.pick=k;quiz.done=true;
+    const ok=q.opts[k].ok===1;if(ok)quiz.right++;recordRes(q,ok);render();
+  });
+  const nx=$('#next');if(nx)nx.onclick=()=>advance();
+  const sh=$('#show');if(sh)sh.onclick=()=>{quiz.shown=true;render();};
+  const yes=$('#yes');if(yes)yes.onclick=()=>{quiz.right++;recordRes(q,true);advance();};
+  const no=$('#no');if(no)no.onclick=()=>{recordRes(q,false);advance();};
+}
+function advance(){
+  if(quiz.n+1>=quiz.qs.length){view='result';render();return;}
+  quiz.n++;quiz.done=false;quiz.shown=false;quiz.pick=null;render();
+}
+function renderResult(){
+  app.innerHTML=`<header><div class="wrap hd2"><h1>복습 결과</h1></div></header><div class="wrap"><div class="score">${quiz.right} <small>/ ${quiz.qs.length}</small></div></div><div class="bar"><div class="wrap"><button class="btn" id="a">오답노트</button><button class="btn pri" id="b">확인표</button></div></div>`;
+  $('#a').onclick=()=>{view='note';render();};
+  $('#b').onclick=()=>{view='word';render();};
+}
+/* ---- 답 제출 ---- */
+function renderSubmit(){
+  const done=!!S.sub;
+  while(S.q.length<N)S.q.push(0);
+  let h=hdr()+'<div class="wrap">';
+  for(let i=0;i<N;i++){
+    const sel=done?S.sub.a[i]:S.q[i];
+    h+=`<div class="qrow"><div class="qno">${esc(D[i].no)}</div><div class="opts">`;
+    for(let k=1;k<=5;k++)h+=`<button class="opt2 ${sel===k?'on':''}" data-q="${i}" data-k="${k}" ${done?'disabled':''}>${CIRC[k-1]}</button>`;
+    h+='</div></div>';
+  }
+  h+='</div><div class="bar"><div class="wrap">';
+  if(done)h+='<button class="btn pri" id="toexp">해설 보기</button>';
+  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>제출</button>`;
+  h+='</div></div>';
+  app.innerHTML=h;
+  app.querySelectorAll('.opt2').forEach(b=>b.onclick=()=>{
+    if(S.sub)return;
+    const q=+b.dataset.q,k=+b.dataset.k;S.q[q]=k;save();
+    b.parentNode.querySelectorAll('.opt2').forEach(x=>x.classList.toggle('on',+x.dataset.k===k));
+    $('#sub').disabled=!S.q.every(v=>v>0);
+  });
+  const sb=$('#sub');if(sb)sb.onclick=()=>{
+    let s=0;for(let i=0;i<N;i++)if(isRight(i,S.q[i]))s++;
+    S.sub={t:Date.now(),a:S.q.slice(),s:s};save();
+    recSend({type:'submit',a:S.sub.a,s:s,n:N});
+    view='exp';render();
+  };
+  const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
+}
+/* ---- 해설 ---- */
+function sHtml(s,evn){
+  const ev=evn.indexOf(s.n)>=0;
+  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
+  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
+  const lays=[];
+  if(s.link)lays.push(['이어 읽으면',s.link]);
+  if(s.easy)lays.push(['쉬운 말로',s.easy]);
+  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
+  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
+  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
+  return x+'</div>';
+}
+function qHtml(i,a){
+  const d=D[i],ok=isRight(i,a);
+  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
+  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
+  h+='<h4>정답 근거</h4>';
+  h+=`<p class="en">${esc(d.ev_en)}</p>`;
+  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
+  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  if(d.ps&&d.ps.length){
+    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
+  }
+  h+='<h4>선택지 하나씩</h4>';
+  d.ch.forEach(c=>{
+    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  });
+  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  return h+'</div></details>';
+}
+function renderExp(){
+  const rec=S.sub;
+  let h=hdr()+'<div class="wrap">';
+  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='</div><h2>해설</h2>';
+  for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
+  h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
+  app.innerHTML=h;
+}
+/* 위임 이벤트 */
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tab');
+  if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
+  const ch=e.target.closest('.ch');
+  if(ch){ch.classList.toggle('open');return;}
+  const st=e.target.closest('.stg');
+  if(st){
+    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const shown=lays.filter(l=>l.classList.contains('on')).length;
+    if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
+    else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
+    return;
+  }
+  const al=e.target.closest('.tbtn');
+  if(al){
+    const open=al.dataset.all==='1',body=al.closest('.dkbody');
+    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
+    body.querySelectorAll('.s').forEach(s=>{
+      const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
+      lays.forEach(l=>l.classList.toggle('on',open));
+      if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
+    });
+  }
+});
+render();
+</script>
+</body>
+</html>

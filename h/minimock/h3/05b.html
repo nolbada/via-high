@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>고3 미니모의고사 5회 07–12번</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f6f8;--accent:#23406b;--bad:#c2392b;--badbg:#fdeceb;--good:#1f7a4d;--goodbg:#e8f5ee;--hl:#fff3b0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+body{padding-bottom:84px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .row1{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+h1{font-size:16px;margin:0;font-weight:700;line-height:1.3}
+.tabs{display:flex;gap:0}
+.tab{flex:1;border:0;background:none;font-family:inherit;font-size:15px;font-weight:700;color:var(--sub);padding:11px 0;border-bottom:3px solid transparent}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tab[disabled]{opacity:.35}
+.link{text-decoration:none;border:0;background:none;color:var(--accent);font-size:15px;font-weight:700;padding:10px 4px;font-family:inherit}
+.hd2{display:flex;align-items:center;justify-content:space-between;height:54px}
+.hd2 h1{font-size:17px}
+.row{padding:12px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.no{color:var(--sub);font-size:13px;min-width:20px}
+.word{font-size:19px;font-weight:700}
+.src{color:var(--sub);font-size:12px;margin-left:auto}
+.cells{display:flex;flex-direction:column;gap:6px}
+.cell{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 12px;border-radius:8px;background:var(--soft);border:1.5px solid transparent;font-size:16px;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.cell .tag,.part .tag{font-size:12px;font-weight:700;color:#fff;border-radius:4px;padding:2px 7px;min-width:34px;text-align:center;background:#7a8594}
+.cell.s .tag,.part.s .tag{background:#2d62a8}.cell.a .tag,.part.a .tag{background:#b4472f}
+.ko{color:var(--sub);font-size:14px;margin-left:6px}
+.cell.bad{background:var(--badbg);border-color:var(--bad)}
+.cell.bad .tag{background:var(--bad)}
+.locked .cell{pointer-events:none}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:6}
+.bar .wrap{display:flex;gap:10px;padding:0}
+.btn{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;line-height:1.25;font-weight:700;font-family:inherit}
+.btn.pri{background:var(--accent);color:#fff}
+.btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn[disabled]{opacity:.4}
+.note-item{padding:14px 0;border-bottom:1px solid var(--line)}
+.note-item .w{font-size:19px;font-weight:700}
+.meta{color:var(--sub);font-size:12px;margin-left:8px;font-weight:400}
+.part{display:flex;gap:10px;align-items:baseline;padding:6px 0 0;font-size:16px}
+.part .tag{align-self:center}
+.part.bad{color:var(--bad);font-weight:700}
+.part.bad .tag{background:var(--bad)}
+.part .ko{font-weight:400}
+.part .res{margin-left:auto;font-size:13px;font-weight:700}
+.res.o{color:var(--good)}.res.x{color:var(--bad)}
+.empty{color:var(--sub);text-align:center;padding:60px 0;font-size:16px}
+.q{padding:22px 0 8px}
+.q .cnt{color:var(--sub);font-size:14px}
+.q .ask{font-size:15px;color:var(--sub);margin-top:14px}
+.q .target{font-size:28px;font-weight:700;margin:6px 0 18px}
+.opt{display:block;width:100%;text-align:left;min-height:56px;padding:10px 14px;margin-bottom:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:18px;font-family:inherit;color:var(--ink)}
+.opt .ko{display:block;margin:2px 0 0}
+.opt.right{border-color:var(--good);background:var(--goodbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.done .opt{pointer-events:none}
+.score{font-size:34px;font-weight:700;text-align:center;margin:30px 0 6px}
+.score small{font-size:18px;color:var(--sub);font-weight:400}
+.foot{color:var(--sub);font-size:12px;text-align:center;padding:26px 0 8px}
+/* submit */
+.qrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.qno{font-weight:800;font-size:20px;width:34px;flex:none}
+.opts{display:flex;gap:8px;flex:1}
+.opt2{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:20px;font-family:inherit;color:var(--ink)}
+.opt2.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.opt2[disabled]{opacity:.55}
+.opt2.on[disabled]{opacity:1}
+/* explanation */
+h2{font-size:17px;margin:26px 0 10px}
+.quick div{padding:3px 0;font-size:17px}
+.quick .o{color:var(--good)}.quick .x{color:var(--bad)}
+.sub{color:var(--sub)}
+details.qd{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;background:var(--bg)}
+details.qd>summary{list-style:none;cursor:pointer;padding:14px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+details.qd>summary::-webkit-details-marker{display:none}
+details.qd>summary small{font-weight:400;color:var(--sub);font-size:13px}
+.res2{margin-left:auto;font-size:14px}
+.res2.o{color:var(--good)}.res2.x{color:var(--bad)}
+.qx{padding:0 14px 14px}
+.qx h4{font-size:15px;margin:18px 0 8px;color:var(--accent)}
+.qx p{margin:6px 0;line-height:1.75;font-size:16px}
+.ansline b{font-size:17px}
+.en{font-size:16px;line-height:1.7;background:var(--soft);padding:10px 12px;border-radius:8px}
+.kolist{list-style:none;margin:6px 0;padding:0}
+.kolist li{font-size:15px;line-height:1.7}
+.kolist .n{font-size:12px;color:var(--sub);margin-right:6px}
+.why p{margin:4px 0;font-size:15px}
+.c{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.c.ok{border-color:var(--good);background:var(--goodbg)}
+.c .ct{font-weight:700;font-size:16px;line-height:1.5}
+.c .tg{display:inline-block;font-size:12px;color:#fff;background:#7a8594;border-radius:4px;padding:1px 7px;margin-right:6px;font-weight:700}
+.c.ok .tg{background:var(--good)}
+.c p{margin:4px 0 0;font-size:15px}
+.r{color:var(--sub);font-size:13px}
+/* direct reading practice */
+details.dk{margin:16px 0 4px;border:1px solid var(--line);border-radius:10px}
+details.dk>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700;color:var(--accent);font-size:15px}
+details.dk>summary::-webkit-details-marker{display:none}
+.dkbody{padding:0 12px 12px}
+.tool{display:flex;gap:8px;margin:2px 0 10px}
+.tbtn{flex:1;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:inherit;font-size:14px;font-weight:700;color:var(--accent)}
+.s{padding:10px 0 12px;border-top:1px dashed var(--line)}
+.s.ev{background:linear-gradient(90deg,#fffbe8,#fff);margin:0 -6px;padding-left:6px;padding-right:6px}
+.sn{margin-bottom:6px}
+.lb{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--sub);margin-right:6px}
+.lb.ev{background:var(--hl);color:#7a5b00}
+.ch{padding:9px 11px;margin-bottom:6px;border-radius:8px;background:var(--soft);cursor:pointer;border-bottom:2px dotted #c9cfd6}
+.ch .ce{font-size:16px;line-height:1.6}
+.ch .ce b{background:linear-gradient(transparent 55%,var(--hl) 55%)}
+.ch .ck{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--line);color:var(--accent);font-size:15px;line-height:1.65}
+.ch.open{background:#eef2f8;border-bottom-color:transparent}
+.ch.open .ck{display:block}
+.lay{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:14px;line-height:1.7}
+.lay.on{display:block}
+.stg{width:100%;min-height:42px;margin-top:6px;border:1px solid var(--accent);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const WORDS={"sets": [{"id": "g3r05p2", "title": "고3 미니모의고사 5회 07–12번", "range": "07–12번", "words": [{"src": "01", "w": "resemble", "m": "~을 닮다, ~와 비슷하다", "s": null, "a": null}, {"src": "02", "w": "recall", "m": "기억해 내다, 회상하다", "s": ["retrieve", "기억해 내다, 되찾다"], "a": ["forget", "잊다"]}, {"src": "03", "w": "incorrectly", "m": "부정확하게, 틀리게", "s": null, "a": null}, {"src": "04", "w": "stimuli", "m": "자극들", "s": null, "a": null}, {"src": "05", "w": "replicate", "m": "복제하다, 모사하다", "s": ["duplicate", "복제하다"], "a": null}, {"src": "06", "w": "surrender", "m": "내주다, 항복하다", "s": ["yield", "굴복하다"], "a": ["resist", "저항하다"]}, {"src": "07", "w": "permanent", "m": "영속적인, 영구적인", "s": ["lasting", "오래가는"], "a": ["temporary", "일시적인"]}, {"src": "08", "w": "abundance", "m": "풍요", "s": null, "a": ["scarcity", "부족, 결핍"]}, {"src": "09", "w": "liberate", "m": "해방하다", "s": null, "a": null}, {"src": "10", "w": "collective", "m": "집단적인", "s": null, "a": ["individual", "개인의, 개별의"]}, {"src": "11", "w": "obviously", "m": "분명히, 명백히", "s": null, "a": null}, {"src": "12", "w": "relevant", "m": "관련된, 중요한", "s": null, "a": ["irrelevant", "무관한"]}, {"src": "13", "w": "transmit", "m": "전파하다, 전달하다", "s": ["convey", "전달하다"], "a": null}, {"src": "14", "w": "intrigue", "m": "호기심을 자아내다", "s": null, "a": null}, {"src": "15", "w": "emerge", "m": "나타나다, 출현하다", "s": ["appear", "나타나다"], "a": ["vanish", "사라지다"]}, {"src": "16", "w": "assume", "m": "여기다, 가정하다", "s": ["presume", "추정하다"], "a": null}, {"src": "17", "w": "external", "m": "외부의, 밖의", "s": null, "a": ["internal", "내부의, 체내의"]}, {"src": "18", "w": "distinct", "m": "별개의, 뚜렷이 다른", "s": null, "a": null}, {"src": "19", "w": "superior", "m": "뛰어난, 우수한", "s": null, "a": ["inferior", "열등한"]}, {"src": "20", "w": "impairment", "m": "장애, 손상", "s": null, "a": null}], "dist": [["hostile", "적대적인"], ["fragile", "취약한"], ["humble", "겸손한"]]}]};
+var D=[{"no": "07", "typ": "빈칸", "src": "2017학년도 9월 33번", "evn": [1, 4, 5], "ev_en": "A good deal of the information stored in working memory is encoded in an auditory form, especially when the information is language based. / When people recalled letters incorrectly, the letters they said they had seen were more likely to resemble the actual stimuli in terms of how the letters sounded than how they looked. / For example, the letter F was “remembered” as the auditorially similar letter S 131 times but as the visually similar letter P only 14 times.", "ev_ko": [[1, "작업 기억 내에 저장된 많은 양의 정보는, 특히 그 정보가 언어에 기반을 두고 있을 때, 청각의 형태로 암호화된다."], [4, "사람들이 글자들을 부정확하게 기억해냈을 때, 그들이 봤다고 말했던 글자들(기억해낸 부정확한 글자들)은 그 글자들이 어떻게 보였는지보다는 어떻게 들렸는지의 측면에서 실제 자극들(실제 제시되었던 글자)을 닮을 가능성이 더 높았다."], [5, "예를 들어, 글자 ‘F’는 청각적으로 유사한 글자 ‘S’로 131회 (기억되었지만), 시각적으로 유사한 글자 ‘P’로는 오직 14회만 ‘기억되었다’."]], "why": ["(1)에서 작업 기억 속 정보는 <b>청각의 형태(auditory form)<\/b>로 암호화된다고 합니다", "(4)는 사람들이 글자를 잘못 기억했을 때 무엇이 실제 글자와 닮았는지를 말하는 빈칸 문장입니다", "(5)에서 F는 소리가 비슷한 S로 131번, 모양이 비슷한 P로는 14번만 기억되었습니다", "즉 잘못 기억한 글자는 모양보다 <b>소리<\/b>가 실제 글자와 닮았습니다", "그래서 빈칸에는 ② <b>how the letters sounded than how they looked<\/b>(그 글자들이 어떻게 보였는지보다는 어떻게 들렸는지)가 알맞습니다."], "ch": [{"n": "①", "t": "how the letters were visually represented", "g": "그 글자들이 어떻게 시각적으로 표현되었는지", "ok": false, "e": ["(5)와 (6)에서 모양이 비슷한 글자로 잘못 기억한 경우는 14번, 5번뿐입니다", "그래서 '시각적으로 어떻게 표현되었는지'의 측면에서 닮았다는 말은 실험 결과와 반대입니다."]}, {"n": "②", "t": "how the letters sounded than how they looked", "g": "그 글자들이 어떻게 보였는지보다는 어떻게 들렸는지", "ok": true, "e": ["(5)에서 F는 소리가 비슷한 S로 131번, 모양이 비슷한 P로 14번 기억되었습니다", "(6)의 V도 소리가 비슷한 B로 56번, 모양이 비슷한 X로 5번입니다", "모양보다 소리가 닮았다는 결과를 그대로 나타낸 말입니다."]}, {"n": "③", "t": "how the length of the letter sequence was recognized", "g": "그 글자의 연속의 길이가 어떻게 인식되었는지", "ok": false, "e": ["보여 준 글자는 언제나 여섯 글자였습니다(2번)", "글자 연속의 길이를 어떻게 인식했는지에 관한 결과는 나오지 않습니다."]}, {"n": "④", "t": "how the letters were ordered than how they were pronounced", "g": "그 글자들이 어떻게 발음되었는지보다는 어떻게 배열되었는지", "ok": false, "e": ["글자의 배열(순서)을 다룬 결과는 나오지 않습니다", "또 사람들은 소리가 비슷한 글자로 잘못 기억했으므로, 발음보다 배열이 닮았다는 말은 결과와 반대입니다."]}, {"n": "⑤", "t": "how often the letters appeared than how long they were shown", "g": "그 글자들이 얼마나 오래 보여졌는지보다는 얼마나 자주 나타났는지", "ok": false, "e": ["글자가 나타난 빈도나 보여 준 시간을 비교한 결과는 나오지 않습니다", "4분의 3초 간격은 실험 조건일 뿐입니다."]}], "tr": ["작업 기억 내에 저장된 많은 양의 정보는, 특히 그 정보가 언어에 기반을 두고 있을 때, 청각의 형태로 암호화된다.", "예를 들어, Conrad의 초기의 한 연구에서는, 성인들은 여섯 개 글자의 연속을 보았는데, 3/4초 간격으로 글자가 한 번에 하나씩 시각적으로 제시되었다.", "연속(된 글자들)의 마지막 글자가 제시되자마자, 그 연구의 참가자들은 쉽게 기억해낼 수 없었던 어떤 글자들을 (그것이 무엇이었는지) 추측하여, 그들이 본 여섯 개의 글자 모두를 적었다.", "사람들이 글자들을 부정확하게 기억해냈을 때, 그들이 봤다고 말했던 글자들(기억해낸 부정확한 글자들)은 그 글자들이 어떻게 보였는지보다는 어떻게 들렸는지의 측면에서 실제 자극들(실제 제시되었던 글자)을 닮을 가능성이 더 높았다.", "예를 들어, 글자 ‘F’는 청각적으로 유사한 글자 ‘S’로 131회 (기억되었지만), 시각적으로 유사한 글자 ‘P’로는 오직 14회만 ‘기억되었다’.", "마찬가지로, 글자 ‘V’는 (청각적으로 유사한) ‘B’로 56회 기억되었지만 (시각적으로 유사한) ‘X’로는 오직 5회만 기억되었다."], "ps": [{"n": 1, "ch": [{"e": "A <b>good deal of<\/b> the information", "k": "많은 양의 정보는"}, {"e": "stored in <b>working memory<\/b>", "k": "작업 기억 내에 저장된"}, {"e": "is <b>encoded<\/b> in an <b>auditory<\/b> form,", "k": "청각의 형태로 암호화된다,"}, {"e": "especially when the information is language based.", "k": "특히 그 정보가 언어에 기반을 두고 있을 때."}], "link": "작업 기억 내에 저장된 많은 양의 정보는, 특히 그 정보가 언어에 기반을 두고 있을 때, 청각의 형태로 암호화된다.", "easy": "머릿속에 잠깐 붙잡아 두는 정보, 특히 말이나 글자 같은 정보는 상당 부분 '소리' 형태로 저장된다는 말이에요.", "gist": "글의 주제 문장이에요. 작업 기억은 언어 정보를 소리 형태로 저장해요."}, {"n": 2, "ch": [{"e": "<b>For example<\/b>,", "k": "예를 들어,"}, {"e": "in an early study by Conrad,", "k": "Conrad의 초기의 한 연구에서,"}, {"e": "adults were shown six-letter sequences,", "k": "성인들은 여섯 개 글자의 연속을 보았다,"}, {"e": "with letters being presented visually,", "k": "글자들이 시각적으로 제시되면서,"}, {"e": "one at a time,", "k": "한 번에 하나씩,"}, {"e": "at <b>intervals<\/b> of three-fourths of a second.", "k": "4분의 3초 간격으로."}], "link": "예를 들어, Conrad의 초기의 한 연구에서 성인들은 여섯 개 글자의 연속을 보았는데, 글자는 4분의 3초 간격으로 한 번에 하나씩 시각적으로 제시되었다.", "easy": "Conrad의 실험에서 어른들에게 글자 여섯 개를 0.75초마다 하나씩 눈으로 보여 줬다는 거예요.", "gist": "주제를 뒷받침하는 실험이 시작돼요. 글자는 눈으로 보여 줬어요."}, {"n": 3, "ch": [{"e": "As soon as the last letter of a sequence had been presented,", "k": "연속된 글자들의 마지막 글자가 제시되자마자,"}, {"e": "<b>participants<\/b> in the study", "k": "그 연구의 참가자들은"}, {"e": "wrote down all six of the letters", "k": "여섯 개의 글자 모두를 적었다"}, {"e": "they had seen,", "k": "그들<span class=\"r\">(= 참가자들)<\/span>이 보았던,"}, {"e": "<b>guessing at<\/b> any letters", "k": "어떤 글자든 추측하면서"}, {"e": "they couldn’t easily <b>recall<\/b>.", "k": "그들<span class=\"r\">(= 참가자들)<\/span>이 쉽게 기억해 낼 수 없었던."}], "link": "연속된 글자들의 마지막 글자가 제시되자마자, 그 연구의 참가자들은 쉽게 기억해 낼 수 없었던 글자는 추측하면서, 자신들이 본 여섯 개의 글자 모두를 적었다.", "easy": "마지막 글자를 보자마자 본 글자 여섯 개를 전부 적었고, 잘 생각나지 않는 글자는 짐작해서 적었다는 거예요.", "gist": "실험 방법이에요. 본 글자를 곧바로 떠올려 적게 했어요."}, {"n": 4, "ch": [{"e": "When people recalled letters <b>incorrectly<\/b>,", "k": "사람들이 글자들을 부정확하게 기억해 냈을 때,"}, {"e": "the letters they said they had seen", "k": "그들이 보았다고 말한 글자들은"}, {"e": "were more likely to <b>resemble<\/b> the actual <b>stimuli<\/b>", "k": "실제 자극들<span class=\"r\">(= 실제로 제시되었던 글자들)<\/span>을 닮았을 가능성이 더 높았다"}, {"e": "in terms of how the letters <b>sounded<\/b>", "k": "그 글자들이 어떻게 들렸는지의 측면에서"}, {"e": "than how they <b>looked<\/b>.", "k": "그것들<span class=\"r\">(= 그 글자들)<\/span>이 어떻게 보였는지보다.<span class=\"r\">※ 문제지엔 앞 덩어리의 how부터 여기까지 빈칸으로 되어 있음<\/span>"}], "link": "사람들이 글자들을 부정확하게 기억해 냈을 때, 그들이 보았다고 말한 글자들은 그 글자들이 어떻게 보였는지보다 어떻게 들렸는지의 측면에서 실제 자극들을 닮았을 가능성이 더 높았다.", "easy": "글자를 잘못 기억했을 때, 사람들이 적은 글자는 진짜 글자와 모양보다 소리가 비슷한 경우가 더 많았다는 거예요.", "gist": "실험 결과이자 빈칸 문장이에요. 틀린 글자는 모양보다 소리가 닮았어요."}, {"n": 5, "ch": [{"e": "For example,", "k": "예를 들어,"}, {"e": "the letter F was “remembered”", "k": "글자 F는 ‘기억되었다’"}, {"e": "as the <b>auditorially similar<\/b> letter S 131 times", "k": "청각적으로 유사한 글자 S로 131번"}, {"e": "but as the <b>visually similar<\/b> letter P only 14 times.", "k": "하지만 시각적으로 유사한 글자 P로는 오직 14번만."}], "link": "예를 들어, 글자 F는 청각적으로 유사한 글자 S로는 131번 ‘기억되었지만’, 시각적으로 유사한 글자 P로는 오직 14번만 ‘기억되었다’.", "easy": "F를 소리가 비슷한 S로 잘못 적은 건 131번인데, 모양이 비슷한 P로 잘못 적은 건 14번뿐이었어요.", "gist": "결과를 숫자로 보여 줘요. 소리가 비슷한 글자로 착각한 경우가 훨씬 많아요."}, {"n": 6, "ch": [{"e": "<b>Similarly<\/b>,", "k": "마찬가지로,"}, {"e": "the letter V was remembered as B 56 times", "k": "글자 V는 B로 56번 기억되었다"}, {"e": "but as X only 5 times.", "k": "하지만 X로는 오직 5번만."}], "easy": "V도 소리가 비슷한 B로 착각한 건 56번, 모양이 비슷한 X로 착각한 건 5번뿐이었어요.", "gist": "같은 결과를 한 번 더 보여 줘요. 이번에도 소리가 비슷한 쪽이 훨씬 많아요."}]}, {"no": "08", "typ": "빈칸", "src": "2018학년도 수능 34번", "evn": [4, 5], "ev_en": "We’ll spend the next three decades — indeed, perhaps the next century — in a permanent identity crisis, continually asking ourselves what humans are good for. / If we aren’t unique toolmakers, or artists, or moral ethicists, then what, if anything, makes us special?", "ev_ko": [[4, "우리는 향후 30년을 — 사실, 아마도 다음 세기(100년)를 — 영속적인 정체성 위기 속에서 보내며, 계속 우리 자신에게 인간이 무엇에 소용이 있는지를 질문하게 될 것이다."], [5, "우리가 유일무이한 도구 제작자나 예술가, 혹은 도덕 윤리학자가 아니라면, 그렇다면 (그런 것이 있기나 하다면) 무엇이 우리를 특별하게 만드는가?"]], "why": ["(4)에서 우리는 인간이 무엇에 쓸모가 있는지 계속 스스로에게 묻게 될 것이라고 합니다", "(5)에서도 무엇이 우리를 특별하게 만드는지 묻습니다", "그리고 AI의 가장 큰 이점은 생산성이나 풍요 같은 것이 아니라고 미리 말합니다", "그러니 가장 큰 이점은 이 질문의 답, 곧 인간이 무엇인지 알게 되는 것입니다", "그래서 빈칸에는 ① <b>AIs will help define humanity<\/b>(AI들이 인간성을 정의하는 데 도움을 줄 것이다)가 알맞습니다."], "ch": [{"n": "①", "t": "AIs will help define humanity", "g": "AI들이 인간성을 정의하는 데 도움을 줄 것이다", "ok": true, "e": ["(4)와 (5)는 인간이 무엇에 쓸모가 있는지, 무엇이 우리를 특별하게 만드는지 묻습니다", "AI가 인간성을 정의하도록 돕는다는 것은 이 질문에 답하게 해 준다는 뜻입니다."]}, {"n": "②", "t": "humans could also be like AIs", "g": "인간들 또한 AI들과 같을 수 있다", "ok": false, "e": ["인간이 AI와 같아질 수 있다는 내용은 없습니다", "글은 AI가 인간의 일을 해내면서 인간에게 고유하다고 여겨지던 것이 줄어든다고 말합니다(2번)."]}, {"n": "③", "t": "humans will be liberated from hard labor", "g": "인간들이 중노동으로부터 해방될 것이다", "ok": false, "e": ["(6)에서 AI의 가장 큰 이점은 증대된 생산성이나 풍요의 경제학 같은 실용적인 이점이 아니라고 합니다", "고된 노동에서 해방된다는 것도 이런 실용적인 이점에 해당합니다."]}, {"n": "④", "t": "AIs could lead us in resolving moral dilemmas", "g": "AI들이 도덕적 딜레마 해결에서 우리를 이끌 수 있다", "ok": false, "e": ["moral ethicists(도덕 윤리학자)는 (5)에서 인간만의 것이 아닐 수 있는 예로 나올 뿐입니다", "AI가 도덕적 딜레마 해결을 이끈다는 내용은 없습니다."]}, {"n": "⑤", "t": "AIs could compensate for a decline in human intelligence", "g": "AI들이 인간 지능의 쇠퇴를 보상할 수 있다", "ok": false, "e": ["인간 지능이 쇠퇴한다는 내용은 글에 없습니다", "글이 말하는 문제는 인간만의 고유함이 사라진다는 것입니다."]}], "tr": ["지난 60년 동안, 기계에 의한 공정이 우리가 생각하기에 인간에게 고유한(인간에게만 있다고 생각되었던) 행동과 재능을 복제해 왔기 때문에, 우리는 우리를 (기계와) 다르게 만드는 것에 관해 우리의 생각을 바꿔야만 했다.", "우리가 더 많은 종의 AI(인공 지능)를 발명함에 따라, 우리는 인간에게 고유하다고 여겨지는 것 중 더 많은 것을 내줄 수밖에 없을 것이다.", "내주는 각각의 단계(점차 내주는 것)는 — 우리가 체스를 둘 수 있거나, 비행기를 조종할 수 있거나, 음악을 만들 수 있거나, 혹은 수학 법칙을 고안할 수 있는 유일한 지적 주체가 아니라는 것은 — 고통스럽고 슬플 것이다.", "우리는 향후 30년을 — 사실, 아마도 다음 세기(100년)를 — 영속적인 정체성 위기 속에서 보내며, 계속 우리 자신에게 인간이 무엇에 소용이 있는지를 질문하게 될 것이다.", "우리가 유일무이한 도구 제작자나 예술가, 혹은 도덕 윤리학자가 아니라면, 그렇다면 (그런 것이 있기나 하다면) 무엇이 우리를 특별하게 만드는가?", "모든 것들 중 가장 아이러니하게도, 일상적이고 실용적인 AI(인공 지능)의 가장 큰 이점은 증대된 생산성이나 풍요의 경제학, 혹은 과학을 행하는 새로운 방식이 아닐 것이다 — 비록 그 모든 것들이 일어날 것이긴 하지만.", "인공 지능 도래의 가장 큰 이점은 AI(인공 지능)들이 인간성을 정의하는 데 도움을 줄 것이라는 것이다."], "ps": [{"n": 1, "ch": [{"e": "Over the past 60 years,", "k": "지난 60년 동안,"}, {"e": "as mechanical processes have <b>replicated<\/b> behaviors and talents", "k": "기계에 의한 공정이 행동과 재능을 복제해 왔기 때문에"}, {"e": "we thought were <b>unique to<\/b> humans,", "k": "우리가 인간에게 고유하다고 생각했던,"}, {"e": "we’ve had to change our minds", "k": "우리는 우리의 생각을 바꿔야만 했다"}, {"e": "about what <b>sets<\/b> us <b>apart<\/b>.", "k": "무엇이 우리를 (다른 것과) 다르게 만드는지에 관해."}], "link": "지난 60년 동안, 기계에 의한 공정이 우리가 인간에게 고유하다고 생각했던 행동과 재능을 복제해 왔기 때문에, 우리는 무엇이 우리를 다르게 만드는지에 관한 생각을 바꿔야만 했다.", "easy": "사람만 할 수 있다고 믿었던 일들을 기계가 따라 하게 되면서, 무엇이 사람을 다르게 만드는지 다시 생각해야 했다는 거예요.", "gist": "글의 문제 제기예요. 인간을 특별하게 하는 것이 무엇인지 흔들리고 있어요."}, {"n": 2, "ch": [{"e": "As we invent more species of AI,", "k": "우리가 더 많은 종의 AI를 발명함에 따라,"}, {"e": "we will be forced to <b>surrender<\/b> more", "k": "우리는 더 많은 것을 내줄 수밖에 없을 것이다"}, {"e": "of what is <b>supposedly<\/b> unique about humans.", "k": "인간에게 고유하다고 여겨지는 것 중에서."}], "link": "우리가 더 많은 종의 AI를 발명함에 따라, 우리는 인간에게 고유하다고 여겨지는 것 중 더 많은 것을 내줄 수밖에 없을 것이다.", "easy": "AI가 더 많이 나올수록, 사람만의 것이라고 여겼던 것을 더 많이 내주게 될 거라는 말이에요.", "gist": "앞으로도 인간만의 영역이 계속 줄어든다고 말해요."}, {"n": 3, "ch": [{"e": "Each step of surrender", "k": "내주는 각각의 단계는"}, {"e": "— we are not the only mind", "k": "— 우리가 유일한 지적 주체가 아니라는 것은"}, {"e": "that can play chess, fly a plane, make music, or invent a mathematical law —", "k": "체스를 두거나, 비행기를 조종하거나, 음악을 만들거나, 수학 법칙을 고안할 수 있는 —"}, {"e": "will be painful and sad.", "k": "고통스럽고 슬플 것이다."}], "link": "내주는 각각의 단계는 — 우리가 체스를 두거나, 비행기를 조종하거나, 음악을 만들거나, 수학 법칙을 고안할 수 있는 유일한 지적 주체가 아니라는 것은 — 고통스럽고 슬플 것이다.", "easy": "체스, 비행기 조종, 음악 만들기, 수학 법칙 만들기를 사람만 하는 게 아니라는 걸 하나씩 받아들일 때마다 괴롭고 슬플 거예요.", "gist": "인간만의 것을 하나씩 잃어 가는 과정이 고통스러울 거라고 말해요."}, {"n": 4, "ch": [{"e": "We’ll spend the next three decades", "k": "우리는 향후 30년을 보낼 것이다"}, {"e": "— indeed, perhaps the next century —", "k": "— 사실, 아마도 다음 세기를 —"}, {"e": "in a <b>permanent<\/b> <b>identity crisis<\/b>,", "k": "영속적인 정체성 위기 속에서,"}, {"e": "continually asking ourselves", "k": "계속 우리 자신에게 물으면서"}, {"e": "what humans are <b>good for<\/b>.", "k": "인간이 무엇에 소용이 있는지를."}], "link": "우리는 향후 30년을 — 사실, 아마도 다음 세기를 — 영속적인 정체성 위기 속에서 보내며, 인간이 무엇에 소용이 있는지 계속 우리 자신에게 물을 것이다.", "easy": "앞으로 아주 오랫동안 '사람은 대체 무엇에 쓸모가 있지?' 하고 스스로에게 계속 묻게 될 거라는 말이에요.", "gist": "글의 핵심 질문이에요. 인간은 무엇에 소용이 있는가?"}, {"n": 5, "ch": [{"e": "If we aren’t unique toolmakers, or artists, or moral ethicists,", "k": "우리가 유일무이한 도구 제작자나 예술가, 혹은 도덕 윤리학자가 아니라면,"}, {"e": "then what, <b>if anything<\/b>, makes us special?", "k": "그렇다면 무엇이, 그런 것이 있기나 하다면, 우리를 특별하게 만드는가?"}], "easy": "도구 만들기도, 예술도, 도덕 판단도 우리만 하는 게 아니라면, 대체 무엇이 우리를 특별하게 하냐는 질문이에요.", "gist": "같은 질문을 한 번 더 던져요. 무엇이 인간을 특별하게 만드는가?"}, {"n": 6, "ch": [{"e": "In the grandest <b>irony<\/b> of all,", "k": "모든 것들 중 가장 아이러니하게도,"}, {"e": "the greatest benefit of an everyday, <b>utilitarian<\/b> AI", "k": "일상적이고 실용적인 AI의 가장 큰 이점은"}, {"e": "will not be increased <b>productivity<\/b>", "k": "증대된 생산성이 아닐 것이다"}, {"e": "or an economics of <b>abundance<\/b>", "k": "또는 풍요의 경제학이나"}, {"e": "or a new way of doing science", "k": "또는 과학을 행하는 새로운 방식이 (아닐 것이다)"}, {"e": "— although all those will happen.", "k": "— 비록 그 모든 것들이 일어날 것이긴 하지만."}], "link": "모든 것들 중 가장 아이러니하게도, 일상적이고 실용적인 AI의 가장 큰 이점은 증대된 생산성이나 풍요의 경제학, 혹은 과학을 행하는 새로운 방식이 아닐 것이다 — 비록 그 모든 것들이 일어날 것이긴 하지만.", "easy": "AI의 가장 큰 좋은 점은 일을 더 많이 해 주거나 풍요롭게 해 주는 것이 아니라는 말이에요. 그런 일들도 물론 일어나겠지만요.", "gist": "뻔한 답(생산성, 풍요, 과학)을 먼저 지워요. 진짜 답은 다음 문장에 나와요."}, {"n": 7, "ch": [{"e": "The greatest benefit of the arrival of artificial intelligence", "k": "인공 지능 도래의 가장 큰 이점은"}, {"e": "is that AIs will help <b>define humanity<\/b>.", "k": "AI들이 인간성을 정의하는 데 도움을 줄 것이라는 것이다.<span class=\"r\">※ 문제지엔 AIs부터 빈칸으로 되어 있음<\/span>"}], "easy": "AI가 생겨서 얻는 가장 큰 이점은 '인간이란 무엇인가'를 정하는 데 AI가 도움을 준다는 거예요.", "gist": "결론이자 빈칸 문장이에요. AI 덕분에 인간이 무엇인지 정의하게 돼요."}]}, {"no": "09", "typ": "요약문 완성", "src": "2014학년도 6월 B형 40번", "evn": [2, 5, 6, 7], "ev_en": "What makes a story a myth is the fact that it is received by a given society and that a given society participates in its transmission. / It is far more important to realize that the intentions of a given society in transmitting a narrative may have nothing to do with the purposes of its author. / Thus we can never identify any individual creator of a myth. / So long as myth is a collective narrative by definition, the only relevant consideration are the mentality and purposes of the society for which the myth is a myth.", "ev_ko": [[2, "이야기를 신화로 만드는 것은 그것이 특정한 사회에서 받아들여지고 특정한 사회가 그것을 전파하는 일에 참여한다는 사실이다."], [5, "이야기를 전파하는 데 있어서 특정한 사회의 의도는 그것의 창조자(지어낸 사람)의 목적과 무관할 수 있다는 것을 깨닫는 것이 훨씬 더 중요하다."], [6, "그러므로 우리는 절대 어떠한 한 명의 신화 창시자도 확인할 수 없다(신화를 최초로 만들어 낸 자를 절대 확인할 수 없다)."], [7, "신화가 (그) 정의상으로는 집단적인 이야기인 한, 관련된 유일한 고려 사항은 그 신화가 하나의 신화가 되게 하는 사회의 사고방식과 목적이다."]], "why": ["(6)에서 신화의 개인 창작자는 결코 확인할 수 없다고 합니다", "(7)에서 신화는 정의상 <b>집단적인 이야기(collective narrative)<\/b>라고 합니다", "그래서 (A)에는 <b>collective<\/b>(집단적인)가 들어갑니다", "(2)에서 이야기는 사회에 받아들여지고 사회가 그 <b>전파(transmission)<\/b>에 참여할 때 신화가 된다고 합니다", "(5)에서도 이야기를 <b>전파하는(transmitting)<\/b> 사회의 의도를 말합니다", "그래서 (B)에는 <b>transmits<\/b>(전파하다)가 들어갑니다."], "ch": [{"n": "①", "t": "collective …… transmits", "g": "집단적인 …… 전파하다", "ok": true, "e": ["(A)는 (7)의 collective narrative(집단적인 이야기)와 맞습니다", "(B)는 (2)의 transmission(전파), (5)의 transmitting(전파하는)과 맞습니다."]}, {"n": "②", "t": "creative …… distributes", "g": "창조적인 …… 분배하다", "ok": false, "e": ["신화가 창조적인 특성을 가진다는 내용은 없습니다", "오히려 (6)에서 신화의 개인 창작자는 확인할 수 없다고 합니다", "또 글에서 사회가 하는 일은 이야기를 분배하는 것이 아니라 전파하는 것입니다(2번)."]}, {"n": "③", "t": "mental …… modernizes", "g": "정신적인 …… 현대화하다", "ok": false, "e": ["mental(정신적인)은 (7)의 mentality(사고방식)와 비슷해 보이지만, mentality는 사회의 사고방식이지 신화의 특성이 아닙니다", "이야기를 현대화한다는 내용도 없습니다."]}, {"n": "④", "t": "primitive …… circulates", "g": "원시적인 …… 순환시키다", "ok": false, "e": ["신화가 원시적이라는 내용은 글에 없습니다", "그래서 (A)부터 맞지 않습니다."]}, {"n": "⑤", "t": "social …… evaluates", "g": "사회적인 …… 평가하다", "ok": false, "e": ["사회가 이야기를 평가한다는 내용은 글에 없습니다", "사회가 하는 일은 이야기를 받아들이고 전파하는 것입니다(2번)", "그래서 (B)가 맞지 않습니다."]}], "tr": ["이야기는 그것이 처음으로 전해질 때에는 신화가 아니라, 단지 이야기 혹은 설명일 뿐이다.", "이야기를 신화로 만드는 것은 그것이 특정한 사회에서 받아들여지고 특정한 사회가 그것을 전파하는 일에 참여한다는 사실이다.", "분명히, 어떤 이야기가 정확히 언제 하나의 신화가 되는지 알아내기는 어렵지만, 처음에 전해질 때에 이야기는 신화가 아니라는 것은 분명하다.", "최초의 이야기 서술자와 마지막 이야기 서술자의 의도가 똑같을 수 있으나, 그렇더라도 이것이 신화를 만들어 낸 자에게 어떤 특별한 지위를 부여하는 것은 아니다.", "이야기를 전파하는 데 있어서 특정한 사회의 의도는 그것의 창조자(지어낸 사람)의 목적과 무관할 수 있다는 것을 깨닫는 것이 훨씬 더 중요하다.", "그러므로 우리는 절대 어떠한 한 명의 신화 창시자도 확인할 수 없다(신화를 최초로 만들어 낸 자를 절대 확인할 수 없다).", "신화가 (그) 정의상으로는 집단적인 이야기인 한, 관련된 유일한 고려 사항은 그 신화가 하나의 신화가 되게 하는 사회의 사고방식과 목적이다.", "[요약문] 신화의 (A)집단적인 특성을 고려해 볼 때, 그것(이야기)의 창조자(지어낸 사람)의 의도와 상관없이, 하나의 이야기는 특정한 사회가 그것을 받아들이고 (B)전파할 때에만 신화가 된다."], "ps": [{"n": 1, "ch": [{"e": "A <b>narrative<\/b> is not a myth", "k": "이야기는 신화가 아니다"}, {"e": "the first time it is told,", "k": "그것<span class=\"r\">(= 이야기)<\/span>이 처음으로 전해질 때에는,"}, {"e": "but only a story or an <b>account<\/b>.", "k": "단지 이야기 혹은 설명일 뿐이다."}], "easy": "이야기는 처음 나왔을 때는 신화가 아니고, 그냥 이야기나 설명일 뿐이에요.", "gist": "글의 출발점이에요. 처음 전해진 이야기는 아직 신화가 아니에요."}, {"n": 2, "ch": [{"e": "What makes a story a myth", "k": "이야기를 신화로 만드는 것은"}, {"e": "is the fact that it is <b>received<\/b> by a given society", "k": "그것<span class=\"r\">(= 이야기)<\/span>이 특정한 사회에서 받아들여진다는 사실이다"}, {"e": "and that a given society participates in its <b>transmission<\/b>.", "k": "그리고 특정한 사회가 그것<span class=\"r\">(= 이야기)<\/span>의 전파에 참여한다는 (사실이다)."}], "link": "이야기를 신화로 만드는 것은 그것이 특정한 사회에서 받아들여지고 특정한 사회가 그것의 전파에 참여한다는 사실이다.", "easy": "어떤 사회가 그 이야기를 받아들이고 함께 퍼뜨려야 비로소 신화가 된다는 말이에요.", "gist": "신화가 되는 조건이에요. 사회가 받아들이고 전파해야 해요. 요약문 (B)의 단서예요."}, {"n": 3, "ch": [{"e": "<b>Obviously<\/b>, it is difficult to <b>determine<\/b>", "k": "분명히, 알아내기는 어렵다"}, {"e": "just when any story becomes a myth,", "k": "정확히 언제 어떤 이야기가 신화가 되는지,"}, {"e": "but it is clear that a narrative is not a myth", "k": "하지만 이야기가 신화가 아니라는 것은 분명하다"}, {"e": "when it is first told.", "k": "그것<span class=\"r\">(= 이야기)<\/span>이 처음 전해질 때."}], "link": "분명히, 어떤 이야기가 정확히 언제 신화가 되는지 알아내기는 어렵지만, 이야기가 처음 전해질 때 신화가 아니라는 것은 분명하다.", "easy": "이야기가 정확히 언제 신화가 되는지는 알기 어렵지만, 처음 전해질 때는 신화가 아닌 게 분명하다는 거예요.", "gist": "첫 문장의 내용을 다시 확인해요."}, {"n": 4, "ch": [{"e": "The <b>intentions<\/b> of the first <b>narrator<\/b> and the last narrator", "k": "최초의 서술자와 마지막 서술자의 의도는"}, {"e": "can be the same,", "k": "똑같을 수 있다,"}, {"e": "but this still does not give any special <b>status<\/b>", "k": "하지만 이것<span class=\"r\">(= 두 서술자의 의도가 같을 수 있다는 것)<\/span>이 그래도 어떤 특별한 지위를 주지는 않는다"}, {"e": "to the creator of a myth.", "k": "신화의 창작자에게."}], "link": "최초의 서술자와 마지막 서술자의 의도가 똑같을 수는 있지만, 그렇더라도 이것이 신화의 창작자에게 어떤 특별한 지위를 주지는 않는다.", "easy": "처음 이야기한 사람과 마지막 사람의 의도가 같을 수는 있어도, 그렇다고 신화를 처음 만든 사람이 특별해지는 건 아니라는 말이에요.", "gist": "신화에서는 처음 만든 사람이 특별하지 않다고 말하기 시작해요."}, {"n": 5, "ch": [{"e": "It is far more important to realize", "k": "깨닫는 것이 훨씬 더 중요하다"}, {"e": "that the intentions of a given society", "k": "특정한 사회의 의도가"}, {"e": "in <b>transmitting<\/b> a narrative", "k": "이야기를 전파하는 데 있어서"}, {"e": "may <b>have nothing to do with<\/b> the purposes of its author.", "k": "그것<span class=\"r\">(= 이야기)<\/span>의 작자의 목적과 무관할 수 있다는 것을."}], "link": "이야기를 전파하는 데 있어서 특정한 사회의 의도가 그 작자의 목적과 무관할 수 있다는 것을 깨닫는 것이 훨씬 더 중요하다.", "easy": "사회가 이야기를 퍼뜨리는 의도는 처음 지은 사람의 목적과 전혀 상관없을 수 있다는 걸 아는 게 훨씬 중요하다는 거예요.", "gist": "중요한 건 지은이가 아니라 이야기를 전파하는 사회예요. 요약문 (B)의 단서예요."}, {"n": 6, "ch": [{"e": "<b>Thus<\/b> we can never <b>identify<\/b>", "k": "그러므로 우리는 절대 확인할 수 없다"}, {"e": "any <b>individual<\/b> creator of a myth.", "k": "어떠한 한 명의 신화 창작자도."}], "easy": "그래서 신화를 만든 사람 한 명을 콕 집어낼 수는 절대 없다는 말이에요.", "gist": "신화는 한 개인의 작품이 아니에요. 요약문 (A)의 단서예요."}, {"n": 7, "ch": [{"e": "<b>So long as<\/b> myth is a <b>collective<\/b> narrative", "k": "신화가 집단적인 이야기인 한"}, {"e": "<b>by definition<\/b>,", "k": "정의상,"}, {"e": "the only relevant consideration are", "k": "관련된 유일한 고려 사항은 ~이다"}, {"e": "the <b>mentality<\/b> and purposes of the society", "k": "그 사회의 사고방식과 목적"}, {"e": "for which the myth is a myth.", "k": "그 신화가 하나의 신화가 되게 하는."}], "link": "신화가 정의상 집단적인 이야기인 한, 관련된 유일한 고려 사항은 그 신화가 하나의 신화가 되게 하는 사회의 사고방식과 목적이다.", "easy": "신화는 원래 집단의 이야기라서, 따져 볼 것은 그 이야기를 신화로 만든 사회의 생각과 목적뿐이라는 말이에요.", "gist": "결론이에요. 신화는 집단의 이야기예요."}, {"n": 8, "ch": [{"e": "Given the <b>collective<\/b> nature of a myth,", "k": "신화의 집단적인 특성을 고려해 볼 때,<span class=\"r\">※ 문제지엔 collective 자리가 빈칸 (A)로 되어 있음<\/span>"}, {"e": "a narrative becomes a myth", "k": "하나의 이야기는 신화가 된다"}, {"e": "only when a given society accepts and <b>transmits<\/b> it,", "k": "특정한 사회가 그것<span class=\"r\">(= 이야기)<\/span>을 받아들이고 전파할 때에만,<span class=\"r\">※ 문제지엔 transmits 자리가 빈칸 (B)로 되어 있음<\/span>"}, {"e": "<b>regardless of<\/b> the intentions of its author.", "k": "그것<span class=\"r\">(= 이야기)<\/span>의 작자의 의도와 상관없이."}], "link": "신화의 집단적인 특성을 고려해 볼 때, 하나의 이야기는 그 작자의 의도와 상관없이 특정한 사회가 그것을 받아들이고 전파할 때에만 신화가 된다.", "easy": "신화는 집단의 이야기라서, 지은 사람의 뜻과 상관없이 사회가 받아들이고 퍼뜨려야 신화가 된다는 거예요.", "gist": "요약문이에요. (A)는 collective(집단적인), (B)는 transmits(전파하다)예요."}]}, {"no": "10", "typ": "문장 삽입", "src": "2015학년도 수능 38번", "evn": [5, 1, 6], "ev_en": "These nymphs should have taken a further two years to emerge as adults, but in fact they took just one year. / The researchers had made this happen by lengthening the period of daylight to which the peach trees on whose roots the insects fed were exposed. / By doing this, the trees were “tricked” into flowering twice during the year rather than the usual once.", "ev_ko": [[5, "이 애벌레들이 성체로 나타나려면 2년이 더 걸렸어야 했지만, 사실은 불과 1년만 걸렸다."], [1, "연구자들은 그것의 뿌리를 곤충들이 먹고 사는 복숭아 나무가 노출되는 햇빛의 기간(햇빛에 노출되는 기간)을 늘림으로써 이것이 발생하게 했다."], [6, "이 일을 함으로써, 나무들은 ‘속아서’ 그 해에는 평소대로 한 번이 아니라 두 번 꽃을 피웠다."]], "why": ["주어진 문장 (1)의 <b>this<\/b>는 애벌레가 2년이 아니라 1년 만에 성체로 나타난 일을 가리킵니다", "이 결과는 (5)에 나옵니다", "그래서 (1)은 (5) 바로 뒤에 와야 합니다", "또 (6)의 <b>By doing this<\/b>(이것을 함으로써)는 (1)의 햇빛 기간을 늘린 일을 받습니다", "그래서 주어진 문장은 (5)와 (6) 사이인 ③에 들어갑니다."], "ch": [{"n": "①", "t": "① 자리", "g": "", "ok": false, "e": ["①은 (3)과 (4) 사이입니다", "아직 실험도, 그 결과도 나오지 않았습니다", "그래서 (1)의 this가 가리킬 것이 없습니다."]}, {"n": "②", "t": "② 자리", "g": "", "ok": false, "e": ["②는 (4)와 (5) 사이입니다", "애벌레를 실험 구역으로 옮겼다는 말만 있고 결과는 아직 없습니다", "1년 만에 성체가 된 결과는 (5)에 나옵니다."]}, {"n": "③", "t": "③ 자리", "g": "", "ok": true, "e": ["③은 (5)와 (6) 사이입니다", "(1)의 this는 (5)의 결과(1년 만에 성체가 됨)를 가리킵니다", "이어지는 (6)의 By doing this는 (1)의 햇빛 기간을 늘린 일을 받습니다."]}, {"n": "④", "t": "④ 자리", "g": "", "ok": false, "e": ["④는 (6)과 (7) 사이입니다", "여기에 넣으면 (6)의 By doing this가 가리킬 행동이 앞에 없습니다."]}, {"n": "⑤", "t": "⑤ 자리", "g": "", "ok": false, "e": ["⑤는 (7)과 (8) 사이입니다", "(8)의 the peaks(그 최고점들)는 (7)의 a peak를 받으므로 그 사이에 다른 문장이 끼면 연결이 끊깁니다", "또 (6)의 By doing this가 가리킬 행동도 앞에 없게 됩니다."]}], "tr": ["연구자들은 그것의 뿌리를 곤충들이 먹고 사는 복숭아 나무가 노출되는 햇빛의 기간(햇빛에 노출되는 기간)을 늘림으로써 이것이 발생하게 했다.", "정확히 어떻게 매미가 시간을 추적하는지는 항상 연구자들의 호기심을 자아내었으며, 그 곤충(매미)이 체내 시계에 의존하는 것이 틀림없다고 항상 여겨져 왔다.", "하지만, 최근에, California(캘리포니아)에서 17년 매미를 연구하는 한 과학자 집단은 애벌레들이 외부의 신호를 사용하며 그것들이 수를 셀 수 있다는 것을 시사했다.", "실험을 위해 그들은 15년 묵은 애벌레를 잡아서 실험 구역으로 옮겼다.", "이 애벌레들이 성체로 나타나려면 2년이 더 걸렸어야 했지만, 사실은 불과 1년만 걸렸다.", "이 일을 함으로써, 나무들은 ‘속아서’ 그 해에는 평소대로 한 번이 아니라 두 번 꽃을 피웠다.", "나무에 꽃이 피는 것은 그 곤충들이 먹고 사는 수액의 아미노산 농도의 최고점과 일치한다.", "그러므로 매미는 그 최고점의 수를 셈으로써 시간을 추적하는 것처럼 보인다."], "ps": [{"n": 1, "ch": [{"e": "The researchers had made this happen", "k": "연구자들은 이것<span class=\"r\">(= 애벌레가 1년 만에 성체가 된 일)<\/span>이 일어나게 했다"}, {"e": "by <b>lengthening<\/b> the period of daylight", "k": "햇빛의 기간을 늘림으로써"}, {"e": "to which the peach trees", "k": "복숭아나무들이 (그 햇빛에)"}, {"e": "on whose roots the insects fed", "k": "그것<span class=\"r\">(= 복숭아나무)<\/span>의 뿌리를 그 곤충들이 먹고 사는"}, {"e": "were <b>exposed<\/b>.", "k": "노출되는."}], "link": "연구자들은 곤충들이 뿌리를 먹고 사는 복숭아나무가 노출되는 햇빛의 기간을 늘림으로써 이 일이 일어나게 했다.", "easy": "연구자들이 애벌레가 뿌리를 먹고 사는 복숭아나무에 햇빛이 드는 기간을 늘려서 이 일이 일어나게 했다는 거예요.", "gist": "주어진 문장이에요. this가 가리킬 결과가 바로 앞에 있어야 하고, 이 문장의 행동(햇빛 기간 늘리기)을 받는 문장이 바로 뒤에 와야 해요."}, {"n": 2, "ch": [{"e": "Exactly how <b>cicadas<\/b> <b>keep track of<\/b> time", "k": "정확히 어떻게 매미가 시간을 추적하는지는"}, {"e": "has always <b>intrigued<\/b> researchers,", "k": "항상 연구자들의 호기심을 자아내 왔다,"}, {"e": "and it has always been <b>assumed<\/b>", "k": "그리고 항상 여겨져 왔다"}, {"e": "that the insects must <b>rely on<\/b> an internal clock.", "k": "그 곤충들<span class=\"r\">(= 매미)<\/span>이 체내 시계에 의존하는 것이 틀림없다고."}], "link": "정확히 어떻게 매미가 시간을 추적하는지는 항상 연구자들의 호기심을 자아내 왔고, 그 곤충이 체내 시계에 의존하는 것이 틀림없다고 항상 여겨져 왔다.", "easy": "매미가 시간을 어떻게 아는지 과학자들은 늘 궁금해했고, 몸속 시계를 쓰는 게 틀림없다고 생각해 왔다는 거예요.", "gist": "기존의 생각이에요. 매미는 몸속 시계로 시간을 잰다고 여겨졌어요."}, {"n": 3, "ch": [{"e": "Recently, <b>however<\/b>,", "k": "하지만, 최근에,"}, {"e": "one group of scientists", "k": "한 과학자 집단이"}, {"e": "working with the 17-year cicada in California", "k": "캘리포니아에서 17년 매미를 연구하는"}, {"e": "have suggested that the <b>nymphs<\/b> use an <b>external cue<\/b>", "k": "애벌레들이 외부의 신호를 사용한다고 시사했다"}, {"e": "and that they can count.", "k": "그리고 그것들<span class=\"r\">(= 애벌레들)<\/span>이 수를 셀 수 있다고."}], "link": "하지만 최근에, 캘리포니아에서 17년 매미를 연구하는 한 과학자 집단이 애벌레들이 외부의 신호를 사용하며 그것들이 수를 셀 수 있다고 시사했다.", "easy": "그런데 최근 한 연구팀은 애벌레가 바깥의 신호를 이용하고, 수도 셀 수 있다고 보았다는 거예요.", "gist": "새로운 주장이에요. 몸속 시계가 아니라 바깥 신호를 센다는 거예요."}, {"n": 4, "ch": [{"e": "For their experiments", "k": "그들<span class=\"r\">(= 과학자 집단)<\/span>의 실험을 위해"}, {"e": "they took 15-year-old nymphs", "k": "그들은 15년 된 애벌레들을 잡아"}, {"e": "and moved them to an experimental <b>enclosure<\/b>.", "k": "그것들<span class=\"r\">(= 15년 된 애벌레들)<\/span>을 실험 구역으로 옮겼다."}], "easy": "실험을 위해 15년 된 애벌레를 잡아서 실험용 구역으로 옮겼다는 거예요.", "gist": "실험 방법이 시작돼요."}, {"n": 5, "ch": [{"e": "These nymphs should have taken a further two years", "k": "이 애벌레들은 2년이 더 걸렸어야 했다"}, {"e": "to <b>emerge<\/b> as adults,", "k": "성체로 나타나는 데,"}, {"e": "but <b>in fact<\/b> they took just one year.", "k": "하지만 사실 그것들<span class=\"r\">(= 이 애벌레들)<\/span>은 불과 1년이 걸렸다."}], "link": "이 애벌레들은 성체로 나타나는 데 2년이 더 걸렸어야 했지만, 사실은 불과 1년이 걸렸다.", "easy": "원래대로라면 2년이 더 있어야 어른 매미가 되는데, 실제로는 1년 만에 어른이 되었다는 거예요.", "gist": "실험 결과예요. 주어진 문장의 this가 바로 이 결과를 가리켜요."}, {"n": 6, "ch": [{"e": "<b>By doing this<\/b>,", "k": "이것<span class=\"r\">(= 햇빛의 기간을 늘린 것)<\/span>을 함으로써,"}, {"e": "the trees were “tricked”", "k": "나무들은 ‘속아서’"}, {"e": "into flowering twice during the year", "k": "그해에 두 번 꽃을 피웠다"}, {"e": "rather than the usual once.", "k": "평소의 한 번이 아니라."}], "easy": "햇빛 기간을 늘려 주니 나무가 속아서, 평소처럼 1년에 한 번이 아니라 두 번 꽃을 피웠다는 거예요.", "gist": "By doing this가 주어진 문장의 '햇빛 기간을 늘린 일'을 받아요. 그래서 주어진 문장은 이 문장 바로 앞에 와요."}, {"n": 7, "ch": [{"e": "Flowering in trees", "k": "나무에 꽃이 피는 것은"}, {"e": "<b>coincides with<\/b> a peak", "k": "최고점과 일치한다"}, {"e": "in amino acid concentrations", "k": "아미노산 농도의"}, {"e": "in the <b>sap<\/b> that the insects feed on.", "k": "그 곤충들이 먹고 사는 수액 속."}], "link": "나무에 꽃이 피는 것은 그 곤충들이 먹고 사는 수액 속 아미노산 농도의 최고점과 일치한다.", "easy": "나무에 꽃이 필 때, 매미가 먹는 수액 속 아미노산 농도도 가장 높아진다는 거예요.", "gist": "꽃이 피는 때와 수액의 아미노산 최고점이 겹친다고 설명해요."}, {"n": 8, "ch": [{"e": "<b>So<\/b> it seems", "k": "그러므로 ~처럼 보인다"}, {"e": "that the cicadas keep track of time", "k": "매미는 시간을 추적하는 것"}, {"e": "by counting the peaks.", "k": "그 최고점들의 수를 셈으로써."}], "link": "그러므로 매미는 그 최고점들의 수를 셈으로써 시간을 추적하는 것처럼 보인다.", "easy": "그래서 매미는 아미노산이 가장 많아지는 때를 세어서 시간을 아는 것 같다는 말이에요.", "gist": "결론이에요. 매미는 최고점의 횟수를 세어 시간을 재요."}]}, {"no": "11", "typ": "장문 제목", "src": "2023년 7월 41번", "evn": [4, 8], "ev_en": "Before you think that having such a fantastic memory would be great, it came with a (b) cost: Solomon wasn’t able to form abstractions because he remembered every detail as distinct. / Because your brain can (d) generalize, you see all of these different manifestations of the face as belonging to the same person.", "ev_ko": [[4, "당신이 그런 환상적인 기억력을 가지는 것이 좋겠다고 생각하기 전에, 이것은 (b)대가를 수반했다. Solomon은 그가 모든 세부 사항을 별개의 것으로 기억했기 때문에 추상화를 할 수 없었다."], [8, "당신의 뇌는 (d)일반화할 수 있기 때문에 당신은 얼굴의 이 모든 다른 표현들을 같은 사람에게 속한 것으로 본다."]], "why": ["(4)에서 Solomon은 모든 세부 사항을 별개의 것으로 기억해서 <b>추상화<\/b>를 할 수 없었다고 합니다", "완벽한 기억력에 <b>대가(cost)<\/b>가 따른 것입니다", "(8)에서 우리는 뇌가 <b>일반화<\/b>를 할 수 있어서 표정이 달라도 같은 사람의 얼굴로 봅니다", "Solomon은 이것을 하지 못해 사람을 알아보기 어려웠습니다", "즉 완벽한 기억력이 오히려 인지의 허점을 만들었습니다", "그래서 제목은 ④ <b>The Flaw in Cognition Caused by Flawless Memory<\/b>(완벽한 기억에 의해 초래된 인지의 허점)가 알맞습니다."], "ch": [{"n": "①", "t": "Face Recognition Technologies: Blessing or Not?", "g": "얼굴 인식 기술: 축복인가 아닌가?", "ok": false, "e": ["얼굴을 알아보는 일은 Solomon의 어려움을 보여 주는 예로 나올 뿐입니다", "얼굴 인식 기술에 관한 이야기는 없습니다."]}, {"n": "②", "t": "The Faster You Memorize, the Faster You Forget", "g": "더 빨리 기억할수록, 더 빨리 잊는다", "ok": false, "e": ["Solomon의 문제는 빨리 잊는 것이 아니라 모든 것을 다 기억하는 것입니다", "기억하는 속도와 잊는 속도를 견주는 내용은 없습니다."]}, {"n": "③", "t": "Generalization Can Be Both a Shortcut and a Trap!", "g": "일반화는 지름길과 함정 모두가 될 수 있다!", "ok": false, "e": ["글에서 일반화는 중요하지 않은 세부 사항에 집중하지 않게 해 주는 능력입니다(1번)", "일반화가 함정이 된다는 내용은 없습니다", "문제를 만든 것은 일반화가 아니라 완벽한 기억입니다."]}, {"n": "④", "t": "The Flaw in Cognition Caused by Flawless Memory", "g": "완벽한 기억에 의해 초래된 인지의 허점", "ok": true, "e": ["(4)에서 완벽한 기억력에는 추상화를 하지 못하는 대가가 따랐습니다", "(8)~(10)에서 우리는 일반화 덕분에 같은 사람을 알아보지만, Solomon은 그것을 하지 못해 친구와 동료도 알아보기 어려웠습니다", "완벽한 기억이 인지의 허점을 만든 것입니다."]}, {"n": "⑤", "t": "Why It Gets Difficult to Remember Details As You Age", "g": "나이가 들수록 세부 사항을 기억하는 것이 더 어려워지는 이유", "ok": false, "e": ["나이가 들면서 세부 사항을 기억하기 어려워진다는 내용은 글에 없습니다."]}], "tr": ["일반화는 인지 경제성을 촉진하여 (그 결과) 우리는 중요하지 않은 세부 사항에 집중하지 않는다.", "위대한 러시아 신경 심리학자 Alexander Luria는 우리가 보통 듣는 것의 (a)반대인 기억 장애를 가진 Solomon Shereshevsky라는 환자를 연구했는데, Solomon은 기억 상실증, 기억을 잃는 것을 가지지 않았다. 그는 Luria가 기억 과잉증이라고 부르는 것을 가졌다(우리는 그의 엄청난 힘이 우월한 기억력이라고 말할 수 있다).", "그의 과한 기억력은 그가 단 한 번 들었던 연설을 한마디 한마디, 혹은 복잡한 수학 공식, 긴 숫자 배열, 그리고 그가 말할 수 없는 외국어로 된 시를 반복하는 것과 같이 놀라운 재주를 수행할 수 있게 했다.", "당신이 그런 환상적인 기억력을 가지는 것이 좋겠다고 생각하기 전에, 이것은 (b)대가를 수반했다. Solomon은 그가 모든 세부 사항을 별개의 것으로 기억했기 때문에 추상화를 할 수 없었다.", "그는 특히 사람들을 알아보는 데 어려움이 있었다.", "신경인지적 관점에서 당신이 어떤 얼굴을 볼 때마다 그것이 저번과 적어도 조금 다르게 보일 가능성은 (c)없다(→ 있다). 당신은 그것을 이전과 다른 각도와 거리에서 보고 다른 표정을 마주하고 있을지도 모른다.", "당신이 어떤 사람과 상호 작용을 하는 동안 그들의 얼굴에는 일련의 표정이 지나간다.", "당신의 뇌는 (d)일반화할 수 있기 때문에 당신은 얼굴의 이 모든 다른 표현들을 같은 사람에게 속한 것으로 본다.", "Solomon은 그것을 할 수 없었다.", "그가 Luria에게 설명했듯이 ‘모든 사람은 너무 많은 얼굴을 가지기’ 때문에 그의 친구와 동료를 (e)알아보는 것은 거의 불가능했다."], "ps": [{"n": 1, "ch": [{"e": "<b>Generalization<\/b> promotes <b>cognitive economy<\/b>,", "k": "일반화는 인지 경제성을 촉진한다,"}, {"e": "so that we don’t focus on <b>particulars<\/b>", "k": "그래서 우리는 세부 사항에 집중하지 않는다"}, {"e": "that don’t matter.", "k": "중요하지 않은."}], "link": "일반화는 인지 경제성을 촉진하여, 그 결과 우리는 중요하지 않은 세부 사항에 집중하지 않는다.", "easy": "일반화를 하면 머리를 아껴 쓸 수 있어서, 중요하지 않은 작은 부분에 신경 쓰지 않게 된다는 거예요.", "gist": "글의 출발점이에요. 일반화는 쓸모 있는 능력이에요."}, {"n": 2, "ch": [{"e": "The great Russian neuropsychologist Alexander Luria", "k": "위대한 러시아 신경 심리학자 Alexander Luria는"}, {"e": "studied a patient, Solomon Shereshevsky,", "k": "Solomon Shereshevsky라는 환자를 연구했다,"}, {"e": "with a memory <b>impairment<\/b>", "k": "기억 장애를 가진"}, {"e": "that was the (a) <b>opposite<\/b> of what we usually hear about", "k": "우리가 보통 듣는 것의 (a) 반대인"}, {"e": "— Solomon didn’t have <b>amnesia<\/b>, the loss of memories;", "k": "— Solomon은 기억 상실증, 즉 기억을 잃는 것을 가지지 않았다;"}, {"e": "he had what Luria called hypermnesia", "k": "그<span class=\"r\">(= Solomon)<\/span>는 Luria가 기억 과잉증이라고 부른 것을 가졌다"}, {"e": "(we might say that his superpower was superior memory).", "k": "(우리는 그의 초능력이 우월한 기억력이었다고 말할 수 있을 것이다)."}], "link": "위대한 러시아 신경 심리학자 Alexander Luria는 우리가 보통 듣는 것의 반대인 기억 장애를 가진 Solomon Shereshevsky라는 환자를 연구했는데, Solomon은 기억을 잃는 기억 상실증이 아니라 Luria가 기억 과잉증이라고 부른 것을 가지고 있었다(우리는 그의 초능력이 우월한 기억력이었다고 말할 수 있을 것이다).", "easy": "Luria가 연구한 Solomon은 기억을 잃는 병이 아니라, 반대로 무엇이든 너무 잘 기억하는 증상이 있었다는 거예요.", "gist": "예시 인물이 나와요. 기억을 잃지 않고 너무 잘 기억하는 사람이에요."}, {"n": 3, "ch": [{"e": "His <b>supercharged<\/b> memory allowed him", "k": "그의 과한 기억력은 그가 ~할 수 있게 했다"}, {"e": "to perform amazing <b>feats<\/b>,", "k": "놀라운 재주를 수행하는 것을,"}, {"e": "such as repeating speeches <b>word for word<\/b>", "k": "연설을 한마디 한마디 그대로 반복하는 것과 같은"}, {"e": "that he had heard only once,", "k": "그가 단 한 번 들었던,"}, {"e": "or complex mathematical formulas, long sequences of numbers,", "k": "혹은 복잡한 수학 공식, 긴 숫자 배열,"}, {"e": "and poems in foreign languages", "k": "그리고 외국어로 된 시를 (반복하는 것과 같은)"}, {"e": "he didn’t even speak.", "k": "그가 말할 줄도 몰랐던."}], "link": "그의 과한 기억력은 그가 단 한 번 들었던 연설을 한마디 한마디 그대로, 혹은 복잡한 수학 공식, 긴 숫자 배열, 그리고 말할 줄도 모르는 외국어로 된 시를 반복하는 것과 같은 놀라운 재주를 수행할 수 있게 했다.", "easy": "한 번 들은 연설, 복잡한 공식, 긴 숫자, 할 줄도 모르는 외국어로 된 시까지 그대로 다시 말할 수 있었다는 거예요.", "gist": "Solomon의 엄청난 기억력을 보여 주는 예예요."}, {"n": 4, "ch": [{"e": "Before you think", "k": "당신이 생각하기 전에"}, {"e": "that having such a fantastic memory would be great,", "k": "그런 환상적인 기억력을 가지는 것이 좋을 거라고,"}, {"e": "it came with a (b) <b>cost<\/b>:", "k": "그것<span class=\"r\">(= 그런 환상적인 기억력)<\/span>은 (b) 대가를 수반했다:"}, {"e": "Solomon wasn’t able to form <b>abstractions<\/b>", "k": "Solomon은 추상화를 할 수 없었다"}, {"e": "because he remembered every detail as <b>distinct<\/b>.", "k": "그가 모든 세부 사항을 별개의 것으로 기억했기 때문에."}], "link": "당신이 그런 환상적인 기억력을 가지는 것이 좋겠다고 생각하기 전에 (알아 둘 것은), 그것은 대가를 수반했다는 것이다. Solomon은 모든 세부 사항을 별개의 것으로 기억했기 때문에 추상화를 할 수 없었다.", "easy": "그런 기억력이 부럽게 느껴질 수 있지만 대가가 있었어요. 모든 것을 하나하나 따로 기억해서, 추상화를 하지 못했다는 거예요.", "gist": "글의 방향이 바뀌는 문장이에요. 완벽한 기억에는 대가가 있었어요."}, {"n": 5, "ch": [{"e": "He had <b>particular<\/b> trouble", "k": "그<span class=\"r\">(= Solomon)<\/span>는 특히 어려움이 있었다"}, {"e": "<b>identifying<\/b> people.", "k": "사람들을 알아보는 데."}], "easy": "Solomon은 특히 사람을 알아보는 게 힘들었다는 말이에요.", "gist": "대가의 구체적인 예가 나와요. 사람을 잘 알아보지 못했어요."}, {"n": 6, "ch": [{"e": "From a <b>neurocognitive<\/b> <b>standpoint<\/b>,", "k": "신경인지적 관점에서,"}, {"e": "every time you see a face,", "k": "당신이 어떤 얼굴을 볼 때마다,"}, {"e": "it is (c) <b>likely<\/b>", "k": "~일 가능성이 (c) 있다<span class=\"r\">※ 문제지엔 unlikely로 되어 있음<\/span>"}, {"e": "that it looks at least slightly different from the last time", "k": "그것<span class=\"r\">(= 그 얼굴)<\/span>이 저번과 적어도 조금은 다르게 보일"}, {"e": "— you’re viewing it at a different angle and distance than before,", "k": "— 당신은 그것<span class=\"r\">(= 그 얼굴)<\/span>을 이전과 다른 각도와 거리에서 보고 있다,"}, {"e": "and you might be <b>encountering<\/b> a different expression.", "k": "그리고 당신은 다른 표정을 마주하고 있을지도 모른다."}], "link": "신경인지적 관점에서, 당신이 어떤 얼굴을 볼 때마다 그것이 저번과 적어도 조금은 다르게 보일 가능성이 있다. 당신은 그것을 이전과 다른 각도와 거리에서 보고 있고, 다른 표정을 마주하고 있을지도 모른다.", "easy": "같은 사람 얼굴이라도 볼 때마다 각도, 거리, 표정이 달라서 조금씩 다르게 보일 수 있다는 거예요.", "gist": "얼굴은 볼 때마다 조금씩 달라 보여요. 그래서 (c)는 unlikely가 아니라 likely여야 해요."}, {"n": 7, "ch": [{"e": "While you’re interacting with a person,", "k": "당신이 어떤 사람과 상호 작용을 하는 동안,"}, {"e": "their face goes through a <b>parade of<\/b> expressions.", "k": "그들<span class=\"r\">(= 그 사람)<\/span>의 얼굴에는 일련의 표정이 지나간다."}], "easy": "누군가와 함께 있는 동안에도 그 사람의 얼굴 표정은 계속 바뀐다는 거예요.", "gist": "한 사람의 얼굴도 계속 달라진다는 예를 더해요."}, {"n": 8, "ch": [{"e": "Because your brain can (d) <b>generalize<\/b>,", "k": "당신의 뇌는 (d) 일반화할 수 있기 때문에,"}, {"e": "you see all of these different <b>manifestations<\/b> of the face", "k": "당신은 얼굴의 이 모든 다른 표현들을 본다"}, {"e": "as belonging to the same person.", "k": "같은 사람에게 속한 것으로."}], "link": "당신의 뇌는 일반화할 수 있기 때문에, 당신은 얼굴의 이 모든 다른 표현들을 같은 사람에게 속한 것으로 본다.", "easy": "우리 뇌는 일반화를 할 수 있어서, 얼굴이 조금씩 달라 보여도 같은 사람이라고 알아본다는 거예요.", "gist": "일반화 덕분에 우리는 사람을 알아볼 수 있어요."}, {"n": 9, "ch": [{"e": "Solomon couldn’t do that.", "k": "Solomon은 그것<span class=\"r\">(= 일반화해서 얼굴의 여러 모습을 같은 사람의 것으로 보는 것)<\/span>을 할 수 없었다."}], "easy": "Solomon은 이렇게 일반화를 하지 못했다는 거예요.", "gist": "Solomon의 문제를 다시 짚어요. 일반화를 하지 못했어요."}, {"n": 10, "ch": [{"e": "As he explained to Luria,", "k": "그<span class=\"r\">(= Solomon)<\/span>가 Luria에게 설명했듯이,"}, {"e": "(e) <b>recognizing<\/b> his friends and colleagues", "k": "그의 친구와 동료를 (e) 알아보는 것은"}, {"e": "was nearly impossible", "k": "거의 불가능했다"}, {"e": "because “everyone has so many faces.”", "k": "‘모든 사람은 너무 많은 얼굴을 가지기’ 때문에."}], "link": "그가 Luria에게 설명했듯이, ‘모든 사람은 너무 많은 얼굴을 가지기’ 때문에 그의 친구와 동료를 알아보는 것은 거의 불가능했다.", "easy": "Solomon에게는 모든 사람이 얼굴을 너무 많이 가진 것처럼 보여서, 친구나 동료도 거의 알아볼 수 없었다는 거예요.", "gist": "완벽한 기억이 오히려 사람을 알아보지 못하게 만든다는 결론이에요."}]}, {"no": "12", "typ": "장문 어휘", "src": "2023년 7월 42번", "evn": [6], "ev_en": "From a neurocognitive standpoint, every time you see a face, it is (c) likely that it looks at least slightly different from the last time — you’re viewing it at a different angle and distance than before, and you might be encountering a different expression.", "ev_ko": [[6, "신경인지적 관점에서 당신이 어떤 얼굴을 볼 때마다 그것이 저번과 적어도 조금 다르게 보일 가능성은 (c)없다(→ 있다). 당신은 그것을 이전과 다른 각도와 거리에서 보고 다른 표정을 마주하고 있을지도 모른다."]], "why": ["(6)의 대시(—) 뒤에서, 당신은 얼굴을 전과 다른 각도와 거리에서 보고 있고 다른 표정을 마주하고 있을지도 모른다고 합니다", "그러니 얼굴은 볼 때마다 적어도 조금은 다르게 보일 가능성이 <b>높습니다<\/b>.", "그래서 (c) <b>unlikely<\/b>(가능성이 낮은)는 <b>likely<\/b>(가능성이 높은)로 고쳐야 합니다", "정답은 ③입니다."], "ch": [{"n": "①", "t": "(a) opposite", "g": "정반대(의 것)", "ok": false, "e": ["우리가 보통 듣는 기억 장애는 기억을 잃는 기억 상실증입니다", "Solomon은 오히려 기억 과잉증이었으므로 '정반대(opposite)'가 맞습니다(2번)."]}, {"n": "②", "t": "(b) cost", "g": "대가, 비용", "ok": false, "e": ["콜론(:) 뒤에 Solomon이 추상화를 할 수 없었다는 손해가 나옵니다", "그래서 '대가(cost)'가 맞습니다(4번)."]}, {"n": "③", "t": "(c) unlikely", "g": "가능성이 낮은", "ok": true, "e": ["대시(—) 뒤에 각도, 거리, 표정이 매번 다르다는 이유가 나옵니다", "그래서 얼굴이 다르게 보일 가능성은 '높다(likely)'가 되어야 합니다."]}, {"n": "④", "t": "(d) generalize", "g": "일반화하다", "ok": false, "e": ["다르게 보이는 얼굴의 모든 모습을 같은 사람의 것으로 보는 것이 일반화입니다", "그래서 generalize(일반화하다)가 맞습니다(8번)."]}, {"n": "⑤", "t": "(e) recognizing", "g": "알아보는 것", "ok": false, "e": ["'모든 사람이 너무 많은 얼굴을 가지고 있기' 때문에 친구와 동료를 알아보는 것이 거의 불가능했다는 흐름입니다", "(5)에서도 사람을 알아보는 데 어려움이 있었다고 합니다", "그래서 recognizing(알아보는 것)이 맞습니다."]}], "tr": ["일반화는 인지 경제성을 촉진하여 (그 결과) 우리는 중요하지 않은 세부 사항에 집중하지 않는다.", "위대한 러시아 신경 심리학자 Alexander Luria는 우리가 보통 듣는 것의 (a)반대인 기억 장애를 가진 Solomon Shereshevsky라는 환자를 연구했는데, Solomon은 기억 상실증, 기억을 잃는 것을 가지지 않았다. 그는 Luria가 기억 과잉증이라고 부르는 것을 가졌다(우리는 그의 엄청난 힘이 우월한 기억력이라고 말할 수 있다).", "그의 과한 기억력은 그가 단 한 번 들었던 연설을 한마디 한마디, 혹은 복잡한 수학 공식, 긴 숫자 배열, 그리고 그가 말할 수 없는 외국어로 된 시를 반복하는 것과 같이 놀라운 재주를 수행할 수 있게 했다.", "당신이 그런 환상적인 기억력을 가지는 것이 좋겠다고 생각하기 전에, 이것은 (b)대가를 수반했다. Solomon은 그가 모든 세부 사항을 별개의 것으로 기억했기 때문에 추상화를 할 수 없었다.", "그는 특히 사람들을 알아보는 데 어려움이 있었다.", "신경인지적 관점에서 당신이 어떤 얼굴을 볼 때마다 그것이 저번과 적어도 조금 다르게 보일 가능성은 (c)없다(→ 있다). 당신은 그것을 이전과 다른 각도와 거리에서 보고 다른 표정을 마주하고 있을지도 모른다.", "당신이 어떤 사람과 상호 작용을 하는 동안 그들의 얼굴에는 일련의 표정이 지나간다.", "당신의 뇌는 (d)일반화할 수 있기 때문에 당신은 얼굴의 이 모든 다른 표현들을 같은 사람에게 속한 것으로 본다.", "Solomon은 그것을 할 수 없었다.", "그가 Luria에게 설명했듯이 ‘모든 사람은 너무 많은 얼굴을 가지기’ 때문에 그의 친구와 동료를 (e)알아보는 것은 거의 불가능했다."], "ps": [{"n": 1, "ch": [{"e": "<b>Generalization<\/b> promotes <b>cognitive economy<\/b>,", "k": "일반화는 인지 경제성을 촉진한다,"}, {"e": "so that we don’t focus on <b>particulars<\/b>", "k": "그래서 우리는 세부 사항에 집중하지 않는다"}, {"e": "that don’t matter.", "k": "중요하지 않은."}], "link": "일반화는 인지 경제성을 촉진하여, 그 결과 우리는 중요하지 않은 세부 사항에 집중하지 않는다.", "easy": "일반화를 하면 머리를 아껴 쓸 수 있어서, 중요하지 않은 작은 부분에 신경 쓰지 않게 된다는 거예요.", "gist": "글의 출발점이에요. 일반화는 쓸모 있는 능력이에요."}, {"n": 2, "ch": [{"e": "The great Russian neuropsychologist Alexander Luria", "k": "위대한 러시아 신경 심리학자 Alexander Luria는"}, {"e": "studied a patient, Solomon Shereshevsky,", "k": "Solomon Shereshevsky라는 환자를 연구했다,"}, {"e": "with a memory <b>impairment<\/b>", "k": "기억 장애를 가진"}, {"e": "that was the (a) <b>opposite<\/b> of what we usually hear about", "k": "우리가 보통 듣는 것의 (a) 반대인"}, {"e": "— Solomon didn’t have <b>amnesia<\/b>, the loss of memories;", "k": "— Solomon은 기억 상실증, 즉 기억을 잃는 것을 가지지 않았다;"}, {"e": "he had what Luria called hypermnesia", "k": "그<span class=\"r\">(= Solomon)<\/span>는 Luria가 기억 과잉증이라고 부른 것을 가졌다"}, {"e": "(we might say that his superpower was superior memory).", "k": "(우리는 그의 초능력이 우월한 기억력이었다고 말할 수 있을 것이다)."}], "link": "위대한 러시아 신경 심리학자 Alexander Luria는 우리가 보통 듣는 것의 반대인 기억 장애를 가진 Solomon Shereshevsky라는 환자를 연구했는데, Solomon은 기억을 잃는 기억 상실증이 아니라 Luria가 기억 과잉증이라고 부른 것을 가지고 있었다(우리는 그의 초능력이 우월한 기억력이었다고 말할 수 있을 것이다).", "easy": "Luria가 연구한 Solomon은 기억을 잃는 병이 아니라, 반대로 무엇이든 너무 잘 기억하는 증상이 있었다는 거예요.", "gist": "예시 인물이 나와요. 기억을 잃지 않고 너무 잘 기억하는 사람이에요."}, {"n": 3, "ch": [{"e": "His <b>supercharged<\/b> memory allowed him", "k": "그의 과한 기억력은 그가 ~할 수 있게 했다"}, {"e": "to perform amazing <b>feats<\/b>,", "k": "놀라운 재주를 수행하는 것을,"}, {"e": "such as repeating speeches <b>word for word<\/b>", "k": "연설을 한마디 한마디 그대로 반복하는 것과 같은"}, {"e": "that he had heard only once,", "k": "그가 단 한 번 들었던,"}, {"e": "or complex mathematical formulas, long sequences of numbers,", "k": "혹은 복잡한 수학 공식, 긴 숫자 배열,"}, {"e": "and poems in foreign languages", "k": "그리고 외국어로 된 시를 (반복하는 것과 같은)"}, {"e": "he didn’t even speak.", "k": "그가 말할 줄도 몰랐던."}], "link": "그의 과한 기억력은 그가 단 한 번 들었던 연설을 한마디 한마디 그대로, 혹은 복잡한 수학 공식, 긴 숫자 배열, 그리고 말할 줄도 모르는 외국어로 된 시를 반복하는 것과 같은 놀라운 재주를 수행할 수 있게 했다.", "easy": "한 번 들은 연설, 복잡한 공식, 긴 숫자, 할 줄도 모르는 외국어로 된 시까지 그대로 다시 말할 수 있었다는 거예요.", "gist": "Solomon의 엄청난 기억력을 보여 주는 예예요."}, {"n": 4, "ch": [{"e": "Before you think", "k": "당신이 생각하기 전에"}, {"e": "that having such a fantastic memory would be great,", "k": "그런 환상적인 기억력을 가지는 것이 좋을 거라고,"}, {"e": "it came with a (b) <b>cost<\/b>:", "k": "그것<span class=\"r\">(= 그런 환상적인 기억력)<\/span>은 (b) 대가를 수반했다:"}, {"e": "Solomon wasn’t able to form <b>abstractions<\/b>", "k": "Solomon은 추상화를 할 수 없었다"}, {"e": "because he remembered every detail as <b>distinct<\/b>.", "k": "그가 모든 세부 사항을 별개의 것으로 기억했기 때문에."}], "link": "당신이 그런 환상적인 기억력을 가지는 것이 좋겠다고 생각하기 전에 (알아 둘 것은), 그것은 대가를 수반했다는 것이다. Solomon은 모든 세부 사항을 별개의 것으로 기억했기 때문에 추상화를 할 수 없었다.", "easy": "그런 기억력이 부럽게 느껴질 수 있지만 대가가 있었어요. 모든 것을 하나하나 따로 기억해서, 추상화를 하지 못했다는 거예요.", "gist": "글의 방향이 바뀌는 문장이에요. 완벽한 기억에는 대가가 있었어요."}, {"n": 5, "ch": [{"e": "He had <b>particular<\/b> trouble", "k": "그<span class=\"r\">(= Solomon)<\/span>는 특히 어려움이 있었다"}, {"e": "<b>identifying<\/b> people.", "k": "사람들을 알아보는 데."}], "easy": "Solomon은 특히 사람을 알아보는 게 힘들었다는 말이에요.", "gist": "대가의 구체적인 예가 나와요. 사람을 잘 알아보지 못했어요."}, {"n": 6, "ch": [{"e": "From a <b>neurocognitive<\/b> <b>standpoint<\/b>,", "k": "신경인지적 관점에서,"}, {"e": "every time you see a face,", "k": "당신이 어떤 얼굴을 볼 때마다,"}, {"e": "it is (c) <b>likely<\/b>", "k": "~일 가능성이 (c) 있다<span class=\"r\">※ 문제지엔 unlikely로 되어 있음<\/span>"}, {"e": "that it looks at least slightly different from the last time", "k": "그것<span class=\"r\">(= 그 얼굴)<\/span>이 저번과 적어도 조금은 다르게 보일"}, {"e": "— you’re viewing it at a different angle and distance than before,", "k": "— 당신은 그것<span class=\"r\">(= 그 얼굴)<\/span>을 이전과 다른 각도와 거리에서 보고 있다,"}, {"e": "and you might be <b>encountering<\/b> a different expression.", "k": "그리고 당신은 다른 표정을 마주하고 있을지도 모른다."}], "link": "신경인지적 관점에서, 당신이 어떤 얼굴을 볼 때마다 그것이 저번과 적어도 조금은 다르게 보일 가능성이 있다. 당신은 그것을 이전과 다른 각도와 거리에서 보고 있고, 다른 표정을 마주하고 있을지도 모른다.", "easy": "같은 사람 얼굴이라도 볼 때마다 각도, 거리, 표정이 달라서 조금씩 다르게 보일 수 있다는 거예요.", "gist": "얼굴은 볼 때마다 조금씩 달라 보여요. 그래서 (c)는 unlikely가 아니라 likely여야 해요."}, {"n": 7, "ch": [{"e": "While you’re interacting with a person,", "k": "당신이 어떤 사람과 상호 작용을 하는 동안,"}, {"e": "their face goes through a <b>parade of<\/b> expressions.", "k": "그들<span class=\"r\">(= 그 사람)<\/span>의 얼굴에는 일련의 표정이 지나간다."}], "easy": "누군가와 함께 있는 동안에도 그 사람의 얼굴 표정은 계속 바뀐다는 거예요.", "gist": "한 사람의 얼굴도 계속 달라진다는 예를 더해요."}, {"n": 8, "ch": [{"e": "Because your brain can (d) <b>generalize<\/b>,", "k": "당신의 뇌는 (d) 일반화할 수 있기 때문에,"}, {"e": "you see all of these different <b>manifestations<\/b> of the face", "k": "당신은 얼굴의 이 모든 다른 표현들을 본다"}, {"e": "as belonging to the same person.", "k": "같은 사람에게 속한 것으로."}], "link": "당신의 뇌는 일반화할 수 있기 때문에, 당신은 얼굴의 이 모든 다른 표현들을 같은 사람에게 속한 것으로 본다.", "easy": "우리 뇌는 일반화를 할 수 있어서, 얼굴이 조금씩 달라 보여도 같은 사람이라고 알아본다는 거예요.", "gist": "일반화 덕분에 우리는 사람을 알아볼 수 있어요."}, {"n": 9, "ch": [{"e": "Solomon couldn’t do that.", "k": "Solomon은 그것<span class=\"r\">(= 일반화해서 얼굴의 여러 모습을 같은 사람의 것으로 보는 것)<\/span>을 할 수 없었다."}], "easy": "Solomon은 이렇게 일반화를 하지 못했다는 거예요.", "gist": "Solomon의 문제를 다시 짚어요. 일반화를 하지 못했어요."}, {"n": 10, "ch": [{"e": "As he explained to Luria,", "k": "그<span class=\"r\">(= Solomon)<\/span>가 Luria에게 설명했듯이,"}, {"e": "(e) <b>recognizing<\/b> his friends and colleagues", "k": "그의 친구와 동료를 (e) 알아보는 것은"}, {"e": "was nearly impossible", "k": "거의 불가능했다"}, {"e": "because “everyone has so many faces.”", "k": "‘모든 사람은 너무 많은 얼굴을 가지기’ 때문에."}], "link": "그가 Luria에게 설명했듯이, ‘모든 사람은 너무 많은 얼굴을 가지기’ 때문에 그의 친구와 동료를 알아보는 것은 거의 불가능했다.", "easy": "Solomon에게는 모든 사람이 얼굴을 너무 많이 가진 것처럼 보여서, 친구나 동료도 거의 알아볼 수 없었다는 거예요.", "gist": "완벽한 기억이 오히려 사람을 알아보지 못하게 만든다는 결론이에요."}]}];
+var ENC="=IakivzoRK+OiGp47AakivDoRK+OhGp4";
+var SETID="g3r05p2", N=D.length, TITLE="고3 미니모의고사 5회 07–12번";
+var CIRC="①②③④⑤";
+function dec(s){var b=atob(s.split("").reverse().join(""));var u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder("utf-8").decode(u);}
+var ANS=dec(ENC).split(";").map(function(x){return x.split("|").map(function(c){return CIRC.indexOf(c)+1;});});
+function isRight(i,a){return ANS[i].indexOf(a)>=0;}
+function ansText(i){return ANS[i].map(function(n){return CIRC[n-1];}).join(", ");}
+
+var GCODE="h3", GRADE="고3", FILE="05b", NEXT="06a.html";
+const KEY='via_mm_'+GCODE+'_'+FILE;
+let S={checks:{},locked:{},res:{},sub:null,q:[]};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* REC 연결 지점: 지금은 기기 안에 대기열로만 쌓음 */
+function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localStorage.getItem('via_minimock_rec_queue')||'[]');q.push(ev);localStorage.setItem('via_minimock_rec_queue',JSON.stringify(q));}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const app=$('#app');
+let view='word',quiz=null,armed=null;
+function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function shuffle(arr,seed){const a=arr.slice();let s=hash(seed)||1;for(let i=a.length-1;i>0;i--){s=Math.imul(s^(s>>>15),2246822519)>>>0;const j=s%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+const WS=WORDS.sets[0];
+
+function hdr(){
+  const on=id=>(view===id)?'on':'';
+  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><a class="link" href="index.html">목록</a></div><div class="tabs"><button class="tab ${on('word')}" data-v="word">단어</button><button class="tab ${on('submit')}" data-v="submit">답 제출</button><button class="tab ${on('exp')}" data-v="exp" ${S.sub?'':'disabled'}>해설</button></div></div></header>`;
+}
+function noteList(){
+  const out=[],ck=S.checks[WS.id]||{};
+  WS.words.forEach((w,i)=>{
+    const c=ck[i];if(!c)return;
+    const parts=['m','s','a'].filter(p=>c[p]&&(p==='m'||w[p]));
+    if(parts.length)out.push({i:i,w:w,parts:parts});
+  });
+  return out;
+}
+function render(){
+  if(view==='word')renderWord();
+  else if(view==='note')renderNote();
+  else if(view==='quiz')renderQuiz();
+  else if(view==='result')renderResult();
+  else if(view==='submit')renderSubmit();
+  else if(view==='exp')renderExp();
+  window.scrollTo(0,0);
+}
+/* ---- 단어 확인 ---- */
+function renderWord(){
+  const ck=S.checks[WS.id]||{},locked=!!S.locked[WS.id],n=noteList().length;
+  let h=hdr()+`<div class="wrap ${locked?'locked':''}">`;
+  WS.words.forEach((w,i)=>{
+    const c=ck[i]||{};
+    h+=`<div class="row"><div class="top"><span class="no">${i+1}</span><span class="word">${esc(w.w)}</span><span class="src">${esc(w.src)}번</span></div><div class="cells">`;
+    h+=`<button class="cell m ${c.m?'bad':''}" data-i="${i}" data-p="m"><span class="tag">뜻</span><span>${esc(w.m)}</span></button>`;
+    if(w.s)h+=`<button class="cell s ${c.s?'bad':''}" data-i="${i}" data-p="s"><span class="tag">유</span><span>${esc(w.s[0])}<span class="ko">${esc(w.s[1])}</span></span></button>`;
+    if(w.a)h+=`<button class="cell a ${c.a?'bad':''}" data-i="${i}" data-p="a"><span class="tag">반</span><span>${esc(w.a[0])}<span class="ko">${esc(w.a[1])}</span></span></button>`;
+    h+=`</div></div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap">`;
+  h+=locked?`<button class="btn" disabled>확인 끝</button>`:`<button class="btn ${armed==='lock'?'arm':''}" id="lock">${armed==='lock'?'한 번 더 누르면 확인 끝':'확인 끝'}</button>`;
+  h+=`<button class="btn pri" id="gonote">단어 오답노트 ${n}</button></div></div>`;
+  app.innerHTML=h;
+  app.querySelectorAll('.cell').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,p=b.dataset.p;
+    S.checks[WS.id]=S.checks[WS.id]||{};
+    const c=S.checks[WS.id][i]=S.checks[WS.id][i]||{};
+    c[p]=c[p]?0:1;save();
+    b.classList.toggle('bad',!!c[p]);
+    $('#gonote').textContent='단어 오답노트 '+noteList().length;
+  });
+  const lk=$('#lock');if(lk)lk.onclick=()=>{
+    if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
+      recSend({type:'word',marks:noteList().map(it=>({w:it.w.w,parts:it.parts}))});}
+    else armed='lock';
+    render();
+  };
+  $('#gonote').onclick=()=>{view='note';armed=null;render();};
+}
+function renderNote(){
+  const list=noteList();
+  let h=`<header><div class="wrap hd2"><h1>단어 오답노트 <span class="meta">${list.length}개</span></h1><button class="link" id="back">확인표</button></div></header><div class="wrap">`;
+  if(!list.length)h+=`<div class="empty">아직 표시한 단어가 없습니다</div>`;
+  list.forEach(it=>{
+    const w=it.w,r=(S.res[WS.id]||{})[it.i]||{};
+    h+=`<div class="note-item"><span class="w">${esc(w.w)}</span><span class="meta">${esc(w.src)}번</span>`;
+    const row=(p,tag,txt,ko)=>{
+      const bad=it.parts.includes(p);
+      const rs=r[p]===1?'<span class="res o">맞춤</span>':r[p]===0?'<span class="res x">틀림</span>':'';
+      return `<div class="part ${p} ${bad?'bad':''}"><span class="tag">${tag}</span><span>${esc(txt)}${ko?`<span class="ko"> ${esc(ko)}</span>`:''}</span>${bad?rs:''}</div>`;
+    };
+    h+=row('m','뜻',w.m,'');
+    if(w.s)h+=row('s','유',w.s[0],w.s[1]);
+    if(w.a)h+=row('a','반',w.a[0],w.a[1]);
+    h+=`</div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap"><button class="btn" id="back2">확인표</button><button class="btn pri" id="start" ${list.length?'':'disabled'}>복습 시작</button></div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='word';armed=null;render();};
+  $('#back2').onclick=()=>{view='word';render();};
+  $('#start').onclick=()=>{quiz={qs:buildQuestions(),n:0,right:0,done:false,shown:false};view='quiz';render();};
+}
+function buildQuestions(){
+  const qs=[];
+  noteList().forEach(it=>{
+    const w=it.w;
+    it.parts.forEach(p=>{
+      let q={i:it.i,p:p,w:w.w};
+      if(p==='m'){
+        const toks=x=>x.split(/[,，]\s*/).map(t=>t.trim());
+        const ct=toks(w.m);
+        const pool=[...new Set(WS.words.filter(o=>o!==w).map(o=>o.m))].filter(m=>!toks(m).some(t=>ct.includes(t)));
+        const wrong=shuffle(pool,WS.id+w.w+'m').slice(0,3);
+        q.type='choice';q.ask='뜻을 고르세요';
+        q.opts=shuffle([{t:w.m,ok:1}].concat(wrong.map(t=>({t:t,ok:0}))),WS.id+w.w+'mo');
+      }else{
+        const ans=w[p],d=WS.dist||[];
+        q.ask=p==='s'?'유의어를 고르세요':'반의어를 고르세요';
+        if(d.length>=3){
+          q.type='choice';
+          q.opts=shuffle([{t:ans[0],ko:ans[1],ok:1}].concat(shuffle(d,WS.id+w.w+p).slice(0,3).map(x=>({t:x[0],ko:x[1],ok:0}))),WS.id+w.w+p+'o');
+        }else{q.type='flip';q.ans=ans;}
+      }
+      qs.push(q);
+    });
+  });
+  return qs;
+}
+function recordRes(q,ok){S.res[WS.id]=S.res[WS.id]||{};const r=S.res[WS.id][q.i]=S.res[WS.id][q.i]||{};r[q.p]=ok?1:0;save();}
+function renderQuiz(){
+  const q=quiz.qs[quiz.n];
+  let h=`<header><div class="wrap hd2"><h1>복습</h1><button class="link" id="back">오답노트</button></div></header><div class="wrap ${quiz.done?'done':''}"><div class="q"><div class="cnt">${quiz.n+1} / ${quiz.qs.length}</div><div class="ask">${q.ask}</div><div class="target">${esc(q.w)}</div>`;
+  if(q.type==='choice'){
+    q.opts.forEach((o,k)=>{
+      let cls='';
+      if(quiz.done){if(o.ok)cls='right';else if(k===quiz.pick)cls='wrong';}
+      h+=`<button class="opt ${cls}" data-k="${k}">${esc(o.t)}${o.ko?`<span class="ko">${esc(o.ko)}</span>`:''}</button>`;
+    });
+  }else if(quiz.shown)h+=`<div class="opt right">${esc(q.ans[0])}<span class="ko">${esc(q.ans[1])}</span></div>`;
+  h+=`</div></div><div class="bar"><div class="wrap">`;
+  if(q.type==='flip'&&!quiz.shown)h+=`<button class="btn pri" id="show">정답 보기</button>`;
+  else if(q.type==='flip')h+=`<button class="btn" id="no">몰랐음</button><button class="btn pri" id="yes">알았음</button>`;
+  else h+=`<button class="btn pri" id="next" ${quiz.done?'':'disabled'}>${quiz.n+1===quiz.qs.length?'결과':'다음'}</button>`;
+  h+=`</div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='note';render();};
+  app.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+    if(quiz.done)return;
+    const k=+b.dataset.k;quiz.pick=k;quiz.done=true;
+    const ok=q.opts[k].ok===1;if(ok)quiz.right++;recordRes(q,ok);render();
+  });
+  const nx=$('#next');if(nx)nx.onclick=()=>advance();
+  const sh=$('#show');if(sh)sh.onclick=()=>{quiz.shown=true;render();};
+  const yes=$('#yes');if(yes)yes.onclick=()=>{quiz.right++;recordRes(q,true);advance();};
+  const no=$('#no');if(no)no.onclick=()=>{recordRes(q,false);advance();};
+}
+function advance(){
+  if(quiz.n+1>=quiz.qs.length){view='result';render();return;}
+  quiz.n++;quiz.done=false;quiz.shown=false;quiz.pick=null;render();
+}
+function renderResult(){
+  app.innerHTML=`<header><div class="wrap hd2"><h1>복습 결과</h1></div></header><div class="wrap"><div class="score">${quiz.right} <small>/ ${quiz.qs.length}</small></div></div><div class="bar"><div class="wrap"><button class="btn" id="a">오답노트</button><button class="btn pri" id="b">확인표</button></div></div>`;
+  $('#a').onclick=()=>{view='note';render();};
+  $('#b').onclick=()=>{view='word';render();};
+}
+/* ---- 답 제출 ---- */
+function renderSubmit(){
+  const done=!!S.sub;
+  while(S.q.length<N)S.q.push(0);
+  let h=hdr()+'<div class="wrap">';
+  for(let i=0;i<N;i++){
+    const sel=done?S.sub.a[i]:S.q[i];
+    h+=`<div class="qrow"><div class="qno">${esc(D[i].no)}</div><div class="opts">`;
+    for(let k=1;k<=5;k++)h+=`<button class="opt2 ${sel===k?'on':''}" data-q="${i}" data-k="${k}" ${done?'disabled':''}>${CIRC[k-1]}</button>`;
+    h+='</div></div>';
+  }
+  h+='</div><div class="bar"><div class="wrap">';
+  if(done)h+='<button class="btn pri" id="toexp">해설 보기</button>';
+  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>제출</button>`;
+  h+='</div></div>';
+  app.innerHTML=h;
+  app.querySelectorAll('.opt2').forEach(b=>b.onclick=()=>{
+    if(S.sub)return;
+    const q=+b.dataset.q,k=+b.dataset.k;S.q[q]=k;save();
+    b.parentNode.querySelectorAll('.opt2').forEach(x=>x.classList.toggle('on',+x.dataset.k===k));
+    $('#sub').disabled=!S.q.every(v=>v>0);
+  });
+  const sb=$('#sub');if(sb)sb.onclick=()=>{
+    let s=0;for(let i=0;i<N;i++)if(isRight(i,S.q[i]))s++;
+    S.sub={t:Date.now(),a:S.q.slice(),s:s};save();
+    recSend({type:'submit',a:S.sub.a,s:s,n:N});
+    view='exp';render();
+  };
+  const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
+}
+/* ---- 해설 ---- */
+function sHtml(s,evn){
+  const ev=evn.indexOf(s.n)>=0;
+  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
+  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
+  const lays=[];
+  if(s.link)lays.push(['이어 읽으면',s.link]);
+  if(s.easy)lays.push(['쉬운 말로',s.easy]);
+  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
+  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
+  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
+  return x+'</div>';
+}
+function qHtml(i,a){
+  const d=D[i],ok=isRight(i,a);
+  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
+  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
+  h+='<h4>정답 근거</h4>';
+  h+=`<p class="en">${esc(d.ev_en)}</p>`;
+  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
+  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  if(d.ps&&d.ps.length){
+    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
+  }
+  h+='<h4>선택지 하나씩</h4>';
+  d.ch.forEach(c=>{
+    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  });
+  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  return h+'</div></details>';
+}
+function renderExp(){
+  const rec=S.sub;
+  let h=hdr()+'<div class="wrap">';
+  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='</div><h2>해설</h2>';
+  for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
+  h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
+  app.innerHTML=h;
+}
+/* 위임 이벤트 */
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tab');
+  if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
+  const ch=e.target.closest('.ch');
+  if(ch){ch.classList.toggle('open');return;}
+  const st=e.target.closest('.stg');
+  if(st){
+    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const shown=lays.filter(l=>l.classList.contains('on')).length;
+    if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
+    else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
+    return;
+  }
+  const al=e.target.closest('.tbtn');
+  if(al){
+    const open=al.dataset.all==='1',body=al.closest('.dkbody');
+    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
+    body.querySelectorAll('.s').forEach(s=>{
+      const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
+      lays.forEach(l=>l.classList.toggle('on',open));
+      if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
+    });
+  }
+});
+render();
+</script>
+</body>
+</html>

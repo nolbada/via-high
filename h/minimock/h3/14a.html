@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>고3 미니모의고사 14회 01–06번</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f6f8;--accent:#23406b;--bad:#c2392b;--badbg:#fdeceb;--good:#1f7a4d;--goodbg:#e8f5ee;--hl:#fff3b0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+body{padding-bottom:84px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .row1{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+h1{font-size:16px;margin:0;font-weight:700;line-height:1.3}
+.tabs{display:flex;gap:0}
+.tab{flex:1;border:0;background:none;font-family:inherit;font-size:15px;font-weight:700;color:var(--sub);padding:11px 0;border-bottom:3px solid transparent}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tab[disabled]{opacity:.35}
+.link{text-decoration:none;border:0;background:none;color:var(--accent);font-size:15px;font-weight:700;padding:10px 4px;font-family:inherit}
+.hd2{display:flex;align-items:center;justify-content:space-between;height:54px}
+.hd2 h1{font-size:17px}
+.row{padding:12px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.no{color:var(--sub);font-size:13px;min-width:20px}
+.word{font-size:19px;font-weight:700}
+.src{color:var(--sub);font-size:12px;margin-left:auto}
+.cells{display:flex;flex-direction:column;gap:6px}
+.cell{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 12px;border-radius:8px;background:var(--soft);border:1.5px solid transparent;font-size:16px;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.cell .tag,.part .tag{font-size:12px;font-weight:700;color:#fff;border-radius:4px;padding:2px 7px;min-width:34px;text-align:center;background:#7a8594}
+.cell.s .tag,.part.s .tag{background:#2d62a8}.cell.a .tag,.part.a .tag{background:#b4472f}
+.ko{color:var(--sub);font-size:14px;margin-left:6px}
+.cell.bad{background:var(--badbg);border-color:var(--bad)}
+.cell.bad .tag{background:var(--bad)}
+.locked .cell{pointer-events:none}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:6}
+.bar .wrap{display:flex;gap:10px;padding:0}
+.btn{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;line-height:1.25;font-weight:700;font-family:inherit}
+.btn.pri{background:var(--accent);color:#fff}
+.btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn[disabled]{opacity:.4}
+.note-item{padding:14px 0;border-bottom:1px solid var(--line)}
+.note-item .w{font-size:19px;font-weight:700}
+.meta{color:var(--sub);font-size:12px;margin-left:8px;font-weight:400}
+.part{display:flex;gap:10px;align-items:baseline;padding:6px 0 0;font-size:16px}
+.part .tag{align-self:center}
+.part.bad{color:var(--bad);font-weight:700}
+.part.bad .tag{background:var(--bad)}
+.part .ko{font-weight:400}
+.part .res{margin-left:auto;font-size:13px;font-weight:700}
+.res.o{color:var(--good)}.res.x{color:var(--bad)}
+.empty{color:var(--sub);text-align:center;padding:60px 0;font-size:16px}
+.q{padding:22px 0 8px}
+.q .cnt{color:var(--sub);font-size:14px}
+.q .ask{font-size:15px;color:var(--sub);margin-top:14px}
+.q .target{font-size:28px;font-weight:700;margin:6px 0 18px}
+.opt{display:block;width:100%;text-align:left;min-height:56px;padding:10px 14px;margin-bottom:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:18px;font-family:inherit;color:var(--ink)}
+.opt .ko{display:block;margin:2px 0 0}
+.opt.right{border-color:var(--good);background:var(--goodbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.done .opt{pointer-events:none}
+.score{font-size:34px;font-weight:700;text-align:center;margin:30px 0 6px}
+.score small{font-size:18px;color:var(--sub);font-weight:400}
+.foot{color:var(--sub);font-size:12px;text-align:center;padding:26px 0 8px}
+/* submit */
+.qrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.qno{font-weight:800;font-size:20px;width:34px;flex:none}
+.opts{display:flex;gap:8px;flex:1}
+.opt2{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:20px;font-family:inherit;color:var(--ink)}
+.opt2.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.opt2[disabled]{opacity:.55}
+.opt2.on[disabled]{opacity:1}
+/* explanation */
+h2{font-size:17px;margin:26px 0 10px}
+.quick div{padding:3px 0;font-size:17px}
+.quick .o{color:var(--good)}.quick .x{color:var(--bad)}
+.sub{color:var(--sub)}
+details.qd{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;background:var(--bg)}
+details.qd>summary{list-style:none;cursor:pointer;padding:14px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+details.qd>summary::-webkit-details-marker{display:none}
+details.qd>summary small{font-weight:400;color:var(--sub);font-size:13px}
+.res2{margin-left:auto;font-size:14px}
+.res2.o{color:var(--good)}.res2.x{color:var(--bad)}
+.qx{padding:0 14px 14px}
+.qx h4{font-size:15px;margin:18px 0 8px;color:var(--accent)}
+.qx p{margin:6px 0;line-height:1.75;font-size:16px}
+.ansline b{font-size:17px}
+.en{font-size:16px;line-height:1.7;background:var(--soft);padding:10px 12px;border-radius:8px}
+.kolist{list-style:none;margin:6px 0;padding:0}
+.kolist li{font-size:15px;line-height:1.7}
+.kolist .n{font-size:12px;color:var(--sub);margin-right:6px}
+.why p{margin:4px 0;font-size:15px}
+.c{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.c.ok{border-color:var(--good);background:var(--goodbg)}
+.c .ct{font-weight:700;font-size:16px;line-height:1.5}
+.c .tg{display:inline-block;font-size:12px;color:#fff;background:#7a8594;border-radius:4px;padding:1px 7px;margin-right:6px;font-weight:700}
+.c.ok .tg{background:var(--good)}
+.c p{margin:4px 0 0;font-size:15px}
+.r{color:var(--sub);font-size:13px}
+/* direct reading practice */
+details.dk{margin:16px 0 4px;border:1px solid var(--line);border-radius:10px}
+details.dk>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700;color:var(--accent);font-size:15px}
+details.dk>summary::-webkit-details-marker{display:none}
+.dkbody{padding:0 12px 12px}
+.tool{display:flex;gap:8px;margin:2px 0 10px}
+.tbtn{flex:1;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:inherit;font-size:14px;font-weight:700;color:var(--accent)}
+.s{padding:10px 0 12px;border-top:1px dashed var(--line)}
+.s.ev{background:linear-gradient(90deg,#fffbe8,#fff);margin:0 -6px;padding-left:6px;padding-right:6px}
+.sn{margin-bottom:6px}
+.lb{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--sub);margin-right:6px}
+.lb.ev{background:var(--hl);color:#7a5b00}
+.ch{padding:9px 11px;margin-bottom:6px;border-radius:8px;background:var(--soft);cursor:pointer;border-bottom:2px dotted #c9cfd6}
+.ch .ce{font-size:16px;line-height:1.6}
+.ch .ce b{background:linear-gradient(transparent 55%,var(--hl) 55%)}
+.ch .ck{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--line);color:var(--accent);font-size:15px;line-height:1.65}
+.ch.open{background:#eef2f8;border-bottom-color:transparent}
+.ch.open .ck{display:block}
+.lay{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:14px;line-height:1.7}
+.lay.on{display:block}
+.stg{width:100%;min-height:42px;margin-top:6px;border:1px solid var(--accent);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const WORDS={"sets": [{"id": "g3r14p1", "title": "고3 미니모의고사 14회 01–06번", "range": "01–06번", "words": [{"src": "01", "w": "aggressive", "m": "공격적인", "s": ["hostile", "적대적인"], "a": null}, {"src": "02", "w": "innocent", "m": "잘못이 없는, 무죄인", "s": null, "a": ["guilty", "유죄인, 잘못이 있는"]}, {"src": "03", "w": "intention", "m": "의도", "s": null, "a": null}, {"src": "04", "w": "horrifying", "m": "소름 끼치는, 끔찍한", "s": ["terrifying", "겁나게 하는"], "a": null}, {"src": "05", "w": "tremble", "m": "떨다, 떨리다", "s": ["shiver", "떨다"], "a": null}, {"src": "06", "w": "brutally", "m": "잔혹하게", "s": null, "a": null}, {"src": "07", "w": "overwhelmed", "m": "압도당한", "s": null, "a": null}, {"src": "08", "w": "potential", "m": "잠재적인, 가능성 있는", "s": null, "a": null}, {"src": "09", "w": "strewn about", "m": "~에 어질러져 있는", "s": null, "a": null}, {"src": "10", "w": "rational", "m": "이성적인, 합리적인", "s": ["reasonable", "합리적인"], "a": ["irrational", "비이성적인"]}, {"src": "11", "w": "countless", "m": "수많은", "s": null, "a": null}, {"src": "12", "w": "stubborn", "m": "고집 센, 완고한", "s": ["obstinate", "완고한"], "a": ["open-minded", "열린 마음의"]}, {"src": "13", "w": "abundance", "m": "풍부함", "s": null, "a": ["scarcity", "부족, 결핍"]}, {"src": "14", "w": "distant", "m": "멀리 떨어져 있는, 먼", "s": null, "a": null}, {"src": "15", "w": "readily", "m": "손쉽게, 순조롭게", "s": null, "a": null}, {"src": "16", "w": "minimal", "m": "최소한의", "s": null, "a": ["maximal", "최대한의"]}, {"src": "17", "w": "innate", "m": "타고난, 선천적인", "s": ["inborn", "타고난"], "a": ["acquired", "후천적으로 얻은"]}, {"src": "18", "w": "adequate", "m": "충분한, 적절한", "s": ["sufficient", "충분한"], "a": ["insufficient", "불충분한"]}, {"src": "19", "w": "infinite", "m": "무한한, 끝없는", "s": null, "a": ["finite", "유한한"]}, {"src": "20", "w": "flexible", "m": "유연한", "s": null, "a": ["rigid", "경직된, 뻣뻣한"]}], "dist": [["swift", "신속한"], ["humble", "겸손한"], ["vivid", "생생한"]]}]};
+var D=[{"no": "01", "typ": "필자의 주장", "src": "2017년 10월 20번", "evn": [5], "ev_en": "Clearly we need to take intention into account when we define aggression.", "ev_ko": [[5, "우리가 공격성을 정의할 때 분명히 우리는 (행동의) 의도를 고려할 필요가 있다."]], "why": ["(1)~(4)는 공을 던진 아이의 사례예요", "놀이를 하려던 아이가 결과만 보면 공격적인 아이가 되어 버려요", "(5)에서 필자는 <b>Clearly we need to take intention into account<\/b>(분명히 우리는 의도를 고려할 필요가 있다)라고 주장을 밝혀요", "(6)은 이 주장을 <b>intended to hurt others<\/b>(다른 사람들을 다치게 하기 위해 의도된)라는 정의로 정리해요", "그래서 정답은 ①이에요."], "ch": [{"n": "①", "t": "행동의 공격성을 판단할 때는 의도를 헤아려야 한다.", "g": "", "ok": true, "e": ["(5)의 <b>take intention into account when we define aggression<\/b>(공격성을 정의할 때 의도를 고려하다)과 같은 내용이에요", "(6)의 <b>intended to hurt others<\/b>(다른 사람들을 다치게 하기 위해 의도된)도 같은 생각을 보여 줘요."]}, {"n": "②", "t": "다툼이 발생하면 제삼자가 공정하게 중재해야 한다.", "g": "", "ok": false, "e": ["(3)에 선생님(teacher)이 나오지만, 맞은 아이가 달려가 말하는 대상일 뿐이에요", "다툼을 공정하게 중재해야 한다는 말은 없어요."]}, {"n": "③", "t": "잘못된 행동의 결과에 대한 책임을 져야 한다.", "g": "", "ok": false, "e": ["(4)에 <b>consequences<\/b>(결과)가 나와요", "하지만 필자는 결과만으로 공격성을 정의하면 공을 던진 아이가 부당하게 죄를 범한 것이 된다고 말해요", "결과에 대한 책임을 강조하는 글이 아니에요."]}, {"n": "④", "t": "운동할 때 안전을 최우선으로 고려해야 한다.", "g": "", "ok": false, "e": ["캐치볼은 공격성의 정의를 설명하기 위한 사례예요", "운동할 때의 안전(safety)은 글에서 다루지 않아요."]}, {"n": "⑤", "t": "어린이에게 협동의 중요성을 가르쳐야 한다.", "g": "", "ok": false, "e": ["아이들이 등장하지만 협동(cooperation)은 글에서 다루지 않아요", "글의 중심은 공격성을 정의할 때 의도를 고려해야 한다는 것이에요."]}], "tr": ["한 아이가 캐치볼 놀이를 시작하려고 의도하여 다른 아이에게 공을 던진다고 가정하자.", "그 다른 아이는 보고 있지 않아서 그 공은 아이의 머리에 부딪친다.", "그 아이는 울고 다른 ‘장난꾸러기’ 아이(공을 던진 아이)의 공격적인 행동에 대해 선생님께 달려가서 말한다.", "물론 그 공을 던진 아이는 악의가 없지만 만약 우리가 공격성을 순수한 행동, 즉 어떤 행위의 결과라는 측면에서 정의한다면, 그러면 그 공을 던지는 아이는 부당하게 죄를 범한 것이 된다.", "우리가 공격성을 정의할 때 분명히 우리는 (행동의) 의도를 고려할 필요가 있다.", "공격성은 다른 사람들을 다치게 하기 위해 의도되어진 모든 행동이라고 말한다면 우리는 이제 더 완벽한 정의로 나아갈 수 있다."], "ps": [{"n": 1, "ch": [{"e": "<b>Suppose<\/b>", "k": "가정해 보자"}, {"e": "a child throws a ball", "k": "한 아이가 공을 던진다고"}, {"e": "to another child", "k": "다른 아이에게"}, {"e": "<b>intending to<\/b> start a game of catch.", "k": "캐치볼 놀이를 시작하려고 의도하여."}], "link": "한 아이가 캐치볼 놀이를 시작하려고 의도하여 다른 아이에게 공을 던진다고 가정해 보자.", "easy": "한 아이가 같이 공놀이를 하자는 생각으로 친구에게 공을 던졌다고 해 볼게요.", "gist": "사례 시작 — 공을 던진 아이의 의도는 ‘놀이’예요."}, {"n": 2, "ch": [{"e": "The other child", "k": "그 다른 아이는"}, {"e": "is not watching", "k": "보고 있지 않다"}, {"e": "and the ball hits the child", "k": "그래서 그 공은 그 아이를 맞힌다"}, {"e": "on the head.", "k": "머리에."}], "easy": "친구는 보고 있지 않아서 공에 머리를 맞았어요.", "gist": "의도와 달리 결과는 ‘친구가 다친 것’이에요."}, {"n": 3, "ch": [{"e": "The child cries", "k": "그 아이는 울고"}, {"e": "and runs to tell the teacher", "k": "선생님께 달려가서 말한다"}, {"e": "about the <b>aggressive<\/b> behaviour", "k": "공격적인 행동에 대해"}, {"e": "of the other ‘<b>naughty<\/b>’ child.", "k": "다른 ‘장난꾸러기’ 아이<span class=\"r\">(= 공을 던진 아이)<\/span>의."}], "link": "그 아이는 울고 다른 ‘장난꾸러기’ 아이의 공격적인 행동에 대해 선생님께 달려가서 말한다.", "easy": "맞은 아이는 울면서 선생님께 달려가, 공을 던진 아이가 공격적으로 굴었다고 말해요.", "gist": "결과만 보면 공을 던진 아이는 ‘공격적인 아이’가 돼요."}, {"n": 4, "ch": [{"e": "<b>Of course<\/b> the child", "k": "물론 그 아이는"}, {"e": "who threw the ball", "k": "공을 던진"}, {"e": "is <b>innocent<\/b>", "k": "악의가 없다"}, {"e": "but, if we have defined aggression", "k": "하지만 만약 우리가 공격성을 정의한다면,"}, {"e": "<b>in terms of<\/b> pure behaviour,", "k": "순수한 행동이라는 측면에서,"}, {"e": "the <b>consequences<\/b> of an act,", "k": "즉 어떤 행위의 결과라는 측면에서,"}, {"e": "then the child who throws the ball", "k": "그러면 공을 던지는 그 아이는"}, {"e": "is <b>unfairly guilty<\/b>.", "k": "부당하게 죄를 범한 것이 된다."}], "link": "물론 공을 던진 아이는 악의가 없지만, 만약 우리가 공격성을 순수한 행동, 즉 어떤 행위의 결과라는 측면에서 정의한다면, 그러면 공을 던지는 그 아이는 부당하게 죄를 범한 것이 된다.", "easy": "공을 던진 아이는 나쁜 마음이 없었어요. 그런데 공격성을 ‘행동의 결과’만 보고 정하면, 이 아이는 억울하게 잘못한 아이가 돼요.", "gist": "결과만 보는 정의의 문제점을 지적해요."}, {"n": 5, "ch": [{"e": "<b>Clearly<\/b> we need to", "k": "분명히 우리는 ~할 필요가 있다"}, {"e": "<b>take intention into account<\/b>", "k": "의도를 고려할"}, {"e": "when we define aggression.", "k": "우리가 공격성을 정의할 때."}], "easy": "공격성을 정할 때는 그 사람이 어떤 마음(의도)으로 했는지를 꼭 따져 봐야 한다는 말이에요.", "gist": "필자의 주장 — 공격성을 정의할 때 의도를 고려해야 해요. (정답 근거)"}, {"n": 6, "ch": [{"e": "We can now move", "k": "우리는 이제 나아갈 수 있다"}, {"e": "to a more complete definition", "k": "더 완벽한 정의로"}, {"e": "if we say", "k": "만약 우리가 말한다면"}, {"e": "that aggression is any behaviour", "k": "공격성은 모든 행동이라고"}, {"e": "that is <b>intended to hurt others<\/b>.", "k": "다른 사람들을 다치게 하기 위해 의도된."}], "link": "공격성은 다른 사람들을 다치게 하기 위해 의도된 모든 행동이라고 말한다면, 우리는 이제 더 완벽한 정의로 나아갈 수 있다.", "easy": "‘남을 다치게 하려는 마음으로 한 행동’을 공격성이라고 하면 더 완벽한 정의가 된다는 말이에요.", "gist": "주장을 정의로 정리해요 — 핵심은 ‘의도’예요."}]}, {"no": "02", "typ": "심경", "src": "2021년 7월 19번", "evn": [10], "ev_en": "Frightened, he claws at the tiles.", "ev_ko": [[10, "겁에 질려 그는 타일을 손톱으로 긁는다."]], "why": ["(1)에서 Tavil은 떠날 준비가 되어 있었어요", "그런데 (2)의 <b>But<\/b> 이후 들어온 구멍이 사라져요", "(5)의 <b>horrifying<\/b>(소름 끼치는), (7)의 <b>trapped<\/b>(갇혀 있는)가 이어져요", "(10)에서 <b>Frightened<\/b>(겁에 질려) 타일을 손톱으로 긁어요", "(11)에서는 누군가 자기를 꺼내 주기를 바라며 비명을 질러요", "겁에 질려 빠져나가려고 필사적인 모습이에요", "그래서 정답은 ④ terrified and desperate(무섭고 필사적인)예요."], "ch": [{"n": "①", "t": "bored and lonely", "g": "지루하고 외로운", "ok": false, "e": ["지루해하거나 외로워하는 모습은 글에 없어요", "(7)~(10)처럼 갇혀서 겁에 질린 긴박한 상황이에요."]}, {"n": "②", "t": "relieved and hopeful", "g": "안도하고 희망에 찬", "ok": false, "e": ["(1)에서 떠날 준비가 되었다고 느낀 것은 잠깐이에요", "(2)에서 구멍이 사라지고, (10)에서 겁에 질려요", "(11)의 <b>hoping<\/b>도 희망에 찬 마음이 아니라 구해 주기를 바라는 절박한 마음이에요."]}, {"n": "③", "t": "thrilled and joyful", "g": "흥분하고 신난", "ok": false, "e": ["(11)의 <b>screams<\/b>(비명을 지른다)는 기뻐서 지르는 소리가 아니에요", "바로 앞 (10)의 <b>Frightened<\/b>(겁에 질려)가 그 이유를 보여 줘요."]}, {"n": "④", "t": "terrified and desperate", "g": "무섭고 필사적인", "ok": true, "e": ["(5)의 <b>horrifying<\/b>, (7)의 <b>trapped<\/b>, (10)의 <b>Frightened<\/b>와 <b>claws at the tiles<\/b>, (11)의 <b>screams<\/b>가 모두 공포와 필사적인 마음을 보여 줘요."]}, {"n": "⑤", "t": "touched and grateful", "g": "감동하고 감사한", "ok": false, "e": ["감동하거나 고마워할 일이나 대상이 글에 나오지 않아요", "(11)의 <b>hoping<\/b>은 감사가 아니라 구해 주기를 바라는 마음이에요."]}], "tr": ["Tavil은 이 파묻힌 세상을 파악하고 떠날 준비가 되었다고 느낀다.", "하지만 그가 몸을 돌리자, 그가 기어 왔던 구멍은 더 이상 존재하지 않는다.", "그 자리에 터널 전체에 걸쳐 있는 끝없는 무늬의 연속인 매끄러운 흰색 타일 벽이 있다.", "흩어져 구멍의 밑바닥을 어지럽혔던 부서진 잔해의 조각들 또한 사라졌다.", "그리고 바로 그때 그는 자신이 있는 곳에 대한 소름 끼치는 진실을 느낀다.", "너무 깊은 지하라서 기어 내려오는 것이 그의 다리와 팔의 근육을 떨리게 만들었다.", "그는 갇혀 있다.", "잔인하게도 그러하다.", "마치 묘 안에, 무덤 안에 있는 것처럼.", "겁에 질려 그는 타일을 손톱으로 긁는다.", "누군가가 들을지 개의치 않고, 그들이 (그 소리를) 듣고 그를 내쫓아 주기를 바라며 그는 비명을 지른다."], "ps": [{"n": 1, "ch": [{"e": "Tavil feels", "k": "Tavil은 느낀다"}, {"e": "he understands this <b>buried<\/b> world", "k": "그가 이 파묻힌 세상을 파악한다고"}, {"e": "and he is <b>ready to leave<\/b>.", "k": "그리고 그가 떠날 준비가 되었다고."}], "easy": "Tavil은 이 땅속 세상을 다 알았다고 느끼고, 이제 떠날 준비가 됐어요.", "gist": "처음에는 떠날 준비가 된 상태예요."}, {"n": 2, "ch": [{"e": "<b>But<\/b> when he turns,", "k": "하지만 그가 몸을 돌리자,"}, {"e": "the hole", "k": "구멍은"}, {"e": "he’d climbed through", "k": "그가 기어 통과해 왔던"}, {"e": "<b>no longer<\/b> exists.", "k": "더 이상 존재하지 않는다."}], "easy": "그런데 돌아보니 자기가 기어서 들어온 구멍이 사라져 있어요.", "gist": "But — 상황이 뒤집혀요."}, {"n": 3, "ch": [{"e": "<b>In its place<\/b>", "k": "그것<span class=\"r\">(= 구멍)<\/span>의 자리에"}, {"e": "is a smooth wall of white tile,", "k": "매끄러운 흰색 타일 벽이 있다,"}, {"e": "a <b>continuation<\/b> of the <b>unending<\/b> pattern", "k": "끝없는 무늬의 연속인"}, {"e": "throughout the tunnel.", "k": "터널 전체에 걸쳐 있는."}], "link": "그 자리에 터널 전체에 걸쳐 있는 끝없는 무늬의 연속인 매끄러운 흰색 타일 벽이 있다.", "easy": "구멍이 있던 자리에는 터널의 다른 곳과 똑같은 흰 타일 벽만 매끈하게 있어요.", "gist": "나갈 곳이 막혔어요."}, {"n": 4, "ch": [{"e": "The broken scraps of <b>debris<\/b>", "k": "부서진 잔해의 조각들"}, {"e": "that had <b>littered<\/b> the base of the hole", "k": "흩어져 구멍의 밑바닥을 어지럽혔던"}, {"e": "are gone as well.", "k": "또한 사라졌다."}], "easy": "구멍 바닥에 흩어져 있던 부서진 조각들도 다 없어졌어요.", "gist": "구멍이 있던 흔적마저 사라졌어요."}, {"n": 5, "ch": [{"e": "And this is when", "k": "그리고 바로 그때"}, {"e": "he feels the <b>horrifying<\/b> truth", "k": "그는 소름 끼치는 진실을 느낀다"}, {"e": "of where he is:", "k": "자신이 있는 곳에 대한:"}], "easy": "그제야 Tavil은 자기가 있는 곳의 진실을 느끼고 소름이 끼쳐요.", "gist": "공포가 시작돼요(horrifying)."}, {"n": 6, "ch": [{"e": "so deep underground", "k": "너무 깊은 지하라서"}, {"e": "that the climb down", "k": "기어 내려오는 것이"}, {"e": "made the muscles in his legs and arms", "k": "그의 다리와 팔의 근육을 ~하게 만들었다"}, {"e": "<b>tremble<\/b>.", "k": "떨리게."}], "link": "너무 깊은 지하라서 기어 내려오는 것이 그의 다리와 팔의 근육을 떨리게 만들었다.", "easy": "기어 내려올 때 팔다리 근육이 떨릴 만큼 아주 깊은 땅속이라는 말이에요.", "gist": "빠져나가기 어려운 깊은 곳이에요."}, {"n": 7, "ch": [{"e": "He is <b>trapped<\/b>.", "k": "그는 갇혀 있다."}], "easy": "Tavil은 갇혔어요.", "gist": "핵심 상황 — 갇혔어요."}, {"n": 8, "ch": [{"e": "<b>Brutally<\/b> so.", "k": "잔인하게도 그러하다<span class=\"r\">(= 갇혀 있다)<\/span>."}], "easy": "아주 잔인할 만큼 꼼짝없이 갇혔다는 말이에요.", "gist": "갇힌 상황을 더 강하게 말해요."}, {"n": 9, "ch": [{"e": "<b>As if<\/b> in a grave,", "k": "마치 묘 안에,"}, {"e": "in a <b>tomb<\/b>.", "k": "무덤 안에 있는 것처럼."}], "easy": "마치 무덤 속에 갇힌 것 같아요.", "gist": "죽음을 떠올리게 하는 비유예요."}, {"n": 10, "ch": [{"e": "<b>Frightened<\/b>,", "k": "겁에 질려"}, {"e": "he <b>claws at<\/b> the tiles.", "k": "그는 타일을 손톱으로 긁는다."}], "easy": "겁에 질린 Tavil은 손톱으로 타일을 긁어요.", "gist": "심경이 직접 드러나요 — 겁에 질렸어요. (정답 근거)"}, {"n": 11, "ch": [{"e": "He <b>screams<\/b>,", "k": "그는 비명을 지른다,"}, {"e": "not caring if someone hears;", "k": "누군가가 들을지 개의치 않고;"}, {"e": "hoping they do", "k": "그들<span class=\"r\">(= 누군가)<\/span>이 (그 소리를) 듣기를 바라며"}, {"e": "and will <b>cast<\/b> him <b>out<\/b>.", "k": "그리고 그를 (밖으로) 내쫓아 주기를."}], "link": "누군가가 들을지 개의치 않고, 그들이 (그 소리를) 듣고 그를 내쫓아 주기를 바라며 그는 비명을 지른다.", "easy": "누가 듣든 상관하지 않고 비명을 질러요. 오히려 누군가 듣고 자기를 밖으로 꺼내 주기를 바라요.", "gist": "구해 주기를 바라는 절박한 마음이에요."}]}, {"no": "03", "typ": "글의 제목", "src": "2018학년도 6월 23번", "evn": [5], "ev_en": "When information overloads working memory this way, it can make brokers — and the rest of us — scrap all the strategizing and analyses and go for emotional, or gut, decisions.", "ev_ko": [[5, "정보가 이런 식으로 작동 기억에 과부하가 걸리게 하면, 그것은 주식 중개인이, 그리고 나머지 우리들이, 그 모든 빈틈없는 계획 수립과 분석을 버리고 감정적인, 즉 직감적인 결정을 택하게 만들 수 있다."]], "why": ["(1)~(2)는 주식 중개인이 마주하는 <b>information overload<\/b>(정보 과부하)를 보여 줘요", "(3)에서 그 정보가 <b>working memory<\/b>(작동 기억)를 압도한다고 해요", "(5)에서는 그 결과 계획 수립과 분석을 버리고 <b>emotional, or gut, decisions<\/b>(감정적인, 즉 직감적인 결정)를 택하게 된다고 해요", "정보 과부하가 판단을 흐리게 한다는 흐름이에요", "그래서 정답은 ①이에요", "여기서 <b>cloud<\/b>는 '(판단을) 흐리게 하다'라는 뜻의 동사예요."], "ch": [{"n": "①", "t": "How Information Overload Can Cloud Your Judgment", "g": "정보 과부하가 어떻게 당신의 판단력을 흐리게 할 수 있는가", "ok": true, "e": ["정보 과부하 → 작동 기억이 압도됨(3) → 직감적인 결정(5)이라는 글의 흐름을 담았어요", "판단이 흐려진다는 것이 바로 (5)의 감정적인, 즉 직감적인 결정이에요."]}, {"n": "②", "t": "Multitasking Increases Your Working Memory!", "g": "멀티태스킹은 당신의 작동 기억을 증가시킨다!", "ok": false, "e": ["(3)에서 작동 기억은 늘어나는 것이 아니라 <b>overwhelmed<\/b>(압도당한다)라고 했어요", "멀티태스킹 이야기도 글에 없어요."]}, {"n": "③", "t": "How to Prevent Information Flood", "g": "정보의 홍수를 막는 방법", "ok": false, "e": ["정보의 홍수를 막는 방법은 나오지 않아요", "정보 과부하가 판단에 미치는 영향만 설명해요."]}, {"n": "④", "t": "Do Flashing Screens Reduce Information Overload?", "g": "번쩍이는 화면은 정보 과부하를 줄이는가?", "ok": false, "e": ["(1)의 번쩍이는 화면은 정보 과부하를 보여 주는 장면이에요", "화면이 정보 과부하를 줄인다는 말은 없어요."]}, {"n": "⑤", "t": "Emotional Judgment: The Secret of Successful Brokers", "g": "감정적인 판단: 성공적인 주식 중개인의 비결", "ok": false, "e": ["(5)의 감정적인 결정은 성공의 비결이 아니라 정보 과부하 때문에 생기는 결과예요."]}], "tr": ["당신이 주식 중개인의 책상에서 길게 늘어서 있는 번쩍이는 (컴퓨터) 화면들을 본 적이 있다면, 당신은 그들이 직면하고 있는 정보 과부하를 이해하게 된다.", "예를 들어, 어떤 회사에 투자할지 말지를 결정할 때, 그들은 다른 정보들 중에서도 실권을 가진 사람들, 그것(회사)의 시장의 현재 규모와 잠재적 규모, 순이익, 그것(회사)의 과거, 현재 및 미래의 주식 가치를 고려할지 모른다.", "이 모든 요인들을 따져 보는 것은 당신의 작동 기억의 너무 많은 부분을 차지할 수 있어서, 그것(작동 기억)은 압도당하게 된다.", "수많은 더미의 서류, 접착식 메모지 및 정산표가 책상을 뒤덮은 것을 생각하면, 당신은 두뇌 내부에서 무슨 일이 진행되고 있는지를 파악하게 된다.", "정보가 이런 식으로 작동 기억에 과부하가 걸리게 하면, 그것은 주식 중개인이, 그리고 나머지 우리들이, 그 모든 빈틈없는 계획 수립과 분석을 버리고 감정적인, 즉 직감적인 결정을 택하게 만들 수 있다."], "ps": [{"n": 1, "ch": [{"e": "If you’ve ever seen", "k": "당신이 본 적이 있다면"}, {"e": "the <b>bank<\/b> of flashing screens", "k": "길게 늘어서 있는 번쩍이는 화면들을"}, {"e": "at a <b>broker<\/b>’s desk,", "k": "주식 중개인의 책상에서,"}, {"e": "you <b>have a sense of<\/b>", "k": "당신은 이해하게 된다"}, {"e": "the <b>information overload<\/b>", "k": "정보 과부하를"}, {"e": "they are <b>up against<\/b>.", "k": "그들<span class=\"r\">(= 주식 중개인들)<\/span>이 직면하고 있는."}], "link": "당신이 주식 중개인의 책상에서 길게 늘어서 있는 번쩍이는 화면들을 본 적이 있다면, 당신은 그들이 직면하고 있는 정보 과부하를 이해하게 된다.", "easy": "주식 중개인 책상에 화면이 줄줄이 번쩍이는 모습을 보면, 그들이 감당하는 정보가 얼마나 많은지 알 수 있어요.", "gist": "글의 소재 — 정보 과부하예요."}, {"n": 2, "ch": [{"e": "When deciding", "k": "결정할 때"}, {"e": "whether to invest in a company,", "k": "어떤 회사에 투자할지 말지를,"}, {"e": "for example,", "k": "예를 들어,"}, {"e": "they may <b>take into account<\/b>", "k": "그들<span class=\"r\">(= 주식 중개인들)<\/span>은 고려할지 모른다"}, {"e": "the people <b>at the helm<\/b>;", "k": "실권을 가진 사람들;"}, {"e": "the current and potential size of its market;", "k": "그것<span class=\"r\">(= 회사)<\/span>의 시장의 현재 규모와 잠재적 규모;"}, {"e": "<b>net profits<\/b>;", "k": "순이익;"}, {"e": "and its past, present, and future stock value,", "k": "그리고 그것<span class=\"r\">(= 회사)<\/span>의 과거, 현재 및 미래의 주식 가치를,"}, {"e": "among other pieces of information.", "k": "다른 정보들 중에서도."}], "link": "예를 들어, 어떤 회사에 투자할지 말지를 결정할 때, 그들은 다른 정보들 중에서도 실권을 가진 사람들, 회사 시장의 현재 규모와 잠재적 규모, 순이익, 그리고 회사의 과거, 현재 및 미래의 주식 가치를 고려할지 모른다.", "easy": "예를 들어 한 회사에 투자할지 정할 때도, 회사를 이끄는 사람, 시장 규모, 순이익, 주식 가치 등 따져 볼 정보가 아주 많아요.", "gist": "예시 — 고려할 정보가 너무 많아요."}, {"n": 3, "ch": [{"e": "<b>Weighing<\/b> all of these factors", "k": "이 모든 요인들을 따져 보는 것은"}, {"e": "can <b>take up<\/b> so much of your working memory", "k": "당신의 작동 기억의 너무 많은 부분을 차지할 수 있어서"}, {"e": "that it becomes <b>overwhelmed<\/b>.", "k": "그것<span class=\"r\">(= 작동 기억)<\/span>은 압도당하게 된다."}], "link": "이 모든 요인들을 따져 보는 것은 당신의 작동 기억의 너무 많은 부분을 차지할 수 있어서, 그것은 압도당하게 된다.", "easy": "이 많은 요인을 한꺼번에 따지면 머릿속 작업 공간인 작동 기억이 꽉 차서 감당을 못 하게 돼요.", "gist": "결과 1 — 작동 기억이 압도당해요."}, {"n": 4, "ch": [{"e": "Think of having", "k": "생각해 보라"}, {"e": "piles and piles of papers, sticky notes, and spreadsheets", "k": "수많은 더미의 서류, 접착식 메모지 및 정산표가"}, {"e": "<b>strewn about<\/b> your desk,", "k": "당신의 책상을 뒤덮은 것을,"}, {"e": "and you <b>get a picture of<\/b>", "k": "그러면 당신은 파악하게 된다"}, {"e": "what’s going on inside the brain.", "k": "두뇌 내부에서 무슨 일이 진행되고 있는지를."}], "link": "수많은 더미의 서류, 접착식 메모지 및 정산표가 책상을 뒤덮은 것을 생각하면, 당신은 두뇌 내부에서 무슨 일이 진행되고 있는지를 파악하게 된다.", "easy": "책상 위에 서류, 메모지, 표가 잔뜩 어질러져 있는 모습을 떠올리면, 머릿속이 어떤 상태인지 알 수 있어요.", "gist": "비유 — 과부하 걸린 뇌는 어질러진 책상 같아요."}, {"n": 5, "ch": [{"e": "When information overloads working memory", "k": "정보가 작동 기억에 과부하가 걸리게 하면"}, {"e": "this way,", "k": "이런 식으로,"}, {"e": "it can make brokers", "k": "그것<span class=\"r\">(= 이런 정보 과부하)<\/span>은 주식 중개인이 ~하게 만들 수 있다"}, {"e": "— and the rest of us —", "k": "— 그리고 나머지 우리들이 —"}, {"e": "<b>scrap<\/b> all the <b>strategizing<\/b> and analyses", "k": "그 모든 빈틈없는 계획 수립과 분석을 버리고"}, {"e": "and <b>go for<\/b> emotional, or <b>gut<\/b>, decisions.", "k": "감정적인, 즉 직감적인 결정을 택하게."}], "link": "정보가 이런 식으로 작동 기억에 과부하가 걸리게 하면, 그것은 주식 중개인이, 그리고 나머지 우리들이, 그 모든 빈틈없는 계획 수립과 분석을 버리고 감정적인, 즉 직감적인 결정을 택하게 만들 수 있다.", "easy": "정보가 너무 많아 작동 기억이 꽉 차면, 중개인도 우리도 차근차근 따지는 것을 포기하고 감으로 결정해 버릴 수 있어요.", "gist": "결론 — 정보 과부하가 판단을 흐려요. (정답 근거)"}]}, {"no": "04", "typ": "어법", "src": "2016년 4월 28번", "evn": [8], "ev_en": "Most of us are not aware of these types of flaws in our reasoning processes, but professionals who work to convince us of certain viewpoints study the research on human decision making to determine how to exploit our weaknesses to make us more susceptible to their messages.", "ev_ko": [[8, "우리 대부분은 우리의 추론 과정에서 이러한 종류의 결점들을 인식하지 못하지만, 특정 관점에 대해 우리를 설득하려고 일하는 전문가들은 우리를 그들의 메시지에 더 취약하게 만들기 위해 우리의 약점을 이용하는 방법을 명확히 하고자 인간의 의사결정에 대한 연구를 공부한다."]], "why": ["but 이하 절의 주어는 복수 명사 <b>professionals<\/b>예요", "<b>who work to convince us of certain viewpoints<\/b>는 professionals를 뒤에서 꾸미는 관계사절이에요", "관계사절을 빼면 <b>professionals ___ the research<\/b>가 남는데, 본동사가 없어요", "to부정사 to study는 준동사라서 본동사 역할을 할 수 없어요", "그래서 복수 주어 professionals에 맞는 복수 동사 <b>study<\/b>로 고쳐야 해요", "정답은 ⑤예요."], "ch": [{"n": "①", "t": "possible", "g": "가능한 (명사 뒤에서 꾸미는 형용사)", "ok": false, "e": ["possible은 명사 <b>the most rational way<\/b>를 뒤에서 꾸미는 형용사예요", "최상급, all, every가 명사를 꾸밀 때 -ible, -able 형태의 형용사는 명사 뒤에서도 꾸밀 수 있어요", "어법상 옳아요."]}, {"n": "②", "t": "exist", "g": "존재하다 (복수 동사)", "ok": false, "e": ["주어는 <b>Common weaknesses<\/b>(복수)이고 <b>in reasoning<\/b>은 주어를 꾸미는 전치사구예요", "그래서 복수 동사 exist가 맞아요", "exist는 자동사라서 수동태로 쓸 수 없어요."]}, {"n": "③", "t": "ignoring", "g": "무시하는 (분사구문)", "ok": false, "e": ["<b>while ignoring<\/b>은 접속사 while을 남겨 둔 분사구문이에요(while they ignore의 뜻)", "주어 people이 증거를 무시하는 능동 관계이고 뒤에 목적어 evidence가 있어서 현재분사 ignoring이 옳아요."]}, {"n": "④", "t": "about which", "g": "~에 관한 (전치사 + 관계대명사)", "ok": false, "e": ["<b>people have strong opinions about issues<\/b>에서 전치사 about을 관계대명사 which 앞으로 옮긴 형태예요", "which는 issues를 선행사로 하는 목적격 관계대명사로, about의 목적어예요", "어법상 옳아요."]}, {"n": "⑤", "t": "to study", "g": "공부하는 것 (to부정사)", "ok": true, "e": ["관계사절 <b>who work to convince us of certain viewpoints<\/b>를 빼면 주어 professionals의 본동사가 없어요", "to study를 복수 동사 <b>study<\/b>로 고쳐야 해요."]}], "tr": ["우리 모두는 우리의 두뇌가 가능한 가장 이성적인 방식으로 정보를 구분한다고 믿고 싶어한다.", "이와 반대로, 수많은 연구는 인간의 추론에 많은 약점이 있다는 것을 보여준다.", "추론에 있어서의 흔한 약점은 모든 연령대와 교육적 배경을 가진 사람들 전체에 걸쳐서 존재한다.", "예를 들어, 확증 편향은 아주 흔하다.", "사람들은 그와(그들의 관점에) 반대되는 증거는 무시하는 반면에, 그들의 관점을 뒷받침하는 정보에는 주의를 기울인다.", "확증 편향은 고집이 센 것과는 다르며, 사람들이 강한 의견을 갖고 있는 문제에 국한되지 않는다.", "대신, 그것은 잠재의식의 수준에서 작용하여 우리가 정보를 수집하고 걸러내는 방식을 제어한다.", "우리 대부분은 우리의 추론 과정에서 이러한 종류의 결점들을 인식하지 못하지만, 특정 관점에 대해 우리를 설득하려고 일하는 전문가들은 우리를 그들의 메시지에 더 취약하게 만들기 위해 우리의 약점을 이용하는 방법을 명확히 하고자 인간의 의사결정에 대한 연구를 공부한다."], "ps": [{"n": 1, "ch": [{"e": "We all want to believe", "k": "우리 모두는 믿고 싶어 한다"}, {"e": "that our brains <b>sort through<\/b> information", "k": "우리의 두뇌가 정보를 구분한다고"}, {"e": "in the most <b>rational<\/b> way <b>possible<\/b>.", "k": "가능한 가장 이성적인 방식으로."}], "easy": "우리는 모두 내 머리가 정보를 아주 이성적으로 정리한다고 믿고 싶어 해요.", "gist": "우리는 뇌가 이성적으로 정보를 다룬다고 믿고 싶어 해요."}, {"n": 2, "ch": [{"e": "<b>On the contrary<\/b>,", "k": "이와 반대로,"}, {"e": "<b>countless<\/b> studies show", "k": "수많은 연구는 보여 준다"}, {"e": "that there are many weaknesses", "k": "많은 약점이 있다는 것을"}, {"e": "of human <b>reasoning<\/b>.", "k": "인간의 추론에."}], "easy": "하지만 많은 연구에 따르면 사람이 따지고 생각하는 방식에는 약점이 많아요.", "gist": "반박 — 인간의 추론에는 약점이 많아요."}, {"n": 3, "ch": [{"e": "Common weaknesses in reasoning", "k": "추론에 있어서의 흔한 약점은"}, {"e": "<b>exist<\/b> across people", "k": "사람들 전체에 걸쳐서 존재한다"}, {"e": "of all ages and educational backgrounds.", "k": "모든 연령대와 교육적 배경을 가진."}], "link": "추론에 있어서의 흔한 약점은 모든 연령대와 교육적 배경을 가진 사람들 전체에 걸쳐서 존재한다.", "easy": "이런 약점은 나이나 교육 배경과 상관없이 누구에게나 있어요.", "gist": "약점은 누구에게나 있어요."}, {"n": 4, "ch": [{"e": "For example,", "k": "예를 들어,"}, {"e": "<b>confirmation bias<\/b> is <b>ubiquitous<\/b>.", "k": "확증 편향은 아주 흔하다."}], "easy": "그 예로 ‘확증 편향’은 아주 흔해요.", "gist": "대표적인 약점 — 확증 편향."}, {"n": 5, "ch": [{"e": "People <b>pay attention to<\/b> information", "k": "사람들은 정보에는 주의를 기울인다"}, {"e": "that supports their viewpoints,", "k": "그들의 관점을 뒷받침하는,"}, {"e": "while <b>ignoring<\/b> evidence", "k": "증거는 무시하는 반면에"}, {"e": "<b>to the contrary<\/b>.", "k": "그와<span class=\"r\">(= 그들의 관점에)<\/span> 반대되는."}], "link": "사람들은 그와 반대되는 증거는 무시하는 반면에, 그들의 관점을 뒷받침하는 정보에는 주의를 기울인다.", "easy": "사람들은 자기 생각을 뒷받침하는 정보에는 주목하고, 반대되는 증거는 무시해요.", "gist": "확증 편향이 무엇인지 설명해요."}, {"n": 6, "ch": [{"e": "Confirmation bias is not the same as", "k": "확증 편향은 ~과는 다르다"}, {"e": "being <b>stubborn<\/b>,", "k": "고집이 센 것,"}, {"e": "and is not <b>constrained to<\/b> issues", "k": "그리고 문제에 국한되지 않는다"}, {"e": "<b>about which<\/b> people have strong opinions.", "k": "사람들이 강한 의견을 갖고 있는."}], "link": "확증 편향은 고집이 센 것과는 다르며, 사람들이 강한 의견을 갖고 있는 문제에 국한되지 않는다.", "easy": "확증 편향은 단순히 고집이 센 것과 달라요. 사람들이 강한 의견을 가진 문제에서만 나타나는 것도 아니에요.", "gist": "확증 편향은 고집과 달라요."}, {"n": 7, "ch": [{"e": "Instead,", "k": "대신,"}, {"e": "it acts at a <b>subconscious<\/b> level", "k": "그것<span class=\"r\">(= 확증 편향)<\/span>은 잠재의식의 수준에서 작용하여"}, {"e": "to control the way", "k": "방식을 제어한다"}, {"e": "we gather and filter information.", "k": "우리가 정보를 수집하고 걸러내는."}], "link": "대신, 그것은 잠재의식의 수준에서 작용하여 우리가 정보를 수집하고 걸러내는 방식을 제어한다.", "easy": "확증 편향은 우리가 의식하지 못하는 수준에서 작동해서, 정보를 모으고 걸러 내는 방식을 좌우해요.", "gist": "확증 편향은 잠재의식에서 작동해요."}, {"n": 8, "ch": [{"e": "Most of us are not <b>aware of<\/b>", "k": "우리 대부분은 인식하지 못한다"}, {"e": "these types of <b>flaws<\/b>", "k": "이러한 종류의 결점들을"}, {"e": "in our reasoning processes,", "k": "우리의 추론 과정에서,"}, {"e": "but <b>professionals<\/b>", "k": "하지만 전문가들은"}, {"e": "who work to <b>convince<\/b> us <b>of<\/b> certain viewpoints", "k": "특정 관점에 대해 우리를 설득하려고 일하는"}, {"e": "<b>study<\/b> the research on human decision making", "k": "인간의 의사결정에 대한 연구를 공부한다<span class=\"r\">※ 문제지엔 to study로 되어 있음<\/span>"}, {"e": "to <b>determine<\/b> how to <b>exploit<\/b> our weaknesses", "k": "우리의 약점을 이용하는 방법을 명확히 하고자"}, {"e": "to make us more <b>susceptible<\/b> to their messages.", "k": "우리를 그들<span class=\"r\">(= 전문가들)<\/span>의 메시지에 더 취약하게 만들기 위해."}], "link": "우리 대부분은 우리의 추론 과정에서 이러한 종류의 결점들을 인식하지 못하지만, 특정 관점에 대해 우리를 설득하려고 일하는 전문가들은 우리를 그들의 메시지에 더 취약하게 만들기 위해 우리의 약점을 이용하는 방법을 명확히 하고자 인간의 의사결정에 대한 연구를 공부한다.", "easy": "우리는 대부분 이런 추론의 약점을 잘 몰라요. 그런데 우리를 설득하려는 전문가들은 이 약점을 어떻게 이용할지 알아내려고 사람의 의사결정에 대한 연구를 공부해요.", "gist": "전문가들은 우리의 약점을 이용해요. (정답 근거 — 본동사 study 자리)"}]}, {"no": "05", "typ": "빈칸 추론", "src": "2022년 4월 31번", "evn": [3, 4, 6, 7], "ev_en": "the entire continent stretches more than a third of the way around the world, but mostly within a relatively narrow range of latitudes. / As it is the latitude on the Earth that largely determines the climate and length of the growing season, crops domesticated in one part of Eurasia can be transplanted across the continent with only minimal need for adaptation to the new locale. / The twin continents of the Americas, by contrast, lie in a north-south direction. / Here, the spreading of crops originally domesticated in one region to another led to a much harder process of re-adapting the plant species to different growing conditions.", "ev_ko": [[3, "그 전체 대륙은 세계를 둘러싼 거리의 3분의 1보다 더 많이, 하지만 대부분 상대적으로 좁은 위도의 범위 내에서 뻗어 있다."], [4, "바로 그 지구의 위도가 기후와 식물의 성장 시기의 길이를 주로 결정하기 때문에, 유라시아의 한 지역에서 재배된 농작물들은 새로운 장소에의 적응을 위한 단지 최소한의 필요만 지닌 채 대륙을 가로질러 (다른 장소로) 옮겨 심어질 수 있다."], [6, "대조적으로 한 쌍의 아메리카 대륙은 북남 방향으로 놓여 있다."], [7, "이곳에서는 한 지역에서 본래 재배된 농작물들이 또 다른 지역으로 퍼지는 것이 식물종을 다른 성장 환경에 재적응시키는 훨씬 더 어려운 과정을 야기했다."]], "why": ["빈칸은 <b>the very ______ of the continent<\/b>, 즉 대륙이 가진 어떤 성질이에요", "그 성질이 농작물의 확산을 크게 촉진했다고 했어요", "(3)에서 유라시아는 아주 길지만 대부분 좁은 위도 범위 안에 있다고 해요", "(4)에서 위도가 기후와 성장 시기의 길이를 결정하므로, 적응이 거의 필요 없이 대륙을 가로질러 옮겨 심을 수 있다고 해요", "(6)·(7)에서는 북남 방향으로 놓인 아메리카에서 재적응이 훨씬 어려웠다고 대조해요", "결국 확산을 좌우한 것은 대륙이 뻗은 방향이에요", "그래서 정답은 ② orientation(방향)이에요."], "ch": [{"n": "①", "t": "isolation", "g": "고립", "ok": false, "e": ["대륙의 고립에 대한 내용은 글에 없어요", "빈칸에는 농작물의 확산을 크게 촉진한 대륙의 성질이 들어가야 해요", "글은 (2)의 동서 방향과 (6)의 북남 방향을 대조해요."]}, {"n": "②", "t": "orientation", "g": "방향", "ok": true, "e": ["(2)의 <b>east-west direction<\/b>(동서 방향)과 (6)의 <b>north-south direction<\/b>(북남 방향)의 대조가 글의 핵심이에요", "이 방향을 한 단어로 나타낸 것이 orientation이에요."]}, {"n": "③", "t": "diversity", "g": "다양성", "ok": false, "e": ["글의 중심 소재는 위도와 농작물의 확산이에요", "대륙의 다양성에 대한 내용은 나오지 않아요", "또 (1)의 Not only 부분에 이미 <b>biological abundance<\/b>(생물학적 풍부함)가 나왔어요", "비슷한 뜻의 다양성이 but 뒤에 다시 오는 것은 어색해요."]}, {"n": "④", "t": "conservation", "g": "보호", "ok": false, "e": ["보호나 보존에 대한 내용은 글에 없어요", "글은 농작물이 다른 지역으로 퍼져 나가는 과정을 다뤄요."]}, {"n": "⑤", "t": "instability", "g": "불안정성", "ok": false, "e": ["(2)의 판게아가 조각났다는 이야기는 유라시아가 동서 방향으로 놓이게 된 배경이에요", "확산을 촉진한 것은 불안정성이 아니라 대륙의 방향이에요."]}], "tr": ["유라시아는 우연히 생물학적 풍부함으로 축복받았을 뿐만 아니라 대륙의 바로 그 방향이 멀리 떨어져 있는 지역 간의 농작물의 확산을 크게 촉진시켰다.", "초대륙 판게아가 조각났을 때, 그것은 유라시아를 동서 방향으로 가로지르는 넓은 땅덩어리로 그저 우연히 남겨 두었던 갈라진 틈을 따라 분열되었다.", "그 전체 대륙은 세계를 둘러싼 거리의 3분의 1보다 더 많이, 하지만 대부분 상대적으로 좁은 위도의 범위 내에서 뻗어 있다.", "바로 그 지구의 위도가 기후와 식물의 성장 시기의 길이를 주로 결정하기 때문에, 유라시아의 한 지역에서 재배된 농작물들은 새로운 장소에의 적응을 위한 단지 최소한의 필요만 지닌 채 대륙을 가로질러 (다른 장소로) 옮겨 심어질 수 있다.", "그러므로 예를 들어 밀 재배는 튀르키예의 고지대로부터 메소포타미아 전역을 거쳐, 유럽으로, 그리고 인도에 이르기까지 손쉽게 퍼져나갔다.", "대조적으로 한 쌍의 아메리카 대륙은 북남 방향으로 놓여 있다.", "이곳에서는 한 지역에서 본래 재배된 농작물들이 또 다른 지역으로 퍼지는 것이 식물종을 다른 성장 환경에 재적응시키는 훨씬 더 어려운 과정을 야기했다."], "ps": [{"n": 1, "ch": [{"e": "<b>Not only<\/b> was Eurasia", "k": "유라시아는 ~했을 뿐만 아니라"}, {"e": "<b>by chance<\/b> blessed with biological <b>abundance<\/b>,", "k": "우연히 생물학적 풍부함으로 축복받았을,"}, {"e": "but the very <b>orientation<\/b>", "k": "바로 그 방향이<span class=\"r\">※ 문제지엔 빈칸으로 되어 있음<\/span>"}, {"e": "of the continent", "k": "대륙의"}, {"e": "greatly <b>promoted<\/b> the spread of crops", "k": "농작물의 확산을 크게 촉진시켰다"}, {"e": "between distant regions.", "k": "멀리 떨어져 있는 지역 간의."}], "link": "유라시아는 우연히 생물학적 풍부함으로 축복받았을 뿐만 아니라 대륙의 바로 그 방향이 멀리 떨어져 있는 지역 간의 농작물의 확산을 크게 촉진시켰다.", "easy": "유라시아는 운 좋게 생물이 풍부했을 뿐 아니라, 대륙이 놓인 방향 덕분에 먼 지역 사이에서도 농작물이 잘 퍼졌어요.", "gist": "주제 — 대륙의 방향이 농작물의 확산을 도왔어요."}, {"n": 2, "ch": [{"e": "When the supercontinent Pangea <b>fragmented<\/b>,", "k": "초대륙 판게아가 조각났을 때,"}, {"e": "it was <b>torn apart<\/b> along <b>rifts<\/b>", "k": "그것<span class=\"r\">(= 판게아)<\/span>은 갈라진 틈을 따라 분열되었다"}, {"e": "that <b>just so happened to<\/b> leave Eurasia", "k": "유라시아를 그저 우연히 남겨 두었던"}, {"e": "as a broad <b>landmass<\/b>", "k": "넓은 땅덩어리로"}, {"e": "running in an <b>east-west direction<\/b> —", "k": "동서 방향으로 가로지르는 —"}], "link": "초대륙 판게아가 조각났을 때, 그것은 유라시아를 동서 방향으로 가로지르는 넓은 땅덩어리로 그저 우연히 남겨 두었던 갈라진 틈을 따라 분열되었다.", "easy": "판게아가 쪼개질 때, 우연히 유라시아가 동서 방향으로 길게 뻗은 넓은 땅이 되도록 갈라졌어요.", "gist": "유라시아는 동서 방향으로 놓여 있어요."}, {"n": 3, "ch": [{"e": "the entire continent <b>stretches<\/b>", "k": "그 전체 대륙은 뻗어 있다"}, {"e": "more than a third of the way around the world,", "k": "세계를 둘러싼 거리의 3분의 1보다 더 많이,"}, {"e": "but mostly within a relatively narrow range", "k": "하지만 대부분 상대적으로 좁은 범위 내에서"}, {"e": "of <b>latitudes<\/b>.", "k": "위도의."}], "link": "그 전체 대륙은 세계를 둘러싼 거리의 3분의 1보다 더 많이, 하지만 대부분 상대적으로 좁은 위도의 범위 내에서 뻗어 있다.", "easy": "유라시아는 지구 둘레의 3분의 1이 넘게 길지만, 대부분 비교적 좁은 위도 범위 안에 있어요.", "gist": "길지만 위도는 비슷해요. (정답 근거)"}, {"n": 4, "ch": [{"e": "As it is the <b>latitude<\/b> on the Earth", "k": "바로 지구의 위도이기 때문에"}, {"e": "that largely determines", "k": "주로 결정하는 것은"}, {"e": "the climate and length of the growing season,", "k": "기후와 식물의 성장 시기의 길이를,"}, {"e": "crops <b>domesticated<\/b> in one part of Eurasia", "k": "유라시아의 한 지역에서 재배된 농작물들은"}, {"e": "can be <b>transplanted<\/b> across the continent", "k": "대륙을 가로질러 옮겨 심어질 수 있다"}, {"e": "with only minimal need", "k": "단지 최소한의 필요만 지닌 채"}, {"e": "for adaptation to the new <b>locale<\/b>.", "k": "새로운 장소에의 적응을 위한."}], "link": "기후와 식물의 성장 시기의 길이를 주로 결정하는 것은 바로 지구의 위도이기 때문에, 유라시아의 한 지역에서 재배된 농작물들은 새로운 장소에의 적응을 위한 단지 최소한의 필요만 지닌 채 대륙을 가로질러 옮겨 심어질 수 있다.", "easy": "기후와 식물이 자라는 기간은 주로 위도로 정해져요. 그래서 유라시아에서는 한 곳의 작물을 대륙의 다른 곳에 옮겨 심어도 새로 적응할 필요가 거의 없어요.", "gist": "핵심 이유 — 위도가 비슷해서 옮겨 심기 쉬워요. (정답 근거)"}, {"n": 5, "ch": [{"e": "Thus wheat <b>cultivation<\/b>", "k": "그러므로 밀 재배는"}, {"e": "spread <b>readily<\/b>", "k": "손쉽게 퍼져나갔다"}, {"e": "from the uplands of Turkey", "k": "튀르키예의 고지대로부터"}, {"e": "throughout Mesopotamia,", "k": "메소포타미아 전역을 거쳐,"}, {"e": "to Europe,", "k": "유럽으로,"}, {"e": "and all the way round to India,", "k": "그리고 인도에 이르기까지,"}, {"e": "for example.", "k": "예를 들어."}], "link": "그러므로 예를 들어 밀 재배는 튀르키예의 고지대로부터 메소포타미아 전역을 거쳐, 유럽으로, 그리고 인도에 이르기까지 손쉽게 퍼져나갔다.", "easy": "예를 들어 밀 재배는 튀르키예의 고지대에서 메소포타미아, 유럽, 인도까지 쉽게 퍼졌어요.", "gist": "예시 — 밀 재배의 확산."}, {"n": 6, "ch": [{"e": "The twin continents of the Americas,", "k": "한 쌍의 아메리카 대륙은,"}, {"e": "<b>by contrast<\/b>,", "k": "대조적으로,"}, {"e": "lie in a <b>north-south direction<\/b>.", "k": "북남 방향으로 놓여 있다."}], "easy": "반대로 아메리카 대륙은 북쪽에서 남쪽으로 놓여 있어요.", "gist": "대조 — 아메리카는 북남 방향이에요. (정답 근거)"}, {"n": 7, "ch": [{"e": "Here,", "k": "이곳에서는,"}, {"e": "the spreading of crops", "k": "농작물들이 퍼지는 것이"}, {"e": "originally domesticated in one region", "k": "한 지역에서 본래 재배된"}, {"e": "to another", "k": "또 다른 지역으로"}, {"e": "led to a much harder process", "k": "훨씬 더 어려운 과정을 야기했다"}, {"e": "of <b>re-adapting<\/b> the plant species", "k": "식물종을 재적응시키는"}, {"e": "to different growing conditions.", "k": "다른 성장 환경에."}], "link": "이곳에서는 한 지역에서 본래 재배된 농작물들이 또 다른 지역으로 퍼지는 것이 식물종을 다른 성장 환경에 재적응시키는 훨씬 더 어려운 과정을 야기했다.", "easy": "아메리카에서는 작물을 다른 지역으로 옮기면 다른 성장 환경에 다시 적응시켜야 해서 훨씬 어려웠어요.", "gist": "북남 방향이라 확산이 어려웠어요. (정답 근거)"}]}, {"no": "06", "typ": "빈칸 추론", "src": "2023년 7월 33번", "evn": [5, 8, 9], "ev_en": "Ernst Mayr, an evolutionary biologist, called these different behavioral systems “open” or “closed” to the effects of experience. / Charles Herrick, a neurobiologist, wrote, “the details of the hunt vary every time she hunts. / Therefore no combination of simple reflex arcs laid down in the nervous system will be adequate to meet the infinite variations of the requirements for obtaining food.”", "ev_ko": [[5, "진화 생물학자인 Ernst Mayr는 이러한 다른 행동 체계들을 경험의 영향에 대해 ‘개방적’ 또는 ‘폐쇄적’이라고 칭했다."], [8, "신경 생물학자인 Charles Herrick은 (다음과 같이) 썼다. “사냥의 세부적인 것들은 사냥할 때마다 다르다."], [9, "따라서 신경계에 있는 단순한 반사궁들의 어떠한 조합도 먹이를 획득하기 위한 조건의 무한한 변화를 충족시키기에 충분하지 않을 것이다.”"]], "why": ["빈칸 문장은 먹이를 찾을 때 학습에 더 의존하는 것이 야생 동물을 어떻게 만드는지 말해요", "(5)에서 Ernst Mayr는 이런 행동 체계를 경험의 영향에 대해 <b>“open”<\/b>(개방적) 또는 <b>“closed”<\/b>(폐쇄적)라고 불렀어요", "먹이를 사냥하는 사자는 개방적 체계의 예예요", "(8)에서 사냥의 세부적인 것들은 <b>vary every time<\/b>(사냥할 때마다 다르다)라고 해요", "(9)에서 단순한 반사궁의 조합으로는 <b>infinite variations<\/b>(무한한 변화)를 충족시킬 수 없다고 해요", "즉 학습에 의존하면 다양한 사냥 환경에 맞춰 행동할 수 있어요", "그래서 정답은 ⑤예요."], "ch": [{"n": "①", "t": "less cooperative with others in their community", "g": "그들이 속한 공동체에서 다른 이들과 덜 협조적이게", "ok": false, "e": ["협동이나 공동체에 대한 내용은 글에 없어요", "글은 학습에 의존하는 행동과 본능에 의존하는 행동을 비교해요."]}, {"n": "②", "t": "less focused on monitoring predators’ approaches", "g": "포식자의 접근을 감시하는 데 덜 집중하게", "ok": false, "e": ["(7)의 <b>approaches<\/b>는 암사자가 먹이에게 다가가는 동작이에요", "포식자의 접근을 감시한다는 이야기는 없어요."]}, {"n": "③", "t": "more intelligent to build their natural surroundings", "g": "자연 환경을 구축하는 데 더 지능적이게", "ok": false, "e": ["동물이 자연 환경을 구축한다는 내용은 없어요", "글은 학습 덕분에 달라지는 상황에 맞춰 행동할 수 있다는 쪽이에요."]}, {"n": "④", "t": "more sensitive to visual information than any other stimuli", "g": "다른 어떤 자극보다 시각 정보에 더 예민하게", "ok": false, "e": ["(7)의 <b>recognizes her prey from a distance<\/b>(멀리서 먹이를 알아본다)에서 시각을 떠올릴 수 있어요", "하지만 글은 감각끼리 비교하지 않아요", "글이 비교하는 것은 학습에 의존하는 행동과 본능에 의존하는 행동이에요."]}, {"n": "⑤", "t": "more flexible and able to adapt to a variety of environments", "g": "더 유연하게 그리고 다양한 환경에 적응할 수 있게", "ok": true, "e": ["(5)의 <b>“open”<\/b>(개방적), (8)의 <b>vary every time<\/b>(사냥할 때마다 다르다), (9)의 <b>infinite variations<\/b>(무한한 변화)가 모두 같은 방향이에요", "학습에 의존하면 달라지는 상황에 맞춰 행동할 수 있어요."]}], "tr": ["풀 뜯기, 동물의 사체를 찾아다니기, 또는 사냥하기와 같은 먹이를 찾는 데 사용되는 내재된 행동은 먹이를 먹는 데 사용되는 행동보다 학습에 더 의존적이다.", "짝짓기, 둥지 틀기, 먹기, 그리고 먹이를 죽이는 행동은 본능에 의해 더 지배되는 경향이 있다.", "먹이를 찾기 위해 학습에 더 크게 의존하는 것은 야생의 동물들을 더 유연하게 그리고 다양한 환경에 적응할 수 있게 한다.", "먹이를 죽이거나 먹기 위해 사용되는 행동은 어떤 환경에서도 동일할 수 있다.", "진화 생물학자인 Ernst Mayr는 이러한 다른 행동 체계들을 경험의 영향에 대해 ‘개방적’ 또는 ‘폐쇄적’이라고 칭했다.", "사냥감을 사냥하는 사자는 개방적 체계의 한 예이다.", "사냥을 하는 암사자는 멀리서 먹이를 알아보고 조심스럽게 그것에 다가간다.", "신경 생물학자인 Charles Herrick은 (다음과 같이) 썼다. “사냥의 세부적인 것들은 사냥할 때마다 다르다.", "따라서 신경계에 있는 단순한 반사궁들의 어떠한 조합도 먹이를 획득하기 위한 조건의 무한한 변화를 충족시키기에 충분하지 않을 것이다.”"], "ps": [{"n": 1, "ch": [{"e": "<b>Innate<\/b> behaviors", "k": "내재된 행동은"}, {"e": "used for finding food,", "k": "먹이를 찾는 데 사용되는,"}, {"e": "such as <b>grazing<\/b>, <b>scavenging<\/b>, or hunting,", "k": "풀 뜯기, 동물의 사체를 찾아다니기, 또는 사냥하기와 같은,"}, {"e": "are more <b>dependent on<\/b> learning", "k": "학습에 더 의존적이다"}, {"e": "than behaviors used to <b>consume<\/b> food.", "k": "먹이를 먹는 데 사용되는 행동보다."}], "link": "풀 뜯기, 동물의 사체를 찾아다니기, 또는 사냥하기와 같은 먹이를 찾는 데 사용되는 내재된 행동은 먹이를 먹는 데 사용되는 행동보다 학습에 더 의존적이다.", "easy": "먹이를 ‘찾는’ 행동은 먹이를 ‘먹는’ 행동보다 학습에 더 많이 기대요.", "gist": "대비 1 — 먹이 찾기는 학습에 더 의존해요."}, {"n": 2, "ch": [{"e": "Mating, nesting, eating, and prey-killing behaviors", "k": "짝짓기, 둥지 틀기, 먹기, 그리고 먹이를 죽이는 행동은"}, {"e": "tend to be <b>governed<\/b> more", "k": "더 지배되는 경향이 있다"}, {"e": "by <b>instinct<\/b>.", "k": "본능에 의해."}], "easy": "짝짓기, 둥지 틀기, 먹기, 먹이 죽이기는 주로 본능에 따라 해요.", "gist": "대비 2 — 이런 행동은 본능에 더 지배돼요."}, {"n": 3, "ch": [{"e": "The greater dependence on learning", "k": "학습에 더 크게 의존하는 것은"}, {"e": "to find food", "k": "먹이를 찾기 위해"}, {"e": "makes animals in the wild", "k": "야생의 동물들을 ~하게 한다"}, {"e": "<b>more flexible<\/b> and able to <b>adapt to<\/b> a variety of environments.", "k": "더 유연하게 그리고 다양한 환경에 적응할 수 있게.<span class=\"r\">※ 문제지엔 빈칸으로 되어 있음<\/span>"}], "link": "먹이를 찾기 위해 학습에 더 크게 의존하는 것은 야생의 동물들을 더 유연하게 그리고 다양한 환경에 적응할 수 있게 한다.", "easy": "먹이를 찾을 때 학습에 더 의존하면, 야생 동물은 더 유연해지고 여러 환경에 적응할 수 있어요.", "gist": "주제문 — 학습에 의존하면 유연하게 적응할 수 있어요."}, {"n": 4, "ch": [{"e": "Behaviors used to kill or consume food", "k": "먹이를 죽이거나 먹기 위해 사용되는 행동은"}, {"e": "can be the same in any environment.", "k": "어떤 환경에서도 동일할 수 있다."}], "easy": "먹이를 죽이거나 먹는 행동은 어떤 환경에서든 똑같을 수 있어요.", "gist": "본능 행동은 환경이 달라도 같아요."}, {"n": 5, "ch": [{"e": "Ernst Mayr, an <b>evolutionary<\/b> biologist,", "k": "진화 생물학자인 Ernst Mayr는,"}, {"e": "called these different behavioral systems", "k": "이러한 다른 행동 체계들을 칭했다"}, {"e": "“<b>open<\/b>” or “<b>closed<\/b>”", "k": "‘개방적’ 또는 ‘폐쇄적’이라고"}, {"e": "to the effects of experience.", "k": "경험의 영향에 대해."}], "link": "진화 생물학자인 Ernst Mayr는 이러한 다른 행동 체계들을 경험의 영향에 대해 ‘개방적’ 또는 ‘폐쇄적’이라고 칭했다.", "easy": "Ernst Mayr는 이 두 행동 체계를 경험의 영향에 ‘열려 있는’ 체계와 ‘닫혀 있는’ 체계라고 불렀어요.", "gist": "학습에 의존하는 행동은 경험에 열린 체계예요. (정답 근거)"}, {"n": 6, "ch": [{"e": "A lion hunting her <b>prey<\/b>", "k": "사냥감을 사냥하는 사자는"}, {"e": "is an example of an open system.", "k": "개방적 체계의 한 예이다."}], "easy": "사냥감을 사냥하는 사자가 개방적 체계의 예예요.", "gist": "예시 — 사냥하는 사자."}, {"n": 7, "ch": [{"e": "The hunting female lion", "k": "사냥을 하는 암사자는"}, {"e": "recognizes her prey <b>from a distance<\/b>", "k": "멀리서 먹이를 알아보고"}, {"e": "and approaches it carefully.", "k": "조심스럽게 그것<span class=\"r\">(= 먹이)<\/span>에 다가간다."}], "easy": "암사자는 멀리서 먹이를 알아보고 조심조심 다가가요.", "gist": "사냥 장면을 보여 줘요."}, {"n": 8, "ch": [{"e": "Charles Herrick, a <b>neurobiologist<\/b>, wrote,", "k": "신경 생물학자인 Charles Herrick은 (다음과 같이) 썼다,"}, {"e": "“the details of the hunt", "k": "“사냥의 세부적인 것들은"}, {"e": "<b>vary every time<\/b> she hunts.", "k": "그녀<span class=\"r\">(= 암사자)<\/span>가 사냥할 때마다 다르다."}], "easy": "Charles Herrick은 사냥의 세부 사항은 사냥할 때마다 달라진다고 썼어요.", "gist": "사냥은 매번 달라요. (정답 근거)"}, {"n": 9, "ch": [{"e": "Therefore no <b>combination<\/b> of simple <b>reflex arcs<\/b>", "k": "따라서 단순한 반사궁들의 어떠한 조합도"}, {"e": "laid down in the nervous system", "k": "신경계에 있는"}, {"e": "will be <b>adequate<\/b> to meet", "k": "충족시키기에 충분하지 않을 것이다"}, {"e": "the <b>infinite variations<\/b>", "k": "무한한 변화를"}, {"e": "of the requirements for obtaining food.”", "k": "먹이를 획득하기 위한 조건의.”"}], "link": "따라서 신경계에 있는 단순한 반사궁들의 어떠한 조합도 먹이를 획득하기 위한 조건의 무한한 변화를 충족시키기에 충분하지 않을 것이다.", "easy": "그래서 신경계에 있는 단순한 반사궁을 어떻게 조합해도, 먹이를 얻는 데 필요한 끝없이 다양한 조건을 다 맞출 수는 없다는 말이에요.", "gist": "본능만으로는 부족해요 → 학습이 필요해요. (정답 근거)"}]}];
+var ENC="=QakivToRK+OkGp47AakivzoRK+OgGp4";
+var SETID="g3r14p1", N=D.length, TITLE="고3 미니모의고사 14회 01–06번";
+var CIRC="①②③④⑤";
+function dec(s){var b=atob(s.split("").reverse().join(""));var u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder("utf-8").decode(u);}
+var ANS=dec(ENC).split(";").map(function(x){return x.split("|").map(function(c){return CIRC.indexOf(c)+1;});});
+function isRight(i,a){return ANS[i].indexOf(a)>=0;}
+function ansText(i){return ANS[i].map(function(n){return CIRC[n-1];}).join(", ");}
+
+var GCODE="h3", GRADE="고3", FILE="14a", NEXT="14b.html";
+const KEY='via_mm_'+GCODE+'_'+FILE;
+let S={checks:{},locked:{},res:{},sub:null,q:[]};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* REC 연결 지점: 지금은 기기 안에 대기열로만 쌓음 */
+function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localStorage.getItem('via_minimock_rec_queue')||'[]');q.push(ev);localStorage.setItem('via_minimock_rec_queue',JSON.stringify(q));}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const app=$('#app');
+let view='word',quiz=null,armed=null;
+function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function shuffle(arr,seed){const a=arr.slice();let s=hash(seed)||1;for(let i=a.length-1;i>0;i--){s=Math.imul(s^(s>>>15),2246822519)>>>0;const j=s%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+const WS=WORDS.sets[0];
+
+function hdr(){
+  const on=id=>(view===id)?'on':'';
+  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><a class="link" href="index.html">목록</a></div><div class="tabs"><button class="tab ${on('word')}" data-v="word">단어</button><button class="tab ${on('submit')}" data-v="submit">답 제출</button><button class="tab ${on('exp')}" data-v="exp" ${S.sub?'':'disabled'}>해설</button></div></div></header>`;
+}
+function noteList(){
+  const out=[],ck=S.checks[WS.id]||{};
+  WS.words.forEach((w,i)=>{
+    const c=ck[i];if(!c)return;
+    const parts=['m','s','a'].filter(p=>c[p]&&(p==='m'||w[p]));
+    if(parts.length)out.push({i:i,w:w,parts:parts});
+  });
+  return out;
+}
+function render(){
+  if(view==='word')renderWord();
+  else if(view==='note')renderNote();
+  else if(view==='quiz')renderQuiz();
+  else if(view==='result')renderResult();
+  else if(view==='submit')renderSubmit();
+  else if(view==='exp')renderExp();
+  window.scrollTo(0,0);
+}
+/* ---- 단어 확인 ---- */
+function renderWord(){
+  const ck=S.checks[WS.id]||{},locked=!!S.locked[WS.id],n=noteList().length;
+  let h=hdr()+`<div class="wrap ${locked?'locked':''}">`;
+  WS.words.forEach((w,i)=>{
+    const c=ck[i]||{};
+    h+=`<div class="row"><div class="top"><span class="no">${i+1}</span><span class="word">${esc(w.w)}</span><span class="src">${esc(w.src)}번</span></div><div class="cells">`;
+    h+=`<button class="cell m ${c.m?'bad':''}" data-i="${i}" data-p="m"><span class="tag">뜻</span><span>${esc(w.m)}</span></button>`;
+    if(w.s)h+=`<button class="cell s ${c.s?'bad':''}" data-i="${i}" data-p="s"><span class="tag">유</span><span>${esc(w.s[0])}<span class="ko">${esc(w.s[1])}</span></span></button>`;
+    if(w.a)h+=`<button class="cell a ${c.a?'bad':''}" data-i="${i}" data-p="a"><span class="tag">반</span><span>${esc(w.a[0])}<span class="ko">${esc(w.a[1])}</span></span></button>`;
+    h+=`</div></div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap">`;
+  h+=locked?`<button class="btn" disabled>확인 끝</button>`:`<button class="btn ${armed==='lock'?'arm':''}" id="lock">${armed==='lock'?'한 번 더 누르면 확인 끝':'확인 끝'}</button>`;
+  h+=`<button class="btn pri" id="gonote">단어 오답노트 ${n}</button></div></div>`;
+  app.innerHTML=h;
+  app.querySelectorAll('.cell').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,p=b.dataset.p;
+    S.checks[WS.id]=S.checks[WS.id]||{};
+    const c=S.checks[WS.id][i]=S.checks[WS.id][i]||{};
+    c[p]=c[p]?0:1;save();
+    b.classList.toggle('bad',!!c[p]);
+    $('#gonote').textContent='단어 오답노트 '+noteList().length;
+  });
+  const lk=$('#lock');if(lk)lk.onclick=()=>{
+    if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
+      recSend({type:'word',marks:noteList().map(it=>({w:it.w.w,parts:it.parts}))});}
+    else armed='lock';
+    render();
+  };
+  $('#gonote').onclick=()=>{view='note';armed=null;render();};
+}
+function renderNote(){
+  const list=noteList();
+  let h=`<header><div class="wrap hd2"><h1>단어 오답노트 <span class="meta">${list.length}개</span></h1><button class="link" id="back">확인표</button></div></header><div class="wrap">`;
+  if(!list.length)h+=`<div class="empty">아직 표시한 단어가 없습니다</div>`;
+  list.forEach(it=>{
+    const w=it.w,r=(S.res[WS.id]||{})[it.i]||{};
+    h+=`<div class="note-item"><span class="w">${esc(w.w)}</span><span class="meta">${esc(w.src)}번</span>`;
+    const row=(p,tag,txt,ko)=>{
+      const bad=it.parts.includes(p);
+      const rs=r[p]===1?'<span class="res o">맞춤</span>':r[p]===0?'<span class="res x">틀림</span>':'';
+      return `<div class="part ${p} ${bad?'bad':''}"><span class="tag">${tag}</span><span>${esc(txt)}${ko?`<span class="ko"> ${esc(ko)}</span>`:''}</span>${bad?rs:''}</div>`;
+    };
+    h+=row('m','뜻',w.m,'');
+    if(w.s)h+=row('s','유',w.s[0],w.s[1]);
+    if(w.a)h+=row('a','반',w.a[0],w.a[1]);
+    h+=`</div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap"><button class="btn" id="back2">확인표</button><button class="btn pri" id="start" ${list.length?'':'disabled'}>복습 시작</button></div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='word';armed=null;render();};
+  $('#back2').onclick=()=>{view='word';render();};
+  $('#start').onclick=()=>{quiz={qs:buildQuestions(),n:0,right:0,done:false,shown:false};view='quiz';render();};
+}
+function buildQuestions(){
+  const qs=[];
+  noteList().forEach(it=>{
+    const w=it.w;
+    it.parts.forEach(p=>{
+      let q={i:it.i,p:p,w:w.w};
+      if(p==='m'){
+        const toks=x=>x.split(/[,，]\s*/).map(t=>t.trim());
+        const ct=toks(w.m);
+        const pool=[...new Set(WS.words.filter(o=>o!==w).map(o=>o.m))].filter(m=>!toks(m).some(t=>ct.includes(t)));
+        const wrong=shuffle(pool,WS.id+w.w+'m').slice(0,3);
+        q.type='choice';q.ask='뜻을 고르세요';
+        q.opts=shuffle([{t:w.m,ok:1}].concat(wrong.map(t=>({t:t,ok:0}))),WS.id+w.w+'mo');
+      }else{
+        const ans=w[p],d=WS.dist||[];
+        q.ask=p==='s'?'유의어를 고르세요':'반의어를 고르세요';
+        if(d.length>=3){
+          q.type='choice';
+          q.opts=shuffle([{t:ans[0],ko:ans[1],ok:1}].concat(shuffle(d,WS.id+w.w+p).slice(0,3).map(x=>({t:x[0],ko:x[1],ok:0}))),WS.id+w.w+p+'o');
+        }else{q.type='flip';q.ans=ans;}
+      }
+      qs.push(q);
+    });
+  });
+  return qs;
+}
+function recordRes(q,ok){S.res[WS.id]=S.res[WS.id]||{};const r=S.res[WS.id][q.i]=S.res[WS.id][q.i]||{};r[q.p]=ok?1:0;save();}
+function renderQuiz(){
+  const q=quiz.qs[quiz.n];
+  let h=`<header><div class="wrap hd2"><h1>복습</h1><button class="link" id="back">오답노트</button></div></header><div class="wrap ${quiz.done?'done':''}"><div class="q"><div class="cnt">${quiz.n+1} / ${quiz.qs.length}</div><div class="ask">${q.ask}</div><div class="target">${esc(q.w)}</div>`;
+  if(q.type==='choice'){
+    q.opts.forEach((o,k)=>{
+      let cls='';
+      if(quiz.done){if(o.ok)cls='right';else if(k===quiz.pick)cls='wrong';}
+      h+=`<button class="opt ${cls}" data-k="${k}">${esc(o.t)}${o.ko?`<span class="ko">${esc(o.ko)}</span>`:''}</button>`;
+    });
+  }else if(quiz.shown)h+=`<div class="opt right">${esc(q.ans[0])}<span class="ko">${esc(q.ans[1])}</span></div>`;
+  h+=`</div></div><div class="bar"><div class="wrap">`;
+  if(q.type==='flip'&&!quiz.shown)h+=`<button class="btn pri" id="show">정답 보기</button>`;
+  else if(q.type==='flip')h+=`<button class="btn" id="no">몰랐음</button><button class="btn pri" id="yes">알았음</button>`;
+  else h+=`<button class="btn pri" id="next" ${quiz.done?'':'disabled'}>${quiz.n+1===quiz.qs.length?'결과':'다음'}</button>`;
+  h+=`</div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='note';render();};
+  app.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+    if(quiz.done)return;
+    const k=+b.dataset.k;quiz.pick=k;quiz.done=true;
+    const ok=q.opts[k].ok===1;if(ok)quiz.right++;recordRes(q,ok);render();
+  });
+  const nx=$('#next');if(nx)nx.onclick=()=>advance();
+  const sh=$('#show');if(sh)sh.onclick=()=>{quiz.shown=true;render();};
+  const yes=$('#yes');if(yes)yes.onclick=()=>{quiz.right++;recordRes(q,true);advance();};
+  const no=$('#no');if(no)no.onclick=()=>{recordRes(q,false);advance();};
+}
+function advance(){
+  if(quiz.n+1>=quiz.qs.length){view='result';render();return;}
+  quiz.n++;quiz.done=false;quiz.shown=false;quiz.pick=null;render();
+}
+function renderResult(){
+  app.innerHTML=`<header><div class="wrap hd2"><h1>복습 결과</h1></div></header><div class="wrap"><div class="score">${quiz.right} <small>/ ${quiz.qs.length}</small></div></div><div class="bar"><div class="wrap"><button class="btn" id="a">오답노트</button><button class="btn pri" id="b">확인표</button></div></div>`;
+  $('#a').onclick=()=>{view='note';render();};
+  $('#b').onclick=()=>{view='word';render();};
+}
+/* ---- 답 제출 ---- */
+function renderSubmit(){
+  const done=!!S.sub;
+  while(S.q.length<N)S.q.push(0);
+  let h=hdr()+'<div class="wrap">';
+  for(let i=0;i<N;i++){
+    const sel=done?S.sub.a[i]:S.q[i];
+    h+=`<div class="qrow"><div class="qno">${esc(D[i].no)}</div><div class="opts">`;
+    for(let k=1;k<=5;k++)h+=`<button class="opt2 ${sel===k?'on':''}" data-q="${i}" data-k="${k}" ${done?'disabled':''}>${CIRC[k-1]}</button>`;
+    h+='</div></div>';
+  }
+  h+='</div><div class="bar"><div class="wrap">';
+  if(done)h+='<button class="btn pri" id="toexp">해설 보기</button>';
+  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>제출</button>`;
+  h+='</div></div>';
+  app.innerHTML=h;
+  app.querySelectorAll('.opt2').forEach(b=>b.onclick=()=>{
+    if(S.sub)return;
+    const q=+b.dataset.q,k=+b.dataset.k;S.q[q]=k;save();
+    b.parentNode.querySelectorAll('.opt2').forEach(x=>x.classList.toggle('on',+x.dataset.k===k));
+    $('#sub').disabled=!S.q.every(v=>v>0);
+  });
+  const sb=$('#sub');if(sb)sb.onclick=()=>{
+    let s=0;for(let i=0;i<N;i++)if(isRight(i,S.q[i]))s++;
+    S.sub={t:Date.now(),a:S.q.slice(),s:s};save();
+    recSend({type:'submit',a:S.sub.a,s:s,n:N});
+    view='exp';render();
+  };
+  const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
+}
+/* ---- 해설 ---- */
+function sHtml(s,evn){
+  const ev=evn.indexOf(s.n)>=0;
+  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
+  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
+  const lays=[];
+  if(s.link)lays.push(['이어 읽으면',s.link]);
+  if(s.easy)lays.push(['쉬운 말로',s.easy]);
+  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
+  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
+  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
+  return x+'</div>';
+}
+function qHtml(i,a){
+  const d=D[i],ok=isRight(i,a);
+  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
+  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
+  h+='<h4>정답 근거</h4>';
+  h+=`<p class="en">${esc(d.ev_en)}</p>`;
+  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
+  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  if(d.ps&&d.ps.length){
+    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
+  }
+  h+='<h4>선택지 하나씩</h4>';
+  d.ch.forEach(c=>{
+    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  });
+  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  return h+'</div></details>';
+}
+function renderExp(){
+  const rec=S.sub;
+  let h=hdr()+'<div class="wrap">';
+  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='</div><h2>해설</h2>';
+  for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
+  h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
+  app.innerHTML=h;
+}
+/* 위임 이벤트 */
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tab');
+  if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
+  const ch=e.target.closest('.ch');
+  if(ch){ch.classList.toggle('open');return;}
+  const st=e.target.closest('.stg');
+  if(st){
+    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const shown=lays.filter(l=>l.classList.contains('on')).length;
+    if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
+    else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
+    return;
+  }
+  const al=e.target.closest('.tbtn');
+  if(al){
+    const open=al.dataset.all==='1',body=al.closest('.dkbody');
+    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
+    body.querySelectorAll('.s').forEach(s=>{
+      const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
+      lays.forEach(l=>l.classList.toggle('on',open));
+      if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
+    });
+  }
+});
+render();
+</script>
+</body>
+</html>

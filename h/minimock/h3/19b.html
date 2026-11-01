@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>고3 미니모의고사 19회 07–12번</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f6f8;--accent:#23406b;--bad:#c2392b;--badbg:#fdeceb;--good:#1f7a4d;--goodbg:#e8f5ee;--hl:#fff3b0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+body{padding-bottom:84px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .row1{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+h1{font-size:16px;margin:0;font-weight:700;line-height:1.3}
+.tabs{display:flex;gap:0}
+.tab{flex:1;border:0;background:none;font-family:inherit;font-size:15px;font-weight:700;color:var(--sub);padding:11px 0;border-bottom:3px solid transparent}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tab[disabled]{opacity:.35}
+.link{text-decoration:none;border:0;background:none;color:var(--accent);font-size:15px;font-weight:700;padding:10px 4px;font-family:inherit}
+.hd2{display:flex;align-items:center;justify-content:space-between;height:54px}
+.hd2 h1{font-size:17px}
+.row{padding:12px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.no{color:var(--sub);font-size:13px;min-width:20px}
+.word{font-size:19px;font-weight:700}
+.src{color:var(--sub);font-size:12px;margin-left:auto}
+.cells{display:flex;flex-direction:column;gap:6px}
+.cell{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 12px;border-radius:8px;background:var(--soft);border:1.5px solid transparent;font-size:16px;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.cell .tag,.part .tag{font-size:12px;font-weight:700;color:#fff;border-radius:4px;padding:2px 7px;min-width:34px;text-align:center;background:#7a8594}
+.cell.s .tag,.part.s .tag{background:#2d62a8}.cell.a .tag,.part.a .tag{background:#b4472f}
+.ko{color:var(--sub);font-size:14px;margin-left:6px}
+.cell.bad{background:var(--badbg);border-color:var(--bad)}
+.cell.bad .tag{background:var(--bad)}
+.locked .cell{pointer-events:none}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:6}
+.bar .wrap{display:flex;gap:10px;padding:0}
+.btn{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;line-height:1.25;font-weight:700;font-family:inherit}
+.btn.pri{background:var(--accent);color:#fff}
+.btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn[disabled]{opacity:.4}
+.note-item{padding:14px 0;border-bottom:1px solid var(--line)}
+.note-item .w{font-size:19px;font-weight:700}
+.meta{color:var(--sub);font-size:12px;margin-left:8px;font-weight:400}
+.part{display:flex;gap:10px;align-items:baseline;padding:6px 0 0;font-size:16px}
+.part .tag{align-self:center}
+.part.bad{color:var(--bad);font-weight:700}
+.part.bad .tag{background:var(--bad)}
+.part .ko{font-weight:400}
+.part .res{margin-left:auto;font-size:13px;font-weight:700}
+.res.o{color:var(--good)}.res.x{color:var(--bad)}
+.empty{color:var(--sub);text-align:center;padding:60px 0;font-size:16px}
+.q{padding:22px 0 8px}
+.q .cnt{color:var(--sub);font-size:14px}
+.q .ask{font-size:15px;color:var(--sub);margin-top:14px}
+.q .target{font-size:28px;font-weight:700;margin:6px 0 18px}
+.opt{display:block;width:100%;text-align:left;min-height:56px;padding:10px 14px;margin-bottom:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:18px;font-family:inherit;color:var(--ink)}
+.opt .ko{display:block;margin:2px 0 0}
+.opt.right{border-color:var(--good);background:var(--goodbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.done .opt{pointer-events:none}
+.score{font-size:34px;font-weight:700;text-align:center;margin:30px 0 6px}
+.score small{font-size:18px;color:var(--sub);font-weight:400}
+.foot{color:var(--sub);font-size:12px;text-align:center;padding:26px 0 8px}
+/* submit */
+.qrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.qno{font-weight:800;font-size:20px;width:34px;flex:none}
+.opts{display:flex;gap:8px;flex:1}
+.opt2{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:20px;font-family:inherit;color:var(--ink)}
+.opt2.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.opt2[disabled]{opacity:.55}
+.opt2.on[disabled]{opacity:1}
+/* explanation */
+h2{font-size:17px;margin:26px 0 10px}
+.quick div{padding:3px 0;font-size:17px}
+.quick .o{color:var(--good)}.quick .x{color:var(--bad)}
+.sub{color:var(--sub)}
+details.qd{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;background:var(--bg)}
+details.qd>summary{list-style:none;cursor:pointer;padding:14px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+details.qd>summary::-webkit-details-marker{display:none}
+details.qd>summary small{font-weight:400;color:var(--sub);font-size:13px}
+.res2{margin-left:auto;font-size:14px}
+.res2.o{color:var(--good)}.res2.x{color:var(--bad)}
+.qx{padding:0 14px 14px}
+.qx h4{font-size:15px;margin:18px 0 8px;color:var(--accent)}
+.qx p{margin:6px 0;line-height:1.75;font-size:16px}
+.ansline b{font-size:17px}
+.en{font-size:16px;line-height:1.7;background:var(--soft);padding:10px 12px;border-radius:8px}
+.kolist{list-style:none;margin:6px 0;padding:0}
+.kolist li{font-size:15px;line-height:1.7}
+.kolist .n{font-size:12px;color:var(--sub);margin-right:6px}
+.why p{margin:4px 0;font-size:15px}
+.c{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.c.ok{border-color:var(--good);background:var(--goodbg)}
+.c .ct{font-weight:700;font-size:16px;line-height:1.5}
+.c .tg{display:inline-block;font-size:12px;color:#fff;background:#7a8594;border-radius:4px;padding:1px 7px;margin-right:6px;font-weight:700}
+.c.ok .tg{background:var(--good)}
+.c p{margin:4px 0 0;font-size:15px}
+.r{color:var(--sub);font-size:13px}
+/* direct reading practice */
+details.dk{margin:16px 0 4px;border:1px solid var(--line);border-radius:10px}
+details.dk>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700;color:var(--accent);font-size:15px}
+details.dk>summary::-webkit-details-marker{display:none}
+.dkbody{padding:0 12px 12px}
+.tool{display:flex;gap:8px;margin:2px 0 10px}
+.tbtn{flex:1;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:inherit;font-size:14px;font-weight:700;color:var(--accent)}
+.s{padding:10px 0 12px;border-top:1px dashed var(--line)}
+.s.ev{background:linear-gradient(90deg,#fffbe8,#fff);margin:0 -6px;padding-left:6px;padding-right:6px}
+.sn{margin-bottom:6px}
+.lb{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--sub);margin-right:6px}
+.lb.ev{background:var(--hl);color:#7a5b00}
+.ch{padding:9px 11px;margin-bottom:6px;border-radius:8px;background:var(--soft);cursor:pointer;border-bottom:2px dotted #c9cfd6}
+.ch .ce{font-size:16px;line-height:1.6}
+.ch .ce b{background:linear-gradient(transparent 55%,var(--hl) 55%)}
+.ch .ck{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--line);color:var(--accent);font-size:15px;line-height:1.65}
+.ch.open{background:#eef2f8;border-bottom-color:transparent}
+.ch.open .ck{display:block}
+.lay{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:14px;line-height:1.7}
+.lay.on{display:block}
+.stg{width:100%;min-height:42px;margin-top:6px;border:1px solid var(--accent);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const WORDS={"sets": [{"id": "g3r19p2", "title": "고3 미니모의고사 19회 07–12번", "range": "07–12번", "words": [{"src": "01", "w": "autonomy", "m": "자율성, 자치권", "s": ["independence", "독립성"], "a": ["dependence", "의존"]}, {"src": "02", "w": "self-contained", "m": "자족적인, 자립하는", "s": null, "a": null}, {"src": "03", "w": "governing", "m": "지배적인, 통치하는", "s": null, "a": null}, {"src": "04", "w": "examine", "m": "검토하다, 살피다", "s": ["inspect", "면밀히 살피다"], "a": ["overlook", "간과하다"]}, {"src": "05", "w": "assumption", "m": "가정, 추정", "s": null, "a": null}, {"src": "06", "w": "approximate", "m": "대략적인", "s": ["rough", "대략의"], "a": ["exact", "정확한"]}, {"src": "07", "w": "distort", "m": "왜곡하다", "s": null, "a": null}, {"src": "08", "w": "concrete", "m": "구체적인", "s": null, "a": ["abstract", "추상적인"]}, {"src": "09", "w": "convey", "m": "전달하다", "s": null, "a": null}, {"src": "10", "w": "invariable", "m": "불변의", "s": ["constant", "변함없는"], "a": ["changeable", "변하기 쉬운"]}, {"src": "11", "w": "temporarily", "m": "일시적으로", "s": null, "a": null}, {"src": "12", "w": "compassion", "m": "연민, 동정심", "s": ["sympathy", "동정심"], "a": ["indifference", "무관심"]}, {"src": "13", "w": "boost", "m": "북돋우다, 신장시키다", "s": ["enhance", "높이다"], "a": ["undermine", "약화시키다"]}, {"src": "14", "w": "ongoing", "m": "계속 진행 중인", "s": null, "a": null}, {"src": "15", "w": "facilitate", "m": "촉진하다, 용이하게 하다", "s": ["promote", "촉진하다"], "a": ["hinder", "방해하다"]}, {"src": "16", "w": "considerably", "m": "상당히, 꽤", "s": null, "a": null}, {"src": "17", "w": "complementary", "m": "보완적인", "s": null, "a": null}, {"src": "18", "w": "monopolize", "m": "독점하다", "s": ["dominate", "독차지하다"], "a": ["share", "나누다"]}, {"src": "19", "w": "accelerate", "m": "가속화되다", "s": ["hasten", "앞당기다"], "a": ["decelerate", "감속하다"]}, {"src": "20", "w": "enormous", "m": "막대한, 엄청난", "s": ["immense", "거대한"], "a": ["tiny", "아주 작은"]}], "dist": [["meticulous", "꼼꼼한"], ["lucrative", "수익성 좋은"], ["tentative", "잠정적인"]]}]};
+var D=[{"no": "07", "typ": "빈칸 추론", "src": "2023학년도 6월 32번", "evn": [2, 3, 4], "ev_en": "Such a reader, who respects the autonomy of a work, achieves an understanding of it by looking inside it, not outside it or beyond it. / Instead of examining historical periods, author biographies, or literary styles, for example, he or she will approach a text with the assumption that it is a self-contained entity and that he or she is looking for the governing principles that allow the text to reveal itself. / For example, the correspondences between the characters in James Joyce’s short story “Araby” and the people he knew personally may be interesting, but for the formalist they are less relevant to understanding how the story creates meaning than are other kinds of information that the story contains within itself.", "ev_ko": [[2, "작품의 자율성을 존중하는 그러한 독자는 그것의 외부나 그것을 넘어서가 아니라 그것의 내부를 들여다봄으로써 작품에 대한 이해를 달성한다."], [3, "예를 들어, 역사상의 시대, 작가의 전기, 또는 문학적 양식을 검토하는 대신, 그 사람은 글이 자족적인 실체이며, 자신은 그 글이 스스로를 드러내도록 해 주는 지배적인 원칙을 찾고 있다는 가정으로 글에 접근할 것이다."], [4, "예를 들어, James Joyce의 단편 소설인 “Araby” 속의 등장인물들과 그가 개인적으로 알았던 사람들과의 관련성은 흥미로울 수도 있겠지만, 그 형식주의자가 보았을 때 그 관련성은 그 이야기가 그 안에 포함하고 있는 다른 종류의 정보보다 이야기가 의미를 만들어 내는 방식을 이해하는 데 덜 관련되어 있다."]], "why": ["빈칸 (2)는 작품의 자율성을 존중하는 독자가 <b>어떻게<\/b> 작품을 이해하는지를 묻습니다", "(3)에서 그 독자는 역사상의 시대, 작가의 전기, 문학적 양식 같은 <b>작품 바깥의 것<\/b>을 검토하지 않는다고 합니다", "대신 글을 <b>자족적인 실체(a self-contained entity)<\/b>로 보고, 글이 스스로를 드러내게 하는 원칙을 찾는다고 합니다", "(4)에서도 등장인물과 작가가 알던 사람들의 관련성보다 <b>이야기가 그 안에 포함하고 있는 정보<\/b>가 더 중요하다고 합니다", "즉 작품의 바깥이 아니라 <b>안<\/b>을 본다는 이야기입니다", "그래서 정답은 ④ <b>looking inside it, not outside it or beyond it<\/b>(그것의 외부나 그것을 넘어서가 아니라 그것의 내부를 들여다봄)입니다."], "ch": [{"n": "①", "t": "putting himself or herself both inside and outside it", "g": "그 사람 자신을 그것의 안과 밖 모두에 놓음", "ok": false, "e": ["형식주의자는 작품의 <b>안<\/b>만 봅니다", "(3)에서 작품 바깥의 역사·전기·양식은 검토하지 않는다고 했으므로 '안과 밖 모두'는 맞지 않습니다."]}, {"n": "②", "t": "finding a middle ground between it and the world", "g": "그것과 세상 사이에서 타협점을 찾음", "ok": false, "e": ["작품과 세상 사이의 <b>타협점<\/b>을 찾는다는 내용은 글에 없습니다", "글은 작품을 자족적인 실체로 보고 그 안을 본다고 합니다."]}, {"n": "③", "t": "searching for historical realities revealed within it", "g": "그 안에서 드러난 역사적인 사실을 찾아봄", "ok": false, "e": ["(3)에서 역사상의 시대(historical periods)는 <b>검토하지 않는 대상<\/b>으로 나옵니다", "작품 속의 역사적 사실을 찾는다는 것은 글의 내용과 반대입니다."]}, {"n": "④", "t": "looking inside it, not outside it or beyond it", "g": "그것의 외부나 그것을 넘어서가 아니라 그것의 내부를 들여다봄", "ok": true, "e": ["(3)의 <b>a self-contained entity<\/b>(자족적인 실체)와 (4)의 <b>contains within itself<\/b>(그 안에 포함하고 있는)가 모두 작품의 <b>내부<\/b>를 가리킵니다", "작품 바깥이 아닌 안을 들여다본다는 이 선지가 빈칸에 알맞습니다."]}, {"n": "⑤", "t": "exploring its characters’ cultural relevance", "g": "그것의 등장인물들의 문화적인 관련성을 탐구함", "ok": false, "e": ["(4)에서 등장인물과 작가가 알던 사람들의 관련성은 형식주의자에게 <b>덜 관련된(less relevant)<\/b> 것이라고 했습니다", "등장인물의 문화적 관련성을 탐구한다는 것은 글의 방향과 맞지 않습니다."]}], "tr": ["형식주의의 관점에서 문학에 관하여 쓰고자 하는 비평가는 먼저 글의 모든 요소를 개별적으로 검토하고 그 요소들이 모여 예술 작품을 만드는 방식에 대해 질문하는 면밀하고도 주의 깊은 독자가 되어야 한다.", "작품의 자율성을 존중하는 그러한 독자는 그것의 외부나 그것을 넘어서가 아니라 그것의 내부를 들여다봄으로써 작품에 대한 이해를 달성한다.", "예를 들어, 역사상의 시대, 작가의 전기, 또는 문학적 양식을 검토하는 대신, 그 사람은 글이 자족적인 실체이며, 자신은 그 글이 스스로를 드러내도록 해 주는 지배적인 원칙을 찾고 있다는 가정으로 글에 접근할 것이다.", "예를 들어, James Joyce의 단편 소설인 “Araby” 속의 등장인물들과 그가 개인적으로 알았던 사람들과의 관련성은 흥미로울 수도 있겠지만, 그 형식주의자가 보았을 때 그 관련성은 그 이야기가 그 안에 포함하고 있는 다른 종류의 정보보다 이야기가 의미를 만들어 내는 방식을 이해하는 데 덜 관련되어 있다."], "ps": [{"n": 1, "ch": [{"e": "The <b>critic<\/b>", "k": "비평가는"}, {"e": "who wants to write about literature", "k": "문학에 관하여 쓰고자 하는"}, {"e": "from a <b>formalist perspective<\/b>", "k": "형식주의의 관점에서"}, {"e": "must first be a close and careful reader", "k": "먼저 면밀하고도 주의 깊은 독자가 되어야 한다"}, {"e": "who examines all the <b>elements<\/b> of a text individually", "k": "글의 모든 요소를 개별적으로 검토하는"}, {"e": "and questions how they come together", "k": "그리고 그것들<span class=\"r\">(= 글의 요소들)<\/span>이 어떻게 모여"}, {"e": "to create a work of art.", "k": "예술 작품을 만들어 내는지 질문하는."}], "link": "형식주의의 관점에서 문학에 관하여 쓰고자 하는 비평가는 먼저 글의 모든 요소를 개별적으로 검토하고 그 요소들이 모여 예술 작품을 만드는 방식에 대해 질문하는 면밀하고도 주의 깊은 독자가 되어야 한다.", "easy": "형식주의 관점으로 문학을 비평하려면, 먼저 글의 요소를 하나하나 꼼꼼히 살피고 그것들이 어떻게 모여 작품이 되는지 따져 보는 독자여야 해요.", "gist": "글의 화제 — 형식주의 비평가는 글의 요소를 꼼꼼히 살피는 독자예요."}, {"n": 2, "ch": [{"e": "Such a reader,", "k": "그러한 독자는,"}, {"e": "who respects the <b>autonomy<\/b> of a work,", "k": "작품의 자율성을 존중하는,"}, {"e": "achieves an understanding of it", "k": "그것<span class=\"r\">(= 작품)<\/span>에 대한 이해를 달성한다"}, {"e": "by <b>looking inside it, not outside it or beyond it<\/b>.", "k": "그것의 외부나 그것을 넘어서가 아니라 그것의 내부를 들여다봄으로써. <span class=\"r\">※ 문제지엔 빈칸으로 되어 있음<\/span>"}], "link": "작품의 자율성을 존중하는 그러한 독자는 그것의 외부나 그것을 넘어서가 아니라 그것의 내부를 들여다봄으로써 작품에 대한 이해를 달성한다.", "easy": "작품을 그 자체로 존중하는 독자는 작품 바깥이 아니라 작품 안을 들여다보면서 작품을 이해해요.", "gist": "빈칸 문장 — 형식주의 독자는 작품의 안을 들여다봐요."}, {"n": 3, "ch": [{"e": "<b>Instead of<\/b> examining historical periods,", "k": "역사상의 시대를 검토하는 대신,"}, {"e": "author <b>biographies<\/b>, or literary styles,", "k": "작가의 전기, 또는 문학적 양식을,"}, {"e": "for example,", "k": "예를 들어,"}, {"e": "he or she will approach a text", "k": "그 사람<span class=\"r\">(= 형식주의 독자)<\/span>은 글에 접근할 것이다"}, {"e": "with the <b>assumption<\/b>", "k": "가정을 가지고"}, {"e": "that it is a <b>self-contained entity<\/b>", "k": "그것<span class=\"r\">(= 글)<\/span>이 자족적인 실체라는"}, {"e": "and that he or she is looking for the <b>governing principles<\/b>", "k": "그리고 자신은 지배적인 원칙을 찾고 있다는"}, {"e": "that allow the text to <b>reveal<\/b> itself.", "k": "그 글이 스스로를 드러내도록 해 주는."}], "link": "예를 들어, 역사상의 시대, 작가의 전기, 또는 문학적 양식을 검토하는 대신, 그 사람은 글이 자족적인 실체이며, 자신은 그 글이 스스로를 드러내도록 해 주는 지배적인 원칙을 찾고 있다는 가정으로 글에 접근할 것이다.", "easy": "형식주의 독자는 시대 배경이나 작가의 삶, 문학 양식을 살피지 않아요. 글은 그 자체로 완결된 것이라 보고, 글이 스스로를 드러내게 해 주는 원칙을 찾아요.", "gist": "정답의 근거 — 작품 바깥의 정보 대신 글 자체를 봐요."}, {"n": 4, "ch": [{"e": "For example, the <b>correspondences<\/b>", "k": "예를 들어, 관련성은"}, {"e": "between the characters in James Joyce’s short story “Araby”", "k": "James Joyce의 단편 소설 “Araby” 속의 등장인물들과"}, {"e": "and the people he knew personally", "k": "그<span class=\"r\">(= James Joyce)<\/span>가 개인적으로 알았던 사람들 사이의"}, {"e": "may be interesting,", "k": "흥미로울 수도 있다,"}, {"e": "but for the formalist", "k": "하지만 그 형식주의자에게"}, {"e": "they are <b>less relevant<\/b> to understanding", "k": "그것들<span class=\"r\">(= 그 관련성)<\/span>은 이해하는 데 덜 관련되어 있다"}, {"e": "how the story creates meaning", "k": "이야기가 의미를 만들어 내는 방식을"}, {"e": "than are other kinds of information", "k": "다른 종류의 정보보다"}, {"e": "that the story contains <b>within itself<\/b>.", "k": "그 이야기가 그 안에 포함하고 있는."}], "link": "예를 들어, James Joyce의 단편 소설인 “Araby” 속의 등장인물들과 그가 개인적으로 알았던 사람들과의 관련성은 흥미로울 수도 있겠지만, 그 형식주의자가 보았을 때 그 관련성은 그 이야기가 그 안에 포함하고 있는 다른 종류의 정보보다 이야기가 의미를 만들어 내는 방식을 이해하는 데 덜 관련되어 있다.", "easy": "소설 속 인물과 작가가 실제로 알던 사람 사이의 관련성은 흥미로울 수 있어요. 하지만 형식주의자에게는 이야기가 의미를 만드는 방식을 이해하는 데 이야기 안에 담긴 다른 정보가 더 관련 있어요.", "gist": "정답의 근거 — 예시로 다시 확인: 바깥 정보보다 이야기 안의 정보가 중요해요."}]}, {"no": "08", "typ": "빈칸 추론", "src": "2017년 4월 31번", "evn": [5, 6, 7], "ev_en": "Based on the evidence available, a model provides us with an analogy of how memory works. / Describing memory in terms of ‘stores’ or ‘levels’ or ‘loops’ makes our understanding more concrete, and simply conveys to a reader a(n) approximate idea of how a particular psychologist has attempted to understand and explain the available evidence. / These models change as the available evidence changes, so should not be seen as permanent fixtures.", "ev_ko": [[5, "이용 가능한 증거에 근거하여, 모델은 우리에게 기억이 어떻게 작동하는지에 대한 비유를 제공한다."], [6, "‘저장소’ 또는 ‘단계’ 또는 ‘회로’라는 용어로 기억을 설명하는 것은 우리의 이해를 더욱 구체적으로 만들어주고, 어떤 특정한 심리학자가 이용 가능한 그 증거를 이해하고 설명하기 위해 어떻게 시도했는지에 대한 대략적인 개념을 독자에게 간단하게 전달한다."], [7, "이러한 모델들은 이용 가능한 증거가 변화함에 따라 변화하고, 따라서 불변의 고정물들로 여겨져서는 안 된다."]], "why": ["(1)에서 모델은 정확한 <b>복제(an exact copy)<\/b>가 아니라 <b>표상(a representation)<\/b>이라고 합니다", "(5)에서 기억의 모델은 증거에 근거해 기억이 어떻게 작동하는지에 대한 <b>비유(an analogy)<\/b>를 제공한다고 합니다", "(7)에서는 이런 모델들이 증거가 변하면 함께 변하므로 <b>불변의 고정물로 여겨져서는 안 된다<\/b>고 합니다", "정확한 복제도 아니고, 변하지 않는 것도 아니라는 뜻입니다", "그래서 빈칸 (6)에는 모델이 심리학자의 생각을 <b>대략적으로<\/b> 전달한다는 말이 알맞습니다", "정답은 ① <b>approximate idea<\/b>(대략적인 개념)입니다."], "ch": [{"n": "①", "t": "approximate idea", "g": "대략적인 개념", "ok": true, "e": ["(1)에서 모델은 정확한 복제가 아니라 표상이고, (5)에서 비유를 제공한다고 했습니다", "(7)에서 증거에 따라 변한다고도 했습니다", "그래서 모델이 전달하는 것은 <b>대략적인 개념<\/b>입니다."]}, {"n": "②", "t": "factual experience", "g": "사실에 기반을 둔 경험", "ok": false, "e": ["모델은 기억을 설명하는 <b>비유<\/b>이지 사실에 기반을 둔 경험이 아닙니다", "(1)의 정확한 복제가 아니라는 말과도 맞지 않습니다."]}, {"n": "③", "t": "invariable principle", "g": "불변의 원리", "ok": false, "e": ["(7)에서 모델은 증거가 변하면 함께 변하고 <b>불변의 고정물로 여겨져서는 안 된다<\/b>고 했습니다", "'불변의 원리'는 이와 반대입니다."]}, {"n": "④", "t": "digital representation", "g": "디지털 표상", "ok": false, "e": ["representation(표상)이라는 말은 글에 나오지만 <b>디지털<\/b>에 관한 내용은 글에 없습니다."]}, {"n": "⑤", "t": "undisputed interpretation", "g": "반박의 여지가 없는 해석", "ok": false, "e": ["(7)에서 모델은 증거에 따라 바뀐다고 했습니다", "바뀔 수 있는 것을 <b>반박의 여지가 없는 해석<\/b>이라고 할 수 없습니다."]}], "tr": ["심리학에서 어떤 것의 ‘모델’은 설명되고 있는 그것의 정확한 복제로 결코 간주되어서는 안 되고, 오히려 그것의 표상으로 간주되어야 한다.", "예를 들어, 런던 지하철 지도는 그것(지하철)이 어떻게 작동하고 어디로 가는지 우리가 이해하도록 도와주는 지하철 배치도의 표상이다.", "물론 방향, 축척 등은 그것(런던 지하철 지도) 모두가 그 페이지에 깔끔하게 들어맞도록 다소 왜곡되어야 한다.", "기억의 모델 또한 표상이다.", "이용 가능한 증거에 근거하여, 모델은 우리에게 기억이 어떻게 작동하는지에 대한 비유를 제공한다.", "‘저장소’ 또는 ‘단계’ 또는 ‘회로’라는 용어로 기억을 설명하는 것은 우리의 이해를 더욱 구체적으로 만들어주고, 어떤 특정한 심리학자가 이용 가능한 그 증거를 이해하고 설명하기 위해 어떻게 시도했는지에 대한 대략적인 개념을 독자에게 간단하게 전달한다.", "이러한 모델들은 이용 가능한 증거가 변화함에 따라 변화하고, 따라서 불변의 고정물들로 여겨져서는 안 된다."], "ps": [{"n": 1, "ch": [{"e": "In psychology,", "k": "심리학에서,"}, {"e": "a ‘model’ of something", "k": "어떤 것의 ‘모델’은"}, {"e": "should never be taken as an <b>exact copy<\/b>", "k": "정확한 복제로 결코 간주되어서는 안 된다"}, {"e": "of the thing being described,", "k": "설명되고 있는 그것의,"}, {"e": "but rather as a <b>representation<\/b> of it.", "k": "오히려 그것의 표상으로 (간주되어야 한다)."}], "link": "심리학에서 어떤 것의 ‘모델’은 설명되고 있는 그것의 정확한 복제로 결코 간주되어서는 안 되고, 오히려 그것의 표상으로 간주되어야 한다.", "easy": "심리학에서 말하는 '모델'은 설명하려는 대상을 똑같이 베낀 것이 아니라, 그 대상을 나타낸 것으로 봐야 해요.", "gist": "글의 주제 — 모델은 복제가 아니라 표상이에요."}, {"n": 2, "ch": [{"e": "A map of the London Underground,", "k": "런던 지하철 지도는,"}, {"e": "for example,", "k": "예를 들어,"}, {"e": "is a representation of the Underground <b>layout<\/b>", "k": "지하철 배치도의 표상이다"}, {"e": "that helps us <b>appreciate<\/b>", "k": "우리가 이해하도록 도와주는"}, {"e": "how it works and where it goes.", "k": "그것<span class=\"r\">(= 지하철)<\/span>이 어떻게 작동하고 어디로 가는지를."}], "link": "예를 들어, 런던 지하철 지도는 그것이 어떻게 작동하고 어디로 가는지 우리가 이해하도록 도와주는 지하철 배치도의 표상이다.", "easy": "예를 들어 런던 지하철 노선도는 실제 지하철 배치를 나타낸 거예요. 지하철이 어떻게 다니고 어디로 가는지 알게 도와주죠.", "gist": "예시 — 지하철 노선도도 표상이에요."}, {"n": 3, "ch": [{"e": "Of course direction, scale, etc.", "k": "물론 방향, 축척 등은"}, {"e": "must be <b>distorted<\/b> somewhat", "k": "다소 왜곡되어야 한다"}, {"e": "to make it all fit <b>neatly<\/b> on the page.", "k": "그 모든 것<span class=\"r\">(= 런던 지하철 지도)<\/span>이 그 페이지에 깔끔하게 들어맞도록."}], "easy": "노선도를 종이 한 장에 깔끔하게 넣으려면 방향이나 축척은 조금 바꿔서 그릴 수밖에 없어요.", "gist": "표상은 실제와 똑같지 않아요 — 다소 왜곡돼요."}, {"n": 4, "ch": [{"e": "A model of memory", "k": "기억의 모델은"}, {"e": "is also a representation.", "k": "또한 표상이다."}], "easy": "기억을 설명하는 모델도 마찬가지로 기억을 나타낸 거예요.", "gist": "예시에서 다시 기억 모델로 돌아와요."}, {"n": 5, "ch": [{"e": "Based on the evidence available,", "k": "이용 가능한 증거에 근거하여,"}, {"e": "a model provides us with an <b>analogy<\/b>", "k": "모델은 우리에게 비유를 제공한다"}, {"e": "of how memory works.", "k": "기억이 어떻게 작동하는지에 대한."}], "easy": "모델은 지금 있는 증거를 바탕으로, 기억이 어떻게 작동하는지를 비유로 보여 줘요.", "gist": "정답의 근거 — 모델은 기억에 대한 비유예요."}, {"n": 6, "ch": [{"e": "Describing memory", "k": "기억을 설명하는 것은"}, {"e": "in terms of ‘stores’ or ‘levels’ or ‘loops’", "k": "‘저장소’ 또는 ‘단계’ 또는 ‘회로’라는 용어로"}, {"e": "makes our understanding more <b>concrete<\/b>,", "k": "우리의 이해를 더욱 구체적으로 만들어 준다,"}, {"e": "and simply <b>conveys<\/b> to a reader", "k": "그리고 독자에게 간단하게 전달한다"}, {"e": "a(n) <b>approximate idea<\/b>", "k": "대략적인 개념을 <span class=\"r\">※ 문제지엔 빈칸으로 되어 있음<\/span>"}, {"e": "of how a particular psychologist has attempted", "k": "어떤 특정한 심리학자가 어떻게 시도했는지에 대한"}, {"e": "to understand and explain the available evidence.", "k": "이용 가능한 그 증거를 이해하고 설명하기 위해."}], "link": "‘저장소’ 또는 ‘단계’ 또는 ‘회로’라는 용어로 기억을 설명하는 것은 우리의 이해를 더욱 구체적으로 만들어주고, 어떤 특정한 심리학자가 이용 가능한 그 증거를 이해하고 설명하기 위해 어떻게 시도했는지에 대한 대략적인 개념을 독자에게 간단하게 전달한다.", "easy": "기억을 '저장소', '단계', '회로' 같은 말로 설명하면 우리의 이해가 더 구체적이 돼요. 그리고 어떤 심리학자가 증거를 어떻게 이해하고 설명하려 했는지를 대략 알려 줘요.", "gist": "빈칸 문장 — 모델은 대략적인 개념을 전해 줘요."}, {"n": 7, "ch": [{"e": "These models change", "k": "이러한 모델들은 변화한다"}, {"e": "as the available evidence changes,", "k": "이용 가능한 증거가 변화함에 따라,"}, {"e": "so should not be seen", "k": "따라서 여겨져서는 안 된다"}, {"e": "as <b>permanent fixtures<\/b>.", "k": "불변의 고정물들로."}], "easy": "증거가 바뀌면 모델도 바뀌어요. 그래서 모델을 절대 안 바뀌는 고정된 것으로 보면 안 돼요.", "gist": "정답의 근거 — 모델은 바뀔 수 있어요."}]}, {"no": "09", "typ": "흐름과 무관한 문장", "src": "2018년 3월 35번", "evn": [1, 6, 7], "ev_en": "Reading is a technology for perspective-taking. / Reading is a good habit because it helps you to shape your character and boosts your confidence and personality. / It’s not a big leap to suppose that the habit of reading other people’s words could put one in the habit of entering other people’s minds, including their pleasures and pains.", "ev_ko": [[1, "독서는 조망 수용을 위한 기술이다."], [6, "독서는 좋은 습관인데, 왜냐하면 그것(독서)이 당신의 성격을 형성하는 것을 돕고, 당신의 자신감과 개성을 북돋우기 때문이다."], [7, "다른 사람의 말(글)들을 읽는 습관이 한 사람을 그들(다른 사람들)의 기쁨이나 아픔을 포함하여 다른 사람들의 마음에 들어가는 습관을 갖게 할 수 있다고 생각하는 것은 큰 비약이 아니다."]], "why": ["(1)에서 독서는 <b>조망 수용(perspective-taking)<\/b>, 즉 다른 사람의 관점에서 보는 일을 위한 기술이라고 합니다", "(2)~(5)는 모두 다른 사람의 관점과 마음속으로 들어가는 이야기입니다", "(7)도 다른 사람의 글을 읽는 습관이 <b>다른 사람들의 마음에 들어가는 습관<\/b>으로 이어질 수 있다고 마무리합니다", "그런데 (6)은 독서가 <b>당신의 성격<\/b>을 형성하고 <b>자신감과 개성<\/b>을 북돋운다는 내용입니다", "다른 사람의 관점이 아니라 독서가 나 자신에게 주는 좋은 점을 말하므로 흐름과 관계가 없습니다", "그래서 정답은 ④입니다."], "ch": [{"n": "①", "t": "Not only are you taking in sights and sounds that you could not experience firsthand, but you have stepped inside that person’s mind and are temporarily sharing his or her attitudes and reactions.", "g": "당신은 직접 경험할 수 없었던 광경이나 소리를 받아들이고 있을 뿐만 아니라, 그 사람의 마음속에 들어가 일시적으로 그 사람의 태도와 반응을 공유하고 있는 것이다.", "ok": false, "e": ["(2)의 '그 사람의 관점에서 세상을 관찰한다'를 이어받아, 그 사람의 마음속에 들어가 태도와 반응을 공유한다고 설명합니다", "흐름에 맞습니다."]}, {"n": "②", "t": "Empathy in the sense of adopting someone’s viewpoint is not the same as empathy in the sense of feeling compassion toward the person, but the first can lead to the second by a natural route.", "g": "다른 사람의 관점을 받아들인다는 의미의 ‘공감’은 그 사람에게 연민을 느낀다는 의미의 ‘공감’과 같지 않지만, 전자는 자연스럽게 후자로 이어질 수 있다.", "ok": false, "e": ["다른 사람의 관점을 받아들이는 공감이 연민을 느끼는 공감으로 이어질 수 있다고 합니다", "조망 수용에 관한 이야기라 흐름에 맞습니다."]}, {"n": "③", "t": "Stepping into someone else’s vantage point reminds you that the other fellow has a first-person, present-tense, ongoing stream of consciousness that is very much like your own but not the same as your own.", "g": "다른 누군가의 관점으로 들어가는 것은 그 사람에게도 당신 자신의 것과 매우 비슷하지만 똑같지는 않은, 1인칭의, 현재 시점의, 계속 진행 중인 의식의 흐름이 있다는 것을 상기시킨다.", "ok": false, "e": ["다른 사람의 관점으로 들어가면 그 사람에게도 나와 비슷한 의식의 흐름이 있다는 것을 깨닫는다고 합니다", "역시 조망 수용에 관한 이야기입니다."]}, {"n": "④", "t": "Reading is a good habit because it helps you to shape your character and boosts your confidence and personality.", "g": "독서는 좋은 습관인데, 그것이 당신의 성격을 형성하는 것을 돕고 당신의 자신감과 개성을 북돋우기 때문이다.", "ok": true, "e": ["글은 독서로 <b>다른 사람의 관점<\/b>에 들어가는 이야기인데, 이 문장만 독서가 <b>나 자신<\/b>의 성격·자신감·개성에 주는 도움을 말합니다", "흐름과 관계없는 문장입니다."]}, {"n": "⑤", "t": "It’s not a big leap to suppose that the habit of reading other people’s words could put one in the habit of entering other people’s minds, including their pleasures and pains.", "g": "다른 사람의 글을 읽는 습관이 그들의 기쁨과 아픔을 포함해 다른 사람들의 마음에 들어가는 습관을 갖게 할 수 있다고 생각하는 것은 큰 비약이 아니다.", "ok": false, "e": ["다른 사람의 글을 읽는 습관이 다른 사람의 마음에 들어가는 습관으로 이어질 수 있다고 합니다", "(1)의 '독서는 조망 수용을 위한 기술'과 연결되는 마무리 문장입니다."]}], "tr": ["독서는 조망 수용을 위한 기술이다.", "다른 누군가의 생각들이 당신의 머릿속에 있을 때, 당신은 그 사람의 관점에서 세상을 관찰하고 있는 것이다.", "당신은 당신이 직접 경험할 수 없었던 광경이나 소리를 받아들이고 있는 것일 뿐만 아니라, 당신이 그 사람의 마음속에 들어가 일시적으로(잠시라도) 그 혹은 그녀의 태도와 반응을 공유하고 있는 것이다.", "다른 사람의 관점을 취한다는(받아들이는) 의미에서의 ‘공감’은 그 사람을 향해 연민을 느낀다는 의미의 ‘공감’과 같지 않지만, 전자가 후자로 자연스러운 경로로(자연스럽게) 이어질 수 있다(관점을 받아들이는 공감은 연민을 느끼는 공감으로 이어질 수 있다).", "다른 누군가의 관점으로 들어가는 것은 그 다른 사람이 당신 자신의 것과 매우 비슷하지만 당신 자신의 것과 똑같지는 않은, 1인칭의, 현재 시점의, 계속 진행 중인 의식의 흐름을 갖고 있다는 것(사실)을 당신에게 상기시킨다.", "독서는 좋은 습관인데, 왜냐하면 그것(독서)이 당신의 성격을 형성하는 것을 돕고, 당신의 자신감과 개성을 북돋우기 때문이다.", "다른 사람의 말(글)들을 읽는 습관이 한 사람을 그들(다른 사람들)의 기쁨이나 아픔을 포함하여 다른 사람들의 마음에 들어가는 습관을 갖게 할 수 있다고 생각하는 것은 큰 비약이 아니다."], "ps": [{"n": 1, "ch": [{"e": "Reading is a technology", "k": "독서는 기술이다"}, {"e": "for <b>perspective-taking<\/b>.", "k": "조망 수용을 위한."}], "easy": "책 읽기는 다른 사람의 입장에서 생각해 보게 해 주는 도구예요.", "gist": "글의 주제 — 독서는 남의 관점에 서 보는 기술이에요."}, {"n": 2, "ch": [{"e": "When someone else’s thoughts are in your head,", "k": "다른 누군가의 생각들이 당신의 머릿속에 있을 때,"}, {"e": "you are observing the world", "k": "당신은 세상을 관찰하고 있는 것이다"}, {"e": "from that person’s <b>vantage point<\/b>.", "k": "그 사람의 관점에서."}], "easy": "책을 읽으며 다른 사람의 생각이 내 머릿속에 들어오면, 나는 그 사람의 눈으로 세상을 보고 있는 거예요.", "gist": "주제를 풀어 설명해요 — 남의 관점에서 세상을 봐요."}, {"n": 3, "ch": [{"e": "<b>Not only<\/b> are you <b>taking in<\/b> sights and sounds", "k": "당신은 광경과 소리를 받아들이고 있을 뿐만 아니라"}, {"e": "that you could not experience <b>firsthand<\/b>,", "k": "당신이 직접 경험할 수 없었던,"}, {"e": "<b>but<\/b> you have stepped inside that person’s mind", "k": "당신은 그 사람의 마음속으로 들어가"}, {"e": "and are <b>temporarily<\/b> sharing", "k": "일시적으로 공유하고 있는 것이다"}, {"e": "his or her attitudes and reactions.", "k": "그 혹은 그녀의 태도와 반응을."}], "link": "당신은 당신이 직접 경험할 수 없었던 광경이나 소리를 받아들이고 있는 것일 뿐만 아니라, 당신이 그 사람의 마음속에 들어가 일시적으로 그 혹은 그녀의 태도와 반응을 공유하고 있는 것이다.", "easy": "직접 겪을 수 없던 장면과 소리를 받아들일 뿐 아니라, 그 사람의 마음속에 들어가 잠시 그 사람의 태도와 반응을 함께 느끼는 거예요.", "gist": "①번 자리 — 남의 마음속에 들어가는 경험이에요."}, {"n": 4, "ch": [{"e": "<i>Empathy<\/i> in the sense of <b>adopting<\/b> someone’s viewpoint", "k": "누군가의 관점을 받아들인다는 의미에서의 ‘공감’은"}, {"e": "is not the same as <i>empathy<\/i>", "k": "‘공감’과 같지 않다"}, {"e": "in the sense of feeling <b>compassion<\/b> toward the person,", "k": "그 사람을 향해 연민을 느낀다는 의미에서의,"}, {"e": "but the first can lead to the second", "k": "하지만 전자<span class=\"r\">(= 관점을 받아들이는 공감)<\/span>는 후자<span class=\"r\">(= 연민을 느끼는 공감)<\/span>로 이어질 수 있다"}, {"e": "by a natural route.", "k": "자연스러운 경로로."}], "link": "누군가의 관점을 받아들인다는 의미에서의 ‘공감’은 그 사람을 향해 연민을 느낀다는 의미에서의 ‘공감’과 같지 않지만, 전자는 자연스러운 경로로 후자로 이어질 수 있다.", "easy": "남의 입장이 되어 보는 공감과 남을 불쌍히 여기는 공감은 다르지만, 앞의 공감이 자연스럽게 뒤의 공감으로 이어질 수 있어요.", "gist": "②번 자리 — 관점을 받아들이는 공감은 연민으로 이어질 수 있어요."}, {"n": 5, "ch": [{"e": "Stepping into someone else’s vantage point", "k": "다른 누군가의 관점으로 들어가는 것은"}, {"e": "reminds you", "k": "당신에게 상기시킨다"}, {"e": "that the other fellow has", "k": "그 다른 사람이 갖고 있다는 것을"}, {"e": "a first-person, present-tense, <b>ongoing<\/b> <b>stream of consciousness<\/b>", "k": "1인칭의, 현재 시점의, 계속 진행 중인 의식의 흐름을"}, {"e": "that is very much like your own", "k": "당신 자신의 것<span class=\"r\">(= 당신의 의식의 흐름)<\/span>과 매우 비슷한"}, {"e": "but not the same as your own.", "k": "하지만 당신 자신의 것과 똑같지는 않은."}], "link": "다른 누군가의 관점으로 들어가는 것은 그 다른 사람이 당신 자신의 것과 매우 비슷하지만 똑같지는 않은, 1인칭의, 현재 시점의, 계속 진행 중인 의식의 흐름을 갖고 있다는 것을 당신에게 상기시킨다.", "easy": "남의 입장에 서 보면, 그 사람에게도 나처럼 '지금 이 순간' 이어지는 생각의 흐름이 있다는 걸 다시 깨닫게 돼요. 나와 많이 비슷하지만 똑같지는 않죠.", "gist": "③번 자리 — 남에게도 나와 비슷한 의식의 흐름이 있어요."}, {"n": 6, "ch": [{"e": "Reading is a good habit", "k": "독서는 좋은 습관이다"}, {"e": "because it helps you to shape your character", "k": "왜냐하면 그것<span class=\"r\">(= 독서)<\/span>이 당신의 성격을 형성하는 것을 돕기 때문이다"}, {"e": "and <b>boosts<\/b> your confidence and personality.", "k": "그리고 당신의 자신감과 개성을 북돋우기 (때문이다)."}], "easy": "책 읽기는 성격을 만들어 주고 자신감과 개성을 키워 주니까 좋은 습관이라는 말이에요.", "gist": "④번 자리 — 남의 관점이 아니라 나 자신에게 주는 이득을 말해서 흐름에서 벗어나요(정답)."}, {"n": 7, "ch": [{"e": "It’s not a big <b>leap<\/b>", "k": "큰 비약이 아니다"}, {"e": "to suppose", "k": "생각하는 것은"}, {"e": "that the habit of reading other people’s words", "k": "다른 사람들의 말(글)을 읽는 습관이"}, {"e": "could put one in the habit", "k": "한 사람을 습관을 갖게 할 수 있다고"}, {"e": "of entering other people’s minds,", "k": "다른 사람들의 마음에 들어가는,"}, {"e": "including their pleasures and pains.", "k": "그들<span class=\"r\">(= 다른 사람들)<\/span>의 기쁨과 아픔을 포함하여."}], "link": "다른 사람들의 말(글)을 읽는 습관이 한 사람을 그들의 기쁨과 아픔을 포함하여 다른 사람들의 마음에 들어가는 습관을 갖게 할 수 있다고 생각하는 것은 큰 비약이 아니다.", "easy": "남의 글을 읽는 습관이 있으면, 남의 기쁨과 아픔까지 포함해 남의 마음속에 들어가 보는 습관도 생길 수 있다고 보는 건 무리한 생각이 아니에요.", "gist": "⑤번 자리 — 독서가 남의 마음에 들어가는 습관으로 이어진다는 마무리예요."}]}, {"no": "10", "typ": "문장 삽입", "src": "2021년 3월 39번", "evn": [1, 4, 5], "ev_en": "Some organizations, however, are unbundling in favor of a more itemized approach sometimes called à la carte pricing. / Selling products as a package rather than individually also may result in cost savings, so bundle pricing is commonly used for banking and travel services, computers, and automobiles with option packages. / This provides customers with the opportunity to pick and choose the products they want without having to purchase bundles that may not be the right mix for their purposes.", "ev_ko": [[1, "[주어진 문장] 그러나 일부 조직은 때때로 ‘à la carte pricing(따로따로 책정하는 가격)’이라고 불리는 더 항목화된 접근법을 선호하여 개별적으로 가격을 매기고 있다."], [4, "제품을 개별적으로가 아니라 패키지로 판매하는 것은 또한 비용 절감이라는 결과를 낳을 수 있으므로, 묶음 가격은 은행 및 여행 서비스, 컴퓨터, 그리고 옵션 패키지가 있는 자동차에 흔히 사용된다."], [5, "이것은 고객에게 그들의 목적에 적절한 조합이 아닐지도 모르는 묶음을 구매할 필요 없이 그들이 원하는 제품을 고르고 선택할 기회를 제공한다."]], "why": ["주어진 문장 (1)은 <b>however<\/b>(그러나)가 들어 있고, 일부 조직이 <b>개별적으로 가격을 매기는(unbundling)<\/b> 방식을 선호한다고 합니다", "(2)~(4)는 묶음 가격의 뜻과 장점을 설명합니다", "(4)는 묶음 가격이 <b>비용 절감<\/b>으로 이어질 수 있어 여러 분야에서 흔히 쓰인다는 내용입니다", "(5)부터는 고객이 원하는 제품을 <b>고르고 선택할 기회<\/b>, 즉 개별 가격 책정의 장점으로 내용이 바뀝니다", "(5)의 <b>This<\/b>(이것)가 가리키는 것은 (4)의 묶음 가격이 아니라 주어진 문장의 <b>a more itemized approach<\/b>(더 항목화된 접근법)입니다", "그래서 주어진 문장은 (4)와 (5) 사이인 ③에 들어갑니다."], "ch": [{"n": "①", "t": "① 자리", "g": "", "ok": false, "e": ["①은 문장 (2)와 (3) 사이입니다", "(2)에서 묶음 가격을 정의한 뒤 (3)에서 그 장점을 설명하는 흐름이라, however로 내용을 바꿀 자리가 아닙니다."]}, {"n": "②", "t": "② 자리", "g": "", "ok": false, "e": ["②는 문장 (3)과 (4) 사이입니다", "(4)도 비용 절감이라는 묶음 가격의 장점을 이어서 말하므로 흐름이 끊기지 않습니다."]}, {"n": "③", "t": "③ 자리", "g": "", "ok": true, "e": ["③은 문장 (4)와 (5) 사이입니다", "묶음 가격의 장점이 끝난 뒤 however로 개별 가격 책정 이야기로 넘어가는 자리입니다", "(5)의 This가 주어진 문장의 a more itemized approach를 가리킵니다."]}, {"n": "④", "t": "④ 자리", "g": "", "ok": false, "e": ["④는 문장 (5)와 (6) 사이입니다", "(5)의 This가 가리키는 대상이 (5) 앞에 있어야 하므로, 주어진 문장은 (5)보다 앞에 와야 합니다."]}, {"n": "⑤", "t": "⑤ 자리", "g": "", "ok": false, "e": ["⑤는 문장 (6)과 (7) 사이입니다", "(7)은 Nevertheless(그럼에도 불구하고)로 다시 묶음 가격 이야기로 돌아오는 문장이라, 개별 가격 책정 이야기가 이미 앞에 나와 있어야 합니다."]}], "tr": ["[주어진 문장] 그러나 일부 조직은 때때로 ‘à la carte pricing(따로따로 책정하는 가격)’이라고 불리는 더 항목화된 접근법을 선호하여 개별적으로 가격을 매기고 있다.", "묶음 가격은 대개 보완적인 제품인 두 개 이상의 제품을 단일 가격에 판매되도록 함께 포장하는 것인데, 그것(묶음 제품의 단일 가격)은 대개 개별 제품 가격의 합계보다 상당히 더 적다(저렴하다).", "묶음 가격은 고객 만족을 촉진하고, 느리게 움직이는(잘 팔리지 않는) 제품이 더 높은 회전율을 가진 제품과 묶여질 때, 회사가 판매를 자극하고 수익을 증가시키는 것을 도울 수 있다.", "제품을 개별적으로가 아니라 패키지로 판매하는 것은 또한 비용 절감이라는 결과를 낳을 수 있으므로, 묶음 가격은 은행 및 여행 서비스, 컴퓨터, 그리고 옵션 패키지가 있는 자동차에 흔히 사용된다.", "이것은 고객에게 그들의 목적에 적절한 조합이 아닐지도 모르는 묶음을 구매할 필요 없이 그들이 원하는 제품을 고르고 선택할 기회를 제공한다.", "게다가 인터넷의 도움으로, 비교 쇼핑은 그 어느 때보다 더 편리해져서, 고객이 물건의 가격을 매기고 그들 자신의 조합을 만들 수 있게 했다.", "그럼에도 불구하고, 묶음 가격은 패키지의 편리함을 선호하는 고객들의 관심을 계속 끌고 있다."], "ps": [{"n": 1, "ch": [{"e": "Some organizations, <b>however<\/b>,", "k": "그러나 일부 조직은,"}, {"e": "are <b>unbundling<\/b>", "k": "개별적으로 가격을 매기고 있다(묶음을 풀고 있다)"}, {"e": "<b>in favor of<\/b> a more <b>itemized<\/b> approach", "k": "더 항목화된 접근법을 선호하여"}, {"e": "sometimes called <i>à la carte pricing<\/i>.", "k": "때때로 ‘à la carte pricing(따로따로 책정하는 가격)’이라고 불리는."}], "easy": "그런데 어떤 회사들은 묶음을 풀고, 제품마다 따로 가격을 매기는 방식을 더 좋아해요.", "gist": "주어진 문장 — however가 있어 앞의 내용(묶음 가격)과 반대되는 이야기가 시작돼요."}, {"n": 2, "ch": [{"e": "Bundle pricing is packaging together", "k": "묶음 가격은 함께 포장하는 것이다"}, {"e": "two or more products,", "k": "두 개 이상의 제품을,"}, {"e": "usually <b>complementary<\/b> ones,", "k": "대개 보완적인 것들<span class=\"r\">(= 제품들)<\/span>을,"}, {"e": "to be sold for a single price,", "k": "단일 가격에 판매되도록,"}, {"e": "which is usually <b>considerably<\/b> less", "k": "그런데 그것<span class=\"r\">(= 묶음의 단일 가격)<\/span>은 대개 상당히 더 적다"}, {"e": "than the sum of the prices of the individual products.", "k": "개별 제품 가격의 합계보다."}], "link": "묶음 가격은 대개 보완적인 제품인 두 개 이상의 제품을 단일 가격에 판매되도록 함께 포장하는 것인데, 그 가격은 대개 개별 제품 가격의 합계보다 상당히 더 적다.", "easy": "묶음 가격은 보통 서로 보완하는 제품 여러 개를 하나로 묶어 한 가격에 파는 거예요. 그 가격은 보통 따로 살 때 값을 다 더한 것보다 꽤 싸요.", "gist": "글의 화제 — 묶음 가격의 뜻이에요."}, {"n": 3, "ch": [{"e": "Bundle pricing <b>facilitates<\/b> customer satisfaction", "k": "묶음 가격은 고객 만족을 촉진한다"}, {"e": "and, when slow-moving products are bundled", "k": "그리고, 잘 팔리지 않는 제품이 묶일 때"}, {"e": "with products with higher <b>turnover<\/b>,", "k": "더 높은 회전율을 가진 제품과,"}, {"e": "can help a company", "k": "회사를 도울 수 있다"}, {"e": "<b>stimulate<\/b> sales and increase <b>revenues<\/b>.", "k": "판매를 자극하고 수익을 증가시키도록."}], "link": "묶음 가격은 고객 만족을 촉진하고, 잘 팔리지 않는 제품이 더 높은 회전율을 가진 제품과 묶일 때, 회사가 판매를 자극하고 수익을 증가시키도록 도울 수 있다.", "easy": "묶음 가격은 고객을 만족시키고, 잘 안 팔리는 제품을 잘 팔리는 제품과 묶으면 회사의 판매와 수익을 늘리는 데도 도움이 될 수 있어요.", "gist": "①번 자리 — 묶음 가격의 장점 1: 고객 만족과 매출 증가예요."}, {"n": 4, "ch": [{"e": "Selling products as a package", "k": "제품을 패키지로 판매하는 것은"}, {"e": "rather than individually", "k": "개별적으로가 아니라"}, {"e": "also may <b>result in<\/b> cost savings,", "k": "또한 비용 절감이라는 결과를 낳을 수 있다,"}, {"e": "so bundle pricing is commonly used", "k": "그래서 묶음 가격은 흔히 사용된다"}, {"e": "for banking and travel services, computers,", "k": "은행 및 여행 서비스, 컴퓨터에,"}, {"e": "and automobiles with option packages.", "k": "그리고 옵션 패키지가 있는 자동차에."}], "link": "제품을 개별적으로가 아니라 패키지로 판매하는 것은 또한 비용 절감이라는 결과를 낳을 수 있으므로, 묶음 가격은 은행 및 여행 서비스, 컴퓨터, 그리고 옵션 패키지가 있는 자동차에 흔히 사용된다.", "easy": "제품을 묶어서 팔면 비용도 아낄 수 있어요. 그래서 은행·여행 서비스, 컴퓨터, 옵션 패키지가 있는 자동차에 묶음 가격을 많이 써요.", "gist": "②번 자리 — 묶음 가격의 장점 2: 비용 절감이에요. 묶음 가격 이야기는 여기까지예요."}, {"n": 5, "ch": [{"e": "<b>This<\/b> provides customers with the opportunity", "k": "이것<span class=\"r\">(= 더 항목화된 접근법)<\/span>은 고객에게 기회를 제공한다"}, {"e": "to pick and choose the products they want", "k": "그들이 원하는 제품을 고르고 선택할"}, {"e": "without having to purchase bundles", "k": "묶음을 구매할 필요 없이"}, {"e": "that may not be the right mix", "k": "적절한 조합이 아닐지도 모르는"}, {"e": "for their purposes.", "k": "그들의 목적에."}], "link": "이것은 고객에게 그들의 목적에 적절한 조합이 아닐지도 모르는 묶음을 구매할 필요 없이 그들이 원하는 제품을 고르고 선택할 기회를 제공한다.", "easy": "따로 가격을 매기면, 고객은 자기에게 맞지 않을 수도 있는 묶음을 살 필요 없이 원하는 제품만 골라 살 수 있어요.", "gist": "③번 자리 — This가 주어진 문장의 '항목화된 접근법'을 가리켜요. 주어진 문장은 바로 이 앞에 와요."}, {"n": 6, "ch": [{"e": "Furthermore, with the help of the Internet,", "k": "게다가, 인터넷의 도움으로,"}, {"e": "comparison shopping has become more convenient than ever,", "k": "비교 쇼핑은 그 어느 때보다 더 편리해졌다,"}, {"e": "allowing customers to price items", "k": "고객이 물건의 가격을 매길 수 있게 하면서"}, {"e": "and create their own mixes.", "k": "그리고 그들 자신의 조합을 만들 수 있게."}], "link": "게다가 인터넷의 도움으로, 비교 쇼핑은 그 어느 때보다 더 편리해져서, 고객이 물건의 가격을 매기고 그들 자신의 조합을 만들 수 있게 했다.", "easy": "게다가 인터넷 덕분에 가격 비교가 아주 쉬워져서, 고객이 직접 가격을 따져 보고 자기만의 조합을 만들 수 있게 됐어요.", "gist": "④번 자리 — 따로 가격을 매기는 방식의 장점이 이어져요."}, {"n": 7, "ch": [{"e": "<b>Nevertheless<\/b>, bundle pricing continues", "k": "그럼에도 불구하고, 묶음 가격은 계속 ~하고 있다"}, {"e": "to <b>appeal to<\/b> customers", "k": "고객들의 관심을 끌고"}, {"e": "who prefer the <b>convenience<\/b> of a package.", "k": "패키지의 편리함을 선호하는."}], "easy": "그래도 묶음으로 사는 게 편한 고객들에게는 묶음 가격이 여전히 인기가 있어요.", "gist": "⑤번 자리 — 다시 묶음 가격으로 돌아와 마무리해요."}]}, {"no": "11", "typ": "장문 · 제목", "src": "2019년 10월 41번", "evn": [3, 7, 14], "ev_en": "So people expected that the egalitarian process would continue and even accelerate. / Globalization has certainly benefited large segments of humanity, but there are signs of growing inequality both between and within societies. / While up until now they have only been able to buy little more than status symbols, soon they might be able to buy life itself.", "ev_ko": [[3, "따라서 사람들은 인류 평등주의의 과정이 계속 이어지고 심지어 가속화될 것이라고 기대했다."], [7, "세계화는 인류의 커다란 부분에 분명 혜택을 주었지만, 사회들 간 그리고 사회들 내부 모두에서 증가하는 불평등의 조짐이 있다(불평등이 증가하고 있다는 조짐이 있다)."], [14, "그들은 지금까지는 고작 높은 사회적 지위를 상징하는 것에 불과한 것들만을 살 수 있었지만, 곧 생명 자체를 살 수 있을지도 모른다."]], "why": ["(1)~(5)에서 20세기에는 불평등이 줄었고, (3)에서 사람들은 이 <b>평등해지는 과정이 계속되고 더 빨라질 것<\/b>이라고 기대했다고 합니다", "그런데 (6)에서 이 약속은 이행되지 못할 수도 있다고 하고, (7)에서 사회들 간에도 사회 안에서도 <b>불평등이 커지는 조짐<\/b>이 있다고 합니다", "이어서 (11)~(15)에서 인공 지능과 생명 공학 때문에 불평등이 더 심해질 수 있다고 합니다", "(14)에서는 부자들이 곧 <b>생명 자체를 살 수 있을지도<\/b> 모른다고 하고, (15)에서는 인류가 <b>생물학적 카스트<\/b>로 나뉠 수도 있다고 합니다", "즉 이 글은 '우리가 더 평등한 사회로 가고 있는가?'를 따져 보는 글입니다", "그래서 제목은 ② <b>Are We Headed for a More Equal Society?<\/b>(우리는 더 평등한 사회로 향하고 있는가?)가 알맞습니다."], "ch": [{"n": "①", "t": "From Material Wealth to Spiritual Wealth", "g": "물질적 부에서 정신적 부로", "ok": false, "e": ["물질적 부에서 정신적 부로 옮겨 간다는 내용은 글에 없습니다", "(13)·(14)에서 부자들이 하게 될 '가치 있는 일'은 생명 자체를 사는 것입니다."]}, {"n": "②", "t": "Are We Headed for a More Equal Society?", "g": "우리는 더 평등한 사회로 향하고 있는가?", "ok": true, "e": ["(3)에서 사람들은 평등해지는 과정이 계속될 것이라고 기대했지만, (7)에서 불평등이 커지는 조짐이 있다고 합니다", "더 평등한 사회로 가고 있는지를 묻는 이 제목이 글 전체를 담고 있습니다."]}, {"n": "③", "t": "Globalization: A Step Toward an Equal Society", "g": "세계화: 평등한 사회로 가는 단계", "ok": false, "e": ["(4)에서 세계화가 번영을 퍼뜨릴 것이라는 기대가 나오지만, (7)·(8)에서 불평등이 커지고 일부 집단이 세계화의 결실을 독점한다고 합니다", "글의 내용과 반대입니다."]}, {"n": "④", "t": "Artificial Intelligence: Our Servant or Our Master?", "g": "인공 지능: 우리의 하인인가 우리의 주인인가?", "ok": false, "e": ["인공 지능은 (11)에서 상황을 더 나쁘게 할 수 있는 요인 중 하나로 나올 뿐입니다", "글 전체의 제목으로는 범위가 너무 좁습니다."]}, {"n": "⑤", "t": "How to Close the Gap Between the Rich and the Poor", "g": "부유층과 빈곤층의 격차를 좁히는 방법", "ok": false, "e": ["글은 불평등이 커질 수 있다고 말할 뿐, 격차를 <b>좁히는 방법<\/b>은 제시하지 않습니다."]}], "tr": ["20세기의 역사는 대체로 계급, 인종, 그리고 성별 간 불평등의 (a)감소를 중심으로 전개되었다.", "비록 2000년의 세계는 계급제의 일부를 여전히 가지고 있었지만(남아 있었지만), 그럼에도 불구하고 그것은 1900년의 세계보다 훨씬 더 평등한 곳이었다.", "따라서 사람들은 인류 평등주의의 과정이 계속 이어지고 심지어 가속화될 것이라고 기대했다.", "특히, 그들은 세계화가 경제적 번영을 세계 곳곳에 (b)확산시킬 것을, 그리고 결과적으로 인도와 이집트의 사람들이 핀란드와 캐나다의 사람들과 동일한 기회와 특권을 누리게 될 것을 희망했다.", "한 세대 전체가 이 약속 위에서(이 약속을 믿으며) 성장했다.", "이제 이 약속은 이행되지 못할 수도 있는 것처럼 보인다.", "세계화는 인류의 커다란 부분에 분명 혜택을 주었지만, 사회들 간 그리고 사회들 내부 모두에서 증가하는 불평등의 조짐이 있다(불평등이 증가하고 있다는 조짐이 있다).", "일부 집단은 점점 더 세계화의 결실을 (c)독점하고 있는 반면, 수십억 명의 사람들은 뒤처져 있다.", "오늘날, 가장 부유한(최상위 부유층) 1퍼센트가 세계 부의 절반을 소유하고 있다.", "이러한 상황은 훨씬 더 악화될 수 있다.", "인공 지능의 부상은 대다수 사람들의 경제적 가치와 정치적 힘을 소멸시킬 수도 있다.", "동시에, 생명 공학의 발전은 경제적 불평등을 생물학적 불평등으로 전환하는 것을 (d)불가능하게(→ 가능하게) 만들지도 모른다.", "엄청나게 부유한 사람들은 자신들의 막대한 부를 가지고(이용해서) 정말로 할 가치가 있는 무언가를 마침내 갖게 될 것이다.", "그들은 지금까지는 고작 높은 사회적 지위를 상징하는 것에 불과한 것들만을 살 수 있었지만, 곧 생명 자체를 살 수 있을지도 모른다.", "만약 생명을 연장하고 신체적, 인지적 능력을 향상시키기 위한 새로운 치료법이 (e)비용이 많이 드는 것으로 밝혀지면, 인류는 생물학적 카스트로 나뉘게 될지도 모른다."], "ps": [{"n": 1, "ch": [{"e": "The history of the twentieth century", "k": "20세기의 역사는"}, {"e": "<b>revolved<\/b> to a large extent <b>around<\/b>", "k": "대체로 ~을 중심으로 전개되었다"}, {"e": "the (a) <u>reduction<\/u> of <b>inequality<\/b>", "k": "불평등의 (a) 감소를"}, {"e": "between classes, races, and genders.", "k": "계급, 인종, 그리고 성별 간."}], "easy": "20세기 역사는 대체로 계급, 인종, 성별 사이의 불평등이 줄어드는 쪽으로 흘러갔어요.", "gist": "도입 — 20세기에는 불평등이 줄었어요."}, {"n": 2, "ch": [{"e": "Though the world of the year 2000", "k": "비록 2000년의 세계는"}, {"e": "still had its share of <b>hierarchies<\/b>,", "k": "계급제의 일부를 여전히 가지고 있었지만,"}, {"e": "it was nevertheless a far more equal place", "k": "그것<span class=\"r\">(= 2000년의 세계)<\/span>은 그럼에도 불구하고 훨씬 더 평등한 곳이었다"}, {"e": "than the world of 1900.", "k": "1900년의 세계보다."}], "link": "비록 2000년의 세계는 계급제의 일부를 여전히 가지고 있었지만, 그럼에도 불구하고 그것은 1900년의 세계보다 훨씬 더 평등한 곳이었다.", "easy": "2000년에도 계급 같은 위계는 여전히 남아 있었지만, 1900년과 비교하면 훨씬 평등한 세상이었어요.", "gist": "도입 — 1900년보다 2000년이 훨씬 평등했어요."}, {"n": 3, "ch": [{"e": "So people expected", "k": "따라서 사람들은 기대했다"}, {"e": "that the <b>egalitarian<\/b> process", "k": "인류 평등주의의 과정이"}, {"e": "would continue and even <b>accelerate<\/b>.", "k": "계속 이어지고 심지어 가속화될 것이라고."}], "easy": "그래서 사람들은 세상이 계속, 그리고 더 빠르게 평등해질 거라고 기대했어요.", "gist": "사람들의 기대 — 평등해지는 흐름이 계속될 것이라 믿었어요."}, {"n": 4, "ch": [{"e": "In particular, they hoped", "k": "특히, 그들<span class=\"r\">(= 사람들)<\/span>은 희망했다"}, {"e": "that globalization would (b) <u>spread<\/u> economic <b>prosperity<\/b>", "k": "세계화가 경제적 번영을 (b) 확산시킬 것을"}, {"e": "throughout the world,", "k": "세계 곳곳에,"}, {"e": "and that as a result people in India and Egypt", "k": "그리고 결과적으로 인도와 이집트의 사람들이"}, {"e": "would come to enjoy the same opportunities and <b>privileges<\/b>", "k": "동일한 기회와 특권을 누리게 될 것을"}, {"e": "as people in Finland and Canada.", "k": "핀란드와 캐나다의 사람들과."}], "link": "특히, 그들은 세계화가 경제적 번영을 세계 곳곳에 확산시킬 것을, 그리고 결과적으로 인도와 이집트의 사람들이 핀란드와 캐나다의 사람들과 동일한 기회와 특권을 누리게 될 것을 희망했다.", "easy": "특히 사람들은 세계화 덕분에 온 세상이 잘살게 되고, 인도·이집트 사람들도 핀란드·캐나다 사람들처럼 같은 기회와 특권을 누리길 바랐어요.", "gist": "사람들의 기대 — 세계화가 모두를 잘살게 해 줄 거라고 바랐어요."}, {"n": 5, "ch": [{"e": "An entire generation", "k": "한 세대 전체가"}, {"e": "<b>grew up on<\/b> this promise.", "k": "이 약속을 믿으며 성장했다."}], "easy": "한 세대 전체가 이 약속을 믿으면서 자랐어요.", "gist": "도입 마무리 — 모두가 이 약속을 믿었어요."}, {"n": 6, "ch": [{"e": "Now it seems", "k": "이제 ~인 것처럼 보인다"}, {"e": "that this promise might not be <b>fulfilled<\/b>.", "k": "이 약속이 이행되지 못할 수도 있는."}], "easy": "그런데 이제는 그 약속이 지켜지지 않을 수도 있어 보여요.", "gist": "글의 방향이 바뀌어요 — 약속이 깨질 수 있어요."}, {"n": 7, "ch": [{"e": "Globalization has certainly benefited", "k": "세계화는 분명 혜택을 주었다"}, {"e": "large <b>segments<\/b> of humanity,", "k": "인류의 커다란 부분에,"}, {"e": "but there are signs of growing inequality", "k": "하지만 증가하는 불평등의 조짐이 있다"}, {"e": "both between and within societies.", "k": "사회들 간 그리고 사회들 내부 모두에서."}], "link": "세계화는 인류의 커다란 부분에 분명 혜택을 주었지만, 사회들 간 그리고 사회들 내부 모두에서 증가하는 불평등의 조짐이 있다.", "easy": "세계화가 많은 사람에게 도움이 된 건 맞지만, 사회와 사회 사이에서도, 한 사회 안에서도 불평등이 커지고 있다는 신호가 보여요.", "gist": "핵심 — 오히려 불평등이 커지는 조짐이 있어요."}, {"n": 8, "ch": [{"e": "Some groups increasingly (c) <u>monopolize<\/u>", "k": "일부 집단은 점점 더 (c) 독점하고 있다"}, {"e": "the fruits of globalization,", "k": "세계화의 결실을,"}, {"e": "while billions are left behind.", "k": "반면 수십억 명의 사람들은 뒤처져 있다."}], "easy": "몇몇 집단은 세계화로 얻은 이익을 점점 더 독차지하고, 수십억 명은 뒤처지고 있어요.", "gist": "불평등의 모습 1 — 이익을 일부가 독점해요."}, {"n": 9, "ch": [{"e": "Today, the richest 1 percent", "k": "오늘날, 가장 부유한 1퍼센트가"}, {"e": "own half the world’s wealth.", "k": "세계 부의 절반을 소유하고 있다."}], "easy": "지금 가장 부자인 1%가 세계 재산의 절반을 가지고 있어요.", "gist": "불평등의 모습 2 — 상위 1%가 부의 절반을 가져요."}, {"n": 10, "ch": [{"e": "This situation", "k": "이러한 상황은"}, {"e": "could get far worse.", "k": "훨씬 더 악화될 수 있다."}], "easy": "이 상황은 앞으로 훨씬 더 나빠질 수도 있어요.", "gist": "전망 — 더 나빠질 수 있어요."}, {"n": 11, "ch": [{"e": "The rise of AI", "k": "인공 지능의 부상은"}, {"e": "might <b>eliminate<\/b> the economic value and political power", "k": "경제적 가치와 정치적 힘을 소멸시킬 수도 있다"}, {"e": "of most humans.", "k": "대다수 사람들의."}], "easy": "인공 지능이 발전하면 대부분의 사람은 경제적으로도 정치적으로도 힘을 잃을 수 있어요.", "gist": "나빠지는 이유 1 — 인공 지능이에요."}, {"n": 12, "ch": [{"e": "At the same time,", "k": "동시에,"}, {"e": "improvements in <b>biotechnology<\/b>", "k": "생명 공학의 발전은"}, {"e": "might make it (d) <u>possible<\/u>", "k": "(d) 가능하게 만들지도 모른다 <span class=\"r\">※ 문제지엔 impossible로 되어 있음<\/span>"}, {"e": "to <b>translate<\/b> economic inequality <b>into<\/b> biological inequality.", "k": "경제적 불평등을 생물학적 불평등으로 전환하는 것을."}], "easy": "동시에 생명 공학이 발전하면, 돈의 차이가 몸과 생명의 차이로 바뀌는 일이 가능해질 수도 있어요.", "gist": "나빠지는 이유 2 — 생명 공학이 경제적 불평등을 생물학적 불평등으로 바꿀 수 있어요."}, {"n": 13, "ch": [{"e": "The <b>superrich<\/b> will finally have", "k": "엄청나게 부유한 사람들은 마침내 갖게 될 것이다"}, {"e": "something really <b>worthwhile<\/b> to do", "k": "정말로 할 가치가 있는 무언가를"}, {"e": "with their enormous wealth.", "k": "자신들의 막대한 부를 가지고."}], "easy": "엄청난 부자들은 마침내 그 많은 돈으로 정말 할 가치가 있는 일을 갖게 될 거예요.", "gist": "부자들의 돈이 쓰일 곳을 예고해요."}, {"n": 14, "ch": [{"e": "While up until now", "k": "지금까지는"}, {"e": "they have only been able to buy", "k": "그들<span class=\"r\">(= 엄청나게 부유한 사람들)<\/span>이 살 수 있었을 뿐이지만"}, {"e": "<b>little more than<\/b> <b>status symbols<\/b>,", "k": "지위를 상징하는 것에 불과한 것들만을,"}, {"e": "soon they might be able to buy life itself.", "k": "곧 그들은 생명 자체를 살 수 있을지도 모른다."}], "link": "그들은 지금까지는 고작 사회적 지위를 상징하는 것에 불과한 것들만을 살 수 있었지만, 곧 생명 자체를 살 수 있을지도 모른다.", "easy": "지금까지 부자들은 돈으로 기껏해야 신분을 자랑하는 물건 정도만 살 수 있었지만, 곧 생명 그 자체를 살 수 있게 될지도 몰라요.", "gist": "핵심 근거 — 부자들은 생명 자체를 살 수 있을지도 몰라요."}, {"n": 15, "ch": [{"e": "If new treatments", "k": "만약 새로운 치료법이"}, {"e": "for extending life", "k": "생명을 연장하기 위한"}, {"e": "and upgrading physical and <b>cognitive<\/b> abilities", "k": "그리고 신체적, 인지적 능력을 향상시키기 위한"}, {"e": "<b>prove to be<\/b> (e) <u>expensive<\/u>,", "k": "(e) 비용이 많이 드는 것으로 밝혀지면,"}, {"e": "humankind might split into biological <b>castes<\/b>.", "k": "인류는 생물학적 카스트로 나뉘게 될지도 모른다."}], "link": "만약 생명을 연장하고 신체적, 인지적 능력을 향상시키기 위한 새로운 치료법이 비용이 많이 드는 것으로 밝혀지면, 인류는 생물학적 카스트로 나뉘게 될지도 모른다.", "easy": "오래 살게 하고 몸과 머리를 더 좋게 만드는 새 치료법이 아주 비싸다면, 인류가 생물학적으로 서로 다른 계층으로 갈라질 수도 있어요.", "gist": "결론 — 인류가 생물학적 카스트로 나뉠 수 있어요."}]}, {"no": "12", "typ": "장문 · 어휘", "src": "2019년 10월 42번", "evn": [12, 14], "ev_en": "At the same time, improvements in biotechnology might make it (d) possible to translate economic inequality into biological inequality. / While up until now they have only been able to buy little more than status symbols, soon they might be able to buy life itself.", "ev_ko": [[12, "동시에, 생명 공학의 발전은 경제적 불평등을 생물학적 불평등으로 전환하는 것을 (d)불가능하게(→ 가능하게) 만들지도 모른다."], [14, "그들은 지금까지는 고작 높은 사회적 지위를 상징하는 것에 불과한 것들만을 살 수 있었지만, 곧 생명 자체를 살 수 있을지도 모른다."]], "why": ["(12) 앞의 (10)·(11)은 상황이 훨씬 더 나빠질 수 있고, 인공 지능이 대다수 사람들의 경제적 가치와 정치적 힘을 없앨 수도 있다는 내용입니다", "(14)에서는 부자들이 곧 <b>생명 자체를 살 수 있을지도<\/b> 모른다고 하고, (15)에서는 인류가 <b>생물학적 카스트<\/b>로 나뉠지도 모른다고 합니다", "부자들이 돈으로 생명을 살 수 있게 되면, 경제적 불평등이 생물학적 불평등으로 <b>바뀔 수 있게<\/b> 됩니다", "그래서 (d) impossible(불가능한)은 <b>possible<\/b>(가능한)로 바꿔야 하고, 정답은 ④입니다."], "ch": [{"n": "①", "t": "(a) reduction", "g": "(a) 감소", "ok": false, "e": ["(2)에서 2000년의 세계는 1900년의 세계보다 훨씬 더 평등한 곳이었다고 합니다", "그러니 20세기의 역사가 불평등의 <b>감소<\/b>를 중심으로 전개되었다는 말은 알맞습니다."]}, {"n": "②", "t": "(b) spread", "g": "(b) 확산시키다", "ok": false, "e": ["(4)는 세계화에 대한 기대를 말하는 부분입니다", "그 결과 인도와 이집트 사람들도 핀란드와 캐나다 사람들과 같은 기회를 누리기를 바랐다고 하므로, 번영을 세계 곳곳에 <b>확산시킨다<\/b>는 말이 알맞습니다."]}, {"n": "③", "t": "(c) monopolize", "g": "(c) 독점하다", "ok": false, "e": ["(8)에서 일부 집단이 세계화의 결실을 얻는 반면(while) 수십억 명은 뒤처져 있다고 합니다", "(9)에서 최상위 1퍼센트가 세계 부의 절반을 가진다고 하므로 <b>독점한다<\/b>는 말이 알맞습니다."]}, {"n": "④", "t": "(d) impossible", "g": "(d) 불가능한", "ok": true, "e": ["(14)에서 부자들이 곧 생명 자체를 살 수 있을지도 모른다고 하고, (15)에서 인류가 생물학적 카스트로 나뉠지도 모른다고 합니다", "경제적 불평등이 생물학적 불평등으로 바뀌는 것이 <b>가능해진다<\/b>는 흐름이므로, impossible이 아니라 possible이 와야 합니다."]}, {"n": "⑤", "t": "(e) expensive", "g": "(e) 비용이 많이 드는", "ok": false, "e": ["생명을 연장하고 능력을 향상시키는 치료법이 <b>비용이 많이 들어야<\/b> 부자들만 그것을 살 수 있습니다", "그래야 인류가 생물학적 카스트로 나뉜다는 결론이 이어지므로 알맞습니다."]}], "tr": ["20세기의 역사는 대체로 계급, 인종, 그리고 성별 간 불평등의 (a)감소를 중심으로 전개되었다.", "비록 2000년의 세계는 계급제의 일부를 여전히 가지고 있었지만(남아 있었지만), 그럼에도 불구하고 그것은 1900년의 세계보다 훨씬 더 평등한 곳이었다.", "따라서 사람들은 인류 평등주의의 과정이 계속 이어지고 심지어 가속화될 것이라고 기대했다.", "특히, 그들은 세계화가 경제적 번영을 세계 곳곳에 (b)확산시킬 것을, 그리고 결과적으로 인도와 이집트의 사람들이 핀란드와 캐나다의 사람들과 동일한 기회와 특권을 누리게 될 것을 희망했다.", "한 세대 전체가 이 약속 위에서(이 약속을 믿으며) 성장했다.", "이제 이 약속은 이행되지 못할 수도 있는 것처럼 보인다.", "세계화는 인류의 커다란 부분에 분명 혜택을 주었지만, 사회들 간 그리고 사회들 내부 모두에서 증가하는 불평등의 조짐이 있다(불평등이 증가하고 있다는 조짐이 있다).", "일부 집단은 점점 더 세계화의 결실을 (c)독점하고 있는 반면, 수십억 명의 사람들은 뒤처져 있다.", "오늘날, 가장 부유한(최상위 부유층) 1퍼센트가 세계 부의 절반을 소유하고 있다.", "이러한 상황은 훨씬 더 악화될 수 있다.", "인공 지능의 부상은 대다수 사람들의 경제적 가치와 정치적 힘을 소멸시킬 수도 있다.", "동시에, 생명 공학의 발전은 경제적 불평등을 생물학적 불평등으로 전환하는 것을 (d)불가능하게(→ 가능하게) 만들지도 모른다.", "엄청나게 부유한 사람들은 자신들의 막대한 부를 가지고(이용해서) 정말로 할 가치가 있는 무언가를 마침내 갖게 될 것이다.", "그들은 지금까지는 고작 높은 사회적 지위를 상징하는 것에 불과한 것들만을 살 수 있었지만, 곧 생명 자체를 살 수 있을지도 모른다.", "만약 생명을 연장하고 신체적, 인지적 능력을 향상시키기 위한 새로운 치료법이 (e)비용이 많이 드는 것으로 밝혀지면, 인류는 생물학적 카스트로 나뉘게 될지도 모른다."], "ps": [{"n": 1, "ch": [{"e": "The history of the twentieth century", "k": "20세기의 역사는"}, {"e": "<b>revolved<\/b> to a large extent <b>around<\/b>", "k": "대체로 ~을 중심으로 전개되었다"}, {"e": "the (a) <u>reduction<\/u> of <b>inequality<\/b>", "k": "불평등의 (a) 감소를"}, {"e": "between classes, races, and genders.", "k": "계급, 인종, 그리고 성별 간."}], "easy": "20세기 역사는 대체로 계급, 인종, 성별 사이의 불평등이 줄어드는 쪽으로 흘러갔어요.", "gist": "도입 — 20세기에는 불평등이 줄었어요."}, {"n": 2, "ch": [{"e": "Though the world of the year 2000", "k": "비록 2000년의 세계는"}, {"e": "still had its share of <b>hierarchies<\/b>,", "k": "계급제의 일부를 여전히 가지고 있었지만,"}, {"e": "it was nevertheless a far more equal place", "k": "그것<span class=\"r\">(= 2000년의 세계)<\/span>은 그럼에도 불구하고 훨씬 더 평등한 곳이었다"}, {"e": "than the world of 1900.", "k": "1900년의 세계보다."}], "link": "비록 2000년의 세계는 계급제의 일부를 여전히 가지고 있었지만, 그럼에도 불구하고 그것은 1900년의 세계보다 훨씬 더 평등한 곳이었다.", "easy": "2000년에도 계급 같은 위계는 여전히 남아 있었지만, 1900년과 비교하면 훨씬 평등한 세상이었어요.", "gist": "도입 — 1900년보다 2000년이 훨씬 평등했어요."}, {"n": 3, "ch": [{"e": "So people expected", "k": "따라서 사람들은 기대했다"}, {"e": "that the <b>egalitarian<\/b> process", "k": "인류 평등주의의 과정이"}, {"e": "would continue and even <b>accelerate<\/b>.", "k": "계속 이어지고 심지어 가속화될 것이라고."}], "easy": "그래서 사람들은 세상이 계속, 그리고 더 빠르게 평등해질 거라고 기대했어요.", "gist": "사람들의 기대 — 평등해지는 흐름이 계속될 것이라 믿었어요."}, {"n": 4, "ch": [{"e": "In particular, they hoped", "k": "특히, 그들<span class=\"r\">(= 사람들)<\/span>은 희망했다"}, {"e": "that globalization would (b) <u>spread<\/u> economic <b>prosperity<\/b>", "k": "세계화가 경제적 번영을 (b) 확산시킬 것을"}, {"e": "throughout the world,", "k": "세계 곳곳에,"}, {"e": "and that as a result people in India and Egypt", "k": "그리고 결과적으로 인도와 이집트의 사람들이"}, {"e": "would come to enjoy the same opportunities and <b>privileges<\/b>", "k": "동일한 기회와 특권을 누리게 될 것을"}, {"e": "as people in Finland and Canada.", "k": "핀란드와 캐나다의 사람들과."}], "link": "특히, 그들은 세계화가 경제적 번영을 세계 곳곳에 확산시킬 것을, 그리고 결과적으로 인도와 이집트의 사람들이 핀란드와 캐나다의 사람들과 동일한 기회와 특권을 누리게 될 것을 희망했다.", "easy": "특히 사람들은 세계화 덕분에 온 세상이 잘살게 되고, 인도·이집트 사람들도 핀란드·캐나다 사람들처럼 같은 기회와 특권을 누리길 바랐어요.", "gist": "사람들의 기대 — 세계화가 모두를 잘살게 해 줄 거라고 바랐어요."}, {"n": 5, "ch": [{"e": "An entire generation", "k": "한 세대 전체가"}, {"e": "<b>grew up on<\/b> this promise.", "k": "이 약속을 믿으며 성장했다."}], "easy": "한 세대 전체가 이 약속을 믿으면서 자랐어요.", "gist": "도입 마무리 — 모두가 이 약속을 믿었어요."}, {"n": 6, "ch": [{"e": "Now it seems", "k": "이제 ~인 것처럼 보인다"}, {"e": "that this promise might not be <b>fulfilled<\/b>.", "k": "이 약속이 이행되지 못할 수도 있는."}], "easy": "그런데 이제는 그 약속이 지켜지지 않을 수도 있어 보여요.", "gist": "글의 방향이 바뀌어요 — 약속이 깨질 수 있어요."}, {"n": 7, "ch": [{"e": "Globalization has certainly benefited", "k": "세계화는 분명 혜택을 주었다"}, {"e": "large <b>segments<\/b> of humanity,", "k": "인류의 커다란 부분에,"}, {"e": "but there are signs of growing inequality", "k": "하지만 증가하는 불평등의 조짐이 있다"}, {"e": "both between and within societies.", "k": "사회들 간 그리고 사회들 내부 모두에서."}], "link": "세계화는 인류의 커다란 부분에 분명 혜택을 주었지만, 사회들 간 그리고 사회들 내부 모두에서 증가하는 불평등의 조짐이 있다.", "easy": "세계화가 많은 사람에게 도움이 된 건 맞지만, 사회와 사회 사이에서도, 한 사회 안에서도 불평등이 커지고 있다는 신호가 보여요.", "gist": "핵심 — 오히려 불평등이 커지는 조짐이 있어요."}, {"n": 8, "ch": [{"e": "Some groups increasingly (c) <u>monopolize<\/u>", "k": "일부 집단은 점점 더 (c) 독점하고 있다"}, {"e": "the fruits of globalization,", "k": "세계화의 결실을,"}, {"e": "while billions are left behind.", "k": "반면 수십억 명의 사람들은 뒤처져 있다."}], "easy": "몇몇 집단은 세계화로 얻은 이익을 점점 더 독차지하고, 수십억 명은 뒤처지고 있어요.", "gist": "불평등의 모습 1 — 이익을 일부가 독점해요."}, {"n": 9, "ch": [{"e": "Today, the richest 1 percent", "k": "오늘날, 가장 부유한 1퍼센트가"}, {"e": "own half the world’s wealth.", "k": "세계 부의 절반을 소유하고 있다."}], "easy": "지금 가장 부자인 1%가 세계 재산의 절반을 가지고 있어요.", "gist": "불평등의 모습 2 — 상위 1%가 부의 절반을 가져요."}, {"n": 10, "ch": [{"e": "This situation", "k": "이러한 상황은"}, {"e": "could get far worse.", "k": "훨씬 더 악화될 수 있다."}], "easy": "이 상황은 앞으로 훨씬 더 나빠질 수도 있어요.", "gist": "전망 — 더 나빠질 수 있어요."}, {"n": 11, "ch": [{"e": "The rise of AI", "k": "인공 지능의 부상은"}, {"e": "might <b>eliminate<\/b> the economic value and political power", "k": "경제적 가치와 정치적 힘을 소멸시킬 수도 있다"}, {"e": "of most humans.", "k": "대다수 사람들의."}], "easy": "인공 지능이 발전하면 대부분의 사람은 경제적으로도 정치적으로도 힘을 잃을 수 있어요.", "gist": "나빠지는 이유 1 — 인공 지능이에요."}, {"n": 12, "ch": [{"e": "At the same time,", "k": "동시에,"}, {"e": "improvements in <b>biotechnology<\/b>", "k": "생명 공학의 발전은"}, {"e": "might make it (d) <u>possible<\/u>", "k": "(d) 가능하게 만들지도 모른다 <span class=\"r\">※ 문제지엔 impossible로 되어 있음<\/span>"}, {"e": "to <b>translate<\/b> economic inequality <b>into<\/b> biological inequality.", "k": "경제적 불평등을 생물학적 불평등으로 전환하는 것을."}], "easy": "동시에 생명 공학이 발전하면, 돈의 차이가 몸과 생명의 차이로 바뀌는 일이 가능해질 수도 있어요.", "gist": "나빠지는 이유 2 — 생명 공학이 경제적 불평등을 생물학적 불평등으로 바꿀 수 있어요."}, {"n": 13, "ch": [{"e": "The <b>superrich<\/b> will finally have", "k": "엄청나게 부유한 사람들은 마침내 갖게 될 것이다"}, {"e": "something really <b>worthwhile<\/b> to do", "k": "정말로 할 가치가 있는 무언가를"}, {"e": "with their enormous wealth.", "k": "자신들의 막대한 부를 가지고."}], "easy": "엄청난 부자들은 마침내 그 많은 돈으로 정말 할 가치가 있는 일을 갖게 될 거예요.", "gist": "부자들의 돈이 쓰일 곳을 예고해요."}, {"n": 14, "ch": [{"e": "While up until now", "k": "지금까지는"}, {"e": "they have only been able to buy", "k": "그들<span class=\"r\">(= 엄청나게 부유한 사람들)<\/span>이 살 수 있었을 뿐이지만"}, {"e": "<b>little more than<\/b> <b>status symbols<\/b>,", "k": "지위를 상징하는 것에 불과한 것들만을,"}, {"e": "soon they might be able to buy life itself.", "k": "곧 그들은 생명 자체를 살 수 있을지도 모른다."}], "link": "그들은 지금까지는 고작 사회적 지위를 상징하는 것에 불과한 것들만을 살 수 있었지만, 곧 생명 자체를 살 수 있을지도 모른다.", "easy": "지금까지 부자들은 돈으로 기껏해야 신분을 자랑하는 물건 정도만 살 수 있었지만, 곧 생명 그 자체를 살 수 있게 될지도 몰라요.", "gist": "핵심 근거 — 부자들은 생명 자체를 살 수 있을지도 몰라요."}, {"n": 15, "ch": [{"e": "If new treatments", "k": "만약 새로운 치료법이"}, {"e": "for extending life", "k": "생명을 연장하기 위한"}, {"e": "and upgrading physical and <b>cognitive<\/b> abilities", "k": "그리고 신체적, 인지적 능력을 향상시키기 위한"}, {"e": "<b>prove to be<\/b> (e) <u>expensive<\/u>,", "k": "(e) 비용이 많이 드는 것으로 밝혀지면,"}, {"e": "humankind might split into biological <b>castes<\/b>.", "k": "인류는 생물학적 카스트로 나뉘게 될지도 모른다."}], "link": "만약 생명을 연장하고 신체적, 인지적 능력을 향상시키기 위한 새로운 치료법이 비용이 많이 드는 것으로 밝혀지면, 인류는 생물학적 카스트로 나뉘게 될지도 모른다.", "easy": "오래 살게 하고 몸과 머리를 더 좋게 만드는 새 치료법이 아주 비싸다면, 인류가 생물학적으로 서로 다른 계층으로 갈라질 수도 있어요.", "gist": "결론 — 인류가 생물학적 카스트로 나뉠 수 있어요."}]}];
+var ENC="=MakivToRK+OiGp47MakivDoRK+OjGp4";
+var SETID="g3r19p2", N=D.length, TITLE="고3 미니모의고사 19회 07–12번";
+var CIRC="①②③④⑤";
+function dec(s){var b=atob(s.split("").reverse().join(""));var u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder("utf-8").decode(u);}
+var ANS=dec(ENC).split(";").map(function(x){return x.split("|").map(function(c){return CIRC.indexOf(c)+1;});});
+function isRight(i,a){return ANS[i].indexOf(a)>=0;}
+function ansText(i){return ANS[i].map(function(n){return CIRC[n-1];}).join(", ");}
+
+var GCODE="h3", GRADE="고3", FILE="19b", NEXT="20a.html";
+const KEY='via_mm_'+GCODE+'_'+FILE;
+let S={checks:{},locked:{},res:{},sub:null,q:[]};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* REC 연결 지점: 지금은 기기 안에 대기열로만 쌓음 */
+function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localStorage.getItem('via_minimock_rec_queue')||'[]');q.push(ev);localStorage.setItem('via_minimock_rec_queue',JSON.stringify(q));}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const app=$('#app');
+let view='word',quiz=null,armed=null;
+function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function shuffle(arr,seed){const a=arr.slice();let s=hash(seed)||1;for(let i=a.length-1;i>0;i--){s=Math.imul(s^(s>>>15),2246822519)>>>0;const j=s%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+const WS=WORDS.sets[0];
+
+function hdr(){
+  const on=id=>(view===id)?'on':'';
+  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><a class="link" href="index.html">목록</a></div><div class="tabs"><button class="tab ${on('word')}" data-v="word">단어</button><button class="tab ${on('submit')}" data-v="submit">답 제출</button><button class="tab ${on('exp')}" data-v="exp" ${S.sub?'':'disabled'}>해설</button></div></div></header>`;
+}
+function noteList(){
+  const out=[],ck=S.checks[WS.id]||{};
+  WS.words.forEach((w,i)=>{
+    const c=ck[i];if(!c)return;
+    const parts=['m','s','a'].filter(p=>c[p]&&(p==='m'||w[p]));
+    if(parts.length)out.push({i:i,w:w,parts:parts});
+  });
+  return out;
+}
+function render(){
+  if(view==='word')renderWord();
+  else if(view==='note')renderNote();
+  else if(view==='quiz')renderQuiz();
+  else if(view==='result')renderResult();
+  else if(view==='submit')renderSubmit();
+  else if(view==='exp')renderExp();
+  window.scrollTo(0,0);
+}
+/* ---- 단어 확인 ---- */
+function renderWord(){
+  const ck=S.checks[WS.id]||{},locked=!!S.locked[WS.id],n=noteList().length;
+  let h=hdr()+`<div class="wrap ${locked?'locked':''}">`;
+  WS.words.forEach((w,i)=>{
+    const c=ck[i]||{};
+    h+=`<div class="row"><div class="top"><span class="no">${i+1}</span><span class="word">${esc(w.w)}</span><span class="src">${esc(w.src)}번</span></div><div class="cells">`;
+    h+=`<button class="cell m ${c.m?'bad':''}" data-i="${i}" data-p="m"><span class="tag">뜻</span><span>${esc(w.m)}</span></button>`;
+    if(w.s)h+=`<button class="cell s ${c.s?'bad':''}" data-i="${i}" data-p="s"><span class="tag">유</span><span>${esc(w.s[0])}<span class="ko">${esc(w.s[1])}</span></span></button>`;
+    if(w.a)h+=`<button class="cell a ${c.a?'bad':''}" data-i="${i}" data-p="a"><span class="tag">반</span><span>${esc(w.a[0])}<span class="ko">${esc(w.a[1])}</span></span></button>`;
+    h+=`</div></div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap">`;
+  h+=locked?`<button class="btn" disabled>확인 끝</button>`:`<button class="btn ${armed==='lock'?'arm':''}" id="lock">${armed==='lock'?'한 번 더 누르면 확인 끝':'확인 끝'}</button>`;
+  h+=`<button class="btn pri" id="gonote">단어 오답노트 ${n}</button></div></div>`;
+  app.innerHTML=h;
+  app.querySelectorAll('.cell').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,p=b.dataset.p;
+    S.checks[WS.id]=S.checks[WS.id]||{};
+    const c=S.checks[WS.id][i]=S.checks[WS.id][i]||{};
+    c[p]=c[p]?0:1;save();
+    b.classList.toggle('bad',!!c[p]);
+    $('#gonote').textContent='단어 오답노트 '+noteList().length;
+  });
+  const lk=$('#lock');if(lk)lk.onclick=()=>{
+    if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
+      recSend({type:'word',marks:noteList().map(it=>({w:it.w.w,parts:it.parts}))});}
+    else armed='lock';
+    render();
+  };
+  $('#gonote').onclick=()=>{view='note';armed=null;render();};
+}
+function renderNote(){
+  const list=noteList();
+  let h=`<header><div class="wrap hd2"><h1>단어 오답노트 <span class="meta">${list.length}개</span></h1><button class="link" id="back">확인표</button></div></header><div class="wrap">`;
+  if(!list.length)h+=`<div class="empty">아직 표시한 단어가 없습니다</div>`;
+  list.forEach(it=>{
+    const w=it.w,r=(S.res[WS.id]||{})[it.i]||{};
+    h+=`<div class="note-item"><span class="w">${esc(w.w)}</span><span class="meta">${esc(w.src)}번</span>`;
+    const row=(p,tag,txt,ko)=>{
+      const bad=it.parts.includes(p);
+      const rs=r[p]===1?'<span class="res o">맞춤</span>':r[p]===0?'<span class="res x">틀림</span>':'';
+      return `<div class="part ${p} ${bad?'bad':''}"><span class="tag">${tag}</span><span>${esc(txt)}${ko?`<span class="ko"> ${esc(ko)}</span>`:''}</span>${bad?rs:''}</div>`;
+    };
+    h+=row('m','뜻',w.m,'');
+    if(w.s)h+=row('s','유',w.s[0],w.s[1]);
+    if(w.a)h+=row('a','반',w.a[0],w.a[1]);
+    h+=`</div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap"><button class="btn" id="back2">확인표</button><button class="btn pri" id="start" ${list.length?'':'disabled'}>복습 시작</button></div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='word';armed=null;render();};
+  $('#back2').onclick=()=>{view='word';render();};
+  $('#start').onclick=()=>{quiz={qs:buildQuestions(),n:0,right:0,done:false,shown:false};view='quiz';render();};
+}
+function buildQuestions(){
+  const qs=[];
+  noteList().forEach(it=>{
+    const w=it.w;
+    it.parts.forEach(p=>{
+      let q={i:it.i,p:p,w:w.w};
+      if(p==='m'){
+        const toks=x=>x.split(/[,，]\s*/).map(t=>t.trim());
+        const ct=toks(w.m);
+        const pool=[...new Set(WS.words.filter(o=>o!==w).map(o=>o.m))].filter(m=>!toks(m).some(t=>ct.includes(t)));
+        const wrong=shuffle(pool,WS.id+w.w+'m').slice(0,3);
+        q.type='choice';q.ask='뜻을 고르세요';
+        q.opts=shuffle([{t:w.m,ok:1}].concat(wrong.map(t=>({t:t,ok:0}))),WS.id+w.w+'mo');
+      }else{
+        const ans=w[p],d=WS.dist||[];
+        q.ask=p==='s'?'유의어를 고르세요':'반의어를 고르세요';
+        if(d.length>=3){
+          q.type='choice';
+          q.opts=shuffle([{t:ans[0],ko:ans[1],ok:1}].concat(shuffle(d,WS.id+w.w+p).slice(0,3).map(x=>({t:x[0],ko:x[1],ok:0}))),WS.id+w.w+p+'o');
+        }else{q.type='flip';q.ans=ans;}
+      }
+      qs.push(q);
+    });
+  });
+  return qs;
+}
+function recordRes(q,ok){S.res[WS.id]=S.res[WS.id]||{};const r=S.res[WS.id][q.i]=S.res[WS.id][q.i]||{};r[q.p]=ok?1:0;save();}
+function renderQuiz(){
+  const q=quiz.qs[quiz.n];
+  let h=`<header><div class="wrap hd2"><h1>복습</h1><button class="link" id="back">오답노트</button></div></header><div class="wrap ${quiz.done?'done':''}"><div class="q"><div class="cnt">${quiz.n+1} / ${quiz.qs.length}</div><div class="ask">${q.ask}</div><div class="target">${esc(q.w)}</div>`;
+  if(q.type==='choice'){
+    q.opts.forEach((o,k)=>{
+      let cls='';
+      if(quiz.done){if(o.ok)cls='right';else if(k===quiz.pick)cls='wrong';}
+      h+=`<button class="opt ${cls}" data-k="${k}">${esc(o.t)}${o.ko?`<span class="ko">${esc(o.ko)}</span>`:''}</button>`;
+    });
+  }else if(quiz.shown)h+=`<div class="opt right">${esc(q.ans[0])}<span class="ko">${esc(q.ans[1])}</span></div>`;
+  h+=`</div></div><div class="bar"><div class="wrap">`;
+  if(q.type==='flip'&&!quiz.shown)h+=`<button class="btn pri" id="show">정답 보기</button>`;
+  else if(q.type==='flip')h+=`<button class="btn" id="no">몰랐음</button><button class="btn pri" id="yes">알았음</button>`;
+  else h+=`<button class="btn pri" id="next" ${quiz.done?'':'disabled'}>${quiz.n+1===quiz.qs.length?'결과':'다음'}</button>`;
+  h+=`</div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='note';render();};
+  app.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+    if(quiz.done)return;
+    const k=+b.dataset.k;quiz.pick=k;quiz.done=true;
+    const ok=q.opts[k].ok===1;if(ok)quiz.right++;recordRes(q,ok);render();
+  });
+  const nx=$('#next');if(nx)nx.onclick=()=>advance();
+  const sh=$('#show');if(sh)sh.onclick=()=>{quiz.shown=true;render();};
+  const yes=$('#yes');if(yes)yes.onclick=()=>{quiz.right++;recordRes(q,true);advance();};
+  const no=$('#no');if(no)no.onclick=()=>{recordRes(q,false);advance();};
+}
+function advance(){
+  if(quiz.n+1>=quiz.qs.length){view='result';render();return;}
+  quiz.n++;quiz.done=false;quiz.shown=false;quiz.pick=null;render();
+}
+function renderResult(){
+  app.innerHTML=`<header><div class="wrap hd2"><h1>복습 결과</h1></div></header><div class="wrap"><div class="score">${quiz.right} <small>/ ${quiz.qs.length}</small></div></div><div class="bar"><div class="wrap"><button class="btn" id="a">오답노트</button><button class="btn pri" id="b">확인표</button></div></div>`;
+  $('#a').onclick=()=>{view='note';render();};
+  $('#b').onclick=()=>{view='word';render();};
+}
+/* ---- 답 제출 ---- */
+function renderSubmit(){
+  const done=!!S.sub;
+  while(S.q.length<N)S.q.push(0);
+  let h=hdr()+'<div class="wrap">';
+  for(let i=0;i<N;i++){
+    const sel=done?S.sub.a[i]:S.q[i];
+    h+=`<div class="qrow"><div class="qno">${esc(D[i].no)}</div><div class="opts">`;
+    for(let k=1;k<=5;k++)h+=`<button class="opt2 ${sel===k?'on':''}" data-q="${i}" data-k="${k}" ${done?'disabled':''}>${CIRC[k-1]}</button>`;
+    h+='</div></div>';
+  }
+  h+='</div><div class="bar"><div class="wrap">';
+  if(done)h+='<button class="btn pri" id="toexp">해설 보기</button>';
+  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>제출</button>`;
+  h+='</div></div>';
+  app.innerHTML=h;
+  app.querySelectorAll('.opt2').forEach(b=>b.onclick=()=>{
+    if(S.sub)return;
+    const q=+b.dataset.q,k=+b.dataset.k;S.q[q]=k;save();
+    b.parentNode.querySelectorAll('.opt2').forEach(x=>x.classList.toggle('on',+x.dataset.k===k));
+    $('#sub').disabled=!S.q.every(v=>v>0);
+  });
+  const sb=$('#sub');if(sb)sb.onclick=()=>{
+    let s=0;for(let i=0;i<N;i++)if(isRight(i,S.q[i]))s++;
+    S.sub={t:Date.now(),a:S.q.slice(),s:s};save();
+    recSend({type:'submit',a:S.sub.a,s:s,n:N});
+    view='exp';render();
+  };
+  const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
+}
+/* ---- 해설 ---- */
+function sHtml(s,evn){
+  const ev=evn.indexOf(s.n)>=0;
+  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
+  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
+  const lays=[];
+  if(s.link)lays.push(['이어 읽으면',s.link]);
+  if(s.easy)lays.push(['쉬운 말로',s.easy]);
+  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
+  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
+  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
+  return x+'</div>';
+}
+function qHtml(i,a){
+  const d=D[i],ok=isRight(i,a);
+  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
+  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
+  h+='<h4>정답 근거</h4>';
+  h+=`<p class="en">${esc(d.ev_en)}</p>`;
+  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
+  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  if(d.ps&&d.ps.length){
+    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
+  }
+  h+='<h4>선택지 하나씩</h4>';
+  d.ch.forEach(c=>{
+    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  });
+  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  return h+'</div></details>';
+}
+function renderExp(){
+  const rec=S.sub;
+  let h=hdr()+'<div class="wrap">';
+  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='</div><h2>해설</h2>';
+  for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
+  h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
+  app.innerHTML=h;
+}
+/* 위임 이벤트 */
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tab');
+  if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
+  const ch=e.target.closest('.ch');
+  if(ch){ch.classList.toggle('open');return;}
+  const st=e.target.closest('.stg');
+  if(st){
+    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const shown=lays.filter(l=>l.classList.contains('on')).length;
+    if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
+    else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
+    return;
+  }
+  const al=e.target.closest('.tbtn');
+  if(al){
+    const open=al.dataset.all==='1',body=al.closest('.dkbody');
+    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
+    body.querySelectorAll('.s').forEach(s=>{
+      const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
+      lays.forEach(l=>l.classList.toggle('on',open));
+      if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
+    });
+  }
+});
+render();
+</script>
+</body>
+</html>

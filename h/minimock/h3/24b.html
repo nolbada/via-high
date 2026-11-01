@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>고3 미니모의고사 24회 07–12번</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f6f8;--accent:#23406b;--bad:#c2392b;--badbg:#fdeceb;--good:#1f7a4d;--goodbg:#e8f5ee;--hl:#fff3b0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+body{padding-bottom:84px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .row1{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+h1{font-size:16px;margin:0;font-weight:700;line-height:1.3}
+.tabs{display:flex;gap:0}
+.tab{flex:1;border:0;background:none;font-family:inherit;font-size:15px;font-weight:700;color:var(--sub);padding:11px 0;border-bottom:3px solid transparent}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tab[disabled]{opacity:.35}
+.link{text-decoration:none;border:0;background:none;color:var(--accent);font-size:15px;font-weight:700;padding:10px 4px;font-family:inherit}
+.hd2{display:flex;align-items:center;justify-content:space-between;height:54px}
+.hd2 h1{font-size:17px}
+.row{padding:12px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.no{color:var(--sub);font-size:13px;min-width:20px}
+.word{font-size:19px;font-weight:700}
+.src{color:var(--sub);font-size:12px;margin-left:auto}
+.cells{display:flex;flex-direction:column;gap:6px}
+.cell{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 12px;border-radius:8px;background:var(--soft);border:1.5px solid transparent;font-size:16px;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.cell .tag,.part .tag{font-size:12px;font-weight:700;color:#fff;border-radius:4px;padding:2px 7px;min-width:34px;text-align:center;background:#7a8594}
+.cell.s .tag,.part.s .tag{background:#2d62a8}.cell.a .tag,.part.a .tag{background:#b4472f}
+.ko{color:var(--sub);font-size:14px;margin-left:6px}
+.cell.bad{background:var(--badbg);border-color:var(--bad)}
+.cell.bad .tag{background:var(--bad)}
+.locked .cell{pointer-events:none}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:6}
+.bar .wrap{display:flex;gap:10px;padding:0}
+.btn{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;line-height:1.25;font-weight:700;font-family:inherit}
+.btn.pri{background:var(--accent);color:#fff}
+.btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn[disabled]{opacity:.4}
+.note-item{padding:14px 0;border-bottom:1px solid var(--line)}
+.note-item .w{font-size:19px;font-weight:700}
+.meta{color:var(--sub);font-size:12px;margin-left:8px;font-weight:400}
+.part{display:flex;gap:10px;align-items:baseline;padding:6px 0 0;font-size:16px}
+.part .tag{align-self:center}
+.part.bad{color:var(--bad);font-weight:700}
+.part.bad .tag{background:var(--bad)}
+.part .ko{font-weight:400}
+.part .res{margin-left:auto;font-size:13px;font-weight:700}
+.res.o{color:var(--good)}.res.x{color:var(--bad)}
+.empty{color:var(--sub);text-align:center;padding:60px 0;font-size:16px}
+.q{padding:22px 0 8px}
+.q .cnt{color:var(--sub);font-size:14px}
+.q .ask{font-size:15px;color:var(--sub);margin-top:14px}
+.q .target{font-size:28px;font-weight:700;margin:6px 0 18px}
+.opt{display:block;width:100%;text-align:left;min-height:56px;padding:10px 14px;margin-bottom:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:18px;font-family:inherit;color:var(--ink)}
+.opt .ko{display:block;margin:2px 0 0}
+.opt.right{border-color:var(--good);background:var(--goodbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.done .opt{pointer-events:none}
+.score{font-size:34px;font-weight:700;text-align:center;margin:30px 0 6px}
+.score small{font-size:18px;color:var(--sub);font-weight:400}
+.foot{color:var(--sub);font-size:12px;text-align:center;padding:26px 0 8px}
+/* submit */
+.qrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.qno{font-weight:800;font-size:20px;width:34px;flex:none}
+.opts{display:flex;gap:8px;flex:1}
+.opt2{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:20px;font-family:inherit;color:var(--ink)}
+.opt2.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.opt2[disabled]{opacity:.55}
+.opt2.on[disabled]{opacity:1}
+/* explanation */
+h2{font-size:17px;margin:26px 0 10px}
+.quick div{padding:3px 0;font-size:17px}
+.quick .o{color:var(--good)}.quick .x{color:var(--bad)}
+.sub{color:var(--sub)}
+details.qd{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;background:var(--bg)}
+details.qd>summary{list-style:none;cursor:pointer;padding:14px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+details.qd>summary::-webkit-details-marker{display:none}
+details.qd>summary small{font-weight:400;color:var(--sub);font-size:13px}
+.res2{margin-left:auto;font-size:14px}
+.res2.o{color:var(--good)}.res2.x{color:var(--bad)}
+.qx{padding:0 14px 14px}
+.qx h4{font-size:15px;margin:18px 0 8px;color:var(--accent)}
+.qx p{margin:6px 0;line-height:1.75;font-size:16px}
+.ansline b{font-size:17px}
+.en{font-size:16px;line-height:1.7;background:var(--soft);padding:10px 12px;border-radius:8px}
+.kolist{list-style:none;margin:6px 0;padding:0}
+.kolist li{font-size:15px;line-height:1.7}
+.kolist .n{font-size:12px;color:var(--sub);margin-right:6px}
+.why p{margin:4px 0;font-size:15px}
+.c{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.c.ok{border-color:var(--good);background:var(--goodbg)}
+.c .ct{font-weight:700;font-size:16px;line-height:1.5}
+.c .tg{display:inline-block;font-size:12px;color:#fff;background:#7a8594;border-radius:4px;padding:1px 7px;margin-right:6px;font-weight:700}
+.c.ok .tg{background:var(--good)}
+.c p{margin:4px 0 0;font-size:15px}
+.r{color:var(--sub);font-size:13px}
+/* direct reading practice */
+details.dk{margin:16px 0 4px;border:1px solid var(--line);border-radius:10px}
+details.dk>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700;color:var(--accent);font-size:15px}
+details.dk>summary::-webkit-details-marker{display:none}
+.dkbody{padding:0 12px 12px}
+.tool{display:flex;gap:8px;margin:2px 0 10px}
+.tbtn{flex:1;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:inherit;font-size:14px;font-weight:700;color:var(--accent)}
+.s{padding:10px 0 12px;border-top:1px dashed var(--line)}
+.s.ev{background:linear-gradient(90deg,#fffbe8,#fff);margin:0 -6px;padding-left:6px;padding-right:6px}
+.sn{margin-bottom:6px}
+.lb{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--sub);margin-right:6px}
+.lb.ev{background:var(--hl);color:#7a5b00}
+.ch{padding:9px 11px;margin-bottom:6px;border-radius:8px;background:var(--soft);cursor:pointer;border-bottom:2px dotted #c9cfd6}
+.ch .ce{font-size:16px;line-height:1.6}
+.ch .ce b{background:linear-gradient(transparent 55%,var(--hl) 55%)}
+.ch .ck{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--line);color:var(--accent);font-size:15px;line-height:1.65}
+.ch.open{background:#eef2f8;border-bottom-color:transparent}
+.ch.open .ck{display:block}
+.lay{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:14px;line-height:1.7}
+.lay.on{display:block}
+.stg{width:100%;min-height:42px;margin-top:6px;border:1px solid var(--accent);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const WORDS={"sets": [{"id": "g3r24p2", "title": "고3 미니모의고사 24회 07–12번", "range": "07–12번", "words": [{"src": "01", "w": "paradoxical", "m": "역설적인", "s": ["contradictory", "모순되는"], "a": ["logical", "논리에 맞는"]}, {"src": "02", "w": "visible", "m": "눈에 띄는", "s": ["noticeable", "눈에 잘 띄는"], "a": ["invisible", "보이지 않는"]}, {"src": "03", "w": "contemporary", "m": "동시대의, 현대의", "s": ["modern", "현대의"], "a": ["ancient", "고대의"]}, {"src": "04", "w": "lucrative", "m": "돈이 많이 되는", "s": ["profitable", "수익성 있는"], "a": ["unprofitable", "수익이 나지 않는"]}, {"src": "05", "w": "reluctance", "m": "꺼림, 주저함", "s": null, "a": null}, {"src": "06", "w": "rationale", "m": "논리적 근거", "s": null, "a": null}, {"src": "07", "w": "deadly", "m": "치명적인", "s": ["fatal", "치명적인"], "a": ["harmless", "해가 없는"]}, {"src": "08", "w": "efficiently", "m": "효율적으로", "s": null, "a": null}, {"src": "09", "w": "rational", "m": "합리적인", "s": ["reasonable", "이치에 맞는"], "a": ["irrational", "비합리적인"]}, {"src": "10", "w": "limited", "m": "제한된", "s": ["restricted", "제한된"], "a": ["unlimited", "무제한의"]}, {"src": "11", "w": "optimally", "m": "최적으로", "s": null, "a": null}, {"src": "12", "w": "productivity", "m": "생산성", "s": null, "a": null}, {"src": "13", "w": "decline", "m": "쇠퇴, 쇠락", "s": ["downturn", "하락, 침체"], "a": ["growth", "성장"]}, {"src": "14", "w": "supposed", "m": "소위 ~라는", "s": null, "a": null}, {"src": "15", "w": "remarkable", "m": "주목할 만한", "s": ["striking", "눈에 띄는"], "a": ["unremarkable", "특별할 것 없는"]}, {"src": "16", "w": "ordinary", "m": "평범한", "s": null, "a": null}, {"src": "17", "w": "coherent", "m": "일관성 있는", "s": ["consistent", "일관된"], "a": ["inconsistent", "일관성 없는"]}, {"src": "18", "w": "violate", "m": "위배하다", "s": null, "a": null}, {"src": "19", "w": "impractical", "m": "비실용적인", "s": null, "a": null}, {"src": "20", "w": "acquire", "m": "얻다, 습득하다", "s": ["obtain", "획득하다"], "a": ["lose", "잃다"]}], "dist": [["fragile", "깨지기 쉬운"], ["vague", "모호한"], ["swift", "신속한"]]}]};
+var D=[{"no": "07", "typ": "빈칸 추론", "src": "2023학년도 수능 31번", "evn": [2, 3, 4], "ev_en": "In discharging their usual responsibilities of description and commentary, reporters’ accounts of sports events are eagerly consulted by sports fans, while in their broader journalistic role of covering sport in its many forms, sports journalists are among the most visible of all contemporary writers. / The ruminations of the elite class of ‘celebrity’ sports journalists are much sought after by the major newspapers, their lucrative contracts being the envy of colleagues in other ‘disciplines’ of journalism. / Yet sports journalists do not have a standing in their profession that corresponds to the size of their readerships or of their pay packets, with the old saying (now reaching the status of cliché) that sport is the ‘toy department of the news media’ still readily to hand as a dismissal of the worth of what sports journalists do.", "ev_ko": [[2, "묘사와 논평이라는 평소의 책무를 이행하는 데 있어서 스포츠 경기에 대한 기자들의 기사는 스포츠 팬들이 열심히 찾아 읽고, 스포츠를 여러 형태로 취재하는 더 넓은 언론인의 역할에서 스포츠 저널리스트들은 모든 동시대 작가들 가운데 가장 눈에 띄는 사람들에 속한다."], [3, "‘유명 인사’ 스포츠 저널리스트라는 엘리트 계층의 생각은 주요 신문사들이 매우 많이 찾으며, 그들의 돈을 많이 버는 계약은 저널리즘의 다른 ‘분야’에 있는 동료들의 부러움의 대상이다."], [4, "그러나 스포츠 저널리스트들은 자신들의 독자 수나 급여의 규모에 상응하는 지위를 자신들의 직업 안에서 갖고 있지 않은데, 스포츠는 ‘뉴스 매체의 장난감 부서’라는 옛말(이제는 상투적인 문구의 지위에 이른)이 스포츠 저널리스트들이 하는 일의 가치를 일축하는 말로 여전히 손쉽게 쓰이고 있다."]], "why": ["빈칸은 <b>much read but little ____<\/b>(많이 읽히지만 거의 ~받지 못한다)라는 대조 속에 있습니다", "(2)와 (3)에서 스포츠 기자의 글은 팬들이 열심히 찾아 읽고, 큰 신문사들이 앞다투어 찾습니다", "돈을 많이 버는 계약도 맺습니다", "이것이 <b>much read<\/b> 쪽입니다", "그런데 (4)는 <b>Yet<\/b>(그러나)으로 방향을 바꿉니다", "스포츠 기자는 직업 안에서 그에 걸맞은 지위(<b>standing<\/b>)가 없고, 그들의 일은 ‘뉴스 매체의 장난감 부서’라는 말로 깎아내려진다고 합니다", "따라서 빈칸에는 ‘거의 존경받지 못한다’가 되도록 ② <b>admired<\/b>(존경받는)가 알맞습니다."], "ch": [{"n": "①", "t": "paid", "g": "보수를 받는", "ok": false, "e": ["(3)에서 스포츠 기자들은 돈을 많이 버는 계약(<b>lucrative contracts<\/b>)을 맺는다고 합니다", "(4)도 급여(<b>pay packets<\/b>)가 크다는 쪽입니다", "‘거의 보수를 받지 못한다’는 글의 내용과 반대입니다."]}, {"n": "②", "t": "admired", "g": "존경받는", "ok": true, "e": ["(4)에서 스포츠 기자는 독자 수나 급여에 걸맞은 지위가 직업 안에 없고, 그들이 하는 일의 가치는 일축된다고 합니다", "그래서 많이 읽히지만 ‘거의 존경받지 못한다’는 역설이 됩니다."]}, {"n": "③", "t": "censored", "g": "검열받는", "ok": false, "e": ["기사가 검열을 받는다는 내용은 글에 없습니다", "글이 말하는 문제는 스포츠 기자가 직업 안에서 인정받지 못한다는 것입니다."]}, {"n": "④", "t": "challenged", "g": "이의가 제기되는", "ok": false, "e": ["기사 내용에 이의가 제기된다는 내용은 없습니다", "글은 기사의 내용이 아니라 스포츠 기자라는 직업의 지위를 말합니다."]}, {"n": "⑤", "t": "discussed", "g": "논의되는", "ok": false, "e": ["‘거의 논의되지 않는다’는 내용은 없습니다", "(2)에서 기사는 팬들이 열심히 찾아 읽는다고 했고, (4)는 직업 안에서 인정받지 못한다는 이야기입니다."]}], "tr": ["스포츠 저널리즘의 전문직으로서의 지위에는, 특히 인쇄 매체에서, 매우 역설적인 무언가가 있다.", "묘사와 논평이라는 평소의 책무를 이행하는 데 있어서 스포츠 경기에 대한 기자들의 기사는 스포츠 팬들이 열심히 찾아 읽고, 스포츠를 여러 형태로 취재하는 더 넓은 언론인의 역할에서 스포츠 저널리스트들은 모든 동시대 작가들 가운데 가장 눈에 띄는 사람들에 속한다.", "‘유명 인사’ 스포츠 저널리스트라는 엘리트 계층의 생각은 주요 신문사들이 매우 많이 찾으며, 그들의 돈을 많이 버는 계약은 저널리즘의 다른 ‘분야’에 있는 동료들의 부러움의 대상이다.", "그러나 스포츠 저널리스트들은 자신들의 독자 수나 급여의 규모에 상응하는 지위를 자신들의 직업 안에서 갖고 있지 않은데, 스포츠는 ‘뉴스 매체의 장난감 부서’라는 옛말(이제는 상투적인 문구의 지위에 이른)이 스포츠 저널리스트들이 하는 일의 가치를 일축하는 말로 여전히 손쉽게 쓰이고 있다.", "스포츠 저널리즘을 진지하게 받아들이기를 꺼리는 이러한 태도는 스포츠 신문 기자들이 많이 읽히지만 거의 존경받지 못한다는 역설적인 결과를 낳는다."], "ps": [{"n": 1, "ch": [{"e": "There is something <b>deeply paradoxical<\/b>", "k": "매우 역설적인 무언가가 있다"}, {"e": "about the <b>professional status<\/b> of sports journalism,", "k": "스포츠 저널리즘의 전문직으로서의 지위에는,"}, {"e": "especially in the <b>medium<\/b> of print.", "k": "특히 인쇄 매체에서."}], "easy": "스포츠 저널리즘이라는 직업의 지위에는, 특히 신문 같은 인쇄 매체에서, 아주 모순된 점이 있어요.", "gist": "글의 화제 — 스포츠 저널리즘의 지위에 숨은 역설."}, {"n": 2, "ch": [{"e": "In <b>discharging<\/b> their usual responsibilities", "k": "그들<span class=\"r\">(= 스포츠 기자들)<\/span>의 평소 책무를 이행하는 데 있어서"}, {"e": "of description and <b>commentary<\/b>,", "k": "묘사와 논평이라는,"}, {"e": "reporters’ <b>accounts<\/b> of sports events", "k": "스포츠 경기에 대한 기자들의 기사는"}, {"e": "are <b>eagerly consulted<\/b> by sports fans,", "k": "스포츠 팬들이 열심히 찾아 읽는다,"}, {"e": "while in their broader journalistic role", "k": "그리고 그들<span class=\"r\">(= 스포츠 기자들)<\/span>의 더 넓은 언론인으로서의 역할에서는"}, {"e": "of <b>covering<\/b> sport in its many forms,", "k": "스포츠를 그것<span class=\"r\">(= 스포츠)<\/span>의 여러 형태로 취재하는,"}, {"e": "sports journalists are among <b>the most visible<\/b>", "k": "스포츠 저널리스트들은 가장 눈에 띄는 사람들에 속한다"}, {"e": "of all <b>contemporary<\/b> writers.", "k": "모든 동시대 작가들 가운데."}], "link": "묘사와 논평이라는 평소 책무를 이행하는 데 있어서 스포츠 경기에 대한 기자들의 기사는 스포츠 팬들이 열심히 찾아 읽고, 스포츠를 여러 형태로 취재하는 더 넓은 언론인의 역할에서 스포츠 저널리스트들은 모든 동시대 작가들 가운데 가장 눈에 띄는 사람들에 속한다.", "easy": "팬들은 스포츠 기사를 열심히 찾아 읽어요. 그리고 스포츠 기자들은 요즘 글 쓰는 사람들 가운데 가장 눈에 잘 띄는 편이에요.", "gist": "역설의 한쪽 — 스포츠 기자의 글은 많이 읽힌다."}, {"n": 3, "ch": [{"e": "The <b>ruminations<\/b> of the elite class", "k": "엘리트 계층의 생각(논평)은"}, {"e": "of ‘celebrity’ sports journalists", "k": "‘유명 인사’ 스포츠 저널리스트라는"}, {"e": "are <b>much sought after<\/b> by the major newspapers,", "k": "주요 신문사들이 매우 많이 찾는다,"}, {"e": "their <b>lucrative<\/b> contracts being the <b>envy<\/b> of colleagues", "k": "그리고 그들<span class=\"r\">(= 유명 스포츠 저널리스트들)<\/span>의 돈을 많이 버는 계약은 동료들의 부러움의 대상이다"}, {"e": "in other ‘disciplines’ of journalism.", "k": "저널리즘의 다른 ‘분야’에 있는."}], "link": "‘유명 인사’ 스포츠 저널리스트라는 엘리트 계층의 생각은 주요 신문사들이 매우 많이 찾고, 그들의 돈을 많이 버는 계약은 저널리즘의 다른 ‘분야’에 있는 동료들의 부러움의 대상이다.", "easy": "유명한 스포츠 기자의 글은 큰 신문사들이 서로 얻으려 하고, 그들이 맺는 고액 계약은 다른 분야 기자들이 부러워할 정도예요.", "gist": "역설의 한쪽 — 인기도 많고 돈도 많이 번다."}, {"n": 4, "ch": [{"e": "<b>Yet<\/b> sports journalists do not have a <b>standing<\/b> in their profession", "k": "그러나 스포츠 저널리스트들은 그들<span class=\"r\">(= 스포츠 저널리스트들)<\/span>의 직업 안에서 지위를 갖고 있지 않다"}, {"e": "that <b>corresponds to<\/b> the size of their <b>readerships<\/b>", "k": "그들의 독자 수의 규모에 상응하는"}, {"e": "or of their <b>pay packets<\/b>,", "k": "또는 그들의 급여의 (규모에),"}, {"e": "with the old saying (now reaching the status of <b>cliché<\/b>)", "k": "옛말(이제는 상투적인 문구의 지위에 이른)이 ~한 채로"}, {"e": "that sport is the ‘toy department of the news media’", "k": "스포츠는 ‘뉴스 매체의 장난감 부서’라는"}, {"e": "still <b>readily to hand<\/b>", "k": "여전히 손쉽게 쓰일 수 있는 상태로"}, {"e": "as a <b>dismissal<\/b> of the worth", "k": "가치를 일축하는 말로"}, {"e": "of what sports journalists do.", "k": "스포츠 저널리스트들이 하는 일의."}], "link": "그러나 스포츠 저널리스트들은 그들의 독자 수나 급여의 규모에 상응하는 지위를 직업 안에서 갖고 있지 않은데, 스포츠는 ‘뉴스 매체의 장난감 부서’라는 옛말(이제는 상투적인 문구의 지위에 이른)이 스포츠 저널리스트들이 하는 일의 가치를 일축하는 말로 여전히 손쉽게 쓰이고 있다.", "easy": "그런데 업계 안에서 스포츠 기자는 읽히는 만큼, 버는 만큼 대접을 받지 못해요. ‘스포츠는 뉴스 매체의 장난감 부서’라는 옛말이 아직도 그들의 일을 깎아내리는 데 손쉽게 쓰이고 있어요.", "gist": "역설의 다른 쪽 — 직업 안에서는 인정받지 못한다."}, {"n": 5, "ch": [{"e": "This <b>reluctance<\/b> to take sports journalism seriously", "k": "스포츠 저널리즘을 진지하게 받아들이기를 꺼리는 이 태도는"}, {"e": "produces the <b>paradoxical outcome<\/b>", "k": "역설적인 결과를 낳는다"}, {"e": "that sports newspaper writers are <b>much read<\/b>", "k": "스포츠 신문 기자들은 많이 읽힌다는"}, {"e": "but little <b>admired<\/b>.", "k": "하지만 거의 존경받지 못한다는. <span class=\"r\">※ 문제지엔 빈칸으로 되어 있음<\/span>"}], "link": "스포츠 저널리즘을 진지하게 받아들이기를 꺼리는 이 태도는 스포츠 신문 기자들이 많이 읽히지만 거의 존경받지 못한다는 역설적인 결과를 낳는다.", "easy": "스포츠 저널리즘을 가볍게 보는 태도 때문에, 스포츠 기자들은 많이 읽히지만 존경은 거의 받지 못하는 이상한 결과가 생겨요.", "gist": "빈칸 문장 — 많이 읽히지만 존경받지 못한다는 역설."}]}, {"no": "08", "typ": "빈칸 추론", "src": "2021학년도 수능 32번", "evn": [5], "ev_en": "If resources are very limited, the individuals who live in a particular place cannot all do the exact same thing (for example, if there are few trees, people cannot all live in tree houses, or if mangoes are in short supply, people cannot all live solely on a diet of mangoes).", "ev_ko": [[5, "만약 자원이 매우 한정적이라면, 특정 장소에 사는 개인들이 모두 정확히 똑같은 일을 할 수는 없다(예를 들어, 만약 나무가 거의 없다면 사람들이 모두 나무집에 살 수는 없으며, 혹은 만약 망고의 공급이 부족하다면 사람들이 모두 오로지 망고를 주식으로 (먹고) 살 수는 없다)."]], "why": ["빈칸 문장은 <b>However<\/b>(그러나)로 시작해 앞 내용과 방향을 바꿉니다", "앞에서는 비슷한 개체와 어울리려는 욕구가 생존 가능성을 효율적으로 판단하는 방법이라고 했습니다", "이것이 선지의 <b>this strategy<\/b>(이 전략)입니다", "(5)는 자원이 매우 한정적이면 한 장소에 사는 개체들이 모두 똑같은 일을 할 수는 없다고 합니다", "환경이 감당할 수 있는 양, 곧 수용력 때문에 비슷한 개체들이 모두 같은 방식으로 살 수는 없다는 말입니다", "그래서 글은 때로는 비슷한 구성원을 ‘피하는’ 것이 합리적이라고 결론 내립니다", "따라서 수용력이 ‘이 전략에 제한을 둔다’는 ③이 알맞습니다."], "ch": [{"n": "①", "t": "exceeds the expected demands of a community", "g": "공동체의 예상 수요를 넘어선다", "ok": false, "e": ["수용력이 공동체의 예상 수요를 넘어선다면 자원이 넉넉하다는 뜻이 됩니다", "(5)는 반대로 자원이 매우 한정적인 상황을 말합니다."]}, {"n": "②", "t": "is decreased by diverse means of survival", "g": "다양한 생존 방식에 의해 줄어든다", "ok": false, "e": ["다양한 생존 방식 때문에 수용력이 줄어든다는 내용은 글에 없습니다", "글은 수용력이 비슷한 개체와 어울리는 전략을 제한한다고 말합니다."]}, {"n": "③", "t": "places a limit on this strategy", "g": "이 전략에 제한을 둔다", "ok": true, "e": ["<b>this strategy<\/b>는 (2)의 비슷한 개인들과 어울리려는 욕구입니다", "(5)의 자원 부족과 (6)의 ‘때로는 비슷한 구성원을 피하는 것이 합리적’이 바로 이 전략의 한계를 보여 줍니다."]}, {"n": "④", "t": "makes the world suitable for individuals", "g": "세계를 개인들에게 적합하게 만든다", "ok": false, "e": ["<b>However<\/b> 뒤에는 앞의 장점과 반대되는 내용이 와야 합니다", "세계를 개인에게 적합하게 만든다는 말은 (5)의 자원 부족, (6)의 비슷한 구성원 피하기와 이어지지 않습니다."]}, {"n": "⑤", "t": "prevents social ties to dissimilar members", "g": "닮지 않은 구성원들과의 사회적 유대를 막는다", "ok": false, "e": ["(6)은 오히려 비슷한 구성원을 피하라고 합니다", "닮지 않은 구성원과의 유대를 막는다는 말은 글의 결론과 반대입니다."]}], "tr": ["(자신과) 비슷한 친구를 선택하는 것은 논리적 근거를 가질 수 있다.", "어떤 환경(에서)의 생존 가능성을 평가하는 것은 위험할 수 있고(예를 들어, 만약 어떤 환경이 치명적인 것으로 드러난다면, 당신이 (그것을) 알아차렸을 때쯤에는 너무 늦을 수도 있다), 그래서 인간은 이런 기능을 효율적으로 수행하기 위한 하나의 방법으로서 비슷한 개인들과 어울리려는 욕구를 진화시켜 왔다.", "이것은 매우 다양한 종류의 환경에 사는 종에게 특히 유용하다.", "그러나 주어진 환경의 수용력은 이 전략에 제한을 둔다.", "만약 자원이 매우 한정적이라면, 특정 장소에 사는 개인들이 모두 정확히 똑같은 일을 할 수는 없다(예를 들어, 만약 나무가 거의 없다면 사람들이 모두 나무집에 살 수는 없으며, 혹은 만약 망고의 공급이 부족하다면 사람들이 모두 오로지 망고를 주식으로 (먹고) 살 수는 없다).", "그러므로 합리적인 전략은 때때로 자신의 종 가운데 비슷한 구성원을 ‘피하는’ 일일 것이다."], "ps": [{"n": 1, "ch": [{"e": "<b>Choosing<\/b> similar friends", "k": "비슷한 친구를 고르는 것은"}, {"e": "can have a <b>rationale<\/b>.", "k": "논리적 근거를 가질 수 있다."}], "easy": "나와 비슷한 친구를 고르는 데는 그럴 만한 이유가 있을 수 있어요.", "gist": "글의 화제 — 비슷한 친구를 고르는 이유."}, {"n": 2, "ch": [{"e": "<b>Assessing<\/b> the <b>survivability<\/b> of an environment", "k": "어떤 환경의 생존 가능성을 평가하는 것은"}, {"e": "can be risky", "k": "위험할 수 있다"}, {"e": "(if an environment <b>turns out<\/b> to be deadly,", "k": "(만약 어떤 환경이 치명적인 것으로 드러난다면,"}, {"e": "for instance,", "k": "예를 들어,"}, {"e": "it might be too late", "k": "너무 늦을 수도 있다"}, {"e": "by the time you found out),", "k": "당신이 (그것을) 알아차렸을 때쯤에는),"}, {"e": "so humans have <b>evolved<\/b> the desire", "k": "그래서 인간은 욕구를 진화시켜 왔다"}, {"e": "to <b>associate with<\/b> similar individuals", "k": "비슷한 개인들과 어울리려는"}, {"e": "as a way to perform <b>this function<\/b> efficiently.", "k": "이 기능<span class=\"r\">(= 환경의 생존 가능성을 평가하는 일)<\/span>을 효율적으로 수행하는 하나의 방법으로."}], "link": "어떤 환경의 생존 가능성을 평가하는 것은 위험할 수 있어서(예를 들어 어떤 환경이 치명적인 것으로 드러난다면, 그것을 알아차렸을 때쯤에는 너무 늦을 수도 있다), 인간은 이 기능을 효율적으로 수행하는 하나의 방법으로 비슷한 개인들과 어울리려는 욕구를 진화시켜 왔다.", "easy": "어떤 곳이 살 만한지 직접 확인하는 건 위험할 수 있어요. 위험한 곳이라는 걸 알았을 땐 이미 늦을 수도 있으니까요. 그래서 인간은 그 판단을 효율적으로 하는 방법으로, 나와 비슷한 사람들과 어울리려는 마음을 갖게 되었어요.", "gist": "비슷한 개체와 어울리는 전략이 생긴 이유."}, {"n": 3, "ch": [{"e": "<b>This<\/b> is especially useful", "k": "이것<span class=\"r\">(= 비슷한 개인들과 어울리려는 욕구)<\/span>은 특히 유용하다"}, {"e": "to a <b>species<\/b>", "k": "종에게"}, {"e": "that lives in so many different sorts of environments.", "k": "매우 다양한 종류의 환경에서 사는."}], "easy": "여러 종류의 환경에서 살아가는 종에게는 이 방법이 특히 쓸모 있어요.", "gist": "그 전략의 장점."}, {"n": 4, "ch": [{"e": "<b>However<\/b>, the <b>carrying capacity<\/b>", "k": "그러나 수용력은"}, {"e": "of a given environment", "k": "주어진 환경의"}, {"e": "<b>places a limit on this strategy<\/b>.", "k": "이 전략<span class=\"r\">(= 비슷한 개체와 어울리려는 전략)<\/span>에 제한을 둔다. <span class=\"r\">※ 문제지엔 빈칸으로 되어 있음<\/span>"}], "easy": "하지만 한 환경이 감당할 수 있는 양에는 한계가 있어서, 이 전략도 마음껏 쓸 수는 없어요.", "gist": "빈칸 문장 — However로 방향 전환: 전략의 한계."}, {"n": 5, "ch": [{"e": "If resources are very limited,", "k": "만약 자원이 매우 한정적이라면,"}, {"e": "the individuals who live in a particular place", "k": "특정 장소에 사는 개인들이"}, {"e": "cannot all do the exact same thing", "k": "모두 정확히 똑같은 일을 할 수는 없다"}, {"e": "(for example, if there are few trees,", "k": "(예를 들어, 만약 나무가 거의 없다면,"}, {"e": "people cannot all live in tree houses,", "k": "사람들이 모두 나무집에 살 수는 없다,"}, {"e": "or if mangoes are <b>in short supply<\/b>,", "k": "혹은 만약 망고의 공급이 부족하다면,"}, {"e": "people cannot all live <b>solely<\/b> on a diet of mangoes).", "k": "사람들이 모두 오로지 망고를 주식으로 (먹고) 살 수는 없다)."}], "link": "만약 자원이 매우 한정적이라면, 특정 장소에 사는 개인들이 모두 정확히 똑같은 일을 할 수는 없다(예를 들어, 나무가 거의 없다면 사람들이 모두 나무집에 살 수는 없고, 망고의 공급이 부족하다면 사람들이 모두 오로지 망고만 먹고 살 수는 없다).", "easy": "자원이 부족하면 한 곳에 사는 사람들이 모두 똑같이 살 수는 없어요. 나무가 거의 없으면 모두 나무집에 살 수 없고, 망고가 모자라면 모두 망고만 먹고 살 수는 없죠.", "gist": "한계의 이유 — 자원이 부족하면 모두 똑같이 살 수 없다."}, {"n": 6, "ch": [{"e": "A <b>rational<\/b> strategy would therefore sometimes be", "k": "그러므로 합리적인 전략은 때때로 ~일 것이다"}, {"e": "to <i>avoid<\/i> similar members of one’s species.", "k": "자신의 종 가운데 비슷한 구성원을 ‘피하는’ 것."}], "easy": "그래서 때로는 나와 비슷한 상대를 오히려 피하는 것이 현명한 선택일 수 있어요.", "gist": "결론 — 때로는 비슷한 구성원을 피하는 것이 합리적이다."}]}, {"no": "09", "typ": "문장 삽입", "src": "2024학년도 6월 39번", "evn": [6, 7], "ev_en": "Some individuals photosynthesize like mad until sugar positively bubbles along their trunk. / This is because a tree can be only as strong as the forest that surrounds it.", "ev_ko": [[6, "어떤 개체들은 당분이 그들의 몸통을 따라 확실히 흐를 때까지 미친 듯이 광합성을 한다."], [7, "이것은 나무가 그것을 둘러싼 숲이 강한 만큼만 강할 수 있기 때문이다."]], "why": ["주어진 문장은 <b>As a result<\/b>(그 결과)로 시작하고, <b>they<\/b>가 건강하고 더 잘 자라지만 특별히 오래 살지는 않는다고 합니다", "그러므로 앞에는 they가 가리킬 대상과 잘 자라는 원인이 있어야 합니다", "(6)에서 미친 듯이 광합성을 하는 <b>Some individuals<\/b>(어떤 개체들)가 바로 they이고, 그 광합성이 잘 자라는 원인입니다", "또 (7)의 <b>This is because<\/b>(이것은 ~ 때문이다)는 주어진 문장의 ‘특별히 오래 살지는 않는다’의 이유를 댑니다", "나무는 자기를 둘러싼 숲이 강한 만큼만 강할 수 있다는 것입니다", "따라서 주어진 문장은 (6)과 (7) 사이인 ②에 들어가야 합니다."], "ch": [{"n": "①", "t": "① 자리", "g": "", "ok": false, "e": ["①은 (5)와 (6) 사이입니다", "아직 they가 가리킬 ‘광합성을 많이 하는 개체들’이 나오지 않았고, 건강하게 잘 자라는 원인도 없습니다."]}, {"n": "②", "t": "② 자리", "g": "", "ok": true, "e": ["②는 (6)과 (7) 사이입니다", "they는 (6)의 광합성을 많이 하는 개체들이고, (7)의 This is because가 ‘오래 살지는 않는다’의 이유를 이어서 설명합니다."]}, {"n": "③", "t": "③ 자리", "g": "", "ok": false, "e": ["③은 (7)과 (8) 사이입니다", "여기에 넣으면 (7)의 This가 가리킬 내용이 앞에 없어집니다", "광합성 이야기인 (6) 바로 뒤에 ‘이것은 ~ 때문이다’가 오면 흐름이 끊깁니다."]}, {"n": "④", "t": "④ 자리", "g": "", "ok": false, "e": ["④는 (8)과 (9) 사이입니다", "앞뒤가 숲속의 패배자와 약한 나무 이야기라서, 건강하고 잘 자란다는 주어진 문장이 들어갈 자리가 아닙니다."]}, {"n": "⑤", "t": "⑤ 자리", "g": "", "ok": false, "e": ["⑤는 (9)와 (10) 사이입니다", "(10)의 they는 (9)의 약한 나무들을 가리킵니다", "사이에 잘 자라는 나무 이야기가 끼면 흐름이 어긋납니다."]}], "tr": ["결과적으로, 그들은 건강하고 더 잘 자라지만 그들은 특별히 오래 살지는 않는다.", "나무들이 함께 자랄 때, 각 나무가 그것이 될 수 있는 최선의 나무로 자랄 수 있도록 영양분과 물은 그들 모두 사이에서 최적으로 나누어질 수 있다.", "당신이 소위 그들의 경쟁자라는 것(나무)을 제거함으로써 개별의 나무를 ‘돕는다’면 남아 있는 나무들은 잃게 된다.", "그들은 그루터기를 제외하고 아무것도 남아 있지 않기 때문에 그들의 이웃에게 메시지를 성공적이지 않게 보낸다(신호를 보내지만 소용이 없다).", "이제 모든 나무는 생산성에서 큰 차이를 야기하면서 그들 스스로 자란다.", "어떤 개체들은 당분이 그들의 몸통을 따라 확실히 흐를 때까지 미친 듯이 광합성을 한다.", "이것은 나무가 그것을 둘러싼 숲이 강한 만큼만 강할 수 있기 때문이다.", "그리고 현재 숲에는 많은 패배자들이 있다.", "강한 구성원들에 의해 한때 도움을 받았을 약한 구성원들은 갑자기 뒤처진다.", "그들의 쇠퇴의 이유가 그들의 위치와 영양분의 부족이든 지나가는 병 또는 유전적 구성이든, 그들은 이제 곤충과 균류의 먹이가 된다."], "ps": [{"n": 1, "ch": [{"e": "As a result,", "k": "그 결과,"}, {"e": "they are <b>fit<\/b> and grow better,", "k": "그들<span class=\"r\">(= 미친 듯이 광합성을 하는 개체들)<\/span>은 건강하고 더 잘 자란다,"}, {"e": "but they aren’t particularly <b>long-lived<\/b>.", "k": "하지만 그들은 특별히 오래 살지는 않는다."}], "easy": "그 결과 그 나무들은 튼튼하고 더 잘 자라지만, 그렇게 오래 살지는 못해요.", "gist": "주어진 문장 — they는 (6)의 광합성을 많이 하는 개체들이에요."}, {"n": 2, "ch": [{"e": "When trees grow together,", "k": "나무들이 함께 자랄 때,"}, {"e": "<b>nutrients<\/b> and water can be <b>optimally<\/b> divided", "k": "영양분과 물은 최적으로 나뉠 수 있다"}, {"e": "among them all", "k": "그들<span class=\"r\">(= 나무들)<\/span> 모두 사이에서"}, {"e": "so that each tree can grow", "k": "각 나무가 자랄 수 있도록"}, {"e": "into the best tree it can be.", "k": "그것<span class=\"r\">(= 각 나무)<\/span>이 될 수 있는 최선의 나무로."}], "link": "나무들이 함께 자랄 때, 각 나무가 그것이 될 수 있는 최선의 나무로 자랄 수 있도록 영양분과 물은 그들 모두 사이에서 최적으로 나뉠 수 있다.", "easy": "나무들이 함께 자라면 영양분과 물이 가장 알맞게 나뉘어서, 나무마다 자기가 될 수 있는 가장 좋은 모습으로 자라요.", "gist": "글의 출발 — 함께 자라는 나무들의 장점."}, {"n": 3, "ch": [{"e": "If you “help” individual trees", "k": "당신이 개별 나무를 ‘돕는다’면"}, {"e": "by <b>getting rid of<\/b> their <b>supposed<\/b> competition,", "k": "그들<span class=\"r\">(= 개별 나무들)<\/span>의 소위 경쟁자라는 것을 제거함으로써,"}, {"e": "the remaining trees are <b>bereft<\/b>.", "k": "남아 있는 나무들은 잃게 된다."}], "easy": "경쟁자처럼 보이는 주변 나무를 없애서 나무를 ‘도와주면’, 남은 나무는 오히려 잃는 것이 생겨요.", "gist": "반전 — 경쟁자를 없애 주면 오히려 손해예요."}, {"n": 4, "ch": [{"e": "They send messages out to their neighbors", "k": "그들<span class=\"r\">(= 남아 있는 나무들)<\/span>은 그들의 이웃에게 메시지를 보낸다"}, {"e": "<b>unsuccessfully<\/b>,", "k": "성공하지 못한 채로,"}, {"e": "because nothing remains but <b>stumps<\/b>.", "k": "그루터기 말고는 아무것도 남아 있지 않기 때문에."}], "easy": "남은 나무가 이웃 나무에게 신호를 보내도 소용이 없어요. 주변엔 그루터기밖에 남지 않았으니까요.", "gist": "혼자 남은 나무의 처지."}, {"n": 5, "ch": [{"e": "Every tree now grows <b>on its own<\/b>,", "k": "이제 모든 나무는 혼자서 자란다,"}, {"e": "<b>giving rise to<\/b> great differences in <b>productivity<\/b>.", "k": "그리고 생산성에서 큰 차이를 일으킨다."}], "easy": "이제 나무마다 따로따로 자라서, 얼마나 잘 자라는지에 큰 차이가 생겨요.", "gist": "혼자 자라면 생산성 차이가 커진다. 이 뒤가 ① 자리예요."}, {"n": 6, "ch": [{"e": "Some individuals <b>photosynthesize<\/b> like mad", "k": "어떤 개체들은 미친 듯이 광합성을 한다"}, {"e": "until sugar positively <b>bubbles<\/b> along their <b>trunk<\/b>.", "k": "당분이 그들<span class=\"r\">(= 그 개체들)<\/span>의 몸통을 따라 확실히 흐를 때까지."}], "easy": "어떤 나무들은 몸통에 당분이 흐를 만큼 엄청나게 광합성을 해요.", "gist": "주어진 문장의 they가 가리키는 개체들이에요. 이 뒤가 ② 자리예요."}, {"n": 7, "ch": [{"e": "This is because", "k": "이것<span class=\"r\">(= 잘 자라는 나무도 특별히 오래 살지는 않는 것)<\/span>은 ~ 때문이다"}, {"e": "a tree can be only as strong", "k": "나무는 ~만큼만 강할 수 있다"}, {"e": "as the forest that surrounds it.", "k": "그것<span class=\"r\">(= 나무)<\/span>을 둘러싼 숲이 강한 (만큼만)."}], "easy": "튼튼한 나무도 오래 살지 못하는 건, 나무는 자기를 둘러싼 숲이 튼튼한 만큼만 튼튼할 수 있기 때문이에요.", "gist": "주어진 문장의 ‘오래 살지는 않는다’에 대한 이유예요. 이 뒤가 ③ 자리예요."}, {"n": 8, "ch": [{"e": "And there are now a lot of <b>losers<\/b> in the forest.", "k": "그리고 이제 숲에는 많은 패배자들이 있다."}], "easy": "그리고 이제 숲에는 뒤처지는 나무가 많아져요.", "gist": "약한 나무들 이야기로 넘어가요. 이 뒤가 ④ 자리예요."}, {"n": 9, "ch": [{"e": "<b>Weaker members<\/b>,", "k": "약한 구성원들은,"}, {"e": "who would once have been supported", "k": "한때 도움을 받았을"}, {"e": "by the stronger ones,", "k": "강한 것들<span class=\"r\">(= 강한 나무들)<\/span>에 의해,"}, {"e": "suddenly <b>fall behind<\/b>.", "k": "갑자기 뒤처진다."}], "easy": "예전 같으면 강한 나무들의 도움을 받았을 약한 나무들이 갑자기 뒤처져요.", "gist": "패배자의 모습 — 도움이 끊긴 약한 나무. 이 뒤가 ⑤ 자리예요."}, {"n": 10, "ch": [{"e": "Whether the reason for their <b>decline<\/b> is", "k": "그들<span class=\"r\">(= 약한 나무들)<\/span>의 쇠퇴의 이유가 ~이든"}, {"e": "their location and lack of nutrients,", "k": "그들의 위치와 영양분의 부족이든,"}, {"e": "a passing sickness,", "k": "지나가는 병이든,"}, {"e": "or <b>genetic makeup<\/b>,", "k": "또는 유전적 구성이든,"}, {"e": "they now <b>fall prey to<\/b> insects and fungi.", "k": "그들<span class=\"r\">(= 약한 나무들)<\/span>은 이제 곤충과 균류의 먹이가 된다."}], "link": "그들의 쇠퇴의 이유가 그들의 위치와 영양분의 부족이든, 지나가는 병이든, 유전적 구성이든, 그들은 이제 곤충과 균류의 먹이가 된다.", "easy": "약해진 이유가 자리나 영양 부족이든, 잠깐 앓는 병이든, 타고난 유전적 특성이든, 그 나무들은 이제 곤충과 균류의 먹잇감이 돼요.", "gist": "결말 — 약한 나무는 곤충과 균류의 먹이가 된다."}]}, {"no": "10", "typ": "글의 순서", "src": "2022학년도 6월 36번", "evn": [2, 3, 4, 5, 7], "ev_en": "This isn’t really a paradox: landmarks are themselves, but they also define neighborhoods around themselves. / In a paradigm that has been repeated on many campuses, researchers first collect a list of campus landmarks from students. / Then they ask another group of students to estimate the distances between pairs of locations, some to landmarks, some to ordinary buildings on campus. / This asymmetry of distance estimates violates the most elementary principles of Euclidean distance, that the distance from A to B must be the same as the distance from B to A. / The remarkable finding is that distances from an ordinary location to a landmark are judged shorter than distances from a landmark to an ordinary location.", "ev_ko": [[2, "이것은 꼭 역설적인 것은 아닌데, 랜드마크는 그것 자체이기도 하지만, 자신의 주변 지역을 규정하기도 한다."], [3, "(A) 많은 (대학) 캠퍼스에서 반복되어온 한 전형적인 예에서, 연구원들은 먼저 학생들에게서 캠퍼스 랜드마크의 목록을 수집한다."], [4, "그런 다음 그들은 다른 학생 집단에게 쌍으로 이루어진 장소들 사이의 거리, 즉 캠퍼스에 있는 어떤 장소에서 랜드마크까지, 어떤 장소에서 평범한 건물까지의 거리를 추정하라고 요청한다."], [5, "(B) 거리 추정에 관한 이 비대칭은, A에서부터 B까지의 거리는 B에서부터 A까지의 거리와 같아야 한다는 가장 기초적인 유클리드 거리 법칙을 위배한다."], [7, "(C) 주목할 만한 결과는 평범한 장소에서 랜드마크까지의 거리가 랜드마크에서 평범한 장소까지의 거리보다 더 짧다고 추정된다는 것이다."]], "why": ["주어진 글의 (2)는 랜드마크가 자기 주변 지역까지 규정한다고 합니다", "그다음에는 이것을 확인하는 실험 과정이 와야 합니다", "(A)의 (3)과 (4)는 연구원들이 랜드마크 목록을 모으고, 다른 학생들에게 거리를 추정하게 했다는 실험 과정입니다", "(C)의 (7)은 <b>The remarkable finding<\/b>(주목할 만한 결과)으로 그 실험의 결과를 말합니다", "평범한 장소에서 랜드마크까지의 거리가 반대 방향보다 더 짧다고 추정된다는 것입니다", "(B)의 (5)는 <b>This asymmetry<\/b>(이 비대칭)로 (C)의 결과를 받아, 유클리드 거리의 법칙에 어긋난다고 해석합니다", "따라서 (A) – (C) – (B)의 ①이 정답입니다."], "ch": [{"n": "①", "t": "(A) – (C) – (B)", "g": "", "ok": true, "e": ["(A)는 실험 과정, (C)는 그 실험의 결과, (B)는 This asymmetry로 (C)의 결과를 받아 해석합니다", "흐름이 자연스럽습니다."]}, {"n": "②", "t": "(B) – (A) – (C)", "g": "", "ok": false, "e": ["(B)의 This asymmetry(이 비대칭)가 가리킬 내용이 주어진 글에 없습니다", "주어진 글에는 거리 추정(distance estimates)에 관한 말도 나오지 않습니다."]}, {"n": "③", "t": "(B) – (C) – (A)", "g": "", "ok": false, "e": ["(B)는 주어진 글 바로 뒤에 올 수 없습니다", "또 실험 과정을 처음부터 설명하는 (A)가 맨 마지막에 오는 것도 자연스럽지 않습니다."]}, {"n": "④", "t": "(C) – (A) – (B)", "g": "", "ok": false, "e": ["(C)의 The remarkable finding(주목할 만한 결과)이 가리킬 실험이 주어진 글에 없습니다", "또 결과인 (C) 바로 뒤에 실험 과정인 (A)가 오는 것도 어색합니다."]}, {"n": "⑤", "t": "(C) – (B) – (A)", "g": "", "ok": false, "e": ["(C)는 주어진 글 바로 뒤에 올 수 없습니다", "또 실험 과정을 처음부터 설명하는 (A)가 맨 마지막에 오는 것도 자연스럽지 않습니다."]}], "tr": ["공간 기준점(공간적으로 기준이 되는 장소)들은 그것들 자체보다 더 크다.", "이것은 꼭 역설적인 것은 아닌데, 랜드마크는 그것 자체이기도 하지만, 자신의 주변 지역을 규정하기도 한다.", "(A) 많은 (대학) 캠퍼스에서 반복되어온 한 전형적인 예에서, 연구원들은 먼저 학생들에게서 캠퍼스 랜드마크의 목록을 수집한다.", "그런 다음 그들은 다른 학생 집단에게 쌍으로 이루어진 장소들 사이의 거리, 즉 캠퍼스에 있는 어떤 장소에서 랜드마크까지, 어떤 장소에서 평범한 건물까지의 거리를 추정하라고 요청한다.", "(B) 거리 추정에 관한 이 비대칭은, A에서부터 B까지의 거리는 B에서부터 A까지의 거리와 같아야 한다는 가장 기초적인 유클리드 거리 법칙을 위배한다.", "그렇다면 거리에 관한 추정은 반드시 일관성이 있는 것은 아니다.", "(C) 주목할 만한 결과는 평범한 장소에서 랜드마크까지의 거리가 랜드마크에서 평범한 장소까지의 거리보다 더 짧다고 추정된다는 것이다.", "그러므로 사람들은 Pierre의 집에서 에펠탑까지의 거리가 에펠탑에서 Pierre의 집까지의 거리보다 더 짧다고 추정할 것이다.", "블랙홀처럼, 랜드마크는 평범한 장소를 자신의 방향으로 끌어당기는 것처럼 보이지만, 평범한 장소는 그렇지 않다."], "ps": [{"n": 1, "ch": [{"e": "<b>Spatial reference points<\/b>", "k": "공간 기준점들은"}, {"e": "are larger than themselves.", "k": "그것들 자체보다 더 크다."}], "easy": "공간에서 기준이 되는 장소는 그 장소 자체보다 더 큰 역할을 해요.", "gist": "주어진 글 — 기준점은 자기 자신보다 크다는 수수께끼 같은 말."}, {"n": 2, "ch": [{"e": "This isn’t really a <b>paradox<\/b>:", "k": "이것<span class=\"r\">(= 공간 기준점이 그 자체보다 크다는 것)<\/span>은 꼭 역설적인 것은 아니다:"}, {"e": "landmarks are themselves,", "k": "랜드마크는 그것 자체이기도 하다,"}, {"e": "but they also <b>define<\/b> neighborhoods", "k": "하지만 그것들<span class=\"r\">(= 랜드마크)<\/span>은 인근 지역을 규정하기도 한다"}, {"e": "around themselves.", "k": "자신의 주변에 있는."}], "easy": "모순 같지만 그렇지 않아요. 랜드마크는 그 건물 자체이면서, 자기 주변 지역이 어디인지까지 정해 주기도 하거든요.", "gist": "주어진 글 — 랜드마크는 주변 지역까지 규정한다."}, {"n": 3, "ch": [{"e": "(A) In a <b>paradigm<\/b>", "k": "(A) 한 전형적인 예에서"}, {"e": "that has been repeated on many campuses,", "k": "많은 (대학) 캠퍼스에서 반복되어 온,"}, {"e": "researchers first collect a list of campus landmarks", "k": "연구원들은 먼저 캠퍼스 랜드마크의 목록을 수집한다"}, {"e": "from students.", "k": "학생들에게서."}], "easy": "여러 대학에서 반복된 실험에서, 연구자들은 먼저 학생들에게서 캠퍼스 랜드마크 목록을 모아요.", "gist": "(A) 실험 과정 1 — 랜드마크 목록 모으기."}, {"n": 4, "ch": [{"e": "Then they ask another group of students", "k": "그런 다음 그들<span class=\"r\">(= 연구원들)<\/span>은 다른 학생 집단에게 요청한다"}, {"e": "to <b>estimate<\/b> the distances", "k": "거리를 추정하라고"}, {"e": "between pairs of locations,", "k": "쌍으로 이루어진 장소들 사이의,"}, {"e": "some to landmarks,", "k": "어떤 것은 랜드마크까지,"}, {"e": "some to ordinary buildings on campus.", "k": "어떤 것은 캠퍼스의 평범한 건물까지."}], "link": "그런 다음 그들은 다른 학생 집단에게 쌍으로 이루어진 장소들 사이의 거리, 즉 어떤 것은 랜드마크까지, 어떤 것은 캠퍼스의 평범한 건물까지의 거리를 추정하라고 요청한다.", "easy": "그다음 다른 학생들에게 두 장소 사이의 거리를 짐작해 보라고 해요. 어떤 건 랜드마크까지, 어떤 건 평범한 건물까지의 거리예요.", "gist": "(A) 실험 과정 2 — 거리 추정 요청. 결과는 아직 나오지 않았어요."}, {"n": 5, "ch": [{"e": "(B) This <b>asymmetry<\/b> of distance estimates", "k": "(B) 거리 추정에 관한 이 비대칭<span class=\"r\">(= 방향에 따라 거리가 다르게 추정되는 것)<\/span>은"}, {"e": "<b>violates<\/b> the most elementary principles", "k": "가장 기초적인 법칙을 위배한다"}, {"e": "of Euclidean distance,", "k": "유클리드 거리의,"}, {"e": "that the distance from A to B", "k": "즉 A에서부터 B까지의 거리는"}, {"e": "must be the same as the distance from B to A.", "k": "B에서부터 A까지의 거리와 같아야 한다는."}], "link": "거리 추정에 관한 이 비대칭은 A에서부터 B까지의 거리는 B에서부터 A까지의 거리와 같아야 한다는, 유클리드 거리의 가장 기초적인 법칙을 위배한다.", "easy": "거리 짐작이 방향에 따라 달라지는 건, A에서 B까지나 B에서 A까지나 거리가 같아야 한다는 가장 기본적인 원칙에 어긋나요.", "gist": "(B) 결과의 해석 — This asymmetry는 (C)의 실험 결과를 받아요."}, {"n": 6, "ch": [{"e": "Judgments of distance, then,", "k": "그렇다면 거리에 관한 판단(추정)은,"}, {"e": "are not necessarily <b>coherent<\/b>.", "k": "반드시 일관성이 있는 것은 아니다."}], "easy": "그러니까 사람의 거리 판단이 늘 앞뒤가 맞는 건 아니에요.", "gist": "(B) 결론 — 거리 판단은 일관되지 않을 수 있다."}, {"n": 7, "ch": [{"e": "(C) The <b>remarkable finding<\/b> is", "k": "(C) 주목할 만한 결과는 ~라는 것이다"}, {"e": "that distances from an ordinary location to a landmark", "k": "평범한 장소에서 랜드마크까지의 거리가"}, {"e": "are judged shorter", "k": "더 짧다고 추정된다는"}, {"e": "than distances from a landmark to an ordinary location.", "k": "랜드마크에서 평범한 장소까지의 거리보다."}], "link": "주목할 만한 결과는 평범한 장소에서 랜드마크까지의 거리가 랜드마크에서 평범한 장소까지의 거리보다 더 짧다고 추정된다는 것이다.", "easy": "놀라운 결과는, 평범한 곳에서 랜드마크까지의 거리를 랜드마크에서 평범한 곳까지의 거리보다 더 짧게 짐작한다는 거예요.", "gist": "(C) 실험 결과 — (A)의 거리 추정 실험의 결과예요."}, {"n": 8, "ch": [{"e": "So, people would <b>judge<\/b> the distance", "k": "그래서 사람들은 거리를 추정할 것이다"}, {"e": "from Pierre’s house to the Eiffel Tower", "k": "Pierre의 집에서 에펠탑까지의"}, {"e": "to be shorter than the distance", "k": "거리보다 더 짧다고"}, {"e": "from the Eiffel Tower to Pierre’s house.", "k": "에펠탑에서 Pierre의 집까지의."}], "link": "그래서 사람들은 Pierre의 집에서 에펠탑까지의 거리가 에펠탑에서 Pierre의 집까지의 거리보다 더 짧다고 추정할 것이다.", "easy": "그래서 사람들은 Pierre의 집에서 에펠탑까지가 에펠탑에서 Pierre의 집까지보다 더 가깝다고 짐작해요.", "gist": "(C) 결과를 보여 주는 예."}, {"n": 9, "ch": [{"e": "Like black holes,", "k": "블랙홀처럼,"}, {"e": "landmarks seem to pull ordinary locations", "k": "랜드마크는 평범한 장소를 끌어당기는 것처럼 보인다"}, {"e": "toward themselves,", "k": "자신의 방향으로,"}, {"e": "but ordinary places do not.", "k": "하지만 평범한 장소는 그렇지 않다."}], "easy": "랜드마크는 블랙홀처럼 평범한 장소를 자기 쪽으로 끌어당기는 것 같지만, 평범한 장소는 그렇지 않아요.", "gist": "(C) 결과를 블랙홀에 빗대어 정리해요."}]}, {"no": "11", "typ": "장문 · 제목", "src": "2016학년도 수능 41번", "evn": [8, 12], "ev_en": "Basic scientific research provides the raw materials that technology and engineering use to solve problems. / Science tells us where we are and what we are, and that knowledge is beyond value.", "ev_ko": [[8, "기초 과학 연구는 기술과 공학이 문제를 해결하는 데 사용하는 원료를 제공한다."], [12, "과학은 우리가 어디에 있고 우리가 무엇인지 알려주며, 그러한 지식은 가치를 넘어선다."]], "why": ["글은 처음에 기초 과학이 알려진 실용적 가치가 없어 보인다는 생각을 소개합니다", "하지만 (8)에서 기초 과학 연구는 기술과 공학이 문제를 해결하는 데 쓰는 원료를 제공한다고 합니다", "이것이 실용적인 쪽의 대답입니다", "이어서 기초 과학에는 단지 기능적이라고 부르기 아까운 또 하나의 쓰임이 있다고 합니다", "그리고 (12)에서 과학은 우리가 어디에 있고 무엇인지 알려 주며, 그 지식은 가치를 넘어선다고 마무리합니다", "두 대답 모두 ‘기초 과학이 우리에게 무엇을 가져다주는가’에 대한 답이므로, 제목은 ①이 알맞습니다."], "ch": [{"n": "①", "t": "What Does Basic Science Bring to Us?", "g": "기초 과학은 우리에게 무엇을 가져다주는가?", "ok": true, "e": ["(8)의 기술과 공학에 쓰이는 원료, (12)의 우리가 어디에 있고 무엇인지 알려 주는 지식이 모두 기초 과학이 우리에게 주는 것입니다", "글 전체가 이 질문에 답합니다."]}, {"n": "②", "t": "The Crisis of Researchers in Basic Science", "g": "기초 과학 연구자들의 위기", "ok": false, "e": ["기초 과학 연구자들이 위기에 처했다는 내용은 없습니다", "(2)는 기초 과학이 가치 없다고 ‘주장하기 쉽다’는 생각을 소개할 뿐입니다."]}, {"n": "③", "t": "Common Goals of Science and Technology", "g": "과학과 기술의 공동 목표", "ok": false, "e": ["(8)에 기술과 공학이 나오지만, 기초 과학이 그것에 원료를 제공한다는 내용입니다", "과학과 기술의 공동 목표는 다루지 않습니다."]}, {"n": "④", "t": "Technology: The Ultimate Aim of Basic Science", "g": "기술: 기초 과학의 궁극적 목표", "ok": false, "e": ["(9)는 기초 과학 연구에 중요한 쓰임이 하나 더 있다고 합니다", "그 쓰임은 단지 기능적이라고 부르면 모욕처럼 보일 만큼 귀중하다고 합니다", "기술이 기초 과학의 궁극적 목표라는 말은 글의 흐름과 맞지 않습니다."]}, {"n": "⑤", "t": "Michael Faraday, Frontiersman of the Electronic Age!", "g": "Michael Faraday, 전자 시대의 개척자!", "ok": false, "e": ["Faraday는 (4)부터 (6)까지 기초 연구의 쓸모를 보여 주는 하나의 예로 나옵니다", "글 전체가 Faraday를 다루지는 않습니다."]}], "tr": ["우리는 알려진 실용적 가치를 전혀 지니지 않은 과학을 기초 과학 또는 기초 연구라고 말할 수 있다.", "목성과 같은 세계에 대한 우리의 탐사는 기초 과학으로 불릴 것인데, 그것(기초 과학)은 알려진 실용적인 용도를 전혀 지니지 않기 때문에 기초 과학이 노력과 비용을 들일 가치가 없다고 주장하기 쉽다.", "물론, 문제는 우리가 그 지식을 얻을 때까지는 어떤 지식이 유용할지 아는 방법이 우리에게 없다는 것이다.", "19세기 중반에, Victoria(빅토리아) 여왕은 물리학자 Michael Faraday(마이클 패러데이)에게 그의 전기와 자성에 관한 실험이 무슨 도움이 되는지 물었다고 한다.", "그(Faraday)는 “여왕님, 아기는 무슨 도움이 됩니까?”라고 대답했다.", "물론, Faraday의 실험은 전자 시대의 시작이 되었다(시초였다).", "우리의 세상을 채우고 있는 과학적 지식의 실용적인 활용들 중 많은 것들 — 트랜지스터, 백신, 플라스틱 — 은 기초 연구로 시작되었다.", "기초 과학 연구는 기술과 공학이 문제를 해결하는 데 사용하는 원료를 제공한다.", "기초 과학 연구는 게다가 매우 중요해서 그것을 단지 기능적인 것으로 언급하는 것이 모욕처럼 보이는 중요한 용도를 한 가지 더 가지고 있다.", "과학은 자연에 대한 학문이며, 우리가 자연이 어떻게 작용하는지에 대해 더 많이 배울수록, 우리는 이 우주에서의 우리의 존재가 우리에게 무엇을 의미하는지에 대해 더 많이 알게 된다.", "우리가 다른 세계에 대한 우주탐사기로부터 얻는 겉보기에 비실용적인 지식들이 우리의 행성과 자연의 체계 속에서 우리 자신의 역할에 대해 우리에게 알려준다.", "과학은 우리가 어디에 있고 우리가 무엇인지 알려주며, 그러한 지식은 가치를 넘어선다."], "ps": [{"n": 1, "ch": [{"e": "We might <b>describe<\/b> science", "k": "우리는 과학을 ~라고 말할 수 있다"}, {"e": "that has no known <b>practical value<\/b>", "k": "알려진 실용적 가치를 전혀 지니지 않은"}, {"e": "as <b>basic science<\/b> or basic research.", "k": "기초 과학 또는 기초 연구라고."}], "easy": "알려진 쓸모가 전혀 없는 과학을 기초 과학, 또는 기초 연구라고 부를 수 있어요.", "gist": "글의 화제 — 기초 과학이란 무엇인가."}, {"n": 2, "ch": [{"e": "Our <b>exploration<\/b> of worlds such as Jupiter", "k": "목성과 같은 세계에 대한 우리의 탐사는"}, {"e": "would be called basic science,", "k": "기초 과학으로 불릴 것이다,"}, {"e": "and it is easy to argue", "k": "그리고 주장하기 쉽다"}, {"e": "that basic science is not worth the effort and <b>expense<\/b>", "k": "기초 과학이 노력과 비용을 들일 가치가 없다고"}, {"e": "because it has no known practical use.", "k": "그것<span class=\"r\">(= 기초 과학)<\/span>은 알려진 실용적인 용도를 전혀 지니지 않기 때문에."}], "link": "목성과 같은 세계에 대한 우리의 탐사는 기초 과학으로 불릴 것인데, 기초 과학은 알려진 실용적인 용도를 전혀 지니지 않기 때문에 노력과 비용을 들일 가치가 없다고 주장하기 쉽다.", "easy": "목성 같은 곳을 탐사하는 것도 기초 과학이에요. 당장 쓸모가 없으니 돈과 노력을 들일 가치가 없다고 말하기 쉬워요.", "gist": "통념 — 쓸모가 없으니 가치도 없다?"}, {"n": 3, "ch": [{"e": "Of course, the problem is", "k": "물론, 문제는 ~라는 것이다"}, {"e": "that we have no way of knowing", "k": "우리가 알 방법이 없다는"}, {"e": "what knowledge will be <b>of use<\/b>", "k": "어떤 지식이 유용할지"}, {"e": "until we <b>acquire<\/b> that knowledge.", "k": "우리가 그 지식을 얻을 때까지는."}], "link": "물론, 문제는 우리가 그 지식을 얻을 때까지는 어떤 지식이 유용할지 알 방법이 없다는 것이다.", "easy": "그런데 어떤 지식이 쓸모 있을지는 그 지식을 얻기 전까지는 알 수가 없어요.", "gist": "통념에 대한 반박의 시작."}, {"n": 4, "ch": [{"e": "In the middle of the 19th century,", "k": "19세기 중반에,"}, {"e": "Queen Victoria <b>is supposed to have asked<\/b>", "k": "Victoria 여왕은 물었다고 한다"}, {"e": "physicist Michael Faraday", "k": "물리학자 Michael Faraday에게"}, {"e": "what good his experiments", "k": "그<span class=\"r\">(= Faraday)<\/span>의 실험이 무슨 도움이 되는지"}, {"e": "with electricity and <b>magnetism<\/b> were.", "k": "전기와 자성에 관한."}], "link": "19세기 중반에, Victoria 여왕은 물리학자 Michael Faraday에게 전기와 자성에 관한 그의 실험이 무슨 도움이 되는지 물었다고 한다.", "easy": "19세기 중반, Victoria 여왕이 Faraday에게 전기와 자성에 관한 그의 실험이 무슨 도움이 되느냐고 물었다고 해요.", "gist": "예시 — Faraday의 일화."}, {"n": 5, "ch": [{"e": "He answered,", "k": "그<span class=\"r\">(= Faraday)<\/span>는 대답했다,"}, {"e": "“Madam, what good is a baby?”", "k": "“여왕님, 아기는 무슨 도움이 됩니까?”"}], "easy": "Faraday는 ‘아기는 무슨 도움이 되나요?’라고 되물었어요. 아기처럼 지금 당장은 쓸모를 알 수 없다는 뜻으로 볼 수 있어요.", "gist": "재치 있는 대답 — 쓸모는 나중에 드러난다."}, {"n": 6, "ch": [{"e": "Of course, Faraday’s experiments", "k": "물론, Faraday의 실험은"}, {"e": "were the beginning of the <b>electronic age<\/b>.", "k": "전자 시대의 시작이 되었다."}], "easy": "실제로 Faraday의 실험은 전자 시대를 연 출발점이 되었어요.", "gist": "일화의 결말 — 쓸모없어 보이던 실험이 전자 시대를 열었다."}, {"n": 7, "ch": [{"e": "Many of the practical uses of scientific knowledge", "k": "과학적 지식의 실용적인 활용들 중 많은 것들은"}, {"e": "that fill our world", "k": "우리의 세상을 채우고 있는"}, {"e": "— transistors, vaccines, plastics —", "k": "— 트랜지스터, 백신, 플라스틱 —"}, {"e": "began as basic research.", "k": "기초 연구로 시작되었다."}], "link": "우리의 세상을 채우고 있는 과학적 지식의 실용적인 활용들 중 많은 것들, 즉 트랜지스터, 백신, 플라스틱은 기초 연구로 시작되었다.", "easy": "트랜지스터, 백신, 플라스틱처럼 우리 주변을 채운 쓸모 있는 것들 가운데 많은 것이 기초 연구에서 시작됐어요.", "gist": "기초 연구가 실용으로 이어진 예들."}, {"n": 8, "ch": [{"e": "Basic scientific research provides the <b>raw materials<\/b>", "k": "기초 과학 연구는 원료를 제공한다"}, {"e": "that technology and engineering use", "k": "기술과 공학이 사용하는"}, {"e": "to solve problems.", "k": "문제를 해결하기 위해."}], "link": "기초 과학 연구는 기술과 공학이 문제를 해결하는 데 사용하는 원료를 제공한다.", "easy": "기초 과학은 기술과 공학이 문제를 풀 때 쓰는 재료를 대 줘요.", "gist": "기초 과학의 첫 번째 쓰임 — 기술과 공학의 원료."}, {"n": 9, "ch": [{"e": "Basic scientific research has <b>yet one more<\/b> important use", "k": "기초 과학 연구는 게다가 중요한 용도를 한 가지 더 가지고 있다"}, {"e": "that is so valuable", "k": "매우 귀중해서"}, {"e": "it seems an <b>insult<\/b>", "k": "모욕처럼 보이는"}, {"e": "to <b>refer to<\/b> it as <b>merely functional<\/b>.", "k": "그것<span class=\"r\">(= 그 용도)<\/span>을 단지 기능적인 것으로 언급하는 것이."}], "link": "기초 과학 연구는 게다가 매우 귀중해서 그것을 단지 기능적인 것으로 언급하는 것이 모욕처럼 보이는 중요한 용도를 한 가지 더 가지고 있다.", "easy": "기초 과학에는 중요한 쓰임이 하나 더 있어요. 그 쓰임은 너무 귀해서, 그냥 ‘기능적’이라고만 부르면 모욕처럼 느껴질 정도예요.", "gist": "전환점 — 실용을 넘어서는 두 번째 가치."}, {"n": 10, "ch": [{"e": "Science is the study of nature,", "k": "과학은 자연에 대한 학문이다,"}, {"e": "and as we learn more about how nature works,", "k": "그리고 우리가 자연이 어떻게 작용하는지에 대해 더 많이 배울수록,"}, {"e": "we learn more about", "k": "우리는 ~에 대해 더 많이 알게 된다"}, {"e": "what our <b>existence<\/b> in this universe means for us.", "k": "이 우주에서의 우리의 존재가 우리에게 무엇을 의미하는지."}], "link": "과학은 자연에 대한 학문이며, 우리가 자연이 어떻게 작용하는지에 대해 더 많이 배울수록, 우리는 이 우주에서의 우리의 존재가 우리에게 무엇을 의미하는지에 대해 더 많이 알게 된다.", "easy": "과학은 자연을 공부하는 학문이에요. 자연을 더 알수록 우리가 이 우주에 존재한다는 것이 어떤 의미인지도 더 알게 돼요.", "gist": "두 번째 가치 — 우리 존재의 의미를 알려 준다."}, {"n": 11, "ch": [{"e": "The <b>seemingly impractical<\/b> knowledge", "k": "겉보기에 비실용적인 지식은 <span class=\"r\">※ 문제지엔 빈칸으로 되어 있음<\/span>"}, {"e": "we gain from <b>space probes<\/b> to other worlds", "k": "우리가 다른 세계로 보낸 우주 탐사기로부터 얻는"}, {"e": "tells us about our planet", "k": "우리에게 우리의 행성에 대해 알려 준다"}, {"e": "and our own role in the <b>scheme of nature<\/b>.", "k": "그리고 자연의 체계 속에서 우리 자신의 역할에 대해."}], "link": "우리가 다른 세계로 보낸 우주 탐사기로부터 얻는 겉보기에 비실용적인 지식은 우리의 행성과 자연의 체계 속에서 우리 자신의 역할에 대해 우리에게 알려 준다.", "easy": "다른 행성에 보낸 탐사기에서 얻은 지식은 언뜻 쓸모없어 보여도, 우리 행성과 자연 속 우리의 역할을 알려 줘요.", "gist": "빈칸 문장 — 겉보기엔 비실용적이지만 실제로는 귀중한 지식."}, {"n": 12, "ch": [{"e": "Science tells us", "k": "과학은 우리에게 알려 준다"}, {"e": "where we are and what we are,", "k": "우리가 어디에 있고 우리가 무엇인지,"}, {"e": "and that knowledge is <b>beyond value<\/b>.", "k": "그리고 그러한 지식은 가치를 넘어선다(값을 매길 수 없다)."}], "easy": "과학은 우리가 어디에 있고 어떤 존재인지 알려 줘요. 그런 지식은 값을 매길 수 없을 만큼 귀해요.", "gist": "결론 — 기초 과학이 주는 지식은 값을 매길 수 없다."}]}, {"no": "12", "typ": "장문 · 빈칸", "src": "2016학년도 수능 42번", "evn": [1, 2, 4, 11], "ev_en": "We might describe science that has no known practical value as basic science or basic research. / Our exploration of worlds such as Jupiter would be called basic science, and it is easy to argue that basic science is not worth the effort and expense because it has no known practical use. / In the middle of the 19th century, Queen Victoria is supposed to have asked physicist Michael Faraday what good his experiments with electricity and magnetism were. / The seemingly impractical knowledge we gain from space probes to other worlds tells us about our planet and our own role in the scheme of nature.", "ev_ko": [[1, "우리는 알려진 실용적 가치를 전혀 지니지 않은 과학을 기초 과학 또는 기초 연구라고 말할 수 있다."], [2, "목성과 같은 세계에 대한 우리의 탐사는 기초 과학으로 불릴 것인데, 그것(기초 과학)은 알려진 실용적인 용도를 전혀 지니지 않기 때문에 기초 과학이 노력과 비용을 들일 가치가 없다고 주장하기 쉽다."], [4, "19세기 중반에, Victoria(빅토리아) 여왕은 물리학자 Michael Faraday(마이클 패러데이)에게 그의 전기와 자성에 관한 실험이 무슨 도움이 되는지 물었다고 한다."], [11, "우리가 다른 세계에 대한 우주탐사기로부터 얻는 겉보기에 비실용적인 지식들이 우리의 행성과 자연의 체계 속에서 우리 자신의 역할에 대해 우리에게 알려준다."]], "why": ["빈칸 바로 앞의 <b>seemingly<\/b>(겉보기에)는 겉보기와 실제가 다르다는 뜻을 전합니다", "(11)은 다른 세계로 보낸 우주 탐사기에서 얻는 지식이 실제로는 우리 행성과 자연 속 우리의 역할을 알려 준다고 합니다", "그러니 빈칸에는 ‘겉으로는 쓸모없어 보인다’는 뜻의 말이 와야 합니다", "글은 (1)의 <b>no known practical value<\/b>, (2)의 <b>no known practical use<\/b>, (4)의 <b>what good<\/b>(무슨 도움이 되는지)으로 기초 과학이 비실용적이라는 평가를 받는다는 점을 되풀이합니다", "따라서 ② <b>impractical<\/b>(비실용적인)이 알맞습니다."], "ch": [{"n": "①", "t": "applicable", "g": "적용 가능한", "ok": false, "e": ["겉보기에 ‘적용 가능한’ 지식이라면 seemingly가 만드는 반전이 사라집니다", "글은 기초 과학이 실용적 쓸모가 없어 보인다는 평가를 되풀이합니다."]}, {"n": "②", "t": "impractical", "g": "비실용적인", "ok": true, "e": ["(1)·(2)의 no known practical value, no known practical use와 같은 뜻입니다", "겉보기에는 비실용적이지만 실제로는 우리의 행성과 역할을 알려 준다는 흐름이 됩니다."]}, {"n": "③", "t": "inaccurate", "g": "부정확한", "ok": false, "e": ["지식이 정확한지는 글에서 다루지 않습니다", "글의 쟁점은 기초 과학이 쓸모 있느냐입니다."]}, {"n": "④", "t": "priceless", "g": "매우 소중한, 값을 매길 수 없는", "ok": false, "e": ["(12)의 beyond value와 뜻이 비슷하지만, 그것은 글쓴이가 내리는 실제 평가입니다", "seemingly(겉보기에) 뒤에 넣으면 ‘겉보기에만 소중한’이 되어 글의 흐름과 반대가 됩니다."]}, {"n": "⑤", "t": "resourceful", "g": "재치가 풍부한, 수완이 좋은", "ok": false, "e": ["‘재치가 풍부한’은 지식을 꾸미기에 어울리지 않고, 글의 내용과도 관련이 없습니다."]}], "tr": ["우리는 알려진 실용적 가치를 전혀 지니지 않은 과학을 기초 과학 또는 기초 연구라고 말할 수 있다.", "목성과 같은 세계에 대한 우리의 탐사는 기초 과학으로 불릴 것인데, 그것(기초 과학)은 알려진 실용적인 용도를 전혀 지니지 않기 때문에 기초 과학이 노력과 비용을 들일 가치가 없다고 주장하기 쉽다.", "물론, 문제는 우리가 그 지식을 얻을 때까지는 어떤 지식이 유용할지 아는 방법이 우리에게 없다는 것이다.", "19세기 중반에, Victoria(빅토리아) 여왕은 물리학자 Michael Faraday(마이클 패러데이)에게 그의 전기와 자성에 관한 실험이 무슨 도움이 되는지 물었다고 한다.", "그(Faraday)는 “여왕님, 아기는 무슨 도움이 됩니까?”라고 대답했다.", "물론, Faraday의 실험은 전자 시대의 시작이 되었다(시초였다).", "우리의 세상을 채우고 있는 과학적 지식의 실용적인 활용들 중 많은 것들 — 트랜지스터, 백신, 플라스틱 — 은 기초 연구로 시작되었다.", "기초 과학 연구는 기술과 공학이 문제를 해결하는 데 사용하는 원료를 제공한다.", "기초 과학 연구는 게다가 매우 중요해서 그것을 단지 기능적인 것으로 언급하는 것이 모욕처럼 보이는 중요한 용도를 한 가지 더 가지고 있다.", "과학은 자연에 대한 학문이며, 우리가 자연이 어떻게 작용하는지에 대해 더 많이 배울수록, 우리는 이 우주에서의 우리의 존재가 우리에게 무엇을 의미하는지에 대해 더 많이 알게 된다.", "우리가 다른 세계에 대한 우주탐사기로부터 얻는 겉보기에 비실용적인 지식들이 우리의 행성과 자연의 체계 속에서 우리 자신의 역할에 대해 우리에게 알려준다.", "과학은 우리가 어디에 있고 우리가 무엇인지 알려주며, 그러한 지식은 가치를 넘어선다."], "ps": [{"n": 1, "ch": [{"e": "We might <b>describe<\/b> science", "k": "우리는 과학을 ~라고 말할 수 있다"}, {"e": "that has no known <b>practical value<\/b>", "k": "알려진 실용적 가치를 전혀 지니지 않은"}, {"e": "as <b>basic science<\/b> or basic research.", "k": "기초 과학 또는 기초 연구라고."}], "easy": "알려진 쓸모가 전혀 없는 과학을 기초 과학, 또는 기초 연구라고 부를 수 있어요.", "gist": "글의 화제 — 기초 과학이란 무엇인가."}, {"n": 2, "ch": [{"e": "Our <b>exploration<\/b> of worlds such as Jupiter", "k": "목성과 같은 세계에 대한 우리의 탐사는"}, {"e": "would be called basic science,", "k": "기초 과학으로 불릴 것이다,"}, {"e": "and it is easy to argue", "k": "그리고 주장하기 쉽다"}, {"e": "that basic science is not worth the effort and <b>expense<\/b>", "k": "기초 과학이 노력과 비용을 들일 가치가 없다고"}, {"e": "because it has no known practical use.", "k": "그것<span class=\"r\">(= 기초 과학)<\/span>은 알려진 실용적인 용도를 전혀 지니지 않기 때문에."}], "link": "목성과 같은 세계에 대한 우리의 탐사는 기초 과학으로 불릴 것인데, 기초 과학은 알려진 실용적인 용도를 전혀 지니지 않기 때문에 노력과 비용을 들일 가치가 없다고 주장하기 쉽다.", "easy": "목성 같은 곳을 탐사하는 것도 기초 과학이에요. 당장 쓸모가 없으니 돈과 노력을 들일 가치가 없다고 말하기 쉬워요.", "gist": "통념 — 쓸모가 없으니 가치도 없다?"}, {"n": 3, "ch": [{"e": "Of course, the problem is", "k": "물론, 문제는 ~라는 것이다"}, {"e": "that we have no way of knowing", "k": "우리가 알 방법이 없다는"}, {"e": "what knowledge will be <b>of use<\/b>", "k": "어떤 지식이 유용할지"}, {"e": "until we <b>acquire<\/b> that knowledge.", "k": "우리가 그 지식을 얻을 때까지는."}], "link": "물론, 문제는 우리가 그 지식을 얻을 때까지는 어떤 지식이 유용할지 알 방법이 없다는 것이다.", "easy": "그런데 어떤 지식이 쓸모 있을지는 그 지식을 얻기 전까지는 알 수가 없어요.", "gist": "통념에 대한 반박의 시작."}, {"n": 4, "ch": [{"e": "In the middle of the 19th century,", "k": "19세기 중반에,"}, {"e": "Queen Victoria <b>is supposed to have asked<\/b>", "k": "Victoria 여왕은 물었다고 한다"}, {"e": "physicist Michael Faraday", "k": "물리학자 Michael Faraday에게"}, {"e": "what good his experiments", "k": "그<span class=\"r\">(= Faraday)<\/span>의 실험이 무슨 도움이 되는지"}, {"e": "with electricity and <b>magnetism<\/b> were.", "k": "전기와 자성에 관한."}], "link": "19세기 중반에, Victoria 여왕은 물리학자 Michael Faraday에게 전기와 자성에 관한 그의 실험이 무슨 도움이 되는지 물었다고 한다.", "easy": "19세기 중반, Victoria 여왕이 Faraday에게 전기와 자성에 관한 그의 실험이 무슨 도움이 되느냐고 물었다고 해요.", "gist": "예시 — Faraday의 일화."}, {"n": 5, "ch": [{"e": "He answered,", "k": "그<span class=\"r\">(= Faraday)<\/span>는 대답했다,"}, {"e": "“Madam, what good is a baby?”", "k": "“여왕님, 아기는 무슨 도움이 됩니까?”"}], "easy": "Faraday는 ‘아기는 무슨 도움이 되나요?’라고 되물었어요. 아기처럼 지금 당장은 쓸모를 알 수 없다는 뜻으로 볼 수 있어요.", "gist": "재치 있는 대답 — 쓸모는 나중에 드러난다."}, {"n": 6, "ch": [{"e": "Of course, Faraday’s experiments", "k": "물론, Faraday의 실험은"}, {"e": "were the beginning of the <b>electronic age<\/b>.", "k": "전자 시대의 시작이 되었다."}], "easy": "실제로 Faraday의 실험은 전자 시대를 연 출발점이 되었어요.", "gist": "일화의 결말 — 쓸모없어 보이던 실험이 전자 시대를 열었다."}, {"n": 7, "ch": [{"e": "Many of the practical uses of scientific knowledge", "k": "과학적 지식의 실용적인 활용들 중 많은 것들은"}, {"e": "that fill our world", "k": "우리의 세상을 채우고 있는"}, {"e": "— transistors, vaccines, plastics —", "k": "— 트랜지스터, 백신, 플라스틱 —"}, {"e": "began as basic research.", "k": "기초 연구로 시작되었다."}], "link": "우리의 세상을 채우고 있는 과학적 지식의 실용적인 활용들 중 많은 것들, 즉 트랜지스터, 백신, 플라스틱은 기초 연구로 시작되었다.", "easy": "트랜지스터, 백신, 플라스틱처럼 우리 주변을 채운 쓸모 있는 것들 가운데 많은 것이 기초 연구에서 시작됐어요.", "gist": "기초 연구가 실용으로 이어진 예들."}, {"n": 8, "ch": [{"e": "Basic scientific research provides the <b>raw materials<\/b>", "k": "기초 과학 연구는 원료를 제공한다"}, {"e": "that technology and engineering use", "k": "기술과 공학이 사용하는"}, {"e": "to solve problems.", "k": "문제를 해결하기 위해."}], "link": "기초 과학 연구는 기술과 공학이 문제를 해결하는 데 사용하는 원료를 제공한다.", "easy": "기초 과학은 기술과 공학이 문제를 풀 때 쓰는 재료를 대 줘요.", "gist": "기초 과학의 첫 번째 쓰임 — 기술과 공학의 원료."}, {"n": 9, "ch": [{"e": "Basic scientific research has <b>yet one more<\/b> important use", "k": "기초 과학 연구는 게다가 중요한 용도를 한 가지 더 가지고 있다"}, {"e": "that is so valuable", "k": "매우 귀중해서"}, {"e": "it seems an <b>insult<\/b>", "k": "모욕처럼 보이는"}, {"e": "to <b>refer to<\/b> it as <b>merely functional<\/b>.", "k": "그것<span class=\"r\">(= 그 용도)<\/span>을 단지 기능적인 것으로 언급하는 것이."}], "link": "기초 과학 연구는 게다가 매우 귀중해서 그것을 단지 기능적인 것으로 언급하는 것이 모욕처럼 보이는 중요한 용도를 한 가지 더 가지고 있다.", "easy": "기초 과학에는 중요한 쓰임이 하나 더 있어요. 그 쓰임은 너무 귀해서, 그냥 ‘기능적’이라고만 부르면 모욕처럼 느껴질 정도예요.", "gist": "전환점 — 실용을 넘어서는 두 번째 가치."}, {"n": 10, "ch": [{"e": "Science is the study of nature,", "k": "과학은 자연에 대한 학문이다,"}, {"e": "and as we learn more about how nature works,", "k": "그리고 우리가 자연이 어떻게 작용하는지에 대해 더 많이 배울수록,"}, {"e": "we learn more about", "k": "우리는 ~에 대해 더 많이 알게 된다"}, {"e": "what our <b>existence<\/b> in this universe means for us.", "k": "이 우주에서의 우리의 존재가 우리에게 무엇을 의미하는지."}], "link": "과학은 자연에 대한 학문이며, 우리가 자연이 어떻게 작용하는지에 대해 더 많이 배울수록, 우리는 이 우주에서의 우리의 존재가 우리에게 무엇을 의미하는지에 대해 더 많이 알게 된다.", "easy": "과학은 자연을 공부하는 학문이에요. 자연을 더 알수록 우리가 이 우주에 존재한다는 것이 어떤 의미인지도 더 알게 돼요.", "gist": "두 번째 가치 — 우리 존재의 의미를 알려 준다."}, {"n": 11, "ch": [{"e": "The <b>seemingly impractical<\/b> knowledge", "k": "겉보기에 비실용적인 지식은 <span class=\"r\">※ 문제지엔 빈칸으로 되어 있음<\/span>"}, {"e": "we gain from <b>space probes<\/b> to other worlds", "k": "우리가 다른 세계로 보낸 우주 탐사기로부터 얻는"}, {"e": "tells us about our planet", "k": "우리에게 우리의 행성에 대해 알려 준다"}, {"e": "and our own role in the <b>scheme of nature<\/b>.", "k": "그리고 자연의 체계 속에서 우리 자신의 역할에 대해."}], "link": "우리가 다른 세계로 보낸 우주 탐사기로부터 얻는 겉보기에 비실용적인 지식은 우리의 행성과 자연의 체계 속에서 우리 자신의 역할에 대해 우리에게 알려 준다.", "easy": "다른 행성에 보낸 탐사기에서 얻은 지식은 언뜻 쓸모없어 보여도, 우리 행성과 자연 속 우리의 역할을 알려 줘요.", "gist": "빈칸 문장 — 겉보기엔 비실용적이지만 실제로는 귀중한 지식."}, {"n": 12, "ch": [{"e": "Science tells us", "k": "과학은 우리에게 알려 준다"}, {"e": "where we are and what we are,", "k": "우리가 어디에 있고 우리가 무엇인지,"}, {"e": "and that knowledge is <b>beyond value<\/b>.", "k": "그리고 그러한 지식은 가치를 넘어선다(값을 매길 수 없다)."}], "easy": "과학은 우리가 어디에 있고 어떤 존재인지 알려 줘요. 그런 지식은 값을 매길 수 없을 만큼 귀해요.", "gist": "결론 — 기초 과학이 주는 지식은 값을 매길 수 없다."}]}];
+var ENC="=EakivDoRK+OgGp47EakivjoRK+OhGp4";
+var SETID="g3r24p2", N=D.length, TITLE="고3 미니모의고사 24회 07–12번";
+var CIRC="①②③④⑤";
+function dec(s){var b=atob(s.split("").reverse().join(""));var u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder("utf-8").decode(u);}
+var ANS=dec(ENC).split(";").map(function(x){return x.split("|").map(function(c){return CIRC.indexOf(c)+1;});});
+function isRight(i,a){return ANS[i].indexOf(a)>=0;}
+function ansText(i){return ANS[i].map(function(n){return CIRC[n-1];}).join(", ");}
+
+var GCODE="h3", GRADE="고3", FILE="24b", NEXT="";
+const KEY='via_mm_'+GCODE+'_'+FILE;
+let S={checks:{},locked:{},res:{},sub:null,q:[]};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* REC 연결 지점: 지금은 기기 안에 대기열로만 쌓음 */
+function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localStorage.getItem('via_minimock_rec_queue')||'[]');q.push(ev);localStorage.setItem('via_minimock_rec_queue',JSON.stringify(q));}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const app=$('#app');
+let view='word',quiz=null,armed=null;
+function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function shuffle(arr,seed){const a=arr.slice();let s=hash(seed)||1;for(let i=a.length-1;i>0;i--){s=Math.imul(s^(s>>>15),2246822519)>>>0;const j=s%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+const WS=WORDS.sets[0];
+
+function hdr(){
+  const on=id=>(view===id)?'on':'';
+  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><a class="link" href="index.html">목록</a></div><div class="tabs"><button class="tab ${on('word')}" data-v="word">단어</button><button class="tab ${on('submit')}" data-v="submit">답 제출</button><button class="tab ${on('exp')}" data-v="exp" ${S.sub?'':'disabled'}>해설</button></div></div></header>`;
+}
+function noteList(){
+  const out=[],ck=S.checks[WS.id]||{};
+  WS.words.forEach((w,i)=>{
+    const c=ck[i];if(!c)return;
+    const parts=['m','s','a'].filter(p=>c[p]&&(p==='m'||w[p]));
+    if(parts.length)out.push({i:i,w:w,parts:parts});
+  });
+  return out;
+}
+function render(){
+  if(view==='word')renderWord();
+  else if(view==='note')renderNote();
+  else if(view==='quiz')renderQuiz();
+  else if(view==='result')renderResult();
+  else if(view==='submit')renderSubmit();
+  else if(view==='exp')renderExp();
+  window.scrollTo(0,0);
+}
+/* ---- 단어 확인 ---- */
+function renderWord(){
+  const ck=S.checks[WS.id]||{},locked=!!S.locked[WS.id],n=noteList().length;
+  let h=hdr()+`<div class="wrap ${locked?'locked':''}">`;
+  WS.words.forEach((w,i)=>{
+    const c=ck[i]||{};
+    h+=`<div class="row"><div class="top"><span class="no">${i+1}</span><span class="word">${esc(w.w)}</span><span class="src">${esc(w.src)}번</span></div><div class="cells">`;
+    h+=`<button class="cell m ${c.m?'bad':''}" data-i="${i}" data-p="m"><span class="tag">뜻</span><span>${esc(w.m)}</span></button>`;
+    if(w.s)h+=`<button class="cell s ${c.s?'bad':''}" data-i="${i}" data-p="s"><span class="tag">유</span><span>${esc(w.s[0])}<span class="ko">${esc(w.s[1])}</span></span></button>`;
+    if(w.a)h+=`<button class="cell a ${c.a?'bad':''}" data-i="${i}" data-p="a"><span class="tag">반</span><span>${esc(w.a[0])}<span class="ko">${esc(w.a[1])}</span></span></button>`;
+    h+=`</div></div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap">`;
+  h+=locked?`<button class="btn" disabled>확인 끝</button>`:`<button class="btn ${armed==='lock'?'arm':''}" id="lock">${armed==='lock'?'한 번 더 누르면 확인 끝':'확인 끝'}</button>`;
+  h+=`<button class="btn pri" id="gonote">단어 오답노트 ${n}</button></div></div>`;
+  app.innerHTML=h;
+  app.querySelectorAll('.cell').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,p=b.dataset.p;
+    S.checks[WS.id]=S.checks[WS.id]||{};
+    const c=S.checks[WS.id][i]=S.checks[WS.id][i]||{};
+    c[p]=c[p]?0:1;save();
+    b.classList.toggle('bad',!!c[p]);
+    $('#gonote').textContent='단어 오답노트 '+noteList().length;
+  });
+  const lk=$('#lock');if(lk)lk.onclick=()=>{
+    if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
+      recSend({type:'word',marks:noteList().map(it=>({w:it.w.w,parts:it.parts}))});}
+    else armed='lock';
+    render();
+  };
+  $('#gonote').onclick=()=>{view='note';armed=null;render();};
+}
+function renderNote(){
+  const list=noteList();
+  let h=`<header><div class="wrap hd2"><h1>단어 오답노트 <span class="meta">${list.length}개</span></h1><button class="link" id="back">확인표</button></div></header><div class="wrap">`;
+  if(!list.length)h+=`<div class="empty">아직 표시한 단어가 없습니다</div>`;
+  list.forEach(it=>{
+    const w=it.w,r=(S.res[WS.id]||{})[it.i]||{};
+    h+=`<div class="note-item"><span class="w">${esc(w.w)}</span><span class="meta">${esc(w.src)}번</span>`;
+    const row=(p,tag,txt,ko)=>{
+      const bad=it.parts.includes(p);
+      const rs=r[p]===1?'<span class="res o">맞춤</span>':r[p]===0?'<span class="res x">틀림</span>':'';
+      return `<div class="part ${p} ${bad?'bad':''}"><span class="tag">${tag}</span><span>${esc(txt)}${ko?`<span class="ko"> ${esc(ko)}</span>`:''}</span>${bad?rs:''}</div>`;
+    };
+    h+=row('m','뜻',w.m,'');
+    if(w.s)h+=row('s','유',w.s[0],w.s[1]);
+    if(w.a)h+=row('a','반',w.a[0],w.a[1]);
+    h+=`</div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap"><button class="btn" id="back2">확인표</button><button class="btn pri" id="start" ${list.length?'':'disabled'}>복습 시작</button></div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='word';armed=null;render();};
+  $('#back2').onclick=()=>{view='word';render();};
+  $('#start').onclick=()=>{quiz={qs:buildQuestions(),n:0,right:0,done:false,shown:false};view='quiz';render();};
+}
+function buildQuestions(){
+  const qs=[];
+  noteList().forEach(it=>{
+    const w=it.w;
+    it.parts.forEach(p=>{
+      let q={i:it.i,p:p,w:w.w};
+      if(p==='m'){
+        const toks=x=>x.split(/[,，]\s*/).map(t=>t.trim());
+        const ct=toks(w.m);
+        const pool=[...new Set(WS.words.filter(o=>o!==w).map(o=>o.m))].filter(m=>!toks(m).some(t=>ct.includes(t)));
+        const wrong=shuffle(pool,WS.id+w.w+'m').slice(0,3);
+        q.type='choice';q.ask='뜻을 고르세요';
+        q.opts=shuffle([{t:w.m,ok:1}].concat(wrong.map(t=>({t:t,ok:0}))),WS.id+w.w+'mo');
+      }else{
+        const ans=w[p],d=WS.dist||[];
+        q.ask=p==='s'?'유의어를 고르세요':'반의어를 고르세요';
+        if(d.length>=3){
+          q.type='choice';
+          q.opts=shuffle([{t:ans[0],ko:ans[1],ok:1}].concat(shuffle(d,WS.id+w.w+p).slice(0,3).map(x=>({t:x[0],ko:x[1],ok:0}))),WS.id+w.w+p+'o');
+        }else{q.type='flip';q.ans=ans;}
+      }
+      qs.push(q);
+    });
+  });
+  return qs;
+}
+function recordRes(q,ok){S.res[WS.id]=S.res[WS.id]||{};const r=S.res[WS.id][q.i]=S.res[WS.id][q.i]||{};r[q.p]=ok?1:0;save();}
+function renderQuiz(){
+  const q=quiz.qs[quiz.n];
+  let h=`<header><div class="wrap hd2"><h1>복습</h1><button class="link" id="back">오답노트</button></div></header><div class="wrap ${quiz.done?'done':''}"><div class="q"><div class="cnt">${quiz.n+1} / ${quiz.qs.length}</div><div class="ask">${q.ask}</div><div class="target">${esc(q.w)}</div>`;
+  if(q.type==='choice'){
+    q.opts.forEach((o,k)=>{
+      let cls='';
+      if(quiz.done){if(o.ok)cls='right';else if(k===quiz.pick)cls='wrong';}
+      h+=`<button class="opt ${cls}" data-k="${k}">${esc(o.t)}${o.ko?`<span class="ko">${esc(o.ko)}</span>`:''}</button>`;
+    });
+  }else if(quiz.shown)h+=`<div class="opt right">${esc(q.ans[0])}<span class="ko">${esc(q.ans[1])}</span></div>`;
+  h+=`</div></div><div class="bar"><div class="wrap">`;
+  if(q.type==='flip'&&!quiz.shown)h+=`<button class="btn pri" id="show">정답 보기</button>`;
+  else if(q.type==='flip')h+=`<button class="btn" id="no">몰랐음</button><button class="btn pri" id="yes">알았음</button>`;
+  else h+=`<button class="btn pri" id="next" ${quiz.done?'':'disabled'}>${quiz.n+1===quiz.qs.length?'결과':'다음'}</button>`;
+  h+=`</div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='note';render();};
+  app.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+    if(quiz.done)return;
+    const k=+b.dataset.k;quiz.pick=k;quiz.done=true;
+    const ok=q.opts[k].ok===1;if(ok)quiz.right++;recordRes(q,ok);render();
+  });
+  const nx=$('#next');if(nx)nx.onclick=()=>advance();
+  const sh=$('#show');if(sh)sh.onclick=()=>{quiz.shown=true;render();};
+  const yes=$('#yes');if(yes)yes.onclick=()=>{quiz.right++;recordRes(q,true);advance();};
+  const no=$('#no');if(no)no.onclick=()=>{recordRes(q,false);advance();};
+}
+function advance(){
+  if(quiz.n+1>=quiz.qs.length){view='result';render();return;}
+  quiz.n++;quiz.done=false;quiz.shown=false;quiz.pick=null;render();
+}
+function renderResult(){
+  app.innerHTML=`<header><div class="wrap hd2"><h1>복습 결과</h1></div></header><div class="wrap"><div class="score">${quiz.right} <small>/ ${quiz.qs.length}</small></div></div><div class="bar"><div class="wrap"><button class="btn" id="a">오답노트</button><button class="btn pri" id="b">확인표</button></div></div>`;
+  $('#a').onclick=()=>{view='note';render();};
+  $('#b').onclick=()=>{view='word';render();};
+}
+/* ---- 답 제출 ---- */
+function renderSubmit(){
+  const done=!!S.sub;
+  while(S.q.length<N)S.q.push(0);
+  let h=hdr()+'<div class="wrap">';
+  for(let i=0;i<N;i++){
+    const sel=done?S.sub.a[i]:S.q[i];
+    h+=`<div class="qrow"><div class="qno">${esc(D[i].no)}</div><div class="opts">`;
+    for(let k=1;k<=5;k++)h+=`<button class="opt2 ${sel===k?'on':''}" data-q="${i}" data-k="${k}" ${done?'disabled':''}>${CIRC[k-1]}</button>`;
+    h+='</div></div>';
+  }
+  h+='</div><div class="bar"><div class="wrap">';
+  if(done)h+='<button class="btn pri" id="toexp">해설 보기</button>';
+  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>제출</button>`;
+  h+='</div></div>';
+  app.innerHTML=h;
+  app.querySelectorAll('.opt2').forEach(b=>b.onclick=()=>{
+    if(S.sub)return;
+    const q=+b.dataset.q,k=+b.dataset.k;S.q[q]=k;save();
+    b.parentNode.querySelectorAll('.opt2').forEach(x=>x.classList.toggle('on',+x.dataset.k===k));
+    $('#sub').disabled=!S.q.every(v=>v>0);
+  });
+  const sb=$('#sub');if(sb)sb.onclick=()=>{
+    let s=0;for(let i=0;i<N;i++)if(isRight(i,S.q[i]))s++;
+    S.sub={t:Date.now(),a:S.q.slice(),s:s};save();
+    recSend({type:'submit',a:S.sub.a,s:s,n:N});
+    view='exp';render();
+  };
+  const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
+}
+/* ---- 해설 ---- */
+function sHtml(s,evn){
+  const ev=evn.indexOf(s.n)>=0;
+  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
+  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
+  const lays=[];
+  if(s.link)lays.push(['이어 읽으면',s.link]);
+  if(s.easy)lays.push(['쉬운 말로',s.easy]);
+  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
+  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
+  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
+  return x+'</div>';
+}
+function qHtml(i,a){
+  const d=D[i],ok=isRight(i,a);
+  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
+  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
+  h+='<h4>정답 근거</h4>';
+  h+=`<p class="en">${esc(d.ev_en)}</p>`;
+  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
+  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  if(d.ps&&d.ps.length){
+    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
+  }
+  h+='<h4>선택지 하나씩</h4>';
+  d.ch.forEach(c=>{
+    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  });
+  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  return h+'</div></details>';
+}
+function renderExp(){
+  const rec=S.sub;
+  let h=hdr()+'<div class="wrap">';
+  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='</div><h2>해설</h2>';
+  for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
+  h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
+  app.innerHTML=h;
+}
+/* 위임 이벤트 */
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tab');
+  if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
+  const ch=e.target.closest('.ch');
+  if(ch){ch.classList.toggle('open');return;}
+  const st=e.target.closest('.stg');
+  if(st){
+    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const shown=lays.filter(l=>l.classList.contains('on')).length;
+    if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
+    else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
+    return;
+  }
+  const al=e.target.closest('.tbtn');
+  if(al){
+    const open=al.dataset.all==='1',body=al.closest('.dkbody');
+    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
+    body.querySelectorAll('.s').forEach(s=>{
+      const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
+      lays.forEach(l=>l.classList.toggle('on',open));
+      if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
+    });
+  }
+});
+render();
+</script>
+</body>
+</html>

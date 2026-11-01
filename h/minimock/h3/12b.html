@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>고3 미니모의고사 12회 07–12번</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f6f8;--accent:#23406b;--bad:#c2392b;--badbg:#fdeceb;--good:#1f7a4d;--goodbg:#e8f5ee;--hl:#fff3b0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+body{padding-bottom:84px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .row1{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+h1{font-size:16px;margin:0;font-weight:700;line-height:1.3}
+.tabs{display:flex;gap:0}
+.tab{flex:1;border:0;background:none;font-family:inherit;font-size:15px;font-weight:700;color:var(--sub);padding:11px 0;border-bottom:3px solid transparent}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tab[disabled]{opacity:.35}
+.link{text-decoration:none;border:0;background:none;color:var(--accent);font-size:15px;font-weight:700;padding:10px 4px;font-family:inherit}
+.hd2{display:flex;align-items:center;justify-content:space-between;height:54px}
+.hd2 h1{font-size:17px}
+.row{padding:12px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.no{color:var(--sub);font-size:13px;min-width:20px}
+.word{font-size:19px;font-weight:700}
+.src{color:var(--sub);font-size:12px;margin-left:auto}
+.cells{display:flex;flex-direction:column;gap:6px}
+.cell{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 12px;border-radius:8px;background:var(--soft);border:1.5px solid transparent;font-size:16px;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.cell .tag,.part .tag{font-size:12px;font-weight:700;color:#fff;border-radius:4px;padding:2px 7px;min-width:34px;text-align:center;background:#7a8594}
+.cell.s .tag,.part.s .tag{background:#2d62a8}.cell.a .tag,.part.a .tag{background:#b4472f}
+.ko{color:var(--sub);font-size:14px;margin-left:6px}
+.cell.bad{background:var(--badbg);border-color:var(--bad)}
+.cell.bad .tag{background:var(--bad)}
+.locked .cell{pointer-events:none}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:6}
+.bar .wrap{display:flex;gap:10px;padding:0}
+.btn{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;line-height:1.25;font-weight:700;font-family:inherit}
+.btn.pri{background:var(--accent);color:#fff}
+.btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn[disabled]{opacity:.4}
+.note-item{padding:14px 0;border-bottom:1px solid var(--line)}
+.note-item .w{font-size:19px;font-weight:700}
+.meta{color:var(--sub);font-size:12px;margin-left:8px;font-weight:400}
+.part{display:flex;gap:10px;align-items:baseline;padding:6px 0 0;font-size:16px}
+.part .tag{align-self:center}
+.part.bad{color:var(--bad);font-weight:700}
+.part.bad .tag{background:var(--bad)}
+.part .ko{font-weight:400}
+.part .res{margin-left:auto;font-size:13px;font-weight:700}
+.res.o{color:var(--good)}.res.x{color:var(--bad)}
+.empty{color:var(--sub);text-align:center;padding:60px 0;font-size:16px}
+.q{padding:22px 0 8px}
+.q .cnt{color:var(--sub);font-size:14px}
+.q .ask{font-size:15px;color:var(--sub);margin-top:14px}
+.q .target{font-size:28px;font-weight:700;margin:6px 0 18px}
+.opt{display:block;width:100%;text-align:left;min-height:56px;padding:10px 14px;margin-bottom:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:18px;font-family:inherit;color:var(--ink)}
+.opt .ko{display:block;margin:2px 0 0}
+.opt.right{border-color:var(--good);background:var(--goodbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.done .opt{pointer-events:none}
+.score{font-size:34px;font-weight:700;text-align:center;margin:30px 0 6px}
+.score small{font-size:18px;color:var(--sub);font-weight:400}
+.foot{color:var(--sub);font-size:12px;text-align:center;padding:26px 0 8px}
+/* submit */
+.qrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.qno{font-weight:800;font-size:20px;width:34px;flex:none}
+.opts{display:flex;gap:8px;flex:1}
+.opt2{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:20px;font-family:inherit;color:var(--ink)}
+.opt2.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.opt2[disabled]{opacity:.55}
+.opt2.on[disabled]{opacity:1}
+/* explanation */
+h2{font-size:17px;margin:26px 0 10px}
+.quick div{padding:3px 0;font-size:17px}
+.quick .o{color:var(--good)}.quick .x{color:var(--bad)}
+.sub{color:var(--sub)}
+details.qd{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;background:var(--bg)}
+details.qd>summary{list-style:none;cursor:pointer;padding:14px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+details.qd>summary::-webkit-details-marker{display:none}
+details.qd>summary small{font-weight:400;color:var(--sub);font-size:13px}
+.res2{margin-left:auto;font-size:14px}
+.res2.o{color:var(--good)}.res2.x{color:var(--bad)}
+.qx{padding:0 14px 14px}
+.qx h4{font-size:15px;margin:18px 0 8px;color:var(--accent)}
+.qx p{margin:6px 0;line-height:1.75;font-size:16px}
+.ansline b{font-size:17px}
+.en{font-size:16px;line-height:1.7;background:var(--soft);padding:10px 12px;border-radius:8px}
+.kolist{list-style:none;margin:6px 0;padding:0}
+.kolist li{font-size:15px;line-height:1.7}
+.kolist .n{font-size:12px;color:var(--sub);margin-right:6px}
+.why p{margin:4px 0;font-size:15px}
+.c{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.c.ok{border-color:var(--good);background:var(--goodbg)}
+.c .ct{font-weight:700;font-size:16px;line-height:1.5}
+.c .tg{display:inline-block;font-size:12px;color:#fff;background:#7a8594;border-radius:4px;padding:1px 7px;margin-right:6px;font-weight:700}
+.c.ok .tg{background:var(--good)}
+.c p{margin:4px 0 0;font-size:15px}
+.r{color:var(--sub);font-size:13px}
+/* direct reading practice */
+details.dk{margin:16px 0 4px;border:1px solid var(--line);border-radius:10px}
+details.dk>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700;color:var(--accent);font-size:15px}
+details.dk>summary::-webkit-details-marker{display:none}
+.dkbody{padding:0 12px 12px}
+.tool{display:flex;gap:8px;margin:2px 0 10px}
+.tbtn{flex:1;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:inherit;font-size:14px;font-weight:700;color:var(--accent)}
+.s{padding:10px 0 12px;border-top:1px dashed var(--line)}
+.s.ev{background:linear-gradient(90deg,#fffbe8,#fff);margin:0 -6px;padding-left:6px;padding-right:6px}
+.sn{margin-bottom:6px}
+.lb{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--sub);margin-right:6px}
+.lb.ev{background:var(--hl);color:#7a5b00}
+.ch{padding:9px 11px;margin-bottom:6px;border-radius:8px;background:var(--soft);cursor:pointer;border-bottom:2px dotted #c9cfd6}
+.ch .ce{font-size:16px;line-height:1.6}
+.ch .ce b{background:linear-gradient(transparent 55%,var(--hl) 55%)}
+.ch .ck{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--line);color:var(--accent);font-size:15px;line-height:1.65}
+.ch.open{background:#eef2f8;border-bottom-color:transparent}
+.ch.open .ck{display:block}
+.lay{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:14px;line-height:1.7}
+.lay.on{display:block}
+.stg{width:100%;min-height:42px;margin-top:6px;border:1px solid var(--accent);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const WORDS={"sets": [{"id": "g3r12p2", "title": "고3 미니모의고사 12회 07–12번", "range": "07–12번", "words": [{"src": "01", "w": "moderate", "m": "조정하다, 완화하다", "s": null, "a": null}, {"src": "02", "w": "capability", "m": "능력, 역량", "s": ["competence", "능력, 역량"], "a": null}, {"src": "03", "w": "accomplish", "m": "성취하다, 이루다", "s": ["achieve", "이루다, 달성하다"], "a": null}, {"src": "04", "w": "improbable", "m": "있을 법하지 않은", "s": null, "a": ["likely", "있을 법한, ~할 것 같은"]}, {"src": "05", "w": "endorse", "m": "지지하다", "s": null, "a": null}, {"src": "06", "w": "flourish", "m": "번영하다, 번성하다", "s": ["thrive", "번창하다"], "a": ["decline", "쇠퇴하다"]}, {"src": "07", "w": "authoritarian", "m": "권위주의적인, 독재적인", "s": null, "a": ["democratic", "민주적인"]}, {"src": "08", "w": "rigorously", "m": "혹독하게, 가혹하게", "s": null, "a": null}, {"src": "09", "w": "legitimate", "m": "정당한, 합당한", "s": ["valid", "타당한"], "a": null}, {"src": "10", "w": "dissent", "m": "이의를 제기하다", "s": null, "a": null}, {"src": "11", "w": "compensate", "m": "보수를 지불하다, 보상하다", "s": null, "a": null}, {"src": "12", "w": "intimidate", "m": "겁을 주다, 위협하다", "s": ["frighten", "겁먹게 하다"], "a": null}, {"src": "13", "w": "settle", "m": "해결하다, 합의를 보다", "s": null, "a": null}, {"src": "14", "w": "ensure", "m": "보장하다", "s": null, "a": null}, {"src": "15", "w": "determine", "m": "결정하다, 알아내다", "s": null, "a": null}, {"src": "16", "w": "eager", "m": "간절히 바라는, 열망하는", "s": ["keen", "열의 있는, 간절한"], "a": ["indifferent", "무관심한"]}, {"src": "17", "w": "pure", "m": "순수한", "s": null, "a": ["contaminated", "오염된"]}, {"src": "18", "w": "gathering", "m": "짙어 가는, 모여드는", "s": null, "a": null}, {"src": "19", "w": "classic", "m": "전형적인", "s": ["typical", "전형적인"], "a": null}, {"src": "20", "w": "greeting", "m": "인사", "s": null, "a": null}], "dist": [["fragile", "부서지기 쉬운"], ["abrupt", "갑작스러운"], ["lenient", "관대한"]]}]};
+var D=[{"no": "07", "typ": "빈칸 추론", "src": "2019학년도 6월 32번", "evn": [3], "ev_en": "People with a strong sense of self-efficacy, therefore, may be more willing to step outside the culturally prescribed behaviors to attempt tasks or goals for which success is viewed as improbable by the majority of social actors in a setting.", "ev_ko": [[3, "그러므로 강한 자기 효능감을 가진 사람들은 어떤 환경의 사회적 행위자들의 대다수에 의해 성공이 있을 법하지 않다고 여겨지는 일이나 목표를 시도하기 위해 문화적으로 규정된 행동 밖으로 더 기꺼이 발을 디디려 할 수도 있다."]], "why": ["빈칸은 강한 자기 효능감을 가진 사람들이 어떤 특징을 보이는지에 해당합니다", "(3)에서 이런 사람들은 <b>문화적으로 규정된 행동 밖으로<\/b> 더 기꺼이 벗어나려 한다고 합니다", "(5)~(7)은 빈칸에 대한 예시입니다", "호주에는 ‘키 큰 양귀비는 결국 잘린다’는 통념이 있습니다", "그런데 자기 효능감이 높은 호주 사람들은 그 행동 규범을 벗어나 평균 이상을 성취합니다", "문화가 이들의 행동을 붙잡지 못한다는 뜻입니다", "그래서 빈칸에는 ② <b>culture will have little or no impact on behavior<\/b>(문화는 행동에 거의 혹은 전혀 영향을 주지 않을 것이다)가 알맞습니다."], "ch": [{"n": "①", "t": "self-efficacy is not easy to define", "g": "자기 효능감은 정의하기 쉽지 않다", "ok": false, "e": ["자기 효능감의 뜻은 (1)에 이미 분명하게 나와 있습니다", "정의하기 어렵다는 이야기는 글에 없습니다."]}, {"n": "②", "t": "culture will have little or no impact on behavior", "g": "문화는 행동에 거의 혹은 전혀 영향을 주지 않을 것이다", "ok": true, "e": ["(3)에서 이런 사람들은 문화적으로 규정된 행동 밖으로 벗어나려 한다고 합니다", "(7)에서도 자기 효능감이 높은 호주 사람들은 그 행동 규범을 벗어나 평균 이상을 성취합니다", "문화가 행동에 거의 영향을 주지 못한다는 말과 같습니다."]}, {"n": "③", "t": "setting a goal is important before starting a task", "g": "일을 시작하기 전에 목표를 설정하는 것이 중요하다", "ok": false, "e": ["일을 시작하기 전 목표 설정이 중요하다는 이야기는 없습니다", "글은 자기 효능감이 높은 사람과 문화 규범의 관계를 다룹니다."]}, {"n": "④", "t": "high self-efficacy is a typical quality of Australians", "g": "높은 자기 효능감은 호주 사람들의 전형적인 특징이다", "ok": false, "e": ["(5)에서 호주 사람들은 ‘키 큰 양귀비 증후군’을 지지하는 경향이 있다고 합니다", "호주는 문화 규범의 예시일 뿐입니다", "높은 자기 효능감이 호주 사람들의 전형적 특징이라는 말은 없습니다."]}, {"n": "⑤", "t": "judging the reaction from the community will be hard", "g": "공동체로부터의 반응을 판단하는 것은 어려울 것이다", "ok": false, "e": ["공동체의 반응을 판단하기 어렵다는 내용은 글에 없습니다", "글은 이런 사람들이 사회의 규범을 벗어나 행동한다고 말합니다."]}], "tr": ["행동과의 관계를 조정하는 개인적인 특징은 자기 효능감, 즉 특정 수준의 성과를 성취하는 자신의 능력에 대한 판단이다.", "높은 자기 효능감을 가진 사람들은 평균적인 사람이 미치는 범위를 벗어나 있을 수도 있는 도전적인 목표를 추구하는 경향이 있다.", "그러므로 강한 자기 효능감을 가진 사람들은 어떤 환경의 사회적 행위자들의 대다수에 의해 성공이 있을 법하지 않다고 여겨지는 일이나 목표를 시도하기 위해 문화적으로 규정된 행동 밖으로 더 기꺼이 발을 디디려 할 수도 있다.", "이런 사람들에게, 문화는 행동에 거의 혹은 전혀 영향을 주지 않을 것이다.", "예를 들어, 호주 사람들은 ‘키 큰 양귀비 증후군’을 지지하는 경향이 있다.", "이 말은 밭에서 다른 것들보다 더 자라는 어떤 ‘양귀비’든 ‘잘리게’ 될 것임을, 다시 말해 누구든지 기대 이상의 성공을 거두는 사람은 결국 실패할 것임을 시사한다.", "(한편) 면담과 관찰은 평균 이상을 실제로 성취하기 위해 이 문화적으로 규정된 행동 밖으로 벗어나는 사람들이 (바로) 높은 자기 효능감을 가진 호주 사람들이라는 것을 시사한다."], "ps": [{"n": 1, "ch": [{"e": "An individual characteristic", "k": "개인적인 특징은"}, {"e": "that <b>moderates<\/b> the relationship with behavior", "k": "행동과의 관계를 조정하는"}, {"e": "is <b>self-efficacy<\/b>,", "k": "자기 효능감이다,"}, {"e": "or a judgment of one’s capability", "k": "즉 자신의 능력에 대한 판단"}, {"e": "to accomplish a certain level of performance.", "k": "특정 수준의 성과를 성취하는."}], "link": "행동과의 관계를 조정하는 개인적인 특징은 자기 효능감, 즉 특정 수준의 성과를 성취하는 자신의 능력에 대한 판단이다.", "easy": "행동에 영향을 주는 개인의 특징 중 하나가 자기 효능감이에요. 자기 효능감은 ‘나는 어느 정도의 성과를 낼 수 있다’고 스스로 판단하는 거예요.", "gist": "글의 핵심 개념인 자기 효능감을 소개해요."}, {"n": 2, "ch": [{"e": "People who have a high sense of self-efficacy", "k": "높은 자기 효능감을 가진 사람들은"}, {"e": "tend to pursue <b>challenging goals<\/b>", "k": "도전적인 목표를 추구하는 경향이 있다"}, {"e": "that may be outside the reach of the average person.", "k": "평균적인 사람이 미치는 범위를 벗어나 있을 수도 있는."}], "easy": "자기 효능감이 높은 사람은 보통 사람이라면 닿기 어려운 도전적인 목표를 좇는 편이에요.", "gist": "자기 효능감이 높은 사람의 첫 번째 특징이에요."}, {"n": 3, "ch": [{"e": "People with a strong sense of self-efficacy, therefore,", "k": "그러므로 강한 자기 효능감을 가진 사람들은"}, {"e": "may be more willing to <b>step outside<\/b>", "k": "더 기꺼이 밖으로 발을 디디려 할 수도 있다"}, {"e": "the <b>culturally prescribed behaviors<\/b>", "k": "문화적으로 규정된 행동"}, {"e": "to attempt tasks or goals", "k": "일이나 목표를 시도하기 위해"}, {"e": "for which success is viewed as <b>improbable<\/b>", "k": "성공이 있을 법하지 않다고 여겨지는"}, {"e": "by the majority of social actors in a setting.", "k": "어떤 환경의 사회적 행위자들의 대다수에 의해."}], "link": "그러므로 강한 자기 효능감을 가진 사람들은 어떤 환경의 사회적 행위자들 대다수가 성공이 있을 법하지 않다고 여기는 일이나 목표를 시도하기 위해 문화적으로 규정된 행동 밖으로 더 기꺼이 발을 디디려 할 수도 있다.", "easy": "그래서 자기 효능감이 강한 사람들은, 주변 사람 대부분이 ‘그건 성공 못 해’라고 보는 일에도 도전해요. 그러려고 사회가 정해 둔 행동 방식에서 기꺼이 벗어나요.", "gist": "이런 사람들은 문화가 정한 행동 틀을 벗어난다는 핵심 근거예요."}, {"n": 4, "ch": [{"e": "For these individuals,", "k": "이런 사람들에게,"}, {"e": "<b>culture will have little or no impact on behavior<\/b>.", "k": "문화는 행동에 거의 혹은 전혀 영향을 주지 않을 것이다.<span class=\"r\">※ 문제지엔 빈칸으로 되어 있음<\/span>"}], "easy": "이런 사람들에게는 문화가 행동에 거의 영향을 주지 못해요.", "gist": "빈칸 문장이에요. 앞 문장의 내용을 한마디로 정리해요."}, {"n": 5, "ch": [{"e": "For example,", "k": "예를 들어,"}, {"e": "Australians tend to <b>endorse<\/b>", "k": "호주 사람들은 지지하는 경향이 있다"}, {"e": "the “Tall Poppy Syndrome.”", "k": "‘키 큰 양귀비 증후군’을."}], "easy": "예를 들어 호주 사람들은 ‘키 큰 양귀비 증후군’이라는 생각을 지지하는 편이에요.", "gist": "예시가 시작돼요. 호주의 문화 규범을 소개해요."}, {"n": 6, "ch": [{"e": "This saying suggests", "k": "이 말은 시사한다"}, {"e": "that any “poppy”", "k": "어떤 ‘양귀비’든"}, {"e": "that <b>outgrows<\/b> the others in a field", "k": "밭에서 다른 것들보다 더 자라는"}, {"e": "will get “cut down;”", "k": "‘잘리게’ 될 것임을,"}, {"e": "in other words,", "k": "다시 말해"}, {"e": "any <b>overachiever<\/b> will eventually fail.", "k": "누구든지 기대 이상의 성공을 거두는 사람은 결국 실패할 것임을."}], "link": "이 말은 밭에서 다른 것들보다 더 자라는 어떤 ‘양귀비’든 ‘잘리게’ 될 것임을, 다시 말해 기대 이상의 성공을 거두는 사람은 누구든 결국 실패할 것임을 시사한다.", "easy": "이 말은 밭에서 혼자 높이 자란 양귀비는 잘린다는 뜻이에요. 즉 남보다 튀게 잘하는 사람은 결국 실패한다는 말이에요.", "gist": "호주에는 튀는 사람을 끌어내리는 문화가 있다는 설명이에요."}, {"n": 7, "ch": [{"e": "Interviews and observations suggest", "k": "면담과 관찰은 시사한다"}, {"e": "that it is the <b>high self-efficacy Australians<\/b>", "k": "바로 높은 자기 효능감을 가진 호주 사람들이라는 것을"}, {"e": "who step outside this culturally prescribed behavior", "k": "이 문화적으로 규정된 행동 밖으로 벗어나는 사람들이"}, {"e": "to actually achieve beyond average.", "k": "평균 이상을 실제로 성취하기 위해."}], "link": "면담과 관찰은 평균 이상을 실제로 성취하기 위해 이 문화적으로 규정된 행동 밖으로 벗어나는 사람들이 바로 높은 자기 효능감을 가진 호주 사람들이라는 것을 시사한다.", "easy": "면담과 관찰을 해 보니, 이런 문화의 틀을 벗어나 실제로 평균 이상을 해내는 사람들은 바로 자기 효능감이 높은 호주 사람들이었어요.", "gist": "예시의 결론이에요. 자기 효능감이 높으면 문화에 휘둘리지 않는다는 것을 보여 줘요."}]}, {"no": "08", "typ": "글의 요지", "src": "2018년 10월 21번", "evn": [1, 3, 5], "ev_en": "When science is examined as an enterprise that involves the values of independence, freedom, the right to dissent, and tolerance, it is clear that as a social activity science cannot flourish in an authoritarian climate. / In a democratic environment, old ideas can be challenged and rigorously criticized, although with some difficulty because of the human desire to hold onto old ideas, especially by the original proposers. / As pointed out in an American Association for the Advancement of Science report, Science for All Americans, “indeed, challenges to new ideas are the legitimate business of science in building valid knowledge.”", "ev_ko": [[1, "과학이 독립, 자유, 이의를 제기할 권리 그리고 관용의 가치를 포함하는 진취적인 것으로 검토될 때, 사회적 활동으로서(의) 과학은 권위주의적인 풍토에서 번영할 수 없다는 것이 분명하다."], [3, "민주적인 환경에서 낡은 사상은 낡은 사상을 고수하려는 인간의 열망 때문에, 특히 원래의 제안자들에 의해(최초로 그 제안을 했던 사람들 때문에) 약간의 어려움이 있기는 하지만, 도전받고 혹독하게 비판받을 수 있다."], [5, "미국 과학 진흥 협회 보고서인 《Science for All Americans》에서 지적되었듯이, “실로, 새로운 생각에 대한 도전은 타당한 지식을 구축하는 데 있어 과학의 진정한 본분이다(타당한 지식을 구축하는 데 있어 과학이 해야 할 일은 새로운 생각에 계속해서 도전하는 것이다).”"]], "why": ["(1)에서 과학은 <b>권위주의적인 풍토에서 번영할 수 없다<\/b>고 합니다", "(3)에서는 <b>민주적인 환경<\/b>에서 낡은 사상이 도전받고 혹독하게 비판받을 수 있다고 합니다", "(5)에서는 새로운 생각에 대한 도전이 <b>타당한 지식을 구축하는<\/b> 과학의 진정한 본분이라고 합니다", "즉 민주적인 환경이어야 낡은 사상이 비판받고 대안이 제시되어, 과학이 타당한 지식을 쌓을 수 있다는 말입니다", "그래서 요지는 ⑤ ‘민주적 환경에서 과학은 타당한 지식을 형성하는 데 기여한다’입니다."], "ch": [{"n": "①", "t": "과학의 권위는 이론의 검증과 적용을 통해 확립된다.", "g": "", "ok": false, "e": ["(4)에 대안을 기존 개념에 맞대어 검증한다는 말은 나옵니다", "하지만 글은 검증으로 과학의 권위가 세워진다고 말하지 않습니다", "글의 중심은 민주적인 환경에서 과학이 제대로 이루어진다는 것입니다."]}, {"n": "②", "t": "철학의 추론 기법은 다양한 과학 연구에 응용될 수 있다.", "g": "", "ok": false, "e": ["(2)에 과학 철학자 Bronowski가 나오지만, 그의 주장을 소개할 뿐입니다", "철학의 추론 기법을 과학 연구에 응용한다는 내용은 없습니다."]}, {"n": "③", "t": "과학 탐구의 방향은 공동체의 정치적인 지향을 반영한다.", "g": "", "ok": false, "e": ["글은 권위주의적인 풍토에서는 과학이 번영할 수 없다고 합니다(1번)", "과학 탐구의 방향이 공동체의 정치적 지향을 따라간다는 말은 없습니다."]}, {"n": "④", "t": "기존의 지식에서 새로운 아이디어의 실마리를 찾을 수 있다.", "g": "", "ok": false, "e": ["(4)는 대안적 개념을 제시하고 그것을 기존의 개념에 맞대어 검증한다는 뜻입니다", "기존 지식에서 새 아이디어의 실마리를 찾는다는 말이 아닙니다."]}, {"n": "⑤", "t": "민주적 환경에서 과학은 타당한 지식을 형성하는 데 기여한다.", "g": "", "ok": true, "e": ["(1)의 권위주의적인 풍토에서는 과학이 번영할 수 없다는 말, (3)의 민주적인 환경에서 낡은 사상이 비판받을 수 있다는 말, (5)의 타당한 지식을 구축한다는 말을 하나로 묶은 것입니다."]}], "tr": ["과학이 독립, 자유, 이의를 제기할 권리 그리고 관용의 가치를 포함하는 진취적인 것으로 검토될 때, 사회적 활동으로서(의) 과학은 권위주의적인 풍토에서 번영할 수 없다는 것이 분명하다.", "Bronowski(브로노프스키)와 같은 일부의 과학 철학자들은 과학이 권위주의적인 체제에서는 실천될(행해질) 수 없다고 주장한다.", "민주적인 환경에서 낡은 사상은 낡은 사상을 고수하려는 인간의 열망 때문에, 특히 원래의 제안자들에 의해(최초로 그 제안을 했던 사람들 때문에) 약간의 어려움이 있기는 하지만, 도전받고 혹독하게 비판받을 수 있다.", "그렇지만 대안적 개념을 제시하고, 그런 다음 그것들을 기존의 개념에 맞대어 검증하는 것이 과학적 사고의 본질이다.", "미국 과학 진흥 협회 보고서인 《Science for All Americans》에서 지적되었듯이, “실로, 새로운 생각에 대한 도전은 타당한 지식을 구축하는 데 있어 과학의 진정한 본분이다(타당한 지식을 구축하는 데 있어 과학이 해야 할 일은 새로운 생각에 계속해서 도전하는 것이다).”"], "ps": [{"n": 1, "ch": [{"e": "When science is examined as an <b>enterprise<\/b>", "k": "과학이 진취적인 것으로 검토될 때"}, {"e": "that involves the values of independence, freedom,", "k": "독립, 자유의 가치를 포함하는"}, {"e": "the right to <b>dissent<\/b>, and <b>tolerance<\/b>,", "k": "이의를 제기할 권리 그리고 관용의 (가치를),"}, {"e": "it is clear", "k": "분명하다"}, {"e": "that as a social activity", "k": "사회적 활동으로서"}, {"e": "science cannot <b>flourish<\/b> in an <b>authoritarian<\/b> climate.", "k": "과학은 권위주의적인 풍토에서 번영할 수 없다는 것이."}], "link": "과학이 독립, 자유, 이의를 제기할 권리 그리고 관용의 가치를 포함하는 진취적인 것으로 검토될 때, 사회적 활동으로서 과학은 권위주의적인 풍토에서 번영할 수 없다는 것이 분명하다.", "easy": "과학을 독립, 자유, 반대할 권리, 관용 같은 가치를 담은 진취적인 활동으로 본다면, 과학은 권위주의적인 분위기에서는 꽃필 수 없어요.", "gist": "글의 중심 생각이에요. 권위주의 아래에서는 과학이 자라지 못한다고 해요."}, {"n": 2, "ch": [{"e": "Some philosophers of science such as Bronowski", "k": "Bronowski와 같은 일부의 과학 철학자들은"}, {"e": "claim", "k": "주장한다"}, {"e": "that science cannot be practiced", "k": "과학이 실천될 수 없다고"}, {"e": "in authoritarian <b>regimes<\/b>.", "k": "권위주의적인 체제에서는."}], "easy": "Bronowski 같은 과학 철학자들은 권위주의적인 나라에서는 과학을 할 수 없다고 말해요.", "gist": "1번 문장을 뒷받침하는 학자의 주장이에요."}, {"n": 3, "ch": [{"e": "In a <b>democratic environment<\/b>,", "k": "민주적인 환경에서"}, {"e": "old ideas can be challenged", "k": "낡은 사상은 도전받을 수 있다"}, {"e": "and <b>rigorously<\/b> criticized,", "k": "그리고 혹독하게 비판받을 (수 있다),"}, {"e": "although with some difficulty", "k": "약간의 어려움이 있기는 하지만"}, {"e": "because of the human desire to <b>hold onto<\/b> old ideas,", "k": "낡은 사상을 고수하려는 인간의 열망 때문에,"}, {"e": "especially by the original <b>proposers<\/b>.", "k": "특히 원래의 제안자들에 의한 (열망)."}], "link": "민주적인 환경에서 낡은 사상은 그것을 고수하려는 인간의 열망, 특히 원래 제안자들의 열망 때문에 약간의 어려움이 있기는 하지만, 도전받고 혹독하게 비판받을 수 있다.", "easy": "민주적인 환경에서는 낡은 생각에 도전하고 따끔하게 비판할 수 있어요. 물론 사람들은 원래 생각을 붙잡고 싶어 해서 조금 어렵기는 해요. 특히 그 생각을 처음 낸 사람들이 그래요.", "gist": "민주적인 환경에서는 낡은 생각을 비판할 수 있다는 핵심 근거예요."}, {"n": 4, "ch": [{"e": "Yet it is the <b>essence<\/b> of scientific thinking", "k": "그렇지만 과학적 사고의 본질이다"}, {"e": "to propose <b>alternative<\/b> ideas", "k": "대안적 개념을 제시하고"}, {"e": "and then to test them", "k": "그런 다음 그것들<span class=\"r\">(= 대안적 개념)<\/span>을 검증하는 것이"}, {"e": "against existing concepts.", "k": "기존의 개념에 맞대어."}], "easy": "그래도 새로운 생각을 내놓고 그것을 기존 생각과 비교해 시험해 보는 것이 과학적 사고의 핵심이에요.", "gist": "낡은 생각에 도전하는 것이 바로 과학의 본질이라고 강조해요."}, {"n": 5, "ch": [{"e": "As pointed out", "k": "지적되었듯이"}, {"e": "in an American Association for the Advancement of Science report,", "k": "미국 과학 진흥 협회 보고서인"}, {"e": "<i>Science for All Americans<\/i>,", "k": "《Science for All Americans》에서,"}, {"e": "“indeed, challenges to new ideas", "k": "“실로, 새로운 생각에 대한 도전은"}, {"e": "are the <b>legitimate<\/b> business of science", "k": "과학의 진정한 본분이다"}, {"e": "in building <b>valid knowledge<\/b>.”", "k": "타당한 지식을 구축하는 데 있어.”"}], "link": "미국 과학 진흥 협회 보고서인 《Science for All Americans》에서 지적되었듯이, “실로, 새로운 생각에 대한 도전은 타당한 지식을 구축하는 데 있어 과학의 진정한 본분이다.”", "easy": "미국 과학 진흥 협회의 보고서 《Science for All Americans》에서도, 새로운 생각에 도전하는 것이 타당한 지식을 쌓는 과학이 마땅히 할 일이라고 말해요.", "gist": "보고서를 인용하며 글을 마무리해요. 도전과 비판이 타당한 지식을 만든다고 해요."}]}, {"no": "09", "typ": "글의 순서", "src": "2023학년도 수능 37번", "evn": [1, 2, 4, 5, 7, 8], "ev_en": "The most commonly known form of results-based pricing is a practice called contingency pricing, used by lawyers. / Therefore, only an outcome in the client’s favor is compensated. / Their biggest fears are high fees for a case that may take years to settle. / By using contingency pricing, clients are ensured that they pay no fees until they receive a settlement. / Contingency pricing is the major way that personal injury and certain consumer cases are billed. / In this approach, lawyers do not receive fees or payment until the case is settled, when they are paid a percentage of the money that the client receives.", "ev_ko": [[1, "결과 기반 가격 책정 중 가장 일반적으로 알려진 형태는 변호사가 사용하는 ‘승소 시 보수 약정’이라고 불리는 관행이다."], [2, "따라서 의뢰인에게 유리한 결과만 보수가 지불된다."], [4, "그들의 가장 큰 두려움은 해결하는 데 몇 년이 걸릴 수 있는 소송에 대한 높은 수수료이다."], [5, "승소 시 보수 약정을 사용함으로써 의뢰인은 합의금을 받을 때까지 수수료를 지불하지 않는 것을 보장받는다."], [7, "승소 시 보수 약정은 개인 상해 및 특정 소비자 소송에 대해 비용이 청구되는 주요 방식이다."], [8, "이 방식에서 변호사는 소송이 해결되고 나서야 수수료나 지불금을 받는데, 그때 그들은 의뢰인이 받는 금액의 일정 비율을 받는다."]], "why": ["주어진 문장 (1)은 ‘승소 시 보수 약정(<b>contingency pricing<\/b>)’이라는 글의 소재를 꺼냅니다", "(C)의 (7)이 이 약정이 무엇인지 정의하므로 주어진 문장 다음에는 (C)가 옵니다", "(8)에서 변호사는 소송이 해결되고 나서야 의뢰인이 받는 금액의 일정 비율을 받는다고 합니다", "이것은 (A)의 (2) <b>Therefore<\/b>, 의뢰인에게 유리한 결과만 보수가 지불된다는 말과 자연스럽게 이어지므로 (C) 다음에는 (A)가 옵니다", "(A)의 (4)에서 의뢰인의 가장 큰 두려움은 오래 걸리는 소송의 높은 수수료라고 합니다", "(B)의 (5)는 승소 시 보수 약정을 쓰면 합의금을 받을 때까지 수수료를 내지 않는다고 하여 그 두려움을 풀어 줍니다", "그래서 정답은 ④ (C) – (A) – (B)입니다."], "ch": [{"n": "①", "t": "(A) – (C) – (B)", "g": "", "ok": false, "e": ["(A)의 (2)는 <b>Therefore<\/b>(따라서)로 시작하므로 앞에 그 이유가 와야 합니다", "주어진 문장은 용어만 소개할 뿐, 유리한 결과만 보수가 지불되는 이유가 되지 못합니다", "그 이유는 (C)의 (8)입니다."]}, {"n": "②", "t": "(B) – (A) – (C)", "g": "", "ok": false, "e": ["(B)의 (5)는 의뢰인이 합의금을 받을 때까지 수수료를 내지 않는다고 합니다", "이것은 (A)의 (4)에 나온 높은 수수료에 대한 두려움을 풀어 주는 말이라 (A)보다 앞에 올 수 없습니다."]}, {"n": "③", "t": "(B) – (C) – (A)", "g": "", "ok": false, "e": ["(B)는 (A)의 (4)에 나온 의뢰인의 두려움에 답하는 내용이라 맨 앞에 올 수 없습니다", "또 (C)의 정의가 주어진 문장 바로 뒤에 와야 합니다."]}, {"n": "④", "t": "(C) – (A) – (B)", "g": "", "ok": true, "e": ["용어의 정의와 방식 (C) → 그래서 유리한 결과만 보수가 지불되고 의뢰인은 높은 수수료를 두려워함 (A) → 승소 시 보수 약정이 그 두려움을 풀어 줌 (B)으로 이어집니다."]}, {"n": "⑤", "t": "(C) – (B) – (A)", "g": "", "ok": false, "e": ["(C) 다음에 (B)가 오는 흐름은 어색하지 않습니다", "하지만 (A)의 (2) <b>Therefore<\/b> 앞에는 그 원인이 와야 합니다", "(B)의 (6), 서비스 전에 가치를 정하기 어렵다는 내용은 ‘유리한 결과만 보수가 지불된다’의 원인으로 보기 어렵습니다."]}], "tr": ["결과 기반 가격 책정 중 가장 일반적으로 알려진 형태는 변호사가 사용하는 ‘승소 시 보수 약정’이라고 불리는 관행이다.", "따라서 의뢰인에게 유리한 결과만 보수가 지불된다.", "의뢰인의 관점에서 이러한 소송의 의뢰인 대부분이 법률 사무소에 익숙하지 않고 아마도 겁을 먹을 수 있기 때문에 그 가격 책정은 부분적으로 타당하다.", "그들의 가장 큰 두려움은 해결하는 데 몇 년이 걸릴 수 있는 소송에 대한 높은 수수료이다.", "승소 시 보수 약정을 사용함으로써 의뢰인은 합의금을 받을 때까지 수수료를 지불하지 않는 것을 보장받는다.", "이를 비롯한 승소 시 보수 약정의 다른 경우에서 서비스의 경제적 가치는 서비스 전에 결정하기 어려우므로, 공급자는 구매자에게 가치를 전달하는 것의 위험과 보상을 (공급자와 구매자가) 함께 나눌 수 있게 하는 가격을 책정해 나간다.", "승소 시 보수 약정은 개인 상해 및 특정 소비자 소송에 대해 비용이 청구되는 주요 방식이다.", "이 방식에서 변호사는 소송이 해결되고 나서야 수수료나 지불금을 받는데, 그때 그들은 의뢰인이 받는 금액의 일정 비율을 받는다."], "ps": [{"n": 1, "ch": [{"e": "The most commonly known form of <b>results-based pricing<\/b>", "k": "결과 기반 가격 책정 중 가장 일반적으로 알려진 형태는"}, {"e": "is a practice called <i>contingency pricing<\/i>,", "k": "‘승소 시 보수 약정’이라고 불리는 관행이다,"}, {"e": "used by lawyers.", "k": "변호사가 사용하는."}], "easy": "결과에 따라 값을 매기는 방식 중 가장 잘 알려진 것은 변호사들이 쓰는 ‘승소 시 보수 약정’이에요.", "gist": "주어진 글이에요. 글의 소재인 승소 시 보수 약정을 소개해요."}, {"n": 2, "ch": [{"e": "(A) <b>Therefore<\/b>,", "k": "(A) 따라서,"}, {"e": "only an outcome in the client’s favor", "k": "의뢰인에게 유리한 결과만"}, {"e": "is <b>compensated<\/b>.", "k": "보수가 지불된다."}], "easy": "그래서 의뢰인에게 유리한 결과가 나왔을 때만 변호사가 돈을 받아요.", "gist": "Therefore로 시작하므로 앞에 그 이유가 와야 해요. 그 이유는 (C)의 8번 문장이에요."}, {"n": 3, "ch": [{"e": "From the client’s point of view,", "k": "의뢰인의 관점에서"}, {"e": "the pricing makes sense in part", "k": "그 가격 책정은 부분적으로 타당하다"}, {"e": "because most clients in these cases", "k": "왜냐하면 이러한 소송의 의뢰인 대부분이"}, {"e": "are unfamiliar with and possibly <b>intimidated<\/b> by law firms.", "k": "법률 사무소에 익숙하지 않고 아마도 겁을 먹을 수 있기 때문이다."}], "link": "의뢰인의 관점에서, 이러한 소송의 의뢰인 대부분이 법률 사무소에 익숙하지 않고 아마도 겁을 먹을 수 있기 때문에 그 가격 책정은 부분적으로 타당하다.", "easy": "의뢰인 입장에서도 이 방식은 어느 정도 말이 돼요. 이런 소송의 의뢰인 대부분은 법률 사무소가 낯설고 겁이 날 수도 있거든요.", "gist": "의뢰인 쪽에서 이 방식이 왜 좋은지 설명을 시작해요."}, {"n": 4, "ch": [{"e": "Their biggest fears are", "k": "그들<span class=\"r\">(= 의뢰인들)<\/span>의 가장 큰 두려움은"}, {"e": "high fees for a case", "k": "소송에 대한 높은 수수료이다"}, {"e": "that may take years to <b>settle<\/b>.", "k": "해결하는 데 몇 년이 걸릴 수 있는."}], "easy": "의뢰인들이 가장 겁내는 건, 해결까지 몇 년이 걸릴지 모르는 소송에 드는 비싼 수수료예요.", "gist": "의뢰인의 두려움을 꺼내요. (B)가 이 두려움을 풀어 줘요."}, {"n": 5, "ch": [{"e": "(B) By using contingency pricing,", "k": "(B) 승소 시 보수 약정을 사용함으로써"}, {"e": "clients are <b>ensured<\/b>", "k": "의뢰인은 보장받는다"}, {"e": "that they pay no fees", "k": "그들<span class=\"r\">(= 의뢰인들)<\/span>이 수수료를 지불하지 않는 것을"}, {"e": "until they receive a <b>settlement<\/b>.", "k": "그들<span class=\"r\">(= 의뢰인들)<\/span>이 합의금을 받을 때까지."}], "easy": "승소 시 보수 약정을 쓰면, 의뢰인은 합의금을 받기 전까지는 수수료를 한 푼도 내지 않아도 돼요.", "gist": "(A)의 두려움에 대한 해결책이에요."}, {"n": 6, "ch": [{"e": "In these and other instances of contingency pricing,", "k": "이를 비롯한 승소 시 보수 약정의 다른 경우에서"}, {"e": "the economic value of the service", "k": "서비스의 경제적 가치는"}, {"e": "is hard to determine before the service,", "k": "서비스 전에 결정하기 어렵다,"}, {"e": "and providers develop a price", "k": "그리고 공급자는 가격을 책정해 나간다"}, {"e": "that allows them to share the risks and rewards", "k": "위험과 보상을 함께 나눌 수 있게 하는"}, {"e": "of delivering value to the buyer.", "k": "구매자에게 가치를 전달하는 것의."}], "link": "이를 비롯한 승소 시 보수 약정의 다른 경우에서 서비스의 경제적 가치는 서비스 전에 결정하기 어려우므로, 공급자는 구매자에게 가치를 전달하는 것의 위험과 보상을 함께 나눌 수 있게 하는 가격을 책정해 나간다.", "easy": "이런 경우에는 서비스의 값어치를 미리 정하기 어려워요. 그래서 서비스를 주는 쪽은 결과에 따른 위험과 보상을 함께 나누는 방식으로 값을 정해요.", "gist": "승소 시 보수 약정 같은 결과 기반 가격의 원리를 정리해요."}, {"n": 7, "ch": [{"e": "(C) Contingency pricing is the major way", "k": "(C) 승소 시 보수 약정은 주요 방식이다"}, {"e": "that personal injury and certain consumer cases", "k": "개인 상해 및 특정 소비자 소송에 대해"}, {"e": "are <b>billed<\/b>.", "k": "비용이 청구되는."}], "easy": "승소 시 보수 약정은 다쳐서 하는 소송이나 일부 소비자 소송에서 주로 쓰는 비용 청구 방식이에요.", "gist": "주어진 글의 용어를 정의해요. 그래서 주어진 글 바로 뒤에 와요."}, {"n": 8, "ch": [{"e": "In this approach,", "k": "이 방식에서"}, {"e": "lawyers do not receive fees or payment", "k": "변호사는 수수료나 지불금을 받지 않는다"}, {"e": "until the case is settled,", "k": "소송이 해결되고 나서야 (받는데),"}, {"e": "when they are paid a percentage", "k": "그때 그들<span class=\"r\">(= 변호사들)<\/span>은 일정 비율을 받는다"}, {"e": "of the money that the client receives.", "k": "의뢰인이 받는 금액의."}], "link": "이 방식에서 변호사는 소송이 해결되고 나서야 수수료나 지불금을 받는데, 그때 그들은 의뢰인이 받는 금액의 일정 비율을 받는다.", "easy": "이 방식에서는 변호사가 소송이 끝날 때까지 돈을 받지 않아요. 소송이 끝나면 의뢰인이 받은 돈의 일정 비율을 받아요.", "gist": "방식을 자세히 설명해요. 이것이 (A)의 Therefore가 받는 이유예요."}]}, {"no": "10", "typ": "장문 · 글의 순서", "src": "2020년 3월 43번", "evn": ["(A)(3)", "(D)(1)", "(D)(5)", "(B)(1)", "(C)(1)"], "ev_en": "(A)(3) After more than forty years, by then fairly forgotten in this part of the world, (a) he happened to be passing through Hawaii with his wife, and decided to go back to the beach for a look. / (D)(1) Things on the beachfront had changed a lot. / (D)(5) In the gathering dusk, just one other surfer was there, a large native Hawaiian. / (B)(1) But the other surfer soon paddled over. / (C)(1) “Hey, Bernard,” the man spoke again as there came a big wave, and he moved his own board well out of the way, “you take this wave.”", "ev_ko": [["(A)(3)", "40년도 더 지난 후, 그때쯤 이쪽 세계에서 상당히 잊혔을 때, (a) 그(Farrelly)는 아내와 함께 우연히 하와이를 지나가게 되었고, 그 해변을 한번 둘러보러 가기로 했다."], ["(D)(1)", "해변 지역에 있던 것들은 많이 변해 있었다."], ["(D)(5)", "황혼이 깃들 무렵에 거기에는 다른 한 서퍼만 있었는데, 덩치 큰 하와이 원주민이었다."], ["(B)(1)", "그러나 그 다른 서퍼가 곧 물을 저으며 왔다."], ["(C)(1)", "큰 파도가 오고 있을 때 그 남자는 “이봐요, Bernard.”라고 다시 말했고, 그는 자신의 보드를 방해가 되지 않게 멀찍이 옮기며, “그쪽이 이 파도를 타시오.”라고 말했다."]], "why": ["인물이 움직이는 순서를 따라가면 됩니다", "(A)(3)에서 Farrelly는 그 해변을 한번 둘러보러 가기로 합니다", "(D)(1)은 해변 지역에 있던 것들이 많이 변해 있었다고 하므로, 해변에 도착한 장면인 (D)가 (A) 다음에 옵니다", "(D)(5)에서 <b>다른 한 서퍼<\/b>, 덩치 큰 하와이 원주민이 처음 나옵니다", "(B)(1)의 <b>the other surfer<\/b>(그 다른 서퍼)는 이 사람을 가리키므로 (B)는 (D) 다음입니다", "(C)(1)의 <b>spoke again<\/b>(다시 말했다)은 (B)에서 이미 인사를 나눈 뒤라야 쓸 수 있으므로 (C)가 마지막입니다", "그래서 정답은 ④ (D) – (B) – (C)입니다."], "ch": [{"n": "①", "t": "(B) – (D) – (C)", "g": "", "ok": false, "e": ["(B)(1)의 <b>the other surfer<\/b>(그 다른 서퍼)는 (D)(5)에서 처음 나온 하와이 원주민입니다", "그래서 (B)가 (D)보다 앞에 올 수 없습니다."]}, {"n": "②", "t": "(C) – (B) – (D)", "g": "", "ok": false, "e": ["(C)(1)의 <b>spoke again<\/b>(다시 말했다)은 앞에서 한 번 말을 건 적이 있어야 쓸 수 있습니다", "(C)는 (A) 바로 뒤에 올 수 없습니다."]}, {"n": "③", "t": "(C) – (D) – (B)", "g": "", "ok": false, "e": ["(C)가 (A) 바로 뒤에 올 수 없습니다", "또 (C)에서 이미 작별 인사를 하고 아내에게 돌아갔는데, 그 뒤에 다시 만나 이야기하는 (B)가 오면 시간 순서가 맞지 않습니다."]}, {"n": "④", "t": "(D) – (B) – (C)", "g": "", "ok": true, "e": ["해변에 도착해 다른 서퍼를 봄 (D) → 그 서퍼가 다가와 인사하고 이야기를 나눔 (B) → 그 서퍼가 파도를 양보하고 Farrelly가 아내에게 돌아감 (C)으로 이어집니다."]}, {"n": "⑤", "t": "(D) – (C) – (B)", "g": "", "ok": false, "e": ["(D) 다음에 (C)가 오면, (C)(1)의 <b>spoke again<\/b>(다시 말했다) 앞에 처음 말을 건 장면이 없습니다", "처음 인사는 (B)(2)에 나옵니다."]}], "tr": ["(A)(1) Bernard Farrelly는 역사상 가장 위대한 호주인 서퍼들 중 한 명이었다.", "(A)(2) 1964년에, 그는 하와이 Makaha 해변에서 개최된 한 주요 서핑 대회에서 우승을 거둔 최초의 비(非)하와이인이 되었다.", "(A)(3) 40년도 더 지난 후, 그때쯤 이쪽 세계에서 상당히 잊혔을 때, (a) 그(Farrelly)는 아내와 함께 우연히 하와이를 지나가게 되었고, 그 해변을 한번 둘러보러 가기로 했다.", "(D)(1) 해변 지역에 있던 것들은 많이 변해 있었다.", "(D)(2) 하지만, 해변과 파도는 변함없이 순수하고 매혹적이었고, 그래서 (d) 그(Farrelly)는 다시 한번 하와이의 파도를 타고 싶은 마음이 간절해졌다.", "(D)(3) 그의 아내는 차에 머물렀지만, Farrelly는 자신의 보드를 꺼냈다.", "(D)(4) 그는 더 멀리 나아갈수록, 더 많은 자유를 느꼈다.", "(D)(5) 황혼이 깃들 무렵에 거기에는 다른 한 서퍼만 있었는데, 덩치 큰 하와이 원주민이었다.", "(D)(6) 이 해변에서 호주인 방문객인 Farrelly는 (e) 그(Farrelly)의 거리를 유지했다.", "(B)(1) 그러나 그 다른 서퍼가 곧 물을 저으며 왔다.", "(B)(2) “안녕하시오, Bernard.” 강한 하와이 억양으로 그가 인사를 건넸다.", "(B)(3) 그 하와이인은 (b) 그(Farrelly)를 기억했고, 그들은 지나간 시절에 대해 이야기를 나누었다.", "(B)(4) 그들은 Makaha에서의 Bernard의 우승, 하와이의 아름다운 파도, 그 이후 그 해변에 일어났던 일들에 대해 이야기했다.", "(B)(5) 저 해변에 있는 것들이 아니라 이것이 진짜 하와이 경험이라고 Farrelly는 생각하고 있었다.", "(C)(1) 큰 파도가 오고 있을 때 그 남자는 “이봐요, Bernard.”라고 다시 말했고, 그는 자신의 보드를 방해가 되지 않게 멀찍이 옮기며, “그쪽이 이 파도를 타시오.”라고 말했다.", "(C)(2) 그것은 자신이 가진 것을 내어 주는 것이 항상 다른 것들에 우선하는 전형적인 하와이 문화였다.", "(C)(3) Farrelly는 그 파도의 너울이 우렁찬 아름다움으로 솟아오르는 순간에 (c) 그(하와이인)에게 감사와 작별 인사를 건넸다.", "(C)(4) 해 질 무렵에, 그는 파도를 타고 아내에게 돌아갔다.", "(C)(5) “그건 완벽한 파도였소.”라고 그는 그녀에게 말했다."], "ps": [{"n": "(A)(1)", "ch": [{"e": "(A) Bernard Farrelly was one of the greatest", "k": "(A) Bernard Farrelly는 가장 위대한 사람 중 한 명이었다"}, {"e": "of Australian surfers in history.", "k": "역사상 호주인 서퍼들 중."}], "easy": "Bernard Farrelly는 역사상 가장 위대한 호주 서퍼 중 한 사람이었어요.", "gist": "주인공 Farrelly를 소개해요."}, {"n": "(A)(2)", "ch": [{"e": "In 1964,", "k": "1964년에,"}, {"e": "he became the first <b>non-Hawaiian<\/b>", "k": "그<span class=\"r\">(= Farrelly)<\/span>는 최초의 비(非)하와이인이 되었다"}, {"e": "to win a major surfing contest", "k": "한 주요 서핑 대회에서 우승을 거둔"}, {"e": "at Makaha beach, Hawaii.", "k": "하와이 Makaha 해변에서 개최된."}], "easy": "1964년에 그는 하와이 Makaha 해변의 큰 서핑 대회에서 하와이 사람이 아닌 사람으로는 처음 우승했어요.", "gist": "Farrelly가 하와이 대회에서 우승한 적이 있다는 정보예요(12번 ①)."}, {"n": "(A)(3)", "ch": [{"e": "After more than forty years,", "k": "40년도 더 지난 후,"}, {"e": "by then fairly forgotten in this part of the world,", "k": "그때쯤 이쪽 세계에서 상당히 잊혔을 때,"}, {"e": "(a) <u>he<\/u> <b>happened to<\/b> be passing through Hawaii", "k": "(a) 그<span class=\"r\">(= Farrelly)<\/span>는 우연히 하와이를 지나가게 되었다"}, {"e": "with his wife,", "k": "아내와 함께,"}, {"e": "and decided to go back to the beach for a look.", "k": "그리고 그 해변을 한번 둘러보러 가기로 했다."}], "link": "40년도 더 지난 후, 그때쯤 이쪽 세계에서 상당히 잊혔을 때, 그는 아내와 함께 우연히 하와이를 지나가게 되었고, 그 해변을 한번 둘러보러 가기로 했다.", "easy": "40년도 더 지나 그곳에서 꽤 잊힌 사람이 되었을 때, 그는 아내와 우연히 하와이를 지나게 되었어요. 그래서 그 해변을 한번 보러 가기로 했어요.", "gist": "Farrelly가 해변에 가기로 해요. 다음에는 해변에 도착한 장면 (D)가 와요."}, {"n": "(D)(1)", "ch": [{"e": "(D) Things on the <b>beachfront<\/b>", "k": "(D) 해변 지역에 있던 것들은"}, {"e": "had changed a lot.", "k": "많이 변해 있었다."}], "easy": "해변 주변의 모습은 많이 바뀌어 있었어요.", "gist": "해변에 도착한 장면이에요. (A) 바로 뒤에 이어져요."}, {"n": "(D)(2)", "ch": [{"e": "The beach and surf, however,", "k": "하지만, 해변과 파도는"}, {"e": "were as pure and magical as ever,", "k": "변함없이 순수하고 매혹적이었다,"}, {"e": "so (d) <u>he<\/u> was <b>eager<\/b> to ride", "k": "그래서 (d) 그<span class=\"r\">(= Farrelly)<\/span>는 타고 싶은 마음이 간절해졌다"}, {"e": "on the Hawaiian surf once again.", "k": "다시 한번 하와이의 파도를."}], "link": "하지만, 해변과 파도는 변함없이 순수하고 매혹적이었고, 그래서 그는 다시 한번 하와이의 파도를 타고 싶은 마음이 간절해졌다.", "easy": "그래도 해변과 파도는 예전처럼 깨끗하고 멋졌어요. 그래서 그는 하와이의 파도를 다시 타고 싶어졌어요.", "gist": "변하지 않은 파도를 보고 Farrelly가 다시 서핑하고 싶어 해요."}, {"n": "(D)(3)", "ch": [{"e": "While his wife stayed in the car,", "k": "그<span class=\"r\">(= Farrelly)<\/span>의 아내는 차에 머물렀지만,"}, {"e": "Farrelly took his board out.", "k": "Farrelly는 자신의 보드를 꺼냈다."}], "easy": "아내는 차에 남아 있었고, Farrelly는 보드를 꺼냈어요.", "gist": "아내를 차에 두고 서핑하러 가요(12번 ⑤)."}, {"n": "(D)(4)", "ch": [{"e": "The further out he got,", "k": "그가 더 멀리 나아갈수록,"}, {"e": "the more freedom he felt.", "k": "그는 더 많은 자유를 느꼈다."}], "easy": "바다로 멀리 나갈수록 그는 더 자유로움을 느꼈어요.", "gist": "서핑하며 자유를 느끼는 장면이에요."}, {"n": "(D)(5)", "ch": [{"e": "In the <b>gathering dusk<\/b>,", "k": "황혼이 깃들 무렵에"}, {"e": "just one other surfer was there,", "k": "거기에는 다른 한 서퍼만 있었다,"}, {"e": "a large native Hawaiian.", "k": "덩치 큰 하와이 원주민이었다."}], "easy": "어둑해지는 저녁, 그곳에는 다른 서퍼가 딱 한 명 있었어요. 덩치가 큰 하와이 원주민이었어요.", "gist": "하와이 원주민 서퍼가 처음 나와요. (B)의 the other surfer가 이 사람이에요."}, {"n": "(D)(6)", "ch": [{"e": "Farrelly, an Australian visitor to these shores,", "k": "이 해변에서 호주인 방문객인 Farrelly는"}, {"e": "<b>kept<\/b> (e) <u>his<\/u> <b>distance<\/b>.", "k": "(e) 그<span class=\"r\">(= Farrelly)<\/span>의 거리를 유지했다."}], "easy": "이 해변을 찾은 호주인 손님 Farrelly는 그 사람과 거리를 두었어요.", "gist": "Farrelly가 처음에는 원주민 서퍼에게 다가가지 않아요."}, {"n": "(B)(1)", "ch": [{"e": "(B) But the other surfer", "k": "(B) 그러나 그 다른 서퍼가"}, {"e": "soon <b>paddled over<\/b>.", "k": "곧 물을 저으며 왔다."}], "easy": "그런데 그 다른 서퍼가 곧 물을 저어 그에게 다가왔어요.", "gist": "the other surfer는 (D)에서 나온 원주민이에요. 그래서 (B)는 (D) 뒤에 와요."}, {"n": "(B)(2)", "ch": [{"e": "“Hey, Bernard,” he said,", "k": "“안녕하시오, Bernard.” 그<span class=\"r\">(= 하와이 원주민 서퍼)<\/span>가 말했다,"}, {"e": "<b>by way of greeting<\/b>,", "k": "인사로,"}, {"e": "in his thick Hawaiian accent.", "k": "그의 강한 하와이 억양으로."}], "easy": "그는 강한 하와이 억양으로 “안녕하시오, Bernard.”라고 인사했어요.", "gist": "원주민 서퍼가 Farrelly에게 처음 말을 걸어요."}, {"n": "(B)(3)", "ch": [{"e": "The Hawaiian remembered (b) <u>him<\/u>,", "k": "그 하와이인은 (b) 그<span class=\"r\">(= Farrelly)<\/span>를 기억했다,"}, {"e": "and they talked of times past.", "k": "그리고 그들은 지나간 시절에 대해 이야기를 나누었다."}], "easy": "그 하와이 사람은 Farrelly를 기억하고 있었고, 둘은 옛날 이야기를 나눴어요.", "gist": "원주민 서퍼가 Farrelly를 기억하고 있었어요(12번 ②)."}, {"n": "(B)(4)", "ch": [{"e": "They talked of Bernard’s winning in Makaha,", "k": "그들은 Makaha에서의 Bernard의 우승에 대해 이야기했다,"}, {"e": "of the beautiful waves in Hawaii,", "k": "하와이의 아름다운 파도에 대해,"}, {"e": "of what had happened in the beach since.", "k": "그 이후 그 해변에 일어났던 일들에 대해."}], "easy": "둘은 Makaha에서 Bernard가 우승한 일, 하와이의 아름다운 파도, 그 뒤로 해변에서 있었던 일을 이야기했어요.", "gist": "두 사람이 나눈 이야기의 내용이에요."}, {"n": "(B)(5)", "ch": [{"e": "This, Farrelly was thinking,", "k": "이것이, Farrelly는 생각하고 있었다,"}, {"e": "is the real Hawaii experience,", "k": "진짜 하와이 경험이라고,"}, {"e": "not the stuff on the shore.", "k": "저 해변에 있는 것들이 아니라."}], "easy": "Farrelly는 해변에 있는 것들이 아니라 바로 이런 만남이 진짜 하와이 경험이라고 생각했어요.", "gist": "Farrelly가 이 만남을 소중하게 느껴요."}, {"n": "(C)(1)", "ch": [{"e": "(C) “Hey, Bernard,” the man <b>spoke again<\/b>", "k": "(C) “이봐요, Bernard.” 그 남자가 다시 말했다"}, {"e": "as there came a big wave,", "k": "큰 파도가 오고 있을 때,"}, {"e": "and he moved his own board <b>well out of the way<\/b>,", "k": "그리고 그<span class=\"r\">(= 하와이 원주민 서퍼)<\/span>는 자신의 보드를 방해가 되지 않게 멀찍이 옮겼다,"}, {"e": "“you take this wave.”", "k": "“그쪽이 이 파도를 타시오.”"}], "link": "큰 파도가 오고 있을 때 그 남자는 “이봐요, Bernard.”라고 다시 말했고, 그는 자신의 보드를 방해가 되지 않게 멀찍이 옮기며 “그쪽이 이 파도를 타시오.”라고 말했다.", "easy": "큰 파도가 오자 그 남자가 다시 “이봐요, Bernard.”라고 불렀어요. 그러고는 자기 보드를 비켜 주며 “이 파도는 당신이 타요.”라고 말했어요.", "gist": "원주민 서퍼가 큰 파도를 Farrelly에게 양보해요. spoke again이라서 (B) 뒤에 와요."}, {"n": "(C)(2)", "ch": [{"e": "It was <b>classic<\/b> Hawaiian culture,", "k": "그것<span class=\"r\">(= 파도를 양보한 일)<\/span>은 전형적인 하와이 문화였다,"}, {"e": "where giving what you have", "k": "자신이 가진 것을 내어 주는 것이"}, {"e": "is always the first order of things.", "k": "항상 다른 것들에 우선하는."}], "easy": "그건 가진 것을 내어 주는 일을 늘 가장 먼저 여기는 전형적인 하와이 문화였어요.", "gist": "양보는 하와이 원주민의 문화라는 설명이에요."}, {"n": "(C)(3)", "ch": [{"e": "Farrelly thanked him", "k": "Farrelly는 그<span class=\"r\">(= 하와이 원주민 서퍼)<\/span>에게 감사했다"}, {"e": "and farewelled (c) <u>him<\/u>", "k": "그리고 (c) 그<span class=\"r\">(= 하와이 원주민 서퍼)<\/span>에게 작별 인사를 건넸다"}, {"e": "at the moment the <b>swell<\/b> rose", "k": "그 파도의 너울이 솟아오르는 순간에"}, {"e": "to a roaring beauty.", "k": "우렁찬 아름다움으로."}], "link": "Farrelly는 그 파도의 너울이 우렁찬 아름다움으로 솟아오르는 순간에 그에게 감사와 작별 인사를 건넸다.", "easy": "파도가 우렁차고 아름답게 솟아오르는 순간, Farrelly는 그 원주민에게 고맙다고 하고 작별 인사를 했어요.", "gist": "Farrelly가 양보해 준 원주민에게 감사하고 헤어져요."}, {"n": "(C)(4)", "ch": [{"e": "With the setting sun,", "k": "해 질 무렵에,"}, {"e": "he was surfing his way back to his wife.", "k": "그<span class=\"r\">(= Farrelly)<\/span>는 파도를 타고 아내에게 돌아갔다."}], "easy": "해가 질 때 그는 파도를 타고 아내에게 돌아갔어요.", "gist": "해 질 무렵 파도를 타고 돌아가요(12번 ④)."}, {"n": "(C)(5)", "ch": [{"e": "“That,” he told her,", "k": "“그건,” 그<span class=\"r\">(= Farrelly)<\/span>는 그녀<span class=\"r\">(= 아내)<\/span>에게 말했다,"}, {"e": "“was the perfect wave.”", "k": "“완벽한 파도였소.”"}], "easy": "그는 아내에게 “그건 완벽한 파도였소.”라고 말했어요.", "gist": "이야기의 마무리예요. 양보받은 파도가 완벽한 파도였다고 해요."}]}, {"no": "11", "typ": "장문 · 지칭 추론", "src": "2020년 3월 44번", "evn": ["(C)(1)", "(C)(3)"], "ev_en": "(C)(1) “Hey, Bernard,” the man spoke again as there came a big wave, and he moved his own board well out of the way, “you take this wave.” / (C)(3) Farrelly thanked him and farewelled (c) him at the moment the swell rose to a roaring beauty.", "ev_ko": [["(C)(1)", "큰 파도가 오고 있을 때 그 남자는 “이봐요, Bernard.”라고 다시 말했고, 그는 자신의 보드를 방해가 되지 않게 멀찍이 옮기며, “그쪽이 이 파도를 타시오.”라고 말했다."], ["(C)(3)", "Farrelly는 그 파도의 너울이 우렁찬 아름다움으로 솟아오르는 순간에 (c) 그(하와이인)에게 감사와 작별 인사를 건넸다."]], "why": ["(C)(1)에서 자신의 보드를 옮기며 <b>you take this wave<\/b>(그쪽이 이 파도를 타시오)라고 파도를 양보한 사람은 <b>the man<\/b>, 즉 하와이 원주민 서퍼입니다", "(C)(3)의 주어는 <b>Farrelly<\/b>입니다", "Farrelly가 감사하고 작별 인사를 한 대상인 (c) him은 파도를 양보해 준 하와이 원주민입니다", "나머지 (a), (b), (d), (e)는 모두 Farrelly를 가리킵니다", "그래서 정답은 ③ (c)입니다."], "ch": [{"n": "①", "t": "(a)", "g": "", "ok": false, "e": ["(A)(3)에서 40년도 더 지난 뒤 아내와 함께 우연히 하와이를 지나가게 된 사람은 Farrelly입니다."]}, {"n": "②", "t": "(b)", "g": "", "ok": false, "e": ["(B)(3)의 <b>The Hawaiian remembered (b) him<\/b>에서 주어는 하와이인이고, 그가 기억한 사람은 Farrelly입니다."]}, {"n": "③", "t": "(c)", "g": "", "ok": true, "e": ["(C)(3)의 주어가 Farrelly이므로, 그가 감사하고 작별 인사를 한 (c) him은 다른 사람입니다", "(C)(1)에서 파도를 양보해 준 하와이 원주민 서퍼를 가리킵니다."]}, {"n": "④", "t": "(d)", "g": "", "ok": false, "e": ["(D)(2)에서 하와이의 파도를 다시 타고 싶어 한 사람은 Farrelly입니다", "바로 뒤 (D)(3)에서 보드를 꺼내는 사람도 Farrelly입니다."]}, {"n": "⑤", "t": "(e)", "g": "", "ok": false, "e": ["(D)(6)의 <b>Farrelly, an Australian visitor to these shores, kept (e) his distance<\/b>에서 주어가 Farrelly이므로, 거리를 유지한 사람도 Farrelly입니다."]}], "tr": ["(A)(1) Bernard Farrelly는 역사상 가장 위대한 호주인 서퍼들 중 한 명이었다.", "(A)(2) 1964년에, 그는 하와이 Makaha 해변에서 개최된 한 주요 서핑 대회에서 우승을 거둔 최초의 비(非)하와이인이 되었다.", "(A)(3) 40년도 더 지난 후, 그때쯤 이쪽 세계에서 상당히 잊혔을 때, (a) 그(Farrelly)는 아내와 함께 우연히 하와이를 지나가게 되었고, 그 해변을 한번 둘러보러 가기로 했다.", "(D)(1) 해변 지역에 있던 것들은 많이 변해 있었다.", "(D)(2) 하지만, 해변과 파도는 변함없이 순수하고 매혹적이었고, 그래서 (d) 그(Farrelly)는 다시 한번 하와이의 파도를 타고 싶은 마음이 간절해졌다.", "(D)(3) 그의 아내는 차에 머물렀지만, Farrelly는 자신의 보드를 꺼냈다.", "(D)(4) 그는 더 멀리 나아갈수록, 더 많은 자유를 느꼈다.", "(D)(5) 황혼이 깃들 무렵에 거기에는 다른 한 서퍼만 있었는데, 덩치 큰 하와이 원주민이었다.", "(D)(6) 이 해변에서 호주인 방문객인 Farrelly는 (e) 그(Farrelly)의 거리를 유지했다.", "(B)(1) 그러나 그 다른 서퍼가 곧 물을 저으며 왔다.", "(B)(2) “안녕하시오, Bernard.” 강한 하와이 억양으로 그가 인사를 건넸다.", "(B)(3) 그 하와이인은 (b) 그(Farrelly)를 기억했고, 그들은 지나간 시절에 대해 이야기를 나누었다.", "(B)(4) 그들은 Makaha에서의 Bernard의 우승, 하와이의 아름다운 파도, 그 이후 그 해변에 일어났던 일들에 대해 이야기했다.", "(B)(5) 저 해변에 있는 것들이 아니라 이것이 진짜 하와이 경험이라고 Farrelly는 생각하고 있었다.", "(C)(1) 큰 파도가 오고 있을 때 그 남자는 “이봐요, Bernard.”라고 다시 말했고, 그는 자신의 보드를 방해가 되지 않게 멀찍이 옮기며, “그쪽이 이 파도를 타시오.”라고 말했다.", "(C)(2) 그것은 자신이 가진 것을 내어 주는 것이 항상 다른 것들에 우선하는 전형적인 하와이 문화였다.", "(C)(3) Farrelly는 그 파도의 너울이 우렁찬 아름다움으로 솟아오르는 순간에 (c) 그(하와이인)에게 감사와 작별 인사를 건넸다.", "(C)(4) 해 질 무렵에, 그는 파도를 타고 아내에게 돌아갔다.", "(C)(5) “그건 완벽한 파도였소.”라고 그는 그녀에게 말했다."], "ps": [{"n": "(A)(1)", "ch": [{"e": "(A) Bernard Farrelly was one of the greatest", "k": "(A) Bernard Farrelly는 가장 위대한 사람 중 한 명이었다"}, {"e": "of Australian surfers in history.", "k": "역사상 호주인 서퍼들 중."}], "easy": "Bernard Farrelly는 역사상 가장 위대한 호주 서퍼 중 한 사람이었어요.", "gist": "주인공 Farrelly를 소개해요."}, {"n": "(A)(2)", "ch": [{"e": "In 1964,", "k": "1964년에,"}, {"e": "he became the first <b>non-Hawaiian<\/b>", "k": "그<span class=\"r\">(= Farrelly)<\/span>는 최초의 비(非)하와이인이 되었다"}, {"e": "to win a major surfing contest", "k": "한 주요 서핑 대회에서 우승을 거둔"}, {"e": "at Makaha beach, Hawaii.", "k": "하와이 Makaha 해변에서 개최된."}], "easy": "1964년에 그는 하와이 Makaha 해변의 큰 서핑 대회에서 하와이 사람이 아닌 사람으로는 처음 우승했어요.", "gist": "Farrelly가 하와이 대회에서 우승한 적이 있다는 정보예요(12번 ①)."}, {"n": "(A)(3)", "ch": [{"e": "After more than forty years,", "k": "40년도 더 지난 후,"}, {"e": "by then fairly forgotten in this part of the world,", "k": "그때쯤 이쪽 세계에서 상당히 잊혔을 때,"}, {"e": "(a) <u>he<\/u> <b>happened to<\/b> be passing through Hawaii", "k": "(a) 그<span class=\"r\">(= Farrelly)<\/span>는 우연히 하와이를 지나가게 되었다"}, {"e": "with his wife,", "k": "아내와 함께,"}, {"e": "and decided to go back to the beach for a look.", "k": "그리고 그 해변을 한번 둘러보러 가기로 했다."}], "link": "40년도 더 지난 후, 그때쯤 이쪽 세계에서 상당히 잊혔을 때, 그는 아내와 함께 우연히 하와이를 지나가게 되었고, 그 해변을 한번 둘러보러 가기로 했다.", "easy": "40년도 더 지나 그곳에서 꽤 잊힌 사람이 되었을 때, 그는 아내와 우연히 하와이를 지나게 되었어요. 그래서 그 해변을 한번 보러 가기로 했어요.", "gist": "Farrelly가 해변에 가기로 해요. 다음에는 해변에 도착한 장면 (D)가 와요."}, {"n": "(D)(1)", "ch": [{"e": "(D) Things on the <b>beachfront<\/b>", "k": "(D) 해변 지역에 있던 것들은"}, {"e": "had changed a lot.", "k": "많이 변해 있었다."}], "easy": "해변 주변의 모습은 많이 바뀌어 있었어요.", "gist": "해변에 도착한 장면이에요. (A) 바로 뒤에 이어져요."}, {"n": "(D)(2)", "ch": [{"e": "The beach and surf, however,", "k": "하지만, 해변과 파도는"}, {"e": "were as pure and magical as ever,", "k": "변함없이 순수하고 매혹적이었다,"}, {"e": "so (d) <u>he<\/u> was <b>eager<\/b> to ride", "k": "그래서 (d) 그<span class=\"r\">(= Farrelly)<\/span>는 타고 싶은 마음이 간절해졌다"}, {"e": "on the Hawaiian surf once again.", "k": "다시 한번 하와이의 파도를."}], "link": "하지만, 해변과 파도는 변함없이 순수하고 매혹적이었고, 그래서 그는 다시 한번 하와이의 파도를 타고 싶은 마음이 간절해졌다.", "easy": "그래도 해변과 파도는 예전처럼 깨끗하고 멋졌어요. 그래서 그는 하와이의 파도를 다시 타고 싶어졌어요.", "gist": "변하지 않은 파도를 보고 Farrelly가 다시 서핑하고 싶어 해요."}, {"n": "(D)(3)", "ch": [{"e": "While his wife stayed in the car,", "k": "그<span class=\"r\">(= Farrelly)<\/span>의 아내는 차에 머물렀지만,"}, {"e": "Farrelly took his board out.", "k": "Farrelly는 자신의 보드를 꺼냈다."}], "easy": "아내는 차에 남아 있었고, Farrelly는 보드를 꺼냈어요.", "gist": "아내를 차에 두고 서핑하러 가요(12번 ⑤)."}, {"n": "(D)(4)", "ch": [{"e": "The further out he got,", "k": "그가 더 멀리 나아갈수록,"}, {"e": "the more freedom he felt.", "k": "그는 더 많은 자유를 느꼈다."}], "easy": "바다로 멀리 나갈수록 그는 더 자유로움을 느꼈어요.", "gist": "서핑하며 자유를 느끼는 장면이에요."}, {"n": "(D)(5)", "ch": [{"e": "In the <b>gathering dusk<\/b>,", "k": "황혼이 깃들 무렵에"}, {"e": "just one other surfer was there,", "k": "거기에는 다른 한 서퍼만 있었다,"}, {"e": "a large native Hawaiian.", "k": "덩치 큰 하와이 원주민이었다."}], "easy": "어둑해지는 저녁, 그곳에는 다른 서퍼가 딱 한 명 있었어요. 덩치가 큰 하와이 원주민이었어요.", "gist": "하와이 원주민 서퍼가 처음 나와요. (B)의 the other surfer가 이 사람이에요."}, {"n": "(D)(6)", "ch": [{"e": "Farrelly, an Australian visitor to these shores,", "k": "이 해변에서 호주인 방문객인 Farrelly는"}, {"e": "<b>kept<\/b> (e) <u>his<\/u> <b>distance<\/b>.", "k": "(e) 그<span class=\"r\">(= Farrelly)<\/span>의 거리를 유지했다."}], "easy": "이 해변을 찾은 호주인 손님 Farrelly는 그 사람과 거리를 두었어요.", "gist": "Farrelly가 처음에는 원주민 서퍼에게 다가가지 않아요."}, {"n": "(B)(1)", "ch": [{"e": "(B) But the other surfer", "k": "(B) 그러나 그 다른 서퍼가"}, {"e": "soon <b>paddled over<\/b>.", "k": "곧 물을 저으며 왔다."}], "easy": "그런데 그 다른 서퍼가 곧 물을 저어 그에게 다가왔어요.", "gist": "the other surfer는 (D)에서 나온 원주민이에요. 그래서 (B)는 (D) 뒤에 와요."}, {"n": "(B)(2)", "ch": [{"e": "“Hey, Bernard,” he said,", "k": "“안녕하시오, Bernard.” 그<span class=\"r\">(= 하와이 원주민 서퍼)<\/span>가 말했다,"}, {"e": "<b>by way of greeting<\/b>,", "k": "인사로,"}, {"e": "in his thick Hawaiian accent.", "k": "그의 강한 하와이 억양으로."}], "easy": "그는 강한 하와이 억양으로 “안녕하시오, Bernard.”라고 인사했어요.", "gist": "원주민 서퍼가 Farrelly에게 처음 말을 걸어요."}, {"n": "(B)(3)", "ch": [{"e": "The Hawaiian remembered (b) <u>him<\/u>,", "k": "그 하와이인은 (b) 그<span class=\"r\">(= Farrelly)<\/span>를 기억했다,"}, {"e": "and they talked of times past.", "k": "그리고 그들은 지나간 시절에 대해 이야기를 나누었다."}], "easy": "그 하와이 사람은 Farrelly를 기억하고 있었고, 둘은 옛날 이야기를 나눴어요.", "gist": "원주민 서퍼가 Farrelly를 기억하고 있었어요(12번 ②)."}, {"n": "(B)(4)", "ch": [{"e": "They talked of Bernard’s winning in Makaha,", "k": "그들은 Makaha에서의 Bernard의 우승에 대해 이야기했다,"}, {"e": "of the beautiful waves in Hawaii,", "k": "하와이의 아름다운 파도에 대해,"}, {"e": "of what had happened in the beach since.", "k": "그 이후 그 해변에 일어났던 일들에 대해."}], "easy": "둘은 Makaha에서 Bernard가 우승한 일, 하와이의 아름다운 파도, 그 뒤로 해변에서 있었던 일을 이야기했어요.", "gist": "두 사람이 나눈 이야기의 내용이에요."}, {"n": "(B)(5)", "ch": [{"e": "This, Farrelly was thinking,", "k": "이것이, Farrelly는 생각하고 있었다,"}, {"e": "is the real Hawaii experience,", "k": "진짜 하와이 경험이라고,"}, {"e": "not the stuff on the shore.", "k": "저 해변에 있는 것들이 아니라."}], "easy": "Farrelly는 해변에 있는 것들이 아니라 바로 이런 만남이 진짜 하와이 경험이라고 생각했어요.", "gist": "Farrelly가 이 만남을 소중하게 느껴요."}, {"n": "(C)(1)", "ch": [{"e": "(C) “Hey, Bernard,” the man <b>spoke again<\/b>", "k": "(C) “이봐요, Bernard.” 그 남자가 다시 말했다"}, {"e": "as there came a big wave,", "k": "큰 파도가 오고 있을 때,"}, {"e": "and he moved his own board <b>well out of the way<\/b>,", "k": "그리고 그<span class=\"r\">(= 하와이 원주민 서퍼)<\/span>는 자신의 보드를 방해가 되지 않게 멀찍이 옮겼다,"}, {"e": "“you take this wave.”", "k": "“그쪽이 이 파도를 타시오.”"}], "link": "큰 파도가 오고 있을 때 그 남자는 “이봐요, Bernard.”라고 다시 말했고, 그는 자신의 보드를 방해가 되지 않게 멀찍이 옮기며 “그쪽이 이 파도를 타시오.”라고 말했다.", "easy": "큰 파도가 오자 그 남자가 다시 “이봐요, Bernard.”라고 불렀어요. 그러고는 자기 보드를 비켜 주며 “이 파도는 당신이 타요.”라고 말했어요.", "gist": "원주민 서퍼가 큰 파도를 Farrelly에게 양보해요. spoke again이라서 (B) 뒤에 와요."}, {"n": "(C)(2)", "ch": [{"e": "It was <b>classic<\/b> Hawaiian culture,", "k": "그것<span class=\"r\">(= 파도를 양보한 일)<\/span>은 전형적인 하와이 문화였다,"}, {"e": "where giving what you have", "k": "자신이 가진 것을 내어 주는 것이"}, {"e": "is always the first order of things.", "k": "항상 다른 것들에 우선하는."}], "easy": "그건 가진 것을 내어 주는 일을 늘 가장 먼저 여기는 전형적인 하와이 문화였어요.", "gist": "양보는 하와이 원주민의 문화라는 설명이에요."}, {"n": "(C)(3)", "ch": [{"e": "Farrelly thanked him", "k": "Farrelly는 그<span class=\"r\">(= 하와이 원주민 서퍼)<\/span>에게 감사했다"}, {"e": "and farewelled (c) <u>him<\/u>", "k": "그리고 (c) 그<span class=\"r\">(= 하와이 원주민 서퍼)<\/span>에게 작별 인사를 건넸다"}, {"e": "at the moment the <b>swell<\/b> rose", "k": "그 파도의 너울이 솟아오르는 순간에"}, {"e": "to a roaring beauty.", "k": "우렁찬 아름다움으로."}], "link": "Farrelly는 그 파도의 너울이 우렁찬 아름다움으로 솟아오르는 순간에 그에게 감사와 작별 인사를 건넸다.", "easy": "파도가 우렁차고 아름답게 솟아오르는 순간, Farrelly는 그 원주민에게 고맙다고 하고 작별 인사를 했어요.", "gist": "Farrelly가 양보해 준 원주민에게 감사하고 헤어져요."}, {"n": "(C)(4)", "ch": [{"e": "With the setting sun,", "k": "해 질 무렵에,"}, {"e": "he was surfing his way back to his wife.", "k": "그<span class=\"r\">(= Farrelly)<\/span>는 파도를 타고 아내에게 돌아갔다."}], "easy": "해가 질 때 그는 파도를 타고 아내에게 돌아갔어요.", "gist": "해 질 무렵 파도를 타고 돌아가요(12번 ④)."}, {"n": "(C)(5)", "ch": [{"e": "“That,” he told her,", "k": "“그건,” 그<span class=\"r\">(= Farrelly)<\/span>는 그녀<span class=\"r\">(= 아내)<\/span>에게 말했다,"}, {"e": "“was the perfect wave.”", "k": "“완벽한 파도였소.”"}], "easy": "그는 아내에게 “그건 완벽한 파도였소.”라고 말했어요.", "gist": "이야기의 마무리예요. 양보받은 파도가 완벽한 파도였다고 해요."}]}, {"no": "12", "typ": "장문 · 내용 불일치", "src": "2020년 3월 45번", "evn": ["(C)(1)"], "ev_en": "(C)(1) “Hey, Bernard,” the man spoke again as there came a big wave, and he moved his own board well out of the way, “you take this wave.”", "ev_ko": [["(C)(1)", "큰 파도가 오고 있을 때 그 남자는 “이봐요, Bernard.”라고 다시 말했고, 그는 자신의 보드를 방해가 되지 않게 멀찍이 옮기며, “그쪽이 이 파도를 타시오.”라고 말했다."]], "why": ["(C)(1)에서 자신의 보드를 방해가 되지 않게 옮기며 <b>you take this wave<\/b>(그쪽이 이 파도를 타시오)라고 말한 사람은 <b>the man<\/b>, 즉 하와이 원주민 서퍼입니다", "파도를 양보한 사람은 하와이 원주민이고, Farrelly는 양보를 받은 사람입니다", "그래서 ③ ‘하와이 문화에 따라 큰 파도를 동료에게 양보했다’는 Farrelly에 관한 내용으로 맞지 않습니다."], "ch": [{"n": "①", "t": "하와이의 서핑 대회에서 우승한 적이 있었다.", "g": "", "ok": false, "e": ["(A)(2)의 <b>the first non-Hawaiian to win a major surfing contest at Makaha beach, Hawaii<\/b>(하와이 Makaha 해변에서 개최된 한 주요 서핑 대회에서 우승을 거둔 최초의 비하와이인)와 일치합니다."]}, {"n": "②", "t": "그를 기억하는 하와이 원주민 서퍼를 만났다.", "g": "", "ok": false, "e": ["(B)(3)의 <b>The Hawaiian remembered (b) him<\/b>(그 하와이인은 그를 기억했다)과 일치합니다."]}, {"n": "③", "t": "하와이 문화에 따라 큰 파도를 동료에게 양보했다.", "g": "", "ok": true, "e": ["(C)(1)에서 큰 파도를 양보한 사람은 하와이 원주민 서퍼입니다", "Farrelly는 양보를 받았으므로 글의 내용과 맞지 않습니다."]}, {"n": "④", "t": "해 질 무렵에 파도를 탔다.", "g": "", "ok": false, "e": ["(C)(4)의 <b>With the setting sun, he was surfing his way back to his wife<\/b>(해 질 무렵에, 그는 파도를 타고 아내에게 돌아갔다)와 일치합니다."]}, {"n": "⑤", "t": "아내를 차에 둔 채 파도를 타러 갔다.", "g": "", "ok": false, "e": ["(D)(3)의 <b>While his wife stayed in the car, Farrelly took his board out<\/b>(그의 아내는 차에 머물렀지만, Farrelly는 자신의 보드를 꺼냈다)과 일치합니다."]}], "tr": ["(A)(1) Bernard Farrelly는 역사상 가장 위대한 호주인 서퍼들 중 한 명이었다.", "(A)(2) 1964년에, 그는 하와이 Makaha 해변에서 개최된 한 주요 서핑 대회에서 우승을 거둔 최초의 비(非)하와이인이 되었다.", "(A)(3) 40년도 더 지난 후, 그때쯤 이쪽 세계에서 상당히 잊혔을 때, (a) 그(Farrelly)는 아내와 함께 우연히 하와이를 지나가게 되었고, 그 해변을 한번 둘러보러 가기로 했다.", "(D)(1) 해변 지역에 있던 것들은 많이 변해 있었다.", "(D)(2) 하지만, 해변과 파도는 변함없이 순수하고 매혹적이었고, 그래서 (d) 그(Farrelly)는 다시 한번 하와이의 파도를 타고 싶은 마음이 간절해졌다.", "(D)(3) 그의 아내는 차에 머물렀지만, Farrelly는 자신의 보드를 꺼냈다.", "(D)(4) 그는 더 멀리 나아갈수록, 더 많은 자유를 느꼈다.", "(D)(5) 황혼이 깃들 무렵에 거기에는 다른 한 서퍼만 있었는데, 덩치 큰 하와이 원주민이었다.", "(D)(6) 이 해변에서 호주인 방문객인 Farrelly는 (e) 그(Farrelly)의 거리를 유지했다.", "(B)(1) 그러나 그 다른 서퍼가 곧 물을 저으며 왔다.", "(B)(2) “안녕하시오, Bernard.” 강한 하와이 억양으로 그가 인사를 건넸다.", "(B)(3) 그 하와이인은 (b) 그(Farrelly)를 기억했고, 그들은 지나간 시절에 대해 이야기를 나누었다.", "(B)(4) 그들은 Makaha에서의 Bernard의 우승, 하와이의 아름다운 파도, 그 이후 그 해변에 일어났던 일들에 대해 이야기했다.", "(B)(5) 저 해변에 있는 것들이 아니라 이것이 진짜 하와이 경험이라고 Farrelly는 생각하고 있었다.", "(C)(1) 큰 파도가 오고 있을 때 그 남자는 “이봐요, Bernard.”라고 다시 말했고, 그는 자신의 보드를 방해가 되지 않게 멀찍이 옮기며, “그쪽이 이 파도를 타시오.”라고 말했다.", "(C)(2) 그것은 자신이 가진 것을 내어 주는 것이 항상 다른 것들에 우선하는 전형적인 하와이 문화였다.", "(C)(3) Farrelly는 그 파도의 너울이 우렁찬 아름다움으로 솟아오르는 순간에 (c) 그(하와이인)에게 감사와 작별 인사를 건넸다.", "(C)(4) 해 질 무렵에, 그는 파도를 타고 아내에게 돌아갔다.", "(C)(5) “그건 완벽한 파도였소.”라고 그는 그녀에게 말했다."], "ps": [{"n": "(A)(1)", "ch": [{"e": "(A) Bernard Farrelly was one of the greatest", "k": "(A) Bernard Farrelly는 가장 위대한 사람 중 한 명이었다"}, {"e": "of Australian surfers in history.", "k": "역사상 호주인 서퍼들 중."}], "easy": "Bernard Farrelly는 역사상 가장 위대한 호주 서퍼 중 한 사람이었어요.", "gist": "주인공 Farrelly를 소개해요."}, {"n": "(A)(2)", "ch": [{"e": "In 1964,", "k": "1964년에,"}, {"e": "he became the first <b>non-Hawaiian<\/b>", "k": "그<span class=\"r\">(= Farrelly)<\/span>는 최초의 비(非)하와이인이 되었다"}, {"e": "to win a major surfing contest", "k": "한 주요 서핑 대회에서 우승을 거둔"}, {"e": "at Makaha beach, Hawaii.", "k": "하와이 Makaha 해변에서 개최된."}], "easy": "1964년에 그는 하와이 Makaha 해변의 큰 서핑 대회에서 하와이 사람이 아닌 사람으로는 처음 우승했어요.", "gist": "Farrelly가 하와이 대회에서 우승한 적이 있다는 정보예요(12번 ①)."}, {"n": "(A)(3)", "ch": [{"e": "After more than forty years,", "k": "40년도 더 지난 후,"}, {"e": "by then fairly forgotten in this part of the world,", "k": "그때쯤 이쪽 세계에서 상당히 잊혔을 때,"}, {"e": "(a) <u>he<\/u> <b>happened to<\/b> be passing through Hawaii", "k": "(a) 그<span class=\"r\">(= Farrelly)<\/span>는 우연히 하와이를 지나가게 되었다"}, {"e": "with his wife,", "k": "아내와 함께,"}, {"e": "and decided to go back to the beach for a look.", "k": "그리고 그 해변을 한번 둘러보러 가기로 했다."}], "link": "40년도 더 지난 후, 그때쯤 이쪽 세계에서 상당히 잊혔을 때, 그는 아내와 함께 우연히 하와이를 지나가게 되었고, 그 해변을 한번 둘러보러 가기로 했다.", "easy": "40년도 더 지나 그곳에서 꽤 잊힌 사람이 되었을 때, 그는 아내와 우연히 하와이를 지나게 되었어요. 그래서 그 해변을 한번 보러 가기로 했어요.", "gist": "Farrelly가 해변에 가기로 해요. 다음에는 해변에 도착한 장면 (D)가 와요."}, {"n": "(D)(1)", "ch": [{"e": "(D) Things on the <b>beachfront<\/b>", "k": "(D) 해변 지역에 있던 것들은"}, {"e": "had changed a lot.", "k": "많이 변해 있었다."}], "easy": "해변 주변의 모습은 많이 바뀌어 있었어요.", "gist": "해변에 도착한 장면이에요. (A) 바로 뒤에 이어져요."}, {"n": "(D)(2)", "ch": [{"e": "The beach and surf, however,", "k": "하지만, 해변과 파도는"}, {"e": "were as pure and magical as ever,", "k": "변함없이 순수하고 매혹적이었다,"}, {"e": "so (d) <u>he<\/u> was <b>eager<\/b> to ride", "k": "그래서 (d) 그<span class=\"r\">(= Farrelly)<\/span>는 타고 싶은 마음이 간절해졌다"}, {"e": "on the Hawaiian surf once again.", "k": "다시 한번 하와이의 파도를."}], "link": "하지만, 해변과 파도는 변함없이 순수하고 매혹적이었고, 그래서 그는 다시 한번 하와이의 파도를 타고 싶은 마음이 간절해졌다.", "easy": "그래도 해변과 파도는 예전처럼 깨끗하고 멋졌어요. 그래서 그는 하와이의 파도를 다시 타고 싶어졌어요.", "gist": "변하지 않은 파도를 보고 Farrelly가 다시 서핑하고 싶어 해요."}, {"n": "(D)(3)", "ch": [{"e": "While his wife stayed in the car,", "k": "그<span class=\"r\">(= Farrelly)<\/span>의 아내는 차에 머물렀지만,"}, {"e": "Farrelly took his board out.", "k": "Farrelly는 자신의 보드를 꺼냈다."}], "easy": "아내는 차에 남아 있었고, Farrelly는 보드를 꺼냈어요.", "gist": "아내를 차에 두고 서핑하러 가요(12번 ⑤)."}, {"n": "(D)(4)", "ch": [{"e": "The further out he got,", "k": "그가 더 멀리 나아갈수록,"}, {"e": "the more freedom he felt.", "k": "그는 더 많은 자유를 느꼈다."}], "easy": "바다로 멀리 나갈수록 그는 더 자유로움을 느꼈어요.", "gist": "서핑하며 자유를 느끼는 장면이에요."}, {"n": "(D)(5)", "ch": [{"e": "In the <b>gathering dusk<\/b>,", "k": "황혼이 깃들 무렵에"}, {"e": "just one other surfer was there,", "k": "거기에는 다른 한 서퍼만 있었다,"}, {"e": "a large native Hawaiian.", "k": "덩치 큰 하와이 원주민이었다."}], "easy": "어둑해지는 저녁, 그곳에는 다른 서퍼가 딱 한 명 있었어요. 덩치가 큰 하와이 원주민이었어요.", "gist": "하와이 원주민 서퍼가 처음 나와요. (B)의 the other surfer가 이 사람이에요."}, {"n": "(D)(6)", "ch": [{"e": "Farrelly, an Australian visitor to these shores,", "k": "이 해변에서 호주인 방문객인 Farrelly는"}, {"e": "<b>kept<\/b> (e) <u>his<\/u> <b>distance<\/b>.", "k": "(e) 그<span class=\"r\">(= Farrelly)<\/span>의 거리를 유지했다."}], "easy": "이 해변을 찾은 호주인 손님 Farrelly는 그 사람과 거리를 두었어요.", "gist": "Farrelly가 처음에는 원주민 서퍼에게 다가가지 않아요."}, {"n": "(B)(1)", "ch": [{"e": "(B) But the other surfer", "k": "(B) 그러나 그 다른 서퍼가"}, {"e": "soon <b>paddled over<\/b>.", "k": "곧 물을 저으며 왔다."}], "easy": "그런데 그 다른 서퍼가 곧 물을 저어 그에게 다가왔어요.", "gist": "the other surfer는 (D)에서 나온 원주민이에요. 그래서 (B)는 (D) 뒤에 와요."}, {"n": "(B)(2)", "ch": [{"e": "“Hey, Bernard,” he said,", "k": "“안녕하시오, Bernard.” 그<span class=\"r\">(= 하와이 원주민 서퍼)<\/span>가 말했다,"}, {"e": "<b>by way of greeting<\/b>,", "k": "인사로,"}, {"e": "in his thick Hawaiian accent.", "k": "그의 강한 하와이 억양으로."}], "easy": "그는 강한 하와이 억양으로 “안녕하시오, Bernard.”라고 인사했어요.", "gist": "원주민 서퍼가 Farrelly에게 처음 말을 걸어요."}, {"n": "(B)(3)", "ch": [{"e": "The Hawaiian remembered (b) <u>him<\/u>,", "k": "그 하와이인은 (b) 그<span class=\"r\">(= Farrelly)<\/span>를 기억했다,"}, {"e": "and they talked of times past.", "k": "그리고 그들은 지나간 시절에 대해 이야기를 나누었다."}], "easy": "그 하와이 사람은 Farrelly를 기억하고 있었고, 둘은 옛날 이야기를 나눴어요.", "gist": "원주민 서퍼가 Farrelly를 기억하고 있었어요(12번 ②)."}, {"n": "(B)(4)", "ch": [{"e": "They talked of Bernard’s winning in Makaha,", "k": "그들은 Makaha에서의 Bernard의 우승에 대해 이야기했다,"}, {"e": "of the beautiful waves in Hawaii,", "k": "하와이의 아름다운 파도에 대해,"}, {"e": "of what had happened in the beach since.", "k": "그 이후 그 해변에 일어났던 일들에 대해."}], "easy": "둘은 Makaha에서 Bernard가 우승한 일, 하와이의 아름다운 파도, 그 뒤로 해변에서 있었던 일을 이야기했어요.", "gist": "두 사람이 나눈 이야기의 내용이에요."}, {"n": "(B)(5)", "ch": [{"e": "This, Farrelly was thinking,", "k": "이것이, Farrelly는 생각하고 있었다,"}, {"e": "is the real Hawaii experience,", "k": "진짜 하와이 경험이라고,"}, {"e": "not the stuff on the shore.", "k": "저 해변에 있는 것들이 아니라."}], "easy": "Farrelly는 해변에 있는 것들이 아니라 바로 이런 만남이 진짜 하와이 경험이라고 생각했어요.", "gist": "Farrelly가 이 만남을 소중하게 느껴요."}, {"n": "(C)(1)", "ch": [{"e": "(C) “Hey, Bernard,” the man <b>spoke again<\/b>", "k": "(C) “이봐요, Bernard.” 그 남자가 다시 말했다"}, {"e": "as there came a big wave,", "k": "큰 파도가 오고 있을 때,"}, {"e": "and he moved his own board <b>well out of the way<\/b>,", "k": "그리고 그<span class=\"r\">(= 하와이 원주민 서퍼)<\/span>는 자신의 보드를 방해가 되지 않게 멀찍이 옮겼다,"}, {"e": "“you take this wave.”", "k": "“그쪽이 이 파도를 타시오.”"}], "link": "큰 파도가 오고 있을 때 그 남자는 “이봐요, Bernard.”라고 다시 말했고, 그는 자신의 보드를 방해가 되지 않게 멀찍이 옮기며 “그쪽이 이 파도를 타시오.”라고 말했다.", "easy": "큰 파도가 오자 그 남자가 다시 “이봐요, Bernard.”라고 불렀어요. 그러고는 자기 보드를 비켜 주며 “이 파도는 당신이 타요.”라고 말했어요.", "gist": "원주민 서퍼가 큰 파도를 Farrelly에게 양보해요. spoke again이라서 (B) 뒤에 와요."}, {"n": "(C)(2)", "ch": [{"e": "It was <b>classic<\/b> Hawaiian culture,", "k": "그것<span class=\"r\">(= 파도를 양보한 일)<\/span>은 전형적인 하와이 문화였다,"}, {"e": "where giving what you have", "k": "자신이 가진 것을 내어 주는 것이"}, {"e": "is always the first order of things.", "k": "항상 다른 것들에 우선하는."}], "easy": "그건 가진 것을 내어 주는 일을 늘 가장 먼저 여기는 전형적인 하와이 문화였어요.", "gist": "양보는 하와이 원주민의 문화라는 설명이에요."}, {"n": "(C)(3)", "ch": [{"e": "Farrelly thanked him", "k": "Farrelly는 그<span class=\"r\">(= 하와이 원주민 서퍼)<\/span>에게 감사했다"}, {"e": "and farewelled (c) <u>him<\/u>", "k": "그리고 (c) 그<span class=\"r\">(= 하와이 원주민 서퍼)<\/span>에게 작별 인사를 건넸다"}, {"e": "at the moment the <b>swell<\/b> rose", "k": "그 파도의 너울이 솟아오르는 순간에"}, {"e": "to a roaring beauty.", "k": "우렁찬 아름다움으로."}], "link": "Farrelly는 그 파도의 너울이 우렁찬 아름다움으로 솟아오르는 순간에 그에게 감사와 작별 인사를 건넸다.", "easy": "파도가 우렁차고 아름답게 솟아오르는 순간, Farrelly는 그 원주민에게 고맙다고 하고 작별 인사를 했어요.", "gist": "Farrelly가 양보해 준 원주민에게 감사하고 헤어져요."}, {"n": "(C)(4)", "ch": [{"e": "With the setting sun,", "k": "해 질 무렵에,"}, {"e": "he was surfing his way back to his wife.", "k": "그<span class=\"r\">(= Farrelly)<\/span>는 파도를 타고 아내에게 돌아갔다."}], "easy": "해가 질 때 그는 파도를 타고 아내에게 돌아갔어요.", "gist": "해 질 무렵 파도를 타고 돌아가요(12번 ④)."}, {"n": "(C)(5)", "ch": [{"e": "“That,” he told her,", "k": "“그건,” 그<span class=\"r\">(= Farrelly)<\/span>는 그녀<span class=\"r\">(= 아내)<\/span>에게 말했다,"}, {"e": "“was the perfect wave.”", "k": "“완벽한 파도였소.”"}], "easy": "그는 아내에게 “그건 완벽한 파도였소.”라고 말했어요.", "gist": "이야기의 마무리예요. 양보받은 파도가 완벽한 파도였다고 해요."}]}];
+var ENC="=IakivjoRK+OjGp47MakivDpRK+OhGp4";
+var SETID="g3r12p2", N=D.length, TITLE="고3 미니모의고사 12회 07–12번";
+var CIRC="①②③④⑤";
+function dec(s){var b=atob(s.split("").reverse().join(""));var u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder("utf-8").decode(u);}
+var ANS=dec(ENC).split(";").map(function(x){return x.split("|").map(function(c){return CIRC.indexOf(c)+1;});});
+function isRight(i,a){return ANS[i].indexOf(a)>=0;}
+function ansText(i){return ANS[i].map(function(n){return CIRC[n-1];}).join(", ");}
+
+var GCODE="h3", GRADE="고3", FILE="12b", NEXT="13a.html";
+const KEY='via_mm_'+GCODE+'_'+FILE;
+let S={checks:{},locked:{},res:{},sub:null,q:[]};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* REC 연결 지점: 지금은 기기 안에 대기열로만 쌓음 */
+function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localStorage.getItem('via_minimock_rec_queue')||'[]');q.push(ev);localStorage.setItem('via_minimock_rec_queue',JSON.stringify(q));}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const app=$('#app');
+let view='word',quiz=null,armed=null;
+function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function shuffle(arr,seed){const a=arr.slice();let s=hash(seed)||1;for(let i=a.length-1;i>0;i--){s=Math.imul(s^(s>>>15),2246822519)>>>0;const j=s%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+const WS=WORDS.sets[0];
+
+function hdr(){
+  const on=id=>(view===id)?'on':'';
+  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><a class="link" href="index.html">목록</a></div><div class="tabs"><button class="tab ${on('word')}" data-v="word">단어</button><button class="tab ${on('submit')}" data-v="submit">답 제출</button><button class="tab ${on('exp')}" data-v="exp" ${S.sub?'':'disabled'}>해설</button></div></div></header>`;
+}
+function noteList(){
+  const out=[],ck=S.checks[WS.id]||{};
+  WS.words.forEach((w,i)=>{
+    const c=ck[i];if(!c)return;
+    const parts=['m','s','a'].filter(p=>c[p]&&(p==='m'||w[p]));
+    if(parts.length)out.push({i:i,w:w,parts:parts});
+  });
+  return out;
+}
+function render(){
+  if(view==='word')renderWord();
+  else if(view==='note')renderNote();
+  else if(view==='quiz')renderQuiz();
+  else if(view==='result')renderResult();
+  else if(view==='submit')renderSubmit();
+  else if(view==='exp')renderExp();
+  window.scrollTo(0,0);
+}
+/* ---- 단어 확인 ---- */
+function renderWord(){
+  const ck=S.checks[WS.id]||{},locked=!!S.locked[WS.id],n=noteList().length;
+  let h=hdr()+`<div class="wrap ${locked?'locked':''}">`;
+  WS.words.forEach((w,i)=>{
+    const c=ck[i]||{};
+    h+=`<div class="row"><div class="top"><span class="no">${i+1}</span><span class="word">${esc(w.w)}</span><span class="src">${esc(w.src)}번</span></div><div class="cells">`;
+    h+=`<button class="cell m ${c.m?'bad':''}" data-i="${i}" data-p="m"><span class="tag">뜻</span><span>${esc(w.m)}</span></button>`;
+    if(w.s)h+=`<button class="cell s ${c.s?'bad':''}" data-i="${i}" data-p="s"><span class="tag">유</span><span>${esc(w.s[0])}<span class="ko">${esc(w.s[1])}</span></span></button>`;
+    if(w.a)h+=`<button class="cell a ${c.a?'bad':''}" data-i="${i}" data-p="a"><span class="tag">반</span><span>${esc(w.a[0])}<span class="ko">${esc(w.a[1])}</span></span></button>`;
+    h+=`</div></div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap">`;
+  h+=locked?`<button class="btn" disabled>확인 끝</button>`:`<button class="btn ${armed==='lock'?'arm':''}" id="lock">${armed==='lock'?'한 번 더 누르면 확인 끝':'확인 끝'}</button>`;
+  h+=`<button class="btn pri" id="gonote">단어 오답노트 ${n}</button></div></div>`;
+  app.innerHTML=h;
+  app.querySelectorAll('.cell').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,p=b.dataset.p;
+    S.checks[WS.id]=S.checks[WS.id]||{};
+    const c=S.checks[WS.id][i]=S.checks[WS.id][i]||{};
+    c[p]=c[p]?0:1;save();
+    b.classList.toggle('bad',!!c[p]);
+    $('#gonote').textContent='단어 오답노트 '+noteList().length;
+  });
+  const lk=$('#lock');if(lk)lk.onclick=()=>{
+    if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
+      recSend({type:'word',marks:noteList().map(it=>({w:it.w.w,parts:it.parts}))});}
+    else armed='lock';
+    render();
+  };
+  $('#gonote').onclick=()=>{view='note';armed=null;render();};
+}
+function renderNote(){
+  const list=noteList();
+  let h=`<header><div class="wrap hd2"><h1>단어 오답노트 <span class="meta">${list.length}개</span></h1><button class="link" id="back">확인표</button></div></header><div class="wrap">`;
+  if(!list.length)h+=`<div class="empty">아직 표시한 단어가 없습니다</div>`;
+  list.forEach(it=>{
+    const w=it.w,r=(S.res[WS.id]||{})[it.i]||{};
+    h+=`<div class="note-item"><span class="w">${esc(w.w)}</span><span class="meta">${esc(w.src)}번</span>`;
+    const row=(p,tag,txt,ko)=>{
+      const bad=it.parts.includes(p);
+      const rs=r[p]===1?'<span class="res o">맞춤</span>':r[p]===0?'<span class="res x">틀림</span>':'';
+      return `<div class="part ${p} ${bad?'bad':''}"><span class="tag">${tag}</span><span>${esc(txt)}${ko?`<span class="ko"> ${esc(ko)}</span>`:''}</span>${bad?rs:''}</div>`;
+    };
+    h+=row('m','뜻',w.m,'');
+    if(w.s)h+=row('s','유',w.s[0],w.s[1]);
+    if(w.a)h+=row('a','반',w.a[0],w.a[1]);
+    h+=`</div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap"><button class="btn" id="back2">확인표</button><button class="btn pri" id="start" ${list.length?'':'disabled'}>복습 시작</button></div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='word';armed=null;render();};
+  $('#back2').onclick=()=>{view='word';render();};
+  $('#start').onclick=()=>{quiz={qs:buildQuestions(),n:0,right:0,done:false,shown:false};view='quiz';render();};
+}
+function buildQuestions(){
+  const qs=[];
+  noteList().forEach(it=>{
+    const w=it.w;
+    it.parts.forEach(p=>{
+      let q={i:it.i,p:p,w:w.w};
+      if(p==='m'){
+        const toks=x=>x.split(/[,，]\s*/).map(t=>t.trim());
+        const ct=toks(w.m);
+        const pool=[...new Set(WS.words.filter(o=>o!==w).map(o=>o.m))].filter(m=>!toks(m).some(t=>ct.includes(t)));
+        const wrong=shuffle(pool,WS.id+w.w+'m').slice(0,3);
+        q.type='choice';q.ask='뜻을 고르세요';
+        q.opts=shuffle([{t:w.m,ok:1}].concat(wrong.map(t=>({t:t,ok:0}))),WS.id+w.w+'mo');
+      }else{
+        const ans=w[p],d=WS.dist||[];
+        q.ask=p==='s'?'유의어를 고르세요':'반의어를 고르세요';
+        if(d.length>=3){
+          q.type='choice';
+          q.opts=shuffle([{t:ans[0],ko:ans[1],ok:1}].concat(shuffle(d,WS.id+w.w+p).slice(0,3).map(x=>({t:x[0],ko:x[1],ok:0}))),WS.id+w.w+p+'o');
+        }else{q.type='flip';q.ans=ans;}
+      }
+      qs.push(q);
+    });
+  });
+  return qs;
+}
+function recordRes(q,ok){S.res[WS.id]=S.res[WS.id]||{};const r=S.res[WS.id][q.i]=S.res[WS.id][q.i]||{};r[q.p]=ok?1:0;save();}
+function renderQuiz(){
+  const q=quiz.qs[quiz.n];
+  let h=`<header><div class="wrap hd2"><h1>복습</h1><button class="link" id="back">오답노트</button></div></header><div class="wrap ${quiz.done?'done':''}"><div class="q"><div class="cnt">${quiz.n+1} / ${quiz.qs.length}</div><div class="ask">${q.ask}</div><div class="target">${esc(q.w)}</div>`;
+  if(q.type==='choice'){
+    q.opts.forEach((o,k)=>{
+      let cls='';
+      if(quiz.done){if(o.ok)cls='right';else if(k===quiz.pick)cls='wrong';}
+      h+=`<button class="opt ${cls}" data-k="${k}">${esc(o.t)}${o.ko?`<span class="ko">${esc(o.ko)}</span>`:''}</button>`;
+    });
+  }else if(quiz.shown)h+=`<div class="opt right">${esc(q.ans[0])}<span class="ko">${esc(q.ans[1])}</span></div>`;
+  h+=`</div></div><div class="bar"><div class="wrap">`;
+  if(q.type==='flip'&&!quiz.shown)h+=`<button class="btn pri" id="show">정답 보기</button>`;
+  else if(q.type==='flip')h+=`<button class="btn" id="no">몰랐음</button><button class="btn pri" id="yes">알았음</button>`;
+  else h+=`<button class="btn pri" id="next" ${quiz.done?'':'disabled'}>${quiz.n+1===quiz.qs.length?'결과':'다음'}</button>`;
+  h+=`</div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='note';render();};
+  app.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+    if(quiz.done)return;
+    const k=+b.dataset.k;quiz.pick=k;quiz.done=true;
+    const ok=q.opts[k].ok===1;if(ok)quiz.right++;recordRes(q,ok);render();
+  });
+  const nx=$('#next');if(nx)nx.onclick=()=>advance();
+  const sh=$('#show');if(sh)sh.onclick=()=>{quiz.shown=true;render();};
+  const yes=$('#yes');if(yes)yes.onclick=()=>{quiz.right++;recordRes(q,true);advance();};
+  const no=$('#no');if(no)no.onclick=()=>{recordRes(q,false);advance();};
+}
+function advance(){
+  if(quiz.n+1>=quiz.qs.length){view='result';render();return;}
+  quiz.n++;quiz.done=false;quiz.shown=false;quiz.pick=null;render();
+}
+function renderResult(){
+  app.innerHTML=`<header><div class="wrap hd2"><h1>복습 결과</h1></div></header><div class="wrap"><div class="score">${quiz.right} <small>/ ${quiz.qs.length}</small></div></div><div class="bar"><div class="wrap"><button class="btn" id="a">오답노트</button><button class="btn pri" id="b">확인표</button></div></div>`;
+  $('#a').onclick=()=>{view='note';render();};
+  $('#b').onclick=()=>{view='word';render();};
+}
+/* ---- 답 제출 ---- */
+function renderSubmit(){
+  const done=!!S.sub;
+  while(S.q.length<N)S.q.push(0);
+  let h=hdr()+'<div class="wrap">';
+  for(let i=0;i<N;i++){
+    const sel=done?S.sub.a[i]:S.q[i];
+    h+=`<div class="qrow"><div class="qno">${esc(D[i].no)}</div><div class="opts">`;
+    for(let k=1;k<=5;k++)h+=`<button class="opt2 ${sel===k?'on':''}" data-q="${i}" data-k="${k}" ${done?'disabled':''}>${CIRC[k-1]}</button>`;
+    h+='</div></div>';
+  }
+  h+='</div><div class="bar"><div class="wrap">';
+  if(done)h+='<button class="btn pri" id="toexp">해설 보기</button>';
+  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>제출</button>`;
+  h+='</div></div>';
+  app.innerHTML=h;
+  app.querySelectorAll('.opt2').forEach(b=>b.onclick=()=>{
+    if(S.sub)return;
+    const q=+b.dataset.q,k=+b.dataset.k;S.q[q]=k;save();
+    b.parentNode.querySelectorAll('.opt2').forEach(x=>x.classList.toggle('on',+x.dataset.k===k));
+    $('#sub').disabled=!S.q.every(v=>v>0);
+  });
+  const sb=$('#sub');if(sb)sb.onclick=()=>{
+    let s=0;for(let i=0;i<N;i++)if(isRight(i,S.q[i]))s++;
+    S.sub={t:Date.now(),a:S.q.slice(),s:s};save();
+    recSend({type:'submit',a:S.sub.a,s:s,n:N});
+    view='exp';render();
+  };
+  const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
+}
+/* ---- 해설 ---- */
+function sHtml(s,evn){
+  const ev=evn.indexOf(s.n)>=0;
+  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
+  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
+  const lays=[];
+  if(s.link)lays.push(['이어 읽으면',s.link]);
+  if(s.easy)lays.push(['쉬운 말로',s.easy]);
+  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
+  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
+  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
+  return x+'</div>';
+}
+function qHtml(i,a){
+  const d=D[i],ok=isRight(i,a);
+  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
+  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
+  h+='<h4>정답 근거</h4>';
+  h+=`<p class="en">${esc(d.ev_en)}</p>`;
+  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
+  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  if(d.ps&&d.ps.length){
+    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
+  }
+  h+='<h4>선택지 하나씩</h4>';
+  d.ch.forEach(c=>{
+    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  });
+  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  return h+'</div></details>';
+}
+function renderExp(){
+  const rec=S.sub;
+  let h=hdr()+'<div class="wrap">';
+  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='</div><h2>해설</h2>';
+  for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
+  h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
+  app.innerHTML=h;
+}
+/* 위임 이벤트 */
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tab');
+  if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
+  const ch=e.target.closest('.ch');
+  if(ch){ch.classList.toggle('open');return;}
+  const st=e.target.closest('.stg');
+  if(st){
+    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const shown=lays.filter(l=>l.classList.contains('on')).length;
+    if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
+    else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
+    return;
+  }
+  const al=e.target.closest('.tbtn');
+  if(al){
+    const open=al.dataset.all==='1',body=al.closest('.dkbody');
+    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
+    body.querySelectorAll('.s').forEach(s=>{
+      const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
+      lays.forEach(l=>l.classList.toggle('on',open));
+      if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
+    });
+  }
+});
+render();
+</script>
+</body>
+</html>
