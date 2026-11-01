@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>미니모의고사</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#fff;--soft:#f5f6f8;--accent:#23406b}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+.wrap{max-width:520px;margin:0 auto;padding:0 16px}
+header{border-bottom:1px solid var(--line)}
+header .wrap{height:54px;display:flex;align-items:center}
+h1{font-size:18px;margin:0}
+.grid{display:grid;gap:12px;padding:22px 0}
+a.g{display:flex;align-items:center;justify-content:space-between;min-height:84px;padding:0 22px;border-radius:14px;background:var(--soft);border:2px solid transparent;color:var(--ink);text-decoration:none;font-size:24px;font-weight:800}
+a.g small{font-size:14px;font-weight:400;color:var(--sub)}
+a.g.last{border-color:var(--accent);background:#fff}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>미니모의고사</h1></div></header>
+<div class="wrap grid">
+<a class="g" data-g="1" href="h1/index.html">고1<small>1–24회</small></a>
+<a class="g" data-g="2" href="h2/index.html">고2<small>1–24회</small></a>
+<a class="g" data-g="3" href="h3/index.html">고3<small>1–24회</small></a>
+</div>
+<script>
+var K='via_mm_last_grade';
+try{var l=localStorage.getItem(K);var e=document.querySelector('a.g[data-g="'+l+'"]');if(e)e.classList.add('last');}catch(x){}
+document.querySelectorAll('a.g').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem(K,a.dataset.g);}catch(x){}});});
+</script>
+</body>
+</html>
