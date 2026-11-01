@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>고1 미니모의고사 16회 01–06번</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f6f8;--accent:#23406b;--bad:#c2392b;--badbg:#fdeceb;--good:#1f7a4d;--goodbg:#e8f5ee;--hl:#fff3b0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+body{padding-bottom:84px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .row1{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+h1{font-size:16px;margin:0;font-weight:700;line-height:1.3}
+.tabs{display:flex;gap:0}
+.tab{flex:1;border:0;background:none;font-family:inherit;font-size:15px;font-weight:700;color:var(--sub);padding:11px 0;border-bottom:3px solid transparent}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tab[disabled]{opacity:.35}
+.link{text-decoration:none;border:0;background:none;color:var(--accent);font-size:15px;font-weight:700;padding:10px 4px;font-family:inherit}
+.hd2{display:flex;align-items:center;justify-content:space-between;height:54px}
+.hd2 h1{font-size:17px}
+.row{padding:12px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.no{color:var(--sub);font-size:13px;min-width:20px}
+.word{font-size:19px;font-weight:700}
+.src{color:var(--sub);font-size:12px;margin-left:auto}
+.cells{display:flex;flex-direction:column;gap:6px}
+.cell{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 12px;border-radius:8px;background:var(--soft);border:1.5px solid transparent;font-size:16px;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.cell .tag,.part .tag{font-size:12px;font-weight:700;color:#fff;border-radius:4px;padding:2px 7px;min-width:34px;text-align:center;background:#7a8594}
+.cell.s .tag,.part.s .tag{background:#2d62a8}.cell.a .tag,.part.a .tag{background:#b4472f}
+.ko{color:var(--sub);font-size:14px;margin-left:6px}
+.cell.bad{background:var(--badbg);border-color:var(--bad)}
+.cell.bad .tag{background:var(--bad)}
+.locked .cell{pointer-events:none}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:6}
+.bar .wrap{display:flex;gap:10px;padding:0}
+.btn{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;line-height:1.25;font-weight:700;font-family:inherit}
+.btn.pri{background:var(--accent);color:#fff}
+.btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn[disabled]{opacity:.4}
+.note-item{padding:14px 0;border-bottom:1px solid var(--line)}
+.note-item .w{font-size:19px;font-weight:700}
+.meta{color:var(--sub);font-size:12px;margin-left:8px;font-weight:400}
+.part{display:flex;gap:10px;align-items:baseline;padding:6px 0 0;font-size:16px}
+.part .tag{align-self:center}
+.part.bad{color:var(--bad);font-weight:700}
+.part.bad .tag{background:var(--bad)}
+.part .ko{font-weight:400}
+.part .res{margin-left:auto;font-size:13px;font-weight:700}
+.res.o{color:var(--good)}.res.x{color:var(--bad)}
+.empty{color:var(--sub);text-align:center;padding:60px 0;font-size:16px}
+.q{padding:22px 0 8px}
+.q .cnt{color:var(--sub);font-size:14px}
+.q .ask{font-size:15px;color:var(--sub);margin-top:14px}
+.q .target{font-size:28px;font-weight:700;margin:6px 0 18px}
+.opt{display:block;width:100%;text-align:left;min-height:56px;padding:10px 14px;margin-bottom:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:18px;font-family:inherit;color:var(--ink)}
+.opt .ko{display:block;margin:2px 0 0}
+.opt.right{border-color:var(--good);background:var(--goodbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.done .opt{pointer-events:none}
+.score{font-size:34px;font-weight:700;text-align:center;margin:30px 0 6px}
+.score small{font-size:18px;color:var(--sub);font-weight:400}
+.foot{color:var(--sub);font-size:12px;text-align:center;padding:26px 0 8px}
+/* submit */
+.qrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.qno{font-weight:800;font-size:20px;width:34px;flex:none}
+.opts{display:flex;gap:8px;flex:1}
+.opt2{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:20px;font-family:inherit;color:var(--ink)}
+.opt2.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.opt2[disabled]{opacity:.55}
+.opt2.on[disabled]{opacity:1}
+/* explanation */
+h2{font-size:17px;margin:26px 0 10px}
+.quick div{padding:3px 0;font-size:17px}
+.quick .o{color:var(--good)}.quick .x{color:var(--bad)}
+.sub{color:var(--sub)}
+details.qd{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;background:var(--bg)}
+details.qd>summary{list-style:none;cursor:pointer;padding:14px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+details.qd>summary::-webkit-details-marker{display:none}
+details.qd>summary small{font-weight:400;color:var(--sub);font-size:13px}
+.res2{margin-left:auto;font-size:14px}
+.res2.o{color:var(--good)}.res2.x{color:var(--bad)}
+.qx{padding:0 14px 14px}
+.qx h4{font-size:15px;margin:18px 0 8px;color:var(--accent)}
+.qx p{margin:6px 0;line-height:1.75;font-size:16px}
+.ansline b{font-size:17px}
+.en{font-size:16px;line-height:1.7;background:var(--soft);padding:10px 12px;border-radius:8px}
+.kolist{list-style:none;margin:6px 0;padding:0}
+.kolist li{font-size:15px;line-height:1.7}
+.kolist .n{font-size:12px;color:var(--sub);margin-right:6px}
+.why p{margin:4px 0;font-size:15px}
+.c{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.c.ok{border-color:var(--good);background:var(--goodbg)}
+.c .ct{font-weight:700;font-size:16px;line-height:1.5}
+.c .tg{display:inline-block;font-size:12px;color:#fff;background:#7a8594;border-radius:4px;padding:1px 7px;margin-right:6px;font-weight:700}
+.c.ok .tg{background:var(--good)}
+.c p{margin:4px 0 0;font-size:15px}
+.r{color:var(--sub);font-size:13px}
+/* direct reading practice */
+details.dk{margin:16px 0 4px;border:1px solid var(--line);border-radius:10px}
+details.dk>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700;color:var(--accent);font-size:15px}
+details.dk>summary::-webkit-details-marker{display:none}
+.dkbody{padding:0 12px 12px}
+.tool{display:flex;gap:8px;margin:2px 0 10px}
+.tbtn{flex:1;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:inherit;font-size:14px;font-weight:700;color:var(--accent)}
+.s{padding:10px 0 12px;border-top:1px dashed var(--line)}
+.s.ev{background:linear-gradient(90deg,#fffbe8,#fff);margin:0 -6px;padding-left:6px;padding-right:6px}
+.sn{margin-bottom:6px}
+.lb{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--sub);margin-right:6px}
+.lb.ev{background:var(--hl);color:#7a5b00}
+.ch{padding:9px 11px;margin-bottom:6px;border-radius:8px;background:var(--soft);cursor:pointer;border-bottom:2px dotted #c9cfd6}
+.ch .ce{font-size:16px;line-height:1.6}
+.ch .ce b{background:linear-gradient(transparent 55%,var(--hl) 55%)}
+.ch .ck{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--line);color:var(--accent);font-size:15px;line-height:1.65}
+.ch.open{background:#eef2f8;border-bottom-color:transparent}
+.ch.open .ck{display:block}
+.lay{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:14px;line-height:1.7}
+.lay.on{display:block}
+.stg{width:100%;min-height:42px;margin-top:6px;border:1px solid var(--accent);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const WORDS={"sets": [{"id": "g1r16p1", "title": "고1 미니모의고사 16회 01–06번", "range": "01–06번", "words": [{"src": "01", "w": "own", "m": "소유하다, 지배하다", "s": ["control", "조종하다"], "a": null}, {"src": "02", "w": "essence", "m": "본질", "s": null, "a": null}, {"src": "03", "w": "delight", "m": "즐거워하다", "s": ["enjoy", "즐기다"], "a": null}, {"src": "04", "w": "immediate", "m": "즉각적인", "s": null, "a": ["delayed", "지연된"]}, {"src": "05", "w": "graph", "m": "그래프", "s": null, "a": null}, {"src": "06", "w": "access", "m": "접근하다", "s": null, "a": null}, {"src": "07", "w": "rank", "m": "순위를 차지하다", "s": null, "a": null}, {"src": "08", "w": "mend", "m": "고치다", "s": ["repair", "수리하다"], "a": null}, {"src": "09", "w": "creativity", "m": "창의성", "s": null, "a": null}, {"src": "10", "w": "routine", "m": "일상적인", "s": null, "a": ["unusual", "특이한"]}, {"src": "11", "w": "limited", "m": "제한된", "s": null, "a": ["unlimited", "무제한의"]}, {"src": "12", "w": "relative", "m": "상대적인", "s": null, "a": ["absolute", "절대적인"]}, {"src": "13", "w": "emphasize", "m": "강조하다", "s": ["stress", "강조하다"], "a": null}, {"src": "14", "w": "eliminate", "m": "제거하다", "s": null, "a": null}, {"src": "15", "w": "disrupt", "m": "지장을 주다", "s": null, "a": null}, {"src": "16", "w": "familiar", "m": "익숙한", "s": null, "a": ["unfamiliar", "낯선"]}, {"src": "17", "w": "essential", "m": "필수적인", "s": null, "a": null}, {"src": "18", "w": "biased", "m": "편향된", "s": null, "a": ["neutral", "중립적인"]}, {"src": "19", "w": "categorize", "m": "분류하다", "s": ["classify", "분류하다"], "a": null}, {"src": "20", "w": "necessary", "m": "필요한", "s": null, "a": null}], "dist": [["fade", "희미해지다"], ["sudden", "갑작스러운"], ["rigid", "경직된"]]}]};
+var D=[{"no": "01", "typ": "주장", "src": "2017년 6월 20번", "evn": [2, 4], "ev_en": "However, the play must be owned by the children. / Children need to be able to delight in creative and immediate language play, to say silly things and make themselves laugh, and to have control over the pace, timing, direction, and flow.", "ev_ko": [[2, "하지만 언어 놀이는 아이들에 의해 소유되어야 한다(아이들이 주체가 되어야 한다)."], [4, "아이들은 창의적이고 즉각적인 언어 놀이에서 즐거워하고, 유치한 것들을 말해서 그들 자신을 웃게 만들고, (언어 놀이의) 속도, 타이밍, 방향, 흐름을 통제할 수 있어야 한다."]], "why": ["2번에서 언어 놀이는 아이들에 의해 <b>소유되어야 한다(아이들이 주체가 되어야 한다)<\/b>고 했습니다", "4번에서도 아이들이 속도·타이밍·방향·흐름을 <b>스스로 통제<\/b>할 수 있어야 한다고 합니다", "그래서 '아이들이 언어 놀이를 주도하게 하라'가 정답입니다."], "ch": [{"n": "①", "t": "아이들이 언어 놀이를 주도하게 하라.", "g": "", "ok": true, "e": ["놀이는 아이들의 것이어야 하며 아이들이 속도·방향을 스스로 조절해야 한다는 내용과 정확히 일치한다."]}, {"n": "②", "t": "아이들의 질문에 즉각적으로 반응하라.", "g": "", "ok": false, "e": ["아이들의 질문에 대한 반응 속도는 본문에서 언급되지 않는다."]}, {"n": "③", "t": "아이들에게 다양한 언어 자극을 제공하라.", "g": "", "ok": false, "e": ["어른이 자극을 <b>제공<\/b>하라는 말이 아닙니다", "지문은 아이들이 놀이를 <b>주도<\/b>해야 한다고 합니다(2번·4번)", "방향이 다릅니다."]}, {"n": "④", "t": "대화를 통해 아이들의 공감 능력을 키워라.", "g": "", "ok": false, "e": ["공감 능력에 대한 언급은 본문에 없다."]}, {"n": "⑤", "t": "언어 놀이를 통해 자녀와의 관계를 회복하라.", "g": "", "ok": false, "e": ["부모-자녀 관계 회복은 본문의 주제가 아니다."]}], "tr": ["언어 놀이는 아이들의 언어 학습과 발달에 유익하기 때문에 우리는 아이들의 언어 놀이를 적극적으로 장려하고 심지어 그들(아이들)의 언어 놀이에 동참해야 한다.", "하지만 언어 놀이는 아이들에 의해 소유되어야 한다(아이들이 주체가 되어야 한다).", "만약 그것(언어 놀이)이 (의도한) 결과를 만들어내기 위해 어른들이 사용하는 또 다른 교육적 수단이 된다면, 그것은 그것의 참된 본질을 잃게 된다.", "아이들은 창의적이고 즉각적인 언어 놀이에서 즐거워하고, 유치한 것들을 말해서 그들 자신을 웃게 만들고, (언어 놀이의) 속도, 타이밍, 방향, 흐름을 통제할 수 있어야 한다.", "아이들이 자신의 언어 놀이를 발전시키는 것이 허용될 때, 그것으로부터 다양한 이점들이 생긴다."], "ps": [{"n": 1, "ch": [{"e": "<b>Language play<\/b> is good", "k": "<b>언어 놀이<\/b>는 유익하다"}, {"e": "for children’s language learning and development,", "k": "아이들의 언어 학습과 발달에,"}, {"e": "and therefore we should strongly <b>encourage<\/b>,", "k": "그래서 우리는 적극적으로 <b>장려해야 한다<\/b>,"}, {"e": "and even <b>join in<\/b> their language play.", "k": "그리고 심지어 그들<span class=\"r\">(= 아이들)<\/span>의 언어 놀이에 <b>동참해야 한다<\/b>."}], "easy": "언어 놀이는 아이들의 언어 발달에 좋으니, 어른이 응원하고 같이 놀아 주기도 해야 한다는 말이에요.", "gist": "글의 일반적인 주제 — 언어 놀이는 아이들에게 유익하다."}, {"n": 2, "ch": [{"e": "<b>However<\/b>,", "k": "<b>하지만<\/b>,"}, {"e": "the play must be <b>owned by<\/b> the children.", "k": "그 놀이는 아이들에 의해 <b>소유되어야 한다<\/b>(아이들이 주체가 되어야 한다)."}], "easy": "그래도 놀이의 주인은 아이들이어야 한다는 말이에요.", "gist": "필자의 관점 — However 뒤에서 '아이들이 주체'라는 세부 논지가 나온다."}, {"n": 3, "ch": [{"e": "<b>If<\/b> it becomes", "k": "만약 그것<span class=\"r\">(= 언어 놀이)<\/span>이 ~이 된다면"}, {"e": "another educational tool", "k": "또 다른 교육적 수단"}, {"e": "for adults to use", "k": "어른들이 사용하는"}, {"e": "to produce outcomes,", "k": "(의도한) 결과를 만들어내기 위해,"}, {"e": "it <b>loses its very essence<\/b>.", "k": "그것은 그것의 참된 <b>본질을 잃게 된다<\/b>."}], "easy": "어른이 원하는 결과를 얻으려는 도구가 되면, 놀이의 본질이 사라진다는 말이에요.", "gist": "2번 주장의 이유 — 어른이 이끌면 놀이가 본질을 잃는다."}, {"n": 4, "ch": [{"e": "Children <b>need to be able to<\/b>", "k": "아이들은 ~할 수 있어야 한다"}, {"e": "<b>delight in<\/b> creative and immediate language play,", "k": "창의적이고 즉각적인 언어 놀이에서 <b>즐거워하고<\/b>,"}, {"e": "to say silly things", "k": "유치한 것들을 말하고"}, {"e": "and make themselves laugh,", "k": "그들 자신을 웃게 만들고,"}, {"e": "and to have <b>control over<\/b> the pace, timing, direction, and flow.", "k": "(언어 놀이의) 속도, 타이밍, 방향, 흐름을 <b>통제할<\/b> 수 있어야 한다."}], "easy": "아이들은 신나게 놀면서 놀이의 속도와 방향을 스스로 정할 수 있어야 한다는 말이에요.", "gist": "2번 주장을 구체적으로 풀이 — 아이들이 놀이를 '통제'해야 한다. 정답의 근거 문장이다."}, {"n": 5, "ch": [{"e": "<b>When<\/b> children are <b>allowed to<\/b> develop their language play,", "k": "아이들이 자신의 언어 놀이를 발전시키는 것이 <b>허용될 때<\/b>,"}, {"e": "<b>a range of<\/b> benefits result from it.", "k": "<b>다양한<\/b> 이점들이 그것으로부터 생긴다."}], "easy": "아이들이 자기 놀이를 키워 가게 두면 여러 좋은 점이 생긴다는 말이에요.", "gist": "마무리 — 아이들이 주도할 때 얻는 이점을 말한다."}]}, {"no": "02", "typ": "도표 불일치", "src": "2021년 3월 25번", "evn": [4], "ev_en": "More than half the students used desktops to access digital content in 2016, and more than a third used desktops in 2019.", "ev_ko": [[4, "2016년에 절반이 넘는(→ 절반 미만의) 학생들이 디지털 콘텐츠에 접근하기 위해 데스크톱을 사용했고, 2019년에 (전체의) 3분의 1이 넘는 학생들이 데스크톱을 사용했다."]], "why": ["그래프상 2016년 데스크톱 사용 비율은 49%로 절반(50%)에 못 미치므로 '절반 이상(more than half)'이라는 진술은 도표와 일치하지 않는다."], "ch": [{"n": "①", "t": "Laptops were the most used device for students to access digital content in both years.", "g": "노트북은 두 해 모두 학생들이 디지털 콘텐츠에 접근하기 위해 가장 많이 사용한 기기였다.", "ok": false, "e": ["노트북 75%·76%로 두 해 모두 1위이므로 도표와 일치한다."]}, {"n": "②", "t": "Both in 2016 and in 2019, more than 6 out of 10 students used tablets.", "g": "2016년과 2019년 모두, 10명 중 6명이 넘는 학생이 태블릿을 사용했다.", "ok": false, "e": ["태블릿 62%·61%로 두 해 모두 60%를 넘으므로 일치한다."]}, {"n": "③", "t": "More than half the students used desktops to access digital content in 2016, and more than a third used desktops in 2019.", "g": "2016년에 절반이 넘는(→ 절반 미만의) 학생들이 디지털 콘텐츠에 접근하기 위해 데스크톱을 사용했고, 2019년에 (전체의) 3분의 1이 넘는 학생들이 데스크톱을 사용했다.", "ok": true, "e": ["2016년 데스크톱 비율은 49%로 절반(50%)에 못 미칩니다", "그래서 '절반이 넘는다'는 말은 도표와 <b>일치하지 않습니다<\/b>.", "정답입니다", "(바르게 고치면: 절반이 넘는 → 절반 미만의)"]}, {"n": "④", "t": "The percentage of smartphones in 2016 was the same as that in 2019.", "g": "2016년의 스마트폰(이 차지한) 비율은 2019년의 그것(스마트폰 비율)과 같았다.", "ok": false, "e": ["스마트폰 17%·17%로 동일하므로 일치한다."]}, {"n": "⑤", "t": "E-readers ranked the lowest in both years, with 11 percent in 2016 and 5 percent in 2019.", "g": "전자책 단말기는 두 해 모두 가장 낮은 순위를 차지했는데, 2016년에 11퍼센트와 2019년에 5퍼센트였다.", "ok": false, "e": ["전자책 단말기 11%·5%로 두 해 모두 최하위이므로 일치한다."]}], "tr": ["위 그래프는 2016년과 2019년에 디지털 교육 콘텐츠에 접근하기 위해 기기를 사용한 유치원생부터 12학년까지 학생들의 비율을 보여준다.", "노트북은 두 해 모두 학생들이 디지털 콘텐츠에 접근하기 위해 가장 많이 사용한 기기였다.", "2016년과 2019년 모두, 10명 중 6명이 넘는 학생이 태블릿을 사용했다.", "2016년에 절반이 넘는(→ 절반 미만의) 학생들이 디지털 콘텐츠에 접근하기 위해 데스크톱을 사용했고, 2019년에 (전체의) 3분의 1이 넘는 학생들이 데스크톱을 사용했다.", "2016년 스마트폰 사용 비율은 2019년의 그것과 같았다.", "전자책 단말기는 두 해 모두 가장 낮은 순위였는데, 2016년에는 11퍼센트, 2019년에는 5퍼센트였다."], "ps": [{"n": 1, "ch": [{"e": "The above graph <b>shows<\/b>", "k": "위의 그래프는 보여준다"}, {"e": "the percentage of students from kindergarten to 12th grade", "k": "유치원부터 12학년까지의 학생들의 비율을"}, {"e": "who used devices to access digital educational content", "k": "디지털 교육 콘텐츠에 접근하기 위해 기기를 사용한"}, {"e": "in 2016 and in 2019.", "k": "2016년과 2019년에."}], "easy": "그래프가 2016년과 2019년에 학생들이 어떤 기기로 디지털 교육 콘텐츠에 접근했는지 비율을 보여 준다는 말이에요.", "gist": "도표 설명의 시작 — 그래프가 무엇을 보여 주는지 알려 준다."}, {"n": 2, "ch": [{"e": "① <b>Laptops<\/b> were the most used device", "k": "① <b>노트북<\/b>은 가장 많이 사용된 기기였다"}, {"e": "for students to access digital content", "k": "학생들이 디지털 콘텐츠에 접근하기 위해"}, {"e": "in both years.", "k": "두 해 모두."}], "easy": "두 해 모두 노트북이 1위였다는 말이에요.", "gist": "도표와 일치한다 (노트북 75%·76%)."}, {"n": 3, "ch": [{"e": "② <b>Both<\/b> in 2016 <b>and<\/b> in 2019,", "k": "② 2016년과 2019년 <b>모두<\/b>,"}, {"e": "more than 6 out of 10 students", "k": "10명 중 6명이 넘는 학생이"}, {"e": "used tablets.", "k": "태블릿을 사용했다."}], "easy": "두 해 모두 태블릿을 쓴 학생이 60%를 넘었다는 말이에요.", "gist": "도표와 일치한다 (태블릿 62%·61%)."}, {"n": 4, "ch": [{"e": "③ <b>More than half<\/b> the students", "k": "③ <b>절반이 넘는<\/b>(→ 절반 미만의) 학생들이"}, {"e": "used desktops to access digital content in 2016,", "k": "2016년에 디지털 콘텐츠에 접근하기 위해 데스크톱을 사용했고,"}, {"e": "and <b>more than a third<\/b> used desktops in 2019.", "k": "2019년에 (전체의) <b>3분의 1이 넘는<\/b> 학생들이 데스크톱을 사용했다."}], "easy": "2016년 데스크톱 사용은 49%라서 절반이 안 돼요. 그러니 '절반이 넘는다'는 말은 틀렸어요.", "gist": "도표와 일치하지 않는 문장 — 정답 ③."}, {"n": 5, "ch": [{"e": "④ The percentage of <b>smartphones<\/b> in 2016", "k": "④ 2016년의 <b>스마트폰<\/b>(이 차지한) 비율은"}, {"e": "was <b>the same as<\/b> that in 2019.", "k": "2019년의 그것<span class=\"r\">(= 스마트폰 비율)<\/span>과 <b>같았다<\/b>."}], "easy": "스마트폰 비율은 두 해 모두 같았다는 말이에요.", "gist": "도표와 일치한다 (17%·17%)."}, {"n": 6, "ch": [{"e": "⑤ <b>E-readers<\/b> ranked <b>the lowest<\/b> in both years,", "k": "⑤ 전자책 단말기는 두 해 모두 <b>가장 낮은<\/b> 순위를 차지했는데,"}, {"e": "with 11 percent in 2016 and 5 percent in 2019.", "k": "2016년에 11퍼센트와 2019년에 5퍼센트였다."}], "easy": "전자책 단말기는 두 해 모두 꼴찌였고, 11%에서 5%로 줄었다는 말이에요.", "gist": "도표와 일치한다 (11%·5%, 최하위)."}]}, {"no": "03", "typ": "제목 추론", "src": "2022학년도 수능 24번", "evn": [5, 7], "ev_en": "But repair continued to require a larger grasp of design and materials, an understanding of the whole and a comprehension of the designer’s intentions. / But all repairing must be done by hand.", "ev_ko": [[5, "그러나 수리는 설계와 재료에 대한 더 큰 이해, 즉 전체와 설계자의 의도에 대한 이해를 계속 필요로 했다."], [7, "\"그러나 모든 수리는 반드시 손으로 '해야 한다'."]], "why": ["7번에서 모든 수리는 반드시 <b>'손으로'<\/b> 해야 한다고 합니다", "기계가 아니라 사람의 몫이라는 뜻입니다", "5번에서도 수리는 계속 더 큰 <b>이해<\/b>를 필요로 했다고 합니다", "이 내용을 가장 잘 묶은 제목이 ①입니다."], "ch": [{"n": "①", "t": "Still Left to the Modern Blacksmith: The Art of Repair", "g": "현대 대장장이에게 여전히 남겨진 것: 수리의 기술", "ok": true, "e": ["산업화 이후에도 수리는 기계가 아니라 사람의 몫이라는 내용(5번·7번)과 일치합니다."]}, {"n": "②", "t": "A Historical Survey of How Repairing Skills Evolved", "g": "수리의 기술이 어떻게 발전했는가에 관한 역사적 조사", "ok": false, "e": ["역사를 쭉 훑어보는 글이 아닙니다", "지문은 수리가 사람의 손과 이해를 필요로 한다는 점을 말합니다(5번·7번)."]}, {"n": "③", "t": "How to Be a Creative Repairperson: Tips and Ideas", "g": "창의적 수리공이 되는 방법: 조언과 아이디어", "ok": false, "e": ["창의적인 수리공이 되는 <b>방법·조언<\/b>을 주는 글이 아닙니다."]}, {"n": "④", "t": "A Process of Repair: Create, Modify, Transform!", "g": "수리의 과정: 만들고, 수정하고, 변형하라!", "ok": false, "e": ["수정(modifying)·변형(transforming)은 2번에서 대장장이의 작업으로 나올 뿐입니다", "글 전체가 말하는 내용(수리는 사람의 몫)은 아닙니다."]}, {"n": "⑤", "t": "Can Industrialization Mend Our Broken Past?", "g": "산업화가 우리의 부서진 과거를 고칠 수 있을까?", "ok": false, "e": ["산업화가 과거를 고칠 수 있는지 묻는 글이 아닙니다", "기계는 고장 난 것을 고칠 수 없다(8번)는 내용과 오히려 반대 방향입니다."]}], "tr": ["물건을 고치고 복원하는 것은 흔히 최초 제작보다 훨씬 더 많은 창의력을 필요로 한다.", "산업화 이전의 대장장이는 아주 가까이에 있는 그의 지역 사회 사람들을 위해 주문에 따라 물건을 만들었고, 제품을 주문 제작하고 사용자에게 맞게 그것을 수정하거나 변형하는 일이 일상적이었다.", "고객들은 뭔가 잘못되면 물건을 (대장장이에게) 다시 가져오곤 했고, 따라서 수리는 제작의 연장이었다.", "산업화와 함께 결국 대량 생산이 이루어지면서, 물건을 만드는 것은 제한된 지식을 지닌 기계 관리자의 영역이 되었다.", "그러나 수리는 설계와 재료에 대한 더 큰 이해, 즉 전체와 설계자의 의도에 대한 이해를 계속 필요로 했다.", "1896년의 〈Manual of Mending and Repairing(고치고 수리하는 것의 설명서)〉은 \"제조업자들은 모두 기계나 노동의 방대한 세분화로(분업으로) 일하고, 말하자면 수작업으로 일하지 않는다.\"라고 설명했다.", "\"그러나 모든 수리는 반드시 손으로 '해야 한다'.", "우리는 기계로 손목시계나 총의 모든 세부적인 것을 만들 수 있지만, 고장 났을 때 기계는 그것을 고칠 수 없으며, 시계나 권총은 말할 것도 없다!\""], "ps": [{"n": 1, "ch": [{"e": "<b>Mending and restoring<\/b> objects", "k": "물건을 <b>고치고 복원하는 것은<\/b>"}, {"e": "often require even more creativity", "k": "흔히 훨씬 더 많은 창의력을 필요로 한다"}, {"e": "than original production.", "k": "최초 제작보다."}], "easy": "고치는 일이 새로 만드는 일보다 더 창의적일 때가 많다는 말이에요.", "gist": "글의 출발 — 수리가 제작보다 창의력을 더 요한다는 주제를 던진다."}, {"n": 2, "ch": [{"e": "The <b>preindustrial<\/b> blacksmith", "k": "<b>산업화 이전의<\/b> 대장장이는"}, {"e": "made things <b>to order<\/b>", "k": "주문에 따라 물건을 만들었다"}, {"e": "for people in his immediate community;", "k": "아주 가까이에 있는 그의 지역 사회 사람들을 위해;"}, {"e": "customizing the product,", "k": "제품을 주문 제작하고,"}, {"e": "modifying or transforming it according to the user,", "k": "사용자에게 맞게 그것을 수정하거나 변형하는 것이"}, {"e": "was routine.", "k": "일상적이었다."}], "easy": "옛 대장장이는 이웃을 위해 주문 제작을 했고, 손님에게 맞게 고치고 바꾸는 일이 일상이었어요.", "gist": "산업화 이전의 모습 — 주문 제작과 수정이 일상이었다."}, {"n": 3, "ch": [{"e": "Customers would bring things back", "k": "고객들은 물건을 (대장장이에게) 다시 가져오곤 했다"}, {"e": "if something went wrong;", "k": "뭔가 잘못되면;"}, {"e": "repair was <b>thus<\/b> an extension of fabrication.", "k": "따라서 수리는 제작의 <b>연장<\/b>이었다."}], "easy": "문제가 생기면 손님이 다시 가져왔기 때문에, 수리도 만드는 일의 연장이었어요.", "gist": "그때는 수리가 제작의 연장이었다."}, {"n": 4, "ch": [{"e": "<b>With industrialization<\/b> and eventually with mass production,", "k": "<b>산업화와 함께<\/b>, 그리고 결국 대량 생산이 이루어지면서,"}, {"e": "making things became <b>the province of<\/b> machine tenders", "k": "물건을 만드는 것은 기계 관리자의 <b>영역<\/b>이 되었다"}, {"e": "with limited knowledge.", "k": "제한된 지식을 지닌."}], "easy": "산업화가 되자 물건 만들기는 지식이 제한된 기계 관리자의 영역이 되었어요.", "gist": "변화 — 산업화 이후 제작은 기계 쪽으로 넘어갔다."}, {"n": 5, "ch": [{"e": "<b>But<\/b> repair continued to require", "k": "<b>그러나<\/b> 수리는 계속 필요로 했다"}, {"e": "a larger grasp of design and materials,", "k": "설계와 재료에 대한 더 큰 이해를,"}, {"e": "an understanding of the whole", "k": "즉 전체에 대한 이해와"}, {"e": "and a comprehension of the designer’s intentions.", "k": "설계자의 의도에 대한 이해를."}], "easy": "그래도 수리에는 설계·재료·전체·설계자의 의도를 폭넓게 이해하는 힘이 계속 필요했어요.", "gist": "But으로 방향 전환 — 제작은 기계로 넘어갔어도 수리는 여전히 깊은 이해가 필요하다."}, {"n": 6, "ch": [{"e": "“Manufacturers all work", "k": "“제조업자들은 모두 일하고,"}, {"e": "by machinery or by vast subdivision of labour", "k": "기계나 노동의 방대한 세분화(분업)로"}, {"e": "and not, <b>so to speak<\/b>, by hand,”", "k": "말하자면 수작업으로는 (일하지) 않는다”"}, {"e": "an 1896 <i>Manual of Mending and Repairing<\/i> explained.", "k": "라고 1896년의 〈Manual of Mending and Repairing〉(고치고 수리하는 것의 설명서)은 설명했다."}], "easy": "1896년의 설명서는 제조는 기계와 분업으로 하지, 손으로 하지 않는다고 했어요.", "gist": "제조는 기계로 한다는 설명서의 말 — 다음 문장 '그러나'의 바탕이 된다."}, {"n": 7, "ch": [{"e": "“<b>But<\/b> all repairing <b>must<\/b> be done <b>by hand<\/b>.", "k": "“<b>그러나<\/b> 모든 수리는 반드시 <b>손으로<\/b> 해야 한다."}], "easy": "하지만 수리만은 반드시 사람 손으로 해야 한다는 말이에요.", "gist": "핵심 문장 — 수리는 기계가 아니라 사람의 몫이다. 정답 ①의 근거다."}, {"n": 8, "ch": [{"e": "We can make every detail of a watch or of a gun by machinery,", "k": "우리는 기계로 손목시계나 총의 모든 세부적인 것을 만들 수 있지만,"}, {"e": "<b>but<\/b> the machine <b>cannot mend<\/b> it when broken,", "k": "고장 났을 때 기계는 그것을 <b>고칠 수 없으며<\/b>,"}, {"e": "<b>much less<\/b> a clock or a pistol!”", "k": "시계나 권총은 <b>말할 것도 없다<\/b>!”"}], "easy": "기계가 부품은 만들 수 있어도, 고장 난 것은 고치지 못한다는 말이에요.", "gist": "7번의 이유 — 기계는 수리를 못 한다."}]}, {"no": "04", "typ": "함의 추론", "src": "2021년 9월 21번", "evn": [2, 4, 5], "ev_en": "Anthropologist Mary Douglas brings back and analyzes the common saying that dirt is “matter out of place.” / “Shoes are not dirty in themselves, but it is dirty to place them on the dining-table; food is not dirty in itself, but it is dirty to leave pots and pans in the bedroom, or food all over clothing; similarly, bathroom items in the living room; clothing lying on chairs; outdoor things placed indoors; upstairs things downstairs, and so on.” / Sorting the dirty from the clean — removing the shoes from the table, putting the dirty clothing in the washing machine — involves systematic ordering and classifying.", "ev_ko": [[2, "인류학자 Mary Douglas는 더러운 것은 '제자리에 있지 않은 상태(정리되지 않은 것)'라는 흔히 하는 말을 다시 가져와서 분석한다."], [4, "\"신발은 그 자체로 더럽지 않지만 식탁 위에 그것들을 올려 놓는 것은 더러운 것이고, 음식은 그 자체로 더럽지 않지만 냄비와 팬을 침실에 두는 것, 혹은 옷 전체에 음식이 묻는 것, (이와) 비슷하게 거실에 욕실 용품을, 의자 위에 옷을, 야외 용품을 실내에, 위층의 물건을 아래층에 두는 것 등은 더러운 것이다.\""], [5, "식탁에서 신발을 치우는 것, 더러운 옷을 세탁기에 넣는 것(과 같이) 깨끗한 것으로부터 더러운 것을 구분하는 것은 체계적인 정리와 분류를 포함한다."]], "why": ["2번에서 더러운 것을 <b>'제자리에 있지 않은 상태(정리되지 않은 것)'<\/b>라고 말합니다", "4번의 예시(식탁 위의 신발, 침실의 냄비와 팬 등)도 모두 <b>있어야 할 자리에 없는 것<\/b>입니다", "5번에서도 더러운 것을 가려내는 일은 <b>정리와 분류<\/b>라고 합니다", "그래서 정답은 ⑤입니다."], "ch": [{"n": "①", "t": "something that is completely broken", "g": "완전히 망가진 무언가", "ok": false, "e": ["파손 여부는 더러움의 정의와 무관하다."]}, {"n": "②", "t": "a tiny dust that nobody notices", "g": "아무도 눈치채지 못하는 작은 먼지", "ok": false, "e": ["먼지의 크기나 눈에 띄는 정도는 언급되지 않는다."]}, {"n": "③", "t": "a dirty but renewable material", "g": "더럽지만 재생 가능한 재료", "ok": false, "e": ["재생 가능성은 본문과 무관하다."]}, {"n": "④", "t": "what can be easily replaced", "g": "쉽게 대체될 수 있는 것", "ok": false, "e": ["쉽게 교체되는지 여부는 본문과 무관합니다", "본문의 기준은 <b>제자리에 있느냐<\/b>입니다."]}, {"n": "⑤", "t": "a thing that is not in order", "g": "정리되지 않은 것", "ok": true, "e": ["신발이 식탁 위에, 냄비와 팬이 침실에 있는 것처럼 <b>제자리에 있지 않은(정리되지 않은) 것<\/b>이 더러운 것이라는 예시들(4번)과 일치합니다."]}], "tr": ["어느 것도 본래 쓰레기인 것은 없다.", "인류학자 Mary Douglas는 더러운 것은 '제자리에 있지 않은 상태(정리되지 않은 것)'라는 흔히 하는 말을 다시 가져와서 분석한다.", "그녀는 더러운 것은 상대적이라고 강조한다.", "\"신발은 그 자체로 더럽지 않지만 식탁 위에 그것들을 올려 놓는 것은 더러운 것이고, 음식은 그 자체로 더럽지 않지만 냄비와 팬을 침실에 두는 것, 혹은 옷 전체에 음식이 묻는 것, (이와) 비슷하게 거실에 욕실 용품을, 의자 위에 옷을, 야외 용품을 실내에, 위층의 물건을 아래층에 두는 것 등은 더러운 것이다.\"", "식탁에서 신발을 치우는 것, 더러운 옷을 세탁기에 넣는 것(과 같이) 깨끗한 것으로부터 더러운 것을 구분하는 것은 체계적인 정리와 분류를 포함한다.", "그러므로 더러운 것을 제거하는 것은 긍정적인 과정이다."], "ps": [{"n": 1, "ch": [{"e": "Nothing is trash <b>by nature<\/b>.", "k": "어느 것도 <b>본래<\/b> 쓰레기인 것은 없다."}], "easy": "원래부터 쓰레기인 물건은 없다는 말이에요.", "gist": "글의 첫 주장."}, {"n": 2, "ch": [{"e": "Anthropologist Mary Douglas", "k": "인류학자 Mary Douglas는"}, {"e": "brings back and analyzes", "k": "다시 가져와서 분석한다"}, {"e": "the common saying", "k": "흔히 하는 말을"}, {"e": "that dirt is “<b>matter out of place<\/b>.”", "k": "더러운 것은 '<b>제자리에 있지 않은 상태(정리되지 않은 것)<\/b>'라는"}], "easy": "더러움은 '있어야 할 자리에 있지 않은 것'이라는 흔한 말을 Douglas가 분석해요.", "gist": "밑줄 친 표현이 나오는 문장 — 이 문제의 핵심이다."}, {"n": 3, "ch": [{"e": "Dirt is <b>relative<\/b>,", "k": "더러운 것은 <b>상대적<\/b>이라고"}, {"e": "she emphasizes.", "k": "그녀는 강조한다."}], "easy": "더러움은 상황에 따라 달라진다고 강조해요.", "gist": "핵심 개념 — 더러움은 절대적이지 않고 상대적이다."}, {"n": 4, "ch": [{"e": "“Shoes are not dirty in themselves,", "k": "“신발은 그 자체로 더럽지 않지만"}, {"e": "but it is dirty to place them on the dining-table;", "k": "식탁 위에 그것들을 올려 놓는 것은 더러운 것이고,"}, {"e": "food is not dirty in itself,", "k": "음식은 그 자체로 더럽지 않지만"}, {"e": "but it is dirty to leave pots and pans in the bedroom,", "k": "냄비와 팬을 침실에 두는 것은 더러운 것이고,"}, {"e": "or food all over clothing;", "k": "혹은 옷 전체에 음식이 묻는 것(도 그렇다);"}, {"e": "<b>similarly<\/b>, bathroom items in the living room;", "k": "(이와) 비슷하게 거실에 욕실 용품을 (두는 것),"}, {"e": "clothing lying on chairs;", "k": "의자 위에 옷을 (두는 것),"}, {"e": "outdoor things placed indoors;", "k": "야외 용품을 실내에,"}, {"e": "upstairs things downstairs, and so on.”", "k": "위층의 물건을 아래층에 두는 것 등은 더러운 것이다.”"}], "easy": "신발은 식탁 위에, 냄비와 팬은 침실에, 욕실 용품은 거실에 있으면 더럽다는 말이에요. 모두 있어야 할 자리가 아닌 곳에 있는 경우예요.", "gist": "예시 모음 — 공통점은 '있어야 할 자리에 없다'는 것이다. 정답 ⑤의 근거다."}, {"n": 5, "ch": [{"e": "<b>Sorting<\/b> the dirty from the clean", "k": "깨끗한 것으로부터 더러운 것을 <b>구분하는 것은<\/b>"}, {"e": "— removing the shoes from the table,", "k": "— 식탁에서 신발을 치우는 것,"}, {"e": "putting the dirty clothing in the washing machine —", "k": "더러운 옷을 세탁기에 넣는 것(과 같은) —"}, {"e": "involves <b>systematic ordering and classifying<\/b>.", "k": "<b>체계적인 정리와 분류<\/b>를 포함한다."}], "easy": "더러운 것을 가려내는 일은 정리하고 분류하는 일이에요.", "gist": "예시를 정리 — 더러운 것 구분은 '정리와 분류'다."}, {"n": 6, "ch": [{"e": "Eliminating dirt is <b>thus<\/b> a positive process.", "k": "그러므로 더러운 것을 제거하는 것은 긍정적인 과정이다."}], "easy": "그러니 더러운 것을 없애는 일은 긍정적인 과정이에요.", "gist": "결론."}]}, {"no": "05", "typ": "어휘 적절성", "src": "2023년 9월 30번", "evn": [4], "ev_en": "Their understanding at this stage is quite literal, and it is easy for them to imagine beforehand a new home and their new room.", "ev_ko": [[4, "이 시기 그들의 이해력은 꽤 융통성이 없어서, 그들이 새로운 집과 자신의 새 방을 미리 상상하기는 쉽다(→ 어렵다)."]], "why": ["이 시기 아이들은 이해력이 꽤 <b>융통성이 없다(literal)<\/b>고 했습니다", "그런 아이들이 새 집과 새 방을 미리 상상하기가 <b>쉽다<\/b>는 말은 어울리지 않습니다", "그래서 <b>easy → hard(어렵다)<\/b>로 고쳐야 합니다."], "ch": [{"n": "①", "t": "familiar", "g": "익숙한", "ok": false, "e": ["2번에서 일상이 지장을 받고 <b>익숙한<\/b> 모든 것이 없어지면 혼란을 느낀다고 합니다", "문맥에 맞습니다."]}, {"n": "②", "t": "easy", "g": "쉬운 · 문맥상 맞지 않음(바른 말은 hard, 어려운)", "ok": true, "e": ["아이들은 융통성이 없어서 새 집과 새 방을 미리 상상하기가 <b>어렵습니다(hard)<\/b>. easy는 문맥에 맞지 않습니다."]}, {"n": "③", "t": "adjust", "g": "적응하다", "ok": false, "e": ["6번에서 과거 경험을 인정해주면서, 새로운 곳에 <b>적응하도록<\/b> 돕는 데 집중해야 한다고 합니다", "문맥에 맞습니다."]}, {"n": "④", "t": "respects", "g": "존중하다", "ok": false, "e": ["앞(6번)에서 아이들의 과거 경험을 인정해야 한다고 했으므로, 과거를 <b>존중하는(respects)<\/b> 방식으로 배경을 공유하게 한다는 말은 문맥에 맞습니다."]}, {"n": "⑤", "t": "transition", "g": "변화", "ok": false, "e": ["자기 주변 상황이 바뀌는 경험을 하는 아이들을 가리키므로 '변화 속에 있는 아이들(those in transition)'은 문맥에 맞습니다."]}], "tr": ["이사는 모두에게 힘들지만, 아이들에게 특히 스트레스가 크다.", "그들은 안정감을 잃고, 자신의 일상이 지장을 받고 익숙한 모든 것이 없어지면 혼란을 느낄 수도 있다.", "3세에서 6세 사이의 어린아이들은 이사에 특히 영향을 받는다.", "이 시기 그들의 이해력은 꽤 융통성이 없어서, 그들이 새로운 집과 자신의 새 방을 미리 상상하기는 쉽다(→ 어렵다).", "어린아이들은 \"나는 새로운 곳에서도 여전히 나일까?\"와 \"내 장난감과 침대는 우리랑 같이 가는 거야?\"와 같은 걱정을 할지도 모른다.", "아이들의 과거 경험을 인정해주는 것과 그들이 새로운 곳에 적응하도록 돕는 데 집중하는 것 사이에 균형을 설정하는 것이 중요하다.", "아이들은 자신이 누구인지에 대한 중요한 일부로서 자기 과거를 존중하는 방식으로 자기 배경을 공유할 기회를 가져봐야 한다.", "이것은 공동체 의식을 형성하는 데 기여하고, 이는 모든 아이들에게 중요한데, 특히 변화 속에 있는 아이들에게 그렇다."], "ps": [{"n": 1, "ch": [{"e": "<b>While<\/b> moving is difficult for everyone,", "k": "이사는 모두에게 힘들지만,"}, {"e": "it is <b>particularly stressful<\/b> for children.", "k": "아이들에게 <b>특히 스트레스가 크다<\/b>."}], "easy": "이사는 누구에게나 힘들지만 아이들에게 특히 더 힘들어요.", "gist": "글의 주제 — 이사는 아이들에게 특히 스트레스다."}, {"n": 2, "ch": [{"e": "They <b>lose<\/b> their sense of security", "k": "그들은 안정감을 <b>잃고<\/b>"}, {"e": "and may feel disoriented", "k": "혼란을 느낄 수도 있다"}, {"e": "when their routine is disrupted", "k": "자신의 일상이 지장을 받고"}, {"e": "and all that is ① <b>familiar<\/b> is taken away.", "k": "① <b>익숙한<\/b> 모든 것이 없어지면."}], "easy": "일상이 흔들리고 익숙한 것이 사라지면 안정감을 잃고 혼란스러울 수 있어요.", "gist": "이사가 힘든 이유 — 안정감이 흔들린다."}, {"n": 3, "ch": [{"e": "Young children, ages 3–6,", "k": "3세에서 6세 사이의 어린아이들은"}, {"e": "are <b>particularly affected<\/b> by a move.", "k": "이사에 <b>특히 영향을 받는다<\/b>."}], "easy": "3~6세 아이들이 이사의 영향을 특히 크게 받아요.", "gist": "대상을 좁힘 — 3~6세 어린아이."}, {"n": 4, "ch": [{"e": "Their understanding at this stage is <b>quite literal<\/b>,", "k": "이 시기 그들의 이해력은 꽤 <b>융통성이 없어서<\/b>,"}, {"e": "and it is ② <b>hard<\/b> for them to imagine beforehand", "k": "그들이 미리 상상하기는 <b>어렵다<\/b> <span class=\"r\">※ 문제지엔 easy(쉽다)로 되어 있음<\/span>"}, {"e": "a new home and their new room.", "k": "새로운 집과 자신의 새 방을."}], "easy": "이 나이 아이들은 융통성이 없어서 새 집과 새 방을 미리 그려 보기가 어려워요.", "gist": "어휘 문제의 정답 자리 — easy는 문맥에 맞지 않고 hard(어렵다)가 맞다."}, {"n": 5, "ch": [{"e": "Young children <b>may have worries<\/b> such as", "k": "어린아이들은 ~와 같은 걱정을 할지도 모른다"}, {"e": "“Will I still be me in the new place?”", "k": "“나는 새로운 곳에서도 여전히 나일까?”"}, {"e": "and “Will my toys and bed come with us?”", "k": "그리고 “내 장난감과 침대는 우리랑 같이 가는 거야?”"}], "easy": "아이들은 '새 곳에서도 나는 나일까?', '내 장난감은 같이 갈까?' 하고 걱정할 수 있어요.", "gist": "아이들이 하는 걱정의 예."}, {"n": 6, "ch": [{"e": "It is important to <b>establish a balance<\/b>", "k": "균형을 설정하는 것이 중요하다"}, {"e": "<b>between<\/b> validating children’s past experiences", "k": "아이들의 과거 경험을 인정해주는 것과"}, {"e": "<b>and<\/b> focusing on helping them ③ <b>adjust<\/b> to the new place.", "k": "그들이 새로운 곳에 ③ <b>적응하도록<\/b> 돕는 데 집중하는 것 사이에."}], "easy": "아이들의 과거를 인정해 주는 것과 새 곳에 적응하게 돕는 것, 두 가지의 균형이 중요해요.", "gist": "필자의 조언 — 과거 인정과 적응 돕기의 균형."}, {"n": 7, "ch": [{"e": "Children need to have opportunities", "k": "아이들은 기회를 가져봐야 한다"}, {"e": "to share their backgrounds", "k": "자기 배경을 공유할"}, {"e": "in a way that ④ <b>respects<\/b> their past", "k": "자기 과거를 ④ <b>존중하는<\/b> 방식으로"}, {"e": "as an important part of who they are.", "k": "자신이 누구인지에 대한 중요한 일부로서."}], "easy": "아이들이 자기 과거를 소중히 여기는 방식으로 자기 이야기를 나눌 기회가 필요해요.", "gist": "6번 조언의 구체적 방법 — 과거를 존중하며 배경 나누기."}, {"n": 8, "ch": [{"e": "This <b>contributes to<\/b> building a sense of community,", "k": "이것은 공동체 의식을 형성하는 데 <b>기여하고<\/b>,"}, {"e": "which is essential for all children,", "k": "이는 모든 아이들에게 중요한데,"}, {"e": "especially those in ⑤ <b>transition<\/b>.", "k": "특히 ⑤ <b>변화<\/b> 속에 있는 아이들에게 그렇다."}], "easy": "이렇게 하면 공동체 의식이 생기는데, 이는 모든 아이들에게, 특히 변화를 겪는 아이들에게 중요해요.", "gist": "마무리 — 공동체 의식이 변화를 겪는 아이들에게 특히 중요하다."}]}, {"no": "06", "typ": "빈칸 추론", "src": "2020년 9월 32번", "evn": [6, 8], "ev_en": "You have to make very fast assumptions about whether that animal is safe or not, based solely on its appearance. / You make split-second decisions about threats in order to have plenty of time to escape, if necessary.", "ev_ko": [[6, "당신은 오로지 그것(다가오는 동물)의 외양에만 기초하여 그 동물이 안전한지 아닌지에 대해 매우 빠른 추측을 해야 한다."], [8, "당신은 필요할 경우 도망칠 충분한 시간을 갖기 위해 위협에 대해서 순식간의 결정을 내린다."]], "why": ["초기 인류는 다가오는 동물의 외양만 보고 안전한지 아닌지 <b>매우 빠르게 추측<\/b>해야 했습니다(6번)", "위협에 대해 순식간에 결정을 내려 도망칠 시간을 번다는 내용(8번)입니다", "그래서 어느 정도까지는 편견이 <b>'필수적인 생존 기술'<\/b>이라고 할 수 있으므로 정답은 ①입니다."], "ch": [{"n": "①", "t": "necessary survival skill", "g": "필수적인 생존 기술", "ok": true, "e": ["위협을 빠르게 판단해 도망칠 시간을 버는 것은 생존에 꼭 필요한 기술이라는 내용과 일치한다."]}, {"n": "②", "t": "origin of imagination", "g": "상상력의 근원", "ok": false, "e": ["상상력의 기원은 본문과 무관하다."]}, {"n": "③", "t": "undesirable mental capacity", "g": "바람직하지 않은 지능", "ok": false, "e": ["본문은 편견을 <b>생존에 필요한 것<\/b>으로 설명합니다(6번·8번)", "'바람직하지 않은 지능'은 이 흐름과 반대입니다."]}, {"n": "④", "t": "barrier to relationships", "g": "관계의 장벽", "ok": false, "e": ["관계의 장벽은 본문에서 언급되지 않는다."]}, {"n": "⑤", "t": "challenge to moral judgment", "g": "도덕적 판단에 대한 난제", "ok": false, "e": ["도덕적 판단과 관련된 내용은 없습니다", "지문은 위협을 빠르게 판단하는 <b>생존<\/b> 이야기입니다."]}], "tr": ["여기 불편한 진실이 있다. 우리는 모두 편견을 갖고 있다(는 것이다).", "모든 인간은 우리를 다른 사람들에 대해 부정확한 추측을 하도록 이끄는 무의식적인 편견에 의해 영향을 받는다.", "모두(가 그렇다).", "어느 정도까지는, 편견이 (          )이다.", "만약 당신이 아마 '호모 에렉투스'처럼 정글을 돌아다니는 초기 인류라면, 당신은 동물이 다가오는 것을 볼지도 모른다.", "당신은 오로지 그것(다가오는 동물)의 외양에만 기초하여 그 동물이 안전한지 아닌지에 대해 매우 빠른 추측을 해야 한다.", "다른 인류에게도 마찬가지이다.", "당신은 필요할 경우 도망칠 충분한 시간을 갖기 위해 위협에 대해서 순식간의 결정을 내린다.", "이것은 (그들의) 외모와 옷에 기초하여 다른 사람들을 범주에 넣고 분류하는 우리 성향의 한 근원일 수 있다."], "ps": [{"n": 1, "ch": [{"e": "Here’s the unpleasant truth:", "k": "여기 불편한 진실이 있다:"}, {"e": "we are all <b>biased<\/b>.", "k": "우리는 모두 <b>편견<\/b>을 갖고 있다(는 것이다)."}], "easy": "불편하지만 사실이에요. 우리는 모두 편견이 있어요.", "gist": "글의 주제 — 모든 사람은 편견이 있다."}, {"n": 2, "ch": [{"e": "Every human being is affected", "k": "모든 인간은 영향을 받는다"}, {"e": "by <b>unconscious<\/b> biases", "k": "<b>무의식적인<\/b> 편견에 의해"}, {"e": "that lead us to make incorrect assumptions", "k": "우리를 부정확한 추측을 하도록 이끄는"}, {"e": "about other people.", "k": "다른 사람들에 대해."}], "easy": "누구나 자기도 모르게 갖는 편견 때문에 다른 사람에 대해 잘못 짐작하게 돼요.", "gist": "편견이 무엇인지 설명 — 무의식적이고, 잘못된 추측을 낳는다."}, {"n": 3, "ch": [{"e": "<b>Everyone<\/b>.", "k": "<b>모두<\/b>(가 그렇다)."}], "easy": "예외 없이 모두라는 말이에요.", "gist": "2번을 강조 — 모든 사람이 해당한다."}, {"n": 4, "ch": [{"e": "<b>To a certain extent<\/b>,", "k": "<b>어느 정도까지는<\/b>,"}, {"e": "bias is a <b>necessary survival skill<\/b>.", "k": "편견이 <b>필수적인 생존 기술<\/b>이다. <span class=\"r\">※ 문제지엔 빈칸으로 되어 있음<\/span>"}], "easy": "어느 정도는 편견이 살아남는 데 꼭 필요한 기술이라는 말이에요.", "gist": "빈칸 문장 — 정답 ①이 들어가는 자리다."}, {"n": 5, "ch": [{"e": "<b>If<\/b> you’re an early human,", "k": "만약 당신이 초기 인류라면,"}, {"e": "perhaps <i>Homo Erectus<\/i>,", "k": "아마 '호모 에렉투스'처럼"}, {"e": "walking around the jungles,", "k": "정글을 돌아다니는"}, {"e": "you may see an animal approaching.", "k": "당신은 동물이 다가오는 것을 볼지도 모른다."}], "easy": "정글을 돌아다니던 초기 인류가 다가오는 동물을 보는 장면이에요.", "gist": "예시의 시작 — 초기 인류의 상황."}, {"n": 6, "ch": [{"e": "You have to make very fast assumptions", "k": "당신은 매우 빠른 추측을 해야 한다"}, {"e": "about whether that animal is safe or not,", "k": "그 동물이 안전한지 아닌지에 대해,"}, {"e": "<b>based solely on<\/b> its appearance.", "k": "오로지 그것<span class=\"r\">(= 다가오는 동물)<\/span>의 외양에만 <b>기초하여<\/b>."}], "easy": "동물이 안전한지 아닌지를 겉모습만 보고 재빨리 짐작해야 해요.", "gist": "핵심 근거 — 겉모습만으로 빠르게 판단해야 했다."}, {"n": 7, "ch": [{"e": "The same is true of other humans.", "k": "다른 인류에게도 마찬가지이다."}], "easy": "다른 사람을 볼 때도 똑같아요.", "gist": "동물에게 한 판단이 사람에게도 적용된다."}, {"n": 8, "ch": [{"e": "You make <b>split-second<\/b> decisions about threats", "k": "당신은 위협에 대해서 <b>순식간의<\/b> 결정을 내린다"}, {"e": "<b>in order to<\/b> have plenty of time to escape,", "k": "도망칠 충분한 시간을 갖기 위해"}, {"e": "if necessary.", "k": "필요할 경우."}], "easy": "필요하면 도망칠 시간을 벌기 위해, 위협인지 아닌지 순식간에 판단해요.", "gist": "핵심 근거 — 빠른 판단은 살아남기 위한 것이다."}, {"n": 9, "ch": [{"e": "This could be one root", "k": "이것은 한 근원일 수 있다"}, {"e": "of our tendency to categorize and label others", "k": "다른 사람들을 범주에 넣고 분류하는 우리 성향의"}, {"e": "based on their looks and their clothes.", "k": "(그들의) 외모와 옷에 기초하여."}], "easy": "이 습관이, 우리가 사람을 외모와 옷차림으로 분류하는 버릇의 한 원인일 수 있어요.", "gist": "결론 — 생존용 빠른 판단이 사람을 겉모습으로 분류하는 성향으로 이어졌을 수 있다."}]}];
+var ENC="=AakivToRK+OkGp47AakivjoRK+OgGp4";
+var SETID="g1r16p1", N=D.length, TITLE="고1 미니모의고사 16회 01–06번";
+var CIRC="①②③④⑤";
+function dec(s){var b=atob(s.split("").reverse().join(""));var u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder("utf-8").decode(u);}
+var ANS=dec(ENC).split(";").map(function(x){return x.split("|").map(function(c){return CIRC.indexOf(c)+1;});});
+function isRight(i,a){return ANS[i].indexOf(a)>=0;}
+function ansText(i){return ANS[i].map(function(n){return CIRC[n-1];}).join(", ");}
+
+var GCODE="h1", GRADE="고1", FILE="16a", NEXT="16b.html";
+const KEY='via_mm_'+GCODE+'_'+FILE;
+let S={checks:{},locked:{},res:{},sub:null,q:[]};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* REC 연결 지점: 지금은 기기 안에 대기열로만 쌓음 */
+function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localStorage.getItem('via_minimock_rec_queue')||'[]');q.push(ev);localStorage.setItem('via_minimock_rec_queue',JSON.stringify(q));}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const app=$('#app');
+let view='word',quiz=null,armed=null;
+function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function shuffle(arr,seed){const a=arr.slice();let s=hash(seed)||1;for(let i=a.length-1;i>0;i--){s=Math.imul(s^(s>>>15),2246822519)>>>0;const j=s%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+const WS=WORDS.sets[0];
+
+function hdr(){
+  const on=id=>(view===id)?'on':'';
+  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><a class="link" href="index.html">목록</a></div><div class="tabs"><button class="tab ${on('word')}" data-v="word">단어</button><button class="tab ${on('submit')}" data-v="submit">답 제출</button><button class="tab ${on('exp')}" data-v="exp" ${S.sub?'':'disabled'}>해설</button></div></div></header>`;
+}
+function noteList(){
+  const out=[],ck=S.checks[WS.id]||{};
+  WS.words.forEach((w,i)=>{
+    const c=ck[i];if(!c)return;
+    const parts=['m','s','a'].filter(p=>c[p]&&(p==='m'||w[p]));
+    if(parts.length)out.push({i:i,w:w,parts:parts});
+  });
+  return out;
+}
+function render(){
+  if(view==='word')renderWord();
+  else if(view==='note')renderNote();
+  else if(view==='quiz')renderQuiz();
+  else if(view==='result')renderResult();
+  else if(view==='submit')renderSubmit();
+  else if(view==='exp')renderExp();
+  window.scrollTo(0,0);
+}
+/* ---- 단어 확인 ---- */
+function renderWord(){
+  const ck=S.checks[WS.id]||{},locked=!!S.locked[WS.id],n=noteList().length;
+  let h=hdr()+`<div class="wrap ${locked?'locked':''}">`;
+  WS.words.forEach((w,i)=>{
+    const c=ck[i]||{};
+    h+=`<div class="row"><div class="top"><span class="no">${i+1}</span><span class="word">${esc(w.w)}</span><span class="src">${esc(w.src)}번</span></div><div class="cells">`;
+    h+=`<button class="cell m ${c.m?'bad':''}" data-i="${i}" data-p="m"><span class="tag">뜻</span><span>${esc(w.m)}</span></button>`;
+    if(w.s)h+=`<button class="cell s ${c.s?'bad':''}" data-i="${i}" data-p="s"><span class="tag">유</span><span>${esc(w.s[0])}<span class="ko">${esc(w.s[1])}</span></span></button>`;
+    if(w.a)h+=`<button class="cell a ${c.a?'bad':''}" data-i="${i}" data-p="a"><span class="tag">반</span><span>${esc(w.a[0])}<span class="ko">${esc(w.a[1])}</span></span></button>`;
+    h+=`</div></div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap">`;
+  h+=locked?`<button class="btn" disabled>확인 끝</button>`:`<button class="btn ${armed==='lock'?'arm':''}" id="lock">${armed==='lock'?'한 번 더 누르면 확인 끝':'확인 끝'}</button>`;
+  h+=`<button class="btn pri" id="gonote">단어 오답노트 ${n}</button></div></div>`;
+  app.innerHTML=h;
+  app.querySelectorAll('.cell').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,p=b.dataset.p;
+    S.checks[WS.id]=S.checks[WS.id]||{};
+    const c=S.checks[WS.id][i]=S.checks[WS.id][i]||{};
+    c[p]=c[p]?0:1;save();
+    b.classList.toggle('bad',!!c[p]);
+    $('#gonote').textContent='단어 오답노트 '+noteList().length;
+  });
+  const lk=$('#lock');if(lk)lk.onclick=()=>{
+    if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
+      recSend({type:'word',marks:noteList().map(it=>({w:it.w.w,parts:it.parts}))});}
+    else armed='lock';
+    render();
+  };
+  $('#gonote').onclick=()=>{view='note';armed=null;render();};
+}
+function renderNote(){
+  const list=noteList();
+  let h=`<header><div class="wrap hd2"><h1>단어 오답노트 <span class="meta">${list.length}개</span></h1><button class="link" id="back">확인표</button></div></header><div class="wrap">`;
+  if(!list.length)h+=`<div class="empty">아직 표시한 단어가 없습니다</div>`;
+  list.forEach(it=>{
+    const w=it.w,r=(S.res[WS.id]||{})[it.i]||{};
+    h+=`<div class="note-item"><span class="w">${esc(w.w)}</span><span class="meta">${esc(w.src)}번</span>`;
+    const row=(p,tag,txt,ko)=>{
+      const bad=it.parts.includes(p);
+      const rs=r[p]===1?'<span class="res o">맞춤</span>':r[p]===0?'<span class="res x">틀림</span>':'';
+      return `<div class="part ${p} ${bad?'bad':''}"><span class="tag">${tag}</span><span>${esc(txt)}${ko?`<span class="ko"> ${esc(ko)}</span>`:''}</span>${bad?rs:''}</div>`;
+    };
+    h+=row('m','뜻',w.m,'');
+    if(w.s)h+=row('s','유',w.s[0],w.s[1]);
+    if(w.a)h+=row('a','반',w.a[0],w.a[1]);
+    h+=`</div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap"><button class="btn" id="back2">확인표</button><button class="btn pri" id="start" ${list.length?'':'disabled'}>복습 시작</button></div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='word';armed=null;render();};
+  $('#back2').onclick=()=>{view='word';render();};
+  $('#start').onclick=()=>{quiz={qs:buildQuestions(),n:0,right:0,done:false,shown:false};view='quiz';render();};
+}
+function buildQuestions(){
+  const qs=[];
+  noteList().forEach(it=>{
+    const w=it.w;
+    it.parts.forEach(p=>{
+      let q={i:it.i,p:p,w:w.w};
+      if(p==='m'){
+        const toks=x=>x.split(/[,，]\s*/).map(t=>t.trim());
+        const ct=toks(w.m);
+        const pool=[...new Set(WS.words.filter(o=>o!==w).map(o=>o.m))].filter(m=>!toks(m).some(t=>ct.includes(t)));
+        const wrong=shuffle(pool,WS.id+w.w+'m').slice(0,3);
+        q.type='choice';q.ask='뜻을 고르세요';
+        q.opts=shuffle([{t:w.m,ok:1}].concat(wrong.map(t=>({t:t,ok:0}))),WS.id+w.w+'mo');
+      }else{
+        const ans=w[p],d=WS.dist||[];
+        q.ask=p==='s'?'유의어를 고르세요':'반의어를 고르세요';
+        if(d.length>=3){
+          q.type='choice';
+          q.opts=shuffle([{t:ans[0],ko:ans[1],ok:1}].concat(shuffle(d,WS.id+w.w+p).slice(0,3).map(x=>({t:x[0],ko:x[1],ok:0}))),WS.id+w.w+p+'o');
+        }else{q.type='flip';q.ans=ans;}
+      }
+      qs.push(q);
+    });
+  });
+  return qs;
+}
+function recordRes(q,ok){S.res[WS.id]=S.res[WS.id]||{};const r=S.res[WS.id][q.i]=S.res[WS.id][q.i]||{};r[q.p]=ok?1:0;save();}
+function renderQuiz(){
+  const q=quiz.qs[quiz.n];
+  let h=`<header><div class="wrap hd2"><h1>복습</h1><button class="link" id="back">오답노트</button></div></header><div class="wrap ${quiz.done?'done':''}"><div class="q"><div class="cnt">${quiz.n+1} / ${quiz.qs.length}</div><div class="ask">${q.ask}</div><div class="target">${esc(q.w)}</div>`;
+  if(q.type==='choice'){
+    q.opts.forEach((o,k)=>{
+      let cls='';
+      if(quiz.done){if(o.ok)cls='right';else if(k===quiz.pick)cls='wrong';}
+      h+=`<button class="opt ${cls}" data-k="${k}">${esc(o.t)}${o.ko?`<span class="ko">${esc(o.ko)}</span>`:''}</button>`;
+    });
+  }else if(quiz.shown)h+=`<div class="opt right">${esc(q.ans[0])}<span class="ko">${esc(q.ans[1])}</span></div>`;
+  h+=`</div></div><div class="bar"><div class="wrap">`;
+  if(q.type==='flip'&&!quiz.shown)h+=`<button class="btn pri" id="show">정답 보기</button>`;
+  else if(q.type==='flip')h+=`<button class="btn" id="no">몰랐음</button><button class="btn pri" id="yes">알았음</button>`;
+  else h+=`<button class="btn pri" id="next" ${quiz.done?'':'disabled'}>${quiz.n+1===quiz.qs.length?'결과':'다음'}</button>`;
+  h+=`</div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='note';render();};
+  app.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+    if(quiz.done)return;
+    const k=+b.dataset.k;quiz.pick=k;quiz.done=true;
+    const ok=q.opts[k].ok===1;if(ok)quiz.right++;recordRes(q,ok);render();
+  });
+  const nx=$('#next');if(nx)nx.onclick=()=>advance();
+  const sh=$('#show');if(sh)sh.onclick=()=>{quiz.shown=true;render();};
+  const yes=$('#yes');if(yes)yes.onclick=()=>{quiz.right++;recordRes(q,true);advance();};
+  const no=$('#no');if(no)no.onclick=()=>{recordRes(q,false);advance();};
+}
+function advance(){
+  if(quiz.n+1>=quiz.qs.length){view='result';render();return;}
+  quiz.n++;quiz.done=false;quiz.shown=false;quiz.pick=null;render();
+}
+function renderResult(){
+  app.innerHTML=`<header><div class="wrap hd2"><h1>복습 결과</h1></div></header><div class="wrap"><div class="score">${quiz.right} <small>/ ${quiz.qs.length}</small></div></div><div class="bar"><div class="wrap"><button class="btn" id="a">오답노트</button><button class="btn pri" id="b">확인표</button></div></div>`;
+  $('#a').onclick=()=>{view='note';render();};
+  $('#b').onclick=()=>{view='word';render();};
+}
+/* ---- 답 제출 ---- */
+function renderSubmit(){
+  const done=!!S.sub;
+  while(S.q.length<N)S.q.push(0);
+  let h=hdr()+'<div class="wrap">';
+  for(let i=0;i<N;i++){
+    const sel=done?S.sub.a[i]:S.q[i];
+    h+=`<div class="qrow"><div class="qno">${esc(D[i].no)}</div><div class="opts">`;
+    for(let k=1;k<=5;k++)h+=`<button class="opt2 ${sel===k?'on':''}" data-q="${i}" data-k="${k}" ${done?'disabled':''}>${CIRC[k-1]}</button>`;
+    h+='</div></div>';
+  }
+  h+='</div><div class="bar"><div class="wrap">';
+  if(done)h+='<button class="btn pri" id="toexp">해설 보기</button>';
+  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>제출</button>`;
+  h+='</div></div>';
+  app.innerHTML=h;
+  app.querySelectorAll('.opt2').forEach(b=>b.onclick=()=>{
+    if(S.sub)return;
+    const q=+b.dataset.q,k=+b.dataset.k;S.q[q]=k;save();
+    b.parentNode.querySelectorAll('.opt2').forEach(x=>x.classList.toggle('on',+x.dataset.k===k));
+    $('#sub').disabled=!S.q.every(v=>v>0);
+  });
+  const sb=$('#sub');if(sb)sb.onclick=()=>{
+    let s=0;for(let i=0;i<N;i++)if(isRight(i,S.q[i]))s++;
+    S.sub={t:Date.now(),a:S.q.slice(),s:s};save();
+    recSend({type:'submit',a:S.sub.a,s:s,n:N});
+    view='exp';render();
+  };
+  const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
+}
+/* ---- 해설 ---- */
+function sHtml(s,evn){
+  const ev=evn.indexOf(s.n)>=0;
+  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
+  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
+  const lays=[];
+  if(s.link)lays.push(['이어 읽으면',s.link]);
+  if(s.easy)lays.push(['쉬운 말로',s.easy]);
+  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
+  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
+  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
+  return x+'</div>';
+}
+function qHtml(i,a){
+  const d=D[i],ok=isRight(i,a);
+  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
+  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
+  h+='<h4>정답 근거</h4>';
+  h+=`<p class="en">${esc(d.ev_en)}</p>`;
+  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
+  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  if(d.ps&&d.ps.length){
+    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
+  }
+  h+='<h4>선택지 하나씩</h4>';
+  d.ch.forEach(c=>{
+    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  });
+  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  return h+'</div></details>';
+}
+function renderExp(){
+  const rec=S.sub;
+  let h=hdr()+'<div class="wrap">';
+  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='</div><h2>해설</h2>';
+  for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
+  h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
+  app.innerHTML=h;
+}
+/* 위임 이벤트 */
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tab');
+  if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
+  const ch=e.target.closest('.ch');
+  if(ch){ch.classList.toggle('open');return;}
+  const st=e.target.closest('.stg');
+  if(st){
+    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const shown=lays.filter(l=>l.classList.contains('on')).length;
+    if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
+    else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
+    return;
+  }
+  const al=e.target.closest('.tbtn');
+  if(al){
+    const open=al.dataset.all==='1',body=al.closest('.dkbody');
+    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
+    body.querySelectorAll('.s').forEach(s=>{
+      const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
+      lays.forEach(l=>l.classList.toggle('on',open));
+      if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
+    });
+  }
+});
+render();
+</script>
+</body>
+</html>

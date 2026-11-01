@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>고1 미니모의고사 16회 07–12번</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f6f8;--accent:#23406b;--bad:#c2392b;--badbg:#fdeceb;--good:#1f7a4d;--goodbg:#e8f5ee;--hl:#fff3b0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+body{padding-bottom:84px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .row1{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+h1{font-size:16px;margin:0;font-weight:700;line-height:1.3}
+.tabs{display:flex;gap:0}
+.tab{flex:1;border:0;background:none;font-family:inherit;font-size:15px;font-weight:700;color:var(--sub);padding:11px 0;border-bottom:3px solid transparent}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tab[disabled]{opacity:.35}
+.link{text-decoration:none;border:0;background:none;color:var(--accent);font-size:15px;font-weight:700;padding:10px 4px;font-family:inherit}
+.hd2{display:flex;align-items:center;justify-content:space-between;height:54px}
+.hd2 h1{font-size:17px}
+.row{padding:12px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.no{color:var(--sub);font-size:13px;min-width:20px}
+.word{font-size:19px;font-weight:700}
+.src{color:var(--sub);font-size:12px;margin-left:auto}
+.cells{display:flex;flex-direction:column;gap:6px}
+.cell{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 12px;border-radius:8px;background:var(--soft);border:1.5px solid transparent;font-size:16px;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.cell .tag,.part .tag{font-size:12px;font-weight:700;color:#fff;border-radius:4px;padding:2px 7px;min-width:34px;text-align:center;background:#7a8594}
+.cell.s .tag,.part.s .tag{background:#2d62a8}.cell.a .tag,.part.a .tag{background:#b4472f}
+.ko{color:var(--sub);font-size:14px;margin-left:6px}
+.cell.bad{background:var(--badbg);border-color:var(--bad)}
+.cell.bad .tag{background:var(--bad)}
+.locked .cell{pointer-events:none}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:6}
+.bar .wrap{display:flex;gap:10px;padding:0}
+.btn{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;line-height:1.25;font-weight:700;font-family:inherit}
+.btn.pri{background:var(--accent);color:#fff}
+.btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn[disabled]{opacity:.4}
+.note-item{padding:14px 0;border-bottom:1px solid var(--line)}
+.note-item .w{font-size:19px;font-weight:700}
+.meta{color:var(--sub);font-size:12px;margin-left:8px;font-weight:400}
+.part{display:flex;gap:10px;align-items:baseline;padding:6px 0 0;font-size:16px}
+.part .tag{align-self:center}
+.part.bad{color:var(--bad);font-weight:700}
+.part.bad .tag{background:var(--bad)}
+.part .ko{font-weight:400}
+.part .res{margin-left:auto;font-size:13px;font-weight:700}
+.res.o{color:var(--good)}.res.x{color:var(--bad)}
+.empty{color:var(--sub);text-align:center;padding:60px 0;font-size:16px}
+.q{padding:22px 0 8px}
+.q .cnt{color:var(--sub);font-size:14px}
+.q .ask{font-size:15px;color:var(--sub);margin-top:14px}
+.q .target{font-size:28px;font-weight:700;margin:6px 0 18px}
+.opt{display:block;width:100%;text-align:left;min-height:56px;padding:10px 14px;margin-bottom:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:18px;font-family:inherit;color:var(--ink)}
+.opt .ko{display:block;margin:2px 0 0}
+.opt.right{border-color:var(--good);background:var(--goodbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.done .opt{pointer-events:none}
+.score{font-size:34px;font-weight:700;text-align:center;margin:30px 0 6px}
+.score small{font-size:18px;color:var(--sub);font-weight:400}
+.foot{color:var(--sub);font-size:12px;text-align:center;padding:26px 0 8px}
+/* submit */
+.qrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.qno{font-weight:800;font-size:20px;width:34px;flex:none}
+.opts{display:flex;gap:8px;flex:1}
+.opt2{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:20px;font-family:inherit;color:var(--ink)}
+.opt2.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.opt2[disabled]{opacity:.55}
+.opt2.on[disabled]{opacity:1}
+/* explanation */
+h2{font-size:17px;margin:26px 0 10px}
+.quick div{padding:3px 0;font-size:17px}
+.quick .o{color:var(--good)}.quick .x{color:var(--bad)}
+.sub{color:var(--sub)}
+details.qd{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;background:var(--bg)}
+details.qd>summary{list-style:none;cursor:pointer;padding:14px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+details.qd>summary::-webkit-details-marker{display:none}
+details.qd>summary small{font-weight:400;color:var(--sub);font-size:13px}
+.res2{margin-left:auto;font-size:14px}
+.res2.o{color:var(--good)}.res2.x{color:var(--bad)}
+.qx{padding:0 14px 14px}
+.qx h4{font-size:15px;margin:18px 0 8px;color:var(--accent)}
+.qx p{margin:6px 0;line-height:1.75;font-size:16px}
+.ansline b{font-size:17px}
+.en{font-size:16px;line-height:1.7;background:var(--soft);padding:10px 12px;border-radius:8px}
+.kolist{list-style:none;margin:6px 0;padding:0}
+.kolist li{font-size:15px;line-height:1.7}
+.kolist .n{font-size:12px;color:var(--sub);margin-right:6px}
+.why p{margin:4px 0;font-size:15px}
+.c{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.c.ok{border-color:var(--good);background:var(--goodbg)}
+.c .ct{font-weight:700;font-size:16px;line-height:1.5}
+.c .tg{display:inline-block;font-size:12px;color:#fff;background:#7a8594;border-radius:4px;padding:1px 7px;margin-right:6px;font-weight:700}
+.c.ok .tg{background:var(--good)}
+.c p{margin:4px 0 0;font-size:15px}
+.r{color:var(--sub);font-size:13px}
+/* direct reading practice */
+details.dk{margin:16px 0 4px;border:1px solid var(--line);border-radius:10px}
+details.dk>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700;color:var(--accent);font-size:15px}
+details.dk>summary::-webkit-details-marker{display:none}
+.dkbody{padding:0 12px 12px}
+.tool{display:flex;gap:8px;margin:2px 0 10px}
+.tbtn{flex:1;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:inherit;font-size:14px;font-weight:700;color:var(--accent)}
+.s{padding:10px 0 12px;border-top:1px dashed var(--line)}
+.s.ev{background:linear-gradient(90deg,#fffbe8,#fff);margin:0 -6px;padding-left:6px;padding-right:6px}
+.sn{margin-bottom:6px}
+.lb{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--sub);margin-right:6px}
+.lb.ev{background:var(--hl);color:#7a5b00}
+.ch{padding:9px 11px;margin-bottom:6px;border-radius:8px;background:var(--soft);cursor:pointer;border-bottom:2px dotted #c9cfd6}
+.ch .ce{font-size:16px;line-height:1.6}
+.ch .ce b{background:linear-gradient(transparent 55%,var(--hl) 55%)}
+.ch .ck{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--line);color:var(--accent);font-size:15px;line-height:1.65}
+.ch.open{background:#eef2f8;border-bottom-color:transparent}
+.ch.open .ck{display:block}
+.lay{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:14px;line-height:1.7}
+.lay.on{display:block}
+.stg{width:100%;min-height:42px;margin-top:6px;border:1px solid var(--accent);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const WORDS={"sets": [{"id": "g1r16p2", "title": "고1 미니모의고사 16회 07–12번", "range": "07–12번", "words": [{"src": "01", "w": "confirm", "m": "확인하다", "s": ["verify", "확인하다"], "a": null}, {"src": "02", "w": "increase", "m": "늘리다", "s": null, "a": null}, {"src": "03", "w": "avoid", "m": "피하다", "s": ["prevent", "막다"], "a": null}, {"src": "04", "w": "remarkable", "m": "놀라운", "s": null, "a": null}, {"src": "05", "w": "intensify", "m": "강화하다", "s": null, "a": ["weaken", "약화시키다"]}, {"src": "06", "w": "instead", "m": "대신에", "s": null, "a": null}, {"src": "07", "w": "surely", "m": "분명히", "s": null, "a": null}, {"src": "08", "w": "depend upon", "m": "~에 의존하다", "s": ["rely on", "의존하다"], "a": null}, {"src": "09", "w": "heavy", "m": "무거운", "s": null, "a": ["light", "가벼운"]}, {"src": "10", "w": "break", "m": "깨지다", "s": null, "a": null}, {"src": "11", "w": "struggle", "m": "애쓰다", "s": ["strive", "애쓰다"], "a": null}, {"src": "12", "w": "orphan", "m": "고아", "s": null, "a": null}, {"src": "13", "w": "starve", "m": "굶주리다", "s": null, "a": ["feast", "포식하다"]}, {"src": "14", "w": "relieved", "m": "안도하는", "s": null, "a": ["anxious", "불안한"]}, {"src": "15", "w": "disappointed", "m": "실망한", "s": ["discouraged", "낙담한"], "a": null}, {"src": "16", "w": "noble", "m": "고귀한", "s": null, "a": ["mean", "비열한"]}, {"src": "17", "w": "ravage", "m": "황폐화시키다", "s": ["devastate", "황폐화시키다"], "a": null}, {"src": "18", "w": "supply", "m": "공급하다", "s": null, "a": null}, {"src": "19", "w": "amount", "m": "총액, 양", "s": null, "a": null}, {"src": "20", "w": "collect", "m": "모으다", "s": null, "a": null}], "dist": [["calm", "차분한"], ["fragile", "깨지기 쉬운"], ["delay", "지연시키다"]]}]};
+var D=[{"no": "07", "typ": "안내문 일치", "src": "2019년 3월 26번", "evn": [12], "ev_en": "Make sure the battery level of your watch has at least two bars, in order to avoid an upgrading error.", "ev_ko": [[12, "업그레이드 오류를 방지하기 위하여, 반드시 (당신의) 시계의 배터리 잔량 표시가 최소 두 칸은 되도록 하세요."]], "why": ["주의사항(CAUTION)에 '업그레이드 오류를 방지하려면 시계의 배터리 잔량 표시가 최소 두 칸은 되어야 한다'고 적혀 있다", "⑤가 이 내용과 같다."], "ch": [{"n": "①", "t": "A를 짧게 누르면 스포츠 모드(sports mode)로 들어간다.", "g": "", "ok": false, "e": ["(4)에서 A는 짧게 누르면 설정값을 확정하고, 스포츠 모드로 들어가려면 길게 눌러야 한다."]}, {"n": "②", "t": "B를 길게 누르면 ‘홈’ 메뉴로 돌아간다.", "g": "", "ok": false, "e": ["(5)에서 ‘홈’ 메뉴로 돌아가는 것은 짧게 누를 때이고, 길게 누르면 구조 신호 위치(SOS location)를 보낸다."]}, {"n": "③", "t": "C를 길게 누르면 배경 화면의 불빛이 켜지거나 꺼진다.", "g": "", "ok": false, "e": ["(6)에서 배경 불빛은 짧게 누를 때 켜고 끄고, 길게 누르면 시계를 켜거나 끈다."]}, {"n": "④", "t": "D를 누르면 설정값(the value)이 내려간다.", "g": "", "ok": false, "e": ["(7)(8)에서 D는 값을 올리는(증가시키는) 키이다", "값을 내리는 키는 E이다 (9)(10)."]}, {"n": "⑤", "t": "업그레이드 오류를 피하려면 배터리 잔량 표시가 최소 두 칸은 되어야 한다.", "g": "", "ok": true, "e": ["(12) 주의사항의 내용과 일치한다."]}], "tr": ["L-19 스마트 워치", "사용자 설명서", "주요 기능", "[A] 설정값을 확정하려면 짧게 누르세요; 스포츠 모드로 들어가려면 길게 누르세요.", "[B] ‘홈’ 메뉴로 돌아가려면 짧게 누르세요; 구조 신호 위치를 보내려면 길게 누르세요.", "[C] 배경 (화면) 불빛을 켜거나 끄려면 짧게 누르세요; 시계를 켜거나 끄려면 길게 누르세요.", "[D] (값을) 올리려면 누르세요.", "(시간, 날짜, 또는 다른 설정에서, 값을 증가시키려면 키를 누르세요.)", "[E] (값을) 내리려면 누르세요.", "(시간, 날짜, 또는 다른 설정에서, 값을 감소시키려면 키를 누르세요.)", "주의사항", "업그레이드 오류를 방지하기 위하여, 반드시 (당신의) 시계의 배터리 잔량 표시가 최소 두 칸은 되도록 하세요."], "ps": [{"n": 1, "ch": [{"e": "L-19 Smart Watch", "k": "L-19 스마트 워치"}], "easy": "L-19 스마트 워치에 대한 안내문이에요.", "gist": "안내문의 제목(제품 이름)."}, {"n": 2, "ch": [{"e": "User Guide", "k": "사용자 설명서"}], "easy": "사용자 설명서예요.", "gist": "제목의 두 번째 줄."}, {"n": 3, "ch": [{"e": "KEY FUNCTIONS", "k": "주요 기능"}], "easy": "주요 기능을 알려 주는 부분이에요.", "gist": "아래에서 A~E 버튼의 기능을 하나씩 설명한다."}, {"n": 4, "ch": [{"e": "[A] <b>Short press<\/b> to confirm;", "k": "[A] 설정값을 확정하려면 짧게 누르세요;"}, {"e": "<b>long press<\/b> to enter the sports mode.", "k": "스포츠 모드로 들어가려면 길게 누르세요."}], "easy": "A 버튼은 짧게 누르면 확정, 길게 누르면 스포츠 모드예요.", "gist": "A 버튼: 짧게 = 확정, 길게 = 스포츠 모드."}, {"n": 5, "ch": [{"e": "[B] <b>Short press<\/b> to return to the ‘home’ menu;", "k": "[B] ‘홈’ 메뉴로 돌아가려면 짧게 누르세요;"}, {"e": "<b>long press<\/b> to send SOS location.", "k": "구조 신호 위치를 보내려면 길게 누르세요."}], "easy": "B 버튼은 짧게 누르면 ‘홈’ 메뉴, 길게 누르면 SOS 위치 전송이에요.", "gist": "B 버튼: 짧게 = 홈 메뉴, 길게 = SOS 위치 전송."}, {"n": 6, "ch": [{"e": "[C] <b>Short press<\/b> to turn on or off the background light;", "k": "[C] 배경 (화면) 불빛을 켜거나 끄려면 짧게 누르세요;"}, {"e": "<b>long press<\/b> to turn on or off your watch.", "k": "시계를 켜거나 끄려면 길게 누르세요."}], "easy": "C 버튼은 짧게 누르면 배경 불빛 켜기/끄기, 길게 누르면 시계 켜기/끄기예요.", "gist": "C 버튼: 짧게 = 배경 불빛, 길게 = 시계 전원."}, {"n": 7, "ch": [{"e": "[D] <b>Press<\/b> to go up.", "k": "[D] (값을) 올리려면 누르세요."}], "easy": "D 버튼은 누르면 값이 올라가요.", "gist": "D 버튼: 값을 올림."}, {"n": 8, "ch": [{"e": "(In time, date or other settings,", "k": "(시간, 날짜, 또는 다른 설정에서,"}, {"e": "press the key to increase the value.)", "k": "값을 증가시키려면 키를 누르세요.)"}], "easy": "시간이나 날짜 같은 설정에서 이 키를 누르면 값이 커져요.", "gist": "(7)에 덧붙인 설명: D 키 = 값 증가."}, {"n": 9, "ch": [{"e": "[E] <b>Press<\/b> to go down.", "k": "[E] (값을) 내리려면 누르세요."}], "easy": "E 버튼은 누르면 값이 내려가요.", "gist": "E 버튼: 값을 내림."}, {"n": 10, "ch": [{"e": "(In time, date or other settings,", "k": "(시간, 날짜, 또는 다른 설정에서,"}, {"e": "press the key to decrease the value.)", "k": "값을 감소시키려면 키를 누르세요.)"}], "easy": "시간이나 날짜 같은 설정에서 이 키를 누르면 값이 작아져요.", "gist": "(9)에 덧붙인 설명: E 키 = 값 감소."}, {"n": 11, "ch": [{"e": "CAUTION", "k": "주의사항"}], "easy": "주의할 점이에요.", "gist": "주의사항 항목의 제목."}, {"n": 12, "ch": [{"e": "<b>Make sure<\/b>", "k": "반드시 ~하도록 하세요,"}, {"e": "the battery level of your watch", "k": "당신의 시계의 배터리 잔량 표시가"}, {"e": "has <b>at least<\/b> two bars,", "k": "최소 두 칸은 되도록"}, {"e": "in order to avoid an upgrading error.", "k": "업그레이드 오류를 방지하기 위하여."}], "easy": "업그레이드 오류가 나지 않게, 시계 배터리를 꼭 두 칸 이상 남겨 두세요.", "gist": "주의사항의 내용: 배터리 잔량 최소 두 칸.", "link": "이어 읽으면 — 업그레이드 오류를 방지하기 위하여, 반드시 (당신의) 시계의 배터리 잔량 표시가 최소 두 칸은 되도록 하세요."}]}, {"no": "08", "typ": "문장 삽입", "src": "2016학년도 수능 37번", "evn": [1, 7, 8], "ev_en": "Surprised by the vision of an unfamiliar silhouette pushing into the house, these dogs were using their eyes instead of their noses. / Many owners have been snapped at by their dogs when they returned home with a new hairdo or a new coat. / Their noses may be remarkable, but they’re not always switched on.", "ev_ko": [[1, "[주어진 문장] 집 안으로 밀고 들어오는 낯선 윤곽(실루엣)의 모습을 보고 깜짝 놀라서, 이 개들은 코 대신 눈을 사용하고 있었다."], [7, "④ 많은 주인들이 그들이 새로운 머리 모양을 하거나 새로운 코트를 입고 집에 돌아왔을 때 그들의 개에게 물릴 뻔한 적이 있다."], [8, "⑤ 그들의 코가 뛰어날지 모르지만, 그것들이 항상 켜져 있는(작동되는) 것은 아니다."]], "why": ["주어진 문장은 낯선 모습에 놀란 '이 개들'이 코 대신 눈을 사용했다는 내용이다", "개에게 물릴 뻔한 주인들의 이야기 (7) 바로 뒤에 두면 '이 개들'이 그 개들로 이어진다", "그리고 '코가 항상 켜져 있는 것은 아니다'라는 (8)로 자연스럽게 연결된다", "그래서 ⑤ 자리이다."], "ch": [{"n": "①", "t": "①", "g": "", "ok": false, "e": ["① 앞에는 어른들이 무한한 힘을 가졌다고 상상했다는 (2)(3)뿐이다", "주어진 문장의 '이 개들'이 가리킬 개가 아직 나오지 않았다."]}, {"n": "②", "t": "②", "g": "", "ok": false, "e": ["(4)에서 말한 '개의 냄새 맡는 능력에 대한 기대'가 (5)로 바로 이어진다", "그 사이에 눈을 사용한 개들의 이야기를 넣으면 흐름이 끊긴다."]}, {"n": "③", "t": "③", "g": "", "ok": false, "e": ["(6)은 But으로 시작해 (5)의 '무엇이든 냄새 맡을 수 있다는 가정'과 대비된다", "그 사이에 주어진 문장을 넣으면 이 연결이 끊긴다."]}, {"n": "④", "t": "④", "g": "", "ok": false, "e": ["④ 뒤 (7)에서 주인들이 개에게 물릴 뻔한 이야기가 처음 나온다", "주어진 문장의 '이 개들'은 그 개들이므로, (7)보다 앞에 오면 가리킬 개가 없다."]}, {"n": "⑤", "t": "⑤", "g": "", "ok": true, "e": ["(7)의 개들이 낯선 모습에 놀라 코 대신 눈을 사용했다는 설명이 이어지고, 그 뒤에 '코가 항상 켜져 있는 것은 아니다'라는 (8)이 온다."]}], "tr": ["[주어진 문장] 집 안으로 밀고 들어오는 낯선 윤곽(실루엣)의 모습을 보고 깜짝 놀라서, 이 개들은 코 대신 눈을 사용하고 있었다.", "당신이 어렸고 어른들이 무한한 힘을 가졌다고 상상하던 때를 기억하는가?", "분명히 자동차를 운전할 수 있고, 주스 병을 열 수 있고, 싱크대에 (손이) 닿을 수 있는 누군가(어른)는 비를 그치도록 할 수 있을 것이었다.(그만큼 어른들은 모든 것을 할 수 있다고 여겼음)", "① 나는 그것이 우리가 우리의 개와 냄새를 맡는 그들의 능력에 관해서 가지는 (것과) 똑같은 기대라고 생각한다.", "② 그들이 코를 사용하는 것을 아주 잘하기 때문에(코를 사용하는 능력이 아주 뛰어나기 때문에), 우리는 그들이 무엇이든지, 언제든지 냄새를 맡을 수 있다고 가정한다.", "③ 하지만 개들은 다른 감각도 또한 사용하고, 인간과 개 양쪽 모두의 뇌는 한 번에 한 가지 감각을 심화시키는 경향이 있다.", "④ 많은 주인들이 그들이 새로운 머리 모양을 하거나 새로운 코트를 입고 집에 돌아왔을 때 그들의 개에게 물릴 뻔한 적이 있다.", "⑤ 그들의 코가 뛰어날지 모르지만, 그것들이 항상 켜져 있는(작동되는) 것은 아니다."], "ps": [{"n": 1, "ch": [{"e": "<b>Surprised by<\/b> the vision", "k": "~의 모습에 깜짝 놀라서"}, {"e": "of an unfamiliar silhouette", "k": "낯선 윤곽(실루엣)"}, {"e": "pushing into the house,", "k": "집 안으로 밀고 들어오는"}, {"e": "these dogs were using their eyes", "k": "이 개들은 눈을 사용하고 있었다"}, {"e": "<b>instead of<\/b> their noses.", "k": "코 대신"}], "easy": "집 안으로 밀고 들어오는 낯선 모습에 깜짝 놀란 이 개들은, 코가 아니라 눈을 쓰고 있었어요.", "gist": "[주어진 문장] 이 개들이 코 대신 눈을 썼다는 내용. 본문에서 ⑤에 넣어야 한다.", "link": "이어 읽으면 — 집 안으로 밀고 들어오는 낯선 윤곽(실루엣)의 모습을 보고 깜짝 놀라서, 이 개들은 코 대신 눈을 사용하고 있었다."}, {"n": 2, "ch": [{"e": "<b>Remember when<\/b> you were little", "k": "당신이 어렸을 때를 기억하는가"}, {"e": "and you imagined", "k": "그리고 당신이 상상했던"}, {"e": "that adults had <b>infinite power<\/b>?", "k": "어른들이 무한한 힘을 가졌다고"}], "easy": "어렸을 때 어른들이 무한한 힘을 가졌다고 상상했던 거 기억나나요?", "gist": "본문의 첫 문장: 어른들의 힘에 대한 어린 시절 상상으로 시작한다."}, {"n": 3, "ch": [{"e": "<b>Surely<\/b> someone", "k": "분명히 누군가는"}, {"e": "who could drive the car,", "k": "자동차를 운전할 수 있고,"}, {"e": "open the juice container,", "k": "주스 병을 열 수 있고,"}, {"e": "and reach the sink", "k": "싱크대에 (손이) 닿을 수 있는"}, {"e": "could make it stop raining.", "k": "비를 그치도록 할 수 있을 것이었다."}], "easy": "차를 운전하고 주스 병을 열고 싱크대에 손이 닿는 어른이라면, 비도 멈추게 할 수 있을 것 같았어요.", "gist": "어른들은 모든 것을 할 수 있다고 여겼다는 예.", "link": "이어 읽으면 — 분명히 자동차를 운전할 수 있고, 주스 병을 열 수 있고, 싱크대에 (손이) 닿을 수 있는 누군가(어른)는 비를 그치도록 할 수 있을 것이었다."}, {"n": 4, "ch": [{"e": "<b>I think<\/b> that’s the same expectation", "k": "나는 그것이 똑같은 기대라고 생각한다"}, {"e": "that we have", "k": "우리가 가지는"}, {"e": "<b>with respect to<\/b> our dogs", "k": "우리의 개에 관해서"}, {"e": "and their ability to smell.", "k": "그리고 냄새를 맡는 그들의 능력에 관해서"}], "easy": "우리가 개의 냄새 맡는 능력에 거는 기대도 그것과 똑같다고 나는 생각해요.", "gist": "어른에 대한 어린 시절의 기대와 개의 후각에 대한 기대를 같은 것으로 연결한다.", "link": "이어 읽으면 — 나는 그것이 우리가 우리의 개와 냄새를 맡는 그들의 능력에 관해서 가지는 (것과) 똑같은 기대라고 생각한다."}, {"n": 5, "ch": [{"e": "<b>Because<\/b> they are <b>so good at<\/b> using their noses,", "k": "그들이 코를 사용하는 것을 아주 잘하기 때문에,"}, {"e": "we assume", "k": "우리는 가정한다"}, {"e": "that they can smell anything, anytime.", "k": "그들이 무엇이든지, 언제든지 냄새를 맡을 수 있다고"}], "easy": "개가 코를 아주 잘 쓰니까, 우리는 개가 언제든 뭐든 냄새 맡을 수 있다고 생각해요.", "gist": "개의 후각에 대한 우리의 기대를 구체적으로 말한다."}, {"n": 6, "ch": [{"e": "<b>But<\/b> dogs use other senses, too,", "k": "하지만 개들은 다른 감각도 또한 사용하고,"}, {"e": "and the brains of both humans and dogs", "k": "인간과 개 양쪽 모두의 뇌는"}, {"e": "tend to <b>intensify<\/b> one sense at a time.", "k": "한 번에 한 가지 감각을 심화시키는 경향이 있다"}], "easy": "하지만 개도 다른 감각을 쓰고, 사람이든 개든 뇌는 한 번에 한 가지 감각을 더 강하게 쓰는 경향이 있어요.", "gist": "But으로 앞의 기대와 다른 사실(다른 감각도 쓴다)을 말한다."}, {"n": 7, "ch": [{"e": "Many owners have been <b>snapped at<\/b> by their dogs", "k": "많은 주인들이 그들의 개에게 물릴 뻔한 적이 있다"}, {"e": "when they returned home", "k": "그들이 집에 돌아왔을 때"}, {"e": "with a new hairdo or a new coat.", "k": "새로운 머리 모양을 하거나 새로운 코트를 입고"}], "easy": "새 머리 모양을 하거나 새 코트를 입고 집에 들어갔다가 개에게 물릴 뻔한 주인이 많아요.", "gist": "주인들이 개에게 물릴 뻔한 사례를 든다."}, {"n": 8, "ch": [{"e": "Their noses may be <b>remarkable<\/b>,", "k": "그들의 코가 뛰어날지 모르지만,"}, {"e": "<b>but<\/b> they’re not always switched on.", "k": "그것들이 항상 켜져 있는(작동되는) 것은 아니다"}], "easy": "개의 코가 뛰어나긴 해도, 늘 켜져 있는 건 아니에요.", "gist": "마지막 문장: 코가 항상 작동하는 것은 아니라는 정리."}]}, {"no": "09", "typ": "무관한 문장", "src": "2014년 3월 39번", "evn": [3, 4, 5], "ev_en": "Also, the things they made fit their life style. / Most tribes spoke their own language, but could communicate with other tribes. / For example, the people of the Plains, who traveled a lot, didn’t make clay pots.", "ev_ko": [[3, "② 또한, 그들이 만든 것들은 그들의 생활 방식에 적합했다."], [4, "③ 대부분의 부족은 그들만의 언어를 말했지만, 다른 부족들과 소통할 수 있었다."], [5, "④ 예를 들어, 이동을 많이 했던 대초원의 사람들은 점토 단지를 만들지 않았다."]], "why": ["이 글은 원주민들이 만든 물건이 주변 환경과 생활 방식에 따라 달랐다는 내용이다", "(3)이 말한 생활 방식에 맞춘 물건의 예가 (5) For example부터 나온다", "그런데 ③ 문장 (4)는 부족의 언어와 소통 이야기라서 이 흐름과 관계가 없다."], "ch": [{"n": "①", "t": "①", "g": "", "ok": false, "e": ["(2)는 (1)의 '필요한 모든 것을 만들어야 했다'를 이어, 만드는 재료가 주변에서 발견한 것에 따라 달랐다고 말한다", "글의 흐름에 맞는 문장이다."]}, {"n": "②", "t": "②", "g": "", "ok": false, "e": ["(3)은 만든 물건이 그들의 생활 방식에 적합했다는 내용이다", "이 글의 중심 내용과 이어진다."]}, {"n": "③", "t": "③", "g": "", "ok": true, "e": ["(4)는 부족의 언어와 소통을 말한다", "물건을 만드는 재료나 생활 방식과 관계가 없고, (3)과 (5)의 For example 사이를 끊는다."]}, {"n": "④", "t": "④", "g": "", "ok": false, "e": ["(5)는 For example로 (3)의 예를 든다", "이동을 많이 했던 대초원의 사람들이 점토 단지를 만들지 않았다는 내용이다."]}, {"n": "⑤", "t": "⑤", "g": "", "ok": false, "e": ["(6)은 (5)에서 점토 단지를 만들지 않은 이유(너무 무겁고 쉽게 깨짐)와, 대신 동물 가죽으로 용기를 만들었다는 내용이다."]}], "tr": ["초기 아메리카 원주민들은 그들이 필요한 모든 것을 만들어야 했다.", "① 각 부족이 도구, 옷, 장난감, 주거지, 그리고 음식을 만들기 위해 사용했던 것들의 종류는 그들이 주변에서 발견한 것에 따라 달랐다.", "② 또한, 그들이 만든 것들은 그들의 생활 방식에 적합했다.", "③ 대부분의 부족은 그들만의 언어를 말했지만, 다른 부족들과 소통할 수 있었다.", "④ 예를 들어, 이동을 많이 했던 대초원의 사람들은 점토 단지를 만들지 않았다.", "⑤ 단지는 그것들이 옮겨질 때 너무 무겁고 또 너무 쉽게 깨져서, 그들은 동물 가죽으로 용기를 만들었다."], "ps": [{"n": 1, "ch": [{"e": "Early native Americans", "k": "초기 아메리카 원주민들은"}, {"e": "had to make everything they needed.", "k": "그들이 필요한 모든 것을 만들어야 했다"}], "easy": "초기 아메리카 원주민들은 필요한 건 전부 직접 만들어야 했어요.", "gist": "글의 시작: 직접 만들어야 했다는 내용."}, {"n": 2, "ch": [{"e": "① The kinds of things", "k": "① 것들의 종류는"}, {"e": "each tribe used", "k": "각 부족이 사용했던"}, {"e": "to make tools, clothing, toys, shelter, and food", "k": "도구, 옷, 장난감, 주거지, 그리고 음식을 만들기 위해"}, {"e": "depended upon", "k": "~에 따라 달랐다"}, {"e": "what they found around them.", "k": "그들이 주변에서 발견한 것"}], "easy": "도구나 옷, 음식을 뭘로 만들었는지는 부족마다 달랐어요. 주변에서 찾은 것에 따라 정해졌거든요.", "gist": "(1)을 구체적으로 설명: 재료는 주변에서 발견한 것에 따라 달랐다.", "link": "이어 읽으면 — 각 부족이 도구, 옷, 장난감, 주거지, 그리고 음식을 만들기 위해 사용했던 것들의 종류는 그들이 주변에서 발견한 것에 따라 달랐다."}, {"n": 3, "ch": [{"e": "② <b>Also<\/b>,", "k": "② 또한,"}, {"e": "the things they made", "k": "그들이 만든 것들은"}, {"e": "<b>fit<\/b> their life style.", "k": "그들의 생활 방식에 적합했다"}], "easy": "그들이 만든 물건은 그들의 생활 방식에도 잘 맞았어요.", "gist": "물건이 생활 방식에 적합했다는 내용."}, {"n": 4, "ch": [{"e": "③ Most tribes spoke their own language,", "k": "③ 대부분의 부족은 그들만의 언어를 말했지만,"}, {"e": "<b>but<\/b> could communicate with other tribes.", "k": "다른 부족들과 소통할 수 있었다"}], "easy": "대부분의 부족은 자기들만의 말을 썼지만, 다른 부족과도 소통할 수 있었어요.", "gist": "언어와 소통 이야기."}, {"n": 5, "ch": [{"e": "④ <b>For example<\/b>,", "k": "④ 예를 들어,"}, {"e": "the people of the Plains,", "k": "대초원의 사람들은,"}, {"e": "who traveled a lot,", "k": "이동을 많이 했던,"}, {"e": "didn’t make clay pots.", "k": "점토 단지를 만들지 않았다"}], "easy": "예를 들어, 이동을 많이 하던 대초원 사람들은 점토 단지를 만들지 않았어요.", "gist": "For example로 시작하는 구체적인 예."}, {"n": 6, "ch": [{"e": "⑤ Pots were too heavy", "k": "⑤ 단지는 너무 무거웠고"}, {"e": "and broke too easily", "k": "너무 쉽게 깨져서"}, {"e": "when they were moved,", "k": "그것들이 옮겨질 때"}, {"e": "so they made containers from animal skins.", "k": "그들은 동물 가죽으로 용기를 만들었다"}], "easy": "단지는 옮길 때 너무 무겁고 쉽게 깨져서, 그들은 동물 가죽으로 용기를 만들었어요.", "gist": "점토 단지를 만들지 않은 이유와 대신 만든 것."}]}, {"no": "10", "typ": "순서배열", "src": "2016년 6월 43번", "evn": [6, 7, 13, 18], "ev_en": "A deal was struck and the student began working to make the concert a success. / The big day arrived. / Paderewski later went on to become the Prime Minister of Poland. / The head there was a man called Herbert Hoover — who later went on to become the US President.", "ev_ko": [[6, "(A)(6) 거래가 성사되었고 그 학생은 콘서트를 성공시키기 위해 노력하기 시작했다."], [7, "(D)(1) (드디어) 그 중요한 날이 왔다."], [13, "(B)(1) 나중에 Paderewski는 폴란드의 수상이 되는 것으로 나아갔다(수상이 되었다)."], [18, "(C)(1) 그곳의 책임자는 Herbert Hoover라는 이름의 남자였고, 그(Herbert Hoover)는 훗날 미국 대통령이 되었다."]], "why": ["두 인물의 관계를 중심으로 나누면 된다", "학생과 피아니스트의 이야기는 (A)-(D)로 이어지고, 폴란드 수상과 Hoover의 이야기는 (B)-(C)로 이어진다", "(A) 끝에서 학생이 콘서트 준비를 시작하고, (D)에서 그 '중요한 날'이 온다", "그 뒤 (B)에서 나중에 Paderewski가 수상이 되고, (C)에서 그곳의 책임자 Hoover가 나온다", "그래서 (D)-(B)-(C)이다."], "ch": [{"n": "①", "t": "(B)–(D)–(C)", "g": "", "ok": false, "e": ["(B)는 나중에 Paderewski가 수상이 되는 이야기라 학생 이야기 (A)와 바로 이어지지 않는다", "학생 이야기는 (A) 다음 (D)로 이어진다."]}, {"n": "②", "t": "(C)–(B)–(D)", "g": "", "ok": false, "e": ["(C)의 'The head there'(그곳의 책임자)는 (B) 끝에 나온 US Food and Relief Administration을 받는다", "(B)보다 (C)가 앞에 올 수 없다."]}, {"n": "③", "t": "(C)–(D)–(B)", "g": "", "ok": false, "e": ["(C)는 (B)에서 도움을 요청한 곳을 받는 내용이므로 (B) 뒤에 와야 한다", "또 (A) 다음에는 학생 이야기 (D)가 이어진다."]}, {"n": "④", "t": "(D)–(B)–(C)", "g": "", "ok": true, "e": ["(A) 학생이 준비를 시작 → (D) 중요한 날 → (B) 나중에 Paderewski가 수상이 됨 → (C) 그곳의 책임자 Hoover의 이야기로 이어진다."]}, {"n": "⑤", "t": "(D)–(C)–(B)", "g": "", "ok": false, "e": ["(D)가 (A) 다음에 오는 것은 맞지만, (C)의 'The head there'가 받을 곳(US Food and Relief Administration)은 (B) 끝에 나온다", "(B)가 (C)보다 먼저여야 한다."]}], "tr": ["(A)(1) 한 대학생이 그의 학비를 내려고 애쓰고 있었다.", "(A)(2) 그(대학생)는 고아였고 어디에서 돈을 구해야 할지 모르던 중에, 그는 멋진 아이디어를 생각해냈다.", "(A)(3) 그(대학생)는 그의 교육을 위한 돈(학비)을 모으기 위해 캠퍼스에서 음악 연주회를 열기로 결심했다.", "(A)(4) 그(대학생)는 위대한 피아니스트 Ignacy Paderewski에게 (캠퍼스에) 와서 (피아노를) 연주해 줄 것을 요청했다.", "(A)(5) (a) 그(Paderewski)의 매니저는 피아노 연주회에 대해 2,000달러를 요구했다.", "(A)(6) 거래가 성사되었고 그 학생은 콘서트를 성공시키기 위해 노력하기 시작했다.", "(D)(1) (드디어) 그 중요한 날이 왔다.", "(D)(2) 그러나 불행하게도, 그(대학생)는 충분한 입장권(입장권을 충분히) 팔지 못했다.", "(D)(3) 모인 총 금액은 1,600달러뿐이었다.", "(D)(4) 실망한 채, 그(대학생)는 Paderewski에게 가서 그의 어려움을 설명했다.", "(D)(5) Paderewski는 1,600달러를 돌려주면서 그 학생에게 (다음과 같이) 말했다. “여기 1,600달러를 받게. 학비로 필요한 이 돈을 자네가 가지게.”", "(D)(6) 그 학생은 놀랐고, (e) 그(Paderewski)에게 진심으로 감사를 표했다.", "(B)(1) 나중에 Paderewski는 폴란드의 수상이 되는 것으로 나아갔다(수상이 되었다).", "(B)(2) 그(Paderewski)는 훌륭한 지도자였지만, 불행하게도 제1차 세계 대전이 시작되었을 때, 폴란드는 황폐해졌다.", "(B)(3) (b) 그(Paderewski)의 나라에는 150만 명이 넘는 굶주리는 사람들이 있었고, 그들을 먹일 돈이 없었다.", "(B)(4) Paderewski는 어디에 도움을 청해야 할지 몰랐다.", "(B)(5) 결국, 그(Paderewski)는 미국의 Food and Relief Administration(식품 원조 행정부)에 도움을 요청했다.", "(C)(1) 그곳의 책임자는 Herbert Hoover라는 이름의 남자였고, 그(Herbert Hoover)는 훗날 미국 대통령이 되었다.", "(C)(2) (c) 그(Herbert Hoover)는 굶주리는 폴란드 사람들에게 수십 톤의 식량을 공급하는 것에 동의했다.", "(C)(3) Paderewski는 안도했다.", "(C)(4) 나중에, (d) 그(Paderewski)가 Hoover에게 그의 훌륭한 행동에 대해 감사를 전하려고 할 때, Hoover가 재빨리 말했다. “저에게 고마워하시면 안 됩니다, 수상님.", "(C)(5) 당신은 이것을 기억하지 못하실 수도 있지만, 오래 전에, 당신은 한 학생이 대학을 통과하도록(졸업하도록) 도와주셨습니다. 제가 그 사람(학생)이었습니다.”"], "ps": [{"n": 1, "ch": [{"e": "(A) A college student", "k": "(A) 한 대학생이"}, {"e": "was <b>struggling to<\/b> pay", "k": "(돈을) 내려고 애쓰고 있었다"}, {"e": "his school fees.", "k": "그의 학비를"}], "easy": "한 대학생이 학비를 내려고 애쓰고 있었어요.", "gist": "[(A)(1)] 학비 걱정을 하는 대학생 이야기로 시작한다."}, {"n": 2, "ch": [{"e": "He was an orphan,", "k": "그<span class=\"r\">(= 대학생)<\/span>는 고아였고,"}, {"e": "and <b>not knowing<\/b> where to turn for money,", "k": "어디에서 돈을 구해야 할지 모르던 중에,"}, {"e": "he came up with a bright idea.", "k": "그는 멋진 아이디어를 생각해냈다"}], "easy": "그 대학생은 고아였고, 돈 구할 곳을 몰라 하다가 좋은 생각이 떠올랐어요.", "gist": "[(A)(2)] 대학생이 고아이고, 멋진 아이디어를 떠올렸다."}, {"n": 3, "ch": [{"e": "He <b>decided to<\/b> host a music concert on campus", "k": "그<span class=\"r\">(= 대학생)<\/span>는 캠퍼스에서 음악 연주회를 열기로 결심했다"}, {"e": "to raise money for his education.", "k": "그의 교육을 위한 돈(학비)을 모으기 위해"}], "easy": "그는 학비를 모으려고 캠퍼스에서 음악 연주회를 열기로 했어요.", "gist": "[(A)(3)] 아이디어의 내용: 음악 연주회 개최."}, {"n": 4, "ch": [{"e": "He asked", "k": "그<span class=\"r\">(= 대학생)<\/span>는 요청했다"}, {"e": "the great pianist Ignacy Paderewski", "k": "위대한 피아니스트 Ignacy Paderewski에게"}, {"e": "to come and play.", "k": "(캠퍼스에) 와서 (피아노를) 연주해 줄 것을"}], "easy": "그는 위대한 피아니스트 Ignacy Paderewski에게 와서 연주해 달라고 부탁했어요.", "gist": "[(A)(4)] 학생이 Paderewski에게 연주를 요청했다."}, {"n": 5, "ch": [{"e": "(a) His manager", "k": "(a) 그<span class=\"r\">(= Paderewski)<\/span>의 매니저는"}, {"e": "<b>demanded<\/b> $2,000", "k": "2,000달러를 요구했다"}, {"e": "for the piano recital.", "k": "피아노 연주회에 대해"}], "easy": "Paderewski의 매니저는 피아노 연주회 값으로 2,000달러를 요구했어요.", "gist": "[(A)(5)] 연주 대가로 2,000달러를 요구한다."}, {"n": 6, "ch": [{"e": "A deal <b>was struck<\/b>", "k": "거래가 성사되었고"}, {"e": "and the student began working", "k": "그 학생은 노력하기 시작했다"}, {"e": "to make the concert a success.", "k": "콘서트를 성공시키기 위해"}], "easy": "거래가 성사되어, 학생은 콘서트를 성공시키려고 일하기 시작했어요.", "gist": "[(A)(6)] 거래가 성사되고 학생이 준비를 시작한다."}, {"n": 7, "ch": [{"e": "(D) The big day arrived.", "k": "(D) (드디어) 그 중요한 날이 왔다."}], "easy": "드디어 중요한 날이 왔어요.", "gist": "[(D)(1)] 중요한 날(연주회 날)이 되었다."}, {"n": 8, "ch": [{"e": "<b>But unfortunately<\/b>,", "k": "그러나 불행하게도,"}, {"e": "he had not managed to sell", "k": "그<span class=\"r\">(= 대학생)<\/span>는 팔지 못했다"}, {"e": "enough tickets.", "k": "충분한 입장권(표)을"}], "easy": "하지만 안타깝게도, 표를 충분히 팔지 못했어요.", "gist": "[(D)(2)] 표를 충분히 팔지 못했다."}, {"n": 9, "ch": [{"e": "The total amount collected", "k": "모인 총 금액은"}, {"e": "was <b>only<\/b> $1,600.", "k": "1,600달러뿐이었다"}], "easy": "모인 돈은 1,600달러밖에 안 됐어요.", "gist": "[(D)(3)] 모인 금액은 1,600달러."}, {"n": 10, "ch": [{"e": "<b>Disappointed<\/b>,", "k": "실망한 채,"}, {"e": "he went to Paderewski", "k": "그<span class=\"r\">(= 대학생)<\/span>는 Paderewski에게 가서"}, {"e": "and explained his difficulty.", "k": "그의 어려움을 설명했다"}], "easy": "실망한 학생은 Paderewski에게 가서 자기 어려움을 이야기했어요.", "gist": "[(D)(4)] 학생이 Paderewski에게 사정을 설명했다."}, {"n": 11, "ch": [{"e": "Paderewski returned the $1,600", "k": "Paderewski는 1,600달러를 돌려주면서"}, {"e": "and told the student:", "k": "그 학생에게 (다음과 같이) 말했다:"}, {"e": "“Here’s the $1,600.", "k": "“여기 1,600달러를 받게."}, {"e": "Keep the money you need for your fees.”", "k": "학비로 필요한 이 돈을 자네가 가지게.”"}], "easy": "Paderewski는 1,600달러를 돌려주며 “학비로 필요한 돈이니 가지게.” 하고 말했어요.", "gist": "[(D)(5)] Paderewski가 1,600달러를 돌려주었다."}, {"n": 12, "ch": [{"e": "The student was surprised,", "k": "그 학생은 놀랐고,"}, {"e": "and thanked (e) him heartily.", "k": "(e) 그<span class=\"r\">(= Paderewski)<\/span>에게 진심으로 감사를 표했다"}], "easy": "학생은 놀랐고, Paderewski에게 진심으로 고마워했어요.", "gist": "[(D)(6)] 학생이 감사를 표했다."}, {"n": 13, "ch": [{"e": "(B) Paderewski <b>later went on to become<\/b>", "k": "(B) 나중에 Paderewski는 ~이 되는 것으로 나아갔다(~이 되었다)"}, {"e": "the Prime Minister of Poland.", "k": "폴란드의 수상"}], "easy": "Paderewski는 나중에 폴란드의 수상이 되었어요.", "gist": "[(B)(1)] 나중에 Paderewski가 수상이 되었다."}, {"n": 14, "ch": [{"e": "He was a great leader,", "k": "그<span class=\"r\">(= Paderewski)<\/span>는 훌륭한 지도자였지만,"}, {"e": "<b>but unfortunately<\/b>", "k": "불행하게도"}, {"e": "when World War I began,", "k": "제1차 세계 대전이 시작되었을 때,"}, {"e": "Poland was ravaged.", "k": "폴란드는 황폐해졌다"}], "easy": "그는 훌륭한 지도자였지만, 제1차 세계 대전이 시작되자 폴란드는 황폐해졌어요.", "gist": "[(B)(2)] 전쟁으로 폴란드가 황폐해졌다."}, {"n": 15, "ch": [{"e": "There were more than 1.5 million people", "k": "150만 명이 넘는 사람들이 있었고"}, {"e": "starving in (b) his country,", "k": "(b) 그<span class=\"r\">(= Paderewski)<\/span>의 나라에서 굶주리는"}, {"e": "and there was no money to feed them.", "k": "그들을 먹일 돈이 없었다"}], "easy": "그의 나라에는 굶주리는 사람이 150만 명이 넘었는데, 먹일 돈이 없었어요.", "gist": "[(B)(3)] 굶주리는 사람들과 부족한 돈."}, {"n": 16, "ch": [{"e": "Paderewski did not know", "k": "Paderewski는 몰랐다"}, {"e": "where to turn for help.", "k": "어디에 도움을 청해야 할지"}], "easy": "Paderewski는 어디에 도움을 청해야 할지 몰랐어요.", "gist": "[(B)(4)] 도움 청할 곳을 몰랐다."}, {"n": 17, "ch": [{"e": "<b>Finally<\/b>, he asked", "k": "결국, 그<span class=\"r\">(= Paderewski)<\/span>는 요청했다"}, {"e": "the US Food and Relief Administration", "k": "미국의 Food and Relief Administration(식품 원조 행정부)에"}, {"e": "for help.", "k": "도움을"}], "easy": "결국 그는 미국 식량 원조 행정부에 도움을 요청했어요.", "gist": "[(B)(5)] 미국 Food and Relief Administration에 도움을 요청했다."}, {"n": 18, "ch": [{"e": "(C) The head there", "k": "(C) 그곳의 책임자는"}, {"e": "was a man called Herbert Hoover", "k": "Herbert Hoover라는 이름의 남자였고,"}, {"e": "— who <b>later went on to become<\/b> the US President.", "k": "그<span class=\"r\">(= Herbert Hoover)<\/span>는 훗날 미국 대통령이 되었다"}], "easy": "그곳의 책임자는 Herbert Hoover라는 남자였고, 그는 훗날 미국 대통령이 되었어요.", "gist": "[(C)(1)] 그곳의 책임자가 Hoover."}, {"n": 19, "ch": [{"e": "(c) He agreed to supply", "k": "(c) 그<span class=\"r\">(= Herbert Hoover)<\/span>는 공급하는 것에 동의했다"}, {"e": "tons of food", "k": "수십 톤의 식량을"}, {"e": "to the starving Polish people.", "k": "굶주리는 폴란드 사람들에게"}], "easy": "Hoover는 굶주리는 폴란드 사람들에게 식량을 아주 많이 보내 주기로 했어요.", "gist": "[(C)(2)] Hoover가 식량 공급에 동의했다."}, {"n": 20, "ch": [{"e": "Paderewski was relieved.", "k": "Paderewski는 안도했다."}], "easy": "Paderewski는 마음이 놓였어요.", "gist": "[(C)(3)] Paderewski가 안도했다."}, {"n": 21, "ch": [{"e": "Later, when (d) he began to thank Hoover", "k": "나중에, (d) 그<span class=\"r\">(= Paderewski)<\/span>가 Hoover에게 감사를 전하려고 할 때"}, {"e": "for his noble gesture,", "k": "그의 훌륭한 행동에 대해,"}, {"e": "Hoover quickly said,", "k": "Hoover가 재빨리 말했다."}, {"e": "“You shouldn’t be thanking me, Mr. Prime Minister.", "k": "“저에게 고마워하시면 안 됩니다, 수상님."}], "easy": "나중에 Paderewski가 Hoover의 훌륭한 행동에 감사하려 하자, Hoover가 재빨리 “저에게 고마워하시면 안 됩니다, 수상님.” 하고 말했어요.", "gist": "[(C)(4)] 감사하려는 Paderewski에게 Hoover가 말한다."}, {"n": 22, "ch": [{"e": "You may not remember this,", "k": "당신은 이것을 기억하지 못하실 수도 있지만,"}, {"e": "<b>but<\/b> many years ago,", "k": "오래 전에,"}, {"e": "you helped a student", "k": "당신은 한 학생이"}, {"e": "make it through college.", "k": "대학을 통과하도록(졸업하도록) 도와주셨습니다."}, {"e": "I was him.”", "k": "제가 그 사람(학생)이었습니다.”"}], "easy": "기억 못 하시겠지만, 오래전에 당신이 한 학생이 대학을 마치도록 도와주셨는데, 그 학생이 저였습니다.", "gist": "[(C)(5)] Hoover가 바로 그 학생이었다고 밝힌다."}]}, {"no": "11", "typ": "지칭 추론", "src": "2016년 6월 44번", "evn": [18, 19], "ev_en": "The head there was a man called Herbert Hoover — who later went on to become the US President. / (c) He agreed to supply tons of food to the starving Polish people.", "ev_ko": [[18, "(C)(1) 그곳의 책임자는 Herbert Hoover라는 이름의 남자였고, 그(Herbert Hoover)는 훗날 미국 대통령이 되었다."], [19, "(C)(2) (c) 그(Herbert Hoover)는 굶주리는 폴란드 사람들에게 수십 톤의 식량을 공급하는 것에 동의했다."]], "why": ["(a), (b), (d), (e)는 모두 Paderewski를 가리키지만, (c) He는 바로 앞 (18)에서 소개된 Herbert Hoover를 가리킨다", "(c)가 나머지 넷과 다르다."], "ch": [{"n": "①", "t": "(a)", "g": "", "ok": false, "e": ["(5) (a) His manager에서 (a)는 (4)의 피아니스트 Paderewski를 가리킨다."]}, {"n": "②", "t": "(b)", "g": "", "ok": false, "e": ["(15) (b) his country의 (b)는 (13)에서 수상이 된 Paderewski를 가리킨다."]}, {"n": "③", "t": "(c)", "g": "", "ok": true, "e": ["(19) (c) He agreed to supply tons of food에서 (c)는 바로 앞 (18)의 Herbert Hoover를 가리킨다."]}, {"n": "④", "t": "(d)", "g": "", "ok": false, "e": ["(21) (d) he began to thank Hoover에서 감사를 전하는 쪽은 Hoover가 아니므로 (d)는 Paderewski이다."]}, {"n": "⑤", "t": "(e)", "g": "", "ok": false, "e": ["(12) thanked (e) him heartily에서 (e)는 학생이 감사를 표한 대상, Paderewski이다."]}], "tr": ["(A)(1) 한 대학생이 그의 학비를 내려고 애쓰고 있었다.", "(A)(2) 그(대학생)는 고아였고 어디에서 돈을 구해야 할지 모르던 중에, 그는 멋진 아이디어를 생각해냈다.", "(A)(3) 그(대학생)는 그의 교육을 위한 돈(학비)을 모으기 위해 캠퍼스에서 음악 연주회를 열기로 결심했다.", "(A)(4) 그(대학생)는 위대한 피아니스트 Ignacy Paderewski에게 (캠퍼스에) 와서 (피아노를) 연주해 줄 것을 요청했다.", "(A)(5) (a) 그(Paderewski)의 매니저는 피아노 연주회에 대해 2,000달러를 요구했다.", "(A)(6) 거래가 성사되었고 그 학생은 콘서트를 성공시키기 위해 노력하기 시작했다.", "(D)(1) (드디어) 그 중요한 날이 왔다.", "(D)(2) 그러나 불행하게도, 그(대학생)는 충분한 입장권(입장권을 충분히) 팔지 못했다.", "(D)(3) 모인 총 금액은 1,600달러뿐이었다.", "(D)(4) 실망한 채, 그(대학생)는 Paderewski에게 가서 그의 어려움을 설명했다.", "(D)(5) Paderewski는 1,600달러를 돌려주면서 그 학생에게 (다음과 같이) 말했다. “여기 1,600달러를 받게. 학비로 필요한 이 돈을 자네가 가지게.”", "(D)(6) 그 학생은 놀랐고, (e) 그(Paderewski)에게 진심으로 감사를 표했다.", "(B)(1) 나중에 Paderewski는 폴란드의 수상이 되는 것으로 나아갔다(수상이 되었다).", "(B)(2) 그(Paderewski)는 훌륭한 지도자였지만, 불행하게도 제1차 세계 대전이 시작되었을 때, 폴란드는 황폐해졌다.", "(B)(3) (b) 그(Paderewski)의 나라에는 150만 명이 넘는 굶주리는 사람들이 있었고, 그들을 먹일 돈이 없었다.", "(B)(4) Paderewski는 어디에 도움을 청해야 할지 몰랐다.", "(B)(5) 결국, 그(Paderewski)는 미국의 Food and Relief Administration(식품 원조 행정부)에 도움을 요청했다.", "(C)(1) 그곳의 책임자는 Herbert Hoover라는 이름의 남자였고, 그(Herbert Hoover)는 훗날 미국 대통령이 되었다.", "(C)(2) (c) 그(Herbert Hoover)는 굶주리는 폴란드 사람들에게 수십 톤의 식량을 공급하는 것에 동의했다.", "(C)(3) Paderewski는 안도했다.", "(C)(4) 나중에, (d) 그(Paderewski)가 Hoover에게 그의 훌륭한 행동에 대해 감사를 전하려고 할 때, Hoover가 재빨리 말했다. “저에게 고마워하시면 안 됩니다, 수상님.", "(C)(5) 당신은 이것을 기억하지 못하실 수도 있지만, 오래 전에, 당신은 한 학생이 대학을 통과하도록(졸업하도록) 도와주셨습니다. 제가 그 사람(학생)이었습니다.”"], "ps": [{"n": 1, "ch": [{"e": "(A) A college student", "k": "(A) 한 대학생이"}, {"e": "was <b>struggling to<\/b> pay", "k": "(돈을) 내려고 애쓰고 있었다"}, {"e": "his school fees.", "k": "그의 학비를"}], "easy": "한 대학생이 학비를 내려고 애쓰고 있었어요.", "gist": "[(A)(1)] 학비 걱정을 하는 대학생 이야기로 시작한다."}, {"n": 2, "ch": [{"e": "He was an orphan,", "k": "그<span class=\"r\">(= 대학생)<\/span>는 고아였고,"}, {"e": "and <b>not knowing<\/b> where to turn for money,", "k": "어디에서 돈을 구해야 할지 모르던 중에,"}, {"e": "he came up with a bright idea.", "k": "그는 멋진 아이디어를 생각해냈다"}], "easy": "그 대학생은 고아였고, 돈 구할 곳을 몰라 하다가 좋은 생각이 떠올랐어요.", "gist": "[(A)(2)] 대학생이 고아이고, 멋진 아이디어를 떠올렸다."}, {"n": 3, "ch": [{"e": "He <b>decided to<\/b> host a music concert on campus", "k": "그<span class=\"r\">(= 대학생)<\/span>는 캠퍼스에서 음악 연주회를 열기로 결심했다"}, {"e": "to raise money for his education.", "k": "그의 교육을 위한 돈(학비)을 모으기 위해"}], "easy": "그는 학비를 모으려고 캠퍼스에서 음악 연주회를 열기로 했어요.", "gist": "[(A)(3)] 아이디어의 내용: 음악 연주회 개최."}, {"n": 4, "ch": [{"e": "He asked", "k": "그<span class=\"r\">(= 대학생)<\/span>는 요청했다"}, {"e": "the great pianist Ignacy Paderewski", "k": "위대한 피아니스트 Ignacy Paderewski에게"}, {"e": "to come and play.", "k": "(캠퍼스에) 와서 (피아노를) 연주해 줄 것을"}], "easy": "그는 위대한 피아니스트 Ignacy Paderewski에게 와서 연주해 달라고 부탁했어요.", "gist": "[(A)(4)] 학생이 Paderewski에게 연주를 요청했다."}, {"n": 5, "ch": [{"e": "(a) His manager", "k": "(a) 그<span class=\"r\">(= Paderewski)<\/span>의 매니저는"}, {"e": "<b>demanded<\/b> $2,000", "k": "2,000달러를 요구했다"}, {"e": "for the piano recital.", "k": "피아노 연주회에 대해"}], "easy": "Paderewski의 매니저는 피아노 연주회 값으로 2,000달러를 요구했어요.", "gist": "[(A)(5)] 연주 대가로 2,000달러를 요구한다."}, {"n": 6, "ch": [{"e": "A deal <b>was struck<\/b>", "k": "거래가 성사되었고"}, {"e": "and the student began working", "k": "그 학생은 노력하기 시작했다"}, {"e": "to make the concert a success.", "k": "콘서트를 성공시키기 위해"}], "easy": "거래가 성사되어, 학생은 콘서트를 성공시키려고 일하기 시작했어요.", "gist": "[(A)(6)] 거래가 성사되고 학생이 준비를 시작한다."}, {"n": 7, "ch": [{"e": "(D) The big day arrived.", "k": "(D) (드디어) 그 중요한 날이 왔다."}], "easy": "드디어 중요한 날이 왔어요.", "gist": "[(D)(1)] 중요한 날(연주회 날)이 되었다."}, {"n": 8, "ch": [{"e": "<b>But unfortunately<\/b>,", "k": "그러나 불행하게도,"}, {"e": "he had not managed to sell", "k": "그<span class=\"r\">(= 대학생)<\/span>는 팔지 못했다"}, {"e": "enough tickets.", "k": "충분한 입장권(표)을"}], "easy": "하지만 안타깝게도, 표를 충분히 팔지 못했어요.", "gist": "[(D)(2)] 표를 충분히 팔지 못했다."}, {"n": 9, "ch": [{"e": "The total amount collected", "k": "모인 총 금액은"}, {"e": "was <b>only<\/b> $1,600.", "k": "1,600달러뿐이었다"}], "easy": "모인 돈은 1,600달러밖에 안 됐어요.", "gist": "[(D)(3)] 모인 금액은 1,600달러."}, {"n": 10, "ch": [{"e": "<b>Disappointed<\/b>,", "k": "실망한 채,"}, {"e": "he went to Paderewski", "k": "그<span class=\"r\">(= 대학생)<\/span>는 Paderewski에게 가서"}, {"e": "and explained his difficulty.", "k": "그의 어려움을 설명했다"}], "easy": "실망한 학생은 Paderewski에게 가서 자기 어려움을 이야기했어요.", "gist": "[(D)(4)] 학생이 Paderewski에게 사정을 설명했다."}, {"n": 11, "ch": [{"e": "Paderewski returned the $1,600", "k": "Paderewski는 1,600달러를 돌려주면서"}, {"e": "and told the student:", "k": "그 학생에게 (다음과 같이) 말했다:"}, {"e": "“Here’s the $1,600.", "k": "“여기 1,600달러를 받게."}, {"e": "Keep the money you need for your fees.”", "k": "학비로 필요한 이 돈을 자네가 가지게.”"}], "easy": "Paderewski는 1,600달러를 돌려주며 “학비로 필요한 돈이니 가지게.” 하고 말했어요.", "gist": "[(D)(5)] Paderewski가 1,600달러를 돌려주었다."}, {"n": 12, "ch": [{"e": "The student was surprised,", "k": "그 학생은 놀랐고,"}, {"e": "and thanked (e) him heartily.", "k": "(e) 그<span class=\"r\">(= Paderewski)<\/span>에게 진심으로 감사를 표했다"}], "easy": "학생은 놀랐고, Paderewski에게 진심으로 고마워했어요.", "gist": "[(D)(6)] 학생이 감사를 표했다."}, {"n": 13, "ch": [{"e": "(B) Paderewski <b>later went on to become<\/b>", "k": "(B) 나중에 Paderewski는 ~이 되는 것으로 나아갔다(~이 되었다)"}, {"e": "the Prime Minister of Poland.", "k": "폴란드의 수상"}], "easy": "Paderewski는 나중에 폴란드의 수상이 되었어요.", "gist": "[(B)(1)] 나중에 Paderewski가 수상이 되었다."}, {"n": 14, "ch": [{"e": "He was a great leader,", "k": "그<span class=\"r\">(= Paderewski)<\/span>는 훌륭한 지도자였지만,"}, {"e": "<b>but unfortunately<\/b>", "k": "불행하게도"}, {"e": "when World War I began,", "k": "제1차 세계 대전이 시작되었을 때,"}, {"e": "Poland was ravaged.", "k": "폴란드는 황폐해졌다"}], "easy": "그는 훌륭한 지도자였지만, 제1차 세계 대전이 시작되자 폴란드는 황폐해졌어요.", "gist": "[(B)(2)] 전쟁으로 폴란드가 황폐해졌다."}, {"n": 15, "ch": [{"e": "There were more than 1.5 million people", "k": "150만 명이 넘는 사람들이 있었고"}, {"e": "starving in (b) his country,", "k": "(b) 그<span class=\"r\">(= Paderewski)<\/span>의 나라에서 굶주리는"}, {"e": "and there was no money to feed them.", "k": "그들을 먹일 돈이 없었다"}], "easy": "그의 나라에는 굶주리는 사람이 150만 명이 넘었는데, 먹일 돈이 없었어요.", "gist": "[(B)(3)] 굶주리는 사람들과 부족한 돈."}, {"n": 16, "ch": [{"e": "Paderewski did not know", "k": "Paderewski는 몰랐다"}, {"e": "where to turn for help.", "k": "어디에 도움을 청해야 할지"}], "easy": "Paderewski는 어디에 도움을 청해야 할지 몰랐어요.", "gist": "[(B)(4)] 도움 청할 곳을 몰랐다."}, {"n": 17, "ch": [{"e": "<b>Finally<\/b>, he asked", "k": "결국, 그<span class=\"r\">(= Paderewski)<\/span>는 요청했다"}, {"e": "the US Food and Relief Administration", "k": "미국의 Food and Relief Administration(식품 원조 행정부)에"}, {"e": "for help.", "k": "도움을"}], "easy": "결국 그는 미국 식량 원조 행정부에 도움을 요청했어요.", "gist": "[(B)(5)] 미국 Food and Relief Administration에 도움을 요청했다."}, {"n": 18, "ch": [{"e": "(C) The head there", "k": "(C) 그곳의 책임자는"}, {"e": "was a man called Herbert Hoover", "k": "Herbert Hoover라는 이름의 남자였고,"}, {"e": "— who <b>later went on to become<\/b> the US President.", "k": "그<span class=\"r\">(= Herbert Hoover)<\/span>는 훗날 미국 대통령이 되었다"}], "easy": "그곳의 책임자는 Herbert Hoover라는 남자였고, 그는 훗날 미국 대통령이 되었어요.", "gist": "[(C)(1)] 그곳의 책임자가 Hoover."}, {"n": 19, "ch": [{"e": "(c) He agreed to supply", "k": "(c) 그<span class=\"r\">(= Herbert Hoover)<\/span>는 공급하는 것에 동의했다"}, {"e": "tons of food", "k": "수십 톤의 식량을"}, {"e": "to the starving Polish people.", "k": "굶주리는 폴란드 사람들에게"}], "easy": "Hoover는 굶주리는 폴란드 사람들에게 식량을 아주 많이 보내 주기로 했어요.", "gist": "[(C)(2)] Hoover가 식량 공급에 동의했다."}, {"n": 20, "ch": [{"e": "Paderewski was relieved.", "k": "Paderewski는 안도했다."}], "easy": "Paderewski는 마음이 놓였어요.", "gist": "[(C)(3)] Paderewski가 안도했다."}, {"n": 21, "ch": [{"e": "Later, when (d) he began to thank Hoover", "k": "나중에, (d) 그<span class=\"r\">(= Paderewski)<\/span>가 Hoover에게 감사를 전하려고 할 때"}, {"e": "for his noble gesture,", "k": "그의 훌륭한 행동에 대해,"}, {"e": "Hoover quickly said,", "k": "Hoover가 재빨리 말했다."}, {"e": "“You shouldn’t be thanking me, Mr. Prime Minister.", "k": "“저에게 고마워하시면 안 됩니다, 수상님."}], "easy": "나중에 Paderewski가 Hoover의 훌륭한 행동에 감사하려 하자, Hoover가 재빨리 “저에게 고마워하시면 안 됩니다, 수상님.” 하고 말했어요.", "gist": "[(C)(4)] 감사하려는 Paderewski에게 Hoover가 말한다."}, {"n": 22, "ch": [{"e": "You may not remember this,", "k": "당신은 이것을 기억하지 못하실 수도 있지만,"}, {"e": "<b>but<\/b> many years ago,", "k": "오래 전에,"}, {"e": "you helped a student", "k": "당신은 한 학생이"}, {"e": "make it through college.", "k": "대학을 통과하도록(졸업하도록) 도와주셨습니다."}, {"e": "I was him.”", "k": "제가 그 사람(학생)이었습니다.”"}], "easy": "기억 못 하시겠지만, 오래전에 당신이 한 학생이 대학을 마치도록 도와주셨는데, 그 학생이 저였습니다.", "gist": "[(C)(5)] Hoover가 바로 그 학생이었다고 밝힌다."}]}, {"no": "12", "typ": "내용 불일치", "src": "2016년 6월 45번", "evn": [18, 22], "ev_en": "The head there was a man called Herbert Hoover — who later went on to become the US President. / You may not remember this, but many years ago, you helped a student make it through college. I was him.", "ev_ko": [[18, "(C)(1) 그곳의 책임자는 Herbert Hoover라는 이름의 남자였고, 그(Herbert Hoover)는 훗날 미국 대통령이 되었다."], [22, "(C)(5) 당신은 이것을 기억하지 못하실 수도 있지만, 오래 전에, 당신은 한 학생이 대학을 통과하도록(졸업하도록) 도와주셨습니다. 제가 그 사람(학생)이었습니다.”"]], "why": ["Hoover가 Paderewski에게 한 말 (22)를 보면, 예전에 대학을 마치도록 도와준 쪽은 Paderewski이고 도움을 받은 학생이 Hoover였다", "그러므로 'Hoover로부터 학비를 지원받았다'는 ④는 글의 내용과 일치하지 않는다."], "ch": [{"n": "①", "t": "학생(student)으로부터 연주 요청을 받았다.", "g": "", "ok": false, "e": ["(4) 학생이 Paderewski에게 와서 연주해 달라고 요청했다", "일치한다."]}, {"n": "②", "t": "나중에 폴란드의 수상(Prime Minister)이 되었다.", "g": "", "ok": false, "e": ["(13) 나중에 Paderewski는 폴란드의 수상이 되었다", "일치한다."]}, {"n": "③", "t": "미국에 도움(help)을 요청했다.", "g": "", "ok": false, "e": ["(17) 결국 Paderewski는 미국의 Food and Relief Administration에 도움을 요청했다", "일치한다."]}, {"n": "④", "t": "Hoover로부터 학비(school fee)를 지원받았다.", "g": "", "ok": true, "e": ["(22)에서 Hoover는 오래 전에 Paderewski가 도와준 학생이었다고 말한다", "도움을 준 쪽이 Paderewski이므로 일치하지 않는다."]}, {"n": "⑤", "t": "학생에게 1,600달러를 되돌려 주었다(return).", "g": "", "ok": false, "e": ["(11) Paderewski는 1,600달러를 돌려주며 학생에게 말했다", "일치한다."]}], "tr": ["(A)(1) 한 대학생이 그의 학비를 내려고 애쓰고 있었다.", "(A)(2) 그(대학생)는 고아였고 어디에서 돈을 구해야 할지 모르던 중에, 그는 멋진 아이디어를 생각해냈다.", "(A)(3) 그(대학생)는 그의 교육을 위한 돈(학비)을 모으기 위해 캠퍼스에서 음악 연주회를 열기로 결심했다.", "(A)(4) 그(대학생)는 위대한 피아니스트 Ignacy Paderewski에게 (캠퍼스에) 와서 (피아노를) 연주해 줄 것을 요청했다.", "(A)(5) (a) 그(Paderewski)의 매니저는 피아노 연주회에 대해 2,000달러를 요구했다.", "(A)(6) 거래가 성사되었고 그 학생은 콘서트를 성공시키기 위해 노력하기 시작했다.", "(D)(1) (드디어) 그 중요한 날이 왔다.", "(D)(2) 그러나 불행하게도, 그(대학생)는 충분한 입장권(입장권을 충분히) 팔지 못했다.", "(D)(3) 모인 총 금액은 1,600달러뿐이었다.", "(D)(4) 실망한 채, 그(대학생)는 Paderewski에게 가서 그의 어려움을 설명했다.", "(D)(5) Paderewski는 1,600달러를 돌려주면서 그 학생에게 (다음과 같이) 말했다. “여기 1,600달러를 받게. 학비로 필요한 이 돈을 자네가 가지게.”", "(D)(6) 그 학생은 놀랐고, (e) 그(Paderewski)에게 진심으로 감사를 표했다.", "(B)(1) 나중에 Paderewski는 폴란드의 수상이 되는 것으로 나아갔다(수상이 되었다).", "(B)(2) 그(Paderewski)는 훌륭한 지도자였지만, 불행하게도 제1차 세계 대전이 시작되었을 때, 폴란드는 황폐해졌다.", "(B)(3) (b) 그(Paderewski)의 나라에는 150만 명이 넘는 굶주리는 사람들이 있었고, 그들을 먹일 돈이 없었다.", "(B)(4) Paderewski는 어디에 도움을 청해야 할지 몰랐다.", "(B)(5) 결국, 그(Paderewski)는 미국의 Food and Relief Administration(식품 원조 행정부)에 도움을 요청했다.", "(C)(1) 그곳의 책임자는 Herbert Hoover라는 이름의 남자였고, 그(Herbert Hoover)는 훗날 미국 대통령이 되었다.", "(C)(2) (c) 그(Herbert Hoover)는 굶주리는 폴란드 사람들에게 수십 톤의 식량을 공급하는 것에 동의했다.", "(C)(3) Paderewski는 안도했다.", "(C)(4) 나중에, (d) 그(Paderewski)가 Hoover에게 그의 훌륭한 행동에 대해 감사를 전하려고 할 때, Hoover가 재빨리 말했다. “저에게 고마워하시면 안 됩니다, 수상님.", "(C)(5) 당신은 이것을 기억하지 못하실 수도 있지만, 오래 전에, 당신은 한 학생이 대학을 통과하도록(졸업하도록) 도와주셨습니다. 제가 그 사람(학생)이었습니다.”"], "ps": [{"n": 1, "ch": [{"e": "(A) A college student", "k": "(A) 한 대학생이"}, {"e": "was <b>struggling to<\/b> pay", "k": "(돈을) 내려고 애쓰고 있었다"}, {"e": "his school fees.", "k": "그의 학비를"}], "easy": "한 대학생이 학비를 내려고 애쓰고 있었어요.", "gist": "[(A)(1)] 학비 걱정을 하는 대학생 이야기로 시작한다."}, {"n": 2, "ch": [{"e": "He was an orphan,", "k": "그<span class=\"r\">(= 대학생)<\/span>는 고아였고,"}, {"e": "and <b>not knowing<\/b> where to turn for money,", "k": "어디에서 돈을 구해야 할지 모르던 중에,"}, {"e": "he came up with a bright idea.", "k": "그는 멋진 아이디어를 생각해냈다"}], "easy": "그 대학생은 고아였고, 돈 구할 곳을 몰라 하다가 좋은 생각이 떠올랐어요.", "gist": "[(A)(2)] 대학생이 고아이고, 멋진 아이디어를 떠올렸다."}, {"n": 3, "ch": [{"e": "He <b>decided to<\/b> host a music concert on campus", "k": "그<span class=\"r\">(= 대학생)<\/span>는 캠퍼스에서 음악 연주회를 열기로 결심했다"}, {"e": "to raise money for his education.", "k": "그의 교육을 위한 돈(학비)을 모으기 위해"}], "easy": "그는 학비를 모으려고 캠퍼스에서 음악 연주회를 열기로 했어요.", "gist": "[(A)(3)] 아이디어의 내용: 음악 연주회 개최."}, {"n": 4, "ch": [{"e": "He asked", "k": "그<span class=\"r\">(= 대학생)<\/span>는 요청했다"}, {"e": "the great pianist Ignacy Paderewski", "k": "위대한 피아니스트 Ignacy Paderewski에게"}, {"e": "to come and play.", "k": "(캠퍼스에) 와서 (피아노를) 연주해 줄 것을"}], "easy": "그는 위대한 피아니스트 Ignacy Paderewski에게 와서 연주해 달라고 부탁했어요.", "gist": "[(A)(4)] 학생이 Paderewski에게 연주를 요청했다."}, {"n": 5, "ch": [{"e": "(a) His manager", "k": "(a) 그<span class=\"r\">(= Paderewski)<\/span>의 매니저는"}, {"e": "<b>demanded<\/b> $2,000", "k": "2,000달러를 요구했다"}, {"e": "for the piano recital.", "k": "피아노 연주회에 대해"}], "easy": "Paderewski의 매니저는 피아노 연주회 값으로 2,000달러를 요구했어요.", "gist": "[(A)(5)] 연주 대가로 2,000달러를 요구한다."}, {"n": 6, "ch": [{"e": "A deal <b>was struck<\/b>", "k": "거래가 성사되었고"}, {"e": "and the student began working", "k": "그 학생은 노력하기 시작했다"}, {"e": "to make the concert a success.", "k": "콘서트를 성공시키기 위해"}], "easy": "거래가 성사되어, 학생은 콘서트를 성공시키려고 일하기 시작했어요.", "gist": "[(A)(6)] 거래가 성사되고 학생이 준비를 시작한다."}, {"n": 7, "ch": [{"e": "(D) The big day arrived.", "k": "(D) (드디어) 그 중요한 날이 왔다."}], "easy": "드디어 중요한 날이 왔어요.", "gist": "[(D)(1)] 중요한 날(연주회 날)이 되었다."}, {"n": 8, "ch": [{"e": "<b>But unfortunately<\/b>,", "k": "그러나 불행하게도,"}, {"e": "he had not managed to sell", "k": "그<span class=\"r\">(= 대학생)<\/span>는 팔지 못했다"}, {"e": "enough tickets.", "k": "충분한 입장권(표)을"}], "easy": "하지만 안타깝게도, 표를 충분히 팔지 못했어요.", "gist": "[(D)(2)] 표를 충분히 팔지 못했다."}, {"n": 9, "ch": [{"e": "The total amount collected", "k": "모인 총 금액은"}, {"e": "was <b>only<\/b> $1,600.", "k": "1,600달러뿐이었다"}], "easy": "모인 돈은 1,600달러밖에 안 됐어요.", "gist": "[(D)(3)] 모인 금액은 1,600달러."}, {"n": 10, "ch": [{"e": "<b>Disappointed<\/b>,", "k": "실망한 채,"}, {"e": "he went to Paderewski", "k": "그<span class=\"r\">(= 대학생)<\/span>는 Paderewski에게 가서"}, {"e": "and explained his difficulty.", "k": "그의 어려움을 설명했다"}], "easy": "실망한 학생은 Paderewski에게 가서 자기 어려움을 이야기했어요.", "gist": "[(D)(4)] 학생이 Paderewski에게 사정을 설명했다."}, {"n": 11, "ch": [{"e": "Paderewski returned the $1,600", "k": "Paderewski는 1,600달러를 돌려주면서"}, {"e": "and told the student:", "k": "그 학생에게 (다음과 같이) 말했다:"}, {"e": "“Here’s the $1,600.", "k": "“여기 1,600달러를 받게."}, {"e": "Keep the money you need for your fees.”", "k": "학비로 필요한 이 돈을 자네가 가지게.”"}], "easy": "Paderewski는 1,600달러를 돌려주며 “학비로 필요한 돈이니 가지게.” 하고 말했어요.", "gist": "[(D)(5)] Paderewski가 1,600달러를 돌려주었다."}, {"n": 12, "ch": [{"e": "The student was surprised,", "k": "그 학생은 놀랐고,"}, {"e": "and thanked (e) him heartily.", "k": "(e) 그<span class=\"r\">(= Paderewski)<\/span>에게 진심으로 감사를 표했다"}], "easy": "학생은 놀랐고, Paderewski에게 진심으로 고마워했어요.", "gist": "[(D)(6)] 학생이 감사를 표했다."}, {"n": 13, "ch": [{"e": "(B) Paderewski <b>later went on to become<\/b>", "k": "(B) 나중에 Paderewski는 ~이 되는 것으로 나아갔다(~이 되었다)"}, {"e": "the Prime Minister of Poland.", "k": "폴란드의 수상"}], "easy": "Paderewski는 나중에 폴란드의 수상이 되었어요.", "gist": "[(B)(1)] 나중에 Paderewski가 수상이 되었다."}, {"n": 14, "ch": [{"e": "He was a great leader,", "k": "그<span class=\"r\">(= Paderewski)<\/span>는 훌륭한 지도자였지만,"}, {"e": "<b>but unfortunately<\/b>", "k": "불행하게도"}, {"e": "when World War I began,", "k": "제1차 세계 대전이 시작되었을 때,"}, {"e": "Poland was ravaged.", "k": "폴란드는 황폐해졌다"}], "easy": "그는 훌륭한 지도자였지만, 제1차 세계 대전이 시작되자 폴란드는 황폐해졌어요.", "gist": "[(B)(2)] 전쟁으로 폴란드가 황폐해졌다."}, {"n": 15, "ch": [{"e": "There were more than 1.5 million people", "k": "150만 명이 넘는 사람들이 있었고"}, {"e": "starving in (b) his country,", "k": "(b) 그<span class=\"r\">(= Paderewski)<\/span>의 나라에서 굶주리는"}, {"e": "and there was no money to feed them.", "k": "그들을 먹일 돈이 없었다"}], "easy": "그의 나라에는 굶주리는 사람이 150만 명이 넘었는데, 먹일 돈이 없었어요.", "gist": "[(B)(3)] 굶주리는 사람들과 부족한 돈."}, {"n": 16, "ch": [{"e": "Paderewski did not know", "k": "Paderewski는 몰랐다"}, {"e": "where to turn for help.", "k": "어디에 도움을 청해야 할지"}], "easy": "Paderewski는 어디에 도움을 청해야 할지 몰랐어요.", "gist": "[(B)(4)] 도움 청할 곳을 몰랐다."}, {"n": 17, "ch": [{"e": "<b>Finally<\/b>, he asked", "k": "결국, 그<span class=\"r\">(= Paderewski)<\/span>는 요청했다"}, {"e": "the US Food and Relief Administration", "k": "미국의 Food and Relief Administration(식품 원조 행정부)에"}, {"e": "for help.", "k": "도움을"}], "easy": "결국 그는 미국 식량 원조 행정부에 도움을 요청했어요.", "gist": "[(B)(5)] 미국 Food and Relief Administration에 도움을 요청했다."}, {"n": 18, "ch": [{"e": "(C) The head there", "k": "(C) 그곳의 책임자는"}, {"e": "was a man called Herbert Hoover", "k": "Herbert Hoover라는 이름의 남자였고,"}, {"e": "— who <b>later went on to become<\/b> the US President.", "k": "그<span class=\"r\">(= Herbert Hoover)<\/span>는 훗날 미국 대통령이 되었다"}], "easy": "그곳의 책임자는 Herbert Hoover라는 남자였고, 그는 훗날 미국 대통령이 되었어요.", "gist": "[(C)(1)] 그곳의 책임자가 Hoover."}, {"n": 19, "ch": [{"e": "(c) He agreed to supply", "k": "(c) 그<span class=\"r\">(= Herbert Hoover)<\/span>는 공급하는 것에 동의했다"}, {"e": "tons of food", "k": "수십 톤의 식량을"}, {"e": "to the starving Polish people.", "k": "굶주리는 폴란드 사람들에게"}], "easy": "Hoover는 굶주리는 폴란드 사람들에게 식량을 아주 많이 보내 주기로 했어요.", "gist": "[(C)(2)] Hoover가 식량 공급에 동의했다."}, {"n": 20, "ch": [{"e": "Paderewski was relieved.", "k": "Paderewski는 안도했다."}], "easy": "Paderewski는 마음이 놓였어요.", "gist": "[(C)(3)] Paderewski가 안도했다."}, {"n": 21, "ch": [{"e": "Later, when (d) he began to thank Hoover", "k": "나중에, (d) 그<span class=\"r\">(= Paderewski)<\/span>가 Hoover에게 감사를 전하려고 할 때"}, {"e": "for his noble gesture,", "k": "그의 훌륭한 행동에 대해,"}, {"e": "Hoover quickly said,", "k": "Hoover가 재빨리 말했다."}, {"e": "“You shouldn’t be thanking me, Mr. Prime Minister.", "k": "“저에게 고마워하시면 안 됩니다, 수상님."}], "easy": "나중에 Paderewski가 Hoover의 훌륭한 행동에 감사하려 하자, Hoover가 재빨리 “저에게 고마워하시면 안 됩니다, 수상님.” 하고 말했어요.", "gist": "[(C)(4)] 감사하려는 Paderewski에게 Hoover가 말한다."}, {"n": 22, "ch": [{"e": "You may not remember this,", "k": "당신은 이것을 기억하지 못하실 수도 있지만,"}, {"e": "<b>but<\/b> many years ago,", "k": "오래 전에,"}, {"e": "you helped a student", "k": "당신은 한 학생이"}, {"e": "make it through college.", "k": "대학을 통과하도록(졸업하도록) 도와주셨습니다."}, {"e": "I was him.”", "k": "제가 그 사람(학생)이었습니다.”"}], "easy": "기억 못 하시겠지만, 오래전에 당신이 한 학생이 대학을 마치도록 도와주셨는데, 그 학생이 저였습니다.", "gist": "[(C)(5)] Hoover가 바로 그 학생이었다고 밝힌다."}]}];
+var ENC="=MakivjoRK+OjGp47IakivDpRK+OkGp4";
+var SETID="g1r16p2", N=D.length, TITLE="고1 미니모의고사 16회 07–12번";
+var CIRC="①②③④⑤";
+function dec(s){var b=atob(s.split("").reverse().join(""));var u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder("utf-8").decode(u);}
+var ANS=dec(ENC).split(";").map(function(x){return x.split("|").map(function(c){return CIRC.indexOf(c)+1;});});
+function isRight(i,a){return ANS[i].indexOf(a)>=0;}
+function ansText(i){return ANS[i].map(function(n){return CIRC[n-1];}).join(", ");}
+
+var GCODE="h1", GRADE="고1", FILE="16b", NEXT="17a.html";
+const KEY='via_mm_'+GCODE+'_'+FILE;
+let S={checks:{},locked:{},res:{},sub:null,q:[]};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* REC 연결 지점: 지금은 기기 안에 대기열로만 쌓음 */
+function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localStorage.getItem('via_minimock_rec_queue')||'[]');q.push(ev);localStorage.setItem('via_minimock_rec_queue',JSON.stringify(q));}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const app=$('#app');
+let view='word',quiz=null,armed=null;
+function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function shuffle(arr,seed){const a=arr.slice();let s=hash(seed)||1;for(let i=a.length-1;i>0;i--){s=Math.imul(s^(s>>>15),2246822519)>>>0;const j=s%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+const WS=WORDS.sets[0];
+
+function hdr(){
+  const on=id=>(view===id)?'on':'';
+  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><a class="link" href="index.html">목록</a></div><div class="tabs"><button class="tab ${on('word')}" data-v="word">단어</button><button class="tab ${on('submit')}" data-v="submit">답 제출</button><button class="tab ${on('exp')}" data-v="exp" ${S.sub?'':'disabled'}>해설</button></div></div></header>`;
+}
+function noteList(){
+  const out=[],ck=S.checks[WS.id]||{};
+  WS.words.forEach((w,i)=>{
+    const c=ck[i];if(!c)return;
+    const parts=['m','s','a'].filter(p=>c[p]&&(p==='m'||w[p]));
+    if(parts.length)out.push({i:i,w:w,parts:parts});
+  });
+  return out;
+}
+function render(){
+  if(view==='word')renderWord();
+  else if(view==='note')renderNote();
+  else if(view==='quiz')renderQuiz();
+  else if(view==='result')renderResult();
+  else if(view==='submit')renderSubmit();
+  else if(view==='exp')renderExp();
+  window.scrollTo(0,0);
+}
+/* ---- 단어 확인 ---- */
+function renderWord(){
+  const ck=S.checks[WS.id]||{},locked=!!S.locked[WS.id],n=noteList().length;
+  let h=hdr()+`<div class="wrap ${locked?'locked':''}">`;
+  WS.words.forEach((w,i)=>{
+    const c=ck[i]||{};
+    h+=`<div class="row"><div class="top"><span class="no">${i+1}</span><span class="word">${esc(w.w)}</span><span class="src">${esc(w.src)}번</span></div><div class="cells">`;
+    h+=`<button class="cell m ${c.m?'bad':''}" data-i="${i}" data-p="m"><span class="tag">뜻</span><span>${esc(w.m)}</span></button>`;
+    if(w.s)h+=`<button class="cell s ${c.s?'bad':''}" data-i="${i}" data-p="s"><span class="tag">유</span><span>${esc(w.s[0])}<span class="ko">${esc(w.s[1])}</span></span></button>`;
+    if(w.a)h+=`<button class="cell a ${c.a?'bad':''}" data-i="${i}" data-p="a"><span class="tag">반</span><span>${esc(w.a[0])}<span class="ko">${esc(w.a[1])}</span></span></button>`;
+    h+=`</div></div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap">`;
+  h+=locked?`<button class="btn" disabled>확인 끝</button>`:`<button class="btn ${armed==='lock'?'arm':''}" id="lock">${armed==='lock'?'한 번 더 누르면 확인 끝':'확인 끝'}</button>`;
+  h+=`<button class="btn pri" id="gonote">단어 오답노트 ${n}</button></div></div>`;
+  app.innerHTML=h;
+  app.querySelectorAll('.cell').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,p=b.dataset.p;
+    S.checks[WS.id]=S.checks[WS.id]||{};
+    const c=S.checks[WS.id][i]=S.checks[WS.id][i]||{};
+    c[p]=c[p]?0:1;save();
+    b.classList.toggle('bad',!!c[p]);
+    $('#gonote').textContent='단어 오답노트 '+noteList().length;
+  });
+  const lk=$('#lock');if(lk)lk.onclick=()=>{
+    if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
+      recSend({type:'word',marks:noteList().map(it=>({w:it.w.w,parts:it.parts}))});}
+    else armed='lock';
+    render();
+  };
+  $('#gonote').onclick=()=>{view='note';armed=null;render();};
+}
+function renderNote(){
+  const list=noteList();
+  let h=`<header><div class="wrap hd2"><h1>단어 오답노트 <span class="meta">${list.length}개</span></h1><button class="link" id="back">확인표</button></div></header><div class="wrap">`;
+  if(!list.length)h+=`<div class="empty">아직 표시한 단어가 없습니다</div>`;
+  list.forEach(it=>{
+    const w=it.w,r=(S.res[WS.id]||{})[it.i]||{};
+    h+=`<div class="note-item"><span class="w">${esc(w.w)}</span><span class="meta">${esc(w.src)}번</span>`;
+    const row=(p,tag,txt,ko)=>{
+      const bad=it.parts.includes(p);
+      const rs=r[p]===1?'<span class="res o">맞춤</span>':r[p]===0?'<span class="res x">틀림</span>':'';
+      return `<div class="part ${p} ${bad?'bad':''}"><span class="tag">${tag}</span><span>${esc(txt)}${ko?`<span class="ko"> ${esc(ko)}</span>`:''}</span>${bad?rs:''}</div>`;
+    };
+    h+=row('m','뜻',w.m,'');
+    if(w.s)h+=row('s','유',w.s[0],w.s[1]);
+    if(w.a)h+=row('a','반',w.a[0],w.a[1]);
+    h+=`</div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap"><button class="btn" id="back2">확인표</button><button class="btn pri" id="start" ${list.length?'':'disabled'}>복습 시작</button></div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='word';armed=null;render();};
+  $('#back2').onclick=()=>{view='word';render();};
+  $('#start').onclick=()=>{quiz={qs:buildQuestions(),n:0,right:0,done:false,shown:false};view='quiz';render();};
+}
+function buildQuestions(){
+  const qs=[];
+  noteList().forEach(it=>{
+    const w=it.w;
+    it.parts.forEach(p=>{
+      let q={i:it.i,p:p,w:w.w};
+      if(p==='m'){
+        const toks=x=>x.split(/[,，]\s*/).map(t=>t.trim());
+        const ct=toks(w.m);
+        const pool=[...new Set(WS.words.filter(o=>o!==w).map(o=>o.m))].filter(m=>!toks(m).some(t=>ct.includes(t)));
+        const wrong=shuffle(pool,WS.id+w.w+'m').slice(0,3);
+        q.type='choice';q.ask='뜻을 고르세요';
+        q.opts=shuffle([{t:w.m,ok:1}].concat(wrong.map(t=>({t:t,ok:0}))),WS.id+w.w+'mo');
+      }else{
+        const ans=w[p],d=WS.dist||[];
+        q.ask=p==='s'?'유의어를 고르세요':'반의어를 고르세요';
+        if(d.length>=3){
+          q.type='choice';
+          q.opts=shuffle([{t:ans[0],ko:ans[1],ok:1}].concat(shuffle(d,WS.id+w.w+p).slice(0,3).map(x=>({t:x[0],ko:x[1],ok:0}))),WS.id+w.w+p+'o');
+        }else{q.type='flip';q.ans=ans;}
+      }
+      qs.push(q);
+    });
+  });
+  return qs;
+}
+function recordRes(q,ok){S.res[WS.id]=S.res[WS.id]||{};const r=S.res[WS.id][q.i]=S.res[WS.id][q.i]||{};r[q.p]=ok?1:0;save();}
+function renderQuiz(){
+  const q=quiz.qs[quiz.n];
+  let h=`<header><div class="wrap hd2"><h1>복습</h1><button class="link" id="back">오답노트</button></div></header><div class="wrap ${quiz.done?'done':''}"><div class="q"><div class="cnt">${quiz.n+1} / ${quiz.qs.length}</div><div class="ask">${q.ask}</div><div class="target">${esc(q.w)}</div>`;
+  if(q.type==='choice'){
+    q.opts.forEach((o,k)=>{
+      let cls='';
+      if(quiz.done){if(o.ok)cls='right';else if(k===quiz.pick)cls='wrong';}
+      h+=`<button class="opt ${cls}" data-k="${k}">${esc(o.t)}${o.ko?`<span class="ko">${esc(o.ko)}</span>`:''}</button>`;
+    });
+  }else if(quiz.shown)h+=`<div class="opt right">${esc(q.ans[0])}<span class="ko">${esc(q.ans[1])}</span></div>`;
+  h+=`</div></div><div class="bar"><div class="wrap">`;
+  if(q.type==='flip'&&!quiz.shown)h+=`<button class="btn pri" id="show">정답 보기</button>`;
+  else if(q.type==='flip')h+=`<button class="btn" id="no">몰랐음</button><button class="btn pri" id="yes">알았음</button>`;
+  else h+=`<button class="btn pri" id="next" ${quiz.done?'':'disabled'}>${quiz.n+1===quiz.qs.length?'결과':'다음'}</button>`;
+  h+=`</div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='note';render();};
+  app.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+    if(quiz.done)return;
+    const k=+b.dataset.k;quiz.pick=k;quiz.done=true;
+    const ok=q.opts[k].ok===1;if(ok)quiz.right++;recordRes(q,ok);render();
+  });
+  const nx=$('#next');if(nx)nx.onclick=()=>advance();
+  const sh=$('#show');if(sh)sh.onclick=()=>{quiz.shown=true;render();};
+  const yes=$('#yes');if(yes)yes.onclick=()=>{quiz.right++;recordRes(q,true);advance();};
+  const no=$('#no');if(no)no.onclick=()=>{recordRes(q,false);advance();};
+}
+function advance(){
+  if(quiz.n+1>=quiz.qs.length){view='result';render();return;}
+  quiz.n++;quiz.done=false;quiz.shown=false;quiz.pick=null;render();
+}
+function renderResult(){
+  app.innerHTML=`<header><div class="wrap hd2"><h1>복습 결과</h1></div></header><div class="wrap"><div class="score">${quiz.right} <small>/ ${quiz.qs.length}</small></div></div><div class="bar"><div class="wrap"><button class="btn" id="a">오답노트</button><button class="btn pri" id="b">확인표</button></div></div>`;
+  $('#a').onclick=()=>{view='note';render();};
+  $('#b').onclick=()=>{view='word';render();};
+}
+/* ---- 답 제출 ---- */
+function renderSubmit(){
+  const done=!!S.sub;
+  while(S.q.length<N)S.q.push(0);
+  let h=hdr()+'<div class="wrap">';
+  for(let i=0;i<N;i++){
+    const sel=done?S.sub.a[i]:S.q[i];
+    h+=`<div class="qrow"><div class="qno">${esc(D[i].no)}</div><div class="opts">`;
+    for(let k=1;k<=5;k++)h+=`<button class="opt2 ${sel===k?'on':''}" data-q="${i}" data-k="${k}" ${done?'disabled':''}>${CIRC[k-1]}</button>`;
+    h+='</div></div>';
+  }
+  h+='</div><div class="bar"><div class="wrap">';
+  if(done)h+='<button class="btn pri" id="toexp">해설 보기</button>';
+  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>제출</button>`;
+  h+='</div></div>';
+  app.innerHTML=h;
+  app.querySelectorAll('.opt2').forEach(b=>b.onclick=()=>{
+    if(S.sub)return;
+    const q=+b.dataset.q,k=+b.dataset.k;S.q[q]=k;save();
+    b.parentNode.querySelectorAll('.opt2').forEach(x=>x.classList.toggle('on',+x.dataset.k===k));
+    $('#sub').disabled=!S.q.every(v=>v>0);
+  });
+  const sb=$('#sub');if(sb)sb.onclick=()=>{
+    let s=0;for(let i=0;i<N;i++)if(isRight(i,S.q[i]))s++;
+    S.sub={t:Date.now(),a:S.q.slice(),s:s};save();
+    recSend({type:'submit',a:S.sub.a,s:s,n:N});
+    view='exp';render();
+  };
+  const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
+}
+/* ---- 해설 ---- */
+function sHtml(s,evn){
+  const ev=evn.indexOf(s.n)>=0;
+  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
+  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
+  const lays=[];
+  if(s.link)lays.push(['이어 읽으면',s.link]);
+  if(s.easy)lays.push(['쉬운 말로',s.easy]);
+  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
+  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
+  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
+  return x+'</div>';
+}
+function qHtml(i,a){
+  const d=D[i],ok=isRight(i,a);
+  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
+  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
+  h+='<h4>정답 근거</h4>';
+  h+=`<p class="en">${esc(d.ev_en)}</p>`;
+  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
+  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  if(d.ps&&d.ps.length){
+    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
+  }
+  h+='<h4>선택지 하나씩</h4>';
+  d.ch.forEach(c=>{
+    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  });
+  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  return h+'</div></details>';
+}
+function renderExp(){
+  const rec=S.sub;
+  let h=hdr()+'<div class="wrap">';
+  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='</div><h2>해설</h2>';
+  for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
+  h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
+  app.innerHTML=h;
+}
+/* 위임 이벤트 */
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tab');
+  if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
+  const ch=e.target.closest('.ch');
+  if(ch){ch.classList.toggle('open');return;}
+  const st=e.target.closest('.stg');
+  if(st){
+    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const shown=lays.filter(l=>l.classList.contains('on')).length;
+    if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
+    else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
+    return;
+  }
+  const al=e.target.closest('.tbtn');
+  if(al){
+    const open=al.dataset.all==='1',body=al.closest('.dkbody');
+    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
+    body.querySelectorAll('.s').forEach(s=>{
+      const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
+      lays.forEach(l=>l.classList.toggle('on',open));
+      if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
+    });
+  }
+});
+render();
+</script>
+</body>
+</html>

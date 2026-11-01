@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>고1 미니모의고사 4회 01–06번</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f6f8;--accent:#23406b;--bad:#c2392b;--badbg:#fdeceb;--good:#1f7a4d;--goodbg:#e8f5ee;--hl:#fff3b0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+body{padding-bottom:84px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .row1{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+h1{font-size:16px;margin:0;font-weight:700;line-height:1.3}
+.tabs{display:flex;gap:0}
+.tab{flex:1;border:0;background:none;font-family:inherit;font-size:15px;font-weight:700;color:var(--sub);padding:11px 0;border-bottom:3px solid transparent}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tab[disabled]{opacity:.35}
+.link{text-decoration:none;border:0;background:none;color:var(--accent);font-size:15px;font-weight:700;padding:10px 4px;font-family:inherit}
+.hd2{display:flex;align-items:center;justify-content:space-between;height:54px}
+.hd2 h1{font-size:17px}
+.row{padding:12px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.no{color:var(--sub);font-size:13px;min-width:20px}
+.word{font-size:19px;font-weight:700}
+.src{color:var(--sub);font-size:12px;margin-left:auto}
+.cells{display:flex;flex-direction:column;gap:6px}
+.cell{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 12px;border-radius:8px;background:var(--soft);border:1.5px solid transparent;font-size:16px;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.cell .tag,.part .tag{font-size:12px;font-weight:700;color:#fff;border-radius:4px;padding:2px 7px;min-width:34px;text-align:center;background:#7a8594}
+.cell.s .tag,.part.s .tag{background:#2d62a8}.cell.a .tag,.part.a .tag{background:#b4472f}
+.ko{color:var(--sub);font-size:14px;margin-left:6px}
+.cell.bad{background:var(--badbg);border-color:var(--bad)}
+.cell.bad .tag{background:var(--bad)}
+.locked .cell{pointer-events:none}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:6}
+.bar .wrap{display:flex;gap:10px;padding:0}
+.btn{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;line-height:1.25;font-weight:700;font-family:inherit}
+.btn.pri{background:var(--accent);color:#fff}
+.btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn[disabled]{opacity:.4}
+.note-item{padding:14px 0;border-bottom:1px solid var(--line)}
+.note-item .w{font-size:19px;font-weight:700}
+.meta{color:var(--sub);font-size:12px;margin-left:8px;font-weight:400}
+.part{display:flex;gap:10px;align-items:baseline;padding:6px 0 0;font-size:16px}
+.part .tag{align-self:center}
+.part.bad{color:var(--bad);font-weight:700}
+.part.bad .tag{background:var(--bad)}
+.part .ko{font-weight:400}
+.part .res{margin-left:auto;font-size:13px;font-weight:700}
+.res.o{color:var(--good)}.res.x{color:var(--bad)}
+.empty{color:var(--sub);text-align:center;padding:60px 0;font-size:16px}
+.q{padding:22px 0 8px}
+.q .cnt{color:var(--sub);font-size:14px}
+.q .ask{font-size:15px;color:var(--sub);margin-top:14px}
+.q .target{font-size:28px;font-weight:700;margin:6px 0 18px}
+.opt{display:block;width:100%;text-align:left;min-height:56px;padding:10px 14px;margin-bottom:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:18px;font-family:inherit;color:var(--ink)}
+.opt .ko{display:block;margin:2px 0 0}
+.opt.right{border-color:var(--good);background:var(--goodbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.done .opt{pointer-events:none}
+.score{font-size:34px;font-weight:700;text-align:center;margin:30px 0 6px}
+.score small{font-size:18px;color:var(--sub);font-weight:400}
+.foot{color:var(--sub);font-size:12px;text-align:center;padding:26px 0 8px}
+/* submit */
+.qrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.qno{font-weight:800;font-size:20px;width:34px;flex:none}
+.opts{display:flex;gap:8px;flex:1}
+.opt2{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:20px;font-family:inherit;color:var(--ink)}
+.opt2.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.opt2[disabled]{opacity:.55}
+.opt2.on[disabled]{opacity:1}
+/* explanation */
+h2{font-size:17px;margin:26px 0 10px}
+.quick div{padding:3px 0;font-size:17px}
+.quick .o{color:var(--good)}.quick .x{color:var(--bad)}
+.sub{color:var(--sub)}
+details.qd{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;background:var(--bg)}
+details.qd>summary{list-style:none;cursor:pointer;padding:14px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+details.qd>summary::-webkit-details-marker{display:none}
+details.qd>summary small{font-weight:400;color:var(--sub);font-size:13px}
+.res2{margin-left:auto;font-size:14px}
+.res2.o{color:var(--good)}.res2.x{color:var(--bad)}
+.qx{padding:0 14px 14px}
+.qx h4{font-size:15px;margin:18px 0 8px;color:var(--accent)}
+.qx p{margin:6px 0;line-height:1.75;font-size:16px}
+.ansline b{font-size:17px}
+.en{font-size:16px;line-height:1.7;background:var(--soft);padding:10px 12px;border-radius:8px}
+.kolist{list-style:none;margin:6px 0;padding:0}
+.kolist li{font-size:15px;line-height:1.7}
+.kolist .n{font-size:12px;color:var(--sub);margin-right:6px}
+.why p{margin:4px 0;font-size:15px}
+.c{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.c.ok{border-color:var(--good);background:var(--goodbg)}
+.c .ct{font-weight:700;font-size:16px;line-height:1.5}
+.c .tg{display:inline-block;font-size:12px;color:#fff;background:#7a8594;border-radius:4px;padding:1px 7px;margin-right:6px;font-weight:700}
+.c.ok .tg{background:var(--good)}
+.c p{margin:4px 0 0;font-size:15px}
+.r{color:var(--sub);font-size:13px}
+/* direct reading practice */
+details.dk{margin:16px 0 4px;border:1px solid var(--line);border-radius:10px}
+details.dk>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700;color:var(--accent);font-size:15px}
+details.dk>summary::-webkit-details-marker{display:none}
+.dkbody{padding:0 12px 12px}
+.tool{display:flex;gap:8px;margin:2px 0 10px}
+.tbtn{flex:1;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:inherit;font-size:14px;font-weight:700;color:var(--accent)}
+.s{padding:10px 0 12px;border-top:1px dashed var(--line)}
+.s.ev{background:linear-gradient(90deg,#fffbe8,#fff);margin:0 -6px;padding-left:6px;padding-right:6px}
+.sn{margin-bottom:6px}
+.lb{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--sub);margin-right:6px}
+.lb.ev{background:var(--hl);color:#7a5b00}
+.ch{padding:9px 11px;margin-bottom:6px;border-radius:8px;background:var(--soft);cursor:pointer;border-bottom:2px dotted #c9cfd6}
+.ch .ce{font-size:16px;line-height:1.6}
+.ch .ce b{background:linear-gradient(transparent 55%,var(--hl) 55%)}
+.ch .ck{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--line);color:var(--accent);font-size:15px;line-height:1.65}
+.ch.open{background:#eef2f8;border-bottom-color:transparent}
+.ch.open .ck{display:block}
+.lay{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:14px;line-height:1.7}
+.lay.on{display:block}
+.stg{width:100%;min-height:42px;margin-top:6px;border:1px solid var(--accent);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const WORDS={"sets": [{"id": "g1r04p1", "title": "고1 미니모의고사 4회 01–06번", "range": "01–06번", "words": [{"src": "01", "w": "negotiation", "m": "협상", "s": null, "a": null}, {"src": "02", "w": "expectation", "m": "기대, 예상", "s": null, "a": null}, {"src": "03", "w": "initial", "m": "처음의, 최초의", "s": null, "a": ["final", "마지막의"]}, {"src": "04", "w": "recognize", "m": "인지하다, 알아보다", "s": ["realize", "깨닫다"], "a": null}, {"src": "05", "w": "acquire", "m": "습득하다, 얻다", "s": ["obtain", "얻다"], "a": ["lose", "잃다"]}, {"src": "06", "w": "necessary", "m": "필요한", "s": null, "a": ["unnecessary", "불필요한"]}, {"src": "07", "w": "cooperate", "m": "협력하다", "s": null, "a": ["compete", "경쟁하다"]}, {"src": "08", "w": "fundamental", "m": "근본적인", "s": ["basic", "기본적인"], "a": null}, {"src": "09", "w": "accompany", "m": "동반하다, 수반하다", "s": null, "a": null}, {"src": "10", "w": "dominate", "m": "지배하다", "s": null, "a": null}, {"src": "11", "w": "meaningless", "m": "무의미한", "s": null, "a": ["meaningful", "의미 있는"]}, {"src": "12", "w": "beneficial", "m": "이로운", "s": ["helpful", "도움이 되는"], "a": ["harmful", "해로운"]}, {"src": "13", "w": "decline", "m": "감소", "s": null, "a": ["increase", "증가"]}, {"src": "14", "w": "prevent", "m": "막다, 방해하다", "s": null, "a": null}, {"src": "15", "w": "affluent", "m": "부유한", "s": ["wealthy", "부유한"], "a": ["poor", "가난한"]}, {"src": "16", "w": "essential", "m": "필수적인", "s": ["crucial", "결정적으로 중요한"], "a": null}, {"src": "17", "w": "diverse", "m": "다양한", "s": ["varied", "다양한"], "a": null}, {"src": "18", "w": "attraction", "m": "매력, 끌어당기는 것", "s": null, "a": null}, {"src": "19", "w": "frequently", "m": "자주", "s": null, "a": ["rarely", "좀처럼 ~하지 않다"]}, {"src": "20", "w": "measurable", "m": "측정 가능한", "s": null, "a": null}], "dist": [["temporary", "일시적인"], ["delay", "미루다"], ["ancient", "고대의"]]}]};
+var D=[{"no": "01", "typ": "필자 주장", "src": "2014년 6월 19번", "evn": [4, 5], "ev_en": "To solve this problem, they need to learn how to change their focus after the negotiation is complete. / They must view their results in a more positive manner.", "ev_ko": [[4, "이 문제를 해결하기 위해, 그들은 협상이 끝난 후에 그들의 초점을 바꾸는 방법을 배울 필요가 있다."], [5, "그들은 더 긍정적인 방식으로 자신들의 결과를 바라봐야 한다."]], "why": ["주장 유형의 답은 <b>need to · must · should<\/b> 같은 <b>당위 표현<\/b>에 있습니다", "4번의 <b>need to learn how to change their focus<\/b>와 5번의 <b>must view ~ in a more positive manner<\/b>가 필자가 시키는 일이고, 6번은 그렇게 했을 때의 결과입니다", "1~3번은 '왜 그래야 하는지'를 설명하는 <b>배경<\/b>이므로 거기서 답을 고르면 안 됩니다."], "ch": [{"n": "①", "t": "협상 중에는 상대를 존중하라.", "g": "", "ok": false, "e": ["상대를 대하는 태도(respect)에 관한 말은 지문에 없습니다", "지문의 초점은 <b>협상이 끝난 뒤 자기 결과를 보는 눈<\/b>입니다."]}, {"n": "②", "t": "협상 전에 준비를 철저히 하라.", "g": "", "ok": false, "e": ["<b>협상 전<\/b>이 아니라 <b>after the negotiation is complete<\/b>, 즉 끝난 뒤의 이야기입니다", "시점이 정반대입니다."]}, {"n": "③", "t": "가능한 한 높은 협상 목표를 설정하라.", "g": "", "ok": false, "e": ["1번에 high expectations가 나와서 눈에 걸립니다", "그러나 지문은 높은 기대를 세우라고 <b>권하는 것이 아니라<\/b>, 그 사람들이 오히려 덜 만족한다는 <b>문제 상황<\/b>으로 꺼낸 것입니다."]}, {"n": "④", "t": "협상 시 가능한 모든 대안을 고려하라.", "g": "", "ok": false, "e": ["대안(alternative)이나 선택지를 따져 보라는 내용은 한 줄도 없습니다."]}, {"n": "⑤", "t": "협상 후에는 결과를 의미있게 수용하라.", "g": "", "ok": true, "e": ["4·5번의 change their focus, view their results in a more positive manner가 바로 이 말과 같은 뜻입니다."]}], "tr": ["스스로 높은 기대를 설정한 사람들이 낮은 목표를 설정한 사람들보다 협상에서 더 많은 것을 얻는 경향이 있을지라도, 그들은 거의 항상 자신들의 결과에 덜 만족한다.", "왜 그런가?", "왜냐하면 협상이 끝났을 때, 그들은 최종 결과를 그들의 처음의 기대와 비교하고 그들이 거래에서 얻지 못한 것에 초점을 맞추어 그들이 실패한 것처럼 느끼기 때문이다.", "이 문제를 해결하기 위해, 그들은 협상이 끝난 후에 그들의 초점을 바꾸는 방법을 배울 필요가 있다.", "그들은 더 긍정적인 방식으로 자신들의 결과를 바라봐야 한다.", "이러한 초점의 단순한 조정으로 그들은 그들이 협상에서 얻을 수 있었던 모든 것들을 인지하고, 그들이 한 일에 기쁨을 느낄 것이다."], "ps": [{"n": 1, "ch": [{"e": "<b>Even though<\/b> people who set high expectations for themselves", "k": "<b>비록<\/b> 스스로에게 높은 기대를 거는 사람들이"}, {"e": "tend to achieve more in a negotiation", "k": "협상에서 더 많은 것을 얻는 <b>경향이 있을지라도<\/b>"}, {"e": "than those who set low goals,", "k": "낮은 목표를 세우는 사람들보다,"}, {"e": "they are almost always <b>less satisfied<\/b> with their results.", "k": "그들은 <span class=\"r\">(= 높은 기대를 건 사람들)<\/span> 자신의 결과에 거의 항상 <b>덜 만족한다<\/b>."}], "easy": "높은 기대를 건 사람이 협상에서 더 많이 얻는데도, 결과에는 늘 덜 만족한다는 말이에요.", "gist": "높은 기대를 가진 사람은 많이 얻고도 덜 만족한다는 문제 제기.", "link": "비록 스스로 높은 기대를 거는 사람들이 낮은 목표를 세우는 사람들보다 협상에서 더 많은 것을 얻는 경향이 있을지라도, 그들은 자신의 결과에 거의 항상 덜 만족한다."}, {"n": 2, "ch": [{"e": "<b>Why<\/b>?", "k": "<b>왜<\/b> 그럴까?"}], "easy": "앞 문장의 이유를 묻는 말이에요.", "gist": "'덜 만족한다'는 현상의 이유를 묻는 연결 문장."}, {"n": 3, "ch": [{"e": "<b>Because<\/b> when the negotiation is over,", "k": "<b>왜냐하면<\/b> 협상이 끝났을 때,"}, {"e": "they compare their final outcome to their initial expectations", "k": "그들은 <span class=\"r\">(= 높은 기대를 건 사람들)<\/span> 최종 결과를 처음의 기대와 <b>비교하고<\/b>"}, {"e": "and focus on what they didn't get from the deal", "k": "거래에서 자신들이 <b>얻지 못한 것에 초점을 맞추며<\/b>"}, {"e": "and feel like they failed.", "k": "실패한 것처럼 <b>느끼기<\/b> 때문이다."}], "easy": "일이 끝난 뒤 처음에 바랐던 것과 비교하고, 못 얻은 부분만 보면서 '망했다'고 느낀다는 뜻이에요.", "gist": "덜 만족하는 이유: 기대와 비교하고, 못 얻은 것만 본다.", "link": "왜냐하면 협상이 끝나면, 그들은 최종 결과를 처음의 기대와 견주어 보고, 거래에서 얻지 못한 것에 초점을 맞추면서 실패했다고 느끼기 때문이다."}, {"n": 4, "ch": [{"e": "<b>To solve<\/b> this problem,", "k": "이 문제를<span class=\"r\">(this problem = 결과에 덜 만족하는 문제)<\/span> <b>해결하기 위해<\/b>,"}, {"e": "they need to learn", "k": "그들은 배울 <b>필요가 있다<\/b>"}, {"e": "how to change their focus", "k": "초점을 <b>바꾸는 방법을<\/b>"}, {"e": "after the negotiation is complete.", "k": "협상이 끝난 후에."}], "easy": "만족하지 못하는 문제를 풀려면, 협상이 끝난 뒤에 어디에 초점을 둘지 바꾸는 법을 익혀야 해요.", "gist": "필자의 주장이 시작되는 문장: 끝난 뒤 초점을 바꿔라."}, {"n": 5, "ch": [{"e": "They <b>must view<\/b> their results", "k": "그들은 자신의 결과를 <b>바라봐야 한다<\/b>"}, {"e": "in a more <b>positive<\/b> manner.", "k": "더 <b>긍정적인<\/b> 방식으로."}], "easy": "결과를 좋은 쪽으로 보려고 노력해야 한다는 말이에요.", "gist": "주장의 핵심 문장: must가 쓰인 필자의 당부."}, {"n": 6, "ch": [{"e": "<b>With<\/b> this simple adjustment of focus", "k": "이러한 초점의 단순한 <b>조정으로<\/b>,"}, {"e": "they will <b>recognize<\/b> everything", "k": "그들은 모든 것을 <b>알아보게<\/b> 될 것이다"}, {"e": "they were able to get in the negotiation", "k": "그들이 협상에서 얻을 수 있었던"}, {"e": "and feel <b>pleased<\/b> with their work.", "k": "그리고 자신이 한 일에 <b>기쁨을 느낄<\/b> 것이다."}], "easy": "보는 방향만 살짝 바꿔도 얻은 것이 눈에 들어와 뿌듯해진다는 말이에요.", "gist": "초점을 바꿨을 때 얻게 되는 좋은 결과.", "link": "이러한 초점의 단순한 조정으로, 그들은 협상에서 얻을 수 있었던 모든 것을 알아보고 자신이 한 일에 기쁨을 느낄 것이다."}]}, {"no": "02", "typ": "글의 주제", "src": "2020년 9월 23번", "evn": [3, 4, 5, 6], "ev_en": "In children, too, play has important functions during development. / From its earliest beginnings in infancy, play is a way in which children learn about the world and their place in it. / Children's play serves as a training ground for developing physical abilities — skills like walking, running, and jumping that are necessary for everyday living. / Play also allows children to try out and learn social behaviors and to acquire values and personality traits that will be important in adulthood.", "ev_ko": [[3, "아이들에게 있어서도, 놀이는 발달하는 동안 중요한 기능을 가진다."], [4, "유아기의 가장 초기부터, 놀이는 아이들이 세상과 그 안에서의 자신의 위치에 대해 배우는 방식이다."], [5, "아이들의 놀이는 신체 능력, 즉 일상생활에 필요한 걷기, 달리기, 점프하기와 같은 기술들을 발달시키기 위한 훈련장의 역할을 한다."], [6, "놀이는 또한 아이들이 사회적 행동을 시도하고 학습하는 것과 성인기에 중요할 가치와 성격 특성을 습득하는 것을 가능하게 한다."]], "why": ["주제 유형은 <b>글 전체를 덮는 범위<\/b>를 골라야 합니다", "1·2번(동물)은 <b>도입<\/b>이고, 3번의 <b>In children, too<\/b>에서 초점이 아이로 옮겨 갑니다", "그 뒤 5번은 <b>신체<\/b> 발달, 6·7번은 <b>사회성·성격<\/b> 발달로 예를 나눠 듭니다", "즉 이 글은 <b>아이의 발달에서 놀이가 하는 역할<\/b>을 여러 갈래로 보여 주는 글입니다."], "ch": [{"n": "①", "t": "necessity of trying out creative ideas", "g": "창의적인 아이디어를 시도해 보는 것의 필요성", "ok": false, "e": ["6번에 try out이 나오지만 시도하는 대상은 <b>사회적 행동<\/b>이지 창의적 아이디어가 아닙니다", "creative라는 말 자체가 지문에 없습니다."]}, {"n": "②", "t": "roles of play in children's development", "g": "아이들의 발달에 있어서 놀이의 역할", "ok": true, "e": ["3번의 important functions during development를 그대로 받은 표현이고, 5·6·7번이 그 역할을 나눠 설명합니다."]}, {"n": "③", "t": "contrasts between human and animal play", "g": "인간과 동물의 놀이 간 차이", "ok": false, "e": ["1·2번에 동물이 나오지만 인간과 <b>대조<\/b>하지 않습니다", "오히려 <b>too<\/b>(~도 역시)로 <b>같은 점<\/b>을 이어 갑니다."]}, {"n": "④", "t": "effects of children's physical abilities on play", "g": "아이들의 신체 능력이 놀이에 미치는 영향", "ok": false, "e": ["방향이 거꾸로입니다", "지문은 <b>놀이가 신체 능력을 기른다<\/b>고 했지, 신체 능력이 놀이에 미치는 영향을 말하지 않았습니다."]}, {"n": "⑤", "t": "children's needs at various developmental stages", "g": "아이들의 다양한 발달 단계별 욕구", "ok": false, "e": ["발달 <b>단계별 요구<\/b>를 나눠 설명한 부분이 없습니다", "지문은 단계가 아니라 <b>영역<\/b>(신체·사회성)으로 나눕니다."]}], "tr": ["인간뿐만 아니라 동물도 놀이 활동에 참여한다.", "동물에게 있어, 놀이는 오랫동안 미래의 생존에 필요한 기술과 행동을 학습하고 연습하는 방식으로 여겨져 왔다.", "아이들에게 있어서도, 놀이는 발달하는 동안 중요한 기능을 가진다.", "유아기의 가장 초기부터, 놀이는 아이들이 세상과 그 안에서의 자신의 위치에 대해 배우는 방식이다.", "아이들의 놀이는 신체 능력, 즉 일상생활에 필요한 걷기, 달리기, 점프하기와 같은 기술들을 발달시키기 위한 훈련장의 역할을 한다.", "놀이는 또한 아이들이 사회적 행동을 시도하고 학습하는 것과 성인기에 중요할 가치와 성격 특성을 습득하는 것을 가능하게 한다.", "예를 들어, 그들은 다른 사람들과 경쟁하고 협력하는 방법, (다른 사람들을) 이끌고 따르는 방법, 결정하는 방법 등을 학습한다."], "ps": [{"n": 1, "ch": [{"e": "<b>Animals as well as humans<\/b>", "k": "인간<b>뿐만 아니라<\/b> 동물도"}, {"e": "engage in play activities.", "k": "놀이 활동에 <b>참여한다<\/b>."}], "easy": "사람만 노는 것이 아니라 동물도 논다는 말이에요.", "gist": "글의 소재인 '놀이'를 동물부터 소개하는 도입."}, {"n": 2, "ch": [{"e": "In animals,", "k": "동물에게 있어,"}, {"e": "play has long been seen", "k": "놀이는 오랫동안 <b>여겨져 왔다<\/b>"}, {"e": "as a way of learning and practicing", "k": "배우고 연습하는 <b>방식으로<\/b>"}, {"e": "skills and behaviors", "k": "기술과 행동을"}, {"e": "that are necessary for future survival.", "k": "미래의 생존에 <b>필요한<\/b>."}], "easy": "동물에게 놀이는 나중에 살아남는 데 필요한 기술을 익히는 연습으로 여겨져 왔어요.", "gist": "동물의 놀이 = 생존 기술을 배우는 방식(아이 이야기로 넘어가기 전 배경).", "link": "동물에게 놀이는 오랫동안, 미래의 생존에 필요한 기술과 행동을 배우고 연습하는 방식으로 여겨져 왔다."}, {"n": 3, "ch": [{"e": "<b>In children, too<\/b>,", "k": "<b>아이들에게 있어서도<\/b>,"}, {"e": "play has important <b>functions<\/b>", "k": "놀이는 중요한 <b>기능을 가진다<\/b>"}, {"e": "during development.", "k": "발달하는 동안."}], "easy": "아이들에게도 놀이는 자라는 과정에서 중요한 역할을 해요.", "gist": "초점이 동물에서 아이로 옮겨 가는 주제문."}, {"n": 4, "ch": [{"e": "<b>From<\/b> its earliest beginnings in infancy,", "k": "그것<span class=\"r\">(its = 놀이)<\/span>의 유아기의 가장 초기 시작<b>부터<\/b>,"}, {"e": "play is a way", "k": "놀이는 방식이다"}, {"e": "in which children learn about the world", "k": "그 방식을 통해 <span class=\"r\">(which = a way)<\/span> 아이들이 세상에 대해 배우는"}, {"e": "and their place in it.", "k": "그리고 그<span class=\"r\">(it = 세상)<\/span> 안에서의 자신의 위치에 대해."}], "easy": "아주 어릴 때부터 아이들은 놀이로 세상과 그 안에서의 자기 자리를 알아 가요.", "gist": "아이에게 놀이가 하는 큰 역할: 세상과 나를 알아 가기.", "link": "유아기의 가장 초기부터, 놀이는 아이들이 세상과 그 안에서의 자신의 위치에 대해 배우는 방식이다."}, {"n": 5, "ch": [{"e": "Children's play <b>serves as<\/b> a training ground", "k": "아이들의 놀이는 훈련장의 <b>역할을 한다<\/b>"}, {"e": "for developing physical abilities", "k": "신체 능력을 발달시키기 위한"}, {"e": "— skills like walking, running, and jumping", "k": "— 걷기, 달리기, 점프하기와 같은 기술들,"}, {"e": "that are necessary for everyday living.", "k": "일상생활에 필요한."}], "easy": "놀면서 걷고 달리고 뛰는 힘을 기른다는 말이에요.", "gist": "놀이의 역할 ① 몸의 능력을 키운다.", "link": "아이들의 놀이는 신체 능력, 즉 일상생활에 필요한 걷기, 달리기, 점프하기 같은 기술들을 발달시키기 위한 훈련장의 역할을 한다."}, {"n": 6, "ch": [{"e": "Play also <b>allows<\/b> children", "k": "놀이는 또한 아이들이 ~하는 것을 <b>가능하게 한다<\/b>"}, {"e": "to <b>try out<\/b> and learn social behaviors", "k": "사회적 행동을 <b>시도해 보고<\/b> 배우는 것"}, {"e": "and to <b>acquire<\/b> values and personality traits", "k": "그리고 가치관과 성격 특성을 <b>습득하는<\/b> 것"}, {"e": "that will be important in adulthood.", "k": "성인기에 중요해질."}], "easy": "놀이를 통해 사회에서 필요한 행동을 해 보고, 가치관과 성격 특성도 갖추게 돼요.", "gist": "놀이의 역할 ② 사회성과 성격이 자란다.", "link": "놀이는 또한 아이들이 사회적 행동을 시도해 보고 배우며, 성인기에 중요해질 가치와 성격 특성을 습득하게 해 준다."}, {"n": 7, "ch": [{"e": "<b>For example<\/b>, they learn", "k": "예를 들어, 그들은 <span class=\"r\">(they = 아이들)<\/span> 배운다"}, {"e": "how to compete and cooperate with others,", "k": "다른 사람들과 경쟁하고 협력하는 방법을,"}, {"e": "how to lead and follow, how to make decisions,", "k": "이끌고 따르는 방법, 결정을 내리는 방법을,"}, {"e": "and so on.", "k": "등등."}], "easy": "경쟁, 협력, 이끌기, 따르기, 결정하기 같은 것을 놀면서 배운다는 예시예요.", "gist": "앞 문장(사회적 행동·가치)을 구체적인 예로 뒷받침."}]}, {"no": "03", "typ": "글의 요지", "src": "2020학년도 수능 22번", "evn": [2, 4], "ev_en": "But the desire for written records has always accompanied economic activity, since transactions are meaningless unless you can clearly keep track of who owns what. / Long before we had the writings of the prophets, we had the writings of the profits.", "ev_ko": [[2, "그러나 문자 기록에 대한 욕구는 항상 경제적인 활동에 수반되어 왔는데, 만약 당신이 누가 무엇을 소유하는지를 명확하게 기록하지 않는다면 거래는 무의미하기 때문이다."], [4, "우리가 예언자들에 대한 기록을 가지기 훨씬 이전에, 우리는 이익에 대한 기록을 가지고 있었다."]], "why": ["요지 유형은 <b>But / As such<\/b> 같은 연결어 뒤를 봅니다", "1번은 '놀라워 보일 수도 있다'는 <b>도입<\/b>이고, 2번의 <b>But<\/b>에서 필자의 말이 시작됩니다", "핵심은 <b>기록하려는 욕구 = 경제 활동에서 나왔다<\/b>이고, 4번의 <b>we had the writings of the profits<\/b>(예언자의 글보다 훨씬 먼저 이익의 글이 있었다)가 그것을 못 박습니다", "5·6·7번(영수증 더미 등)은 그 주장을 뒷받침하는 내용입니다."], "ch": [{"n": "①", "t": "고대 사회에서 경제 활동은 문자 기록의 원동력이었다.", "g": "", "ok": true, "e": ["2번의 desire for written records has always accompanied economic activity, 3번의 dominated by wheeling and dealing과 정확히 일치합니다."]}, {"n": "②", "t": "고전 문학을 통해 당대의 경제 활동을 파악할 수 있다.", "g": "", "ok": false, "e": ["지문은 문학이 아니라 <b>영수증 같은 경제 기록<\/b>이 남아 당시 문화를 알려 준다고 말합니다(6·7번)", "5번도 많은 문명이 문학 작품을 남기지 못했다는 내용입니다", "고전 문학으로 경제 활동을 파악한다는 말은 지문에 없습니다."]}, {"n": "③", "t": "경제 발전의 정도가 문명의 발달 수준을 결정한다.", "g": "", "ok": false, "e": ["경제 수준과 문명 수준의 <b>비교·평가<\/b>는 하지 않습니다", "지문은 문자가 <b>어디서 나왔는가<\/b>만 말합니다."]}, {"n": "④", "t": "종교의 역사는 상업의 역사보다 먼저 시작되었다.", "g": "", "ok": false, "e": ["4번의 prophets(예언자) 때문에 종교가 눈에 걸립니다", "그러나 그 문장은 예언자의 글보다 <b>이익(상업)의 글이 훨씬 먼저<\/b> 있었다는 말이라 선택지와 방향이 반대입니다."]}, {"n": "⑤", "t": "모든 문명이 위대한 작가를 배출한 것은 아니다.", "g": "", "ok": false, "e": ["5번 한 문장과 비슷한 <b>부분적인 내용<\/b>입니다", "글 전체의 중심인 '문자 기록은 경제 활동에서 나왔다'는 요지를 담지 못합니다."]}], "tr": ["돌이켜 생각해 보면, 양의 수를 세려는 욕구처럼 일상적인 무언가가 문자 언어만큼 중요한 진보의 원동력이었다는 것은 놀라워 보일 수도 있다.", "그러나 문자 기록에 대한 욕구는 항상 경제적인 활동에 수반되어 왔는데, 만약 당신이 누가 무엇을 소유하는지를 명확하게 기록하지 않는다면 거래는 무의미하기 때문이다.", "이와 같이, 초기 인류의 기록은 (경제적) 목적을 위해서는 수단을 가리지 않는 것에 의해 지배된다. (예를 들면) 내기에 건 돈, 청구서, 그리고 계약서의 모음.", "우리가 예언자들에 대한 기록을 가지기 훨씬 이전에, 우리는 이익에 대한 기록을 가지고 있었다.", "사실, 많은 문명들이 우리가 종종 문화사와 결부시키는 (그러한) 종류의 위대한 문학 작품들을 기록하고 (후대에) 남기는 단계에 도달하지 못했다.", "이 고대 사회들에서 살아남은 것은 대개 한 무더기의 영수증이다.", "그러한 기록을 만든 영리적 기업들이 없었다면, 우리는 그것들(기록들)이 생겨난 문화에 대해 훨씬, 훨씬 더 적게 알고 있을 것이다."], "ps": [{"n": 1, "ch": [{"e": "<b>In retrospect<\/b>,", "k": "<b>돌이켜 보면<\/b>,"}, {"e": "it might seem surprising", "k": "놀라워 보일 수도 있다 <span class=\"r\">(it은 가주어, 진주어는 뒤의 that 이하)<\/span>"}, {"e": "that something as <b>mundane<\/b> as the desire to count sheep", "k": "양을 세려는 욕구처럼 <b>평범한<\/b> 무언가가"}, {"e": "was the <b>driving force<\/b>", "k": "<b>원동력이었다는<\/b> 것이"}, {"e": "for an advance as fundamental as written language.", "k": "문자 언어만큼 근본적인 진보의."}], "easy": "양의 수를 세고 싶다는 사소한 욕구가 문자 언어의 탄생을 이끌었다니 신기하게 느껴질 수 있어요.", "gist": "But 앞에 놓인 도입: 의외라고 느낄 수 있다는 말.", "link": "돌이켜 보면, 양을 세려는 욕구처럼 평범한 무언가가 문자 언어만큼 근본적인 진보의 원동력이었다는 것은 놀라워 보일 수도 있다."}, {"n": 2, "ch": [{"e": "<b>But<\/b> the desire for written records", "k": "<b>그러나<\/b> 문자 기록에 대한 욕구는"}, {"e": "has always <b>accompanied<\/b> economic activity,", "k": "늘 경제 활동에 <b>수반되어 왔다<\/b>,"}, {"e": "<b>since<\/b> transactions are meaningless", "k": "<b>왜냐하면<\/b> 거래는 무의미하기 때문이다"}, {"e": "unless you can clearly keep track of", "k": "당신이 분명히 기록해 둘 수 없다면"}, {"e": "who owns what.", "k": "누가 무엇을 소유하는지를."}], "easy": "누가 무엇을 가졌는지 적어 두지 못하면 거래가 안 되니, 기록하려는 욕구는 늘 경제 활동과 함께였어요.", "gist": "글쓴이의 핵심 주장: 기록의 욕구는 경제 활동에서 나왔다.", "link": "그러나 문자 기록에 대한 욕구는 늘 경제 활동에 수반되어 왔는데, 누가 무엇을 소유하는지 분명히 기록해 둘 수 없다면 거래는 무의미하기 때문이다."}, {"n": 3, "ch": [{"e": "<b>As such<\/b>,", "k": "<b>이와 같이<\/b>,"}, {"e": "early human writing is <b>dominated by<\/b>", "k": "초기 인류의 기록은 ~에 <b>지배된다<\/b>"}, {"e": "<b>wheeling and dealing<\/b>:", "k": "(경제적) 목적을 위해서는 수단을 가리지 않는 것에"}, {"e": "a collection of bets, bills, and contracts.", "k": "(예를 들면) 내기에 건 돈, 청구서, 그리고 계약서의 모음."}], "easy": "초기 인류의 글은 내기, 청구서, 계약서처럼 거래와 관련된 경제적 기록이 대부분이었다는 뜻이에요.", "gist": "앞 문장의 주장을 정리: 초기 기록은 거래 기록이었다."}, {"n": 4, "ch": [{"e": "<b>Long before<\/b> we had the writings of the prophets,", "k": "우리가 예언자들의 글을 갖기 <b>훨씬 이전에<\/b>,"}, {"e": "we had the writings of the <b>profits<\/b>.", "k": "우리에게는 <b>이익<\/b>의 글이 있었다."}], "easy": "예언자의 글보다 훨씬 먼저 이익을 다루는 글(장사 기록)이 있었어요. (prophets와 profits는 소리가 비슷한 말장난이에요.)", "gist": "초기 문자는 신앙보다 장사에서 먼저 나왔다는 재치 있는 정리."}, {"n": 5, "ch": [{"e": "<b>In fact<\/b>, many civilizations", "k": "사실, 많은 문명들은"}, {"e": "never got to the stage", "k": "단계에 <b>이르지 못했다<\/b>"}, {"e": "of recording and leaving behind", "k": "기록하고 후대에 남기는"}, {"e": "the kinds of great literary works", "k": "그런 종류의 위대한 문학 작품들을"}, {"e": "that we often associate with the history of culture.", "k": "우리가 흔히 문화의 역사와 <b>결부시키는<\/b>."}], "easy": "많은 문명은 우리가 문화사에서 떠올리는 위대한 문학 작품을 남기는 단계까지 가 보지도 못했어요.", "gist": "앞 주장을 뒷받침: 문학이 아니라 경제 기록이 주로 남았다."}, {"n": 6, "ch": [{"e": "What <b>survives<\/b> these ancient societies", "k": "이 고대 사회들에서 <b>살아남은 것<\/b>은"}, {"e": "is, <b>for the most part<\/b>,", "k": "<b>대개<\/b>"}, {"e": "a pile of receipts.", "k": "<b>한 무더기의 영수증<\/b>이다."}], "easy": "옛 사회들에서 지금까지 남은 것은 대부분 영수증 더미예요.", "gist": "남은 기록이 거래 기록이라는 증거."}, {"n": 7, "ch": [{"e": "<b>If it weren't for<\/b> the commercial enterprises", "k": "영리적 기업들이 <b>없었다면<\/b>"}, {"e": "that produced those records,", "k": "그러한 기록을 만든"}, {"e": "we would know <b>far, far less<\/b>", "k": "우리는 <b>훨씬, 훨씬 더 적게<\/b> 알고 있을 것이다"}, {"e": "about the cultures that they came from.", "k": "그것들<span class=\"r\">(they = 기록들)<\/span>이 생겨난 문화에 대해."}], "easy": "장사하던 사람들이 기록을 남기지 않았다면 그 시대 문화를 지금보다 훨씬 몰랐을 거예요.", "gist": "경제 활동의 기록 덕분에 고대 문화를 알 수 있다는 마무리."}]}, {"no": "04", "typ": "어법", "src": "2021년 11월 29번", "evn": [5], "ev_en": "Lower magnesium levels in soil also ④ occurring with acidic soils and around 70% of the farmland on earth is now acidic.", "ev_ko": [[5, "토양의 더 낮은 마그네슘 수치는 산성 토양에서도 나타나고, 현재 지구상 농지의 대략 70%가 산성이다."]], "why": ["④가 있는 절에는 <b>본동사가 없습니다<\/b>.", "주어 <b>Lower magnesium levels<\/b>를 받아 줄 동사가 필요한 자리인데 <b>-ing<\/b>가 와 있습니다", "뒤에 and로 이어지는 절에 is라는 동사가 버젓이 있는 것과 비교해 보면 더 분명합니다", "따라서 <b>occurring → occur<\/b>가 되어야 합니다", "어법 문제는 <b>절마다 동사가 하나씩 있는가<\/b>부터 세는 것이 가장 빠릅니다."], "ch": [{"n": "①", "t": "that kill off beneficial bacteria ...", "g": "~하는 · 주격 관계대명사", "ok": false, "e": ["앞의 <b>pesticides and fertilizers<\/b>(복수)를 받는 주격 관계대명사입니다", "뒤에 주어가 없으므로 that이 맞고, 동사도 복수형 kill로 일치합니다."]}, {"n": "②", "t": "has led to declines in magnesium ...", "g": "해 왔다 · 현재완료 has, 단수 동사", "ok": false, "e": ["주어가 <b>Fertilizing crops<\/b>라는 <b>동명사구<\/b>입니다", "동명사 주어는 단수 취급이므로 has가 맞습니다", "crops만 보고 복수로 착각하기 쉽습니다."]}, {"n": "③", "t": "due to potassium being a blocker ...", "g": "~인 것 · 동명사 being, 의미상 주어는 potassium", "ok": false, "e": ["<b>due to<\/b>는 전치사라 뒤에 명사가 와야 합니다", "potassium은 동명사 <b>being<\/b>의 <b>의미상 주어<\/b>이고, 전체가 '칼륨이 차단제인 것'이라는 명사 덩어리입니다."]}, {"n": "④", "t": "Lower magnesium levels in soil also occurring ...", "g": "일어나는 · 바른 형태는 occur", "ok": true, "e": ["절의 <b>본동사 자리<\/b>이므로 분사가 올 수 없습니다", "<b>occur<\/b>로 고쳐야 합니다."]}, {"n": "⑤", "t": "so are the plants grown on it", "g": "길러진 · 과거분사(수동)", "ok": false, "e": ["식물은 <b>재배되는<\/b> 쪽이므로 수동의 <b>과거분사<\/b>가 맞습니다", "앞의 <b>so are ~<\/b>는 '~도 그렇다'라는 도치라서 문장이 낯설어 보일 뿐입니다."]}], "tr": ["우리 음식 속 무기질의 감소는 애초에 많은 필수 영양소를 만들어 내는 토양 속 유익한 박테리아와 지렁이와 벌레를 죽여 없애고 식물 속으로 영양소가 흡수되는 것을 막는 살충제와 비료를 사용한 결과이다.", "농작물에 질소와 칼륨을 비료로 주는 것은 마그네슘, 아연, 철 그리고 아이오딘의 감소를 초래했다.", "예컨대, 밀의 마그네슘 함량에서 평균적으로 대략 30%의 감소가 있었다.", "이는 부분적으로 칼륨이 식물의 마그네슘 흡수에 차단제가 된다는 점 때문이다.", "토양의 더 낮은 마그네슘 수치는 산성 토양에서도 나타나고, 현재 지구상 농지의 대략 70%가 산성이다.", "그러므로, 토양의 전반적 특성은 식물 속 무기질의 축적을 결정짓는다.", "실제로, 오늘날 우리 토양은 덜 건강하며 그 위에서 길러진 식물 또한 그렇다(덜 건강하다)."], "ps": [{"n": 1, "ch": [{"e": "The <b>reduction<\/b> of minerals in our food", "k": "우리 음식 속 무기질의 <b>감소<\/b>는"}, {"e": "is the <b>result of<\/b> using pesticides and fertilizers", "k": "살충제와 비료를 사용한 <b>결과이다<\/b>"}, {"e": "that kill off beneficial bacteria, earthworms, and bugs in the soil", "k": "그것들은 <span class=\"r\">(that = 살충제와 비료)<\/span> 토양 속 유익한 박테리아, 지렁이, 벌레를 <b>죽여 없애는<\/b>"}, {"e": "that create many of the essential nutrients in the first place", "k": "그것들이 <span class=\"r\">(that = 박테리아·지렁이·벌레)<\/span> 애초에 많은 필수 영양소를 <b>만들어 내는<\/b>"}, {"e": "and <b>prevent<\/b> the uptake of nutrients into the plant.", "k": "그리고 (살충제와 비료는) 식물 속으로 영양소가 <b>흡수되는 것을 막는<\/b>."}], "easy": "음식 속 미네랄이 줄어든 것은 살충제와 비료 때문이에요. 흙 속에서 영양소를 만드는 좋은 생물을 죽이고, 식물이 영양소를 빨아들이는 것도 막기 때문이에요.", "gist": "글의 출발점: 미네랄 감소의 원인은 살충제와 비료."}, {"n": 2, "ch": [{"e": "<b>Fertilizing crops<\/b> with nitrogen and potassium", "k": "농작물에 질소와 칼륨을 비료로 <b>주는 것은<\/b>"}, {"e": "has led to declines", "k": "감소를 <b>초래했다<\/b>"}, {"e": "in magnesium, zinc, iron and iodine.", "k": "마그네슘, 아연, 철 그리고 아이오딘의."}], "easy": "작물에 질소·칼륨 비료를 주다 보니 마그네슘, 아연, 철, 아이오딘이 줄었어요.", "gist": "비료가 일으킨 구체적인 피해."}, {"n": 3, "ch": [{"e": "<b>For example<\/b>, there has been", "k": "예를 들어, ~이 있었다"}, {"e": "on average about a 30% <b>decline<\/b>", "k": "평균 약 30%의 <b>감소<\/b>가"}, {"e": "in the magnesium content of wheat.", "k": "밀의 마그네슘 함량에서."}], "easy": "예를 들면 밀 속 마그네슘은 평균 30% 정도 줄었어요.", "gist": "앞 문장의 구체적인 수치 예시."}, {"n": 4, "ch": [{"e": "<b>This<\/b> is partly <b>due to<\/b>", "k": "이것은 <span class=\"r\">(This = 밀의 마그네슘 감소)<\/span> 부분적으로 ~ <b>때문이다<\/b>"}, {"e": "potassium being a blocker", "k": "칼륨이 <b>차단제<\/b>인 것"}, {"e": "against magnesium absorption by plants.", "k": "식물의 마그네슘 흡수에 대한."}], "easy": "마그네슘이 줄어든 데는, 칼륨이 식물의 마그네슘 흡수를 막는 것도 한 이유라는 말이에요.", "gist": "마그네슘 감소의 이유 설명."}, {"n": 5, "ch": [{"e": "Lower magnesium levels in soil", "k": "토양 속 더 낮은 마그네슘 수치는"}, {"e": "also <b>occur<\/b> with acidic soils", "k": "산성 토양에서도 <b>나타난다<\/b> <span class=\"r\">※ 문제지엔 occurring으로 되어 있음<\/span>"}, {"e": "and around 70% of the farmland on earth", "k": "그리고 지구상 농지의 약 70%가"}, {"e": "is now acidic.", "k": "현재 산성이다."}], "easy": "토양의 마그네슘이 줄어드는 일은 산성 흙에서도 생기는데, 지구 농지의 70% 정도가 지금 산성이에요.", "gist": "마그네슘 감소가 나타나는 또 다른 경우(산성 토양)와 그 규모."}, {"n": 6, "ch": [{"e": "<b>Thus<\/b>, the overall characteristics of soil", "k": "그러므로, 토양의 전반적 특성이"}, {"e": "determine the <b>accumulation<\/b> of minerals", "k": "무기질의 <b>축적<\/b>을 결정짓는다"}, {"e": "in plants.", "k": "식물 속."}], "easy": "결국 흙의 상태가 식물 속에 무기질이 얼마나 쌓이는지를 정해요.", "gist": "앞 내용을 정리: 토양 상태가 식물의 무기질을 좌우한다."}, {"n": 7, "ch": [{"e": "<b>Indeed<\/b>, nowadays our soil is less healthy", "k": "실제로, 오늘날 우리 토양은 덜 건강하다"}, {"e": "and <b>so are<\/b> the plants", "k": "그리고 식물도 <b>마찬가지다<\/b>"}, {"e": "grown on it.", "k": "그 위<span class=\"r\">(it = 토양)<\/span>에서 길러진."}], "easy": "요즘은 흙이 덜 건강하고, 그 흙에서 자란 식물도 덜 건강해요.", "gist": "토양과 식물의 건강 악화로 마무리."}]}, {"no": "05", "typ": "어휘", "src": "2023년 3월 30번", "evn": [5], "ev_en": "The modernization of society led to a marketing revolution that ④ strengthened the view that production would create its own demand.", "ev_ko": [[5, "사회의 현대화는 생산이 그 자체의 수요를 창출할 것이라는 시각을 파괴한(문제지엔 '강화한'으로 되어 있음) 마케팅 혁명을 낳았다."]], "why": ["이 글의 흐름은 <b>만들면 팔린다 → 고객이 원하는 것을 만들어야 한다<\/b>로 바뀌는 이야기입니다", "<b>production would create its own demand<\/b>(생산이 알아서 수요를 만든다)는 <b>옛날 관점<\/b>이므로, 마케팅 혁명은 그 관점을 <b>파괴했다<\/b>고 해야 앞뒤가 맞습니다", "어휘 문제는 <b>글 전체의 방향<\/b>을 먼저 잡아 놓고 각 밑줄이 그 방향과 같은지 보면 됩니다", "<b>strengthened → destroyed<\/b>(파괴했다) 등이 적절합니다."], "ch": [{"n": "①", "t": "closer relations with buyers and clients", "g": "더 가까운 · 문맥에 맞음", "ok": false, "e": ["바로 뒤 문장에서 기업이 고객이 실제로 원하는 제품을 내놓는 것이 중요해졌다고 하므로, 기업이 구매자·고객과 <b>더 가까운(closer) 관계<\/b>를 발전시켜야 했다는 설명은 적절합니다."]}, {"n": "②", "t": "it was equally essential to deliver products that customers actually wanted", "g": "아주 중요한 · 문맥에 맞음", "ok": false, "e": ["앞 문장에서 적당한 가격에 질 좋은 제품을 만드는 것만으로는 충분치 않다고 했으므로, 고객이 실제로 원하는 제품을 내놓는 것이 <b>똑같이 아주 중요한(equally essential)<\/b> 일이 되었다는 설명은 적절합니다."]}, {"n": "③", "t": "in modern societies this was no longer possible", "g": "가능한 · 문맥에 맞음", "ok": false, "e": ["예전에는 한 가지 색으로만 출시해도 잘 팔렸지만, 고객의 다양한 요구에 맞춰야 하는 현대 사회에서는 <b>더 이상 가능하지 않게<\/b>(no longer possible) 되었다는 설명이 흐름과 맞습니다."]}, {"n": "④", "t": "a marketing revolution that strengthened the view ...", "g": "강화했다 · 문맥에 안 맞음, destroyed 등이 적절", "ok": true, "e": ["마케팅 혁명은 '생산이 수요를 만들어 낸다'는 기존의 관점을 <b>파괴한<\/b> 사건입니다", "strengthened(강화했다)는 방향이 정반대이므로 <b>destroyed<\/b>(파괴했다) 등이 되어야 합니다."]}, {"n": "⑤", "t": "the desire to meet their diverse and often complex needs", "g": "맞추다, 충족시키다 · 문맥에 맞음", "ok": false, "e": ["<b>meet needs<\/b>는 '요구를 충족시키다, 요구에 맞추다'라는 뜻의 표현입니다", "단순한 대량 생산에서 벗어나 고객의 다양하고 복잡한 요구에 맞추는 것이 중요해졌다는 설명이 글의 전체 흐름에 적절합니다."]}], "tr": ["1940년대와 1950년대 동안 산업 사회가 더 부유해지고, 더 경쟁적이 되고, 지리적으로 더 확산되면서, 판매 개념에서의 중대한 철학적 변화가 생겼다.", "이것은 기업이 구매자 및 고객과 더 가까운 관계를 발전시킬 수밖에 없게 만들었고, 결과적으로 이는 기업이 적당한 가격에 질 좋은 제품을 만들어내는 것으로는 충분치 않다는 점을 깨닫게 했다.", "사실, 고객이 실질적으로 원하는 제품을 내놓는 것이 마찬가지로 아주 중요했다.", "1908년에 Henry Ford는 가장 많이 팔린 자사의 T-모델 Ford를 딱 한 가지 색(검은색)으로만 생산했지만, 현대 사회에서는 이것이 더 이상 가능하지 않았다.", "사회의 현대화는 생산이 그 자체의 수요를 창출할 것이라는 시각을 파괴한(문제지엔 '강화한'으로 되어 있음) 마케팅 혁명을 낳았다.", "고객, 그리고 그들의 다양하고도 흔히 복잡한 요구에 맞추려는 욕망이 기업의 중점이 되었다."], "ps": [{"n": 1, "ch": [{"e": "The major <b>philosophical shift<\/b>", "k": "중대한 <b>철학적 변화<\/b>가"}, {"e": "in the idea of selling", "k": "판매라는 개념에서"}, {"e": "came when industrial societies became", "k": "산업 사회가 ~하게 되었을 때 <b>찾아왔다<\/b>"}, {"e": "more affluent, more competitive,", "k": "더 부유해지고, 더 경쟁적이 되고,"}, {"e": "and more geographically spread out", "k": "지리적으로 더 널리 퍼지게 되었을 때"}, {"e": "during the 1940s and 1950s.", "k": "1940년대와 1950년대 동안."}], "easy": "1940~50년대에 사회가 부유해지고 경쟁도 심해지고 넓게 퍼지면서, 판매에 대한 생각이 크게 바뀌었어요.", "gist": "글의 배경: 판매 개념이 바뀐 시기."}, {"n": 2, "ch": [{"e": "<b>This<\/b> forced business", "k": "이것은 <span class=\"r\">(This = 앞 문장의 사회 변화)<\/span> 기업이 ~하도록 <b>만들었다<\/b>"}, {"e": "to develop closer relations with buyers and clients,", "k": "구매자 및 고객과 더 가까운 관계를 <b>발전시키도록<\/b>,"}, {"e": "which in turn made business realize", "k": "그것은 <span class=\"r\">(which = 앞 내용 전체)<\/span> 결과적으로 기업이 <b>깨닫게<\/b> 했다"}, {"e": "that it was not enough", "k": "~가 충분하지 않다는 것을"}, {"e": "to produce a quality product at a reasonable price.", "k": "적당한 가격에 질 좋은 제품을 <b>만드는 것이<\/b>."}], "easy": "사회가 변하자 기업은 고객과 가까워져야 했고, 좋은 물건을 알맞은 값에 만드는 것만으로는 부족하다는 것을 알게 되었어요.", "gist": "변화의 결과: 고객과 가까워짐 + '좋은 물건'만으론 부족하다는 깨달음."}, {"n": 3, "ch": [{"e": "<b>In fact<\/b>, it was equally essential", "k": "사실, 똑같이 <b>아주 중요했다<\/b> <span class=\"r\">(it = 가주어)<\/span>"}, {"e": "to deliver products", "k": "제품을 <b>내놓는 것이<\/b>"}, {"e": "that customers actually wanted.", "k": "고객이 실제로 원하는."}], "easy": "고객이 진짜 원하는 물건을 내놓는 것도 똑같이 중요했어요.", "gist": "'좋은 물건만으론 부족'의 다음 단계: 고객이 원하는 것을 줘야 한다."}, {"n": 4, "ch": [{"e": "Henry Ford produced his best-selling T-model Ford", "k": "Henry Ford는 가장 많이 팔린 자사의 T-모델 Ford를 생산했다"}, {"e": "in one color only (black) in 1908,", "k": "1908년에 <b>딱 한 가지 색(검은색)으로만<\/b>,"}, {"e": "<b>but<\/b> in modern societies", "k": "<b>하지만<\/b> 현대 사회에서는"}, {"e": "this was <b>no longer<\/b> possible.", "k": "이것은<span class=\"r\">(this = 한 가지 색으로만 생산하는 것)<\/span> <b>더 이상<\/b> 가능하지 않았다."}], "easy": "예전에는 한 가지 색 자동차만 만들어도 팔렸지만, 현대 사회에서는 더 이상 그렇게 할 수 없었어요.", "gist": "'고객이 원하는 것을 줘야 한다'를 보여 주는 예시."}, {"n": 5, "ch": [{"e": "The modernization of society", "k": "사회의 현대화는"}, {"e": "led to a marketing revolution", "k": "마케팅 혁명을 <b>낳았다<\/b>"}, {"e": "that <b>destroyed<\/b> the view", "k": "그 혁명은 <span class=\"r\">(that = 마케팅 혁명)<\/span> 그 시각을 <b>파괴했다<\/b> <span class=\"r\">※ 문제지엔 strengthened로 되어 있음<\/span>"}, {"e": "that production would create its own demand.", "k": "생산이 그 자체의 수요를 창출할 것이라는."}], "easy": "사회가 현대화되면서 '만들면 알아서 팔린다'는 생각을 무너뜨리는 마케팅 혁명이 일어났어요.", "gist": "문제의 핵심 문장: '만들면 팔린다'는 옛 시각이 무너졌으므로 strengthened(강화)는 반대 방향."}, {"n": 6, "ch": [{"e": "Customers, and the <b>desire<\/b>", "k": "고객, 그리고 ~하려는 <b>욕망<\/b>이"}, {"e": "to <b>meet<\/b> their diverse and often complex needs,", "k": "그들의 <span class=\"r\">(their = 고객들의)<\/span> 다양하고도 흔히 복잡한 요구에 <b>맞추려는<\/b>,"}, {"e": "became the focus of business.", "k": "기업의 <b>중점이 되었다<\/b>."}], "easy": "이제 기업은 고객과, 고객의 다양한 요구에 맞추는 일에 집중하게 되었어요.", "gist": "글의 결론: 사업의 중심이 생산에서 고객으로 옮겨 갔다."}]}, {"no": "06", "typ": "빈칸 추론", "src": "2018년 3월 32번", "evn": [3], "ev_en": "This is a good thing because distance traveled relates more directly to sales per entering customer than any other measurable consumer variable.", "ev_ko": [[3, "이것은 좋은 일인데, 이동 거리가 다른 어떤 측정 가능한 고객 변수보다 입장한 고객당 판매량과 더 직접적으로 관련이 있기 때문이다."]], "why": ["빈칸 바로 뒤 문장이 답을 쥐고 있습니다", "<b>This is a good thing<\/b>의 This가 빈칸 내용을 받고, 그 이유로 <b>distance traveled<\/b>(손님이 걸은 거리)가 매출과 이어진다고 했습니다", "즉 뒷벽을 자석으로 쓰면 <b>손님이 매장 전체를 걸어 다니게 된다<\/b>는 뜻이어야 합니다", "6·7번의 유제품·신작은 <b>뒤쪽에 두는 상품<\/b>의 예시입니다."], "ch": [{"n": "①", "t": "the store looks larger than it is", "g": "상점이 실제보다 더 커 보인다", "ok": false, "e": ["매장이 <b>커 보이는<\/b> 효과는 언급되지 않았고, 뒤 문장의 '걸은 거리'와도 연결되지 않습니다."]}, {"n": "②", "t": "more products can be stored there", "g": "거기에 더 많은 제품들이 저장될 수 있다", "ok": false, "e": ["뒷벽을 <b>보관 공간<\/b>으로 쓴다는 말이 아닙니다", "지문은 손님을 <b>끌어당기는<\/b> 자석으로 쓴다고 했습니다."]}, {"n": "③", "t": "people have to walk through the whole store", "g": "사람들이 매장 전체를 지나서 걸어 다녀야 한다", "ok": true, "e": ["3번의 distance traveled와 정확히 맞물립니다", "안쪽까지 걸어야 하니 이동 거리가 늘고, 그것이 매출로 이어집니다."]}, {"n": "④", "t": "the store provides customers with cultural events", "g": "그 상점이 고객들에게 문화 행사를 제공한다", "ok": false, "e": ["문화 행사에 관한 내용은 지문에 전혀 없습니다."]}, {"n": "⑤", "t": "people don't need to spend too much time in the store", "g": "사람들이 너무 많은 시간을 상점에서 보낼 필요가 없다", "ok": false, "e": ["뒷벽을 자석으로 쓰는 목적은 손님이 안쪽까지 <b>걸어 다니게<\/b> 만드는 것입니다", "⑤는 매장에서 시간을 많이 쓸 필요가 없다는 말이라 이 흐름과 맞지 않고, 지문에는 시간에 관한 내용이 없습니다."]}], "tr": ["상점 안에서 벽은 상점의 뒤쪽을 나타내지만, 마케팅의 끝을 나타내는 것은 아니다.", "상품 판매업자들은 종종 뒷벽을 (사람의) 마음을 끄는 것으로 사용하는데, 이것은 사람들이 매장 전체를 지나서 걸어 다녀야 한다는 것을 의미하기 때문이다.", "이것은 좋은 일인데, 이동 거리가 다른 어떤 측정 가능한 고객 변수보다 입장한 고객당 판매량과 더 직접적으로 관련이 있기 때문이다.", "때로는 벽이 사람의 마음을 끌어당기는 것(벽의 매력)은 단순히 감각에 호소하는 것, 즉 시선을 사로잡는 벽 장식물 또는 귀를 사로잡는 소리이다.", "때로는 사람을 끌어당기는 것은 특정 상품이다.", "슈퍼마켓에서 유제품은 종종 뒤쪽에 있는데, 사람들이 자주 우유만을 가지러(사러) 오기 때문이다.", "비디오 대여점에서는, 그것(뒤쪽에 있는 것)이 새로 개봉한 영화이다."], "ps": [{"n": 1, "ch": [{"e": "<b>Within a store<\/b>,", "k": "상점 안에서,"}, {"e": "the wall <b>marks<\/b> the back of the store,", "k": "벽은 상점의 뒤쪽을 <b>나타내지만<\/b>,"}, {"e": "but <b>not<\/b> the end of the marketing.", "k": "마케팅의 끝을 나타내는 것은 <b>아니다<\/b>."}], "easy": "가게 안의 벽은 가게의 맨 뒤쪽일 뿐, 거기서 마케팅이 끝나는 것은 아니에요.", "gist": "뒷벽도 마케팅에 쓰인다는 화제 제시."}, {"n": 2, "ch": [{"e": "<b>Merchandisers<\/b> often use the back wall", "k": "상품 판매업자들은 종종 뒷벽을 <b>사용한다<\/b>"}, {"e": "as a <b>magnet<\/b>,", "k": "마음을 끄는 <b>자석<\/b>으로,"}, {"e": "<b>because<\/b> it means that", "k": "왜냐하면 그것이 <span class=\"r\">(it = 뒷벽을 자석으로 쓰는 것)<\/span> ~을 <b>의미하기<\/b> 때문이다"}, {"e": "<b>people have to walk through the whole store<\/b>.", "k": "<b>사람들이 매장 전체를 지나서 걸어 다녀야 한다는 것<\/b>. <span class=\"r\">※ 문제지엔 빈칸으로 되어 있음<\/span>"}], "easy": "판매업자는 뒷벽을 손님을 끌어당기는 자석처럼 써요. 그러면 손님이 가게 전체를 걸어 다니게 된다는 뜻이에요.", "gist": "빈칸 문장: 뒷벽 자석의 효과 = 손님이 매장 전체를 걷게 된다."}, {"n": 3, "ch": [{"e": "<b>This<\/b> is a good thing", "k": "이것은 <span class=\"r\">(This = 사람들이 매장 전체를 걷게 되는 것)<\/span> 좋은 일이다"}, {"e": "<b>because<\/b> distance traveled", "k": "왜냐하면 <b>이동한 거리<\/b>가"}, {"e": "relates more directly to sales", "k": "판매량과 더 직접적으로 <b>관련이 있기<\/b>"}, {"e": "per entering customer", "k": "입장한 고객 한 명당"}, {"e": "than any other measurable consumer variable.", "k": "측정 가능한 다른 어떤 고객 변수보다도."}], "easy": "손님이 많이 걸을수록 매출이 늘어난다는 연결이 다른 어떤 요소보다 뚜렷하다는 뜻이에요.", "gist": "빈칸 정답의 근거: '걸은 거리'가 매출과 이어진다.", "link": "이것은 좋은 일인데, 이동 거리가 측정 가능한 다른 어떤 고객 변수보다도 입장한 고객당 판매량과 더 직접적으로 관련이 있기 때문이다."}, {"n": 4, "ch": [{"e": "<b>Sometimes<\/b>, the wall's attraction", "k": "때로는, 벽의 <b>매력<\/b>은"}, {"e": "is simply <b>appealing to<\/b> the senses,", "k": "단순히 감각에 <b>호소하는 것<\/b>이다,"}, {"e": "a wall decoration that catches the eye", "k": "시선을 사로잡는 벽 장식물"}, {"e": "or a sound that catches the ear.", "k": "또는 귀를 사로잡는 소리."}], "easy": "어떤 때는 눈길을 끄는 장식이나 귀에 들어오는 소리로 손님을 끌어당겨요.", "gist": "뒷벽이 손님을 끄는 방법 ①: 감각을 자극한다."}, {"n": 5, "ch": [{"e": "<b>Sometimes<\/b> the attraction", "k": "때로는 그 매력은"}, {"e": "is specific <b>goods<\/b>.", "k": "특정 <b>상품<\/b>이다."}], "easy": "어떤 때는 특정한 물건이 손님을 끌어당겨요.", "gist": "뒷벽이 손님을 끄는 방법 ②: 특정 상품."}, {"n": 6, "ch": [{"e": "In supermarkets,", "k": "슈퍼마켓에서,"}, {"e": "the dairy is often at the back,", "k": "유제품(코너)은 종종 <b>뒤쪽에<\/b> 있다,"}, {"e": "because people frequently come just for milk.", "k": "사람들이 자주 우유만 <b>사러<\/b> 오기 때문이다."}], "easy": "마트에서는 우유 같은 유제품이 가게 뒤쪽에 있는 경우가 많아요. 사람들이 자주 우유만 사러 오기 때문이에요.", "gist": "방법 ②(특정 상품)의 예: 유제품."}, {"n": 7, "ch": [{"e": "At video rental shops,", "k": "비디오 대여점에서는,"}, {"e": "it's the new releases.", "k": "그것은 <span class=\"r\">(it = 뒤쪽에 있는 상품)<\/span> 새로 개봉한 영화이다."}], "easy": "비디오 대여점에서는 뒤쪽에 두는 상품이 신작 영화예요.", "gist": "특정 상품의 또 다른 예."}]}];
+var ENC="=IakivzoRK+OjGp47AakivToRK+OkGp4";
+var SETID="g1r04p1", N=D.length, TITLE="고1 미니모의고사 4회 01–06번";
+var CIRC="①②③④⑤";
+function dec(s){var b=atob(s.split("").reverse().join(""));var u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder("utf-8").decode(u);}
+var ANS=dec(ENC).split(";").map(function(x){return x.split("|").map(function(c){return CIRC.indexOf(c)+1;});});
+function isRight(i,a){return ANS[i].indexOf(a)>=0;}
+function ansText(i){return ANS[i].map(function(n){return CIRC[n-1];}).join(", ");}
+
+var GCODE="h1", GRADE="고1", FILE="04a", NEXT="04b.html";
+const KEY='via_mm_'+GCODE+'_'+FILE;
+let S={checks:{},locked:{},res:{},sub:null,q:[]};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* REC 연결 지점: 지금은 기기 안에 대기열로만 쌓음 */
+function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localStorage.getItem('via_minimock_rec_queue')||'[]');q.push(ev);localStorage.setItem('via_minimock_rec_queue',JSON.stringify(q));}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const app=$('#app');
+let view='word',quiz=null,armed=null;
+function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function shuffle(arr,seed){const a=arr.slice();let s=hash(seed)||1;for(let i=a.length-1;i>0;i--){s=Math.imul(s^(s>>>15),2246822519)>>>0;const j=s%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+const WS=WORDS.sets[0];
+
+function hdr(){
+  const on=id=>(view===id)?'on':'';
+  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><a class="link" href="index.html">목록</a></div><div class="tabs"><button class="tab ${on('word')}" data-v="word">단어</button><button class="tab ${on('submit')}" data-v="submit">답 제출</button><button class="tab ${on('exp')}" data-v="exp" ${S.sub?'':'disabled'}>해설</button></div></div></header>`;
+}
+function noteList(){
+  const out=[],ck=S.checks[WS.id]||{};
+  WS.words.forEach((w,i)=>{
+    const c=ck[i];if(!c)return;
+    const parts=['m','s','a'].filter(p=>c[p]&&(p==='m'||w[p]));
+    if(parts.length)out.push({i:i,w:w,parts:parts});
+  });
+  return out;
+}
+function render(){
+  if(view==='word')renderWord();
+  else if(view==='note')renderNote();
+  else if(view==='quiz')renderQuiz();
+  else if(view==='result')renderResult();
+  else if(view==='submit')renderSubmit();
+  else if(view==='exp')renderExp();
+  window.scrollTo(0,0);
+}
+/* ---- 단어 확인 ---- */
+function renderWord(){
+  const ck=S.checks[WS.id]||{},locked=!!S.locked[WS.id],n=noteList().length;
+  let h=hdr()+`<div class="wrap ${locked?'locked':''}">`;
+  WS.words.forEach((w,i)=>{
+    const c=ck[i]||{};
+    h+=`<div class="row"><div class="top"><span class="no">${i+1}</span><span class="word">${esc(w.w)}</span><span class="src">${esc(w.src)}번</span></div><div class="cells">`;
+    h+=`<button class="cell m ${c.m?'bad':''}" data-i="${i}" data-p="m"><span class="tag">뜻</span><span>${esc(w.m)}</span></button>`;
+    if(w.s)h+=`<button class="cell s ${c.s?'bad':''}" data-i="${i}" data-p="s"><span class="tag">유</span><span>${esc(w.s[0])}<span class="ko">${esc(w.s[1])}</span></span></button>`;
+    if(w.a)h+=`<button class="cell a ${c.a?'bad':''}" data-i="${i}" data-p="a"><span class="tag">반</span><span>${esc(w.a[0])}<span class="ko">${esc(w.a[1])}</span></span></button>`;
+    h+=`</div></div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap">`;
+  h+=locked?`<button class="btn" disabled>확인 끝</button>`:`<button class="btn ${armed==='lock'?'arm':''}" id="lock">${armed==='lock'?'한 번 더 누르면 확인 끝':'확인 끝'}</button>`;
+  h+=`<button class="btn pri" id="gonote">단어 오답노트 ${n}</button></div></div>`;
+  app.innerHTML=h;
+  app.querySelectorAll('.cell').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,p=b.dataset.p;
+    S.checks[WS.id]=S.checks[WS.id]||{};
+    const c=S.checks[WS.id][i]=S.checks[WS.id][i]||{};
+    c[p]=c[p]?0:1;save();
+    b.classList.toggle('bad',!!c[p]);
+    $('#gonote').textContent='단어 오답노트 '+noteList().length;
+  });
+  const lk=$('#lock');if(lk)lk.onclick=()=>{
+    if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
+      recSend({type:'word',marks:noteList().map(it=>({w:it.w.w,parts:it.parts}))});}
+    else armed='lock';
+    render();
+  };
+  $('#gonote').onclick=()=>{view='note';armed=null;render();};
+}
+function renderNote(){
+  const list=noteList();
+  let h=`<header><div class="wrap hd2"><h1>단어 오답노트 <span class="meta">${list.length}개</span></h1><button class="link" id="back">확인표</button></div></header><div class="wrap">`;
+  if(!list.length)h+=`<div class="empty">아직 표시한 단어가 없습니다</div>`;
+  list.forEach(it=>{
+    const w=it.w,r=(S.res[WS.id]||{})[it.i]||{};
+    h+=`<div class="note-item"><span class="w">${esc(w.w)}</span><span class="meta">${esc(w.src)}번</span>`;
+    const row=(p,tag,txt,ko)=>{
+      const bad=it.parts.includes(p);
+      const rs=r[p]===1?'<span class="res o">맞춤</span>':r[p]===0?'<span class="res x">틀림</span>':'';
+      return `<div class="part ${p} ${bad?'bad':''}"><span class="tag">${tag}</span><span>${esc(txt)}${ko?`<span class="ko"> ${esc(ko)}</span>`:''}</span>${bad?rs:''}</div>`;
+    };
+    h+=row('m','뜻',w.m,'');
+    if(w.s)h+=row('s','유',w.s[0],w.s[1]);
+    if(w.a)h+=row('a','반',w.a[0],w.a[1]);
+    h+=`</div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap"><button class="btn" id="back2">확인표</button><button class="btn pri" id="start" ${list.length?'':'disabled'}>복습 시작</button></div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='word';armed=null;render();};
+  $('#back2').onclick=()=>{view='word';render();};
+  $('#start').onclick=()=>{quiz={qs:buildQuestions(),n:0,right:0,done:false,shown:false};view='quiz';render();};
+}
+function buildQuestions(){
+  const qs=[];
+  noteList().forEach(it=>{
+    const w=it.w;
+    it.parts.forEach(p=>{
+      let q={i:it.i,p:p,w:w.w};
+      if(p==='m'){
+        const toks=x=>x.split(/[,，]\s*/).map(t=>t.trim());
+        const ct=toks(w.m);
+        const pool=[...new Set(WS.words.filter(o=>o!==w).map(o=>o.m))].filter(m=>!toks(m).some(t=>ct.includes(t)));
+        const wrong=shuffle(pool,WS.id+w.w+'m').slice(0,3);
+        q.type='choice';q.ask='뜻을 고르세요';
+        q.opts=shuffle([{t:w.m,ok:1}].concat(wrong.map(t=>({t:t,ok:0}))),WS.id+w.w+'mo');
+      }else{
+        const ans=w[p],d=WS.dist||[];
+        q.ask=p==='s'?'유의어를 고르세요':'반의어를 고르세요';
+        if(d.length>=3){
+          q.type='choice';
+          q.opts=shuffle([{t:ans[0],ko:ans[1],ok:1}].concat(shuffle(d,WS.id+w.w+p).slice(0,3).map(x=>({t:x[0],ko:x[1],ok:0}))),WS.id+w.w+p+'o');
+        }else{q.type='flip';q.ans=ans;}
+      }
+      qs.push(q);
+    });
+  });
+  return qs;
+}
+function recordRes(q,ok){S.res[WS.id]=S.res[WS.id]||{};const r=S.res[WS.id][q.i]=S.res[WS.id][q.i]||{};r[q.p]=ok?1:0;save();}
+function renderQuiz(){
+  const q=quiz.qs[quiz.n];
+  let h=`<header><div class="wrap hd2"><h1>복습</h1><button class="link" id="back">오답노트</button></div></header><div class="wrap ${quiz.done?'done':''}"><div class="q"><div class="cnt">${quiz.n+1} / ${quiz.qs.length}</div><div class="ask">${q.ask}</div><div class="target">${esc(q.w)}</div>`;
+  if(q.type==='choice'){
+    q.opts.forEach((o,k)=>{
+      let cls='';
+      if(quiz.done){if(o.ok)cls='right';else if(k===quiz.pick)cls='wrong';}
+      h+=`<button class="opt ${cls}" data-k="${k}">${esc(o.t)}${o.ko?`<span class="ko">${esc(o.ko)}</span>`:''}</button>`;
+    });
+  }else if(quiz.shown)h+=`<div class="opt right">${esc(q.ans[0])}<span class="ko">${esc(q.ans[1])}</span></div>`;
+  h+=`</div></div><div class="bar"><div class="wrap">`;
+  if(q.type==='flip'&&!quiz.shown)h+=`<button class="btn pri" id="show">정답 보기</button>`;
+  else if(q.type==='flip')h+=`<button class="btn" id="no">몰랐음</button><button class="btn pri" id="yes">알았음</button>`;
+  else h+=`<button class="btn pri" id="next" ${quiz.done?'':'disabled'}>${quiz.n+1===quiz.qs.length?'결과':'다음'}</button>`;
+  h+=`</div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='note';render();};
+  app.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+    if(quiz.done)return;
+    const k=+b.dataset.k;quiz.pick=k;quiz.done=true;
+    const ok=q.opts[k].ok===1;if(ok)quiz.right++;recordRes(q,ok);render();
+  });
+  const nx=$('#next');if(nx)nx.onclick=()=>advance();
+  const sh=$('#show');if(sh)sh.onclick=()=>{quiz.shown=true;render();};
+  const yes=$('#yes');if(yes)yes.onclick=()=>{quiz.right++;recordRes(q,true);advance();};
+  const no=$('#no');if(no)no.onclick=()=>{recordRes(q,false);advance();};
+}
+function advance(){
+  if(quiz.n+1>=quiz.qs.length){view='result';render();return;}
+  quiz.n++;quiz.done=false;quiz.shown=false;quiz.pick=null;render();
+}
+function renderResult(){
+  app.innerHTML=`<header><div class="wrap hd2"><h1>복습 결과</h1></div></header><div class="wrap"><div class="score">${quiz.right} <small>/ ${quiz.qs.length}</small></div></div><div class="bar"><div class="wrap"><button class="btn" id="a">오답노트</button><button class="btn pri" id="b">확인표</button></div></div>`;
+  $('#a').onclick=()=>{view='note';render();};
+  $('#b').onclick=()=>{view='word';render();};
+}
+/* ---- 답 제출 ---- */
+function renderSubmit(){
+  const done=!!S.sub;
+  while(S.q.length<N)S.q.push(0);
+  let h=hdr()+'<div class="wrap">';
+  for(let i=0;i<N;i++){
+    const sel=done?S.sub.a[i]:S.q[i];
+    h+=`<div class="qrow"><div class="qno">${esc(D[i].no)}</div><div class="opts">`;
+    for(let k=1;k<=5;k++)h+=`<button class="opt2 ${sel===k?'on':''}" data-q="${i}" data-k="${k}" ${done?'disabled':''}>${CIRC[k-1]}</button>`;
+    h+='</div></div>';
+  }
+  h+='</div><div class="bar"><div class="wrap">';
+  if(done)h+='<button class="btn pri" id="toexp">해설 보기</button>';
+  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>제출</button>`;
+  h+='</div></div>';
+  app.innerHTML=h;
+  app.querySelectorAll('.opt2').forEach(b=>b.onclick=()=>{
+    if(S.sub)return;
+    const q=+b.dataset.q,k=+b.dataset.k;S.q[q]=k;save();
+    b.parentNode.querySelectorAll('.opt2').forEach(x=>x.classList.toggle('on',+x.dataset.k===k));
+    $('#sub').disabled=!S.q.every(v=>v>0);
+  });
+  const sb=$('#sub');if(sb)sb.onclick=()=>{
+    let s=0;for(let i=0;i<N;i++)if(isRight(i,S.q[i]))s++;
+    S.sub={t:Date.now(),a:S.q.slice(),s:s};save();
+    recSend({type:'submit',a:S.sub.a,s:s,n:N});
+    view='exp';render();
+  };
+  const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
+}
+/* ---- 해설 ---- */
+function sHtml(s,evn){
+  const ev=evn.indexOf(s.n)>=0;
+  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
+  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
+  const lays=[];
+  if(s.link)lays.push(['이어 읽으면',s.link]);
+  if(s.easy)lays.push(['쉬운 말로',s.easy]);
+  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
+  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
+  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
+  return x+'</div>';
+}
+function qHtml(i,a){
+  const d=D[i],ok=isRight(i,a);
+  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
+  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
+  h+='<h4>정답 근거</h4>';
+  h+=`<p class="en">${esc(d.ev_en)}</p>`;
+  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
+  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  if(d.ps&&d.ps.length){
+    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
+  }
+  h+='<h4>선택지 하나씩</h4>';
+  d.ch.forEach(c=>{
+    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  });
+  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  return h+'</div></details>';
+}
+function renderExp(){
+  const rec=S.sub;
+  let h=hdr()+'<div class="wrap">';
+  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='</div><h2>해설</h2>';
+  for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
+  h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
+  app.innerHTML=h;
+}
+/* 위임 이벤트 */
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tab');
+  if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
+  const ch=e.target.closest('.ch');
+  if(ch){ch.classList.toggle('open');return;}
+  const st=e.target.closest('.stg');
+  if(st){
+    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const shown=lays.filter(l=>l.classList.contains('on')).length;
+    if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
+    else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
+    return;
+  }
+  const al=e.target.closest('.tbtn');
+  if(al){
+    const open=al.dataset.all==='1',body=al.closest('.dkbody');
+    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
+    body.querySelectorAll('.s').forEach(s=>{
+      const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
+      lays.forEach(l=>l.classList.toggle('on',open));
+      if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
+    });
+  }
+});
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>고1 미니모의고사 15회 01–06번</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f6f8;--accent:#23406b;--bad:#c2392b;--badbg:#fdeceb;--good:#1f7a4d;--goodbg:#e8f5ee;--hl:#fff3b0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+body{padding-bottom:84px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .row1{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+h1{font-size:16px;margin:0;font-weight:700;line-height:1.3}
+.tabs{display:flex;gap:0}
+.tab{flex:1;border:0;background:none;font-family:inherit;font-size:15px;font-weight:700;color:var(--sub);padding:11px 0;border-bottom:3px solid transparent}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tab[disabled]{opacity:.35}
+.link{text-decoration:none;border:0;background:none;color:var(--accent);font-size:15px;font-weight:700;padding:10px 4px;font-family:inherit}
+.hd2{display:flex;align-items:center;justify-content:space-between;height:54px}
+.hd2 h1{font-size:17px}
+.row{padding:12px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.no{color:var(--sub);font-size:13px;min-width:20px}
+.word{font-size:19px;font-weight:700}
+.src{color:var(--sub);font-size:12px;margin-left:auto}
+.cells{display:flex;flex-direction:column;gap:6px}
+.cell{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 12px;border-radius:8px;background:var(--soft);border:1.5px solid transparent;font-size:16px;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.cell .tag,.part .tag{font-size:12px;font-weight:700;color:#fff;border-radius:4px;padding:2px 7px;min-width:34px;text-align:center;background:#7a8594}
+.cell.s .tag,.part.s .tag{background:#2d62a8}.cell.a .tag,.part.a .tag{background:#b4472f}
+.ko{color:var(--sub);font-size:14px;margin-left:6px}
+.cell.bad{background:var(--badbg);border-color:var(--bad)}
+.cell.bad .tag{background:var(--bad)}
+.locked .cell{pointer-events:none}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:6}
+.bar .wrap{display:flex;gap:10px;padding:0}
+.btn{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;line-height:1.25;font-weight:700;font-family:inherit}
+.btn.pri{background:var(--accent);color:#fff}
+.btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn[disabled]{opacity:.4}
+.note-item{padding:14px 0;border-bottom:1px solid var(--line)}
+.note-item .w{font-size:19px;font-weight:700}
+.meta{color:var(--sub);font-size:12px;margin-left:8px;font-weight:400}
+.part{display:flex;gap:10px;align-items:baseline;padding:6px 0 0;font-size:16px}
+.part .tag{align-self:center}
+.part.bad{color:var(--bad);font-weight:700}
+.part.bad .tag{background:var(--bad)}
+.part .ko{font-weight:400}
+.part .res{margin-left:auto;font-size:13px;font-weight:700}
+.res.o{color:var(--good)}.res.x{color:var(--bad)}
+.empty{color:var(--sub);text-align:center;padding:60px 0;font-size:16px}
+.q{padding:22px 0 8px}
+.q .cnt{color:var(--sub);font-size:14px}
+.q .ask{font-size:15px;color:var(--sub);margin-top:14px}
+.q .target{font-size:28px;font-weight:700;margin:6px 0 18px}
+.opt{display:block;width:100%;text-align:left;min-height:56px;padding:10px 14px;margin-bottom:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:18px;font-family:inherit;color:var(--ink)}
+.opt .ko{display:block;margin:2px 0 0}
+.opt.right{border-color:var(--good);background:var(--goodbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.done .opt{pointer-events:none}
+.score{font-size:34px;font-weight:700;text-align:center;margin:30px 0 6px}
+.score small{font-size:18px;color:var(--sub);font-weight:400}
+.foot{color:var(--sub);font-size:12px;text-align:center;padding:26px 0 8px}
+/* submit */
+.qrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.qno{font-weight:800;font-size:20px;width:34px;flex:none}
+.opts{display:flex;gap:8px;flex:1}
+.opt2{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:20px;font-family:inherit;color:var(--ink)}
+.opt2.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.opt2[disabled]{opacity:.55}
+.opt2.on[disabled]{opacity:1}
+/* explanation */
+h2{font-size:17px;margin:26px 0 10px}
+.quick div{padding:3px 0;font-size:17px}
+.quick .o{color:var(--good)}.quick .x{color:var(--bad)}
+.sub{color:var(--sub)}
+details.qd{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;background:var(--bg)}
+details.qd>summary{list-style:none;cursor:pointer;padding:14px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+details.qd>summary::-webkit-details-marker{display:none}
+details.qd>summary small{font-weight:400;color:var(--sub);font-size:13px}
+.res2{margin-left:auto;font-size:14px}
+.res2.o{color:var(--good)}.res2.x{color:var(--bad)}
+.qx{padding:0 14px 14px}
+.qx h4{font-size:15px;margin:18px 0 8px;color:var(--accent)}
+.qx p{margin:6px 0;line-height:1.75;font-size:16px}
+.ansline b{font-size:17px}
+.en{font-size:16px;line-height:1.7;background:var(--soft);padding:10px 12px;border-radius:8px}
+.kolist{list-style:none;margin:6px 0;padding:0}
+.kolist li{font-size:15px;line-height:1.7}
+.kolist .n{font-size:12px;color:var(--sub);margin-right:6px}
+.why p{margin:4px 0;font-size:15px}
+.c{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.c.ok{border-color:var(--good);background:var(--goodbg)}
+.c .ct{font-weight:700;font-size:16px;line-height:1.5}
+.c .tg{display:inline-block;font-size:12px;color:#fff;background:#7a8594;border-radius:4px;padding:1px 7px;margin-right:6px;font-weight:700}
+.c.ok .tg{background:var(--good)}
+.c p{margin:4px 0 0;font-size:15px}
+.r{color:var(--sub);font-size:13px}
+/* direct reading practice */
+details.dk{margin:16px 0 4px;border:1px solid var(--line);border-radius:10px}
+details.dk>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700;color:var(--accent);font-size:15px}
+details.dk>summary::-webkit-details-marker{display:none}
+.dkbody{padding:0 12px 12px}
+.tool{display:flex;gap:8px;margin:2px 0 10px}
+.tbtn{flex:1;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:inherit;font-size:14px;font-weight:700;color:var(--accent)}
+.s{padding:10px 0 12px;border-top:1px dashed var(--line)}
+.s.ev{background:linear-gradient(90deg,#fffbe8,#fff);margin:0 -6px;padding-left:6px;padding-right:6px}
+.sn{margin-bottom:6px}
+.lb{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--sub);margin-right:6px}
+.lb.ev{background:var(--hl);color:#7a5b00}
+.ch{padding:9px 11px;margin-bottom:6px;border-radius:8px;background:var(--soft);cursor:pointer;border-bottom:2px dotted #c9cfd6}
+.ch .ce{font-size:16px;line-height:1.6}
+.ch .ce b{background:linear-gradient(transparent 55%,var(--hl) 55%)}
+.ch .ck{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--line);color:var(--accent);font-size:15px;line-height:1.65}
+.ch.open{background:#eef2f8;border-bottom-color:transparent}
+.ch.open .ck{display:block}
+.lay{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:14px;line-height:1.7}
+.lay.on{display:block}
+.stg{width:100%;min-height:42px;margin-top:6px;border:1px solid var(--accent);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const WORDS={"sets": [{"id": "g1r15p1", "title": "고1 미니모의고사 15회 01–06번", "range": "01–06번", "words": [{"src": "01", "w": "retire", "m": "은퇴하다", "s": ["step down", "물러나다"], "a": null}, {"src": "02", "w": "promote", "m": "증진시키다", "s": null, "a": null}, {"src": "03", "w": "several", "m": "몇몇의", "s": null, "a": null}, {"src": "04", "w": "orphan", "m": "고아가 되다", "s": null, "a": null}, {"src": "05", "w": "skilled", "m": "능숙한", "s": ["expert", "능숙한"], "a": ["unskilled", "미숙한"]}, {"src": "06", "w": "abolish", "m": "폐지하다", "s": ["eliminate", "없애다"], "a": null}, {"src": "07", "w": "genius", "m": "천재", "s": null, "a": null}, {"src": "08", "w": "mislead", "m": "오도하다", "s": null, "a": ["guide", "안내하다"]}, {"src": "09", "w": "significant", "m": "중요한", "s": ["major", "중요한"], "a": ["minor", "사소한"]}, {"src": "10", "w": "currently", "m": "현재", "s": null, "a": null}, {"src": "11", "w": "encourage", "m": "장려하다", "s": ["promote", "촉진하다"], "a": ["discourage", "막다"]}, {"src": "12", "w": "traditional", "m": "전통적인", "s": null, "a": ["modern", "현대적인"]}, {"src": "13", "w": "commonly", "m": "흔히", "s": ["usually", "보통"], "a": ["rarely", "좀처럼 ~않게"]}, {"src": "14", "w": "virtually", "m": "거의", "s": null, "a": null}, {"src": "15", "w": "beneficial", "m": "유익한", "s": ["helpful", "도움이 되는"], "a": ["harmful", "해로운"]}, {"src": "16", "w": "fundamental", "m": "근본적인", "s": null, "a": null}, {"src": "17", "w": "manipulate", "m": "조종하다", "s": null, "a": null}, {"src": "18", "w": "uncover", "m": "밝히다", "s": ["reveal", "드러내다"], "a": ["hide", "숨기다"]}, {"src": "19", "w": "painful", "m": "고통스러운", "s": null, "a": ["painless", "고통 없는"]}, {"src": "20", "w": "escape", "m": "벗어나다", "s": null, "a": null}], "dist": [["temporary", "일시적인"], ["obvious", "명백한"], ["gentle", "온화한"]]}]};
+var D=[{"no": "01", "typ": "목적", "src": "2017년 6월 18번", "evn": [3], "ev_en": "So, Virginia Smith, who swam for Bredard Community College and has won several awards in national competitions, has been named the school's new swimming coach.", "ev_ko": [[3, "그래서 Bredard Community College에서 수영 (선수 생활)을 하며 전국 대회에서 여러 가지 상을 받았던 Virginia Smith가 학교의 새 수영 코치로 임명되었습니다."]], "why": ["Virginia Smith가 학교의 새 수영 코치로 <b>임명되었다<\/b>는 3번이 이 편지의 핵심입니다", "이어지는 4·5번에서 새 코치의 근무 시작과 맡을 일을 알려 줍니다", "그래서 <b>새 코치를 소개<\/b>하는 글입니다."], "ch": [{"n": "①", "t": "새로운 수영 코치를 소개하려고", "g": "", "ok": true, "e": ["3번에서 Virginia Smith가 새 수영 코치로 임명되었다고 알립니다", "2번의 Sandy Brown 은퇴 소식에 이어 새 코치를 소개하는 편지입니다."]}, {"n": "②", "t": "수영 강좌의 폐강을 통보하려고", "g": "", "ok": false, "e": ["수영 강좌가 폐강된다는 내용은 본문에 없습니다", "5번에서는 새 코치가 오후에 강좌를 가르치고 여름 프로그램도 계속한다고 했습니다."]}, {"n": "③", "t": "수영 코치의 퇴임식을 공지하려고", "g": "", "ok": false, "e": ["Sandy Brown이 은퇴했다는 언급(2번)은 있지만, 퇴임식을 공지하는 내용은 본문에 없습니다."]}, {"n": "④", "t": "수영부의 대회 입상을 축하하려고", "g": "", "ok": false, "e": ["3번에 Virginia Smith 개인의 수상 이력은 나옵니다", "하지만 수영부의 대회 입상을 축하하는 내용은 본문에 없습니다."]}, {"n": "⑤", "t": "수영의 건강상 이점을 홍보하려고", "g": "", "ok": false, "e": ["수영의 건강상 이점은 6번에서 새 코치가 이점을 증진시켜 학생들이 건강해지기를 기대한다고 한 부분에만 나옵니다", "편지의 주된 목적은 아닙니다."]}], "tr": ["학부모님들께,", "아시는 바와 같이, 6년간 저희 방과 후 (학교) 수영 코치였던 Sandy Brown이 지난달 코치직에서 은퇴했습니다.", "그래서 Bredard Community College에서 수영 (선수 생활)을 하며 전국 대회에서 여러 가지 상을 받았던 Virginia Smith가 학교의 새 수영 코치로 임명되었습니다.", "이번이 코치로서 그녀의 첫 직장이고, 그녀는 다음 주부터 근무하기 시작할 예정입니다.", "그녀는 오후에 그녀의 강좌를 가르칠 예정이며, 여름 프로그램도 계속할 예정입니다.", "그녀는 수영의 건강상의 이점들을 증진시킴으로써 더 많은 학생들이 그녀의 지도를 통해 건강해지기를 기대하고 있습니다.", "진심을 담아, Fred Wilson (드림)", "Riverband 고등학교 교장"], "ps": [{"n": 1, "ch": [{"e": "Dear Parents,", "k": "학부모님들께,"}], "easy": "학부모님들에게 보내는 편지의 첫인사예요.", "gist": "편지글의 시작 인사."}, {"n": 2, "ch": [{"e": "<b>As you know<\/b>,", "k": "<b>아시는 바와 같이<\/b>,"}, {"e": "Sandy Brown, our after-school swimming coach for six years,", "k": "6년간 저희 방과 후 (학교) 수영 코치였던 Sandy Brown이,"}, {"e": "<b>retired from<\/b> coaching last month.", "k": "지난달 코치직에서 <b>은퇴했습니다<\/b>."}], "easy": "6년간 방과 후 수영 코치였던 Sandy Brown이 지난달에 은퇴했다는 말이에요.", "gist": "Sandy Brown의 은퇴 소식을 알린다."}, {"n": 3, "ch": [{"e": "So, <b>Virginia Smith<\/b>,", "k": "그래서 <b>Virginia Smith<\/b>가,"}, {"e": "who swam for Bredard Community College", "k": "Bredard Community College에서 수영 (선수 생활)을 하며"}, {"e": "and has won several awards in national competitions,", "k": "전국 대회에서 여러 가지 상을 받았던,"}, {"e": "<b>has been named<\/b> the school’s new swimming coach.", "k": "학교의 새 수영 코치로 <b>임명되었습니다<\/b>."}], "easy": "Bredard Community College에서 수영을 했고 전국 대회에서 여러 상을 받은 Virginia Smith가 학교의 새 수영 코치가 되었다는 말이에요.", "gist": "새 수영 코치로 Virginia Smith가 임명되었다는 소식 — 정답 근거가 되는 문장이다.", "link": "그래서 Bredard Community College에서 수영을 했고 전국 대회에서 여러 가지 상을 받았던 Virginia Smith가 학교의 새 수영 코치로 임명되었습니다."}, {"n": 4, "ch": [{"e": "This is her <b>first job<\/b> as a coach,", "k": "이번이 코치로서 그녀의 <b>첫 직장<\/b>이고,"}, {"e": "and she is going to start working from next week.", "k": "그녀는 다음 주부터 근무하기 시작할 예정입니다."}], "easy": "새 코치에게는 코치로서 첫 직장이고, 다음 주부터 일을 시작한다는 말이에요.", "gist": "새 코치의 근무 시작 시점을 알려 준다."}, {"n": 5, "ch": [{"e": "She will teach her class in the afternoons,", "k": "그녀는 오후에 그녀의 강좌를 가르칠 예정이며,"}, {"e": "and <b>continue with<\/b> our summer program.", "k": "저희 여름 프로그램도 <b>계속할<\/b> 예정입니다."}], "easy": "새 코치는 오후에 수업을 하고 여름 프로그램도 이어서 맡는다는 말이에요.", "gist": "새 코치가 맡을 일을 알려 준다."}, {"n": 6, "ch": [{"e": "<b>By promoting<\/b> the health benefits of swimming,", "k": "수영의 건강상의 이점들을 <b>증진시킴으로써<\/b>,"}, {"e": "she hopes that more students will get healthy", "k": "그녀는 더 많은 학생들이 건강해지기를 기대하고 있습니다"}, {"e": "through her instruction.", "k": "그녀의 지도를 통해."}], "easy": "새 코치는 수영의 좋은 점을 알려서 더 많은 학생이 건강해지길 바란다는 말이에요.", "gist": "수영의 건강상 이점은 새 코치가 바라는 바로 나온다."}, {"n": 7, "ch": [{"e": "<b>Sincerely<\/b>, Fred Wilson", "k": "<b>진심을 담아<\/b>, Fred Wilson (드림)"}], "easy": "편지를 맺는 인사와 보낸 사람 이름이에요.", "gist": "보낸 사람은 Fred Wilson이다."}, {"n": 8, "ch": [{"e": "Principal, Riverband High School", "k": "Riverband 고등학교 교장"}], "easy": "보낸 사람은 Riverband 고등학교의 교장이에요.", "gist": "보낸 사람의 직책과 학교."}]}, {"no": "02", "typ": "불일치", "src": "2016년 3월 27번", "evn": [5], "ev_en": "In 1794, he became a member of the “Chamber Orchestra of Oldenburg,” where he played until the orchestra was abolished in 1811.", "ev_ko": [[5, "1794년에, 그는 'Chamber Orchestra of Oldenburg'의 일원이 되었고, 그곳에서 그는 1811년에 그 오케스트라가 폐지될(없어질) 때까지 (플루트를) 연주했다."]], "why": ["1794년에 오케스트라의 일원이 되었고 그 악단이 1811년에 폐지되었다는 5번 문장에 따르면, 1811년은 그가 일원이 된 해가 아니라 악단이 폐지된 해이므로 ④는 본문과 일치하지 않는다."], "ch": [{"n": "①", "t": "독일의 플루트 연주자이자 작곡가였다.", "g": "", "ok": false, "e": ["1번 'a German flutist and composer'(독일의 플루트 연주자이자 작곡가)와 일치합니다."]}, {"n": "②", "t": "고아가 된 후 Anton Romberg의 보살핌을 받았다.", "g": "", "ok": false, "e": ["2번 'After he was orphaned, Anton Romberg took care of him'(고아가 된 후 Anton Romberg가 그를 돌보았다)과 일치합니다."]}, {"n": "③", "t": "15세에 군악대에서 연주했다.", "g": "", "ok": false, "e": ["3번 'At the age of 15, he was already a skilled flutist and played in a military band'(15세에 이미 능숙한 플루트 연주자였고 군악대에서 연주했다)와 일치합니다."]}, {"n": "④", "t": "1811년에 Chamber Orchestra of Oldenburg의 일원이 되었다.", "g": "", "ok": true, "e": ["5번에서 그가 'Chamber Orchestra of Oldenburg'의 일원이 된 해는 <b>1794년<\/b>입니다", "1811년은 그 악단이 <b>폐지된 해<\/b>이므로 본문과 일치하지 않습니다."]}, {"n": "⑤", "t": "아들과 함께 유럽의 주요 도시에서 공연했다.", "g": "", "ok": false, "e": ["6번 'performing together with his son Anton Fürstenau in the major cities of Europe'(아들 Anton Fürstenau와 함께 유럽의 주요 도시들에서 공연)와 일치합니다."]}], "tr": ["Kaspar Fürstenau는 독일의 플루트 연주자이자 작곡가였다.", "그가 고아가 된 후에, Anton Romberg가 그를 돌보았고 그에게 바순을 연주하는 것을 가르쳤지만, Fürstenau는 플루트에 더 관심이 있었다.", "15세에, 그는 이미 능숙한 플루트 연주자였고 군악대에서 (플루트를) 연주했다.", "1793-94년에, Fürstenau는 독일에서 그의 첫 번째 순회공연을 하였다.", "1794년에, 그는 'Chamber Orchestra of Oldenburg'의 일원이 되었고, 그곳에서 그는 1811년에 그 오케스트라가 폐지될(없어질) 때까지 (플루트를) 연주했다.", "Kaspar Fürstenau는 유럽의 주요 도시들에서 그의 아들 Anton Fürstenau와 함께 공연하면서 플루트 연주자로서 그의 경력을 이어갔다."], "ps": [{"n": 1, "ch": [{"e": "Kaspar Fürstenau was", "k": "Kaspar Fürstenau는 ~였다"}, {"e": "a German <b>flutist and composer<\/b>.", "k": "독일의 <b>플루트 연주자이자 작곡가<\/b>."}], "easy": "Kaspar Fürstenau는 독일의 플루트 연주자이자 작곡가였어요.", "gist": "인물 소개로 시작한다 — 선지 ①의 근거."}, {"n": 2, "ch": [{"e": "<b>After he was orphaned<\/b>,", "k": "그가 <b>고아가 된 후에<\/b>,"}, {"e": "Anton Romberg <b>took care of him<\/b>", "k": "Anton Romberg가 <b>그를 돌보았고<\/b>"}, {"e": "and taught him to play the bassoon,", "k": "그에게 바순을 연주하는 것을 가르쳤지만,"}, {"e": "but Fürstenau was <b>more interested in<\/b> the flute.", "k": "Fürstenau는 플루트에 <b>더 관심이<\/b> 있었다."}], "easy": "고아가 된 뒤 Anton Romberg가 돌보며 바순을 가르쳤지만, 그는 플루트에 더 관심이 있었어요.", "gist": "선지 ②의 근거 — 고아가 된 후 Anton Romberg가 돌보았다.", "link": "그가 고아가 된 후에, Anton Romberg가 그를 돌보았고 그에게 바순을 연주하는 것을 가르쳤지만, Fürstenau는 플루트에 더 관심이 있었다."}, {"n": 3, "ch": [{"e": "<b>At the age of 15<\/b>,", "k": "<b>15세에<\/b>,"}, {"e": "he was already a <b>skilled<\/b> flutist", "k": "그는 이미 <b>능숙한<\/b> 플루트 연주자였고"}, {"e": "and played in a <b>military band<\/b>.", "k": "군악대에서 (플루트를) 연주했다."}], "easy": "15세에 이미 실력 있는 플루트 연주자였고 군악대에서 연주했어요.", "gist": "선지 ③의 근거 — 15세, 군악대."}, {"n": 4, "ch": [{"e": "<b>In 1793–94<\/b>,", "k": "<b>1793-94년에<\/b>,"}, {"e": "Fürstenau made his first <b>concert tour<\/b> in Germany.", "k": "Fürstenau는 독일에서 그의 첫 번째 <b>순회공연<\/b>을 하였다."}], "easy": "1793-94년에 독일에서 처음으로 순회공연을 했어요.", "gist": "시간 순서대로 이어지는 이력 — 첫 순회공연."}, {"n": 5, "ch": [{"e": "<b>In 1794<\/b>,", "k": "<b>1794년에<\/b>,"}, {"e": "he became a member of the “Chamber Orchestra of Oldenburg,”", "k": "그는 ‘Chamber Orchestra of Oldenburg’의 일원이 되었고,"}, {"e": "where he played", "k": "그곳에서 그는 (플루트를) 연주했다"}, {"e": "until the orchestra was <b>abolished<\/b> in <b>1811<\/b>.", "k": "그 오케스트라가 <b>1811년에<\/b> <b>폐지될<\/b>(없어질) 때까지."}], "easy": "1794년에 그 오케스트라의 일원이 되어, 1811년에 오케스트라가 없어질 때까지 연주했어요.", "gist": "정답 근거 — 일원이 된 해는 1794년이고, 1811년은 오케스트라가 폐지된 해다.", "link": "1794년에, 그는 ‘Chamber Orchestra of Oldenburg’의 일원이 되었고, 그곳에서 그는 1811년에 그 오케스트라가 폐지될 때까지 연주했다."}, {"n": 6, "ch": [{"e": "Kaspar Fürstenau <b>continued his career<\/b> as a flutist", "k": "Kaspar Fürstenau는 플루트 연주자로서 그의 경력을 <b>이어갔다<\/b>"}, {"e": "performing together with his son Anton Fürstenau", "k": "그의 아들 Anton Fürstenau와 함께 공연하면서"}, {"e": "in the major cities of Europe.", "k": "유럽의 주요 도시들에서."}], "easy": "아들 Anton Fürstenau와 함께 유럽의 주요 도시에서 공연하며 플루트 연주자로 활동을 이어갔어요.", "gist": "선지 ⑤의 근거 — 아들과 유럽의 주요 도시에서 공연."}]}, {"no": "03", "typ": "제목", "src": "2015년 9월 22번", "evn": [8, 9], "ev_en": "No one person invented all of the components of the automobile. / Many people made significant discoveries that led to the invention of the automobile.", "ev_ko": [[8, "누구 한 사람도 자동차의 부품들을 모두 발명하지는 않았단다."], [9, "많은 사람들이 자동차의 발명을 이끈 중요한 발견을 해낸 거란다.\""]], "why": ["아빠는 8번에서 한 사람이 자동차의 부품을 모두 발명한 것이 아니라고 하고, 9번에서 많은 사람들의 중요한 발견이 자동차의 발명으로 이어졌다고 말합니다", "그래서 제목은 '하나의 위대한 발명, 많은 발명가들'입니다."], "ch": [{"n": "①", "t": "The Trap of Group Thinking", "g": "집단적 사고의 함정", "ok": false, "e": ["집단 사고의 함정에 관한 내용은 본문에 없습니다."]}, {"n": "②", "t": "Curiosity: A Key to Success", "g": "호기심: 성공의 비결", "ok": false, "e": ["호기심이 성공의 비결이라는 내용은 본문에 없습니다."]}, {"n": "③", "t": "Always Think About What's Next", "g": "항상 다음 일에 대해 생각하라", "ok": false, "e": ["항상 다음 일에 대해 생각하라는 내용은 본문에 없습니다."]}, {"n": "④", "t": "More Successes, More Good Ideas", "g": "더 많은 성공들, 더 좋은 아이디어들", "ok": false, "e": ["더 많은 성공과 더 좋은 아이디어의 관계를 다루는 내용은 본문에 없습니다."]}, {"n": "⑤", "t": "One Great Invention, Many Inventors", "g": "하나의 위대한 발명, 많은 발명가들", "ok": true, "e": ["자동차라는 하나의 발명에는 여러 발명가의 발견이 담겨 있다는 8·9번의 내용과 일치합니다."]}], "tr": ["몇 년 전 한 아들이 그의 아빠에게 물어본 순진한 질문을 고려해 보자. \"누가 자동차를 발명했어요?\"", "교육적이기 위해, 아빠는 그의 아들에게 약 1886년에 Karl Benz(카를 벤츠, 독일의 기계공학자)가 자동차를 발명했다고 말했다.", "\"와, 엔진, 브레이크, 점화 플러그, 바퀴, 그리고 모든 것들이 어떻게 함께 작동하는지를 알아내다니 그는 진정한 천재였나 봐요!\"", "\"음, 다른 누군가가 타이어를 발명했단다. 내 생각에 그것은 Firestone(파이어스톤)이야.", "그리고 그 다음에는 바퀴를 발명한 사람도 있었단다.\"", "그러나 그때 그는 깨달음의 순간을 경험했다.", "\"내가 너를 오해하게 했을지도 모르겠구나.", "누구 한 사람도 자동차의 부품들을 모두 발명하지는 않았단다.", "많은 사람들이 자동차의 발명을 이끈 중요한 발견을 해낸 거란다.\""], "ps": [{"n": 1, "ch": [{"e": "<b>Consider<\/b> an innocent question", "k": "순진한 질문을 <b>고려해 보자<\/b>"}, {"e": "asked years ago by a son to his father:", "k": "몇 년 전 한 아들이 그의 아빠에게 물어본:"}, {"e": "“Who invented the automobile?”", "k": "“누가 자동차를 발명했어요?”"}], "easy": "몇 년 전 아들이 아빠에게 한 질문, “누가 자동차를 발명했어요?”를 생각해 보자는 말이에요.", "gist": "글의 시작 — 아들의 질문으로 글을 연다."}, {"n": 2, "ch": [{"e": "<b>Trying to be instructive<\/b>,", "k": "<b>교육적이기 위해<\/b>,"}, {"e": "the father told his son", "k": "아빠는 그의 아들에게 말했다"}, {"e": "that in about 1886 Karl Benz invented the automobile.", "k": "약 1886년에 Karl Benz(카를 벤츠, 독일의 기계공학자)가 자동차를 발명했다고."}], "easy": "아빠는 가르쳐 주려고, 1886년경에 Karl Benz가 자동차를 발명했다고 대답했어요.", "gist": "아빠의 첫 대답 — 한 사람(Karl Benz)이 발명했다고 말한다."}, {"n": 3, "ch": [{"e": "“Wow, he must have been a <b>real genius<\/b>", "k": "“와, 그는 <b>진정한 천재<\/b>였나 봐요"}, {"e": "to figure out the engine, the brakes, the spark plugs, the wheels,", "k": "엔진, 브레이크, 점화 플러그, 바퀴를 알아내다니,"}, {"e": "and how everything worked together!”", "k": "그리고 모든 것들이 어떻게 함께 작동하는지를!”"}], "easy": "엔진, 브레이크, 바퀴 등 모든 것이 함께 작동하는 방식까지 알아냈으니 천재였겠다는 아들의 말이에요.", "gist": "아들의 반응 — 천재 한 사람이 다 알아냈다고 받아들인다."}, {"n": 4, "ch": [{"e": "“Well, <b>someone else<\/b> invented the tires;", "k": "“음, <b>다른 누군가가<\/b> 타이어를 발명했단다;"}, {"e": "I think it was Firestone.", "k": "내 생각에 그것은 Firestone이야."}], "easy": "타이어는 다른 사람이 발명했고, 아마 Firestone일 거라는 아빠의 말이에요.", "gist": "아빠가 말을 바로잡기 시작한다 — 타이어는 다른 사람이 발명했다."}, {"n": 5, "ch": [{"e": "And then there was <b>even<\/b> the person", "k": "그리고 그 다음에는 <b>심지어<\/b> 그 사람도 있었단다"}, {"e": "who invented the wheel….”", "k": "바퀴를 발명한.”"}], "easy": "바퀴를 발명한 사람도 따로 있었다는 말이에요.", "gist": "아빠가 바로잡는 두 번째 예 — 바퀴를 발명한 사람."}, {"n": 6, "ch": [{"e": "<b>But then<\/b> he experienced a <b>moment of realization<\/b>.", "k": "<b>그러나 그때<\/b> 그는 <b>깨달음의 순간<\/b>을 경험했다."}], "easy": "그런데 그때 아빠는 문득 깨달았어요.", "gist": "분위기가 바뀌는 지점 — 아빠의 깨달음이 시작된다."}, {"n": 7, "ch": [{"e": "“I think I may have <b>misled<\/b> you.", "k": "“내가 너를 <b>오해하게 했을지도<\/b> 모르겠구나."}], "easy": "아빠가 자기 설명이 아들을 헷갈리게 했을지도 모른다고 말해요.", "gist": "깨달음의 내용 ① — 처음 설명이 오해를 줄 수 있었다."}, {"n": 8, "ch": [{"e": "<b>No one person<\/b> invented", "k": "<b>누구 한 사람도<\/b> 발명하지는 않았단다"}, {"e": "<b>all<\/b> of the components of the automobile.", "k": "자동차의 부품들을 <b>모두<\/b>."}], "easy": "한 사람이 자동차의 부품을 전부 발명한 것은 아니라는 말이에요.", "gist": "핵심 내용 ① — 한 사람이 모두 발명한 것이 아니다."}, {"n": 9, "ch": [{"e": "<b>Many people<\/b> made significant discoveries", "k": "<b>많은 사람들이<\/b> 중요한 발견을 해낸 거란다"}, {"e": "that led to the invention of the automobile.”", "k": "자동차의 발명을 이끈.”"}], "easy": "많은 사람들이 한 중요한 발견이 자동차의 발명으로 이어졌다는 말이에요.", "gist": "핵심 내용 ② — 여러 사람의 발견이 모였다. 정답 근거다."}]}, {"no": "04", "typ": "주제", "src": "2018년 3월 22번", "evn": [7], "ev_en": "The study indicates that the material presented by the storytellers has much more interest and personal impact than that gained via the traditional method.", "ev_ko": [[7, "이 연구는 스토리텔러들에 의해 제시된 자료가 전통적인 방법을 통해 얻어진 것(자료)보다 훨씬 더 많은 흥미와 개인적인 영향을 가진다는 것을 보여 준다."]], "why": ["7번이 연구의 결론입니다", "스토리텔러들이 제시한 자료가 전통적인 방법으로 얻은 자료보다 훨씬 더 흥미롭고 개인적인 영향도 크다고 했습니다", "주제는 <b>역사를 가르칠 때 스토리텔링을 하는 것의 장점<\/b>입니다."], "ch": [{"n": "①", "t": "why students should learn history", "g": "왜 학생들은 역사를 배워야 하는가", "ok": false, "e": ["학생들이 왜 역사를 배워야 하는지는 본문에 없습니다."]}, {"n": "②", "t": "essential elements of historical dramas", "g": "역사 드라마(사극)의 필수적인 요소", "ok": false, "e": ["역사 드라마의 필수 요소는 본문에 없습니다", "4번의 '극적인 맥락'은 자료를 제시하는 방식을 말합니다."]}, {"n": "③", "t": "advantages of traditional teaching methods", "g": "전통적인 수업 방식의 장점", "ok": false, "e": ["전통적인 수업 방식의 장점이 아닙니다", "7번은 스토리텔러들이 제시한 자료 쪽이 흥미와 영향이 더 크다고 했습니다."]}, {"n": "④", "t": "benefits of storytelling in teaching history", "g": "역사를 가르칠 때 스토리텔링을 하는 것의 장점", "ok": true, "e": ["7번의 내용과 일치합니다", "스토리텔링 방식이 전통적인 방법보다 훨씬 더 큰 흥미와 개인적인 영향을 가진다는 연구 결과입니다."]}, {"n": "⑤", "t": "importance of having balanced views on history", "g": "역사에 대하여 균형 잡힌 관점을 가지는 것의 중요성", "ok": false, "e": ["역사에 대한 균형 잡힌 관점의 중요성은 본문에 없습니다."]}], "tr": ["스토리텔러 Syd Lieberman은 사실을 걸어두기 위한 못을 제공하는 것(사실을 기억하도록 고정시키는 역할을 하는 것)은 역사 속 이야기라고 말한다.", "학생들은 역사적인 사실이 이야기와 연결되어 있을 때 그것을 기억한다.", "한 보고서에 따르면, 콜로라도주의 Boulder에 있는 한 고등학교는 현재 역사적 자료 제시에 관한 연구를 실험하고 있다.", "스토리텔러들은 학생들에게 극적인 맥락에서 자료를 제시하고 집단 토의가 뒤를 잇는다.", "학생들은 (자료를) 더 많이 읽도록 장려된다.", "그에 반해서, 다른 집단의 학생들은 전통적인 조사/보고 기법에 참여한다.", "이 연구는 스토리텔러들에 의해 제시된 자료가 전통적인 방법을 통해 얻어진 것(자료)보다 훨씬 더 많은 흥미와 개인적인 영향을 가진다는 것을 보여 준다."], "ps": [{"n": 1, "ch": [{"e": "Storyteller Syd Lieberman <b>suggests<\/b>", "k": "스토리텔러 Syd Lieberman은 말한다"}, {"e": "that it is the story in history", "k": "역사 속 이야기라고"}, {"e": "that provides the <b>nail<\/b> to hang facts on.", "k": "사실을 걸어두기 위한 <b>못<\/b>을 제공하는 것은."}], "easy": "사실을 걸어두는 못 역할을 하는 것이 역사 속 이야기라고 Syd Lieberman이 말해요.", "gist": "글의 주장 — 이야기가 사실을 붙들어 주는 못이다."}, {"n": 2, "ch": [{"e": "Students <b>remember<\/b> historical facts", "k": "학생들은 역사적인 사실을 <b>기억한다<\/b>"}, {"e": "when they are <b>tied to<\/b> a story.", "k": "그것들이 이야기와 <b>연결되어 있을 때<\/b>."}], "easy": "역사적 사실이 이야기와 연결되어 있을 때 학생들이 그것을 기억한다는 말이에요.", "gist": "1번 주장을 풀어 쓴 문장."}, {"n": 3, "ch": [{"e": "<b>According to<\/b> a report,", "k": "한 보고서에 <b>따르면<\/b>,"}, {"e": "a high school in Boulder, Colorado,", "k": "콜로라도주의 Boulder에 있는 한 고등학교는"}, {"e": "is currently <b>experimenting with<\/b> a study of presentation of historical material.", "k": "현재 역사적 자료 제시에 관한 연구를 <b>실험하고 있다<\/b>."}], "easy": "한 보고서에 따르면 콜로라도의 한 고등학교가 역사 자료를 제시하는 방법에 대한 연구를 하고 있어요.", "gist": "연구 소개가 시작된다."}, {"n": 4, "ch": [{"e": "<b>Storytellers<\/b> present material in <b>dramatic context<\/b> to the students,", "k": "<b>스토리텔러들<\/b>은 학생들에게 <b>극적인 맥락<\/b>에서 자료를 제시하고,"}, {"e": "and group discussion follows.", "k": "집단 토의가 뒤를 잇는다."}], "easy": "스토리텔러들이 극적인 맥락으로 자료를 보여 주고, 그 뒤에 집단 토의가 이어져요.", "gist": "연구 방법 ① — 스토리텔링 방식."}, {"n": 5, "ch": [{"e": "Students are <b>encouraged<\/b> to read further.", "k": "학생들은 (자료를) 더 많이 읽도록 <b>장려된다<\/b>."}], "easy": "학생들은 더 읽어 보라고 권장받아요.", "gist": "스토리텔링 방식에 대한 설명이 이어진다."}, {"n": 6, "ch": [{"e": "<b>In contrast<\/b>,", "k": "그에 <b>반해서<\/b>,"}, {"e": "another group of students is involved", "k": "다른 집단의 학생들은 참여한다"}, {"e": "in <b>traditional<\/b> research/report techniques.", "k": "<b>전통적인<\/b> 조사/보고 기법에."}], "easy": "다른 집단의 학생들은 전통적인 조사·보고 방식으로 공부해요.", "gist": "연구 방법 ② — 전통적인 방식. In contrast로 앞과 대비된다."}, {"n": 7, "ch": [{"e": "The study <b>indicates<\/b> that", "k": "이 연구는 ~을 보여 준다"}, {"e": "the material presented by the storytellers", "k": "스토리텔러들에 의해 제시된 자료가"}, {"e": "has <b>much more<\/b> interest and personal impact", "k": "<b>훨씬 더 많은<\/b> 흥미와 개인적인 영향을 가진다는 것을"}, {"e": "than that gained via the traditional method.", "k": "전통적인 방법을 통해 얻어진 것<span class=\"r\">(= 자료)<\/span>보다."}], "easy": "연구 결과, 스토리텔러들이 보여 준 자료가 전통적인 방법으로 얻은 자료보다 흥미와 개인적 영향이 훨씬 컸어요.", "gist": "연구 결과이자 정답 근거 — 스토리텔링 쪽이 훨씬 효과가 컸다.", "link": "이 연구는 스토리텔러들에 의해 제시된 자료가 전통적인 방법을 통해 얻어진 것보다 훨씬 더 많은 흥미와 개인적인 영향을 가진다는 것을 보여 준다."}]}, {"no": "05", "typ": "어법", "src": "2015년 11월 28번", "evn": [6], "ev_en": "People in today's fast-paced society ④ engaging in this either for necessity or for entertainment.", "ev_ko": [[6, "오늘날의 빠르게 진행되는 사회 속의 사람들은 필요에 의해서든 즐거움을 위해서든 이것에 참여하고 있다."]], "why": ["수식어(전치사구) in today's fast-paced society를 빼면 <b>주어 People<\/b> 바로 뒤에 알맞은 <b>본동사<\/b>가 필요합니다", "분사(혹은 동명사)인 engaging은 본동사로 쓸 수 없습니다", "수와 시제에 맞게 현재형 복수 <b>engage<\/b>로 고쳐야 합니다."], "ch": [{"n": "①", "t": "that", "g": "주격 관계대명사 (맞음)", "ok": false, "e": ["<b>that<\/b> 뒤의 문장(has been used for a long time)에 주어가 없는 불완전한 문장이 이어집니다", "선행사 a method를 받는 <b>주격 관계대명사<\/b>이므로 어법에 맞습니다."]}, {"n": "②", "t": "be found", "g": "수동태 (맞음)", "ok": false, "e": ["조동사 could 뒤에는 동사원형이 옵니다", "관계부사절의 주어 food는 '발견되는' 대상이므로 <b>수동태 be found<\/b>가 맞습니다."]}, {"n": "③", "t": "were", "g": "복수 동사 (맞음)", "ok": false, "e": ["Most of the foods는 'most of + <b>복수 명사<\/b>'이므로 동사도 <b>복수형<\/b>이어야 합니다", "be동사의 복수형 <b>were<\/b>는 맞습니다."]}, {"n": "④", "t": "engaging", "g": "분사라 본동사 불가 (→ engage)", "ok": true, "e": ["주어 People 뒤에 본동사가 없습니다", "분사 <b>engaging<\/b>은 본동사가 될 수 없으므로 <b>engage<\/b>로 고쳐야 합니다."]}, {"n": "⑤", "t": "beneficial", "g": "유익한 (형용사, 맞음)", "ok": false, "e": ["find + 목적어(it) + 목적격 보어 구조(5형식)입니다", "find가 '…을 ~라고 생각하다'의 뜻일 때는 목적격 보어로 <b>형용사<\/b>를 쓸 수 있으므로 beneficial은 맞습니다."]}], "tr": ["식량을 찾아다니는 것은 야생의 식량 자원을 찾는 수단이다.", "이것은 오랫동안 사용되어 온 방법이고 수천 년 전으로 거슬러 올라가는, 아마도 가장 오래된 식량 탐색 방법일 것이다.", "과거에는 사람들이 보통 숲, 강가, 동굴, 그리고 식량이 발견될 수 있는 거의 모든 곳에서 식량을 찾아다녔다.", "예전에 찾아다닌(찾아다니며 얻은) 대부분의 식량들은 뿌리작물, 잡초, 관목, 그리고 그 밖의 더 많은 것들이었다.", "이제는 식량을 찾아다니는 것이 증가하는 추세가 되었다.", "오늘날의 빠르게 진행되는 사회 속의 사람들은 필요에 의해서든 즐거움을 위해서든 이것에 참여하고 있다.", "그것이 어떤 목적이든, 사람들은 이제 식량을 찾아다니는 것에 느리지만 확실하게 친숙해지고 있다.", "점점 더 많은 사람들이 그것이 꽤 성취감을 주는 일이고 매우 유익한 것이라고 생각한다."], "ps": [{"n": 1, "ch": [{"e": "<b>Foraging<\/b> is a <b>means<\/b>", "k": "식량을 찾아다니는 것은 <b>수단<\/b>이다"}, {"e": "of searching for wild food resources.", "k": "야생의 식량 자원을 찾는."}], "easy": "foraging(식량을 찾아다니는 것)은 야생의 식량을 찾는 방법이라는 말이에요.", "gist": "글의 화제 소개 — foraging이 무엇인지 설명한다."}, {"n": 2, "ch": [{"e": "This is a method", "k": "이것은 방법이고"}, {"e": "① <b>that<\/b> has been used for a long time", "k": "[오랫동안 사용되어 온]<span class=\"r\">(= a method)<\/span>"}, {"e": "and is possibly the <b>longest<\/b> method of food searching,", "k": "아마도 가장 오래된 식량 탐색 방법일 것이다,"}, {"e": "<b>tracing back to<\/b> thousands of years ago.", "k": "수천 년 전으로 <b>거슬러 올라가는<\/b>."}], "easy": "오래전부터 써 온, 수천 년 전까지 거슬러 올라가는 방법이라는 말이에요.", "gist": "foraging이 아주 오래된 방법임을 설명한다.", "link": "이것은 오랫동안 사용되어 온 방법이고 수천 년 전으로 거슬러 올라가는, 아마도 가장 오래된 식량 탐색 방법일 것이다."}, {"n": 3, "ch": [{"e": "<b>In the past<\/b>,", "k": "<b>과거에는<\/b>,"}, {"e": "people commonly foraged for food", "k": "사람들이 보통 식량을 찾아다녔다"}, {"e": "in forests, riversides, caves,", "k": "숲, 강가, 동굴,"}, {"e": "and virtually any place", "k": "그리고 거의 모든 곳에서"}, {"e": "<b>where<\/b> food could possibly ② <b>be found<\/b>.", "k": "[식량이 발견될 수 있는]<span class=\"r\">(= any place)<\/span>"}], "easy": "옛날 사람들은 숲, 강가, 동굴처럼 식량이 있을 만한 거의 모든 곳에서 식량을 찾아다녔어요.", "gist": "과거의 모습 — 어디서 찾았는지."}, {"n": 4, "ch": [{"e": "<b>Most of the foods<\/b> foraged before", "k": "예전에 찾아다닌(찾아다니며 얻은) <b>대부분의 식량들은<\/b>"}, {"e": "③ <b>were<\/b> root crops, weeds, shrubs, and many more.", "k": "뿌리작물, 잡초, 관목, 그리고 그 밖의 더 많은 것들<b>이었다<\/b>."}], "easy": "예전에 찾아다닌 식량은 대부분 뿌리작물, 잡초, 관목 같은 것들이었어요.", "gist": "과거의 모습 — 무엇을 찾았는지. Most of + 복수 명사는 복수 동사(were)를 받는다."}, {"n": 5, "ch": [{"e": "<b>Now<\/b>, foraging has become", "k": "이제는 식량을 찾아다니는 것이 되었다"}, {"e": "a <b>rising trend<\/b>.", "k": "<b>증가하는 추세가<\/b>."}], "easy": "요즘은 foraging이 늘어나는 추세가 되었다는 말이에요.", "gist": "과거에서 현재로 넘어간다 — Now."}, {"n": 6, "ch": [{"e": "<b>People<\/b> in today’s fast-paced society", "k": "오늘날의 빠르게 진행되는 사회 속의 <b>사람들은<\/b>"}, {"e": "④ <b>engage<\/b> in this", "k": "이것에 <b>참여하고 있다<\/b> <span class=\"r\">※ 문제지엔 engaging으로 되어 있음<\/span>"}, {"e": "either for necessity or for entertainment.", "k": "필요에 의해서든 즐거움을 위해서든."}], "easy": "요즘 사람들은 필요해서든 즐기려고든 foraging을 한다는 말이에요.", "gist": "정답 문장 — 주어 People 뒤에 본동사 engage가 있어야 한다.", "link": "오늘날의 빠르게 진행되는 사회 속의 사람들은 필요에 의해서든 즐거움을 위해서든 이것에 참여하고 있다."}, {"n": 7, "ch": [{"e": "<b>Whatever<\/b> purpose it may be,", "k": "그것이 <b>어떤<\/b> 목적<b>이든<\/b>,"}, {"e": "people are now slowly but surely", "k": "사람들은 이제 느리지만 확실하게"}, {"e": "<b>getting acquainted with<\/b> foraging.", "k": "식량을 찾아다니는 것에 <b>친숙해지고 있다<\/b>."}], "easy": "목적이 무엇이든, 사람들이 foraging에 조금씩 확실히 익숙해지고 있다는 말이에요.", "gist": "현재의 변화 — 사람들이 foraging에 익숙해진다."}, {"n": 8, "ch": [{"e": "<b>More and more<\/b> people <b>find<\/b> it", "k": "점점 더 많은 사람들이 그것이 ~라고 <b>생각한다<\/b>"}, {"e": "quite a fulfilling task", "k": "꽤 성취감을 주는 일이고"}, {"e": "and very ⑤ <b>beneficial<\/b>.", "k": "매우 <b>유익한<\/b> 것"}], "easy": "점점 더 많은 사람들이 foraging을 성취감 있고 유익한 일로 여긴다는 말이에요.", "gist": "마무리 — find + 목적어 + 보어(5형식)의 보어 자리에 형용사 beneficial이 왔다."}]}, {"no": "06", "typ": "문맥상 낱말 쓰임", "src": "2018년 3월 30번", "evn": [11], "ev_en": "In the long term, lies with good intentions ⑤ comfort people much more than telling the truth.", "ev_ko": [[11, "장기적인 관점에서, 좋은 의도로 한 (선의의) 거짓말은 진실을 말하는 것보다 사람들에게 훨씬 더 위안을 준다(→ 상처를 준다)."]], "why": ["7번에서 거짓말을 하는 사람은 거짓말을 폭로하겠다고 누군가가 위협할 때 곤경에 처한다고 했습니다", "그러므로 11번에서 선의의 거짓말도 장기적인 관점에서는 사람들에게 <b>상처를 준다<\/b>고 해야 문맥상 자연스럽습니다", "따라서 comfort를 <b>hurt<\/b>로 고쳐야 알맞습니다."], "ch": [{"n": "①", "t": "truthful", "g": "진실한", "ok": false, "e": ["앞부분에서 솔직하게 말하라고 했으므로, '<b>진실한<\/b> 의견을 줌으로써(giving a truthful opinion)'라고 해야 문맥상 자연스럽습니다."]}, {"n": "②", "t": "develop", "g": "쌓다, 발달시키다", "ok": false, "e": ["뒤에서 신뢰를 바탕으로 한 굳건한 관계를 누릴 것이라고 했으므로, '항상 진실만을 말한다는 <b>평판을 쌓을 때<\/b>(When you develop a reputation for always telling the truth)'라고 해야 문맥상 자연스럽습니다."]}, {"n": "③", "t": "uncover", "g": "폭로하다, 밝히다", "ok": false, "e": ["거짓말하는 사람들이 곤경에 처하는 이유를 말하는 부분이므로, '그들의 거짓말을 <b>폭로하겠다고<\/b> 위협할 때(threatens to uncover their lie)'라고 해야 문맥상 자연스럽습니다."]}, {"n": "④", "t": "avoid", "g": "피하다", "ok": false, "e": ["진실하게 사는 것의 결과로 '많은 골칫거리를 <b>피할<\/b> 것이다(will avoid a lot of headaches)'라고 해야 문맥상 자연스럽습니다."]}, {"n": "⑤", "t": "comfort", "g": "위안을 주다 (→ hurt: 상처를 준다)", "ok": true, "e": ["앞부분에서 거짓말하는 사람은 누군가가 거짓말을 폭로하겠다고 위협할 때 곤경에 처한다고 했습니다", "그러므로 선의의 거짓말은 장기적인 관점에서 사람들에게 '<b>상처를 준다<\/b>(hurt)'고 해야 문맥상 자연스럽습니다", "comfort(위안을 주다)는 알맞지 않습니다."]}], "tr": ["정직은 모든 굳건한 관계의 기본적인 부분이다.", "여러분(자신)이 느끼는 것에 대해 솔직하게 말하고 질문을 받았을 때 진실한 의견을 줌으로써 그것을 여러분에게 유리하게 사용하라.", "이 접근법은 여러분이 불편한 사회적 상황을 피하고 정직한 사람들과 친구가 될 수 있도록 도와줄 수 있다.", "삶에서 이러한 간단한 방침을 따르라. 절대로 거짓말을 하지 말라.", "(여러분이) 항상 진실만을 말한다는 평판을 쌓을 때, 여러분은 신뢰를 바탕으로 한 굳건한 관계를 누릴 것이다.", "여러분을 조종하는 것도 또한 더 어려워질 것이다.", "거짓말을 하는 사람은 그들의 거짓말을 폭로하겠다고 누군가가 위협할 때 곤경에 처하게 된다.", "자신에게 진실하게 삶으로써, 여러분은 많은 골칫거리를 피할 것이다.", "또한 여러분의 관계에는 거짓과 비밀이라는 해악이 없을 것이다.", "진실이 아무리 고통스럽더라도, 친구들에게 정직하게 대하는 것을 두려워하지 말라.", "장기적인 관점에서, 좋은 의도로 한 (선의의) 거짓말은 진실을 말하는 것보다 사람들에게 훨씬 더 위안을 준다(→ 상처를 준다)."], "ps": [{"n": 1, "ch": [{"e": "<b>Honesty<\/b> is a fundamental part", "k": "<b>정직<\/b>은 기본적인 부분이다"}, {"e": "of every strong relationship.", "k": "모든 굳건한 관계의."}], "easy": "정직은 모든 튼튼한 관계의 기본이라는 말이에요.", "gist": "글의 중심 내용 — 정직."}, {"n": 2, "ch": [{"e": "<b>Use it to your advantage<\/b>", "k": "그것을 여러분에게 <b>유리하게 사용하라<\/b>"}, {"e": "by being open with what you feel", "k": "여러분(자신)이 느끼는 것에 대해 솔직하게 말하고"}, {"e": "and giving a ① <b>truthful<\/b> opinion when asked.", "k": "질문을 받았을 때 <b>진실한<\/b> 의견을 줌으로써."}], "easy": "느끼는 것을 솔직하게 말하고 질문을 받으면 진실한 의견을 주라는 말이에요.", "gist": "정직을 실천하는 방법 ①."}, {"n": 3, "ch": [{"e": "This approach can help you", "k": "이 접근법은 여러분이 ~하도록 도와줄 수 있다"}, {"e": "<b>escape<\/b> uncomfortable social situations", "k": "불편한 사회적 상황을 <b>피하고<\/b>"}, {"e": "and make friends with honest people.", "k": "정직한 사람들과 친구가 될 수 있도록."}], "easy": "솔직하게 말하는 방식은 불편한 상황을 피하고 정직한 친구를 사귀는 데 도움이 돼요.", "gist": "정직의 장점 ①."}, {"n": 4, "ch": [{"e": "<b>Follow<\/b> this simple policy in life —", "k": "삶에서 이러한 간단한 방침을 <b>따르라<\/b> —"}, {"e": "never lie.", "k": "절대로 거짓말을 하지 말라."}], "easy": "삶에서 한 가지 간단한 규칙, 절대 거짓말을 하지 말라는 말이에요.", "gist": "핵심 방침 — 거짓말하지 않기."}, {"n": 5, "ch": [{"e": "<b>When<\/b> you ② <b>develop<\/b> a reputation", "k": "(여러분이) 평판을 <b>쌓을 때<\/b>"}, {"e": "for always telling the truth,", "k": "항상 진실만을 말한다는,"}, {"e": "you will enjoy strong relationships based on trust.", "k": "여러분은 신뢰를 바탕으로 한 굳건한 관계를 누릴 것이다."}], "easy": "항상 진실을 말한다는 평판이 쌓이면 믿음에 바탕을 둔 튼튼한 관계를 누린다는 말이에요.", "gist": "정직의 장점 ② — 신뢰를 바탕으로 한 관계."}, {"n": 6, "ch": [{"e": "<b>It will also be<\/b> more difficult", "k": "또한 더 어려워질 것이다"}, {"e": "to manipulate you.", "k": "여러분을 조종하는 것도."}], "easy": "여러분을 조종하기도 더 어려워진다는 말이에요.", "gist": "정직의 장점 ③."}, {"n": 7, "ch": [{"e": "<b>People who lie<\/b>", "k": "<b>거짓말을 하는 사람<\/b>은"}, {"e": "get into trouble", "k": "곤경에 처하게 된다"}, {"e": "when someone threatens to ③ <b>uncover<\/b> their lie.", "k": "그들의 거짓말을 <b>폭로하겠다고<\/b> 누군가가 위협할 때."}], "easy": "거짓말하는 사람은 누군가가 거짓말을 밝히겠다고 위협하면 곤경에 빠진다는 말이에요.", "gist": "거짓말의 문제점 — 11번의 근거가 되는 문장이다."}, {"n": 8, "ch": [{"e": "<b>By living true to yourself<\/b>,", "k": "자신에게 <b>진실하게 삶으로써<\/b>,"}, {"e": "you’ll ④ <b>avoid<\/b> a lot of headaches.", "k": "여러분은 많은 골칫거리를 <b>피할<\/b> 것이다."}], "easy": "자신에게 진실하게 살면 골칫거리를 많이 피할 수 있다는 말이에요.", "gist": "정직의 장점 ④."}, {"n": 9, "ch": [{"e": "Your relationships will also be <b>free from<\/b>", "k": "여러분의 관계에는 또한 ~이 없을 것이다"}, {"e": "the poison of lies and secrets.", "k": "거짓과 비밀이라는 해악이."}], "easy": "여러분의 관계가 거짓과 비밀이라는 해로움에서 벗어난다는 말이에요.", "gist": "정직의 장점 ⑤."}, {"n": 10, "ch": [{"e": "<b>Don’t be afraid<\/b> to be honest with your friends,", "k": "친구들에게 정직하게 대하는 것을 <b>두려워하지 말라<\/b>,"}, {"e": "<b>no matter how<\/b> painful the truth is.", "k": "진실이 <b>아무리<\/b> 고통스럽<b>더라도<\/b>."}], "easy": "진실이 아프더라도 친구에게 정직하기를 두려워하지 말라는 말이에요.", "gist": "11번으로 넘어가기 전의 당부."}, {"n": 11, "ch": [{"e": "<b>In the long term<\/b>,", "k": "<b>장기적인 관점에서<\/b>,"}, {"e": "lies with good intentions", "k": "좋은 의도로 한 (선의의) 거짓말은"}, {"e": "⑤ <b>hurt<\/b> people much more than telling the truth.", "k": "진실을 말하는 것보다 사람들에게 훨씬 더 <b>상처를 준다<\/b>. <span class=\"r\">※ 문제지엔 comfort(위안을 준다)로 되어 있음<\/span>"}], "easy": "좋은 뜻으로 한 거짓말도 길게 보면 진실을 말하는 것보다 사람들을 더 아프게 한다는 말이에요.", "gist": "정답 문장 — 7번 내용과 이어져 comfort가 아니라 hurt가 와야 한다.", "link": "장기적인 관점에서, 좋은 의도로 한 거짓말은 진실을 말하는 것보다 사람들에게 훨씬 더 상처를 준다."}]}];
+var ENC="=QakivzoRK+OjGp47QakivzoRK+OgGp4";
+var SETID="g1r15p1", N=D.length, TITLE="고1 미니모의고사 15회 01–06번";
+var CIRC="①②③④⑤";
+function dec(s){var b=atob(s.split("").reverse().join(""));var u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder("utf-8").decode(u);}
+var ANS=dec(ENC).split(";").map(function(x){return x.split("|").map(function(c){return CIRC.indexOf(c)+1;});});
+function isRight(i,a){return ANS[i].indexOf(a)>=0;}
+function ansText(i){return ANS[i].map(function(n){return CIRC[n-1];}).join(", ");}
+
+var GCODE="h1", GRADE="고1", FILE="15a", NEXT="15b.html";
+const KEY='via_mm_'+GCODE+'_'+FILE;
+let S={checks:{},locked:{},res:{},sub:null,q:[]};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* REC 연결 지점: 지금은 기기 안에 대기열로만 쌓음 */
+function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localStorage.getItem('via_minimock_rec_queue')||'[]');q.push(ev);localStorage.setItem('via_minimock_rec_queue',JSON.stringify(q));}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const app=$('#app');
+let view='word',quiz=null,armed=null;
+function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function shuffle(arr,seed){const a=arr.slice();let s=hash(seed)||1;for(let i=a.length-1;i>0;i--){s=Math.imul(s^(s>>>15),2246822519)>>>0;const j=s%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+const WS=WORDS.sets[0];
+
+function hdr(){
+  const on=id=>(view===id)?'on':'';
+  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><a class="link" href="index.html">목록</a></div><div class="tabs"><button class="tab ${on('word')}" data-v="word">단어</button><button class="tab ${on('submit')}" data-v="submit">답 제출</button><button class="tab ${on('exp')}" data-v="exp" ${S.sub?'':'disabled'}>해설</button></div></div></header>`;
+}
+function noteList(){
+  const out=[],ck=S.checks[WS.id]||{};
+  WS.words.forEach((w,i)=>{
+    const c=ck[i];if(!c)return;
+    const parts=['m','s','a'].filter(p=>c[p]&&(p==='m'||w[p]));
+    if(parts.length)out.push({i:i,w:w,parts:parts});
+  });
+  return out;
+}
+function render(){
+  if(view==='word')renderWord();
+  else if(view==='note')renderNote();
+  else if(view==='quiz')renderQuiz();
+  else if(view==='result')renderResult();
+  else if(view==='submit')renderSubmit();
+  else if(view==='exp')renderExp();
+  window.scrollTo(0,0);
+}
+/* ---- 단어 확인 ---- */
+function renderWord(){
+  const ck=S.checks[WS.id]||{},locked=!!S.locked[WS.id],n=noteList().length;
+  let h=hdr()+`<div class="wrap ${locked?'locked':''}">`;
+  WS.words.forEach((w,i)=>{
+    const c=ck[i]||{};
+    h+=`<div class="row"><div class="top"><span class="no">${i+1}</span><span class="word">${esc(w.w)}</span><span class="src">${esc(w.src)}번</span></div><div class="cells">`;
+    h+=`<button class="cell m ${c.m?'bad':''}" data-i="${i}" data-p="m"><span class="tag">뜻</span><span>${esc(w.m)}</span></button>`;
+    if(w.s)h+=`<button class="cell s ${c.s?'bad':''}" data-i="${i}" data-p="s"><span class="tag">유</span><span>${esc(w.s[0])}<span class="ko">${esc(w.s[1])}</span></span></button>`;
+    if(w.a)h+=`<button class="cell a ${c.a?'bad':''}" data-i="${i}" data-p="a"><span class="tag">반</span><span>${esc(w.a[0])}<span class="ko">${esc(w.a[1])}</span></span></button>`;
+    h+=`</div></div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap">`;
+  h+=locked?`<button class="btn" disabled>확인 끝</button>`:`<button class="btn ${armed==='lock'?'arm':''}" id="lock">${armed==='lock'?'한 번 더 누르면 확인 끝':'확인 끝'}</button>`;
+  h+=`<button class="btn pri" id="gonote">단어 오답노트 ${n}</button></div></div>`;
+  app.innerHTML=h;
+  app.querySelectorAll('.cell').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,p=b.dataset.p;
+    S.checks[WS.id]=S.checks[WS.id]||{};
+    const c=S.checks[WS.id][i]=S.checks[WS.id][i]||{};
+    c[p]=c[p]?0:1;save();
+    b.classList.toggle('bad',!!c[p]);
+    $('#gonote').textContent='단어 오답노트 '+noteList().length;
+  });
+  const lk=$('#lock');if(lk)lk.onclick=()=>{
+    if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
+      recSend({type:'word',marks:noteList().map(it=>({w:it.w.w,parts:it.parts}))});}
+    else armed='lock';
+    render();
+  };
+  $('#gonote').onclick=()=>{view='note';armed=null;render();};
+}
+function renderNote(){
+  const list=noteList();
+  let h=`<header><div class="wrap hd2"><h1>단어 오답노트 <span class="meta">${list.length}개</span></h1><button class="link" id="back">확인표</button></div></header><div class="wrap">`;
+  if(!list.length)h+=`<div class="empty">아직 표시한 단어가 없습니다</div>`;
+  list.forEach(it=>{
+    const w=it.w,r=(S.res[WS.id]||{})[it.i]||{};
+    h+=`<div class="note-item"><span class="w">${esc(w.w)}</span><span class="meta">${esc(w.src)}번</span>`;
+    const row=(p,tag,txt,ko)=>{
+      const bad=it.parts.includes(p);
+      const rs=r[p]===1?'<span class="res o">맞춤</span>':r[p]===0?'<span class="res x">틀림</span>':'';
+      return `<div class="part ${p} ${bad?'bad':''}"><span class="tag">${tag}</span><span>${esc(txt)}${ko?`<span class="ko"> ${esc(ko)}</span>`:''}</span>${bad?rs:''}</div>`;
+    };
+    h+=row('m','뜻',w.m,'');
+    if(w.s)h+=row('s','유',w.s[0],w.s[1]);
+    if(w.a)h+=row('a','반',w.a[0],w.a[1]);
+    h+=`</div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap"><button class="btn" id="back2">확인표</button><button class="btn pri" id="start" ${list.length?'':'disabled'}>복습 시작</button></div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='word';armed=null;render();};
+  $('#back2').onclick=()=>{view='word';render();};
+  $('#start').onclick=()=>{quiz={qs:buildQuestions(),n:0,right:0,done:false,shown:false};view='quiz';render();};
+}
+function buildQuestions(){
+  const qs=[];
+  noteList().forEach(it=>{
+    const w=it.w;
+    it.parts.forEach(p=>{
+      let q={i:it.i,p:p,w:w.w};
+      if(p==='m'){
+        const toks=x=>x.split(/[,，]\s*/).map(t=>t.trim());
+        const ct=toks(w.m);
+        const pool=[...new Set(WS.words.filter(o=>o!==w).map(o=>o.m))].filter(m=>!toks(m).some(t=>ct.includes(t)));
+        const wrong=shuffle(pool,WS.id+w.w+'m').slice(0,3);
+        q.type='choice';q.ask='뜻을 고르세요';
+        q.opts=shuffle([{t:w.m,ok:1}].concat(wrong.map(t=>({t:t,ok:0}))),WS.id+w.w+'mo');
+      }else{
+        const ans=w[p],d=WS.dist||[];
+        q.ask=p==='s'?'유의어를 고르세요':'반의어를 고르세요';
+        if(d.length>=3){
+          q.type='choice';
+          q.opts=shuffle([{t:ans[0],ko:ans[1],ok:1}].concat(shuffle(d,WS.id+w.w+p).slice(0,3).map(x=>({t:x[0],ko:x[1],ok:0}))),WS.id+w.w+p+'o');
+        }else{q.type='flip';q.ans=ans;}
+      }
+      qs.push(q);
+    });
+  });
+  return qs;
+}
+function recordRes(q,ok){S.res[WS.id]=S.res[WS.id]||{};const r=S.res[WS.id][q.i]=S.res[WS.id][q.i]||{};r[q.p]=ok?1:0;save();}
+function renderQuiz(){
+  const q=quiz.qs[quiz.n];
+  let h=`<header><div class="wrap hd2"><h1>복습</h1><button class="link" id="back">오답노트</button></div></header><div class="wrap ${quiz.done?'done':''}"><div class="q"><div class="cnt">${quiz.n+1} / ${quiz.qs.length}</div><div class="ask">${q.ask}</div><div class="target">${esc(q.w)}</div>`;
+  if(q.type==='choice'){
+    q.opts.forEach((o,k)=>{
+      let cls='';
+      if(quiz.done){if(o.ok)cls='right';else if(k===quiz.pick)cls='wrong';}
+      h+=`<button class="opt ${cls}" data-k="${k}">${esc(o.t)}${o.ko?`<span class="ko">${esc(o.ko)}</span>`:''}</button>`;
+    });
+  }else if(quiz.shown)h+=`<div class="opt right">${esc(q.ans[0])}<span class="ko">${esc(q.ans[1])}</span></div>`;
+  h+=`</div></div><div class="bar"><div class="wrap">`;
+  if(q.type==='flip'&&!quiz.shown)h+=`<button class="btn pri" id="show">정답 보기</button>`;
+  else if(q.type==='flip')h+=`<button class="btn" id="no">몰랐음</button><button class="btn pri" id="yes">알았음</button>`;
+  else h+=`<button class="btn pri" id="next" ${quiz.done?'':'disabled'}>${quiz.n+1===quiz.qs.length?'결과':'다음'}</button>`;
+  h+=`</div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='note';render();};
+  app.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+    if(quiz.done)return;
+    const k=+b.dataset.k;quiz.pick=k;quiz.done=true;
+    const ok=q.opts[k].ok===1;if(ok)quiz.right++;recordRes(q,ok);render();
+  });
+  const nx=$('#next');if(nx)nx.onclick=()=>advance();
+  const sh=$('#show');if(sh)sh.onclick=()=>{quiz.shown=true;render();};
+  const yes=$('#yes');if(yes)yes.onclick=()=>{quiz.right++;recordRes(q,true);advance();};
+  const no=$('#no');if(no)no.onclick=()=>{recordRes(q,false);advance();};
+}
+function advance(){
+  if(quiz.n+1>=quiz.qs.length){view='result';render();return;}
+  quiz.n++;quiz.done=false;quiz.shown=false;quiz.pick=null;render();
+}
+function renderResult(){
+  app.innerHTML=`<header><div class="wrap hd2"><h1>복습 결과</h1></div></header><div class="wrap"><div class="score">${quiz.right} <small>/ ${quiz.qs.length}</small></div></div><div class="bar"><div class="wrap"><button class="btn" id="a">오답노트</button><button class="btn pri" id="b">확인표</button></div></div>`;
+  $('#a').onclick=()=>{view='note';render();};
+  $('#b').onclick=()=>{view='word';render();};
+}
+/* ---- 답 제출 ---- */
+function renderSubmit(){
+  const done=!!S.sub;
+  while(S.q.length<N)S.q.push(0);
+  let h=hdr()+'<div class="wrap">';
+  for(let i=0;i<N;i++){
+    const sel=done?S.sub.a[i]:S.q[i];
+    h+=`<div class="qrow"><div class="qno">${esc(D[i].no)}</div><div class="opts">`;
+    for(let k=1;k<=5;k++)h+=`<button class="opt2 ${sel===k?'on':''}" data-q="${i}" data-k="${k}" ${done?'disabled':''}>${CIRC[k-1]}</button>`;
+    h+='</div></div>';
+  }
+  h+='</div><div class="bar"><div class="wrap">';
+  if(done)h+='<button class="btn pri" id="toexp">해설 보기</button>';
+  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>제출</button>`;
+  h+='</div></div>';
+  app.innerHTML=h;
+  app.querySelectorAll('.opt2').forEach(b=>b.onclick=()=>{
+    if(S.sub)return;
+    const q=+b.dataset.q,k=+b.dataset.k;S.q[q]=k;save();
+    b.parentNode.querySelectorAll('.opt2').forEach(x=>x.classList.toggle('on',+x.dataset.k===k));
+    $('#sub').disabled=!S.q.every(v=>v>0);
+  });
+  const sb=$('#sub');if(sb)sb.onclick=()=>{
+    let s=0;for(let i=0;i<N;i++)if(isRight(i,S.q[i]))s++;
+    S.sub={t:Date.now(),a:S.q.slice(),s:s};save();
+    recSend({type:'submit',a:S.sub.a,s:s,n:N});
+    view='exp';render();
+  };
+  const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
+}
+/* ---- 해설 ---- */
+function sHtml(s,evn){
+  const ev=evn.indexOf(s.n)>=0;
+  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
+  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
+  const lays=[];
+  if(s.link)lays.push(['이어 읽으면',s.link]);
+  if(s.easy)lays.push(['쉬운 말로',s.easy]);
+  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
+  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
+  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
+  return x+'</div>';
+}
+function qHtml(i,a){
+  const d=D[i],ok=isRight(i,a);
+  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
+  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
+  h+='<h4>정답 근거</h4>';
+  h+=`<p class="en">${esc(d.ev_en)}</p>`;
+  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
+  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  if(d.ps&&d.ps.length){
+    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
+  }
+  h+='<h4>선택지 하나씩</h4>';
+  d.ch.forEach(c=>{
+    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  });
+  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  return h+'</div></details>';
+}
+function renderExp(){
+  const rec=S.sub;
+  let h=hdr()+'<div class="wrap">';
+  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='</div><h2>해설</h2>';
+  for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
+  h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
+  app.innerHTML=h;
+}
+/* 위임 이벤트 */
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tab');
+  if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
+  const ch=e.target.closest('.ch');
+  if(ch){ch.classList.toggle('open');return;}
+  const st=e.target.closest('.stg');
+  if(st){
+    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const shown=lays.filter(l=>l.classList.contains('on')).length;
+    if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
+    else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
+    return;
+  }
+  const al=e.target.closest('.tbtn');
+  if(al){
+    const open=al.dataset.all==='1',body=al.closest('.dkbody');
+    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
+    body.querySelectorAll('.s').forEach(s=>{
+      const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
+      lays.forEach(l=>l.classList.toggle('on',open));
+      if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
+    });
+  }
+});
+render();
+</script>
+</body>
+</html>

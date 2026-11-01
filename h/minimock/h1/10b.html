@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>고1 미니모의고사 10회 07–12번</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f6f8;--accent:#23406b;--bad:#c2392b;--badbg:#fdeceb;--good:#1f7a4d;--goodbg:#e8f5ee;--hl:#fff3b0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+body{padding-bottom:84px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .row1{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+h1{font-size:16px;margin:0;font-weight:700;line-height:1.3}
+.tabs{display:flex;gap:0}
+.tab{flex:1;border:0;background:none;font-family:inherit;font-size:15px;font-weight:700;color:var(--sub);padding:11px 0;border-bottom:3px solid transparent}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tab[disabled]{opacity:.35}
+.link{text-decoration:none;border:0;background:none;color:var(--accent);font-size:15px;font-weight:700;padding:10px 4px;font-family:inherit}
+.hd2{display:flex;align-items:center;justify-content:space-between;height:54px}
+.hd2 h1{font-size:17px}
+.row{padding:12px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.no{color:var(--sub);font-size:13px;min-width:20px}
+.word{font-size:19px;font-weight:700}
+.src{color:var(--sub);font-size:12px;margin-left:auto}
+.cells{display:flex;flex-direction:column;gap:6px}
+.cell{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 12px;border-radius:8px;background:var(--soft);border:1.5px solid transparent;font-size:16px;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.cell .tag,.part .tag{font-size:12px;font-weight:700;color:#fff;border-radius:4px;padding:2px 7px;min-width:34px;text-align:center;background:#7a8594}
+.cell.s .tag,.part.s .tag{background:#2d62a8}.cell.a .tag,.part.a .tag{background:#b4472f}
+.ko{color:var(--sub);font-size:14px;margin-left:6px}
+.cell.bad{background:var(--badbg);border-color:var(--bad)}
+.cell.bad .tag{background:var(--bad)}
+.locked .cell{pointer-events:none}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:6}
+.bar .wrap{display:flex;gap:10px;padding:0}
+.btn{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;line-height:1.25;font-weight:700;font-family:inherit}
+.btn.pri{background:var(--accent);color:#fff}
+.btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn[disabled]{opacity:.4}
+.note-item{padding:14px 0;border-bottom:1px solid var(--line)}
+.note-item .w{font-size:19px;font-weight:700}
+.meta{color:var(--sub);font-size:12px;margin-left:8px;font-weight:400}
+.part{display:flex;gap:10px;align-items:baseline;padding:6px 0 0;font-size:16px}
+.part .tag{align-self:center}
+.part.bad{color:var(--bad);font-weight:700}
+.part.bad .tag{background:var(--bad)}
+.part .ko{font-weight:400}
+.part .res{margin-left:auto;font-size:13px;font-weight:700}
+.res.o{color:var(--good)}.res.x{color:var(--bad)}
+.empty{color:var(--sub);text-align:center;padding:60px 0;font-size:16px}
+.q{padding:22px 0 8px}
+.q .cnt{color:var(--sub);font-size:14px}
+.q .ask{font-size:15px;color:var(--sub);margin-top:14px}
+.q .target{font-size:28px;font-weight:700;margin:6px 0 18px}
+.opt{display:block;width:100%;text-align:left;min-height:56px;padding:10px 14px;margin-bottom:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:18px;font-family:inherit;color:var(--ink)}
+.opt .ko{display:block;margin:2px 0 0}
+.opt.right{border-color:var(--good);background:var(--goodbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.done .opt{pointer-events:none}
+.score{font-size:34px;font-weight:700;text-align:center;margin:30px 0 6px}
+.score small{font-size:18px;color:var(--sub);font-weight:400}
+.foot{color:var(--sub);font-size:12px;text-align:center;padding:26px 0 8px}
+/* submit */
+.qrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.qno{font-weight:800;font-size:20px;width:34px;flex:none}
+.opts{display:flex;gap:8px;flex:1}
+.opt2{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:20px;font-family:inherit;color:var(--ink)}
+.opt2.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.opt2[disabled]{opacity:.55}
+.opt2.on[disabled]{opacity:1}
+/* explanation */
+h2{font-size:17px;margin:26px 0 10px}
+.quick div{padding:3px 0;font-size:17px}
+.quick .o{color:var(--good)}.quick .x{color:var(--bad)}
+.sub{color:var(--sub)}
+details.qd{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;background:var(--bg)}
+details.qd>summary{list-style:none;cursor:pointer;padding:14px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+details.qd>summary::-webkit-details-marker{display:none}
+details.qd>summary small{font-weight:400;color:var(--sub);font-size:13px}
+.res2{margin-left:auto;font-size:14px}
+.res2.o{color:var(--good)}.res2.x{color:var(--bad)}
+.qx{padding:0 14px 14px}
+.qx h4{font-size:15px;margin:18px 0 8px;color:var(--accent)}
+.qx p{margin:6px 0;line-height:1.75;font-size:16px}
+.ansline b{font-size:17px}
+.en{font-size:16px;line-height:1.7;background:var(--soft);padding:10px 12px;border-radius:8px}
+.kolist{list-style:none;margin:6px 0;padding:0}
+.kolist li{font-size:15px;line-height:1.7}
+.kolist .n{font-size:12px;color:var(--sub);margin-right:6px}
+.why p{margin:4px 0;font-size:15px}
+.c{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.c.ok{border-color:var(--good);background:var(--goodbg)}
+.c .ct{font-weight:700;font-size:16px;line-height:1.5}
+.c .tg{display:inline-block;font-size:12px;color:#fff;background:#7a8594;border-radius:4px;padding:1px 7px;margin-right:6px;font-weight:700}
+.c.ok .tg{background:var(--good)}
+.c p{margin:4px 0 0;font-size:15px}
+.r{color:var(--sub);font-size:13px}
+/* direct reading practice */
+details.dk{margin:16px 0 4px;border:1px solid var(--line);border-radius:10px}
+details.dk>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700;color:var(--accent);font-size:15px}
+details.dk>summary::-webkit-details-marker{display:none}
+.dkbody{padding:0 12px 12px}
+.tool{display:flex;gap:8px;margin:2px 0 10px}
+.tbtn{flex:1;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:inherit;font-size:14px;font-weight:700;color:var(--accent)}
+.s{padding:10px 0 12px;border-top:1px dashed var(--line)}
+.s.ev{background:linear-gradient(90deg,#fffbe8,#fff);margin:0 -6px;padding-left:6px;padding-right:6px}
+.sn{margin-bottom:6px}
+.lb{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--sub);margin-right:6px}
+.lb.ev{background:var(--hl);color:#7a5b00}
+.ch{padding:9px 11px;margin-bottom:6px;border-radius:8px;background:var(--soft);cursor:pointer;border-bottom:2px dotted #c9cfd6}
+.ch .ce{font-size:16px;line-height:1.6}
+.ch .ce b{background:linear-gradient(transparent 55%,var(--hl) 55%)}
+.ch .ck{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--line);color:var(--accent);font-size:15px;line-height:1.65}
+.ch.open{background:#eef2f8;border-bottom-color:transparent}
+.ch.open .ck{display:block}
+.lay{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:14px;line-height:1.7}
+.lay.on{display:block}
+.stg{width:100%;min-height:42px;margin-top:6px;border:1px solid var(--accent);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const WORDS={"sets": [{"id": "g1r10p2", "title": "고1 미니모의고사 10회 07–12번", "range": "07–12번", "words": [{"src": "01", "w": "directly", "m": "직접적으로, 곧장", "s": null, "a": null}, {"src": "02", "w": "generate", "m": "만들어 내다, 발생시키다", "s": ["produce", "생산하다"], "a": null}, {"src": "03", "w": "exceed", "m": "넘다, 초과하다", "s": ["surpass", "넘어서다"], "a": null}, {"src": "04", "w": "native", "m": "원산의, 토종의", "s": null, "a": ["foreign", "외국의"]}, {"src": "05", "w": "nursery", "m": "묘목장, 육아실", "s": null, "a": null}, {"src": "06", "w": "compacted", "m": "빽빽한, 꽉 찬", "s": ["dense", "빽빽한"], "a": null}, {"src": "07", "w": "resemble", "m": "닮다", "s": ["look like", "닮다"], "a": null}, {"src": "08", "w": "underground", "m": "땅속에 있는, 지하의", "s": null, "a": ["aboveground", "지상의"]}, {"src": "09", "w": "conserve", "m": "보존하다, 보호하다", "s": ["preserve", "보존하다"], "a": null}, {"src": "10", "w": "result in", "m": "~을 초래하다", "s": null, "a": null}, {"src": "11", "w": "refer to", "m": "~을 일컫다, 말하다", "s": null, "a": null}, {"src": "12", "w": "roughly", "m": "대략, 거의", "s": ["approximately", "대략"], "a": null}, {"src": "13", "w": "vast", "m": "엄청난, 막대한", "s": null, "a": ["tiny", "아주 작은"]}, {"src": "14", "w": "abroad", "m": "해외에서, 해외로", "s": null, "a": ["domestically", "국내에서"]}, {"src": "15", "w": "freshly", "m": "갓, 최근에", "s": null, "a": null}, {"src": "16", "w": "segregation", "m": "분리, 차별 정책", "s": null, "a": ["integration", "통합"]}, {"src": "17", "w": "shameful", "m": "창피한, 부끄러운", "s": ["embarrassing", "부끄러운"], "a": null}, {"src": "18", "w": "awe", "m": "경외감", "s": null, "a": null}, {"src": "19", "w": "cabin", "m": "오두막", "s": null, "a": null}, {"src": "20", "w": "nod", "m": "고개를 끄덕이다", "s": null, "a": null}], "dist": [["urban", "도시의"], ["neutral", "중립적인"], ["durable", "내구성 있는"]]}]};
+var D=[{"no": "07", "typ": "도표 불일치", "src": "2018년 11월 24번", "evn": [5], "ev_en": "Though the number of jobs in North America directly created by travel and tourism was lower in 2017 than in 2016, it still exceeded 10 million in 2017.", "ev_ko": [[5, "④ 비록 여행 및 관광업에 의해 직접적으로 창출된 북아메리카의 일자리의 수는 2016년보다 2017년에 더 적었지만, 그래도 2017년에 1천만 개를 넘었다(→ 2017년에는 1천만 개에 미치지 못했다)."]], "why": ["도표 문제는 <b>수치의 대소·증감<\/b>을 정확히 확인해야 합니다", "북아메리카는 2017년(9.94백만)이 2016년(10.09백만)보다 <b>적은 것<\/b>은 맞습니다", "하지만 2017년 수치 9.94백만은 <b>1,000만 개를 넘지 못합니다.<\/b> 그래서 (5)의 '그래도 2017년에 1천만 개를 넘었다'는 도표와 일치하지 않습니다"], "ch": [{"n": "①", "t": "The number of jobs directly generated by travel and tourism in North East Asia and South Asia was greater in 2017 than in 2016.", "g": "동북아시아와 남아시아에서 여행 및 관광업에 의해 직접적으로 만들어진 일자리의 수는 2016년보다 2017년에 더 많았다.", "ok": false, "e": ["(2)입니다", "동북아시아(26.02→30.49)와 남아시아(28.66→29.76) 모두 2017년 수치가 2016년보다 <b>높으므로<\/b> 도표와 일치합니다."]}, {"n": "②", "t": "Of the five regions, North East Asia showed the highest number in direct job creation by travel and tourism in 2017, with 30.49 million jobs.", "g": "5개 지역 중에서, 동북아시아가 3,049만 개의 일자리로 2017년에 여행과 관광업에 의한 직접적인 일자리 창출에서 가장 높은 수치를 보여 줬다.", "ok": false, "e": ["(3)입니다", "2017년 동북아시아의 3,049만 개가 다섯 지역 중 <b>가장 높은 수치<\/b>이므로 일치합니다."]}, {"n": "③", "t": "In 2016, the number of jobs in South Asia that travel and tourism directly contributed was the largest of the five regions, but it ranked the second highest in 2017.", "g": "2016년에, 여행과 관광업이 직접적으로 기여를 한 남아시아의 일자리 수는 5개 지역 중에서 가장 많았지만, 2017년에는 두 번째로 가장 높은 순위에 올랐다.", "ok": false, "e": ["(4)입니다", "남아시아는 2016년 2,866만 개로 <b>가장 많았지만<\/b>, 2017년에는 동북아시아(3,049만)에 이어 <b>두 번째(2,976만)<\/b>이므로 일치합니다."]}, {"n": "④", "t": "Though the number of jobs in North America directly created by travel and tourism was lower in 2017 than in 2016, it still exceeded 10 million in 2017.", "g": "비록 여행 및 관광업에 의해 직접적으로 창출된 북아메리카의 일자리의 수는 2016년보다 2017년에 더 적었지만, 그래도 2017년에 1천만 개를 넘었다.", "ok": true, "e": ["(5)입니다", "2017년 북아메리카의 994만 개는 <b>1,000만 개에 미치지 못하므로<\/b> 도표와 일치하지 않습니다."]}, {"n": "⑤", "t": "In 2017, travel and tourism directly contributed 5.71 million jobs in Latin America, which was over six times more than those of Oceania in 2017.", "g": "2017년에, 여행과 관광업은 라틴아메리카에 571만 개의 일자리(창출)에 직접적으로 기여했는데, 이는 2017년 오세아니아의 것보다 여섯 배 넘게 더 많았다.", "ok": false, "e": ["(6)입니다", "라틴아메리카 571만 개는 오세아니아 89만 개의 <b>약 6.4배<\/b>이므로 '여섯 배가 넘는다'는 것과 일치합니다."]}], "tr": ["위 도표는 2016년과 2017년에 5개 지역에서 여행 및 관광업에 의해 직접적으로 창출된 일자리의 수를 보여 준다.", "① 동북아시아와 남아시아에서 여행 및 관광업에 의해 직접적으로 만들어진 일자리의 수는 2016년보다 2017년에 더 많았다.", "② 5개 지역 중에서, 동북아시아가 3,049만 개의 일자리로 2017년에 여행과 관광업에 의한 직접적인 일자리 창출에서 가장 높은 수치를 보여 줬다.", "③ 2016년에, 여행과 관광업이 직접적으로 기여를 한 남아시아의 일자리 수는 5개 지역 중에서 가장 많았지만, 2017년에는 두 번째로 가장 높은 순위에 올랐다.", "④ 비록 여행 및 관광업에 의해 직접적으로 창출된 북아메리카의 일자리의 수는 2016년보다 2017년에 더 적었지만, 그래도 2017년에 1천만 개를 넘었다(→ 2017년에는 1천만 개에 미치지 못했다).", "⑤ 2017년에, 여행과 관광업은 라틴아메리카에 571만 개의 일자리(창출)에 직접적으로 기여했는데, 이는 2017년 오세아니아의 것보다 여섯 배 넘게 더 많았다."], "ps": [{"n": 1, "ch": [{"e": "The above graph shows", "k": "위 도표는 보여 준다"}, {"e": "the number of jobs", "k": "일자리의 수를"}, {"e": "directly created", "k": "직접적으로 창출된"}, {"e": "by travel and tourism", "k": "여행 및 관광업에 의해"}, {"e": "in 2016 and 2017", "k": "2016년과 2017년에"}, {"e": "for five regions.", "k": "5개 지역에서"}], "easy": "이 도표는 2016년과 2017년에 여행·관광업이 5개 지역에서 직접 만들어 낸 일자리 수를 보여 줘요.", "gist": "도표가 무엇을 보여 주는지 소개하는 첫 문장이다."}, {"n": 2, "ch": [{"e": "The number of jobs", "k": "일자리의 수는"}, {"e": "<b>directly generated<\/b> by travel and tourism", "k": "여행 및 관광업에 의해 직접적으로 만들어진"}, {"e": "in North East Asia and South Asia", "k": "동북아시아와 남아시아에서"}, {"e": "was <b>greater<\/b> in 2017", "k": "2017년에 더 많았다"}, {"e": "than in 2016.", "k": "2016년보다"}], "easy": "동북아시아와 남아시아는 둘 다 2017년 일자리 수가 2016년보다 많아요.", "gist": "선지 ① — 도표에서 두 지역 모두 2017년 막대가 더 길어서 도표와 일치한다."}, {"n": 3, "ch": [{"e": "Of the five regions,", "k": "5개 지역 중에서"}, {"e": "North East Asia showed", "k": "동북아시아가 보여 주었다"}, {"e": "<b>the highest number<\/b>", "k": "가장 높은 수치를"}, {"e": "in direct job creation", "k": "직접적인 일자리 창출에서"}, {"e": "by travel and tourism", "k": "여행과 관광업에 의한"}, {"e": "in 2017,", "k": "2017년에"}, {"e": "with 30.49 million jobs.", "k": "3,049만 개의 일자리로"}], "easy": "2017년에 여행·관광업이 직접 만든 일자리가 가장 많은 곳은 3,049만 개의 동북아시아예요.", "gist": "선지 ② — 도표에서 2017년 가장 긴 막대(30.49)와 일치한다."}, {"n": 4, "ch": [{"e": "In 2016,", "k": "2016년에"}, {"e": "the number of jobs in South Asia", "k": "남아시아의 일자리 수는"}, {"e": "that travel and tourism directly contributed", "k": "여행과 관광업이 직접 기여한"}, {"e": "was <b>the largest<\/b> of the five regions,", "k": "5개 지역 중에서 가장 많았지만"}, {"e": "but it ranked <b>the second highest<\/b>", "k": "그것<span class=\"r\">(= 남아시아의 일자리 수)<\/span>은 두 번째로 높은 순위에 올랐다"}, {"e": "in 2017.", "k": "2017년에는"}], "easy": "남아시아는 2016년에는 5개 지역 중 1위였지만, 2017년에는 2위로 내려갔어요.", "gist": "선지 ③ — 2016년 1위(28.66), 2017년 2위(29.76)로 도표와 일치한다."}, {"n": 5, "ch": [{"e": "<b>Though<\/b> the number of jobs in North America", "k": "비록 북아메리카의 일자리 수는"}, {"e": "directly created by travel and tourism", "k": "여행 및 관광업에 의해 직접적으로 창출된"}, {"e": "was <b>lower<\/b> in 2017 than in 2016,", "k": "2016년보다 2017년에 더 적었지만"}, {"e": "it <b>still exceeded<\/b> 10 million in 2017.", "k": "그것<span class=\"r\">(= 북아메리카의 일자리 수)<\/span>은 그래도 2017년에 1천만 개를 넘었다 <span class=\"r\">(→ 실제로는 2017년에 1천만 개에 미치지 못했다)<\/span>"}], "easy": "북아메리카는 2017년에 2016년보다 줄었는데, 그래도 1천만 개는 넘었다고 하네요. 하지만 도표에서 2017년은 9.94(백만)이라 1천만에 못 미쳐요.", "gist": "선지 ④ — 줄었다는 앞부분은 맞지만 '1천만 개를 넘었다'는 도표와 어긋나서 정답이다."}, {"n": 6, "ch": [{"e": "In 2017,", "k": "2017년에"}, {"e": "travel and tourism directly contributed", "k": "여행과 관광업은 직접적으로 기여했다"}, {"e": "5.71 million jobs in Latin America,", "k": "라틴아메리카에 571만 개의 일자리에"}, {"e": "which was <b>over six times more<\/b>", "k": "이것<span class=\"r\">(= 571만 개)<\/span>은 여섯 배 넘게 더 많았다"}, {"e": "than those of Oceania in 2017.", "k": "2017년 오세아니아의 것<span class=\"r\">(= 일자리 수)<\/span>보다"}], "easy": "2017년에 라틴아메리카는 571만 개로, 오세아니아의 여섯 배가 넘었어요.", "gist": "선지 ⑤ — 5.71이 0.89의 약 6.4배라서 도표와 일치한다."}]}, {"no": "08", "typ": "내용 불일치", "src": "2021년 6월 26번", "evn": [4], "ev_en": "Lithops are small plants, rarely getting more than an inch above the soil surface and usually with only two leaves.", "ev_ko": [[4, "Lithops는 작은 식물이고, 토양 표면 위로 1인치 이상 거의 자라지 않으면서 보통 단 두 개의 잎들을 가지고 있다."]], "why": ["내용 불일치 문제는 <b>정도를 나타내는 표현<\/b>을 정확히 봐야 합니다", "본문 (4)는 토양 표면 위로 <b>1인치 이상 거의 자라지 않는다(rarely getting more than an inch)<\/b>고 했습니다", "선지 ③은 이를 '대개 1인치 이상 자란다'로 반대로 진술합니다."], "ch": [{"n": "①", "t": "살아있는 돌로 불리는 식물이다.", "g": "", "ok": false, "e": ["(1)의 <b>often called ‘living stones’<\/b>와 일치합니다."]}, {"n": "②", "t": "원산지는 남아프리카 사막 지역이다.", "g": "", "ok": false, "e": ["(2)의 <b>native to the deserts of South Africa<\/b>와 일치합니다."]}, {"n": "③", "t": "토양의 표면 위로 대개 1인치 이상 자란다.", "g": "", "ok": true, "e": ["(4)는 1인치 이상 <b>거의 자라지 않는다<\/b>고 했으므로 정반대입니다."]}, {"n": "④", "t": "줄기가 없으며 땅속에 대부분 묻혀 있다.", "g": "", "ok": false, "e": ["(6)의 <b>no true stem<\/b>, <b>much of the plant is underground<\/b>와 일치합니다."]}, {"n": "⑤", "t": "겉모양은 수분 보존 효과를 갖고 있다.", "g": "", "ok": false, "e": ["(7)의 <b>the effect of conserving moisture<\/b>와 일치합니다."]}], "tr": ["Lithops는 독특한 바위 같은 겉모양 때문에 흔히 ‘살아있는 돌’로 불리는 식물이다.", "그것들의 원산지는 남아프리카 사막이지만, 원예 용품점과 묘목장에서 흔히 팔린다.", "Lithops는 물이 거의 없는 빽빽한 모래 토양과 극도의 높은 온도에서 잘 자란다.", "Lithops는 작은 식물이고, 토양 표면 위로 1인치 이상 거의 자라지 않으면서 보통 단 두 개의 잎들을 가지고 있다.", "두꺼운 잎은 동물의 발의 갈라진 틈이나 함께 모여 있는 딱 한 쌍의 회갈색 돌과 닮았다.", "그 식물은 실제 줄기는 없고 그 식물의 대부분이 땅속에 있다.", "그것들의 겉모양은 수분을 보존하는 효과를 가지고 있다."], "ps": [{"n": 1, "ch": [{"e": "Lithops are plants", "k": "Lithops는 식물이다"}, {"e": "that are often called ‘<b>living stones<\/b>’", "k": "흔히 ‘살아있는 돌’로 불리는"}, {"e": "on account of", "k": "~ 때문에"}, {"e": "their unique rock-like appearance.", "k": "그것들의 독특한 바위 같은 겉모양"}], "easy": "Lithops는 바위처럼 생긴 겉모양 때문에 ‘살아있는 돌’이라고 불리는 식물이에요.", "gist": "선지 ① — 글의 대상과 별명을 소개하는 첫 문장이다."}, {"n": 2, "ch": [{"e": "They are <b>native to<\/b>", "k": "그것들<span class=\"r\">(= Lithops)<\/span>은 ~이 원산지이다"}, {"e": "the deserts of South Africa", "k": "남아프리카 사막의"}, {"e": "but commonly sold", "k": "하지만 흔히 팔린다"}, {"e": "in garden centers and nurseries.", "k": "원예 용품점과 묘목장에서"}], "easy": "원래는 남아프리카 사막에서 자라는 식물이지만, 원예 용품점이나 묘목장에서도 흔히 팔려요.", "gist": "선지 ② — 원산지와 판매 장소를 알려 준다."}, {"n": 3, "ch": [{"e": "Lithops grow well", "k": "Lithops는 잘 자란다"}, {"e": "in compacted, sandy soil", "k": "빽빽한 모래 토양에서"}, {"e": "with little water", "k": "물이 거의 없는"}, {"e": "and extreme hot temperatures.", "k": "그리고 극도로 높은 온도(에서)"}], "easy": "물이 거의 없는 빽빽한 모래땅과 아주 높은 온도에서도 잘 자라요.", "gist": "어떤 환경에서 잘 자라는지 보여 준다."}, {"n": 4, "ch": [{"e": "Lithops are small plants,", "k": "Lithops는 작은 식물이다"}, {"e": "<b>rarely<\/b> getting <b>more than an inch<\/b>", "k": "1인치 이상 거의 자라지 않으면서"}, {"e": "above the soil surface", "k": "토양 표면 위로"}, {"e": "and usually with only two leaves.", "k": "보통 단 두 개의 잎들을 가지고 있다"}], "easy": "아주 작아서 땅 위로 1인치 넘게 자라는 일이 거의 없고, 보통 잎도 딱 두 장이에요.", "gist": "선지 ③의 근거 — '1인치 이상 거의 자라지 않는다'가 선지의 '대개 1인치 이상 자란다'와 정반대다."}, {"n": 5, "ch": [{"e": "The thick leaves resemble", "k": "두꺼운 잎은 닮았다"}, {"e": "the cleft in an animal’s foot", "k": "동물의 발의 갈라진 틈이나"}, {"e": "or just a pair of grayish brown stones", "k": "혹은 딱 한 쌍의 회갈색 돌과"}, {"e": "gathered together.", "k": "함께 모여 있는 (돌)"}], "easy": "두꺼운 잎은 동물 발의 갈라진 틈이나, 나란히 모여 있는 회갈색 돌 한 쌍처럼 생겼어요.", "gist": "잎이 어떻게 생겼는지 묘사한다."}, {"n": 6, "ch": [{"e": "The plants have", "k": "그 식물은 가지고 있다"}, {"e": "<b>no true stem<\/b>", "k": "실제 줄기는 없고"}, {"e": "and much of the plant is underground.", "k": "그 식물의 대부분이 땅속에 있다"}], "easy": "이 식물은 진짜 줄기가 없고, 몸의 대부분이 땅속에 있어요.", "gist": "선지 ④ — 줄기와 위치에 관한 내용이다."}, {"n": 7, "ch": [{"e": "Their appearance", "k": "그것들<span class=\"r\">(= Lithops)<\/span>의 겉모양은"}, {"e": "has the effect of <b>conserving moisture<\/b>.", "k": "수분을 보존하는 효과를 가지고 있다"}], "easy": "이런 겉모양은 수분을 지키는 데 도움이 돼요.", "gist": "선지 ⑤ — 겉모양의 효과를 정리하며 글을 맺는다."}]}, {"no": "09", "typ": "무관한 문장", "src": "2014년 11월 36번", "evn": [4], "ev_en": "Many doctors have searched for the causes of a rare brain disease.", "ev_ko": [[4, "③ 많은 의사들이 희귀 두뇌 질환의 원인을 찾아왔다."]], "why": ["무관한 문장 문제는 글의 <b>중심 소재<\/b>가 계속 이어지는지를 봅니다", "이 글은 처음부터 끝까지 <b>두뇌 유출(brain drain)<\/b>, 즉 우수 인력이 해외로 떠나는 현상을 다룹니다", "(4)는 '희귀 두뇌 질환(brain disease)의 원인을 찾아 왔다'는 내용입니다", "<b>brain이라는 단어만 같을 뿐<\/b> 두뇌 유출과는 무관합니다."], "ch": [{"n": "①", "t": "A report released by the Arab League in 2009 found that roughly 100,000 scientists, doctors, and engineers were leaving countries in the Middle East and North Africa every year, with most of the scientists and doctors never returning.", "g": "2009년 아랍 연맹에 의해 발표된 보고서는 대략 100,000명의 과학자, 의사, 그리고 기술자들이 매년 중동과 북아프리카 국가를 떠나고 있으며, 대부분의 과학자들과 의사들은 결코 돌아오지 않는다는 것을 발견했다.", "ok": false, "e": ["(2)입니다", "두뇌 유출을 보여 주는 <b>구체적인 통계 자료(수치)<\/b>로 자연스럽게 이어집니다."]}, {"n": "②", "t": "Another study suggested that vast numbers of developing countries’ doctors were working abroad, including 41% from Jamaica and 30% from Ghana.", "g": "또 다른 연구는 자메이카(서인도 제도의 독립국)에서의 41퍼센트와 가나(아프리카 서부의 공화국)에서의 30퍼센트를 포함하여, 엄청난 수의 개발도상국 의사들이 해외에서 일하고 있다는 것을 시사했다.", "ok": false, "e": ["(3)입니다", "<b>Another study<\/b>로 시작해 두뇌 유출을 보여 주는 <b>또 다른 통계 자료<\/b>를 덧붙입니다."]}, {"n": "③", "t": "Many doctors have searched for the causes of a rare brain disease.", "g": "많은 의사들이 희귀 두뇌 질환의 원인을 찾아왔다.", "ok": true, "e": ["(4)입니다", "'희귀 두뇌 질환의 원인'은 <b>두뇌 유출이라는 주제와 무관<\/b>합니다", "brain이라는 단어만 겹칩니다."]}, {"n": "④", "t": "The brain drain has even worried some wealthy countries.", "g": "두뇌 유출은 심지어 몇몇 부유한 국가들도 걱정하게 만들었다.", "ok": false, "e": ["(5)입니다", "<b>The brain drain<\/b>이 부유한 국가들까지 걱정하게 만들었다는 내용으로 주제가 이어집니다."]}, {"n": "⑤", "t": "The government of New Zealand, for instance, launched a program in 2006 to try to attract its professionals living abroad back home.", "g": "예를 들어, 뉴질랜드 정부는 해외에 거주하는 전문직 종사자들을 다시 고국으로 끌어들이려는 프로그램을 2006년에 시작했다.", "ok": false, "e": ["(6)입니다", "<b>for instance<\/b>로 시작해, 해외 인재를 다시 불러들이려는 <b>구체적인 사례(뉴질랜드)<\/b>를 듭니다."]}], "tr": ["세계화는 세계적인 두뇌 유출을 초래해 왔는데, 그것은 국가가 그들의 최고로 잘 교육받은 일꾼들을 잃는 상황을 일컫는다.", "① 2009년 아랍 연맹에 의해 발표된 보고서는 대략 100,000명의 과학자, 의사, 그리고 기술자들이 매년 중동과 북아프리카 국가를 떠나고 있으며, 대부분의 과학자들과 의사들은 결코 돌아오지 않는다는 것을 발견했다.", "② 또 다른 연구는 자메이카(서인도 제도의 독립국)에서의 41퍼센트와 가나(아프리카 서부의 공화국)에서의 30퍼센트를 포함하여, 엄청난 수의 개발도상국 의사들이 해외에서 일하고 있다는 것을 시사했다.", "③ 많은 의사들이 희귀 두뇌 질환의 원인을 찾아왔다.", "④ 두뇌 유출은 심지어 몇몇 부유한 국가들도 걱정하게 만들었다.", "⑤ 예를 들어, 뉴질랜드 정부는 해외에 거주하는 전문직 종사자들을 다시 고국으로 끌어들이려는 프로그램을 2006년에 시작했다."], "ps": [{"n": 1, "ch": [{"e": "Globalization has <b>resulted in<\/b>", "k": "세계화는 초래해 왔다"}, {"e": "a global <b>brain drain<\/b>,", "k": "세계적인 두뇌 유출을"}, {"e": "which refers to the situation", "k": "그것<span class=\"r\">(= 두뇌 유출)<\/span>은 상황을 일컫는다"}, {"e": "in which countries lose", "k": "국가가 잃는"}, {"e": "their best educated workers.", "k": "그들의 최고로 잘 교육받은 일꾼들을"}], "easy": "세계화 때문에 세계적인 두뇌 유출이 생겼어요. 두뇌 유출은 나라가 가장 잘 배운 인재를 잃는 일이에요.", "gist": "글 전체의 중심 소재 '두뇌 유출'을 정의하며 연다."}, {"n": 2, "ch": [{"e": "A report released", "k": "발표된 보고서는"}, {"e": "by the Arab League in 2009", "k": "2009년 아랍 연맹에 의해"}, {"e": "found that roughly 100,000 scientists, doctors, and engineers", "k": "대략 100,000명의 과학자, 의사, 그리고 기술자들이 ~라는 것을 발견했다"}, {"e": "were leaving countries", "k": "국가를 떠나고 있다"}, {"e": "in the Middle East and North Africa every year,", "k": "중동과 북아프리카에 있는 (국가를) 매년"}, {"e": "with most of the scientists and doctors never returning.", "k": "대부분의 과학자들과 의사들은 결코 돌아오지 않으면서"}], "easy": "2009년 아랍 연맹 보고서에 따르면, 해마다 약 10만 명의 과학자·의사·기술자가 중동과 북아프리카를 떠나고, 대부분은 돌아오지 않아요.", "gist": "선지 ① — 두뇌 유출을 보여 주는 첫 번째 통계 자료다."}, {"n": 3, "ch": [{"e": "Another study suggested", "k": "또 다른 연구는 시사했다"}, {"e": "that vast numbers of developing countries’ doctors", "k": "엄청난 수의 개발도상국 의사들이"}, {"e": "were working abroad,", "k": "해외에서 일하고 있다는 것을"}, {"e": "including 41% from Jamaica and 30% from Ghana.", "k": "자메이카에서 41퍼센트와 가나에서 30퍼센트를 포함하여"}], "easy": "또 다른 연구는 개발도상국 의사들이 해외에서 많이 일하고 있다고 해요. 자메이카는 41퍼센트, 가나는 30퍼센트예요.", "gist": "선지 ② — 두뇌 유출을 보여 주는 또 다른 통계 자료다."}, {"n": 4, "ch": [{"e": "Many doctors <b>have searched for<\/b>", "k": "많은 의사들이 찾아왔다"}, {"e": "the causes of a <b>rare brain disease<\/b>.", "k": "희귀 두뇌 질환의 원인을"}], "easy": "많은 의사들이 희귀한 뇌 질환의 원인을 찾아 왔어요.", "gist": "선지 ③ — 뇌 질환 이야기라서 '두뇌 유출'이라는 글의 주제와 관계가 없다(정답)."}, {"n": 5, "ch": [{"e": "The brain drain", "k": "두뇌 유출은"}, {"e": "has <b>even<\/b> worried", "k": "심지어 걱정하게 만들었다"}, {"e": "some wealthy countries.", "k": "몇몇 부유한 국가들도"}], "easy": "두뇌 유출은 일부 부유한 나라들까지 걱정하게 만들었어요.", "gist": "선지 ④ — 다시 '두뇌 유출' 이야기로 돌아와 걱정하는 나라를 말한다."}, {"n": 6, "ch": [{"e": "The government of New Zealand,", "k": "뉴질랜드 정부는"}, {"e": "<b>for instance<\/b>,", "k": "예를 들어"}, {"e": "launched a program in 2006", "k": "2006년에 프로그램을 시작했다"}, {"e": "to try to attract its professionals", "k": "자국의 전문직 종사자들을 끌어들이려는"}, {"e": "living abroad back home.", "k": "해외에 거주하는 (이들을) 다시 고국으로"}], "easy": "예를 들어 뉴질랜드 정부는 2006년에 해외에 사는 자국 전문가들을 고국으로 불러들이는 프로그램을 시작했어요.", "gist": "선지 ⑤ — 'for instance'로 바로 앞 문장 속 걱정하는 나라의 구체적인 예를 든다."}]}, {"no": "10", "typ": "장문 · 글의 순서", "src": "2018년 3월 43번", "evn": [5, 6, 14, 17, 18], "ev_en": "(A)(5) Two white girls about her age sat among a lot of dolls. / (C)(1) “Hello, Mary! Do you want to come in?” one of them called out. / (B)(1) Feeling shameful, Mary handed the doll back to the white child and rejoined her mother. / (B)(4) At home the little girl asked her father to let her go to school, but he told her calmly, “There isn’t any school.” / (D)(1) One day, however, a black woman in city clothes changed that.", "ev_ko": [[5, "(A)(5) 대략 그녀의 나이인(또래인) 2명의 백인 소녀가 수많은 인형들 사이에 앉아 있었다."], [6, "(C)(1) “안녕, Mary! 들어오고 싶니?”라고 그들 중 한 명이 외쳤다."], [14, "(B)(1) 창피해 하면서, Mary는 인형을 백인 아이에게 돌려주었고 그녀의 엄마와 재회했다."], [17, "(B)(4) 집에서 작은 소녀는 아빠에게 학교에 가게 해달라고 부탁했지만, 그는 그녀에게 “학교가 없단다.”라고 조용히 말했다."], [18, "(D)(1) 하지만 어느 날 도시의 옷을 입은 한 흑인 여성이 그것을 바꾸었다."]], "why": ["순서 문제는 <b>사건의 흐름<\/b>과 <b>연결 표현<\/b>을 따라가야 합니다", "(A)는 놀이집 안에 백인 소녀 둘이 앉아 있는 장면으로 끝납니다", "그래서 그 소녀들 중 한 명이 Mary를 부르는 (C)가 바로 이어집니다", "(C)에서 Mary는 소녀에게 인형을 받아 들었고, 책 때문에 면박을 당합니다", "(B)는 Mary가 <b>인형을 돌려주며 창피해 하는<\/b> 장면이라 (C) 다음에 옵니다", "(B)는 아빠의 “학교가 없단다.”로 끝나고, (D)는 <b>However<\/b>와 <b>changed that<\/b>으로 상황을 바꾸며 새 학교 이야기를 꺼내므로 맨 끝입니다."], "ch": [{"n": "①", "t": "(B) – (D) – (C)", "g": "", "ok": false, "e": ["(B)에서 Mary가 돌려주는 인형은 (C)(3)에서 받은 인형입니다", "(C)가 먼저 나와야 하므로 (B)를 (C)보다 앞에 둘 수 없습니다."]}, {"n": "②", "t": "(C) – (B) – (D)", "g": "", "ok": true, "e": ["(A) 끝의 소녀들이 Mary를 부름(C) → 인형을 돌려주며 창피해 함(B) → However로 상황이 바뀌고 새 학교 이야기가 나옴(D)의 순서가 흐름에 맞습니다."]}, {"n": "③", "t": "(C) – (D) – (B)", "g": "", "ok": false, "e": ["(D)는 <b>However<\/b>로 앞 내용을 뒤집는데, 그 앞 내용이 (B)의 마지막 '학교가 없다'는 말과 이어집니다", "(B)를 (D) 다음에 두면 (D)의 새 학교 이야기 뒤에 '학교가 없다'는 말이 나와 흐름이 어색해집니다."]}, {"n": "④", "t": "(D) – (B) – (C)", "g": "", "ok": false, "e": ["(D)의 첫 문장은 <b>however<\/b>와 <b>changed that<\/b>으로 시작합니다", "바꿀 대상이 되는 앞 내용 없이 (A) 바로 뒤에 올 수 없습니다."]}, {"n": "⑤", "t": "(D) – (C) – (B)", "g": "", "ok": false, "e": ["같은 이유로 (D)를 (A) 바로 뒤에 둘 수 없습니다."]}], "tr": ["(A)(1) Patsy McLeod가 갓 세탁한 옷을 그녀의 이전 주인인 Ben Wilson의 집에 가져갔을 때 그녀의 9살 난 딸 Mary가 따라갔다.", "(A)(2) 그들이 그 큰 집에 도착했을 때 McLeods는 흑인들을 위해 사용되는(흑인들이 이용하는) 뒤쪽 출입구로 걸어갔다.", "(A)(3) 1884년에, South Carolina(사우스캐롤라이나)주의 Mayesville(메이스빌)에서는 뚜렷한(심한) 인종 간 분리정책이 있었다.", "(A)(4) (a)그녀(Mary)의 엄마가 집 안에 들어가 있는 동안 Mary는 아이들의 장난감 집 쪽으로 돌아다녔고(걸어갔고) 안을 살펴보았다.", "(A)(5) 대략 그녀의 나이인(또래인) 2명의 백인 소녀가 수많은 인형들 사이에 앉아 있었다.", "(C)(1) “안녕, Mary! 들어오고 싶니?”라고 그들 중 한 명이 외쳤다.", "(C)(2) Mary는 기쁘게 장난감 집 안으로 들어갔다.", "(C)(3) 백인 아이는 “내가 친구와 차를 마시는 동안 너는 아이를 봐도 돼.”라고 말하며 흑인 소녀에게 인형을 건네주었다.", "(C)(4) Mary가 방에서 그 인형을 산책시키는 동안 그녀의 시선이 한 책에 쏠렸고 (d)그녀(Mary)는 경외감으로(경외감을 느끼며) 그것을 집어 들었다.", "(C)(5) 그녀의 부모님은 오두막에 성경을 가지고 있었지만 아무도 그것을 읽을 수 없었다.", "(C)(6) 갑자기 백인 소녀가 그 책을 잡아챘다.", "(C)(7) “그것을 내려놔!”라며 그녀가 소리쳤다.", "(C)(8) “너는 읽는 법을 모르잖아.”", "(B)(1) 창피해 하면서, Mary는 인형을 백인 아이에게 돌려주었고 그녀의 엄마와 재회했다.", "(B)(2) 그들의 농장으로 걸어 돌아가는 길에 (b)그녀(Mary)는 왜 백인들은 모든 종류의 좋은 것들을 가지고 있는지 그리고 무엇보다도, 흑인들은 읽을 수 없는데 반해 왜 그들(백인)은 읽을 수 있는지 궁금했다.", "(B)(3) (c)그녀(Mary)는 읽는 것을 배우기로 결심했다.", "(B)(4) 집에서 작은 소녀는 아빠에게 학교에 가게 해달라고 부탁했지만, 그는 그녀에게 “학교가 없단다.”라고 조용히 말했다.", "(D)(1) 하지만 어느 날 도시의 옷을 입은 한 흑인 여성이 그것을 바꾸었다.", "(D)(2) Emma Wilson은 McLeod의 오두막에 와서 (e)그녀(Wilson)가 Mayesville(메이스빌)에 흑인 아이들을 위한 새로운 학교를 열 것이라고 설명했다.", "(D)(3) 그녀는 “학교는 목화 수확 시기 이후에 시작될 것입니다.”라고 말했다.", "(D)(4) Mary의 부모님은 동의하며 고개를 끄덕였다.", "(D)(5) McLeod 부인도 그녀의 딸을 향해 고개를 끄덕였다.", "(D)(6) 어린 Mary는 매우 신이 났다.", "(D)(7) “제가 읽게 될 거라고요? Wilson 선생님?”", "(D)(8) 그녀는 Mary를 보고 미소 지었다."], "ps": [{"n": 1, "ch": [{"e": "When Patsy McLeod took freshly washed clothes", "k": "Patsy McLeod가 갓 세탁한 옷을 가져갔을 때"}, {"e": "to her former master Ben Wilson’s house,", "k": "그녀<span class=\"r\">(= Patsy)<\/span>의 이전 주인인 Ben Wilson의 집에"}, {"e": "her nine-year-old daughter Mary went along.", "k": "그녀<span class=\"r\">(= Patsy)<\/span>의 9살 난 딸 Mary가 따라갔다"}], "easy": "Patsy McLeod가 방금 빤 옷을 예전 주인 Ben Wilson의 집에 가져갈 때, 아홉 살 딸 Mary도 같이 갔어요.", "gist": "(A) 시작: 인물(Mary 모녀)과 장소(Ben Wilson의 집)를 소개한다."}, {"n": 2, "ch": [{"e": "When they arrived at the big house,", "k": "그들<span class=\"r\">(= Patsy와 Mary)<\/span>이 그 큰 집에 도착했을 때"}, {"e": "the McLeods walked to the rear entrance", "k": "McLeods는 뒤쪽 출입구로 걸어갔다"}, {"e": "used for blacks.", "k": "흑인들을 위해 사용되는(흑인들이 이용하는)"}], "easy": "큰 집에 도착하자 McLeod 가족은 흑인들이 쓰는 뒷문으로 갔어요.", "gist": "당시 인종 차별의 모습을 보여 준다."}, {"n": 3, "ch": [{"e": "In 1884 there was <b>sharp segregation<\/b>", "k": "1884년에 뚜렷한(심한) 분리정책이 있었다"}, {"e": "between the races", "k": "인종 간의"}, {"e": "in Mayesville, South Carolina.", "k": "South Carolina주의 Mayesville에서는"}], "easy": "1884년 사우스캐롤라이나주 Mayesville에서는 인종을 심하게 갈라놓는 정책이 있었어요.", "gist": "당시의 인종 분리 상황이라는 배경을 알려 준다."}, {"n": 4, "ch": [{"e": "While (a) her mother went inside the house,", "k": "(a)그녀(Mary)의 엄마가 집 안에 들어가 있는 동안"}, {"e": "Mary wandered over", "k": "Mary는 돌아다녔고(걸어갔고)"}, {"e": "to a children’s playhouse", "k": "아이들의 장난감 집 쪽으로"}, {"e": "and looked inside.", "k": "안을 살펴보았다"}], "easy": "(a) her는 Mary를 가리켜요. Mary의 엄마가 집 안에 들어간 동안, Mary는 아이들 놀이집 쪽으로 가서 안을 들여다봤어요.", "gist": "(a)의 her = Mary. 이야기가 놀이집 장면으로 넘어간다."}, {"n": 5, "ch": [{"e": "Two white girls about her age", "k": "그녀<span class=\"r\">(= Mary)<\/span>의 나이쯤 되는 2명의 백인 소녀가"}, {"e": "sat among a lot of dolls.", "k": "수많은 인형들 사이에 앉아 있었다"}], "easy": "Mary 또래로 보이는 백인 소녀 두 명이 인형에 둘러싸여 앉아 있었어요.", "gist": "(A)의 끝 — 놀이집 안에 있는 두 백인 소녀가 소개된다."}, {"n": 6, "ch": [{"e": "“Hello, Mary! Do you want to come in?”", "k": "“안녕, Mary! 들어오고 싶니?”라고"}, {"e": "one of them called out.", "k": "그들<span class=\"r\">(= 두 백인 소녀)<\/span> 중 한 명이 외쳤다"}], "easy": "소녀들 중 한 명이 “안녕, Mary! 들어올래?” 하고 불렀어요.", "gist": "(C) 시작: (A)의 끝(소녀들)에 바로 이어 Mary를 부른다."}, {"n": 7, "ch": [{"e": "Mary happily went into the playhouse.", "k": "Mary는 기쁘게 장난감 집 안으로 들어갔다"}], "easy": "Mary는 기쁘게 놀이집 안으로 들어갔어요.", "gist": "초대에 Mary가 응한다."}, {"n": 8, "ch": [{"e": "The white child handed a doll", "k": "백인 아이는 인형을 건네주었다"}, {"e": "to the black girl,", "k": "흑인 소녀에게"}, {"e": "saying “You can watch the baby", "k": "“너는 아이를 봐도 돼”라고 말하며"}, {"e": "while I have tea with my friend.”", "k": "내가 친구와 차를 마시는 동안"}], "easy": "백인 아이는 Mary에게 인형을 건네며 “내가 친구랑 차 마시는 동안 아기를 봐도 돼.” 하고 말했어요.", "gist": "인형을 안고 노는 장면으로 이어진다."}, {"n": 9, "ch": [{"e": "While Mary walked the doll around the room,", "k": "Mary가 방에서 그 인형을 산책시키는 동안"}, {"e": "her eyes fell upon a book;", "k": "그녀<span class=\"r\">(= Mary)<\/span>의 시선이 한 책에 쏠렸고"}, {"e": "(d) she picked it up in awe.", "k": "(d)그녀(Mary)는 경외감으로(경외감을 느끼며) 그것<span class=\"r\">(= 책)<\/span>을 집어 들었다"}], "easy": "(d) she는 Mary예요. Mary는 인형을 안고 걷다가 책이 눈에 띄어, 감탄하며 그 책을 집어 들었어요.", "gist": "(d)의 she = Mary. 책이 이 이야기의 핵심 소재로 등장한다."}, {"n": 10, "ch": [{"e": "Her parents had a Bible in their cabin,", "k": "그녀<span class=\"r\">(= Mary)<\/span>의 부모님은 오두막에 성경을 가지고 있었지만"}, {"e": "but no one could read it.", "k": "아무도 그것<span class=\"r\">(= 성경)<\/span>을 읽을 수 없었다"}], "easy": "Mary의 부모님 오두막에도 성경이 있었지만, 읽을 수 있는 사람은 아무도 없었어요.", "gist": "성경이 있어도 읽을 줄 아는 사람이 없었다는 사정을 알려 준다."}, {"n": 11, "ch": [{"e": "Unexpectedly", "k": "갑자기"}, {"e": "the white girl grabbed the book.", "k": "백인 소녀가 그 책을 잡아챘다"}], "easy": "그런데 갑자기 백인 소녀가 그 책을 낚아챘어요.", "gist": "분위기가 바뀌는 전환점이다."}, {"n": 12, "ch": [{"e": "“Put that down!”", "k": "“그것을 내려놔!”"}, {"e": "she yelled.", "k": "라며 그녀<span class=\"r\">(= 백인 소녀)<\/span>가 소리쳤다"}], "easy": "소녀는 “그거 내려놔!” 하고 소리쳤어요.", "gist": "선지 12-④의 근거 — 책을 내려놓으라는 고함."}, {"n": 13, "ch": [{"e": "“You don’t know how to read.”", "k": "“너는 읽는 법을 모르잖아.”"}], "easy": "“너는 읽을 줄도 모르잖아.”", "gist": "소녀가 Mary에게 망신을 주는 말이다. 이것이 (B)의 '창피함'으로 이어진다."}, {"n": 14, "ch": [{"e": "<b>Feeling shameful<\/b>,", "k": "창피해 하면서"}, {"e": "Mary handed the doll back to the white child", "k": "Mary는 인형을 백인 아이에게 돌려주었고"}, {"e": "and rejoined her mother.", "k": "그녀<span class=\"r\">(= Mary)<\/span>의 엄마와 재회했다"}], "easy": "창피해진 Mary는 인형을 돌려주고 엄마에게 돌아갔어요.", "gist": "(B) 시작: (C)에서 받은 인형을 돌려주며 창피함을 느낀다."}, {"n": 15, "ch": [{"e": "On the walk back to their farm,", "k": "그들의 농장으로 걸어 돌아가는 길에"}, {"e": "(b) she wondered", "k": "(b)그녀(Mary)는 궁금했다"}, {"e": "why white people had all kinds of nice things", "k": "왜 백인들은 모든 종류의 좋은 것들을 가지고 있는지"}, {"e": "and why, above all,", "k": "그리고 무엇보다도 왜"}, {"e": "they could read while black people couldn’t.", "k": "흑인들은 읽을 수 없는데 반해 그들<span class=\"r\">(= 백인)<\/span>은 읽을 수 있는지"}], "easy": "(b) she는 Mary예요. 농장으로 돌아가는 길에 Mary는 왜 백인들은 좋은 것도 많고 글도 읽을 수 있는데 흑인들은 못 읽는지 궁금했어요.", "gist": "(b)의 she = Mary. 읽기에 대한 Mary의 의문이 커진다."}, {"n": 16, "ch": [{"e": "(c) She decided", "k": "(c)그녀(Mary)는 결심했다"}, {"e": "to learn to read.", "k": "읽는 것을 배우기로"}], "easy": "(c) She도 Mary예요. Mary는 읽는 법을 배우기로 마음먹었어요.", "gist": "(c)의 She = Mary. Mary의 결심이 이야기의 목표가 된다."}, {"n": 17, "ch": [{"e": "At home the little girl asked her father", "k": "집에서 작은 소녀<span class=\"r\">(= Mary)<\/span>는 그녀의 아빠에게 부탁했고"}, {"e": "to let her go to school,", "k": "그녀<span class=\"r\">(= Mary)<\/span>가 학교에 가게 해달라고"}, {"e": "but he told her calmly,", "k": "하지만 그<span class=\"r\">(= 아빠)<\/span>는 그녀<span class=\"r\">(= Mary)<\/span>에게 조용히 말했다"}, {"e": "“There isn’t any school.”", "k": "“학교가 없단다.”라고"}], "easy": "집에 와서 Mary는 아빠에게 학교에 가게 해 달라고 했지만, 아빠는 “학교가 없단다.” 하고 조용히 말했어요.", "gist": "선지 12-③의 근거. 학교가 없다는 아빠의 말로 (B)가 끝난다."}, {"n": 18, "ch": [{"e": "One day, <b>however<\/b>,", "k": "하지만 어느 날"}, {"e": "a black woman in city clothes", "k": "도시의 옷을 입은 한 흑인 여성이"}, {"e": "<b>changed that<\/b>.", "k": "그것을 바꾸었다"}], "easy": "그런데 어느 날 도시 옷차림의 한 흑인 여성이 그것을 바꿔 놓았어요.", "gist": "(D) 시작: However로 분위기를 뒤집는다. 무엇이 바뀌는지는 뒤따르는 문장(새 학교 이야기)에서 드러난다."}, {"n": 19, "ch": [{"e": "Emma Wilson came to the McLeod cabin,", "k": "Emma Wilson은 McLeod의 오두막에 와서"}, {"e": "explaining that (e) she would open a new school", "k": "(e)그녀(Wilson)가 새로운 학교를 열 것이라고 설명했다"}, {"e": "in Mayesville for black children.", "k": "Mayesville에 흑인 아이들을 위한"}], "easy": "Emma Wilson이 McLeod의 오두막에 와서, 자기가 Mayesville에 흑인 아이들을 위한 새 학교를 열 거라고 말했어요.", "gist": "(e)의 she = Emma Wilson. 다른 (a)~(d)와 달리 Mary가 아니다."}, {"n": 20, "ch": [{"e": "“The school will begin", "k": "“학교는 시작될 것입니다”"}, {"e": "after the cotton-picking season,”", "k": "목화 수확 시기 이후에"}, {"e": "she said.", "k": "라고 그녀<span class=\"r\">(= Emma Wilson)<\/span>는 말했다"}], "easy": "Emma Wilson은 학교가 목화 따는 철이 끝난 뒤에 시작된다고 했어요.", "gist": "학교 개교 시기를 알려 준다."}, {"n": 21, "ch": [{"e": "Mary’s parents nodded in agreement.", "k": "Mary의 부모님은 동의하며 고개를 끄덕였다"}], "easy": "Mary의 부모님은 찬성하며 고개를 끄덕였어요.", "gist": "선지 12-⑤의 근거 — 부모님은 반대하지 않고 동의했다."}, {"n": 22, "ch": [{"e": "Mrs. McLeod also nodded", "k": "McLeod 부인도 고개를 끄덕였다"}, {"e": "toward her daughter.", "k": "그녀<span class=\"r\">(= McLeod 부인)<\/span>의 딸을 향해"}], "easy": "McLeod 부인도 딸 쪽을 보며 고개를 끄덕였어요.", "gist": "엄마가 딸 쪽을 보며 고개를 끄덕이는 장면이다."}, {"n": 23, "ch": [{"e": "Young Mary was very excited.", "k": "어린 Mary는 매우 신이 났다"}], "easy": "어린 Mary는 아주 신이 났어요.", "gist": "Mary의 기쁨을 보여 준다."}, {"n": 24, "ch": [{"e": "“I’m gonna read?", "k": "“제가 읽게 될 거라고요?"}, {"e": "Miss Wilson?”", "k": "Wilson 선생님?”"}], "easy": "“제가 읽게 되는 거예요, Wilson 선생님?”", "gist": "Mary의 소원이 이루어질 가능성을 묻는다."}, {"n": 25, "ch": [{"e": "She smiled at Mary.", "k": "그녀<span class=\"r\">(= Wilson)<\/span>는 Mary를 보고 미소 지었다"}], "easy": "Wilson 선생님이 Mary를 보고 웃어 주었어요.", "gist": "Wilson이 Mary에게 미소를 지으며 장면이 끝난다."}]}, {"no": "11", "typ": "장문 · 지칭 추론", "src": "2018년 3월 44번", "evn": [19], "ev_en": "(D)(2) Emma Wilson came to the McLeod cabin, explaining that (e) she would open a new school in Mayesville for black children.", "ev_ko": [[19, "(D)(2) Emma Wilson은 McLeod의 오두막에 와서 (e)그녀(Wilson)가 Mayesville(메이스빌)에 흑인 아이들을 위한 새로운 학교를 열 것이라고 설명했다."]], "why": ["지칭 문제는 <b>그 문장의 주어<\/b>와 <b>그 사람이 할 수 있는 행동<\/b>을 함께 봐야 합니다", "(D)(2)의 주어는 <b>Emma Wilson<\/b>이고, 학교를 열겠다고 설명하는 것도 그녀입니다", "그래서 (e)의 she는 <b>Emma Wilson<\/b>입니다", "반면 (a)~(d)는 모두 <b>Mary<\/b>를 가리킵니다."], "ch": [{"n": "①", "t": "(a) her", "g": "(a) 그녀의", "ok": false, "e": ["(A)(4)입니다", "엄마가 집 안에 들어가 있는 동안 놀이집으로 간 사람은 Mary이고, (a) her는 <b>Mary<\/b>를 가리킵니다."]}, {"n": "②", "t": "(b) she", "g": "(b) 그녀", "ok": false, "e": ["(B)(2)입니다", "농장으로 걸어 돌아가는 길에 왜 백인들은 읽을 수 있는지 궁금해한 사람은 <b>Mary<\/b>입니다."]}, {"n": "③", "t": "(c) She", "g": "(c) 그녀", "ok": false, "e": ["(B)(3)입니다", "읽는 것을 배우기로 결심한 사람은 <b>Mary<\/b>입니다."]}, {"n": "④", "t": "(d) she", "g": "(d) 그녀", "ok": false, "e": ["(C)(4)입니다", "책에 시선이 쏠려 그것을 집어 든 사람은 <b>Mary<\/b>입니다."]}, {"n": "⑤", "t": "(e) she", "g": "(e) 그녀", "ok": true, "e": ["(D)(2)입니다", "학교를 열겠다고 설명한 사람은 주어인 <b>Emma Wilson<\/b>입니다", "나머지 넷(Mary)과 다릅니다."]}], "tr": ["(A)(1) Patsy McLeod가 갓 세탁한 옷을 그녀의 이전 주인인 Ben Wilson의 집에 가져갔을 때 그녀의 9살 난 딸 Mary가 따라갔다.", "(A)(2) 그들이 그 큰 집에 도착했을 때 McLeods는 흑인들을 위해 사용되는(흑인들이 이용하는) 뒤쪽 출입구로 걸어갔다.", "(A)(3) 1884년에, South Carolina(사우스캐롤라이나)주의 Mayesville(메이스빌)에서는 뚜렷한(심한) 인종 간 분리정책이 있었다.", "(A)(4) (a)그녀(Mary)의 엄마가 집 안에 들어가 있는 동안 Mary는 아이들의 장난감 집 쪽으로 돌아다녔고(걸어갔고) 안을 살펴보았다.", "(A)(5) 대략 그녀의 나이인(또래인) 2명의 백인 소녀가 수많은 인형들 사이에 앉아 있었다.", "(C)(1) “안녕, Mary! 들어오고 싶니?”라고 그들 중 한 명이 외쳤다.", "(C)(2) Mary는 기쁘게 장난감 집 안으로 들어갔다.", "(C)(3) 백인 아이는 “내가 친구와 차를 마시는 동안 너는 아이를 봐도 돼.”라고 말하며 흑인 소녀에게 인형을 건네주었다.", "(C)(4) Mary가 방에서 그 인형을 산책시키는 동안 그녀의 시선이 한 책에 쏠렸고 (d)그녀(Mary)는 경외감으로(경외감을 느끼며) 그것을 집어 들었다.", "(C)(5) 그녀의 부모님은 오두막에 성경을 가지고 있었지만 아무도 그것을 읽을 수 없었다.", "(C)(6) 갑자기 백인 소녀가 그 책을 잡아챘다.", "(C)(7) “그것을 내려놔!”라며 그녀가 소리쳤다.", "(C)(8) “너는 읽는 법을 모르잖아.”", "(B)(1) 창피해 하면서, Mary는 인형을 백인 아이에게 돌려주었고 그녀의 엄마와 재회했다.", "(B)(2) 그들의 농장으로 걸어 돌아가는 길에 (b)그녀(Mary)는 왜 백인들은 모든 종류의 좋은 것들을 가지고 있는지 그리고 무엇보다도, 흑인들은 읽을 수 없는데 반해 왜 그들(백인)은 읽을 수 있는지 궁금했다.", "(B)(3) (c)그녀(Mary)는 읽는 것을 배우기로 결심했다.", "(B)(4) 집에서 작은 소녀는 아빠에게 학교에 가게 해달라고 부탁했지만, 그는 그녀에게 “학교가 없단다.”라고 조용히 말했다.", "(D)(1) 하지만 어느 날 도시의 옷을 입은 한 흑인 여성이 그것을 바꾸었다.", "(D)(2) Emma Wilson은 McLeod의 오두막에 와서 (e)그녀(Wilson)가 Mayesville(메이스빌)에 흑인 아이들을 위한 새로운 학교를 열 것이라고 설명했다.", "(D)(3) 그녀는 “학교는 목화 수확 시기 이후에 시작될 것입니다.”라고 말했다.", "(D)(4) Mary의 부모님은 동의하며 고개를 끄덕였다.", "(D)(5) McLeod 부인도 그녀의 딸을 향해 고개를 끄덕였다.", "(D)(6) 어린 Mary는 매우 신이 났다.", "(D)(7) “제가 읽게 될 거라고요? Wilson 선생님?”", "(D)(8) 그녀는 Mary를 보고 미소 지었다."], "ps": [{"n": 1, "ch": [{"e": "When Patsy McLeod took freshly washed clothes", "k": "Patsy McLeod가 갓 세탁한 옷을 가져갔을 때"}, {"e": "to her former master Ben Wilson’s house,", "k": "그녀<span class=\"r\">(= Patsy)<\/span>의 이전 주인인 Ben Wilson의 집에"}, {"e": "her nine-year-old daughter Mary went along.", "k": "그녀<span class=\"r\">(= Patsy)<\/span>의 9살 난 딸 Mary가 따라갔다"}], "easy": "Patsy McLeod가 방금 빤 옷을 예전 주인 Ben Wilson의 집에 가져갈 때, 아홉 살 딸 Mary도 같이 갔어요.", "gist": "(A) 시작: 인물(Mary 모녀)과 장소(Ben Wilson의 집)를 소개한다."}, {"n": 2, "ch": [{"e": "When they arrived at the big house,", "k": "그들<span class=\"r\">(= Patsy와 Mary)<\/span>이 그 큰 집에 도착했을 때"}, {"e": "the McLeods walked to the rear entrance", "k": "McLeods는 뒤쪽 출입구로 걸어갔다"}, {"e": "used for blacks.", "k": "흑인들을 위해 사용되는(흑인들이 이용하는)"}], "easy": "큰 집에 도착하자 McLeod 가족은 흑인들이 쓰는 뒷문으로 갔어요.", "gist": "당시 인종 차별의 모습을 보여 준다."}, {"n": 3, "ch": [{"e": "In 1884 there was <b>sharp segregation<\/b>", "k": "1884년에 뚜렷한(심한) 분리정책이 있었다"}, {"e": "between the races", "k": "인종 간의"}, {"e": "in Mayesville, South Carolina.", "k": "South Carolina주의 Mayesville에서는"}], "easy": "1884년 사우스캐롤라이나주 Mayesville에서는 인종을 심하게 갈라놓는 정책이 있었어요.", "gist": "당시의 인종 분리 상황이라는 배경을 알려 준다."}, {"n": 4, "ch": [{"e": "While (a) her mother went inside the house,", "k": "(a)그녀(Mary)의 엄마가 집 안에 들어가 있는 동안"}, {"e": "Mary wandered over", "k": "Mary는 돌아다녔고(걸어갔고)"}, {"e": "to a children’s playhouse", "k": "아이들의 장난감 집 쪽으로"}, {"e": "and looked inside.", "k": "안을 살펴보았다"}], "easy": "(a) her는 Mary를 가리켜요. Mary의 엄마가 집 안에 들어간 동안, Mary는 아이들 놀이집 쪽으로 가서 안을 들여다봤어요.", "gist": "(a)의 her = Mary. 이야기가 놀이집 장면으로 넘어간다."}, {"n": 5, "ch": [{"e": "Two white girls about her age", "k": "그녀<span class=\"r\">(= Mary)<\/span>의 나이쯤 되는 2명의 백인 소녀가"}, {"e": "sat among a lot of dolls.", "k": "수많은 인형들 사이에 앉아 있었다"}], "easy": "Mary 또래로 보이는 백인 소녀 두 명이 인형에 둘러싸여 앉아 있었어요.", "gist": "(A)의 끝 — 놀이집 안에 있는 두 백인 소녀가 소개된다."}, {"n": 6, "ch": [{"e": "“Hello, Mary! Do you want to come in?”", "k": "“안녕, Mary! 들어오고 싶니?”라고"}, {"e": "one of them called out.", "k": "그들<span class=\"r\">(= 두 백인 소녀)<\/span> 중 한 명이 외쳤다"}], "easy": "소녀들 중 한 명이 “안녕, Mary! 들어올래?” 하고 불렀어요.", "gist": "(C) 시작: (A)의 끝(소녀들)에 바로 이어 Mary를 부른다."}, {"n": 7, "ch": [{"e": "Mary happily went into the playhouse.", "k": "Mary는 기쁘게 장난감 집 안으로 들어갔다"}], "easy": "Mary는 기쁘게 놀이집 안으로 들어갔어요.", "gist": "초대에 Mary가 응한다."}, {"n": 8, "ch": [{"e": "The white child handed a doll", "k": "백인 아이는 인형을 건네주었다"}, {"e": "to the black girl,", "k": "흑인 소녀에게"}, {"e": "saying “You can watch the baby", "k": "“너는 아이를 봐도 돼”라고 말하며"}, {"e": "while I have tea with my friend.”", "k": "내가 친구와 차를 마시는 동안"}], "easy": "백인 아이는 Mary에게 인형을 건네며 “내가 친구랑 차 마시는 동안 아기를 봐도 돼.” 하고 말했어요.", "gist": "인형을 안고 노는 장면으로 이어진다."}, {"n": 9, "ch": [{"e": "While Mary walked the doll around the room,", "k": "Mary가 방에서 그 인형을 산책시키는 동안"}, {"e": "her eyes fell upon a book;", "k": "그녀<span class=\"r\">(= Mary)<\/span>의 시선이 한 책에 쏠렸고"}, {"e": "(d) she picked it up in awe.", "k": "(d)그녀(Mary)는 경외감으로(경외감을 느끼며) 그것<span class=\"r\">(= 책)<\/span>을 집어 들었다"}], "easy": "(d) she는 Mary예요. Mary는 인형을 안고 걷다가 책이 눈에 띄어, 감탄하며 그 책을 집어 들었어요.", "gist": "(d)의 she = Mary. 책이 이 이야기의 핵심 소재로 등장한다."}, {"n": 10, "ch": [{"e": "Her parents had a Bible in their cabin,", "k": "그녀<span class=\"r\">(= Mary)<\/span>의 부모님은 오두막에 성경을 가지고 있었지만"}, {"e": "but no one could read it.", "k": "아무도 그것<span class=\"r\">(= 성경)<\/span>을 읽을 수 없었다"}], "easy": "Mary의 부모님 오두막에도 성경이 있었지만, 읽을 수 있는 사람은 아무도 없었어요.", "gist": "성경이 있어도 읽을 줄 아는 사람이 없었다는 사정을 알려 준다."}, {"n": 11, "ch": [{"e": "Unexpectedly", "k": "갑자기"}, {"e": "the white girl grabbed the book.", "k": "백인 소녀가 그 책을 잡아챘다"}], "easy": "그런데 갑자기 백인 소녀가 그 책을 낚아챘어요.", "gist": "분위기가 바뀌는 전환점이다."}, {"n": 12, "ch": [{"e": "“Put that down!”", "k": "“그것을 내려놔!”"}, {"e": "she yelled.", "k": "라며 그녀<span class=\"r\">(= 백인 소녀)<\/span>가 소리쳤다"}], "easy": "소녀는 “그거 내려놔!” 하고 소리쳤어요.", "gist": "선지 12-④의 근거 — 책을 내려놓으라는 고함."}, {"n": 13, "ch": [{"e": "“You don’t know how to read.”", "k": "“너는 읽는 법을 모르잖아.”"}], "easy": "“너는 읽을 줄도 모르잖아.”", "gist": "소녀가 Mary에게 망신을 주는 말이다. 이것이 (B)의 '창피함'으로 이어진다."}, {"n": 14, "ch": [{"e": "<b>Feeling shameful<\/b>,", "k": "창피해 하면서"}, {"e": "Mary handed the doll back to the white child", "k": "Mary는 인형을 백인 아이에게 돌려주었고"}, {"e": "and rejoined her mother.", "k": "그녀<span class=\"r\">(= Mary)<\/span>의 엄마와 재회했다"}], "easy": "창피해진 Mary는 인형을 돌려주고 엄마에게 돌아갔어요.", "gist": "(B) 시작: (C)에서 받은 인형을 돌려주며 창피함을 느낀다."}, {"n": 15, "ch": [{"e": "On the walk back to their farm,", "k": "그들의 농장으로 걸어 돌아가는 길에"}, {"e": "(b) she wondered", "k": "(b)그녀(Mary)는 궁금했다"}, {"e": "why white people had all kinds of nice things", "k": "왜 백인들은 모든 종류의 좋은 것들을 가지고 있는지"}, {"e": "and why, above all,", "k": "그리고 무엇보다도 왜"}, {"e": "they could read while black people couldn’t.", "k": "흑인들은 읽을 수 없는데 반해 그들<span class=\"r\">(= 백인)<\/span>은 읽을 수 있는지"}], "easy": "(b) she는 Mary예요. 농장으로 돌아가는 길에 Mary는 왜 백인들은 좋은 것도 많고 글도 읽을 수 있는데 흑인들은 못 읽는지 궁금했어요.", "gist": "(b)의 she = Mary. 읽기에 대한 Mary의 의문이 커진다."}, {"n": 16, "ch": [{"e": "(c) She decided", "k": "(c)그녀(Mary)는 결심했다"}, {"e": "to learn to read.", "k": "읽는 것을 배우기로"}], "easy": "(c) She도 Mary예요. Mary는 읽는 법을 배우기로 마음먹었어요.", "gist": "(c)의 She = Mary. Mary의 결심이 이야기의 목표가 된다."}, {"n": 17, "ch": [{"e": "At home the little girl asked her father", "k": "집에서 작은 소녀<span class=\"r\">(= Mary)<\/span>는 그녀의 아빠에게 부탁했고"}, {"e": "to let her go to school,", "k": "그녀<span class=\"r\">(= Mary)<\/span>가 학교에 가게 해달라고"}, {"e": "but he told her calmly,", "k": "하지만 그<span class=\"r\">(= 아빠)<\/span>는 그녀<span class=\"r\">(= Mary)<\/span>에게 조용히 말했다"}, {"e": "“There isn’t any school.”", "k": "“학교가 없단다.”라고"}], "easy": "집에 와서 Mary는 아빠에게 학교에 가게 해 달라고 했지만, 아빠는 “학교가 없단다.” 하고 조용히 말했어요.", "gist": "선지 12-③의 근거. 학교가 없다는 아빠의 말로 (B)가 끝난다."}, {"n": 18, "ch": [{"e": "One day, <b>however<\/b>,", "k": "하지만 어느 날"}, {"e": "a black woman in city clothes", "k": "도시의 옷을 입은 한 흑인 여성이"}, {"e": "<b>changed that<\/b>.", "k": "그것을 바꾸었다"}], "easy": "그런데 어느 날 도시 옷차림의 한 흑인 여성이 그것을 바꿔 놓았어요.", "gist": "(D) 시작: However로 분위기를 뒤집는다. 무엇이 바뀌는지는 뒤따르는 문장(새 학교 이야기)에서 드러난다."}, {"n": 19, "ch": [{"e": "Emma Wilson came to the McLeod cabin,", "k": "Emma Wilson은 McLeod의 오두막에 와서"}, {"e": "explaining that (e) she would open a new school", "k": "(e)그녀(Wilson)가 새로운 학교를 열 것이라고 설명했다"}, {"e": "in Mayesville for black children.", "k": "Mayesville에 흑인 아이들을 위한"}], "easy": "Emma Wilson이 McLeod의 오두막에 와서, 자기가 Mayesville에 흑인 아이들을 위한 새 학교를 열 거라고 말했어요.", "gist": "(e)의 she = Emma Wilson. 다른 (a)~(d)와 달리 Mary가 아니다."}, {"n": 20, "ch": [{"e": "“The school will begin", "k": "“학교는 시작될 것입니다”"}, {"e": "after the cotton-picking season,”", "k": "목화 수확 시기 이후에"}, {"e": "she said.", "k": "라고 그녀<span class=\"r\">(= Emma Wilson)<\/span>는 말했다"}], "easy": "Emma Wilson은 학교가 목화 따는 철이 끝난 뒤에 시작된다고 했어요.", "gist": "학교 개교 시기를 알려 준다."}, {"n": 21, "ch": [{"e": "Mary’s parents nodded in agreement.", "k": "Mary의 부모님은 동의하며 고개를 끄덕였다"}], "easy": "Mary의 부모님은 찬성하며 고개를 끄덕였어요.", "gist": "선지 12-⑤의 근거 — 부모님은 반대하지 않고 동의했다."}, {"n": 22, "ch": [{"e": "Mrs. McLeod also nodded", "k": "McLeod 부인도 고개를 끄덕였다"}, {"e": "toward her daughter.", "k": "그녀<span class=\"r\">(= McLeod 부인)<\/span>의 딸을 향해"}], "easy": "McLeod 부인도 딸 쪽을 보며 고개를 끄덕였어요.", "gist": "엄마가 딸 쪽을 보며 고개를 끄덕이는 장면이다."}, {"n": 23, "ch": [{"e": "Young Mary was very excited.", "k": "어린 Mary는 매우 신이 났다"}], "easy": "어린 Mary는 아주 신이 났어요.", "gist": "Mary의 기쁨을 보여 준다."}, {"n": 24, "ch": [{"e": "“I’m gonna read?", "k": "“제가 읽게 될 거라고요?"}, {"e": "Miss Wilson?”", "k": "Wilson 선생님?”"}], "easy": "“제가 읽게 되는 거예요, Wilson 선생님?”", "gist": "Mary의 소원이 이루어질 가능성을 묻는다."}, {"n": 25, "ch": [{"e": "She smiled at Mary.", "k": "그녀<span class=\"r\">(= Wilson)<\/span>는 Mary를 보고 미소 지었다"}], "easy": "Wilson 선생님이 Mary를 보고 웃어 주었어요.", "gist": "Wilson이 Mary에게 미소를 지으며 장면이 끝난다."}]}, {"no": "12", "typ": "장문 · 내용 불일치", "src": "2018년 3월 45번", "evn": [21], "ev_en": "(D)(4) Mary’s parents nodded in agreement.", "ev_ko": [[21, "(D)(4) Mary의 부모님은 동의하며 고개를 끄덕였다."]], "why": ["내용 불일치 문제는 <b>선지의 핵심 동사<\/b>가 지문과 반대인지를 확인합니다", "(D)(4)에서 Mary의 부모님은 <b>동의하며(in agreement) 고개를 끄덕였다<\/b>고 했습니다", "그런데 선지 ⑤는 '<b>반대했다<\/b>'고 썼으므로 본문과 정반대입니다."], "ch": [{"n": "①", "t": "어머니를 따라 Ben Wilson의 집에 갔다.", "g": "", "ok": false, "e": ["(A)(1)의 <b>her nine-year-old daughter Mary went along<\/b>(그녀의 9살 난 딸 Mary가 따라갔다)과 일치합니다."]}, {"n": "②", "t": "많은 인형 사이에 앉아 있는 백인 소녀 두 명을 봤다.", "g": "", "ok": false, "e": ["(A)(5)의 <b>Two white girls ~ sat among a lot of dolls<\/b>와 일치합니다."]}, {"n": "③", "t": "아버지에게 학교에 다니게 해달라고 요청했다.", "g": "", "ok": false, "e": ["(B)(4)의 <b>the little girl asked her father to let her go to school<\/b>과 일치합니다."]}, {"n": "④", "t": "책을 내려놓으라는 고함 소리를 들었다.", "g": "", "ok": false, "e": ["(C)(7)의 <b>“Put that down!” she yelled<\/b>와 일치합니다."]}, {"n": "⑤", "t": "Emma Wilson이 열 학교에 가는 것을 부모님이 반대했다.", "g": "", "ok": true, "e": ["(D)(4)에서 Mary의 부모님은 <b>동의하며(in agreement)<\/b> 고개를 끄덕였으므로 반대했다는 것은 사실과 다릅니다."]}], "tr": ["(A)(1) Patsy McLeod가 갓 세탁한 옷을 그녀의 이전 주인인 Ben Wilson의 집에 가져갔을 때 그녀의 9살 난 딸 Mary가 따라갔다.", "(A)(2) 그들이 그 큰 집에 도착했을 때 McLeods는 흑인들을 위해 사용되는(흑인들이 이용하는) 뒤쪽 출입구로 걸어갔다.", "(A)(3) 1884년에, South Carolina(사우스캐롤라이나)주의 Mayesville(메이스빌)에서는 뚜렷한(심한) 인종 간 분리정책이 있었다.", "(A)(4) (a)그녀(Mary)의 엄마가 집 안에 들어가 있는 동안 Mary는 아이들의 장난감 집 쪽으로 돌아다녔고(걸어갔고) 안을 살펴보았다.", "(A)(5) 대략 그녀의 나이인(또래인) 2명의 백인 소녀가 수많은 인형들 사이에 앉아 있었다.", "(C)(1) “안녕, Mary! 들어오고 싶니?”라고 그들 중 한 명이 외쳤다.", "(C)(2) Mary는 기쁘게 장난감 집 안으로 들어갔다.", "(C)(3) 백인 아이는 “내가 친구와 차를 마시는 동안 너는 아이를 봐도 돼.”라고 말하며 흑인 소녀에게 인형을 건네주었다.", "(C)(4) Mary가 방에서 그 인형을 산책시키는 동안 그녀의 시선이 한 책에 쏠렸고 (d)그녀(Mary)는 경외감으로(경외감을 느끼며) 그것을 집어 들었다.", "(C)(5) 그녀의 부모님은 오두막에 성경을 가지고 있었지만 아무도 그것을 읽을 수 없었다.", "(C)(6) 갑자기 백인 소녀가 그 책을 잡아챘다.", "(C)(7) “그것을 내려놔!”라며 그녀가 소리쳤다.", "(C)(8) “너는 읽는 법을 모르잖아.”", "(B)(1) 창피해 하면서, Mary는 인형을 백인 아이에게 돌려주었고 그녀의 엄마와 재회했다.", "(B)(2) 그들의 농장으로 걸어 돌아가는 길에 (b)그녀(Mary)는 왜 백인들은 모든 종류의 좋은 것들을 가지고 있는지 그리고 무엇보다도, 흑인들은 읽을 수 없는데 반해 왜 그들(백인)은 읽을 수 있는지 궁금했다.", "(B)(3) (c)그녀(Mary)는 읽는 것을 배우기로 결심했다.", "(B)(4) 집에서 작은 소녀는 아빠에게 학교에 가게 해달라고 부탁했지만, 그는 그녀에게 “학교가 없단다.”라고 조용히 말했다.", "(D)(1) 하지만 어느 날 도시의 옷을 입은 한 흑인 여성이 그것을 바꾸었다.", "(D)(2) Emma Wilson은 McLeod의 오두막에 와서 (e)그녀(Wilson)가 Mayesville(메이스빌)에 흑인 아이들을 위한 새로운 학교를 열 것이라고 설명했다.", "(D)(3) 그녀는 “학교는 목화 수확 시기 이후에 시작될 것입니다.”라고 말했다.", "(D)(4) Mary의 부모님은 동의하며 고개를 끄덕였다.", "(D)(5) McLeod 부인도 그녀의 딸을 향해 고개를 끄덕였다.", "(D)(6) 어린 Mary는 매우 신이 났다.", "(D)(7) “제가 읽게 될 거라고요? Wilson 선생님?”", "(D)(8) 그녀는 Mary를 보고 미소 지었다."], "ps": [{"n": 1, "ch": [{"e": "When Patsy McLeod took freshly washed clothes", "k": "Patsy McLeod가 갓 세탁한 옷을 가져갔을 때"}, {"e": "to her former master Ben Wilson’s house,", "k": "그녀<span class=\"r\">(= Patsy)<\/span>의 이전 주인인 Ben Wilson의 집에"}, {"e": "her nine-year-old daughter Mary went along.", "k": "그녀<span class=\"r\">(= Patsy)<\/span>의 9살 난 딸 Mary가 따라갔다"}], "easy": "Patsy McLeod가 방금 빤 옷을 예전 주인 Ben Wilson의 집에 가져갈 때, 아홉 살 딸 Mary도 같이 갔어요.", "gist": "(A) 시작: 인물(Mary 모녀)과 장소(Ben Wilson의 집)를 소개한다."}, {"n": 2, "ch": [{"e": "When they arrived at the big house,", "k": "그들<span class=\"r\">(= Patsy와 Mary)<\/span>이 그 큰 집에 도착했을 때"}, {"e": "the McLeods walked to the rear entrance", "k": "McLeods는 뒤쪽 출입구로 걸어갔다"}, {"e": "used for blacks.", "k": "흑인들을 위해 사용되는(흑인들이 이용하는)"}], "easy": "큰 집에 도착하자 McLeod 가족은 흑인들이 쓰는 뒷문으로 갔어요.", "gist": "당시 인종 차별의 모습을 보여 준다."}, {"n": 3, "ch": [{"e": "In 1884 there was <b>sharp segregation<\/b>", "k": "1884년에 뚜렷한(심한) 분리정책이 있었다"}, {"e": "between the races", "k": "인종 간의"}, {"e": "in Mayesville, South Carolina.", "k": "South Carolina주의 Mayesville에서는"}], "easy": "1884년 사우스캐롤라이나주 Mayesville에서는 인종을 심하게 갈라놓는 정책이 있었어요.", "gist": "당시의 인종 분리 상황이라는 배경을 알려 준다."}, {"n": 4, "ch": [{"e": "While (a) her mother went inside the house,", "k": "(a)그녀(Mary)의 엄마가 집 안에 들어가 있는 동안"}, {"e": "Mary wandered over", "k": "Mary는 돌아다녔고(걸어갔고)"}, {"e": "to a children’s playhouse", "k": "아이들의 장난감 집 쪽으로"}, {"e": "and looked inside.", "k": "안을 살펴보았다"}], "easy": "(a) her는 Mary를 가리켜요. Mary의 엄마가 집 안에 들어간 동안, Mary는 아이들 놀이집 쪽으로 가서 안을 들여다봤어요.", "gist": "(a)의 her = Mary. 이야기가 놀이집 장면으로 넘어간다."}, {"n": 5, "ch": [{"e": "Two white girls about her age", "k": "그녀<span class=\"r\">(= Mary)<\/span>의 나이쯤 되는 2명의 백인 소녀가"}, {"e": "sat among a lot of dolls.", "k": "수많은 인형들 사이에 앉아 있었다"}], "easy": "Mary 또래로 보이는 백인 소녀 두 명이 인형에 둘러싸여 앉아 있었어요.", "gist": "(A)의 끝 — 놀이집 안에 있는 두 백인 소녀가 소개된다."}, {"n": 6, "ch": [{"e": "“Hello, Mary! Do you want to come in?”", "k": "“안녕, Mary! 들어오고 싶니?”라고"}, {"e": "one of them called out.", "k": "그들<span class=\"r\">(= 두 백인 소녀)<\/span> 중 한 명이 외쳤다"}], "easy": "소녀들 중 한 명이 “안녕, Mary! 들어올래?” 하고 불렀어요.", "gist": "(C) 시작: (A)의 끝(소녀들)에 바로 이어 Mary를 부른다."}, {"n": 7, "ch": [{"e": "Mary happily went into the playhouse.", "k": "Mary는 기쁘게 장난감 집 안으로 들어갔다"}], "easy": "Mary는 기쁘게 놀이집 안으로 들어갔어요.", "gist": "초대에 Mary가 응한다."}, {"n": 8, "ch": [{"e": "The white child handed a doll", "k": "백인 아이는 인형을 건네주었다"}, {"e": "to the black girl,", "k": "흑인 소녀에게"}, {"e": "saying “You can watch the baby", "k": "“너는 아이를 봐도 돼”라고 말하며"}, {"e": "while I have tea with my friend.”", "k": "내가 친구와 차를 마시는 동안"}], "easy": "백인 아이는 Mary에게 인형을 건네며 “내가 친구랑 차 마시는 동안 아기를 봐도 돼.” 하고 말했어요.", "gist": "인형을 안고 노는 장면으로 이어진다."}, {"n": 9, "ch": [{"e": "While Mary walked the doll around the room,", "k": "Mary가 방에서 그 인형을 산책시키는 동안"}, {"e": "her eyes fell upon a book;", "k": "그녀<span class=\"r\">(= Mary)<\/span>의 시선이 한 책에 쏠렸고"}, {"e": "(d) she picked it up in awe.", "k": "(d)그녀(Mary)는 경외감으로(경외감을 느끼며) 그것<span class=\"r\">(= 책)<\/span>을 집어 들었다"}], "easy": "(d) she는 Mary예요. Mary는 인형을 안고 걷다가 책이 눈에 띄어, 감탄하며 그 책을 집어 들었어요.", "gist": "(d)의 she = Mary. 책이 이 이야기의 핵심 소재로 등장한다."}, {"n": 10, "ch": [{"e": "Her parents had a Bible in their cabin,", "k": "그녀<span class=\"r\">(= Mary)<\/span>의 부모님은 오두막에 성경을 가지고 있었지만"}, {"e": "but no one could read it.", "k": "아무도 그것<span class=\"r\">(= 성경)<\/span>을 읽을 수 없었다"}], "easy": "Mary의 부모님 오두막에도 성경이 있었지만, 읽을 수 있는 사람은 아무도 없었어요.", "gist": "성경이 있어도 읽을 줄 아는 사람이 없었다는 사정을 알려 준다."}, {"n": 11, "ch": [{"e": "Unexpectedly", "k": "갑자기"}, {"e": "the white girl grabbed the book.", "k": "백인 소녀가 그 책을 잡아챘다"}], "easy": "그런데 갑자기 백인 소녀가 그 책을 낚아챘어요.", "gist": "분위기가 바뀌는 전환점이다."}, {"n": 12, "ch": [{"e": "“Put that down!”", "k": "“그것을 내려놔!”"}, {"e": "she yelled.", "k": "라며 그녀<span class=\"r\">(= 백인 소녀)<\/span>가 소리쳤다"}], "easy": "소녀는 “그거 내려놔!” 하고 소리쳤어요.", "gist": "선지 12-④의 근거 — 책을 내려놓으라는 고함."}, {"n": 13, "ch": [{"e": "“You don’t know how to read.”", "k": "“너는 읽는 법을 모르잖아.”"}], "easy": "“너는 읽을 줄도 모르잖아.”", "gist": "소녀가 Mary에게 망신을 주는 말이다. 이것이 (B)의 '창피함'으로 이어진다."}, {"n": 14, "ch": [{"e": "<b>Feeling shameful<\/b>,", "k": "창피해 하면서"}, {"e": "Mary handed the doll back to the white child", "k": "Mary는 인형을 백인 아이에게 돌려주었고"}, {"e": "and rejoined her mother.", "k": "그녀<span class=\"r\">(= Mary)<\/span>의 엄마와 재회했다"}], "easy": "창피해진 Mary는 인형을 돌려주고 엄마에게 돌아갔어요.", "gist": "(B) 시작: (C)에서 받은 인형을 돌려주며 창피함을 느낀다."}, {"n": 15, "ch": [{"e": "On the walk back to their farm,", "k": "그들의 농장으로 걸어 돌아가는 길에"}, {"e": "(b) she wondered", "k": "(b)그녀(Mary)는 궁금했다"}, {"e": "why white people had all kinds of nice things", "k": "왜 백인들은 모든 종류의 좋은 것들을 가지고 있는지"}, {"e": "and why, above all,", "k": "그리고 무엇보다도 왜"}, {"e": "they could read while black people couldn’t.", "k": "흑인들은 읽을 수 없는데 반해 그들<span class=\"r\">(= 백인)<\/span>은 읽을 수 있는지"}], "easy": "(b) she는 Mary예요. 농장으로 돌아가는 길에 Mary는 왜 백인들은 좋은 것도 많고 글도 읽을 수 있는데 흑인들은 못 읽는지 궁금했어요.", "gist": "(b)의 she = Mary. 읽기에 대한 Mary의 의문이 커진다."}, {"n": 16, "ch": [{"e": "(c) She decided", "k": "(c)그녀(Mary)는 결심했다"}, {"e": "to learn to read.", "k": "읽는 것을 배우기로"}], "easy": "(c) She도 Mary예요. Mary는 읽는 법을 배우기로 마음먹었어요.", "gist": "(c)의 She = Mary. Mary의 결심이 이야기의 목표가 된다."}, {"n": 17, "ch": [{"e": "At home the little girl asked her father", "k": "집에서 작은 소녀<span class=\"r\">(= Mary)<\/span>는 그녀의 아빠에게 부탁했고"}, {"e": "to let her go to school,", "k": "그녀<span class=\"r\">(= Mary)<\/span>가 학교에 가게 해달라고"}, {"e": "but he told her calmly,", "k": "하지만 그<span class=\"r\">(= 아빠)<\/span>는 그녀<span class=\"r\">(= Mary)<\/span>에게 조용히 말했다"}, {"e": "“There isn’t any school.”", "k": "“학교가 없단다.”라고"}], "easy": "집에 와서 Mary는 아빠에게 학교에 가게 해 달라고 했지만, 아빠는 “학교가 없단다.” 하고 조용히 말했어요.", "gist": "선지 12-③의 근거. 학교가 없다는 아빠의 말로 (B)가 끝난다."}, {"n": 18, "ch": [{"e": "One day, <b>however<\/b>,", "k": "하지만 어느 날"}, {"e": "a black woman in city clothes", "k": "도시의 옷을 입은 한 흑인 여성이"}, {"e": "<b>changed that<\/b>.", "k": "그것을 바꾸었다"}], "easy": "그런데 어느 날 도시 옷차림의 한 흑인 여성이 그것을 바꿔 놓았어요.", "gist": "(D) 시작: However로 분위기를 뒤집는다. 무엇이 바뀌는지는 뒤따르는 문장(새 학교 이야기)에서 드러난다."}, {"n": 19, "ch": [{"e": "Emma Wilson came to the McLeod cabin,", "k": "Emma Wilson은 McLeod의 오두막에 와서"}, {"e": "explaining that (e) she would open a new school", "k": "(e)그녀(Wilson)가 새로운 학교를 열 것이라고 설명했다"}, {"e": "in Mayesville for black children.", "k": "Mayesville에 흑인 아이들을 위한"}], "easy": "Emma Wilson이 McLeod의 오두막에 와서, 자기가 Mayesville에 흑인 아이들을 위한 새 학교를 열 거라고 말했어요.", "gist": "(e)의 she = Emma Wilson. 다른 (a)~(d)와 달리 Mary가 아니다."}, {"n": 20, "ch": [{"e": "“The school will begin", "k": "“학교는 시작될 것입니다”"}, {"e": "after the cotton-picking season,”", "k": "목화 수확 시기 이후에"}, {"e": "she said.", "k": "라고 그녀<span class=\"r\">(= Emma Wilson)<\/span>는 말했다"}], "easy": "Emma Wilson은 학교가 목화 따는 철이 끝난 뒤에 시작된다고 했어요.", "gist": "학교 개교 시기를 알려 준다."}, {"n": 21, "ch": [{"e": "Mary’s parents nodded in agreement.", "k": "Mary의 부모님은 동의하며 고개를 끄덕였다"}], "easy": "Mary의 부모님은 찬성하며 고개를 끄덕였어요.", "gist": "선지 12-⑤의 근거 — 부모님은 반대하지 않고 동의했다."}, {"n": 22, "ch": [{"e": "Mrs. McLeod also nodded", "k": "McLeod 부인도 고개를 끄덕였다"}, {"e": "toward her daughter.", "k": "그녀<span class=\"r\">(= McLeod 부인)<\/span>의 딸을 향해"}], "easy": "McLeod 부인도 딸 쪽을 보며 고개를 끄덕였어요.", "gist": "엄마가 딸 쪽을 보며 고개를 끄덕이는 장면이다."}, {"n": 23, "ch": [{"e": "Young Mary was very excited.", "k": "어린 Mary는 매우 신이 났다"}], "easy": "어린 Mary는 아주 신이 났어요.", "gist": "Mary의 기쁨을 보여 준다."}, {"n": 24, "ch": [{"e": "“I’m gonna read?", "k": "“제가 읽게 될 거라고요?"}, {"e": "Miss Wilson?”", "k": "Wilson 선생님?”"}], "easy": "“제가 읽게 되는 거예요, Wilson 선생님?”", "gist": "Mary의 소원이 이루어질 가능성을 묻는다."}, {"n": 25, "ch": [{"e": "She smiled at Mary.", "k": "그녀<span class=\"r\">(= Wilson)<\/span>는 Mary를 보고 미소 지었다"}], "easy": "Wilson 선생님이 Mary를 보고 웃어 주었어요.", "gist": "Wilson이 Mary에게 미소를 지으며 장면이 끝난다."}]}];
+var ENC="=QakivDpRK+OhGp47IakivjoRK+OjGp4";
+var SETID="g1r10p2", N=D.length, TITLE="고1 미니모의고사 10회 07–12번";
+var CIRC="①②③④⑤";
+function dec(s){var b=atob(s.split("").reverse().join(""));var u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder("utf-8").decode(u);}
+var ANS=dec(ENC).split(";").map(function(x){return x.split("|").map(function(c){return CIRC.indexOf(c)+1;});});
+function isRight(i,a){return ANS[i].indexOf(a)>=0;}
+function ansText(i){return ANS[i].map(function(n){return CIRC[n-1];}).join(", ");}
+
+var GCODE="h1", GRADE="고1", FILE="10b", NEXT="11a.html";
+const KEY='via_mm_'+GCODE+'_'+FILE;
+let S={checks:{},locked:{},res:{},sub:null,q:[]};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* REC 연결 지점: 지금은 기기 안에 대기열로만 쌓음 */
+function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localStorage.getItem('via_minimock_rec_queue')||'[]');q.push(ev);localStorage.setItem('via_minimock_rec_queue',JSON.stringify(q));}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const app=$('#app');
+let view='word',quiz=null,armed=null;
+function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function shuffle(arr,seed){const a=arr.slice();let s=hash(seed)||1;for(let i=a.length-1;i>0;i--){s=Math.imul(s^(s>>>15),2246822519)>>>0;const j=s%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+const WS=WORDS.sets[0];
+
+function hdr(){
+  const on=id=>(view===id)?'on':'';
+  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><a class="link" href="index.html">목록</a></div><div class="tabs"><button class="tab ${on('word')}" data-v="word">단어</button><button class="tab ${on('submit')}" data-v="submit">답 제출</button><button class="tab ${on('exp')}" data-v="exp" ${S.sub?'':'disabled'}>해설</button></div></div></header>`;
+}
+function noteList(){
+  const out=[],ck=S.checks[WS.id]||{};
+  WS.words.forEach((w,i)=>{
+    const c=ck[i];if(!c)return;
+    const parts=['m','s','a'].filter(p=>c[p]&&(p==='m'||w[p]));
+    if(parts.length)out.push({i:i,w:w,parts:parts});
+  });
+  return out;
+}
+function render(){
+  if(view==='word')renderWord();
+  else if(view==='note')renderNote();
+  else if(view==='quiz')renderQuiz();
+  else if(view==='result')renderResult();
+  else if(view==='submit')renderSubmit();
+  else if(view==='exp')renderExp();
+  window.scrollTo(0,0);
+}
+/* ---- 단어 확인 ---- */
+function renderWord(){
+  const ck=S.checks[WS.id]||{},locked=!!S.locked[WS.id],n=noteList().length;
+  let h=hdr()+`<div class="wrap ${locked?'locked':''}">`;
+  WS.words.forEach((w,i)=>{
+    const c=ck[i]||{};
+    h+=`<div class="row"><div class="top"><span class="no">${i+1}</span><span class="word">${esc(w.w)}</span><span class="src">${esc(w.src)}번</span></div><div class="cells">`;
+    h+=`<button class="cell m ${c.m?'bad':''}" data-i="${i}" data-p="m"><span class="tag">뜻</span><span>${esc(w.m)}</span></button>`;
+    if(w.s)h+=`<button class="cell s ${c.s?'bad':''}" data-i="${i}" data-p="s"><span class="tag">유</span><span>${esc(w.s[0])}<span class="ko">${esc(w.s[1])}</span></span></button>`;
+    if(w.a)h+=`<button class="cell a ${c.a?'bad':''}" data-i="${i}" data-p="a"><span class="tag">반</span><span>${esc(w.a[0])}<span class="ko">${esc(w.a[1])}</span></span></button>`;
+    h+=`</div></div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap">`;
+  h+=locked?`<button class="btn" disabled>확인 끝</button>`:`<button class="btn ${armed==='lock'?'arm':''}" id="lock">${armed==='lock'?'한 번 더 누르면 확인 끝':'확인 끝'}</button>`;
+  h+=`<button class="btn pri" id="gonote">단어 오답노트 ${n}</button></div></div>`;
+  app.innerHTML=h;
+  app.querySelectorAll('.cell').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,p=b.dataset.p;
+    S.checks[WS.id]=S.checks[WS.id]||{};
+    const c=S.checks[WS.id][i]=S.checks[WS.id][i]||{};
+    c[p]=c[p]?0:1;save();
+    b.classList.toggle('bad',!!c[p]);
+    $('#gonote').textContent='단어 오답노트 '+noteList().length;
+  });
+  const lk=$('#lock');if(lk)lk.onclick=()=>{
+    if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
+      recSend({type:'word',marks:noteList().map(it=>({w:it.w.w,parts:it.parts}))});}
+    else armed='lock';
+    render();
+  };
+  $('#gonote').onclick=()=>{view='note';armed=null;render();};
+}
+function renderNote(){
+  const list=noteList();
+  let h=`<header><div class="wrap hd2"><h1>단어 오답노트 <span class="meta">${list.length}개</span></h1><button class="link" id="back">확인표</button></div></header><div class="wrap">`;
+  if(!list.length)h+=`<div class="empty">아직 표시한 단어가 없습니다</div>`;
+  list.forEach(it=>{
+    const w=it.w,r=(S.res[WS.id]||{})[it.i]||{};
+    h+=`<div class="note-item"><span class="w">${esc(w.w)}</span><span class="meta">${esc(w.src)}번</span>`;
+    const row=(p,tag,txt,ko)=>{
+      const bad=it.parts.includes(p);
+      const rs=r[p]===1?'<span class="res o">맞춤</span>':r[p]===0?'<span class="res x">틀림</span>':'';
+      return `<div class="part ${p} ${bad?'bad':''}"><span class="tag">${tag}</span><span>${esc(txt)}${ko?`<span class="ko"> ${esc(ko)}</span>`:''}</span>${bad?rs:''}</div>`;
+    };
+    h+=row('m','뜻',w.m,'');
+    if(w.s)h+=row('s','유',w.s[0],w.s[1]);
+    if(w.a)h+=row('a','반',w.a[0],w.a[1]);
+    h+=`</div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap"><button class="btn" id="back2">확인표</button><button class="btn pri" id="start" ${list.length?'':'disabled'}>복습 시작</button></div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='word';armed=null;render();};
+  $('#back2').onclick=()=>{view='word';render();};
+  $('#start').onclick=()=>{quiz={qs:buildQuestions(),n:0,right:0,done:false,shown:false};view='quiz';render();};
+}
+function buildQuestions(){
+  const qs=[];
+  noteList().forEach(it=>{
+    const w=it.w;
+    it.parts.forEach(p=>{
+      let q={i:it.i,p:p,w:w.w};
+      if(p==='m'){
+        const toks=x=>x.split(/[,，]\s*/).map(t=>t.trim());
+        const ct=toks(w.m);
+        const pool=[...new Set(WS.words.filter(o=>o!==w).map(o=>o.m))].filter(m=>!toks(m).some(t=>ct.includes(t)));
+        const wrong=shuffle(pool,WS.id+w.w+'m').slice(0,3);
+        q.type='choice';q.ask='뜻을 고르세요';
+        q.opts=shuffle([{t:w.m,ok:1}].concat(wrong.map(t=>({t:t,ok:0}))),WS.id+w.w+'mo');
+      }else{
+        const ans=w[p],d=WS.dist||[];
+        q.ask=p==='s'?'유의어를 고르세요':'반의어를 고르세요';
+        if(d.length>=3){
+          q.type='choice';
+          q.opts=shuffle([{t:ans[0],ko:ans[1],ok:1}].concat(shuffle(d,WS.id+w.w+p).slice(0,3).map(x=>({t:x[0],ko:x[1],ok:0}))),WS.id+w.w+p+'o');
+        }else{q.type='flip';q.ans=ans;}
+      }
+      qs.push(q);
+    });
+  });
+  return qs;
+}
+function recordRes(q,ok){S.res[WS.id]=S.res[WS.id]||{};const r=S.res[WS.id][q.i]=S.res[WS.id][q.i]||{};r[q.p]=ok?1:0;save();}
+function renderQuiz(){
+  const q=quiz.qs[quiz.n];
+  let h=`<header><div class="wrap hd2"><h1>복습</h1><button class="link" id="back">오답노트</button></div></header><div class="wrap ${quiz.done?'done':''}"><div class="q"><div class="cnt">${quiz.n+1} / ${quiz.qs.length}</div><div class="ask">${q.ask}</div><div class="target">${esc(q.w)}</div>`;
+  if(q.type==='choice'){
+    q.opts.forEach((o,k)=>{
+      let cls='';
+      if(quiz.done){if(o.ok)cls='right';else if(k===quiz.pick)cls='wrong';}
+      h+=`<button class="opt ${cls}" data-k="${k}">${esc(o.t)}${o.ko?`<span class="ko">${esc(o.ko)}</span>`:''}</button>`;
+    });
+  }else if(quiz.shown)h+=`<div class="opt right">${esc(q.ans[0])}<span class="ko">${esc(q.ans[1])}</span></div>`;
+  h+=`</div></div><div class="bar"><div class="wrap">`;
+  if(q.type==='flip'&&!quiz.shown)h+=`<button class="btn pri" id="show">정답 보기</button>`;
+  else if(q.type==='flip')h+=`<button class="btn" id="no">몰랐음</button><button class="btn pri" id="yes">알았음</button>`;
+  else h+=`<button class="btn pri" id="next" ${quiz.done?'':'disabled'}>${quiz.n+1===quiz.qs.length?'결과':'다음'}</button>`;
+  h+=`</div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='note';render();};
+  app.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+    if(quiz.done)return;
+    const k=+b.dataset.k;quiz.pick=k;quiz.done=true;
+    const ok=q.opts[k].ok===1;if(ok)quiz.right++;recordRes(q,ok);render();
+  });
+  const nx=$('#next');if(nx)nx.onclick=()=>advance();
+  const sh=$('#show');if(sh)sh.onclick=()=>{quiz.shown=true;render();};
+  const yes=$('#yes');if(yes)yes.onclick=()=>{quiz.right++;recordRes(q,true);advance();};
+  const no=$('#no');if(no)no.onclick=()=>{recordRes(q,false);advance();};
+}
+function advance(){
+  if(quiz.n+1>=quiz.qs.length){view='result';render();return;}
+  quiz.n++;quiz.done=false;quiz.shown=false;quiz.pick=null;render();
+}
+function renderResult(){
+  app.innerHTML=`<header><div class="wrap hd2"><h1>복습 결과</h1></div></header><div class="wrap"><div class="score">${quiz.right} <small>/ ${quiz.qs.length}</small></div></div><div class="bar"><div class="wrap"><button class="btn" id="a">오답노트</button><button class="btn pri" id="b">확인표</button></div></div>`;
+  $('#a').onclick=()=>{view='note';render();};
+  $('#b').onclick=()=>{view='word';render();};
+}
+/* ---- 답 제출 ---- */
+function renderSubmit(){
+  const done=!!S.sub;
+  while(S.q.length<N)S.q.push(0);
+  let h=hdr()+'<div class="wrap">';
+  for(let i=0;i<N;i++){
+    const sel=done?S.sub.a[i]:S.q[i];
+    h+=`<div class="qrow"><div class="qno">${esc(D[i].no)}</div><div class="opts">`;
+    for(let k=1;k<=5;k++)h+=`<button class="opt2 ${sel===k?'on':''}" data-q="${i}" data-k="${k}" ${done?'disabled':''}>${CIRC[k-1]}</button>`;
+    h+='</div></div>';
+  }
+  h+='</div><div class="bar"><div class="wrap">';
+  if(done)h+='<button class="btn pri" id="toexp">해설 보기</button>';
+  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>제출</button>`;
+  h+='</div></div>';
+  app.innerHTML=h;
+  app.querySelectorAll('.opt2').forEach(b=>b.onclick=()=>{
+    if(S.sub)return;
+    const q=+b.dataset.q,k=+b.dataset.k;S.q[q]=k;save();
+    b.parentNode.querySelectorAll('.opt2').forEach(x=>x.classList.toggle('on',+x.dataset.k===k));
+    $('#sub').disabled=!S.q.every(v=>v>0);
+  });
+  const sb=$('#sub');if(sb)sb.onclick=()=>{
+    let s=0;for(let i=0;i<N;i++)if(isRight(i,S.q[i]))s++;
+    S.sub={t:Date.now(),a:S.q.slice(),s:s};save();
+    recSend({type:'submit',a:S.sub.a,s:s,n:N});
+    view='exp';render();
+  };
+  const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
+}
+/* ---- 해설 ---- */
+function sHtml(s,evn){
+  const ev=evn.indexOf(s.n)>=0;
+  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
+  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
+  const lays=[];
+  if(s.link)lays.push(['이어 읽으면',s.link]);
+  if(s.easy)lays.push(['쉬운 말로',s.easy]);
+  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
+  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
+  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
+  return x+'</div>';
+}
+function qHtml(i,a){
+  const d=D[i],ok=isRight(i,a);
+  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
+  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
+  h+='<h4>정답 근거</h4>';
+  h+=`<p class="en">${esc(d.ev_en)}</p>`;
+  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
+  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  if(d.ps&&d.ps.length){
+    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
+  }
+  h+='<h4>선택지 하나씩</h4>';
+  d.ch.forEach(c=>{
+    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  });
+  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  return h+'</div></details>';
+}
+function renderExp(){
+  const rec=S.sub;
+  let h=hdr()+'<div class="wrap">';
+  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='</div><h2>해설</h2>';
+  for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
+  h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
+  app.innerHTML=h;
+}
+/* 위임 이벤트 */
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tab');
+  if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
+  const ch=e.target.closest('.ch');
+  if(ch){ch.classList.toggle('open');return;}
+  const st=e.target.closest('.stg');
+  if(st){
+    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const shown=lays.filter(l=>l.classList.contains('on')).length;
+    if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
+    else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
+    return;
+  }
+  const al=e.target.closest('.tbtn');
+  if(al){
+    const open=al.dataset.all==='1',body=al.closest('.dkbody');
+    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
+    body.querySelectorAll('.s').forEach(s=>{
+      const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
+      lays.forEach(l=>l.classList.toggle('on',open));
+      if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
+    });
+  }
+});
+render();
+</script>
+</body>
+</html>
