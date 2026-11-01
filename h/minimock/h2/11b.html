@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>고2 미니모의고사 11회 07–12번</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f6f8;--accent:#23406b;--bad:#c2392b;--badbg:#fdeceb;--good:#1f7a4d;--goodbg:#e8f5ee;--hl:#fff3b0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+body{padding-bottom:84px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .row1{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+h1{font-size:16px;margin:0;font-weight:700;line-height:1.3}
+.tabs{display:flex;gap:0}
+.tab{flex:1;border:0;background:none;font-family:inherit;font-size:15px;font-weight:700;color:var(--sub);padding:11px 0;border-bottom:3px solid transparent}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tab[disabled]{opacity:.35}
+.link{text-decoration:none;border:0;background:none;color:var(--accent);font-size:15px;font-weight:700;padding:10px 4px;font-family:inherit}
+.hd2{display:flex;align-items:center;justify-content:space-between;height:54px}
+.hd2 h1{font-size:17px}
+.row{padding:12px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.no{color:var(--sub);font-size:13px;min-width:20px}
+.word{font-size:19px;font-weight:700}
+.src{color:var(--sub);font-size:12px;margin-left:auto}
+.cells{display:flex;flex-direction:column;gap:6px}
+.cell{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 12px;border-radius:8px;background:var(--soft);border:1.5px solid transparent;font-size:16px;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.cell .tag,.part .tag{font-size:12px;font-weight:700;color:#fff;border-radius:4px;padding:2px 7px;min-width:34px;text-align:center;background:#7a8594}
+.cell.s .tag,.part.s .tag{background:#2d62a8}.cell.a .tag,.part.a .tag{background:#b4472f}
+.ko{color:var(--sub);font-size:14px;margin-left:6px}
+.cell.bad{background:var(--badbg);border-color:var(--bad)}
+.cell.bad .tag{background:var(--bad)}
+.locked .cell{pointer-events:none}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:6}
+.bar .wrap{display:flex;gap:10px;padding:0}
+.btn{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;line-height:1.25;font-weight:700;font-family:inherit}
+.btn.pri{background:var(--accent);color:#fff}
+.btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn[disabled]{opacity:.4}
+.note-item{padding:14px 0;border-bottom:1px solid var(--line)}
+.note-item .w{font-size:19px;font-weight:700}
+.meta{color:var(--sub);font-size:12px;margin-left:8px;font-weight:400}
+.part{display:flex;gap:10px;align-items:baseline;padding:6px 0 0;font-size:16px}
+.part .tag{align-self:center}
+.part.bad{color:var(--bad);font-weight:700}
+.part.bad .tag{background:var(--bad)}
+.part .ko{font-weight:400}
+.part .res{margin-left:auto;font-size:13px;font-weight:700}
+.res.o{color:var(--good)}.res.x{color:var(--bad)}
+.empty{color:var(--sub);text-align:center;padding:60px 0;font-size:16px}
+.q{padding:22px 0 8px}
+.q .cnt{color:var(--sub);font-size:14px}
+.q .ask{font-size:15px;color:var(--sub);margin-top:14px}
+.q .target{font-size:28px;font-weight:700;margin:6px 0 18px}
+.opt{display:block;width:100%;text-align:left;min-height:56px;padding:10px 14px;margin-bottom:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:18px;font-family:inherit;color:var(--ink)}
+.opt .ko{display:block;margin:2px 0 0}
+.opt.right{border-color:var(--good);background:var(--goodbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.done .opt{pointer-events:none}
+.score{font-size:34px;font-weight:700;text-align:center;margin:30px 0 6px}
+.score small{font-size:18px;color:var(--sub);font-weight:400}
+.foot{color:var(--sub);font-size:12px;text-align:center;padding:26px 0 8px}
+/* submit */
+.qrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.qno{font-weight:800;font-size:20px;width:34px;flex:none}
+.opts{display:flex;gap:8px;flex:1}
+.opt2{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:20px;font-family:inherit;color:var(--ink)}
+.opt2.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.opt2[disabled]{opacity:.55}
+.opt2.on[disabled]{opacity:1}
+/* explanation */
+h2{font-size:17px;margin:26px 0 10px}
+.quick div{padding:3px 0;font-size:17px}
+.quick .o{color:var(--good)}.quick .x{color:var(--bad)}
+.sub{color:var(--sub)}
+details.qd{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;background:var(--bg)}
+details.qd>summary{list-style:none;cursor:pointer;padding:14px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+details.qd>summary::-webkit-details-marker{display:none}
+details.qd>summary small{font-weight:400;color:var(--sub);font-size:13px}
+.res2{margin-left:auto;font-size:14px}
+.res2.o{color:var(--good)}.res2.x{color:var(--bad)}
+.qx{padding:0 14px 14px}
+.qx h4{font-size:15px;margin:18px 0 8px;color:var(--accent)}
+.qx p{margin:6px 0;line-height:1.75;font-size:16px}
+.ansline b{font-size:17px}
+.en{font-size:16px;line-height:1.7;background:var(--soft);padding:10px 12px;border-radius:8px}
+.kolist{list-style:none;margin:6px 0;padding:0}
+.kolist li{font-size:15px;line-height:1.7}
+.kolist .n{font-size:12px;color:var(--sub);margin-right:6px}
+.why p{margin:4px 0;font-size:15px}
+.c{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.c.ok{border-color:var(--good);background:var(--goodbg)}
+.c .ct{font-weight:700;font-size:16px;line-height:1.5}
+.c .tg{display:inline-block;font-size:12px;color:#fff;background:#7a8594;border-radius:4px;padding:1px 7px;margin-right:6px;font-weight:700}
+.c.ok .tg{background:var(--good)}
+.c p{margin:4px 0 0;font-size:15px}
+.r{color:var(--sub);font-size:13px}
+/* direct reading practice */
+details.dk{margin:16px 0 4px;border:1px solid var(--line);border-radius:10px}
+details.dk>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700;color:var(--accent);font-size:15px}
+details.dk>summary::-webkit-details-marker{display:none}
+.dkbody{padding:0 12px 12px}
+.tool{display:flex;gap:8px;margin:2px 0 10px}
+.tbtn{flex:1;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:inherit;font-size:14px;font-weight:700;color:var(--accent)}
+.s{padding:10px 0 12px;border-top:1px dashed var(--line)}
+.s.ev{background:linear-gradient(90deg,#fffbe8,#fff);margin:0 -6px;padding-left:6px;padding-right:6px}
+.sn{margin-bottom:6px}
+.lb{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--sub);margin-right:6px}
+.lb.ev{background:var(--hl);color:#7a5b00}
+.ch{padding:9px 11px;margin-bottom:6px;border-radius:8px;background:var(--soft);cursor:pointer;border-bottom:2px dotted #c9cfd6}
+.ch .ce{font-size:16px;line-height:1.6}
+.ch .ce b{background:linear-gradient(transparent 55%,var(--hl) 55%)}
+.ch .ck{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--line);color:var(--accent);font-size:15px;line-height:1.65}
+.ch.open{background:#eef2f8;border-bottom-color:transparent}
+.ch.open .ck{display:block}
+.lay{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:14px;line-height:1.7}
+.lay.on{display:block}
+.stg{width:100%;min-height:42px;margin-top:6px;border:1px solid var(--accent);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const WORDS={"sets": [{"id": "g2r11p2", "title": "고2 미니모의고사 11회 07–12번", "range": "07–12번", "words": [{"src": "01", "w": "primordial", "m": "원시의, 원시적인", "s": null, "a": ["modern", "현대의"]}, {"src": "02", "w": "liberate", "m": "(화합물에서) 유리시키다, 해방하다", "s": null, "a": null}, {"src": "03", "w": "sustain", "m": "유지하다, 지속하다", "s": ["maintain", "유지하다"], "a": null}, {"src": "04", "w": "constancy", "m": "불변성, 항상성", "s": null, "a": null}, {"src": "05", "w": "humid", "m": "습한", "s": ["moist", "습한"], "a": ["dry", "건조한"]}, {"src": "06", "w": "precipitation", "m": "강수, 강수량", "s": null, "a": null}, {"src": "07", "w": "ascend", "m": "상승하다, 올라가다", "s": null, "a": ["descend", "하강하다"]}, {"src": "08", "w": "drastic", "m": "급격한, 극단적인", "s": null, "a": null}, {"src": "09", "w": "lighthearted", "m": "쾌활한, 명랑한", "s": null, "a": ["serious", "진지한"]}, {"src": "10", "w": "consciousness", "m": "의식, 자각", "s": null, "a": null}, {"src": "11", "w": "admit", "m": "인정하다, 시인하다", "s": ["acknowledge", "인정하다"], "a": ["deny", "부인하다"]}, {"src": "12", "w": "thrive", "m": "번성하다, 잘 자라다", "s": ["flourish", "번성하다"], "a": ["decline", "쇠퇴하다"]}, {"src": "13", "w": "remarkably", "m": "현저하게, 주목할 만하게", "s": null, "a": null}, {"src": "14", "w": "substantial", "m": "상당한, 크고 튼튼한", "s": null, "a": ["negligible", "무시할 만한"]}, {"src": "15", "w": "revenue", "m": "세입, 수입", "s": null, "a": null}, {"src": "16", "w": "traumatic", "m": "정신적 외상을 일으키는", "s": null, "a": null}, {"src": "17", "w": "disturbed", "m": "매우 불안해하는", "s": ["troubled", "괴로운"], "a": ["calm", "차분한"]}, {"src": "18", "w": "horrific", "m": "끔찍한, 무시무시한", "s": null, "a": null}, {"src": "19", "w": "frightening", "m": "무서운", "s": null, "a": null}, {"src": "20", "w": "worsen", "m": "악화시키다", "s": null, "a": ["improve", "개선하다"]}], "dist": [["indifferent", "무관심한"], ["stable", "안정된"], ["permanent", "영구적인"]]}]};
+var D=[{"no": "07", "typ": "빈칸", "src": "2020년 11월 31번", "evn": [2, 3, 6, 7], "ev_en": "The appearance and subsequent evolution of exceedingly primitive living organisms (bacteria-like microbes and simple single-celled plants) began to change the atmosphere, liberating oxygen and breaking down carbon dioxide and sulfur dioxide. / This made it possible for higher organisms to develop. / It had risen to almost its present level by about 370 million years ago, when animals first spread on to land. / Today’s atmosphere is thus not just a requirement to sustain life as we know it — it is also a consequence of life.", "ev_ko": [[2, "극히 원시적인 살아있는 생물체(박테리아 같은 미생물과 단순한 단세포 식물들)의 출현과 그 후의 진화는 산소를 유리(遊離)시키고(산소 원자를 분리시키고) 이산화탄소와 이산화황을 분해하면서 대기를 변화시키기 시작했다."], [3, "이것은 더 상위 생물체가 발달하는 것을 가능하게 했다."], [6, "산소는 약 3억 7천만 년 전까지 거의 (그것의) 현재 수준으로 증가했고 그때 동물들이 처음 육지에 퍼졌다."], [7, "그러므로 오늘날의 대기는 우리가 알고 있듯 단지 생명체를 유지하기 위한 필요조건일 뿐만 아니라 생명체의 결과이기도 하다."]], "why": ["이 글은 45억 년 전부터 현재까지 대기 중 산소 농도가 변해 온 과정을 생물의 진화와 함께 설명합니다", "2번에서 극히 원시적인 생물체의 출현과 진화가 산소를 유리시키고 이산화탄소와 이산화황을 분해하면서 <b>대기를 변화시키기 시작했습니다<\/b>. 3번에서 그 변화는 더 상위 생물체가 발달하는 것을 가능하게 했습니다", "4~6번에서는 생물의 진화와 함께 산소 농도가 점점 올라가 현재 수준에 가까워집니다", "그래서 7번에서 오늘날의 대기는 생명체를 유지하기 위한 필요조건일 뿐만 아니라 <b>생명체의 결과(a consequence of life)<\/b>이기도 하다고 말합니다."], "ch": [{"n": "①", "t": "a barrier to evolution", "g": "진화의 장애물", "ok": false, "e": ["3번에서 대기의 변화는 더 상위 생물체가 발달하는 것을 <b>가능하게 했다<\/b>고 합니다", "진화를 가로막는 장애물이 아닙니다."]}, {"n": "②", "t": "a consequence of life", "g": "생명체의 결과", "ok": true, "e": ["2번에서 원시 생물체의 출현과 진화가 대기를 변화시키기 시작했고, 4~6번에서 생물의 진화와 함께 산소 농도가 올라갑니다", "오늘날의 대기는 <b>생명체의 결과<\/b>이기도 합니다."]}, {"n": "③", "t": "a record of primitive culture", "g": "원시 문화의 기록", "ok": false, "e": ["오늘날의 대기는 <b>원시적인 생물<\/b>의 출현과 진화 과정에서 산소가 유리되고 이산화탄소와 이산화황이 분해되면서 변화해 온 결과입니다", "이는 인류가 등장해 문화가 생기기 훨씬 전의 일이므로 '원시 문화의 기록'이라고 볼 수 없습니다."]}, {"n": "④", "t": "a sign of the constancy of nature", "g": "자연의 불변성에 대한 흔적", "ok": false, "e": ["지문은 생물의 진화에 따라 대기 구성 성분이 <b>계속 변화해 왔다<\/b>고 설명합니다", "오늘날의 대기는 자연이 변하지 않는다는 증거가 아니라 변화의 흔적입니다."]}, {"n": "⑤", "t": "a reason for cooperation among species", "g": "종(種)들 간의 협력의 이유", "ok": false, "e": ["종(種)들 간의 협력에 관한 내용은 지문에 나오지 않습니다", "지문은 생물의 진화와 대기의 변화를 다룹니다."]}], "tr": ["45억 년도 더 전에 지구의 원시 대기는 아마도 대체로 수증기, 이산화탄소, 이산화황과 질소였을 것이다.", "극히 원시적인 살아있는 생물체(박테리아 같은 미생물과 단순한 단세포 식물들)의 출현과 그 후의 진화는 산소를 유리(遊離)시키고(산소 원자를 분리시키고) 이산화탄소와 이산화황을 분해하면서 대기를 변화시키기 시작했다.", "이것은 더 상위 생물체가 발달하는 것을 가능하게 했다.", "약 20억 년 전에 가장 최초라고 알려진 핵이 있는 식물 세포가 진화했을 때, 대기는 (그것의) 현재 산소 함량의 약 1%만을 가지고 있었던 것처럼 보인다.", "약 5억 년 전 최초의 육지 식물의 출현으로 산소는 (그것의) 현재 농도의 약 3분의 1에 도달했다.", "산소는 약 3억 7천만 년 전까지 거의 (그것의) 현재 수준으로 증가했고 그때 동물들이 처음 육지에 퍼졌다.", "그러므로 오늘날의 대기는 우리가 알고 있듯 단지 생명체를 유지하기 위한 필요조건일 뿐만 아니라 생명체의 결과이기도 하다."], "ps": [{"n": 1, "ch": [{"e": "Over 4.5 billion years ago,", "k": "45억 년도 더 전에,"}, {"e": "the Earth’s <b>primordial<\/b> atmosphere", "k": "지구의 <b>원시<\/b> 대기는"}, {"e": "was probably largely", "k": "아마도 대체로"}, {"e": "water vapour, carbon dioxide, sulfur dioxide and nitrogen.", "k": "수증기, 이산화탄소, 이산화황과 질소였을 것이다."}], "easy": "45억 년도 더 전에 지구의 처음 대기는 아마 수증기, 이산화탄소, 이산화황, 질소가 대부분이었을 거라는 뜻이에요.", "gist": "글의 출발점. 아주 오래전 지구의 대기 성분을 먼저 보여 주고, 이후 그 대기가 어떻게 변해 가는지를 풀어 간다."}, {"n": 2, "ch": [{"e": "The <b>appearance<\/b> and <b>subsequent evolution<\/b>", "k": "<b>출현<\/b>과 그 후의 <b>진화<\/b>는"}, {"e": "of exceedingly primitive living organisms", "k": "극히 원시적인 살아있는 생물체의"}, {"e": "(bacteria-like microbes and simple single-celled plants)", "k": "(박테리아 같은 미생물과 단순한 단세포 식물들)"}, {"e": "began to change the atmosphere,", "k": "대기를 변화시키기 시작했다,"}, {"e": "<b>liberating<\/b> oxygen", "k": "산소를 <b>유리시키고<\/b>(산소 원자를 분리시키고)"}, {"e": "and <b>breaking down<\/b> carbon dioxide and sulfur dioxide.", "k": "이산화탄소와 이산화황을 <b>분해하면서<\/b>."}], "easy": "아주 단순한 생명체(박테리아 같은 미생물, 단순한 식물)가 나타나 진화하면서 산소를 분리해 내고 이산화탄소와 이산화황을 분해했어요. 그래서 대기가 바뀌기 시작했다는 뜻이에요.", "gist": "정답 근거 문장. 원시 생물의 출현과 진화가 대기를 바꾸기 시작했다는 것이 ‘생명체의 결과’라는 결론의 출발점이다.", "link": "극히 원시적인 살아있는 생물체(박테리아 같은 미생물과 단순한 단세포 식물들)의 출현과 그 후의 진화는 산소를 유리시키고 이산화탄소와 이산화황을 분해하면서 대기를 변화시키기 시작했다."}, {"n": 3, "ch": [{"e": "This <b>made it possible<\/b>", "k": "이것은<span class=\"r\">(= 앞 문장의 내용)<\/span> <b>가능하게 했다<\/b>"}, {"e": "for higher organisms to develop.", "k": "더 상위 생물체가 발달하는 것을."}], "easy": "그 변화 덕분에 더 상위의 생물체가 발달할 수 있었다는 뜻이에요.", "gist": "대기가 변하자 더 상위 생물체가 발달할 수 있었다. 대기와 생물이 서로 영향을 주고받는 흐름의 연결 고리다."}, {"n": 4, "ch": [{"e": "When the earliest known plant cells with nuclei", "k": "가장 최초라고 알려진, 핵이 있는 식물 세포가"}, {"e": "evolved about 2 billion years ago,", "k": "약 20억 년 전에 진화했을 때,"}, {"e": "the atmosphere seems to have had", "k": "대기는 ~을 가지고 있었던 것처럼 보인다"}, {"e": "only about 1 percent", "k": "오직 약 1%만"}, {"e": "of its present content of oxygen.", "k": "그것의<span class=\"r\">(= 대기의)<\/span> 현재 산소 함량의."}], "easy": "핵이 있는 가장 오래된 식물 세포가 약 20억 년 전에 생겼을 때, 대기에는 산소가 지금의 약 1%밖에 없었던 것 같다는 뜻이에요.", "gist": "산소 농도 변화의 첫 단계. 약 20억 년 전에는 산소가 현재의 약 1%뿐이었다."}, {"n": 5, "ch": [{"e": "With the <b>emergence<\/b> of the first land plants,", "k": "최초의 육지 식물의 <b>출현<\/b>으로,"}, {"e": "about 500 million years ago,", "k": "약 5억 년 전,"}, {"e": "oxygen reached", "k": "산소는 도달했다"}, {"e": "about one-third", "k": "약 3분의 1에"}, {"e": "of its present concentration.", "k": "그것의<span class=\"r\">(= 산소의)<\/span> 현재 농도의."}], "easy": "약 5억 년 전 최초의 육지 식물이 나타나면서 산소는 지금 농도의 약 3분의 1까지 올라갔다는 뜻이에요.", "gist": "산소 농도 변화의 두 번째 단계. 육지 식물이 나타나면서 산소가 현재의 약 3분의 1에 도달했다."}, {"n": 6, "ch": [{"e": "It had <b>risen<\/b>", "k": "그것은<span class=\"r\">(= 산소는)<\/span> 올라 있었다"}, {"e": "to almost its present level", "k": "거의 현재 수준까지"}, {"e": "by about 370 million years ago,", "k": "약 3억 7천만 년 전쯤에는,"}, {"e": "when animals first spread on to land.", "k": "그때 동물들이 처음 육지에 퍼졌다."}], "easy": "약 3억 7천만 년 전에는 산소가 거의 지금 수준까지 올라갔고, 그때 동물들이 처음 육지로 퍼졌다는 뜻이에요.", "gist": "산소 농도 변화의 마지막 단계. 산소가 현재 수준에 가까워졌을 때 동물이 육지로 퍼졌다."}, {"n": 7, "ch": [{"e": "Today’s atmosphere is <b>thus<\/b>", "k": "오늘날의 대기는 <b>그러므로<\/b>"}, {"e": "not just a <b>requirement<\/b>", "k": "단지 <b>필요조건<\/b>일 뿐만 아니라"}, {"e": "to sustain life as we know it", "k": "우리가 알고 있는 생명체를 유지하기 위한"}, {"e": "— it is also <b>a consequence of life<\/b>.", "k": "— 그것은<span class=\"r\">(= 오늘날의 대기는)<\/span> 또한 <b>생명체의 결과<\/b>이기도 하다.<span class=\"r\">※ 문제지엔 빈칸으로 되어 있음<\/span>"}], "easy": "그래서 오늘날의 대기는 생명이 살아가려면 꼭 필요한 조건일 뿐 아니라, 생명체가 만들어 낸 결과이기도 하다는 뜻이에요.", "gist": "빈칸 문장이자 결론. 대기는 생명을 지탱하는 조건이면서 동시에 생명체 활동의 결과라는 것이 핵심이다."}]}, {"no": "08", "typ": "빈칸", "src": "2021년 11월 33번", "evn": [5, 6, 8], "ev_en": "As the air moves up and over the mountains, it begins to cool, which causes precipitation on the windward side of the mountains. / Once the air moves down the opposite side of the mountains (called the leeward side) it has lost a great deal of moisture. / This second uplift causes most of the remaining moisture to fall out of the air, so by the time it reaches the leeward side of the Sierras, the air is extremely dry.", "ev_ko": [[5, "공기가 상승하여 산 위로 이동하면서 그것이 식기 시작하고, 이는 산의 풍상측(風上側)에 강수를 발생시킨다."], [6, "공기가 산의 반대편, 즉 풍하측(風下側)이라고 불리는 곳으로 내려갈 때쯤이면 그것은 많은 수분을 잃어버린다."], [8, "이 두 번째 상승은 남아 있는 수분 대부분을 공기로부터 빠져나오게 하며 그래서 그것이 시에라산맥의 풍하측에 도달할 때쯤이면 공기는 극도로 건조하다."]], "why": ["빈칸은 글의 앞부분에 있으므로, 이후 내용을 요약한 말이 들어가야 합니다", "2번부터는 1번 내용에 대한 예시입니다", "5번에서 바다에서 온 습한 공기가 산을 오르며 식어 산의 풍상측에 <b>비를 내립니다<\/b>. 6번에서 산을 내려가는 공기는 이미 <b>많은 수분을 잃은 상태<\/b>입니다", "8번에서 두 번째 산맥을 넘으면 남은 수분도 빠져나가 공기가 극도로 건조해집니다", "즉 수분이 산맥 때문에 내륙 지역까지 전달되지 못합니다", "이 예시의 핵심을 앞에서 한마디로 말한 ③ <b>수분의 흐름을 막는 데 큰 역할을 한다<\/b>가 정답입니다."], "ch": [{"n": "①", "t": "increase annual rainfall in dry regions", "g": "건조한 지역의 연간 강우량을 증가시킨다", "ok": false, "e": ["지문은 산을 넘은 쪽 공기가 <b>극도로 건조해진다<\/b>고 합니다(8번)", "건조한 지역의 강우량을 늘린다는 내용은 없습니다."]}, {"n": "②", "t": "prevent drastic changes in air temperature", "g": "기온의 급격한 변화를 막는다", "ok": false, "e": ["5번에서 공기가 산을 오르며 식기 시작한다는 말은 나옵니다", "그러나 산이 기온의 급격한 변화를 막는다는 내용은 없고, 글의 핵심은 기온이 아니라 <b>수분<\/b>입니다."]}, {"n": "③", "t": "play a huge role in stopping the flow of moisture", "g": "수분의 흐름을 막는 데 큰 역할을 한다", "ok": true, "e": ["5번(산의 바람 맞는 쪽에 비)과 6·8번(반대쪽으로 넘어가면 수분을 잃고 극도로 건조)이 모두 <b>산이 수분의 이동을 막는다<\/b>는 것을 보여 줍니다."]}, {"n": "④", "t": "change wind speed as air ascends and descends them", "g": "공기가 산을 따라 상승하고 하강하며 풍속을 바꾼다", "ok": false, "e": ["공기가 산을 오르고 내려가는 것(5·6번)은 나오지만, <b>풍속이 바뀐다<\/b>는 내용은 없습니다", "오르내림의 결과로 달라지는 것은 수분입니다."]}, {"n": "⑤", "t": "equalize the amount of moisture of surrounding land areas", "g": "주변 지역의 수분의 양을 균등하게 한다", "ok": false, "e": ["산의 한쪽(풍상측)에는 강수가 내리고(5번) 반대쪽(풍하측)은 극도로 건조합니다(8번)", "수분이 고르게 나뉘는 것이 아니라 한쪽으로 치우치므로 <b>균등하게 한다<\/b>는 내용과 반대입니다."]}], "tr": ["대륙의 내륙 지역의 기후와 관련하여 산은 수분의 흐름을 막는 데 큰 역할을 한다.", "이것의 좋은 예를 미국의 서해안을 따라 볼 수 있다.", "태평양에서 육지로 이동하는 공기는 보통 많은 수분을 그 안에 가지고 있다.", "이 습한 공기가 육지를 가로질러 이동할 때, 그것은 코스트산맥 산들과 마주친다.", "공기가 상승하여 산 위로 이동하면서 그것이 식기 시작하고, 이는 산의 풍상측(風上側)에 강수를 발생시킨다.", "공기가 산의 반대편, 즉 풍하측(風下側)이라고 불리는 곳으로 내려갈 때쯤이면 그것은 많은 수분을 잃어버린다.", "공기는 계속 움직이며 그러고 나서 훨씬 더 높은 시에라네바다산맥과 부딪친다.", "이 두 번째 상승은 남아 있는 수분 대부분을 공기로부터 빠져나오게 하며 그래서 그것이 시에라산맥의 풍하측에 도달할 때쯤이면 공기는 극도로 건조하다.", "그 결과는 네바다주 대부분이 사막이라는 것이다."], "ps": [{"n": 1, "ch": [{"e": "When it comes to <b>climates<\/b>", "k": "<b>기후<\/b>와 관련하여"}, {"e": "in the interior areas of continents,", "k": "대륙의 내륙 지역의,"}, {"e": "mountains", "k": "산은"}, {"e": "<b>play a huge role<\/b> in <b>stopping the flow of moisture<\/b>.", "k": "수분의 흐름을 막는 데 큰 역할을 한다.<span class=\"r\">※ 문제지엔 빈칸으로 되어 있음<\/span>"}], "easy": "대륙 안쪽 지역의 기후를 말할 때, 산은 수분이 흘러 들어가는 것을 막는 데 큰 역할을 한다는 뜻이에요.", "gist": "빈칸 문장. 글의 핵심 주장을 앞에서 먼저 말한 문장이고, 뒤의 예시들이 이를 설명한다."}, {"n": 2, "ch": [{"e": "A great example of this", "k": "이것의<span class=\"r\">(= 앞 문장의 내용)<\/span> 좋은 예는"}, {"e": "can be seen", "k": "볼 수 있다"}, {"e": "along the West Coast of the United States.", "k": "미국의 서해안을 따라."}], "easy": "그 좋은 예를 미국 서해안에서 볼 수 있다는 뜻이에요.", "gist": "예시로 넘어가는 신호 문장. 2번부터는 1번의 주장을 미국 서해안 사례로 설명한다."}, {"n": 3, "ch": [{"e": "Air moving from the Pacific Ocean", "k": "태평양에서 이동해 오는 공기는"}, {"e": "toward the land", "k": "육지 쪽으로"}, {"e": "usually has a <b>great deal of moisture<\/b>", "k": "보통 <b>많은 수분<\/b>을 가지고 있다"}, {"e": "in it.", "k": "그<span class=\"r\">(= 공기)<\/span> 안에."}], "easy": "태평양에서 육지 쪽으로 오는 공기에는 보통 수분이 아주 많다는 뜻이에요.", "gist": "사례의 출발점. 바다에서 온 공기는 수분을 많이 품고 있다."}, {"n": 4, "ch": [{"e": "When this <b>humid<\/b> air", "k": "이 <b>습한<\/b> 공기가"}, {"e": "moves across the land,", "k": "육지를 가로질러 이동할 때,"}, {"e": "it <b>encounters<\/b>", "k": "그것은<span class=\"r\">(= 이 습한 공기는)<\/span> 마주친다"}, {"e": "the Coast Range Mountains.", "k": "코스트산맥 산들과."}], "easy": "이 습한 공기가 육지를 가로질러 가다가 코스트산맥을 만난다는 뜻이에요.", "gist": "수분을 품은 공기가 첫 번째 산맥에 부딪히는 장면."}, {"n": 5, "ch": [{"e": "As the air moves <b>up and over<\/b> the mountains,", "k": "공기가 산 <b>위로<\/b> 올라가 <b>넘어가면서<\/b>,"}, {"e": "it begins to <b>cool<\/b>,", "k": "그것은<span class=\"r\">(= 공기는)<\/span> <b>식기<\/b> 시작하고,"}, {"e": "which causes <b>precipitation<\/b>", "k": "이는<span class=\"r\">(= 공기가 식기 시작하는 것)<\/span> <b>강수<\/b>를 발생시킨다"}, {"e": "on the <b>windward<\/b> side of the mountains.", "k": "산의 <b>풍상측<\/b>(바람이 불어오는 쪽)에."}], "easy": "공기가 산을 타고 올라가면서 식고, 그래서 산의 바람이 불어오는 쪽(풍상측)에 강수(비 등)가 내린다는 뜻이에요.", "gist": "정답 근거 문장. 첫 번째 산에서 공기 속 수분이 빠져나간다."}, {"n": 6, "ch": [{"e": "<b>Once<\/b> the air moves down", "k": "공기가 내려갈 때쯤이면"}, {"e": "the opposite side of the mountains", "k": "산의 반대편으로,"}, {"e": "(called the <b>leeward<\/b> side)", "k": "(<b>풍하측<\/b>이라고 불리는 곳)"}, {"e": "it has lost a <b>great deal of moisture<\/b>.", "k": "그것은<span class=\"r\">(= 공기는)<\/span> <b>많은 수분<\/b>을 잃어버렸다."}], "easy": "공기가 산 반대쪽(풍하측)으로 내려갈 때쯤이면 수분을 이미 많이 잃어버렸다는 뜻이에요.", "gist": "정답 근거 문장. 산을 넘은 공기는 수분을 많이 잃은 상태가 된다."}, {"n": 7, "ch": [{"e": "The air continues to move", "k": "공기는 계속 이동하고"}, {"e": "and then hits", "k": "그러고 나서 부딪친다"}, {"e": "the even higher Sierra Nevada mountain range.", "k": "훨씬 더 높은 시에라네바다산맥에."}], "easy": "공기는 계속 가다가 훨씬 더 높은 시에라네바다산맥에 부딪힌다는 뜻이에요.", "gist": "두 번째 산맥 등장. 다음 문장에서 수분이 더 빠져나가는 이유가 된다."}, {"n": 8, "ch": [{"e": "This <b>second uplift<\/b>", "k": "이 <b>두 번째 상승<\/b>은"}, {"e": "causes most of the remaining moisture", "k": "남아 있는 수분 대부분이"}, {"e": "to fall out of the air,", "k": "공기로부터 빠져나오게 하며,"}, {"e": "so by the time it reaches", "k": "그래서 그것이<span class=\"r\">(= 공기가)<\/span> 도달할 때쯤이면"}, {"e": "the leeward side of the Sierras,", "k": "시에라산맥의 풍하측에,"}, {"e": "the air is <b>extremely dry<\/b>.", "k": "공기는 <b>극도로 건조하다<\/b>."}], "easy": "두 번째로 산을 오르면서 남은 수분 대부분도 빠져나가서, 시에라산맥 반대쪽에 도착한 공기는 아주 건조하다는 뜻이에요.", "gist": "정답 근거 문장. 두 산을 넘으며 수분이 거의 다 빠진다. 산이 수분의 흐름을 막는다는 1번의 주장을 가장 잘 보여 준다.", "link": "이 두 번째 상승은 남아 있는 수분 대부분을 공기로부터 빠져나오게 하며, 그래서 그것이 시에라산맥의 풍하측에 도달할 때쯤이면 공기는 극도로 건조하다."}, {"n": 9, "ch": [{"e": "The result is that", "k": "그 결과는 ~라는 것이다"}, {"e": "much of the state of Nevada", "k": "네바다주의 대부분이"}, {"e": "is a desert.", "k": "사막이라는 (것이다)."}], "easy": "그래서 네바다주의 대부분은 사막이라는 뜻이에요.", "gist": "결론. 산이 수분을 막은 결과로 산 너머 지역이 사막이 된다."}]}, {"no": "09", "typ": "순서", "src": "2016년 3월 36번", "evn": [3, 6], "ev_en": "(A) In a serious tone, she answered that she’d been extremely nervous when I appointed her at the beginning of class. / (B) Just to break the ice, I asked in a lighthearted way, “Did you feel honored to be named one of the first ‘official questioners’ of the semester?”", "ev_ko": [[3, "(A) 진지한 어조로, 그녀는 내가 수업 초반에 그녀를 지명했을 때 극도로 긴장했었다고 대답했다."], [6, "(B) 단지 어색함을 깨기 위해, 나는 쾌활하게 “(이번) 학기의 첫 번째 ‘공식 질문자들’ 중 한 명으로 지명되어 영광이었니?”라고 물었다."]], "why": ["주어진 글은 매 수업 ‘공식 질문자’ 두 명을 뽑는 제도를 소개합니다", "(B)의 5번에서 공식 질문자였던 학생 Carrie가 사무실로 찾아옵니다", "6번에서 필자가 <b>I asked<\/b>(물었다)로 그녀에게 질문합니다", "(A)의 3번에서 그녀가 진지한 어조로 <b>she answered<\/b>(대답했다)라고 하므로, 질문 다음에 대답이 이어집니다", "그래서 (B) 다음에 (A)가 옵니다", "(C)는 7번에서 <b>she said<\/b>로 그 수업에 대한 그녀의 말을 이어 가고, 8번에서 그녀가 인정한 내용으로 마무리합니다", "그래서 (B)-(A)-(C)입니다."], "ch": [{"n": "①", "t": "(A) – (C) – (B)", "g": "", "ok": false, "e": ["주어진 글에는 ‘두 명의 학생’만 나올 뿐 <b>she<\/b>가 누구인지 나오지 않습니다", "그런데 (A)가 먼저 나오면 3번의 she가 가리킬 대상이 없고, 대답(answered)이 나오는데 그 앞에 질문도 없습니다."]}, {"n": "②", "t": "(B) – (A) – (C)", "g": "", "ok": true, "e": ["(B)에서 Carrie가 찾아와 필자가 질문하고(5·6번), (A)에서 그녀가 대답하며(3·4번), (C)에서 그 수업에 대한 그녀의 말이 이어집니다(7·8번)."]}, {"n": "③", "t": "(B) – (C) – (A)", "g": "", "ok": false, "e": ["(B) 6번에서 필자가 질문을 했으므로, 바로 다음에는 그 질문에 대한 대답이 와야 합니다", "그 대답이 (A) 3번의 <b>she answered<\/b>입니다", "(C)가 사이에 끼면 질문과 대답이 떨어집니다", "또 (C) 7번의 <b>It was a lecture just like the others<\/b>에서 It은 (A) 4번의 <b>during that class<\/b>에서 말한 ‘그 수업’을 가리키는 것으로 읽는 것이 자연스러워, (A)가 (C)보다 앞서야 합니다."]}, {"n": "④", "t": "(C) – (A) – (B)", "g": "", "ok": false, "e": ["(C)가 맨 앞이면 주어진 글 바로 뒤에 <b>she said<\/b>의 she가 누구인지 알 수 없습니다", "또 (A)의 대답(3번)이 (B)의 질문(6번)보다 먼저 나오게 됩니다."]}, {"n": "⑤", "t": "(C) – (B) – (A)", "g": "", "ok": false, "e": ["(C)가 맨 앞이면 주어진 글 바로 뒤에 <b>she said<\/b>의 she가 누구인지 알 수 없습니다", "또 (C) 7번의 It(그 수업)은 (A) 4번에서 먼저 나온 수업을 받는 것으로 읽는 것이 자연스럽습니다."]}], "tr": ["매일 각 수업 시간마다 나는 ‘공식 질문자’라는 직위를 받을 두 명의 학생을 무작위로 선발한다.", "이 학생들은 그 수업 동안 최소한 한 가지의 질문을 할 책임을 부여받는다.", "(A) 진지한 어조로, 그녀는 내가 수업 초반에 그녀를 지명했을 때 극도로 긴장했었다고 대답했다.", "(A) 하지만 그러고 나서, 그 수업 동안, 그녀는 다른 강의 동안 느꼈던 것과는 다른 기분이 들었다.", "(B) 그날의 공식 질문자가 된 뒤, 내 학생들 중 한 명인 Carrie는 사무실로 나를 찾아왔다.", "(B) 단지 어색함을 깨기 위해, 나는 쾌활하게 “(이번) 학기의 첫 번째 ‘공식 질문자들’ 중 한 명으로 지명되어 영광이었니?”라고 물었다.", "(C) 그것은 다른 것(다른 수업들)과 같은 강의였지만, 이번에는, 그녀는 어쩔 수 없이 더 높은 의식 수준을 가져야 했으며, (결과적으로) 강의와 토론의 내용을 더 잘 알게 되었다고 말했다.", "(C) 그녀는 또한 그 결과 그 수업에서 더 많은 것을 얻었음을 인정했다."], "ps": [{"n": 1, "ch": [{"e": "Every day in each of my classes", "k": "매일 나의 각 수업에서"}, {"e": "I randomly select", "k": "나는 무작위로 선발한다"}, {"e": "two students", "k": "두 명의 학생을"}, {"e": "who are given the title of “official questioners.”", "k": "‘공식 질문자’라는 직위를 받는."}], "easy": "필자는 수업마다 학생 두 명을 무작위로 뽑아서 ‘공식 질문자’라는 직함을 준다는 뜻이에요.", "gist": "주어진 글의 시작. ‘공식 질문자’ 제도를 소개하며 글의 배경을 깐다."}, {"n": 2, "ch": [{"e": "These students", "k": "이 학생들은<span class=\"r\">(= 공식 질문자로 뽑힌 두 학생)<\/span>"}, {"e": "are assigned the <b>responsibility<\/b>", "k": "<b>책임<\/b>을 부여받는다"}, {"e": "to ask at least one question", "k": "최소한 한 가지 질문을 할"}, {"e": "during that class.", "k": "그 수업 동안."}], "easy": "이 학생들은 그 수업 시간에 질문을 적어도 하나는 해야 할 책임을 맡는다는 뜻이에요.", "gist": "제도 설명을 마무리하는 문장. 이어서 이 제도를 겪은 학생의 이야기로 넘어갈 준비를 한다."}, {"n": 3, "ch": [{"e": "(A) <b>In a serious tone<\/b>,", "k": "(A) <b>진지한 어조로<\/b>,"}, {"e": "she <b>answered<\/b>", "k": "그녀는<span class=\"r\">(= (B)의 Carrie)<\/span> <b>대답했다<\/b>"}, {"e": "that she’d been extremely nervous", "k": "자신이 극도로 긴장했었다고"}, {"e": "when I appointed her", "k": "내가 그녀를 지명했을 때"}, {"e": "at the beginning of class.", "k": "수업 초반에."}], "easy": "Carrie는 진지한 어조로, 수업 처음에 필자가 자기를 뽑았을 때 엄청 긴장했었다고 대답했다는 뜻이에요.", "gist": "정답 근거 문장. she answered(대답했다)이므로 앞에 질문이 있어야 한다. (B) 6번의 질문에 대한 대답이어서 (B) 다음에 (A)가 온다."}, {"n": 4, "ch": [{"e": "(A) <b>But then<\/b>,", "k": "(A) <b>하지만 그러고 나서<\/b>,"}, {"e": "during that class,", "k": "그 수업 동안,"}, {"e": "she felt <b>differently<\/b>", "k": "그녀는 다르게 느꼈다"}, {"e": "from how she’d felt", "k": "그녀가 느꼈던 것과는"}, {"e": "during other lectures.", "k": "다른 강의 동안."}], "easy": "하지만 그 수업이 진행되는 동안에는 다른 강의 때와는 다른 기분이 들었다는 뜻이에요.", "gist": "(A)의 마지막 문장. 그 수업에서 느낀 ‘다른 기분’이 무엇인지는 (C)에서 이어서 풀어 준다."}, {"n": 5, "ch": [{"e": "(B) <b>After being<\/b> the day’s official questioner,", "k": "(B) 그날의 공식 질문자가 된 뒤,"}, {"e": "one of my students, Carrie,", "k": "내 학생들 중 한 명인 Carrie는,"}, {"e": "visited me", "k": "나를 찾아왔다"}, {"e": "in my office.", "k": "사무실로."}], "easy": "그날 공식 질문자를 맡았던 학생 Carrie가 필자의 사무실로 찾아왔다는 뜻이에요.", "gist": "(B)의 첫 문장. 주어진 글의 ‘공식 질문자’ 학생 중 한 명인 Carrie가 등장한다. (A)의 she가 가리키는 인물이 여기서 소개된다."}, {"n": 6, "ch": [{"e": "(B) Just to <b>break the ice<\/b>,", "k": "(B) 단지 <b>어색함을 깨기<\/b> 위해,"}, {"e": "I asked in a <b>lighthearted<\/b> way,", "k": "나는 <b>쾌활하게<\/b> 물었다,"}, {"e": "“Did you feel honored", "k": "“영광스럽게 느꼈니"}, {"e": "to be named one of the first ‘official questioners’", "k": "첫 번째 ‘공식 질문자들’ 중 한 명으로 지명된 것을"}, {"e": "of the semester?”", "k": "이번 학기의?”"}], "easy": "필자는 어색한 분위기를 풀려고 가볍게 물었어요. “이번 학기 첫 번째 공식 질문자들 중 한 명으로 뽑혀서 영광이었니?”", "gist": "정답 근거 문장. 필자가 질문을 던졌으므로(I asked) 다음에는 그 대답이 와야 한다. 그 대답이 (A)의 she answered다."}, {"n": 7, "ch": [{"e": "(C) It was a lecture", "k": "(C) 그것은<span class=\"r\">(= 그 수업)<\/span> 강의였다"}, {"e": "just like the others,", "k": "다른 것(다른 수업들)과 똑같은,"}, {"e": "but <b>this time<\/b>, she said,", "k": "하지만 <b>이번에는<\/b>, 그녀가 말하길,"}, {"e": "she was <b>forced<\/b>", "k": "그녀는 어쩔 수 없이 ~하게 되었다"}, {"e": "to have a higher level of <b>consciousness<\/b>;", "k": "더 높은 <b>의식<\/b> 수준을 가지게(되었다);"}, {"e": "she was more <b>aware<\/b>", "k": "그녀는 더 잘 알게 되었다"}, {"e": "of the content of the lecture and discussion.", "k": "강의와 토론의 내용을."}], "easy": "다른 수업과 똑같은 강의였지만, 이번에는 의식이 더 또렷해질 수밖에 없었고, 그래서 강의와 토론 내용을 더 잘 알게 됐다고 Carrie가 말했다는 뜻이에요.", "gist": "(C)의 첫 문장. (A)에서 말한 ‘다른 기분’을 구체적으로 풀어 준다. 의식 수준이 높아지고 수업 내용을 더 잘 알게 되었다는 것이다.", "link": "그것은 다른 수업들과 같은 강의였지만, 이번에는 그녀가 어쩔 수 없이 더 높은 의식 수준을 가져야 했으며, (결과적으로) 강의와 토론의 내용을 더 잘 알게 되었다고 말했다."}, {"n": 8, "ch": [{"e": "(C) She also <b>admitted<\/b>", "k": "(C) 그녀는 또한 인정했다"}, {"e": "that <b>as a result<\/b>", "k": "그 결과"}, {"e": "she got more out of that class.", "k": "그 수업에서 더 많은 것을 얻었다고."}], "easy": "그리고 그 결과 그 수업에서 더 많은 것을 얻었다는 것도 인정했다는 뜻이에요.", "gist": "글의 마무리. 공식 질문자 경험이 학생의 의식 수준과 수업에서 얻는 것을 높여 주었다는 결론이다."}]}, {"no": "10", "typ": "무관한 문장", "src": "2023년 9월 35번", "evn": [1, 3, 4], "ev_en": "The irony of early democracy in Europe is that it thrived and prospered precisely because European rulers for a very long time were remarkably weak. / ② The most striking way to illustrate European weakness is to show how little revenue they collected. / ③ For this reason, tax collectors in Europe were able to collect a huge amount of revenue and therefore had a great influence on how society should function.", "ev_ko": [[1, "유럽의 초기 민주주의의 아이러니는 정확히 유럽의 통치자들이 아주 오랜 시간 동안 현저하게 약했기 때문에 그것이 번성하고 번영했다는 것이다."], [3, "② 유럽의 약함을 설명하는 가장 눈에 띄는 방법은 그들이 모은 세입이 얼마나 적은지를 보여 주는 것이다."], [4, "③ 이러한 이유로, 유럽의 세금 징수원은 막대한 금액의 세입을 모을 수 있었고, 따라서 사회가 어떻게 기능해야 하는지에 대해 큰 영향을 미쳤다."]], "why": ["이 글은 유럽의 초기 민주주의가 번성한 이유가 <b>유럽 통치자들이 아주 오랫동안 약했기 때문<\/b>이라는 아이러니를 설명합니다(1번)", "① 문장(2번)은 통치자들에게 부족했던 것이 백성들의 생산을 평가하고 세금을 부과할 능력이었다고 합니다", "② 문장(3번)은 그 약함을 <b>세입이 얼마나 적은지<\/b>로 보여 줍니다", "그런데 ③ 문장(4번)은 유럽의 세금 징수원이 <b>막대한 세입<\/b>을 모아 사회에 큰 영향을 미쳤다고 합니다", "이는 통치자들의 능력 부족으로 세입이 적었다는 글의 흐름과 정반대여서 관련이 없습니다", "그래서 정답은 ③입니다."], "ch": [{"n": "①", "t": "For more than a millennium after the fall of Rome, European rulers lacked the ability to assess what their people were producing and to levy substantial taxes based on this.", "g": "로마의 멸망 이후 천 년 넘게, 유럽의 통치자들은 자신의 백성들이 생산하고 있었던 것을 평가하고, 이것을 바탕으로 상당한 세금을 부과할 능력이 부족했다.", "ok": false, "e": ["로마 멸망 이후 유럽 통치자들에게 세금을 부과할 능력이 부족했다는 내용입니다(2번)", "1번의 <b>통치자들의 약함<\/b>을 구체적으로 설명하므로 흐름에 맞습니다."]}, {"n": "②", "t": "The most striking way to illustrate European weakness is to show how little revenue they collected.", "g": "유럽의 약함을 설명하는 가장 눈에 띄는 방법은 그들이 모은 세입이 얼마나 적은지를 보여 주는 것이다.", "ok": false, "e": ["유럽의 약함을 <b>세입이 적다<\/b>는 것으로 보여 준다는 내용입니다(3번)", "1번의 약함을 이어받아 세입 이야기로 넘어가므로 흐름에 맞습니다."]}, {"n": "③", "t": "For this reason, tax collectors in Europe were able to collect a huge amount of revenue and therefore had a great influence on how society should function.", "g": "이러한 이유로, 유럽의 세금 징수원은 막대한 금액의 세입을 모을 수 있었고, 따라서 사회가 어떻게 기능해야 하는지에 대해 큰 영향을 미쳤다.", "ok": true, "e": ["세금 징수원이 <b>막대한 세입<\/b>을 모아 사회에 큰 영향을 미쳤다는 내용입니다(4번)", "통치자들이 약해서 세입이 적었다는 글 전체의 흐름과 맞지 않습니다."]}, {"n": "④", "t": "Europeans would eventually develop strong systems of revenue collection, but it took them an awfully long time to do so.", "g": "유럽인들은 결국 강력한 세입 징수 시스템을 개발했지만, 그렇게 하는 데까지 지독하게 오랜 시간이 걸렸다.", "ok": false, "e": ["강력한 세입 징수 시스템을 만드는 데 오랜 시간이 걸렸다는 내용입니다(5번)", "앞에서 말한 <b>유럽의 약함(적은 세입)<\/b>에 대한 해결 방안으로 자연스럽게 이어집니다", "또 중국·이슬람 통치자와 비교하는 6번과도 이어집니다."]}, {"n": "⑤", "t": "In medieval times, and for part of the early modern era, Chinese emperors and Muslim caliphs were able to extract much more of economic production than any European ruler with the exception of small city-states.", "g": "중세 시대에, 그리고 초기 근대 시대의 일부 동안, 중국 황제들과 무슬림 칼리프들은 작은 도시 국가들을 제외하고 어떤 유럽 통치자보다 훨씬 더 많은 경제적 생산물을 얻을 수 있었다.", "ok": false, "e": ["중국 황제와 무슬림 칼리프가 유럽 통치자보다 훨씬 더 많은 경제적 생산물을 얻었다는 내용입니다(6번)", "유럽 통치자들의 약함을 <b>다른 지역과 비교해<\/b> 강조하므로 흐름에 맞습니다."]}], "tr": ["유럽의 초기 민주주의의 아이러니는 정확히 유럽의 통치자들이 아주 오랜 시간 동안 현저하게 약했기 때문에 그것이 번성하고 번영했다는 것이다.", "① 로마의 멸망 이후 천 년 넘게, 유럽의 통치자들은 자신의 백성들이 생산하고 있었던 것을 평가하고, 이것을 바탕으로 상당한 세금을 부과할 능력이 부족했다.", "② 유럽의 약함을 설명하는 가장 눈에 띄는 방법은 그들이 모은 세입이 얼마나 적은지를 보여 주는 것이다.", "③ 이러한 이유로, 유럽의 세금 징수원은 막대한 금액의 세입을 모을 수 있었고, 따라서 사회가 어떻게 기능해야 하는지에 대해 큰 영향을 미쳤다.", "④ 유럽인들은 결국 강력한 세입 징수 시스템을 개발했지만, 그렇게 하는 데까지 지독하게 오랜 시간이 걸렸다.", "⑤ 중세 시대에, 그리고 초기 근대 시대의 일부 동안, 중국 황제들과 무슬림 칼리프들은 작은 도시 국가들을 제외하고 어떤 유럽 통치자보다 훨씬 더 많은 경제적 생산물을 얻을 수 있었다."], "ps": [{"n": 1, "ch": [{"e": "The <b>irony<\/b> of early democracy in Europe", "k": "유럽 초기 민주주의의 <b>아이러니<\/b>는"}, {"e": "is that it thrived and prospered", "k": "그것이<span class=\"r\">(= 유럽의 초기 민주주의가)<\/span> 번성하고 번영했다는 것이다"}, {"e": "<b>precisely because<\/b> European rulers", "k": "<b>바로<\/b> 유럽의 통치자들이"}, {"e": "for a very long time", "k": "아주 오랜 시간 동안"}, {"e": "were <b>remarkably<\/b> weak.", "k": "현저하게 약했기 때문에."}], "easy": "유럽 초기 민주주의의 아이러니는, 유럽 통치자들이 아주 오랫동안 눈에 띄게 약했기 때문에 오히려 민주주의가 번성했다는 거예요.", "gist": "글의 중심 화제. 통치자들의 ‘약함’이 이 글의 핵심이다. 이후 문장은 이 약함을 설명해야 하고, 여기서 벗어난 문장은 관계가 없다."}, {"n": 2, "ch": [{"e": "① For more than a <b>millennium<\/b>", "k": "① 천 년 넘게"}, {"e": "after the fall of Rome,", "k": "로마의 멸망 이후,"}, {"e": "European rulers lacked the ability", "k": "유럽의 통치자들은 능력이 부족했다"}, {"e": "to <b>assess<\/b> what their people were producing", "k": "자신의 백성들이 생산하고 있었던 것을 평가할"}, {"e": "and to <b>levy<\/b> substantial taxes", "k": "그리고 상당한 세금을 <b>부과할<\/b>"}, {"e": "based on this.", "k": "이것을<span class=\"r\">(= 백성들이 생산하고 있었던 것)<\/span> 바탕으로."}], "easy": "로마가 무너진 뒤 천 년 넘게, 유럽 통치자들은 백성이 무엇을 생산하는지 평가해서 거기에 세금을 많이 걷을 능력이 없었다는 뜻이에요.", "gist": "1번의 ‘약함’이 구체적으로 무엇이었는지(생산 평가와 세금 부과 능력 부족)를 설명한다. 흐름에 맞다."}, {"n": 3, "ch": [{"e": "② The most <b>striking<\/b> way", "k": "② 가장 <b>눈에 띄는<\/b> 방법은"}, {"e": "to illustrate European weakness", "k": "유럽의 약함을 설명하는"}, {"e": "is to show", "k": "보여 주는 것이다"}, {"e": "how little <b>revenue<\/b>", "k": "얼마나 적은 <b>세입<\/b>을"}, {"e": "they collected.", "k": "그들이<span class=\"r\">(= 유럽의 통치자들이)<\/span> 모았는지."}], "easy": "유럽 통치자들이 얼마나 약했는지를 보여 주는 가장 눈에 띄는 방법은, 그들이 모은 세입이 얼마나 적었는지 보여 주는 거예요.", "gist": "약함을 ‘세입이 적다’는 근거로 보여 준다. 1번의 약함을 이어받는 문장이어서 흐름에 맞다."}, {"n": 4, "ch": [{"e": "③ <b>For this reason<\/b>,", "k": "③ <b>이러한 이유로<\/b>,"}, {"e": "tax collectors in Europe", "k": "유럽의 세금 징수원은"}, {"e": "were able to collect", "k": "모을 수 있었다"}, {"e": "a <b>huge amount<\/b> of revenue", "k": "막대한 금액의 세입을"}, {"e": "and therefore had a great influence", "k": "그리고 따라서 큰 영향을 미쳤다"}, {"e": "on how society should function.", "k": "사회가 어떻게 기능해야 하는지에 대해."}], "easy": "그래서 유럽의 세금 징수원은 엄청난 세입을 거둘 수 있었고, 사회가 어떻게 돌아가야 하는지에도 큰 영향을 미쳤다는 뜻이에요.", "gist": "정답 문장. 통치자들이 약해서 세입이 적었다는 글의 흐름과 정반대로 ‘막대한 세입’을 말하고 있어서 관계가 없다."}, {"n": 5, "ch": [{"e": "④ Europeans would <b>eventually<\/b>", "k": "④ 유럽인들은 결국"}, {"e": "develop strong systems of revenue collection,", "k": "강력한 세입 징수 시스템을 개발했지만,"}, {"e": "but it took them an <b>awfully<\/b> long time", "k": "그러나 그들에게 지독하게 오랜 시간이 걸렸다"}, {"e": "to do so.", "k": "그렇게 하는<span class=\"r\">(= 강력한 세입 징수 시스템을 개발하는)<\/span> 데."}], "easy": "유럽 사람들도 결국엔 강력한 세금 징수 시스템을 만들었지만, 그러기까지 지독하게 오래 걸렸다는 뜻이에요.", "gist": "세입이 적었던 문제를 해결할 징수 시스템이 생기긴 했지만 오래 걸렸다는 내용이다. 앞 문장들의 흐름과 자연스럽게 이어진다."}, {"n": 6, "ch": [{"e": "⑤ In <b>medieval<\/b> times,", "k": "⑤ 중세 시대에,"}, {"e": "and for part of the early modern era,", "k": "그리고 초기 근대 시대의 일부 동안,"}, {"e": "Chinese emperors and Muslim caliphs", "k": "중국 황제들과 무슬림 칼리프들은"}, {"e": "were able to <b>extract<\/b> much more", "k": "훨씬 더 많이 얻을 수 있었다"}, {"e": "of economic production", "k": "경제적 생산물을"}, {"e": "than any European ruler", "k": "어떤 유럽 통치자보다"}, {"e": "with the exception of small city-states.", "k": "작은 도시 국가들을 제외하고."}], "easy": "중세와 초기 근대 시대 일부 동안, 중국 황제와 무슬림 칼리프는 작은 도시 국가를 빼면 어떤 유럽 통치자보다도 훨씬 많은 경제적 생산물을 얻을 수 있었다는 뜻이에요.", "gist": "중국·이슬람 통치자와 비교해, 유럽 통치자들의 약함이 오랫동안 이어졌음을 강조한다. 흐름에 맞다."}]}, {"no": "11", "typ": "제목", "src": "2017년 11월 41번", "evn": [8, 10, 11], "ev_en": "Those who had sat quietly after watching the video experienced an average of six flashbacks; those who had played the game experienced an average of fewer than three. / The game soaked up the mental attention that might have otherwise moved those horrific memories to long-term memory, and so they were stored imperfectly or not at all. / At the end of the week, the adults returned to the lab, and those who had been lucky enough to play the game reported fewer psychiatric symptoms.", "ev_ko": [[8, "비디오를 본 후에, 조용히 앉아 있던 사람들은 평균 6개의 회상 장면을 경험했다. (하지만) 그 게임을 했던 사람들은 3개보다 더 적은 평균을(평균적으로 3개보다 더 적게) 경험했다."], [10, "그 게임은 그렇지 않았다면(게임을 하지 않았다면) 그 끔찍한 기억들을 장기 기억으로 옮겼을지도 모르는 정신적 주의력을 흡수했고, 따라서 그것들(끔찍한 기억들)은 불완전하게 저장되거나 전혀 저장되지 않았다."], [11, "그 주말에, 성인들(참가자들)은 실험실로 돌아왔고, 운 좋게 게임을 했던 사람들은 더 적은 정신병적인 증상들을 보고했다."]], "why": ["제목은 글 전체의 핵심 내용을 담아야 합니다", "5번에서 참가자의 절반은 비디오 게임을 하고 나머지 절반은 조용히 앉아 있었습니다", "8번에서 게임을 한 사람들은 회상 장면(플래시백)을 <b>평균 3개보다 적게<\/b> 경험했고, 조용히 앉아 있던 사람들은 평균 6개를 경험했습니다", "10번에서 게임이 정신적 주의력을 흡수해 끔찍한 기억이 장기 기억으로 옮겨지지 않았습니다", "11번에서 게임을 한 사람들은 정신병적인 증상을 <b>더 적게<\/b> 보고했습니다", "즉 비디오 게임이 무서운 기억을 사라지게 도울 수 있다는 ④가 제목입니다."], "ch": [{"n": "①", "t": "Is It Possible for Time to Heal Trauma?", "g": "시간으로 정신적 외상(트라우마)을 치료하는 게 가능할까?", "ok": false, "e": ["글이 비교한 것은 시간의 흐름이 아니라, 영상을 본 뒤 <b>게임을 했느냐 조용히 앉아 있었느냐<\/b>입니다(5번)", "시간이 트라우마를 치료하는지는 다루지 않습니다."]}, {"n": "②", "t": "Overcoming Your Bad Memories by Facing Them", "g": "나쁜 기억을 직면함으로써 그것들을 극복하는 것", "ok": false, "e": ["글의 핵심은 나쁜 기억을 직면해 극복하는 것이 아닙니다", "영상을 본 뒤 <b>비디오 게임<\/b>을 한 것이 기억과 증상에 미친 효과를 다룹니다(8·10·11번)."]}, {"n": "③", "t": "Video Games: Great Tools to Boost Your Brain Power", "g": "비디오 게임: 지적 능력을 끌어올리는 훌륭한 도구", "ok": false, "e": ["게임이 두뇌 능력을 끌어올린다는 내용은 없습니다", "게임의 효과는 끔찍한 기억이 <b>장기 기억으로 옮겨지지 않게<\/b> 한 것입니다(10번)."]}, {"n": "④", "t": "Playing Video Games Can Help Frightening Memories Go Away", "g": "비디오 게임을 하는 것은 무서운 기억을 사라지게 도울 수 있다", "ok": true, "e": ["게임을 한 사람들은 회상 장면(8번)과 정신병적인 증상(11번)이 더 적었고, 게임이 끔찍한 기억이 장기 기억에 저장되는 것을 막았습니다(10번)", "즉 <b>게임이 무서운 기억을 사라지게 도울 수 있다<\/b>는 내용입니다."]}, {"n": "⑤", "t": "Exposure to Dreadful Scenes Worsens Psychiatric Symptoms", "g": "무서운 장면에의 노출은 정신병적인 증상을 악화시킨다", "ok": false, "e": ["참가자 모두 같은 끔찍한 영상을 보았고(1번), 게임을 한 사람들이 증상을 <b>더 적게<\/b> 보고했습니다(11번)", "증상이 악화된다는 내용이 아닙니다."]}], "tr": ["2009년에, Emily Holmes는 한 집단의 성인들에게 ‘사람의 수술과 치명적인 도로 교통사고의 생생한 실제 장면을 포함한 정신적 외상(트라우마)을 일으키는 내용의 열한 개의 짧은 영상들’을 다루고 있는 비디오를 보라고 요청했다.", "이것은 그들의 트라우마 모의실험이었고, 참가자들은 실제로 정신적 외상을 입게 되었다.", "비디오를 보기 전에, 그들은 평온하고 편안함을 느낀다고 보고했다. (하지만) 그 이후에(비디오를 보고난 이후에), 그들은 매우 불안해하고 초조해했다.", "Holmes는 성인들을 30분 동안 기다리도록 만들었다.", "그러고 나서, 절반의 참가자들은 10분 동안 블록 맞추기 퍼즐 비디오 게임을 한 반면에, 나머지 절반은 조용히 앉아 있었다.", "그 성인들(참가자들)은 일주일 동안 집으로 갔고, 그들의 생각을 일기에 기록했다.", "하루에 한 번씩, 그들은 마음속에서 재현되는 그 비디오의 장면들을 기억해 냈다.", "비디오를 본 후에, 조용히 앉아 있던 사람들은 평균 6개의 회상 장면을 경험했다. (하지만) 그 게임을 했던 사람들은 3개보다 더 적은 평균을(평균적으로 3개보다 더 적게) 경험했다.", "색깔과 음악, 그리고 회전하는 블록들이 있는 그 비디오 게임이 정신적 외상을 일으키는 초기의 기억들이 굳어지는 것을 막았다.", "그 게임은 그렇지 않았다면(게임을 하지 않았다면) 그 끔찍한 기억들을 장기 기억으로 옮겼을지도 모르는 정신적 주의력을 흡수했고, 따라서 그것들(끔찍한 기억들)은 불완전하게 저장되거나 전혀 저장되지 않았다.", "그 주말에, 성인들(참가자들)은 실험실로 돌아왔고, 운 좋게 게임을 했던 사람들은 더 적은 정신병적인 증상들을 보고했다.", "연구자들은 그 비디오 게임이 ‘인지적 백신’으로서의 역할을 했다고 설명했다."], "ps": [{"n": 1, "ch": [{"e": "In 2009,", "k": "2009년에,"}, {"e": "Emily Holmes asked a group of adults", "k": "Emily Holmes는 한 집단의 성인들에게 요청했다"}, {"e": "to watch a video <b>featuring<\/b>", "k": "~을 다루고 있는 비디오를 보라고"}, {"e": "“eleven clips of <b>traumatic<\/b> content", "k": "‘정신적 외상(트라우마)을 일으키는 내용의 열한 개의 짧은 영상들’"}, {"e": "including <b>graphic<\/b> real scenes", "k": "생생한 실제 장면을 포함한"}, {"e": "of human surgery and <b>fatal<\/b> road traffic accidents.”", "k": "사람의 수술과 치명적인 도로 교통사고의.’"}], "easy": "2009년에 Emily Holmes는 어른들에게 충격적인 영상을 보라고 했어요. 사람의 수술이나 치명적인 교통사고의 생생한 실제 장면이 들어 있는 짧은 영상 열한 개였어요.", "gist": "실험의 시작. 충격적인 영상을 보여 주는 실험(트라우마 모의실험)을 소개한다.", "link": "2009년에, Emily Holmes는 한 집단의 성인들에게 ‘사람의 수술과 치명적인 도로 교통사고의 생생한 실제 장면을 포함한 정신적 외상(트라우마)을 일으키는 내용의 열한 개의 짧은 영상들’을 다루고 있는 비디오를 보라고 요청했다."}, {"n": 2, "ch": [{"e": "This was their <b>trauma simulation<\/b>,", "k": "이것은 그들의 <b>트라우마 모의실험<\/b>이었고,"}, {"e": "and the participants were", "k": "그리고 참가자들은"}, {"e": "<b>indeed<\/b> traumatized.", "k": "실제로 정신적 외상을 입게 되었다."}], "easy": "이게 트라우마 모의실험이었고, 참가자들은 정말로 충격을 받았다는 뜻이에요.", "gist": "영상을 본 것이 실제로 참가자들에게 정신적 충격을 주었다는 것을 확인한다."}, {"n": 3, "ch": [{"e": "<b>Before<\/b> watching the video,", "k": "비디오를 보기 <b>전에<\/b>,"}, {"e": "they reported feeling calm and relaxed;", "k": "그들은 평온하고 편안함을 느낀다고 보고했다;"}, {"e": "<b>afterward<\/b> they were", "k": "(하지만) <b>그 이후에<\/b> 그들은"}, {"e": "disturbed and anxious.", "k": "매우 불안해하고 초조해했다."}], "easy": "영상을 보기 전에는 평온하고 편안하다고 했는데, 보고 난 뒤에는 몹시 불안하고 초조해했다는 뜻이에요.", "gist": "영상을 보기 전과 후를 대비해서, 영상이 참가자들의 상태를 확 바꿔 놓았음을 보여 준다."}, {"n": 4, "ch": [{"e": "Holmes <b>forced<\/b> the adults", "k": "Holmes는 성인들을 ~하게 만들었다"}, {"e": "to wait for thirty minutes.", "k": "30분 동안 기다리도록."}], "easy": "Holmes는 어른들이 30분 동안 기다리게 했다는 뜻이에요.", "gist": "실험 절차. 성인들을 30분 동안 기다리게 했고, 다음 문장에서 참가자가 두 집단으로 나뉜다."}, {"n": 5, "ch": [{"e": "<b>Then<\/b>,", "k": "그러고 나서,"}, {"e": "half the participants", "k": "참가자의 절반은"}, {"e": "played a block-matching puzzle video game", "k": "블록 맞추기 퍼즐 비디오 게임을 했다"}, {"e": "for ten minutes,", "k": "10분 동안,"}, {"e": "<b>while<\/b> the other half sat quietly.", "k": "반면에 나머지 절반은 조용히 앉아 있었다."}], "easy": "그 뒤 참가자의 절반은 10분 동안 블록 맞추기 퍼즐 게임을 했고, 나머지 절반은 조용히 앉아 있었다는 뜻이에요.", "gist": "실험의 핵심 조건. 게임을 한 집단과 조용히 앉아 있던 집단으로 나뉜다."}, {"n": 6, "ch": [{"e": "The adults went home for a week,", "k": "성인들은 일주일 동안 집으로 갔고,"}, {"e": "and recorded their thoughts", "k": "그리고 그들의 생각을 기록했다"}, {"e": "in a daily diary.", "k": "일기에."}], "easy": "어른들은 일주일 동안 집에서 지내며 자기 생각을 일기에 적었다는 뜻이에요.", "gist": "실험의 추적 단계. 이후 일주일 동안의 변화를 기록하게 한다."}, {"n": 7, "ch": [{"e": "<b>Once a day<\/b> they recalled", "k": "하루에 한 번씩 그들은 기억해 냈다"}, {"e": "the scenes from the video", "k": "그 비디오의 장면들을"}, {"e": "that replayed in their minds.", "k": "마음속에서 재현되는."}], "easy": "하루에 한 번, 마음속에서 다시 떠오르는 영상 속 장면들을 기억해 냈다는 뜻이에요.", "gist": "영상 장면이 마음속에서 다시 떠오르는 것을 매일 기록했다는 설정. 다음 문장의 결과 비교의 기준이 된다."}, {"n": 8, "ch": [{"e": "<b>Those who<\/b> had sat quietly", "k": "조용히 앉아 있었던 사람들은"}, {"e": "after watching the video", "k": "비디오를 본 후에"}, {"e": "experienced an average of six <b>flashbacks<\/b>;", "k": "평균 6개의 회상 장면(플래시백)을 경험했다;"}, {"e": "<b>those who<\/b> had played the game", "k": "(하지만) 그 게임을 했던 사람들은"}, {"e": "experienced an average of <b>fewer than three<\/b>.", "k": "평균 3개보다 더 적게 경험했다."}], "easy": "조용히 앉아 있던 사람들은 평균 6개의 플래시백을 겪었고, 게임을 한 사람들은 평균 3개도 안 겪었다는 뜻이에요.", "gist": "실험 결과 ①. 게임을 한 집단의 회상 장면이 훨씬 적다. (11번 제목의 근거)"}, {"n": 9, "ch": [{"e": "The <b>video game<\/b>,", "k": "그 <b>비디오 게임<\/b>이,"}, {"e": "with its colors and music and rotating blocks,", "k": "그것의<span class=\"r\">(= 비디오 게임의)<\/span> 색깔과 음악, 그리고 회전하는 블록들이 있는,"}, {"e": "<b>prevented<\/b> the initial traumatic memories", "k": "정신적 외상을 일으키는 초기의 기억들이"}, {"e": "from <b>solidifying<\/b>.", "k": "굳어지는 것을 막았다.<span class=\"r\">※ 문제지엔 빈칸(12번 정답)으로 되어 있음<\/span>"}], "easy": "색깔과 음악, 돌아가는 블록이 있는 그 게임이, 충격적인 기억이 머릿속에 굳어지는 것을 막았다는 뜻이에요.", "gist": "핵심 문장. 게임이 충격적인 기억이 굳어지는 것을 막았다는 것이 글의 요점이다(12번 빈칸 문장)."}, {"n": 10, "ch": [{"e": "The game <b>soaked up<\/b>", "k": "그 게임은 ~을 흡수했다"}, {"e": "the mental attention", "k": "정신적 주의력을"}, {"e": "that might have <b>otherwise<\/b> moved", "k": "그렇지 않았다면 옮겼을지도 모르는"}, {"e": "those <b>horrific<\/b> memories", "k": "그 끔찍한 기억들을"}, {"e": "to long-term memory,", "k": "장기 기억으로,"}, {"e": "and so they were stored", "k": "그리고 따라서 그것들은<span class=\"r\">(= 끔찍한 기억들은)<\/span> 저장되었다"}, {"e": "imperfectly or not at all.", "k": "불완전하게, 혹은 전혀 (저장되지) 않았다."}], "easy": "게임이 정신적 주의력을 차지해서, 게임이 없었다면 끔찍한 기억을 장기 기억으로 옮겼을지도 모를 주의력이 그쪽으로 못 갔어요. 그래서 그 기억은 불완전하게 저장되거나 아예 저장되지 않았다는 뜻이에요.", "gist": "이유 설명. 게임이 주의력을 차지해서 끔찍한 기억이 장기 기억으로 넘어가지 못했다는 내용이다. (11번 제목의 근거)", "link": "그 게임은 그렇지 않았다면(게임을 하지 않았다면) 그 끔찍한 기억들을 장기 기억으로 옮겼을지도 모르는 정신적 주의력을 흡수했고, 따라서 그것들(끔찍한 기억들)은 불완전하게 저장되거나 전혀 저장되지 않았다."}, {"n": 11, "ch": [{"e": "<b>At the end of the week<\/b>,", "k": "그 주말에,"}, {"e": "the adults returned to the lab,", "k": "성인들은 실험실로 돌아왔고,"}, {"e": "and those who had been <b>lucky enough<\/b>", "k": "그리고 운 좋게도 ~했던 사람들은"}, {"e": "to play the game", "k": "게임을 했던"}, {"e": "reported <b>fewer psychiatric symptoms<\/b>.", "k": "더 적은 정신병적인 증상들을 보고했다."}], "easy": "일주일이 끝나고 실험실로 돌아왔을 때, 운 좋게 게임을 했던 사람들이 정신병적인 증상을 더 적게 말했다는 뜻이에요.", "gist": "실험 결과 ②. 게임을 한 사람들은 정신병적인 증상도 더 적었다. (11번 제목의 근거)"}, {"n": 12, "ch": [{"e": "The video game had <b>functioned<\/b>", "k": "그 비디오 게임이 기능했다고"}, {"e": "as a “cognitive <b>vaccine<\/b>,”", "k": "‘인지적 <b>백신<\/b>’으로서,"}, {"e": "the researchers explained.", "k": "연구자들은 설명했다."}], "easy": "연구자들은 그 비디오 게임이 일종의 ‘인지적 백신’처럼 작용했다고 설명했다는 뜻이에요.", "gist": "마무리. 게임이 충격 기억이 자리 잡는 것을 막아 주는 ‘백신’ 같은 역할을 했다는 요약이다."}]}, {"no": "12", "typ": "빈칸", "src": "2017년 11월 42번", "evn": [9, 10], "ev_en": "The video game, with its colors and music and rotating blocks, prevented the initial traumatic memories from solidifying. / The game soaked up the mental attention that might have otherwise moved those horrific memories to long-term memory, and so they were stored imperfectly or not at all.", "ev_ko": [[9, "색깔과 음악, 그리고 회전하는 블록들이 있는 그 비디오 게임이 정신적 외상을 일으키는 초기의 기억들이 굳어지는 것을 막았다."], [10, "그 게임은 그렇지 않았다면(게임을 하지 않았다면) 그 끔찍한 기억들을 장기 기억으로 옮겼을지도 모르는 정신적 주의력을 흡수했고, 따라서 그것들(끔찍한 기억들)은 불완전하게 저장되거나 전혀 저장되지 않았다."]], "why": ["빈칸 문장은 비디오 게임이 초기의 트라우마 기억이 ___되는 것을 막았다는 내용입니다(9번)", "10번에서 게임이 정신적 주의력을 흡수했기 때문에, 끔찍한 기억이 장기 기억으로 옮겨지지 못하고 불완전하게 저장되거나 전혀 저장되지 않았습니다", "게임을 하는 동안 충격적인 기억에 대한 집중력이 흐트러지면서 그 기억이 <b>장기 기억으로 옮겨지지 못한<\/b> 것입니다", "즉 게임이 막은 것은 기억이 굳어져 자리잡는 것이므로 ③ <b>solidifying(굳어지는 것)<\/b>이 정답입니다."], "ch": [{"n": "①", "t": "fading", "g": "희미해지는 것", "ok": false, "e": ["기억이 사라지는 쪽의 표현인데, 지문은 기억이 장기 기억으로 <b>굳어져 자리잡는 것<\/b>을 막았다는 내용입니다."]}, {"n": "②", "t": "receding", "g": "멀어지는 것", "ok": false, "e": ["기억이 사라지는 쪽의 표현이고, 지문은 기억이 굳어져 자리잡는 것을 막았다는 내용입니다."]}, {"n": "③", "t": "solidifying", "g": "굳어지는 것", "ok": true, "e": ["10번에서 게임이 정신적 주의력을 흡수해 끔찍한 기억이 장기 기억으로 옮겨지지 못했습니다", "즉 기억이 <b>굳어지는 것<\/b>을 막았습니다."]}, {"n": "④", "t": "diversifying", "g": "다양해지는 것", "ok": false, "e": ["기억이 다양해진다는 내용은 지문에 없습니다", "게임이 막은 것은 기억이 장기 기억에 굳어져 자리잡는 것입니다."]}, {"n": "⑤", "t": "withdrawing", "g": "물러나는 것", "ok": false, "e": ["기억이 사라지는 쪽의 표현이고, 지문은 기억이 굳어져 자리잡는 것을 막았다는 내용입니다."]}], "tr": ["2009년에, Emily Holmes는 한 집단의 성인들에게 ‘사람의 수술과 치명적인 도로 교통사고의 생생한 실제 장면을 포함한 정신적 외상(트라우마)을 일으키는 내용의 열한 개의 짧은 영상들’을 다루고 있는 비디오를 보라고 요청했다.", "이것은 그들의 트라우마 모의실험이었고, 참가자들은 실제로 정신적 외상을 입게 되었다.", "비디오를 보기 전에, 그들은 평온하고 편안함을 느낀다고 보고했다. (하지만) 그 이후에(비디오를 보고난 이후에), 그들은 매우 불안해하고 초조해했다.", "Holmes는 성인들을 30분 동안 기다리도록 만들었다.", "그러고 나서, 절반의 참가자들은 10분 동안 블록 맞추기 퍼즐 비디오 게임을 한 반면에, 나머지 절반은 조용히 앉아 있었다.", "그 성인들(참가자들)은 일주일 동안 집으로 갔고, 그들의 생각을 일기에 기록했다.", "하루에 한 번씩, 그들은 마음속에서 재현되는 그 비디오의 장면들을 기억해 냈다.", "비디오를 본 후에, 조용히 앉아 있던 사람들은 평균 6개의 회상 장면을 경험했다. (하지만) 그 게임을 했던 사람들은 3개보다 더 적은 평균을(평균적으로 3개보다 더 적게) 경험했다.", "색깔과 음악, 그리고 회전하는 블록들이 있는 그 비디오 게임이 정신적 외상을 일으키는 초기의 기억들이 굳어지는 것을 막았다.", "그 게임은 그렇지 않았다면(게임을 하지 않았다면) 그 끔찍한 기억들을 장기 기억으로 옮겼을지도 모르는 정신적 주의력을 흡수했고, 따라서 그것들(끔찍한 기억들)은 불완전하게 저장되거나 전혀 저장되지 않았다.", "그 주말에, 성인들(참가자들)은 실험실로 돌아왔고, 운 좋게 게임을 했던 사람들은 더 적은 정신병적인 증상들을 보고했다.", "연구자들은 그 비디오 게임이 ‘인지적 백신’으로서의 역할을 했다고 설명했다."], "ps": [{"n": 1, "ch": [{"e": "In 2009,", "k": "2009년에,"}, {"e": "Emily Holmes asked a group of adults", "k": "Emily Holmes는 한 집단의 성인들에게 요청했다"}, {"e": "to watch a video <b>featuring<\/b>", "k": "~을 다루고 있는 비디오를 보라고"}, {"e": "“eleven clips of <b>traumatic<\/b> content", "k": "‘정신적 외상(트라우마)을 일으키는 내용의 열한 개의 짧은 영상들’"}, {"e": "including <b>graphic<\/b> real scenes", "k": "생생한 실제 장면을 포함한"}, {"e": "of human surgery and <b>fatal<\/b> road traffic accidents.”", "k": "사람의 수술과 치명적인 도로 교통사고의.’"}], "easy": "2009년에 Emily Holmes는 어른들에게 충격적인 영상을 보라고 했어요. 사람의 수술이나 치명적인 교통사고의 생생한 실제 장면이 들어 있는 짧은 영상 열한 개였어요.", "gist": "실험의 시작. 충격적인 영상을 보여 주는 실험(트라우마 모의실험)을 소개한다.", "link": "2009년에, Emily Holmes는 한 집단의 성인들에게 ‘사람의 수술과 치명적인 도로 교통사고의 생생한 실제 장면을 포함한 정신적 외상(트라우마)을 일으키는 내용의 열한 개의 짧은 영상들’을 다루고 있는 비디오를 보라고 요청했다."}, {"n": 2, "ch": [{"e": "This was their <b>trauma simulation<\/b>,", "k": "이것은 그들의 <b>트라우마 모의실험<\/b>이었고,"}, {"e": "and the participants were", "k": "그리고 참가자들은"}, {"e": "<b>indeed<\/b> traumatized.", "k": "실제로 정신적 외상을 입게 되었다."}], "easy": "이게 트라우마 모의실험이었고, 참가자들은 정말로 충격을 받았다는 뜻이에요.", "gist": "영상을 본 것이 실제로 참가자들에게 정신적 충격을 주었다는 것을 확인한다."}, {"n": 3, "ch": [{"e": "<b>Before<\/b> watching the video,", "k": "비디오를 보기 <b>전에<\/b>,"}, {"e": "they reported feeling calm and relaxed;", "k": "그들은 평온하고 편안함을 느낀다고 보고했다;"}, {"e": "<b>afterward<\/b> they were", "k": "(하지만) <b>그 이후에<\/b> 그들은"}, {"e": "disturbed and anxious.", "k": "매우 불안해하고 초조해했다."}], "easy": "영상을 보기 전에는 평온하고 편안하다고 했는데, 보고 난 뒤에는 몹시 불안하고 초조해했다는 뜻이에요.", "gist": "영상을 보기 전과 후를 대비해서, 영상이 참가자들의 상태를 확 바꿔 놓았음을 보여 준다."}, {"n": 4, "ch": [{"e": "Holmes <b>forced<\/b> the adults", "k": "Holmes는 성인들을 ~하게 만들었다"}, {"e": "to wait for thirty minutes.", "k": "30분 동안 기다리도록."}], "easy": "Holmes는 어른들이 30분 동안 기다리게 했다는 뜻이에요.", "gist": "실험 절차. 성인들을 30분 동안 기다리게 했고, 다음 문장에서 참가자가 두 집단으로 나뉜다."}, {"n": 5, "ch": [{"e": "<b>Then<\/b>,", "k": "그러고 나서,"}, {"e": "half the participants", "k": "참가자의 절반은"}, {"e": "played a block-matching puzzle video game", "k": "블록 맞추기 퍼즐 비디오 게임을 했다"}, {"e": "for ten minutes,", "k": "10분 동안,"}, {"e": "<b>while<\/b> the other half sat quietly.", "k": "반면에 나머지 절반은 조용히 앉아 있었다."}], "easy": "그 뒤 참가자의 절반은 10분 동안 블록 맞추기 퍼즐 게임을 했고, 나머지 절반은 조용히 앉아 있었다는 뜻이에요.", "gist": "실험의 핵심 조건. 게임을 한 집단과 조용히 앉아 있던 집단으로 나뉜다."}, {"n": 6, "ch": [{"e": "The adults went home for a week,", "k": "성인들은 일주일 동안 집으로 갔고,"}, {"e": "and recorded their thoughts", "k": "그리고 그들의 생각을 기록했다"}, {"e": "in a daily diary.", "k": "일기에."}], "easy": "어른들은 일주일 동안 집에서 지내며 자기 생각을 일기에 적었다는 뜻이에요.", "gist": "실험의 추적 단계. 이후 일주일 동안의 변화를 기록하게 한다."}, {"n": 7, "ch": [{"e": "<b>Once a day<\/b> they recalled", "k": "하루에 한 번씩 그들은 기억해 냈다"}, {"e": "the scenes from the video", "k": "그 비디오의 장면들을"}, {"e": "that replayed in their minds.", "k": "마음속에서 재현되는."}], "easy": "하루에 한 번, 마음속에서 다시 떠오르는 영상 속 장면들을 기억해 냈다는 뜻이에요.", "gist": "영상 장면이 마음속에서 다시 떠오르는 것을 매일 기록했다는 설정. 다음 문장의 결과 비교의 기준이 된다."}, {"n": 8, "ch": [{"e": "<b>Those who<\/b> had sat quietly", "k": "조용히 앉아 있었던 사람들은"}, {"e": "after watching the video", "k": "비디오를 본 후에"}, {"e": "experienced an average of six <b>flashbacks<\/b>;", "k": "평균 6개의 회상 장면(플래시백)을 경험했다;"}, {"e": "<b>those who<\/b> had played the game", "k": "(하지만) 그 게임을 했던 사람들은"}, {"e": "experienced an average of <b>fewer than three<\/b>.", "k": "평균 3개보다 더 적게 경험했다."}], "easy": "조용히 앉아 있던 사람들은 평균 6개의 플래시백을 겪었고, 게임을 한 사람들은 평균 3개도 안 겪었다는 뜻이에요.", "gist": "실험 결과 ①. 게임을 한 집단의 회상 장면이 훨씬 적다."}, {"n": 9, "ch": [{"e": "The <b>video game<\/b>,", "k": "그 <b>비디오 게임<\/b>이,"}, {"e": "with its colors and music and rotating blocks,", "k": "그것의<span class=\"r\">(= 비디오 게임의)<\/span> 색깔과 음악, 그리고 회전하는 블록들이 있는,"}, {"e": "<b>prevented<\/b> the initial traumatic memories", "k": "정신적 외상을 일으키는 초기의 기억들이"}, {"e": "from <b>solidifying<\/b>.", "k": "굳어지는 것을 막았다.<span class=\"r\">※ 문제지엔 빈칸으로 되어 있음<\/span>"}], "easy": "색깔과 음악, 돌아가는 블록이 있는 그 게임이, 충격적인 기억이 머릿속에 굳어지는 것을 막았다는 뜻이에요.", "gist": "12번 빈칸 문장. 게임이 막은 것은 기억이 굳어지는 것(solidifying)이다. 바로 뒤 10번이 그 이유를 설명한다."}, {"n": 10, "ch": [{"e": "The game <b>soaked up<\/b>", "k": "그 게임은 ~을 흡수했다"}, {"e": "the mental attention", "k": "정신적 주의력을"}, {"e": "that might have <b>otherwise<\/b> moved", "k": "그렇지 않았다면 옮겼을지도 모르는"}, {"e": "those <b>horrific<\/b> memories", "k": "그 끔찍한 기억들을"}, {"e": "to long-term memory,", "k": "장기 기억으로,"}, {"e": "and so they were stored", "k": "그리고 따라서 그것들은<span class=\"r\">(= 끔찍한 기억들은)<\/span> 저장되었다"}, {"e": "imperfectly or not at all.", "k": "불완전하게, 혹은 전혀 (저장되지) 않았다."}], "easy": "게임이 정신적 주의력을 차지해서, 게임이 없었다면 끔찍한 기억을 장기 기억으로 옮겼을지도 모를 주의력이 그쪽으로 못 갔어요. 그래서 그 기억은 불완전하게 저장되거나 아예 저장되지 않았다는 뜻이에요.", "gist": "이유 설명. 게임이 주의력을 차지해서 끔찍한 기억이 장기 기억으로 넘어가지 못했다는 내용이다. 12번 정답의 근거 문장.", "link": "그 게임은 그렇지 않았다면(게임을 하지 않았다면) 그 끔찍한 기억들을 장기 기억으로 옮겼을지도 모르는 정신적 주의력을 흡수했고, 따라서 그것들(끔찍한 기억들)은 불완전하게 저장되거나 전혀 저장되지 않았다."}, {"n": 11, "ch": [{"e": "<b>At the end of the week<\/b>,", "k": "그 주말에,"}, {"e": "the adults returned to the lab,", "k": "성인들은 실험실로 돌아왔고,"}, {"e": "and those who had been <b>lucky enough<\/b>", "k": "그리고 운 좋게도 ~했던 사람들은"}, {"e": "to play the game", "k": "게임을 했던"}, {"e": "reported <b>fewer psychiatric symptoms<\/b>.", "k": "더 적은 정신병적인 증상들을 보고했다."}], "easy": "일주일이 끝나고 실험실로 돌아왔을 때, 운 좋게 게임을 했던 사람들이 정신병적인 증상을 더 적게 말했다는 뜻이에요.", "gist": "실험 결과 ②. 게임을 한 사람들은 정신병적인 증상도 더 적었다."}, {"n": 12, "ch": [{"e": "The video game had <b>functioned<\/b>", "k": "그 비디오 게임이 기능했다고"}, {"e": "as a “cognitive <b>vaccine<\/b>,”", "k": "‘인지적 <b>백신<\/b>’으로서,"}, {"e": "the researchers explained.", "k": "연구자들은 설명했다."}], "easy": "연구자들은 그 비디오 게임이 일종의 ‘인지적 백신’처럼 작용했다고 설명했다는 뜻이에요.", "gist": "마무리. 게임이 충격 기억이 자리 잡는 것을 막아 주는 ‘백신’ 같은 역할을 했다는 요약이다."}]}];
+var ENC="=IakivzoRK+OiGp47EakivjoRK+OhGp4";
+var SETID="g2r11p2", N=D.length, TITLE="고2 미니모의고사 11회 07–12번";
+var CIRC="①②③④⑤";
+function dec(s){var b=atob(s.split("").reverse().join(""));var u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder("utf-8").decode(u);}
+var ANS=dec(ENC).split(";").map(function(x){return x.split("|").map(function(c){return CIRC.indexOf(c)+1;});});
+function isRight(i,a){return ANS[i].indexOf(a)>=0;}
+function ansText(i){return ANS[i].map(function(n){return CIRC[n-1];}).join(", ");}
+
+var GCODE="h2", GRADE="고2", FILE="11b", NEXT="12a.html";
+const KEY='via_mm_'+GCODE+'_'+FILE;
+let S={checks:{},locked:{},res:{},sub:null,q:[]};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* REC 연결 지점: 지금은 기기 안에 대기열로만 쌓음 */
+function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localStorage.getItem('via_minimock_rec_queue')||'[]');q.push(ev);localStorage.setItem('via_minimock_rec_queue',JSON.stringify(q));}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const app=$('#app');
+let view='word',quiz=null,armed=null;
+function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function shuffle(arr,seed){const a=arr.slice();let s=hash(seed)||1;for(let i=a.length-1;i>0;i--){s=Math.imul(s^(s>>>15),2246822519)>>>0;const j=s%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+const WS=WORDS.sets[0];
+
+function hdr(){
+  const on=id=>(view===id)?'on':'';
+  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><a class="link" href="index.html">목록</a></div><div class="tabs"><button class="tab ${on('word')}" data-v="word">단어</button><button class="tab ${on('submit')}" data-v="submit">답 제출</button><button class="tab ${on('exp')}" data-v="exp" ${S.sub?'':'disabled'}>해설</button></div></div></header>`;
+}
+function noteList(){
+  const out=[],ck=S.checks[WS.id]||{};
+  WS.words.forEach((w,i)=>{
+    const c=ck[i];if(!c)return;
+    const parts=['m','s','a'].filter(p=>c[p]&&(p==='m'||w[p]));
+    if(parts.length)out.push({i:i,w:w,parts:parts});
+  });
+  return out;
+}
+function render(){
+  if(view==='word')renderWord();
+  else if(view==='note')renderNote();
+  else if(view==='quiz')renderQuiz();
+  else if(view==='result')renderResult();
+  else if(view==='submit')renderSubmit();
+  else if(view==='exp')renderExp();
+  window.scrollTo(0,0);
+}
+/* ---- 단어 확인 ---- */
+function renderWord(){
+  const ck=S.checks[WS.id]||{},locked=!!S.locked[WS.id],n=noteList().length;
+  let h=hdr()+`<div class="wrap ${locked?'locked':''}">`;
+  WS.words.forEach((w,i)=>{
+    const c=ck[i]||{};
+    h+=`<div class="row"><div class="top"><span class="no">${i+1}</span><span class="word">${esc(w.w)}</span><span class="src">${esc(w.src)}번</span></div><div class="cells">`;
+    h+=`<button class="cell m ${c.m?'bad':''}" data-i="${i}" data-p="m"><span class="tag">뜻</span><span>${esc(w.m)}</span></button>`;
+    if(w.s)h+=`<button class="cell s ${c.s?'bad':''}" data-i="${i}" data-p="s"><span class="tag">유</span><span>${esc(w.s[0])}<span class="ko">${esc(w.s[1])}</span></span></button>`;
+    if(w.a)h+=`<button class="cell a ${c.a?'bad':''}" data-i="${i}" data-p="a"><span class="tag">반</span><span>${esc(w.a[0])}<span class="ko">${esc(w.a[1])}</span></span></button>`;
+    h+=`</div></div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap">`;
+  h+=locked?`<button class="btn" disabled>확인 끝</button>`:`<button class="btn ${armed==='lock'?'arm':''}" id="lock">${armed==='lock'?'한 번 더 누르면 확인 끝':'확인 끝'}</button>`;
+  h+=`<button class="btn pri" id="gonote">단어 오답노트 ${n}</button></div></div>`;
+  app.innerHTML=h;
+  app.querySelectorAll('.cell').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,p=b.dataset.p;
+    S.checks[WS.id]=S.checks[WS.id]||{};
+    const c=S.checks[WS.id][i]=S.checks[WS.id][i]||{};
+    c[p]=c[p]?0:1;save();
+    b.classList.toggle('bad',!!c[p]);
+    $('#gonote').textContent='단어 오답노트 '+noteList().length;
+  });
+  const lk=$('#lock');if(lk)lk.onclick=()=>{
+    if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
+      recSend({type:'word',marks:noteList().map(it=>({w:it.w.w,parts:it.parts}))});}
+    else armed='lock';
+    render();
+  };
+  $('#gonote').onclick=()=>{view='note';armed=null;render();};
+}
+function renderNote(){
+  const list=noteList();
+  let h=`<header><div class="wrap hd2"><h1>단어 오답노트 <span class="meta">${list.length}개</span></h1><button class="link" id="back">확인표</button></div></header><div class="wrap">`;
+  if(!list.length)h+=`<div class="empty">아직 표시한 단어가 없습니다</div>`;
+  list.forEach(it=>{
+    const w=it.w,r=(S.res[WS.id]||{})[it.i]||{};
+    h+=`<div class="note-item"><span class="w">${esc(w.w)}</span><span class="meta">${esc(w.src)}번</span>`;
+    const row=(p,tag,txt,ko)=>{
+      const bad=it.parts.includes(p);
+      const rs=r[p]===1?'<span class="res o">맞춤</span>':r[p]===0?'<span class="res x">틀림</span>':'';
+      return `<div class="part ${p} ${bad?'bad':''}"><span class="tag">${tag}</span><span>${esc(txt)}${ko?`<span class="ko"> ${esc(ko)}</span>`:''}</span>${bad?rs:''}</div>`;
+    };
+    h+=row('m','뜻',w.m,'');
+    if(w.s)h+=row('s','유',w.s[0],w.s[1]);
+    if(w.a)h+=row('a','반',w.a[0],w.a[1]);
+    h+=`</div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap"><button class="btn" id="back2">확인표</button><button class="btn pri" id="start" ${list.length?'':'disabled'}>복습 시작</button></div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='word';armed=null;render();};
+  $('#back2').onclick=()=>{view='word';render();};
+  $('#start').onclick=()=>{quiz={qs:buildQuestions(),n:0,right:0,done:false,shown:false};view='quiz';render();};
+}
+function buildQuestions(){
+  const qs=[];
+  noteList().forEach(it=>{
+    const w=it.w;
+    it.parts.forEach(p=>{
+      let q={i:it.i,p:p,w:w.w};
+      if(p==='m'){
+        const toks=x=>x.split(/[,，]\s*/).map(t=>t.trim());
+        const ct=toks(w.m);
+        const pool=[...new Set(WS.words.filter(o=>o!==w).map(o=>o.m))].filter(m=>!toks(m).some(t=>ct.includes(t)));
+        const wrong=shuffle(pool,WS.id+w.w+'m').slice(0,3);
+        q.type='choice';q.ask='뜻을 고르세요';
+        q.opts=shuffle([{t:w.m,ok:1}].concat(wrong.map(t=>({t:t,ok:0}))),WS.id+w.w+'mo');
+      }else{
+        const ans=w[p],d=WS.dist||[];
+        q.ask=p==='s'?'유의어를 고르세요':'반의어를 고르세요';
+        if(d.length>=3){
+          q.type='choice';
+          q.opts=shuffle([{t:ans[0],ko:ans[1],ok:1}].concat(shuffle(d,WS.id+w.w+p).slice(0,3).map(x=>({t:x[0],ko:x[1],ok:0}))),WS.id+w.w+p+'o');
+        }else{q.type='flip';q.ans=ans;}
+      }
+      qs.push(q);
+    });
+  });
+  return qs;
+}
+function recordRes(q,ok){S.res[WS.id]=S.res[WS.id]||{};const r=S.res[WS.id][q.i]=S.res[WS.id][q.i]||{};r[q.p]=ok?1:0;save();}
+function renderQuiz(){
+  const q=quiz.qs[quiz.n];
+  let h=`<header><div class="wrap hd2"><h1>복습</h1><button class="link" id="back">오답노트</button></div></header><div class="wrap ${quiz.done?'done':''}"><div class="q"><div class="cnt">${quiz.n+1} / ${quiz.qs.length}</div><div class="ask">${q.ask}</div><div class="target">${esc(q.w)}</div>`;
+  if(q.type==='choice'){
+    q.opts.forEach((o,k)=>{
+      let cls='';
+      if(quiz.done){if(o.ok)cls='right';else if(k===quiz.pick)cls='wrong';}
+      h+=`<button class="opt ${cls}" data-k="${k}">${esc(o.t)}${o.ko?`<span class="ko">${esc(o.ko)}</span>`:''}</button>`;
+    });
+  }else if(quiz.shown)h+=`<div class="opt right">${esc(q.ans[0])}<span class="ko">${esc(q.ans[1])}</span></div>`;
+  h+=`</div></div><div class="bar"><div class="wrap">`;
+  if(q.type==='flip'&&!quiz.shown)h+=`<button class="btn pri" id="show">정답 보기</button>`;
+  else if(q.type==='flip')h+=`<button class="btn" id="no">몰랐음</button><button class="btn pri" id="yes">알았음</button>`;
+  else h+=`<button class="btn pri" id="next" ${quiz.done?'':'disabled'}>${quiz.n+1===quiz.qs.length?'결과':'다음'}</button>`;
+  h+=`</div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='note';render();};
+  app.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+    if(quiz.done)return;
+    const k=+b.dataset.k;quiz.pick=k;quiz.done=true;
+    const ok=q.opts[k].ok===1;if(ok)quiz.right++;recordRes(q,ok);render();
+  });
+  const nx=$('#next');if(nx)nx.onclick=()=>advance();
+  const sh=$('#show');if(sh)sh.onclick=()=>{quiz.shown=true;render();};
+  const yes=$('#yes');if(yes)yes.onclick=()=>{quiz.right++;recordRes(q,true);advance();};
+  const no=$('#no');if(no)no.onclick=()=>{recordRes(q,false);advance();};
+}
+function advance(){
+  if(quiz.n+1>=quiz.qs.length){view='result';render();return;}
+  quiz.n++;quiz.done=false;quiz.shown=false;quiz.pick=null;render();
+}
+function renderResult(){
+  app.innerHTML=`<header><div class="wrap hd2"><h1>복습 결과</h1></div></header><div class="wrap"><div class="score">${quiz.right} <small>/ ${quiz.qs.length}</small></div></div><div class="bar"><div class="wrap"><button class="btn" id="a">오답노트</button><button class="btn pri" id="b">확인표</button></div></div>`;
+  $('#a').onclick=()=>{view='note';render();};
+  $('#b').onclick=()=>{view='word';render();};
+}
+/* ---- 답 제출 ---- */
+function renderSubmit(){
+  const done=!!S.sub;
+  while(S.q.length<N)S.q.push(0);
+  let h=hdr()+'<div class="wrap">';
+  for(let i=0;i<N;i++){
+    const sel=done?S.sub.a[i]:S.q[i];
+    h+=`<div class="qrow"><div class="qno">${esc(D[i].no)}</div><div class="opts">`;
+    for(let k=1;k<=5;k++)h+=`<button class="opt2 ${sel===k?'on':''}" data-q="${i}" data-k="${k}" ${done?'disabled':''}>${CIRC[k-1]}</button>`;
+    h+='</div></div>';
+  }
+  h+='</div><div class="bar"><div class="wrap">';
+  if(done)h+='<button class="btn pri" id="toexp">해설 보기</button>';
+  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>제출</button>`;
+  h+='</div></div>';
+  app.innerHTML=h;
+  app.querySelectorAll('.opt2').forEach(b=>b.onclick=()=>{
+    if(S.sub)return;
+    const q=+b.dataset.q,k=+b.dataset.k;S.q[q]=k;save();
+    b.parentNode.querySelectorAll('.opt2').forEach(x=>x.classList.toggle('on',+x.dataset.k===k));
+    $('#sub').disabled=!S.q.every(v=>v>0);
+  });
+  const sb=$('#sub');if(sb)sb.onclick=()=>{
+    let s=0;for(let i=0;i<N;i++)if(isRight(i,S.q[i]))s++;
+    S.sub={t:Date.now(),a:S.q.slice(),s:s};save();
+    recSend({type:'submit',a:S.sub.a,s:s,n:N});
+    view='exp';render();
+  };
+  const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
+}
+/* ---- 해설 ---- */
+function sHtml(s,evn){
+  const ev=evn.indexOf(s.n)>=0;
+  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
+  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
+  const lays=[];
+  if(s.link)lays.push(['이어 읽으면',s.link]);
+  if(s.easy)lays.push(['쉬운 말로',s.easy]);
+  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
+  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
+  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
+  return x+'</div>';
+}
+function qHtml(i,a){
+  const d=D[i],ok=isRight(i,a);
+  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
+  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
+  h+='<h4>정답 근거</h4>';
+  h+=`<p class="en">${esc(d.ev_en)}</p>`;
+  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
+  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  if(d.ps&&d.ps.length){
+    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
+  }
+  h+='<h4>선택지 하나씩</h4>';
+  d.ch.forEach(c=>{
+    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  });
+  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  return h+'</div></details>';
+}
+function renderExp(){
+  const rec=S.sub;
+  let h=hdr()+'<div class="wrap">';
+  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='</div><h2>해설</h2>';
+  for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
+  h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
+  app.innerHTML=h;
+}
+/* 위임 이벤트 */
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tab');
+  if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
+  const ch=e.target.closest('.ch');
+  if(ch){ch.classList.toggle('open');return;}
+  const st=e.target.closest('.stg');
+  if(st){
+    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const shown=lays.filter(l=>l.classList.contains('on')).length;
+    if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
+    else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
+    return;
+  }
+  const al=e.target.closest('.tbtn');
+  if(al){
+    const open=al.dataset.all==='1',body=al.closest('.dkbody');
+    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
+    body.querySelectorAll('.s').forEach(s=>{
+      const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
+      lays.forEach(l=>l.classList.toggle('on',open));
+      if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
+    });
+  }
+});
+render();
+</script>
+</body>
+</html>

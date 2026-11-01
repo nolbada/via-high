@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>고2 미니모의고사 4회 07–12번</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f6f8;--accent:#23406b;--bad:#c2392b;--badbg:#fdeceb;--good:#1f7a4d;--goodbg:#e8f5ee;--hl:#fff3b0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+body{padding-bottom:84px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .row1{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+h1{font-size:16px;margin:0;font-weight:700;line-height:1.3}
+.tabs{display:flex;gap:0}
+.tab{flex:1;border:0;background:none;font-family:inherit;font-size:15px;font-weight:700;color:var(--sub);padding:11px 0;border-bottom:3px solid transparent}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tab[disabled]{opacity:.35}
+.link{text-decoration:none;border:0;background:none;color:var(--accent);font-size:15px;font-weight:700;padding:10px 4px;font-family:inherit}
+.hd2{display:flex;align-items:center;justify-content:space-between;height:54px}
+.hd2 h1{font-size:17px}
+.row{padding:12px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.no{color:var(--sub);font-size:13px;min-width:20px}
+.word{font-size:19px;font-weight:700}
+.src{color:var(--sub);font-size:12px;margin-left:auto}
+.cells{display:flex;flex-direction:column;gap:6px}
+.cell{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 12px;border-radius:8px;background:var(--soft);border:1.5px solid transparent;font-size:16px;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.cell .tag,.part .tag{font-size:12px;font-weight:700;color:#fff;border-radius:4px;padding:2px 7px;min-width:34px;text-align:center;background:#7a8594}
+.cell.s .tag,.part.s .tag{background:#2d62a8}.cell.a .tag,.part.a .tag{background:#b4472f}
+.ko{color:var(--sub);font-size:14px;margin-left:6px}
+.cell.bad{background:var(--badbg);border-color:var(--bad)}
+.cell.bad .tag{background:var(--bad)}
+.locked .cell{pointer-events:none}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:6}
+.bar .wrap{display:flex;gap:10px;padding:0}
+.btn{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;line-height:1.25;font-weight:700;font-family:inherit}
+.btn.pri{background:var(--accent);color:#fff}
+.btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn[disabled]{opacity:.4}
+.note-item{padding:14px 0;border-bottom:1px solid var(--line)}
+.note-item .w{font-size:19px;font-weight:700}
+.meta{color:var(--sub);font-size:12px;margin-left:8px;font-weight:400}
+.part{display:flex;gap:10px;align-items:baseline;padding:6px 0 0;font-size:16px}
+.part .tag{align-self:center}
+.part.bad{color:var(--bad);font-weight:700}
+.part.bad .tag{background:var(--bad)}
+.part .ko{font-weight:400}
+.part .res{margin-left:auto;font-size:13px;font-weight:700}
+.res.o{color:var(--good)}.res.x{color:var(--bad)}
+.empty{color:var(--sub);text-align:center;padding:60px 0;font-size:16px}
+.q{padding:22px 0 8px}
+.q .cnt{color:var(--sub);font-size:14px}
+.q .ask{font-size:15px;color:var(--sub);margin-top:14px}
+.q .target{font-size:28px;font-weight:700;margin:6px 0 18px}
+.opt{display:block;width:100%;text-align:left;min-height:56px;padding:10px 14px;margin-bottom:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:18px;font-family:inherit;color:var(--ink)}
+.opt .ko{display:block;margin:2px 0 0}
+.opt.right{border-color:var(--good);background:var(--goodbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.done .opt{pointer-events:none}
+.score{font-size:34px;font-weight:700;text-align:center;margin:30px 0 6px}
+.score small{font-size:18px;color:var(--sub);font-weight:400}
+.foot{color:var(--sub);font-size:12px;text-align:center;padding:26px 0 8px}
+/* submit */
+.qrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.qno{font-weight:800;font-size:20px;width:34px;flex:none}
+.opts{display:flex;gap:8px;flex:1}
+.opt2{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:20px;font-family:inherit;color:var(--ink)}
+.opt2.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.opt2[disabled]{opacity:.55}
+.opt2.on[disabled]{opacity:1}
+/* explanation */
+h2{font-size:17px;margin:26px 0 10px}
+.quick div{padding:3px 0;font-size:17px}
+.quick .o{color:var(--good)}.quick .x{color:var(--bad)}
+.sub{color:var(--sub)}
+details.qd{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;background:var(--bg)}
+details.qd>summary{list-style:none;cursor:pointer;padding:14px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+details.qd>summary::-webkit-details-marker{display:none}
+details.qd>summary small{font-weight:400;color:var(--sub);font-size:13px}
+.res2{margin-left:auto;font-size:14px}
+.res2.o{color:var(--good)}.res2.x{color:var(--bad)}
+.qx{padding:0 14px 14px}
+.qx h4{font-size:15px;margin:18px 0 8px;color:var(--accent)}
+.qx p{margin:6px 0;line-height:1.75;font-size:16px}
+.ansline b{font-size:17px}
+.en{font-size:16px;line-height:1.7;background:var(--soft);padding:10px 12px;border-radius:8px}
+.kolist{list-style:none;margin:6px 0;padding:0}
+.kolist li{font-size:15px;line-height:1.7}
+.kolist .n{font-size:12px;color:var(--sub);margin-right:6px}
+.why p{margin:4px 0;font-size:15px}
+.c{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.c.ok{border-color:var(--good);background:var(--goodbg)}
+.c .ct{font-weight:700;font-size:16px;line-height:1.5}
+.c .tg{display:inline-block;font-size:12px;color:#fff;background:#7a8594;border-radius:4px;padding:1px 7px;margin-right:6px;font-weight:700}
+.c.ok .tg{background:var(--good)}
+.c p{margin:4px 0 0;font-size:15px}
+.r{color:var(--sub);font-size:13px}
+/* direct reading practice */
+details.dk{margin:16px 0 4px;border:1px solid var(--line);border-radius:10px}
+details.dk>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700;color:var(--accent);font-size:15px}
+details.dk>summary::-webkit-details-marker{display:none}
+.dkbody{padding:0 12px 12px}
+.tool{display:flex;gap:8px;margin:2px 0 10px}
+.tbtn{flex:1;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:inherit;font-size:14px;font-weight:700;color:var(--accent)}
+.s{padding:10px 0 12px;border-top:1px dashed var(--line)}
+.s.ev{background:linear-gradient(90deg,#fffbe8,#fff);margin:0 -6px;padding-left:6px;padding-right:6px}
+.sn{margin-bottom:6px}
+.lb{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--sub);margin-right:6px}
+.lb.ev{background:var(--hl);color:#7a5b00}
+.ch{padding:9px 11px;margin-bottom:6px;border-radius:8px;background:var(--soft);cursor:pointer;border-bottom:2px dotted #c9cfd6}
+.ch .ce{font-size:16px;line-height:1.6}
+.ch .ce b{background:linear-gradient(transparent 55%,var(--hl) 55%)}
+.ch .ck{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--line);color:var(--accent);font-size:15px;line-height:1.65}
+.ch.open{background:#eef2f8;border-bottom-color:transparent}
+.ch.open .ck{display:block}
+.lay{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:14px;line-height:1.7}
+.lay.on{display:block}
+.stg{width:100%;min-height:42px;margin-top:6px;border:1px solid var(--accent);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const WORDS={"sets": [{"id": "g2r04p2", "title": "고2 미니모의고사 4회 07–12번", "range": "07–12번", "words": [{"src": "01", "w": "consume", "m": "섭취하다", "s": ["take in", "섭취하다"], "a": null}, {"src": "02", "w": "cautious", "m": "조심스러운", "s": ["careful", "조심하는"], "a": ["careless", "부주의한"]}, {"src": "03", "w": "flexible", "m": "유연한", "s": null, "a": ["rigid", "경직된"]}, {"src": "04", "w": "harmful", "m": "해로운", "s": null, "a": ["beneficial", "이로운"]}, {"src": "05", "w": "contradictory", "m": "모순되는", "s": null, "a": ["consistent", "일관된"]}, {"src": "06", "w": "familiar", "m": "익숙한", "s": null, "a": ["unfamiliar", "낯선"]}, {"src": "07", "w": "sufficient", "m": "충분한", "s": ["enough", "충분한"], "a": null}, {"src": "08", "w": "reliable", "m": "믿을 만한", "s": ["dependable", "의지할 만한"], "a": null}, {"src": "09", "w": "obstacle", "m": "장애물", "s": ["barrier", "장벽"], "a": null}, {"src": "10", "w": "withstand", "m": "견디다", "s": ["endure", "견디다"], "a": null}, {"src": "11", "w": "intact", "m": "온전한, 손상되지 않은", "s": null, "a": ["damaged", "손상된"]}, {"src": "12", "w": "expensive", "m": "비싼", "s": null, "a": ["cheap", "값싼"]}, {"src": "13", "w": "assumption", "m": "가정, 추정", "s": null, "a": null}, {"src": "14", "w": "incorrect", "m": "잘못된", "s": null, "a": ["correct", "옳은"]}, {"src": "15", "w": "deep-seated", "m": "뿌리 깊은", "s": null, "a": null}, {"src": "16", "w": "ultimately", "m": "궁극적으로", "s": ["eventually", "결국"], "a": null}, {"src": "17", "w": "rarely", "m": "좀처럼 ~않다", "s": null, "a": ["frequently", "자주"]}, {"src": "18", "w": "imitate", "m": "흉내 내다", "s": ["copy", "따라 하다"], "a": null}, {"src": "19", "w": "curious", "m": "궁금한", "s": null, "a": ["indifferent", "무관심한"]}, {"src": "20", "w": "abandon", "m": "내버려 두다, 팽개치다", "s": null, "a": null}], "dist": [["gradual", "점진적인"], ["reduce", "줄이다"], ["obvious", "분명한"]]}]};
+var D=[{"no": "07", "typ": "밑줄 의미", "src": "2019년 9월 21번", "evn": [4, 5], "ev_en": "Humans must be flexible enough to eat a variety of items sufficient for physical growth and maintenance, yet cautious enough not to randomly ingest foods that are physiologically harmful and, possibly, fatal. / This dilemma, the need to experiment combined with the need for conservatism, is known as the omnivore's paradox.", "ev_ko": [[4, "인간은 신체적 성장과 유지에 충분할 만큼 다양한 음식을 먹을 수 있도록 충분히 융통성이 있어야 하지만, 생리학적으로 해롭고 어쩌면 치명적일 수 있는 음식을 아무렇게나 섭취하지 않을 만큼 충분히 신중해야 한다."], [5, "이 딜레마, 즉 (새로운 것을) 시도하려는 욕구가 현상을 유지하려는 욕구와 결합된 것을 잡식 동물의 역설이라고 한다."]], "why": ["밑줄 친 어구의 뜻은 바로 앞뒤에 나옵니다", "(4)번이 <b>flexible enough ~ yet cautious enough ~<\/b>로 두 가지 요구를 나란히 놓습니다", "(5)번이 이 딜레마를 <b>the omnivore's paradox<\/b>라고 이름 붙입니다", "즉 다양하게 먹을 만큼 <b>융통성이 있으면서 동시에<\/b> 해로운 음식을 피할 만큼 <b>신중해야 한다<\/b>는 뜻입니다", "(7)번의 <b>새로운 음식에 대한 끌림 vs 익숙한 음식에 대한 선호<\/b>도 같은 두 축입니다."], "ch": [{"n": "①", "t": "irony of wanting but disliking nutritious food", "g": "영양가 있는 음식을 원하면서도 싫어하는 모순", "ok": false, "e": ["영양가 있는 음식을 <b>원하면서도 싫어한다<\/b>는 내용은 지문에 없습니다", "영양은 언급되지만 그에 대한 좋고 싫음은 말하지 않습니다", "지문의 대립은 <b>새로운 음식에 끌림 vs 익숙한 음식을 선호함<\/b>입니다."]}, {"n": "②", "t": "conflict between vegetarians and meat eaters", "g": "채식주의자와 육식하는 사람들 사이의 갈등", "ok": false, "e": ["채식주의자와 육식을 하는 사람들 사이의 갈등은 지문에 나오지 않습니다", "지문은 <b>인간 누구나<\/b> 무엇이든 먹을 수 있는 잡식성이라는 이야기입니다."]}, {"n": "③", "t": "sacrificing quality of food for quantity of food", "g": "음식의 양을 위해 음식의 질을 희생하는 것", "ok": false, "e": ["음식의 <b>질과 양<\/b>을 맞바꾼다는 이야기는 없습니다", "(3)번은 한 가지 음식만으로는 영양이 부족하다는 것이고, (4)번은 다양한 음식을 먹어야 한다는 것입니다."]}, {"n": "④", "t": "difficulty in judging whether something is edible", "g": "어떤 것이 먹을 수 있는 것인지 판단하는 것의 어려움", "ok": false, "e": ["(4)번에 해로운 음식을 조심해야 한다는 말이 있어 일부는 맞아 보입니다", "하지만 이 선지는 <b>먹어도 되는지 판단하기 어렵다<\/b>는 한 가지만 말합니다", "역설은 다양하게 먹을 <b>융통성<\/b>과 <b>신중함<\/b>이 동시에 필요하다는 것인데, 이 선지에는 융통성 쪽이 빠져 있습니다."]}, {"n": "⑤", "t": "need to be both flexible and cautious about foods", "g": "음식에 대해 융통성이 있는 동시에 신중해야 할 필요", "ok": true, "e": ["(4)번의 <b>flexible enough ~ yet cautious enough ~<\/b>를 줄여 쓴 표현입니다", "음식에 대해 융통성이 있는 동시에 신중해야 할 필요라는 뜻이므로 정답입니다."]}], "tr": ["인간은 잡식성이다. 즉, 주위 환경에서 발견되는 다양한 종류의 식물과 동물을 먹고 소화할 수 있다는 뜻이다.", "이것(잡식성)의 주된 이점은 인간이 지구상의 거의 모든 환경에 적응할 수 있다는 것이다.", "단점은 어느 한 가지 음식만으로는 생존에 필요한 영양분을 공급받지 못한다는 것이다.", "인간은 신체적 성장과 유지에 충분할 만큼 다양한 음식을 먹을 수 있도록 충분히 융통성이 있어야 하지만, 생리학적으로 해롭고 어쩌면 치명적일 수 있는 음식을 아무렇게나 섭취하지 않을 만큼 충분히 신중해야 한다.", "이 딜레마, 즉 (새로운 것을) 시도하려는 욕구가 현상을 유지하려는 욕구와 결합된 것을 잡식 동물의 역설이라고 한다.", "그것은 식사와 관련된 두 가지 모순되는 심리적 충동을 낳는다.", "첫 번째는 새로운 음식에 대한 끌림이고, 두 번째는 익숙한 음식에 대한 선호이다."], "ps": [{"n": 1, "ch": [{"e": "Humans are <b>omnivorous<\/b>,", "k": "인간은 <b>잡식성이다<\/b>,"}, {"e": "<b>meaning that<\/b> they can consume and digest", "k": "<b>즉 ~라는 뜻이다<\/b> / 그들<span class=\"r\">(= 인간)<\/span>이 먹고 소화할 수 있다는"}, {"e": "a wide selection of plants and animals", "k": "다양한 종류의 식물과 동물을"}, {"e": "found in their surroundings.", "k": "그들의 주위 환경에서 발견되는."}], "easy": "인간은 뭐든 먹는 잡식성이에요. 주변에 있는 여러 식물과 동물을 먹고 소화할 수 있다는 뜻이에요.", "gist": "글의 출발점. '잡식성'이 무슨 뜻인지부터 정의한다."}, {"n": 2, "ch": [{"e": "The primary advantage to <b>this<\/b>", "k": "<b>이것<\/b><span class=\"r\">(= 잡식성인 것)<\/span>의 주된 이점은"}, {"e": "is that they can adapt to", "k": "그들<span class=\"r\">(= 인간)<\/span>이 ~에 적응할 수 있다는 것이다"}, {"e": "nearly all earthly environments.", "k": "지구상의 거의 모든 환경에."}], "easy": "잡식성이라서 좋은 점은, 지구의 거의 모든 환경에서 살아갈 수 있다는 거예요.", "gist": "잡식성의 장점 소개."}, {"n": 3, "ch": [{"e": "The <b>disadvantage<\/b> is that", "k": "<b>단점<\/b>은 ~라는 것이다"}, {"e": "no single food provides", "k": "어느 한 가지 음식도 제공하지 못한다"}, {"e": "the nutrition necessary for survival.", "k": "생존에 필요한 영양을."}], "easy": "단점은 음식 하나만 먹어서는 살아가는 데 필요한 영양을 다 얻을 수 없다는 거예요.", "gist": "이어서 잡식성의 단점. 이 단점 때문에 다양하게 먹어야 한다."}, {"n": 4, "ch": [{"e": "Humans must be <b>flexible enough<\/b>", "k": "인간은 충분히 <b>융통성이 있어야 한다<\/b>"}, {"e": "to eat a variety of items", "k": "다양한 음식을 먹을 수 있을 만큼"}, {"e": "sufficient for physical growth and maintenance,", "k": "신체적 성장과 유지에 충분할,"}, {"e": "<b>yet cautious enough<\/b>", "k": "<b>하지만 충분히 신중해야 한다<\/b>"}, {"e": "not to randomly ingest foods", "k": "음식을 아무렇게나 섭취하지 않을 만큼"}, {"e": "that are physiologically harmful", "k": "그 음식<span class=\"r\">(= foods)<\/span>이 생리적으로 해롭고"}, {"e": "and, possibly, fatal.", "k": "어쩌면 치명적일."}], "easy": "몸에 필요한 걸 얻으려면 이것저것 먹어 볼 만큼 열려 있어야 해요. 하지만 몸에 해롭거나 위험한 음식은 아무거나 먹지 않도록 조심도 해야 해요.", "gist": "핵심 문장. '융통성 있게(flexible)' + '신중하게(cautious)' 두 가지가 동시에 필요하다. 이것이 정답 선지의 뼈대.", "link": "인간은 신체적 성장과 유지에 충분할 만큼 다양한 음식을 먹을 수 있도록 충분히 융통성이 있어야 하지만, 생리학적으로 해롭고 어쩌면 치명적일 수 있는 음식은 아무렇게나 섭취하지 않을 만큼 충분히 신중해야 한다."}, {"n": 5, "ch": [{"e": "<b>This dilemma<\/b>,", "k": "<b>이 딜레마<\/b>,<span class=\"r\">(= 앞 문장의 '융통성은 있어야 하지만 신중해야 하는' 상황)<\/span>"}, {"e": "the need to experiment", "k": "시도해 보려는 욕구가"}, {"e": "combined with the need for conservatism,", "k": "현상을 유지하려는 욕구와 결합된,"}, {"e": "is known as", "k": "~라고 알려져 있다"}, {"e": "<b>the omnivore's paradox<\/b>.", "k": "<b>잡식 동물의 역설<\/b>이라고."}], "easy": "새것을 시도해 보고 싶은 마음과 익숙한 걸 지키고 싶은 마음이 함께 있는 이 딜레마를 '잡식 동물의 역설'이라고 불러요.", "gist": "밑줄 친 표현이 나오는 문장. 바로 앞 4번 문장이 이 표현의 뜻풀이다."}, {"n": 6, "ch": [{"e": "<b>It<\/b> results in", "k": "<b>그것<\/b><span class=\"r\">(= 잡식 동물의 역설)<\/span>은 ~을 낳는다"}, {"e": "two contradictory psychological impulses", "k": "서로 모순되는 두 가지 심리적 충동을"}, {"e": "regarding diet.", "k": "식사와 관련된."}], "easy": "이 역설 때문에 먹는 일에 대해 서로 반대되는 마음 두 가지가 생겨요.", "gist": "다음 문장에서 두 가지 충동을 하나씩 설명하겠다는 예고."}, {"n": 7, "ch": [{"e": "<b>The first<\/b> is", "k": "<b>첫 번째<\/b>는 ~이고"}, {"e": "an attraction to new foods;", "k": "새로운 음식에 대한 끌림이고"}, {"e": "<b>the second<\/b> is", "k": "<b>두 번째<\/b>는 ~이다"}, {"e": "a preference for familiar foods.", "k": "익숙한 음식에 대한 선호이다."}], "easy": "첫째 마음은 새로운 음식에 끌리는 것, 둘째 마음은 늘 먹던 익숙한 음식을 더 좋아하는 것이에요.", "gist": "두 충동을 정리. 새것에 끌림은 flexible, 익숙한 것 선호는 cautious와 연결된다."}]}, {"no": "08", "typ": "문장 삽입", "src": "2013년 9월 B형 39번", "evn": [1, 4, 5], "ev_en": "Researchers at the University of Maryland have developed a solution to this problem by using a paper-thin layer of wood fibers. / Many researchers believe sodium-ion batteries are the answer because sodium is cheap and eco-friendly, but the major obstacle to advancing these batteries has been a very short life. / The wood is able to withstand the swelling and contracting of the anode and allows the battery to survive more than 400 charge cycles.", "ev_ko": [[1, "[주어진 문장] Maryland(메릴랜드) 대학의 연구자들은 종이만큼 얇은 층의 나무 섬유를 사용함으로써 이 문제에 대한 해결책을 개발했다."], [4, "많은 연구자는 나트륨이 싸고 환경 친화적이기 때문에 나트륨이온 배터리가 해답이라고 믿지만, 이 배터리를 개발하는 데 있어 주요한 장애물은 (나트륨 배터리의) 매우 짧은 수명이었다."], [5, "이 나무는 양극의 팽창과 수축을 견딜 수 있고, 배터리가 400회 이상의 충전 주기를 견딜 수 있게 해 준다."]], "why": ["삽입 문장에는 <b>this problem<\/b>과 <b>wood fibers<\/b>가 들어 있습니다", "<b>this problem<\/b>이 가리킬 문제는 (4)번의 <b>a very short life<\/b>(나트륨이온 배터리의 매우 짧은 수명)입니다", "그리고 삽입 문장이 처음 꺼낸 <b>wood<\/b>를 (5)번이 <b>The wood<\/b>라고 정관사로 받습니다", "따라서 (4)번과 (5)번 사이, ③ 자리가 맞습니다", "삽입 문제는 <b>this/the + 명사<\/b>가 가리키는 대상을 앞에서 찾는 것이 핵심입니다."], "ch": [{"n": "①", "t": "Lithium-ion batteries 앞", "g": "(3)번 문장 '리튬이온 배터리는 ~' 앞", "ok": false, "e": ["아직 <b>해결할 문제(짧은 수명)<\/b>가 나오지 않았습니다", "이 자리에 넣으면 this problem이 가리킬 것이 없습니다."]}, {"n": "②", "t": "Many researchers 앞", "g": "(4)번 문장 '많은 연구자는 ~' 앞", "ok": false, "e": ["앞에 리튬이온 배터리의 단점이 있지만, 삽입 문장이 해결한 문제는 (4)번의 <b>나트륨이온 배터리의 짧은 수명<\/b>입니다", "여기에 넣으면 그 문제가 나오기도 전에 해결책이 나오게 됩니다."]}, {"n": "③", "t": "The wood is able to withstand 앞", "g": "(5)번 문장 '그 나무는 ~ 견딜 수 있고' 앞", "ok": true, "e": ["(4)번의 very short life가 this problem이고, (5)번의 The wood가 삽입 문장의 wood fibers를 받습니다."]}, {"n": "④", "t": "At the end of the charging cycles 앞", "g": "(6)번 문장 '충전 주기가 끝나면 ~' 앞", "ok": false, "e": ["(5)번이 이미 <b>The wood<\/b>로 시작합니다", "삽입 문장이 이 자리로 오면 나무가 소개되기도 전에 정관사로 받는 꼴이 됩니다."]}, {"n": "⑤", "t": "Computer models 앞", "g": "(7)번 문장 '컴퓨터 모델은 ~' 앞", "ok": false, "e": ["해결책 설명이 거의 끝난 뒤입니다", "(5)번의 The wood가 앞에서 소개된 적 없이 나오게 되어 흐름이 어색합니다."]}], "tr": ["[주어진 문장] Maryland(메릴랜드) 대학의 연구자들은 종이만큼 얇은 층의 나무 섬유를 사용함으로써 이 문제에 대한 해결책을 개발했다.", "우리가 재생 가능한 에너지에 더 많이 의존하게 될 미래를 내다볼 때, 바람과 태양(에너지)을 뒷받침할 믿을 만한 에너지 저장 장치를 갖추는 것은 모든 것이 순조롭게 진행되기 위해 필수적일 것이다.", "리튬이온 배터리는 소형 장치뿐 아니라 심지어 자동차에도 아주 좋지만, 더 큰 규모로 보면 그것들은 너무 비싸고 별로 환경 친화적이지 않다.", "많은 연구자는 나트륨이 싸고 환경 친화적이기 때문에 나트륨이온 배터리가 해답이라고 믿지만, 이 배터리를 개발하는 데 있어 주요한 장애물은 (나트륨 배터리의) 매우 짧은 수명이었다.", "이 나무는 양극의 팽창과 수축을 견딜 수 있고, 배터리가 400회 이상의 충전 주기를 견딜 수 있게 해 준다.", "충전 주기가 끝나면 나무에는 주름이 지지만, (나무는) 여전히 (손상 없이) 온전하다.", "컴퓨터 모델은 그러한 주름들이 충전과 재충전 동안 배터리의 스트레스를 풀어 주어 유연하고 오래 가는 배터리를 만든다는 것을 보여 준다."], "ps": [{"n": 1, "ch": [{"e": "Researchers at the University of Maryland", "k": "메릴랜드 대학의 연구자들은"}, {"e": "have developed a solution", "k": "해결책을 개발했다"}, {"e": "to <b>this problem<\/b>", "k": "<b>이 문제<\/b><span class=\"r\">(= 나트륨이온 배터리의 매우 짧은 수명)<\/span>에 대한"}, {"e": "by using a paper-thin layer", "k": "종이처럼 얇은 층을 사용함으로써"}, {"e": "of wood fibers.", "k": "나무 섬유로 된."}], "easy": "메릴랜드 대학 연구자들이 종이처럼 얇은 나무 섬유 층으로 이 문제의 해결책을 만들었어요.", "gist": "[주어진 문장] this problem이 앞의 '문제'를 가리키고, wood fibers를 처음 소개한다. 문제 뒤, The wood 앞에 들어가야 한다."}, {"n": 2, "ch": [{"e": "As we look toward a future", "k": "우리가 미래를 내다볼 때"}, {"e": "of more renewable energy dependency,", "k": "재생 에너지에 더 많이 의존하는"}, {"e": "having reliable energy storage", "k": "믿을 만한 에너지 저장 장치를 갖추는 것은"}, {"e": "to back up wind and solar", "k": "풍력과 태양광을 뒷받침할"}, {"e": "will be <b>necessary<\/b>", "k": "<b>꼭 필요할<\/b> 것이다"}, {"e": "for everything to run smoothly.", "k": "모든 것이 순조롭게 돌아가기 위해."}], "easy": "재생 에너지를 더 많이 쓰게 될 미래에는 바람·태양 에너지를 받쳐 줄 믿을 만한 저장 장치가 꼭 필요해요.", "gist": "글의 주제 제시. 에너지 저장 장치(배터리)가 화제다."}, {"n": 3, "ch": [{"e": "<b>Lithium-ion batteries<\/b> are great", "k": "<b>리튬이온 배터리<\/b>는 아주 좋다"}, {"e": "for gadgets and even cars,", "k": "소형 장치뿐 아니라 심지어 자동차에도,"}, {"e": "<b>but<\/b> on a larger scale", "k": "<b>하지만<\/b> 더 큰 규모로 보면"}, {"e": "they're too expensive", "k": "그것들<span class=\"r\">(= 리튬이온 배터리)<\/span>은 너무 비싸다"}, {"e": "and aren't very environmentally friendly.", "k": "그리고 별로 환경 친화적이지 않다."}], "easy": "리튬이온 배터리는 작은 기기나 자동차에는 좋지만, 큰 규모로 쓰기엔 너무 비싸고 환경에도 별로 좋지 않아요.", "gist": "기존 배터리(리튬이온)의 한계를 먼저 말한다. 그래서 다른 배터리가 필요하다는 흐름."}, {"n": 4, "ch": [{"e": "Many researchers believe", "k": "많은 연구자는 믿는다"}, {"e": "sodium-ion batteries are the answer", "k": "나트륨이온 배터리가 해답이라고"}, {"e": "because sodium is cheap and eco-friendly,", "k": "나트륨이 싸고 친환경적이기 때문에,"}, {"e": "<b>but<\/b> the major <b>obstacle<\/b>", "k": "<b>하지만<\/b> 주된 <b>장애물<\/b>은"}, {"e": "to advancing these batteries", "k": "이 배터리들<span class=\"r\">(= 나트륨이온 배터리)<\/span>을 발전시키는 데 있어"}, {"e": "has been a very short life.", "k": "매우 짧은 수명이었다."}], "easy": "많은 연구자가 싸고 친환경적인 나트륨이온 배터리가 답이라고 보지만, 이 배터리는 수명이 너무 짧은 게 가장 큰 문제였어요.", "gist": "'문제'가 등장하는 문장. 짧은 수명이 곧 삽입 문장의 this problem이다."}, {"n": 5, "ch": [{"e": "<b>The wood<\/b>", "k": "<b>그 나무<\/b><span class=\"r\">(= 삽입 문장의 wood fibers)<\/span>는"}, {"e": "is able to withstand", "k": "견딜 수 있고"}, {"e": "the swelling and contracting of the anode", "k": "양극의 팽창과 수축을"}, {"e": "and allows the battery", "k": "배터리가 ~하게 해 준다"}, {"e": "to survive more than 400 charge cycles.", "k": "400회가 넘는 충전 주기를 버티도록."}], "easy": "그 나무가 양극이 부풀었다 줄었다 하는 걸 견뎌 주어서, 배터리가 400번 넘게 충전해도 버텨요.", "gist": "The wood가 앞에서 소개된 나무 섬유를 받는다. 해결책이 어떻게 작동하는지 설명이 시작된다."}, {"n": 6, "ch": [{"e": "At the end of the charging cycles,", "k": "충전 주기가 끝날 때,"}, {"e": "the wood is <b>wrinkled<\/b>,", "k": "그 나무는 <b>주름이 지지만<\/b>,"}, {"e": "but still <b>intact<\/b>.", "k": "여전히 <b>온전하다<\/b>."}], "easy": "충전을 다 하고 나면 나무에 주름이 생기지만, 망가지지는 않고 멀쩡해요.", "gist": "나무에 생긴 주름이라는 새 정보를 던진다. 다음 문장이 이 주름을 설명한다."}, {"n": 7, "ch": [{"e": "<b>Computer models<\/b> show", "k": "<b>컴퓨터 모델<\/b>은 보여 준다"}, {"e": "that those wrinkles", "k": "그 주름들<span class=\"r\">(= 나무에 생긴 주름)<\/span>이"}, {"e": "relax the stress in the battery", "k": "배터리의 스트레스를 풀어 준다는 것을"}, {"e": "during charging and recharging,", "k": "충전과 재충전 동안"}, {"e": "creating a flexible and long-lasting battery.", "k": "그래서 유연하고 오래가는 배터리를 만든다."}], "easy": "컴퓨터 모델로 보니, 그 주름이 충전할 때 배터리가 받는 부담을 덜어 줘서 유연하고 오래가는 배터리가 된대요.", "gist": "결론. 주름이 오히려 배터리를 오래 쓰게 해 준다."}]}, {"no": "09", "typ": "글의 순서", "src": "2023년 3월 37번", "evn": [3, 7, 8, 9, 4], "ev_en": "Should I get a wholegrain cereal or a chocolate cereal? / For example, if my goal is to eat healthy, I can choose the wholegrain cereal, but what is my reason for wanting to be healthy? / I can list more and more reasons such as wanting to live longer, spending more quality time with loved ones, etc., but what are the reasons for those reasons? / You should be able to see by now that reasons are ultimately based on non-reason such as values, feelings, or emotions. / These deep-seated values, feelings, and emotions we have are rarely a result of reasoning, but can certainly be influenced by reasoning.", "ev_ko": [[3, "내가 통곡물 시리얼을 사야 할까, 초콜릿 시리얼을 사야 할까?"], [7, "(B) 예를 들어 내 목표가 건강하게 먹는 것이라면 통곡물 시리얼을 고를 수 있지만, 건강해지고 싶은 내 이유는 무엇일까?"], [8, "(C) 나는 더 오래 살고 싶다든가 사랑하는 사람들과 양질의 시간을 더 보내고 싶다든가 하는 이유를 더욱더 많이 열거할 수 있지만, 그 이유들의 이유는 무엇일까?"], [9, "(C) 이쯤이면 이유가 궁극적으로 가치관·느낌·감정 같은 비이성에 근거한다는 것을 알 수 있을 것이다."], [4, "(A) 우리가 가진 이 뿌리 깊은 가치관·느낌·감정은 추론의 결과인 경우가 거의 없지만, 분명히 추론의 영향을 받을 수는 있다."]], "why": ["순서 유형은 <b>앞 문장의 질문에 답이 이어지는지<\/b>와 <b>these·those·more 같은 말이 가리킬 대상<\/b>을 봅니다", "주어진 글이 시리얼 선택을 묻고, (B)가 <b>통곡물 시리얼을 고를 수 있다<\/b>고 답하며 이유를 캐묻습니다", "(C)는 <b>more and more reasons<\/b>로 그 이유를 한 단계 더 파고드니 (B) 뒤에 옵니다", "(C)의 마지막에서 <b>values, feelings, or emotions<\/b>라는 결론이 나오고, (A)가 그것을 <b>These<\/b>로 받아 정리합니다", "따라서 (B) → (C) → (A)입니다."], "ch": [{"n": "①", "t": "(A) – (C) – (B)", "g": "", "ok": false, "e": ["(A)는 <b>These deep-seated values, feelings, and emotions<\/b>로 시작해 앞에서 설명된 내용을 받아야 합니다", "그런데 주어진 글은 시리얼 질문으로 끝나므로, 바로 뒤에는 그 질문에 답하는 (B)가 와야 합니다."]}, {"n": "②", "t": "(B) – (A) – (C)", "g": "", "ok": false, "e": ["(B)는 '건강해지고 싶은 이유는 무엇일까?'라는 질문으로 끝납니다", "바로 뒤에 (A)가 오면 이 질문이 이어지지 않고, <b>These deep-seated values, feelings, and emotions<\/b>(이 뿌리 깊은 가치관·느낌·감정)도 (C)의 결론이 나오기 전이라 받을 대상이 부족합니다."]}, {"n": "③", "t": "(B) – (C) – (A)", "g": "", "ok": true, "e": ["이유 대기(B) → 이유의 이유를 캐묻기(C) → 결론을 These로 받아 정리(A) 순서입니다."]}, {"n": "④", "t": "(C) – (A) – (B)", "g": "", "ok": false, "e": ["(C)의 <b>more and more reasons<\/b>는 앞에서 이유를 한 번 댄 (B)가 있어야 나올 수 있습니다", "시리얼 질문에 대한 답도 (B)에서 처음 나옵니다."]}, {"n": "⑤", "t": "(C) – (B) – (A)", "g": "", "ok": false, "e": ["(C)가 (B)보다 먼저 오면 <b>more and more reasons<\/b>와 <b>those reasons<\/b>가 가리킬 이유가 아직 나오지 않은 상태가 됩니다."]}], "tr": ["흔하지만 잘못된 가정은 우리가 이성의 존재라는 것인데, 사실 우리는 이성과 감정 둘 다의 존재다.", "어떤 이성이든 결국은 감정으로 이어지기 때문에, 우리는 이성만으로 살아갈 수 없다.", "내가 통곡물 시리얼을 사야 할까, 초콜릿 시리얼을 사야 할까?", "(A) 우리가 가진 이 뿌리 깊은 가치관·느낌·감정은 추론의 결과인 경우가 거의 없지만, 분명히 추론의 영향을 받을 수는 있다.", "(A) 우리는 추론을 시작하기 전에, 그리고 효과적으로 추론하기 시작하기 훨씬 전에 이미 가치관·느낌·감정을 갖고 있다.", "(B) 나는 원하는 이유를 모두 열거할 수 있지만, 그 이유들은 무언가에 근거해야 한다.", "(B) 예를 들어 내 목표가 건강하게 먹는 것이라면 통곡물 시리얼을 고를 수 있지만, 건강해지고 싶은 내 이유는 무엇일까?", "(C) 나는 더 오래 살고 싶다든가 사랑하는 사람들과 양질의 시간을 더 보내고 싶다든가 하는 이유를 더욱더 많이 열거할 수 있지만, 그 이유들의 이유는 무엇일까?", "(C) 이쯤이면 이유가 궁극적으로 가치관·느낌·감정 같은 비이성에 근거한다는 것을 알 수 있을 것이다."], "ps": [{"n": 1, "ch": [{"e": "A common but incorrect <b>assumption<\/b>", "k": "흔하지만 잘못된 <b>가정<\/b>은"}, {"e": "is that we are creatures of reason", "k": "우리가 이성의 존재라는 것인데"}, {"e": "when, in fact,", "k": "사실은"}, {"e": "we are creatures of <b>both<\/b> reason <b>and<\/b> emotion.", "k": "우리는 이성과 감정 <b>둘 다<\/b>의 존재다."}], "easy": "'사람은 이성적인 존재'라고들 생각하지만 틀린 생각이에요. 사실 사람은 이성과 감정을 둘 다 가진 존재예요.", "gist": "[주어진 글] 글의 주제. 우리는 이성만의 존재가 아니라 감정의 존재이기도 하다."}, {"n": 2, "ch": [{"e": "We cannot <b>get by<\/b>", "k": "우리는 살아갈 수 없다"}, {"e": "on reason alone", "k": "이성만으로"}, {"e": "since any reason always eventually", "k": "어떤 이성이든 항상 결국에는"}, {"e": "leads to a feeling.", "k": "감정으로 이어지기 때문에."}], "easy": "어떤 이성적인 생각도 결국 감정으로 이어지니까, 이성만으로는 살 수 없어요.", "gist": "[주어진 글] 앞 문장의 주장을 이유로 뒷받침한다."}, {"n": 3, "ch": [{"e": "Should I get a <b>wholegrain<\/b> cereal", "k": "내가 통곡물 시리얼을 살까"}, {"e": "or a chocolate cereal?", "k": "아니면 초콜릿 시리얼을 살까?"}], "easy": "'통곡물 시리얼을 살까, 초콜릿 시리얼을 살까?' 하고 고민하는 장면이에요.", "gist": "[주어진 글] 예시 질문으로 끝난다. 이 질문의 '이유'를 다음 글에서 이어 간다."}, {"n": 6, "ch": [{"e": "I can <b>list<\/b> all the reasons", "k": "나는 모든 이유를 열거할 수 있다"}, {"e": "I want,", "k": "내가 원하는"}, {"e": "but the reasons", "k": "하지만 그 이유들은"}, {"e": "have to be based on something.", "k": "무언가에 근거해야 한다."}], "easy": "원하는 만큼 이유를 댈 수 있지만, 이유는 결국 무언가를 바탕으로 해야 해요.", "gist": "(B)의 시작. 시리얼 질문에 대한 답으로 '이유'를 이야기하기 시작한다."}, {"n": 7, "ch": [{"e": "For example,", "k": "예를 들어,"}, {"e": "if my goal is to eat healthy,", "k": "내 목표가 건강하게 먹는 것이라면"}, {"e": "I can choose the wholegrain cereal,", "k": "나는 통곡물 시리얼을 고를 수 있다,"}, {"e": "<b>but<\/b> what is my reason", "k": "<b>하지만<\/b> 내 이유는 무엇일까"}, {"e": "for wanting to be healthy?", "k": "건강해지고 싶은 것에 대한?"}], "easy": "건강하게 먹는 게 목표면 통곡물 시리얼을 고르겠죠. 그런데 왜 건강해지고 싶은 걸까요?", "gist": "(B)의 끝. 시리얼 질문에 답한 뒤, 그 이유를 다시 묻는다. 이 질문을 (C)가 이어받는다."}, {"n": 8, "ch": [{"e": "I can list <b>more and more<\/b> reasons", "k": "나는 점점 더 많은 이유를 열거할 수 있다"}, {"e": "such as wanting to live longer,", "k": "더 오래 살고 싶은 것,"}, {"e": "spending more quality time with loved ones, etc.,", "k": "사랑하는 사람들과 양질의 시간을 더 보내고 싶은 것 등과 같은"}, {"e": "<b>but<\/b> what are the reasons", "k": "<b>하지만<\/b> 이유들은 무엇일까"}, {"e": "for <b>those reasons<\/b>?", "k": "그 이유들<span class=\"r\">(= 오래 살고 싶은 것, 소중한 사람과 시간을 보내고 싶은 것 등)<\/span>에 대한?"}], "easy": "더 오래 살고 싶다, 소중한 사람과 시간을 보내고 싶다 같은 이유를 더 댈 수 있어요. 그런데 그 이유들의 이유는 뭘까요?", "gist": "(C)의 시작. (B)에서 댄 이유를 한 단계 더 깊이 캐묻는다. more and more가 앞에 이유가 있었음을 알려 준다."}, {"n": 9, "ch": [{"e": "You should be able to see", "k": "여러분은 알 수 있을 것이다"}, {"e": "by now", "k": "이제는"}, {"e": "that reasons are ultimately based on", "k": "이유가 궁극적으로 ~에 근거한다는 것을"}, {"e": "<b>non-reason<\/b>", "k": "<b>비이성<\/b>,"}, {"e": "such as values, feelings, or emotions.", "k": "즉 가치관, 느낌, 감정 같은 것에."}], "easy": "이쯤 되면 알 수 있어요. 이유의 맨 밑바닥에는 이성이 아니라 가치관, 느낌, 감정이 있다는 걸요.", "gist": "(C)의 결론. 여기서 나온 '가치관·느낌·감정'을 다음 (A)가 These로 받는다."}, {"n": 4, "ch": [{"e": "<b>These<\/b> deep-seated values, feelings, and emotions", "k": "<b>이러한<\/b> 뿌리 깊은 가치관, 느낌, 감정은<span class=\"r\">(= 앞 (C)에서 말한 가치관·느낌·감정)<\/span>"}, {"e": "we have", "k": "우리가 가진"}, {"e": "are rarely a result of reasoning,", "k": "추론의 결과인 경우가 거의 없지만,"}, {"e": "but can <b>certainly<\/b> be influenced", "k": "분명히 영향을 받을 수는 있다"}, {"e": "by reasoning.", "k": "추론에 의해."}], "easy": "우리 안의 깊은 가치관과 감정은 논리적으로 생각해서 생긴 건 거의 아니에요. 그래도 생각에 영향을 받을 수는 있어요.", "gist": "(A)의 시작. These가 (C) 끝의 values, feelings, emotions를 받으므로 (C) 바로 뒤에 온다."}, {"n": 5, "ch": [{"e": "We have values, feelings, and emotions", "k": "우리는 가치관, 느낌, 감정을 가지고 있다"}, {"e": "<b>before<\/b> we begin to reason", "k": "우리가 추론을 시작하기 <b>전에<\/b>"}, {"e": "and <b>long before<\/b>", "k": "그리고 훨씬 <b>전에<\/b>"}, {"e": "we begin to reason effectively.", "k": "우리가 효과적으로 추론하기 시작하기."}], "easy": "우리는 생각을 시작하기 전부터, 그리고 제대로 생각할 수 있게 되기 훨씬 전부터 이미 가치관과 감정을 갖고 있어요.", "gist": "글의 마무리. 가치관·느낌·감정이 추론보다 먼저라는 결론."}]}, {"no": "10", "typ": "장문 · 글의 순서", "src": "2015년 3월 43번", "evn": [5, 6, 11, 12, 16, 17], "ev_en": "While the bright sun warmed the back of his neck, he began nodding beside the sandpit. / Suddenly, Mr. Brooks heard a loud shout and turned to see one of the kids, Michelle, on the climbing bars. / Just as Mr. Brooks reached the bars, all of (d) them, including Michelle, began shouting: \"Garbage man!\" \"Garbage man!\" / He moved beyond the bars, peered out over the fence, and saw a garbage man. / He then yelled, \"Ready,\" to his partner, and the dumpster began to rise from the ground accompanied by a loud whirring. / The kids were very excited and were imitating the noise of the truck lift: \"Whirr!\" \"Whirr!\" \"Whirr!\"", "ev_ko": [[5, "(A)-5 밝은 태양이 그의 목덜미를 따뜻하게 하는 동안, 그는 모래 놀이터 옆에서 꾸벅거리며 졸기 시작했다."], [6, "(C)-1 갑자기 Brooks 씨는 큰 외침 소리를 들었고, 몸을 돌려 아이들 중 한 명인 Michelle이 철봉 사다리 위에 있는 것을 보았다."], [11, "(C)-6 Brooks 씨가 철봉 사다리에 막 다다랐을 때, Michelle을 포함한 (d) 그들(아이들) 모두가 소리치기 시작했다. \"쓰레기차 아저씨다!\" \"쓰레기차 아저씨다!\""], [12, "(D)-1 그는 철봉 사다리를 넘어가 울타리 너머를 내다보았고, 쓰레기 수거인 한 명을 발견했다."], [16, "(D)-5 그는 그러더니 동료에게 \"준비 됐어.\"라고 소리쳤고, 쓰레기 수거함은 크게 윙윙거리는 소리를 동반하며 바닥에서 올라가기 시작했다."], [17, "(B)-1 아이들은 굉장히 신이 나서 트럭 리프트의 소리를 흉내 내고 있었다. \"윙!\" \"윙!\" \"윙!\""]], "why": ["장문 순서는 <b>인물의 동선과 시간 흐름<\/b>을 따라가면 됩니다", "(A) 끝에서 Brooks 씨가 졸고 있으니, 큰 외침에 <b>Suddenly<\/b> 깨어나는 (C)가 이어집니다", "(C) 끝에서 철봉 사다리에 막 다다랐고, (D)가 <b>He moved beyond the bars<\/b>로 그 지점에서 시작합니다", "(D) 끝에서 수거함이 <b>올라가기 시작<\/b>하고, (B)는 그 리프트 소리를 아이들이 <b>흉내 내는<\/b> 장면이라 마지막입니다", "따라서 (C) → (D) → (B)입니다.<br>※ '5번' 같은 숫자는 (A)→(C)→(D)→(B) 순서로 이어 센 번호이고, 문장 앞의 (C)-1 같은 표시가 단락별 번호입니다."], "ch": [{"n": "①", "t": "(B) – (D) – (C)", "g": "", "ok": false, "e": ["(B)의 <b>the truck lift<\/b>와 <b>the dumpster<\/b>는 (D)에서 먼저 소개됩니다", "(B)가 (D)보다 앞서면 아이들이 흉내 낼 리프트 소리가 아직 나오지 않은 상태입니다."]}, {"n": "②", "t": "(C) – (B) – (D)", "g": "", "ok": false, "e": ["(B)에서는 이미 수거함이 꼭대기에 올라 쓰레기가 쏟아지는데, 뒤의 (D)에서는 수거함이 이제 <b>올라가기 시작<\/b>합니다", "시간이 거꾸로 흐릅니다."]}, {"n": "③", "t": "(C) – (D) – (B)", "g": "", "ok": true, "e": ["졸다가 깨는 (C) → 울타리 밖을 내다보고 리프트가 작동하는 (D) → 리프트 소리를 흉내 내는 (B) 순서입니다."]}, {"n": "④", "t": "(D) – (B) – (C)", "g": "", "ok": false, "e": ["(D)의 첫 문장 <b>He moved beyond the bars<\/b>는 (C)에서 철봉 사다리에 다다른 뒤라야 성립합니다", "(A) 바로 뒤에 오면 <b>the bars<\/b>(철봉 사다리)가 가리킬 대상이 아직 없습니다. 철봉 사다리는 (C)에서 <b>climbing bars<\/b>로 처음 나옵니다."]}, {"n": "⑤", "t": "(D) – (C) – (B)", "g": "", "ok": false, "e": ["(D)가 (C)보다 먼저 올 수 없습니다", "<b>the bars<\/b>는 (C)에서 <b>climbing bars<\/b>로 먼저 나오기 때문입니다."]}], "tr": ["(A)-1 아름다운 9월의 아침이었다.", "(A)-2 사실, 날이 너무 좋아 실내에만 있을 수가 없었다.", "(A)-3 그래서 Brooks 씨는 바깥마당에서 시간을 보내기로 마음먹었다.", "(A)-4 일단 밖에 나가자, 그는 Michelle, Jimmy, Dwight가 모래 놀이터 쪽으로 가는 것을 보았고, (a) 그들(아이들)과 합류했다.", "(A)-5 밝은 태양이 그의 목덜미를 따뜻하게 하는 동안, 그는 모래 놀이터 옆에서 꾸벅거리며 졸기 시작했다.", "(C)-1 갑자기 Brooks 씨는 큰 외침 소리를 들었고, 몸을 돌려 아이들 중 한 명인 Michelle이 철봉 사다리 위에 있는 것을 보았다.", "(C)-2 그녀는 소리를 지르며 마당 뒤쪽 울타리 너머를 가리키고 있었다.", "(C)-3 그녀는 소리쳤다. \"그 남자야! 그 남자야!\"", "(C)-4 Brooks 씨는 호기심이 들었다.", "(C)-5 그가 가서 보려고 일어서자, Jimmy와 Dwight도 장난감을 버리고 그를 지나 철봉 사다리로 달려갔다.", "(C)-6 Brooks 씨가 철봉 사다리에 막 다다랐을 때, Michelle을 포함한 (d) 그들(아이들) 모두가 소리치기 시작했다. \"쓰레기차 아저씨다!\" \"쓰레기차 아저씨다!\"", "(D)-1 그는 철봉 사다리를 넘어가 울타리 너머를 내다보았고, 쓰레기 수거인 한 명을 발견했다.", "(D)-2 사실, 그곳에는 두 명의 쓰레기 수거인이 큰 쓰레기 수거 트럭과 함께 있었다.", "(D)-3 (e) 그들(쓰레기 수거인들) 중 한 명은 트럭의 운전석에 앉아 있었다.", "(D)-4 다른 사람은 트럭의 뒤쪽으로 이동했고, 쓰레기 수거함을 (차에 달린) 리프트에 고정시키고 있는 것 같았다.", "(D)-5 그는 그러더니 동료에게 \"준비 됐어.\"라고 소리쳤고, 쓰레기 수거함은 크게 윙윙거리는 소리를 동반하며 바닥에서 올라가기 시작했다.", "(B)-1 아이들은 굉장히 신이 나서 트럭 리프트의 소리를 흉내 내고 있었다. \"윙!\" \"윙!\" \"윙!\"", "(B)-2 쓰레기 수거함이 꼭대기에 도달하여 쓰레기가 트럭 안으로 떨어지자, 아이들은 자기들만의 흥분의 절정에 다다른 것처럼 보였다.", "(B)-3 (b) 그들(아이들)은 손을 흔들며 거의 동시에 '윙윙거렸다'.", "(B)-4 정확히 이 시점에, 트럭 바깥의 쓰레기 수거인이 자기 팬들(아이들)에게 손을 마주 흔들어 주었다.", "(B)-5 트럭이 길을 내려가 (c) 그들(아이들)의 시야에서 아주 벗어나는 동안, 아이들은 철봉 사다리 위에서 계속 손을 흔들며 \"쓰레기차 아저씨!\"라고 외쳤다."], "ps": [{"n": 1, "ch": [{"e": "It was a <b>beautiful<\/b> September morning.", "k": "<span class=\"r\">[(A)-1]<\/span> 아름다운 9월의 아침이었다."}], "easy": "9월의 아주 좋은 아침이었어요.", "gist": "이야기의 시작. 배경(날씨)을 소개한다."}, {"n": 2, "ch": [{"e": "In fact,", "k": "<span class=\"r\">[(A)-2]<\/span> 사실,"}, {"e": "it was <b>much too nice a day<\/b>", "k": "그날은 <b>너무나 좋은 날<\/b>이어서"}, {"e": "to remain indoors.", "k": "실내에만 있을 수 없었다."}], "easy": "너무 좋은 날이라 집 안에만 있을 수 없을 정도였어요.", "gist": "날씨가 얼마나 좋았는지 강조한다."}, {"n": 3, "ch": [{"e": "So Mr. Brooks decided", "k": "<span class=\"r\">[(A)-3]<\/span> 그래서 Brooks 씨는 결정했다"}, {"e": "to spend time", "k": "시간을 보내기로"}, {"e": "in the outside yard.", "k": "바깥마당에서."}], "easy": "그래서 Brooks 씨는 바깥마당에서 시간을 보내기로 했어요.", "gist": "주인공이 마당으로 나가게 된 이유와 결정."}, {"n": 4, "ch": [{"e": "Once outside,", "k": "<span class=\"r\">[(A)-4]<\/span> 일단 밖에 나가자,"}, {"e": "he noticed Michelle, Jimmy, and Dwight", "k": "그는 Michelle, Jimmy, Dwight를 알아챘다"}, {"e": "moving toward the sandpit,", "k": "모래 놀이터 쪽으로 움직이는"}, {"e": "and he joined (a) <b>them<\/b>.", "k": "그리고 그는 그들<span class=\"r\">(= Michelle, Jimmy, Dwight, 즉 아이들)<\/span>과 합류했다."}], "easy": "밖에 나가 보니 Michelle, Jimmy, Dwight가 모래 놀이터로 가고 있어서, 그 아이들과 어울렸어요.", "gist": "주인공이 아이들과 합류하는 장면."}, {"n": 5, "ch": [{"e": "While the bright sun", "k": "<span class=\"r\">[(A)-5]<\/span> 밝은 햇살이"}, {"e": "warmed the back of his neck,", "k": "그의 목덜미를 따뜻하게 하는 동안,"}, {"e": "he began <b>nodding<\/b>", "k": "그는 꾸벅꾸벅 졸기 시작했다"}, {"e": "beside the sandpit.", "k": "모래 놀이터 옆에서."}], "easy": "밝은 햇살이 목덜미를 따뜻하게 비추는 동안, Brooks 씨는 모래 놀이터 옆에서 꾸벅꾸벅 졸기 시작했어요.", "gist": "(A)의 끝. 졸고 있는 상태에서 다음 사건이 시작된다."}, {"n": 6, "ch": [{"e": "<b>Suddenly<\/b>, Mr. Brooks heard a loud shout", "k": "<span class=\"r\">[(C)-1]<\/span> 갑자기 Brooks 씨는 큰 외침을 들었다"}, {"e": "and turned to see one of the kids, Michelle,", "k": "그리고 몸을 돌려 아이들 중 한 명인 Michelle이"}, {"e": "on the climbing bars.", "k": "철봉 사다리 위에 있는 것을 보았다."}], "easy": "갑자기 큰 소리가 들려서 돌아보니, 아이들 중 Michelle이 철봉 사다리 위에 있었어요.", "gist": "(C)의 시작. 졸던 Brooks 씨가 큰 소리에 깨며 새 사건이 시작된다."}, {"n": 7, "ch": [{"e": "<b>She<\/b> was shouting and pointing", "k": "<span class=\"r\">[(C)-2]<\/span> 그녀<span class=\"r\">(= Michelle)<\/span>는 소리치며 가리키고 있었다"}, {"e": "over the back fence of the yard.", "k": "마당 뒤쪽 울타리 너머를."}], "easy": "Michelle은 소리를 지르며 마당 뒤쪽 울타리 너머를 가리키고 있었어요.", "gist": "Michelle의 행동 묘사."}, {"n": 8, "ch": [{"e": "<b>She<\/b> shouted:", "k": "<span class=\"r\">[(C)-3]<\/span> 그녀<span class=\"r\">(= Michelle)<\/span>는 소리쳤다:"}, {"e": "\"It's him! It's him!\"", "k": "\"그 남자야! 그 남자야!\""}], "easy": "Michelle이 \"그 남자야! 그 남자야!\" 하고 외쳤어요.", "gist": "외친 말의 내용. 누구인지는 뒤에서 밝혀진다."}, {"n": 9, "ch": [{"e": "Mr. Brooks <b>got curious<\/b>.", "k": "<span class=\"r\">[(C)-4]<\/span> Brooks 씨는 <b>궁금해졌다<\/b>."}], "easy": "Brooks 씨는 무슨 일인지 궁금해졌어요.", "gist": "Brooks 씨의 반응."}, {"n": 10, "ch": [{"e": "As he got up to go look,", "k": "<span class=\"r\">[(C)-5]<\/span> 그가 보러 가려고 일어서자,"}, {"e": "Jimmy and Dwight <b>abandoned<\/b> their toys", "k": "Jimmy와 Dwight는 장난감을 <b>내팽개치고<\/b>"}, {"e": "and ran past him", "k": "그를 지나 달려갔다"}, {"e": "to the bars.", "k": "철봉 사다리로."}], "easy": "Brooks 씨가 보러 일어서니, Jimmy와 Dwight는 장난감을 던져 놓고 그를 앞질러 철봉 사다리로 달려갔어요.", "gist": "다른 아이들도 철봉 사다리로 모여든다."}, {"n": 11, "ch": [{"e": "<b>Just as<\/b> Mr. Brooks reached the bars,", "k": "<span class=\"r\">[(C)-6]<\/span> Brooks 씨가 철봉 사다리에 <b>막 다다랐을 때<\/b>,"}, {"e": "all of (d) <b>them<\/b>, including Michelle,", "k": "그들<span class=\"r\">(= 아이들)<\/span> 모두가, Michelle을 포함해,"}, {"e": "began shouting:", "k": "소리치기 시작했다:"}, {"e": "\"Garbage man!\" \"Garbage man!\"", "k": "\"쓰레기차 아저씨다!\" \"쓰레기차 아저씨다!\""}], "easy": "Brooks 씨가 철봉 사다리에 닿았을 때, Michelle을 포함한 모든 아이들이 \"쓰레기차 아저씨다!\" 하고 외치기 시작했어요.", "gist": "(C)의 끝. Michelle이 가리키던 '그 남자'가 쓰레기 수거인임이 밝혀진다. 장소는 철봉 사다리다."}, {"n": 12, "ch": [{"e": "<b>He<\/b> moved beyond the bars,", "k": "<span class=\"r\">[(D)-1]<\/span> 그<span class=\"r\">(= Brooks 씨)<\/span>는 철봉 사다리를 넘어가,"}, {"e": "peered out over the fence,", "k": "울타리 너머를 내다보고,"}, {"e": "and saw a garbage man.", "k": "쓰레기 수거인 한 명을 보았다."}], "easy": "Brooks 씨는 철봉 사다리 너머로 가서 울타리 밖을 내다보다가 쓰레기 수거인을 봤어요.", "gist": "(D)의 시작. (C) 끝에서 철봉 사다리에 닿은 바로 그 자리에서 이어진다."}, {"n": 13, "ch": [{"e": "In fact,", "k": "<span class=\"r\">[(D)-2]<\/span> 사실,"}, {"e": "there were <b>two garbage men<\/b> out there,", "k": "그곳에는 <b>두 명의 쓰레기 수거인<\/b>이 있었다,"}, {"e": "along with a large garbage truck.", "k": "큰 쓰레기 수거 트럭과 함께."}], "easy": "사실 밖에는 쓰레기 수거인이 두 명, 큰 쓰레기 트럭과 함께 있었어요.", "gist": "수거인이 한 명이 아니라 두 명이라는 정보. 다음 문장의 them이 가리키는 대상이 된다."}, {"n": 14, "ch": [{"e": "<b>One of<\/b> (e) <b>them<\/b>", "k": "<span class=\"r\">[(D)-3]<\/span> 그들<span class=\"r\">(= 두 명의 쓰레기 수거인)<\/span> 중 한 명은"}, {"e": "sat behind the wheel of the truck.", "k": "트럭의 운전석에 앉아 있었다."}], "easy": "그 두 사람 중 한 명은 트럭 운전석에 앉아 있었어요.", "gist": "them이 수거인 두 명을 가리킨다. 운전석에 앉는 건 수거인이다."}, {"n": 15, "ch": [{"e": "<b>The other man<\/b>", "k": "<span class=\"r\">[(D)-4]<\/span> <b>다른 한 사람<\/b>은"}, {"e": "had moved to the rear of the truck", "k": "트럭 뒤쪽으로 이동해 있었고"}, {"e": "and seemed to be attaching", "k": "고정시키고 있는 것 같았다"}, {"e": "the dumpster to a lift.", "k": "쓰레기 수거함을 리프트에."}], "easy": "다른 한 사람은 트럭 뒤쪽으로 가서 수거함을 리프트에 거는 것 같았어요.", "gist": "두 번째 수거인의 행동. 리프트 작동을 준비한다."}, {"n": 16, "ch": [{"e": "<b>He<\/b> then yelled, \"Ready,\"", "k": "<span class=\"r\">[(D)-5]<\/span> 그<span class=\"r\">(= 다른 한 사람)<\/span>는 그러고 나서 \"준비 됐어\"라고 소리쳤다"}, {"e": "to his partner,", "k": "그의 동료에게,"}, {"e": "and the dumpster began to <b>rise<\/b>", "k": "그러자 쓰레기 수거함이 <b>올라가기<\/b> 시작했다"}, {"e": "from the ground", "k": "바닥에서"}, {"e": "accompanied by a loud whirring.", "k": "크게 윙윙거리는 소리를 동반하며."}], "easy": "그가 동료에게 \"준비 됐어\" 하고 외치자, 수거함이 윙 소리를 내며 올라가기 시작했어요.", "gist": "(D)의 끝. 리프트가 작동하기 시작한다. 이 윙윙 소리를 (B)의 아이들이 흉내 낸다."}, {"n": 17, "ch": [{"e": "The kids were very excited", "k": "<span class=\"r\">[(B)-1]<\/span> 아이들은 매우 신이 났다"}, {"e": "and were imitating the noise of the truck lift:", "k": "그리고 트럭 리프트의 소리를 흉내 내고 있었다:"}, {"e": "\"Whirr!\" \"Whirr!\" \"Whirr!\"", "k": "\"윙!\" \"윙!\" \"윙!\""}], "easy": "아이들은 너무 신이 나서 트럭 리프트 소리를 \"윙! 윙! 윙!\" 하고 따라 했어요.", "gist": "(B)의 시작. (D) 끝의 윙윙 소리를 아이들이 흉내 낸다."}, {"n": 18, "ch": [{"e": "As the dumpster reached its peak", "k": "<span class=\"r\">[(B)-2]<\/span> 쓰레기 수거함이 꼭대기에 이르고"}, {"e": "and the trash fell into the truck,", "k": "쓰레기가 트럭 안으로 떨어지자,"}, {"e": "the kids seemed to reach", "k": "아이들은 ~에 다다른 것 같았다"}, {"e": "their own peak of excitement.", "k": "자기들만의 흥분의 절정에."}], "easy": "수거함이 맨 위까지 올라가 쓰레기가 쏟아질 때, 아이들의 흥분도 최고에 달한 것 같았어요.", "gist": "수거함의 절정과 아이들의 흥분의 절정을 나란히 놓았다."}, {"n": 19, "ch": [{"e": "(b) <b>They<\/b> waved and \"whirred\"", "k": "<span class=\"r\">[(B)-3]<\/span> 그들<span class=\"r\">(= 아이들)<\/span>은 손을 흔들고 '윙윙거렸다'"}, {"e": "nearly at the same time.", "k": "거의 동시에."}], "easy": "아이들은 손을 흔들며 거의 같이 \"윙\" 하고 소리를 냈어요.", "gist": "they가 아이들을 가리킨다."}, {"n": 20, "ch": [{"e": "<b>At exactly this point<\/b>,", "k": "<span class=\"r\">[(B)-4]<\/span> <b>바로 이 순간<\/b>,"}, {"e": "the garbage man outside the truck", "k": "트럭 밖에 있던 쓰레기 수거인이"}, {"e": "waved back", "k": "손을 마주 흔들어 주었다"}, {"e": "to his admirers.", "k": "그의 팬들<span class=\"r\">(= 아이들)<\/span>에게."}], "easy": "바로 그때, 트럭 밖에 있던 수거인이 자기 팬인 아이들에게 손을 흔들어 줬어요.", "gist": "수거인이 아이들에게 답해 주는 장면."}, {"n": 21, "ch": [{"e": "The kids continued waving and shouting", "k": "<span class=\"r\">[(B)-5]<\/span> 아이들은 계속 손을 흔들며 외쳤다"}, {"e": "\"Garbage man!\"", "k": "\"쓰레기차 아저씨!\""}, {"e": "<b>on the bars<\/b>", "k": "<b>철봉 사다리 위에서<\/b>"}, {"e": "as the truck went down the street,", "k": "트럭이 길을 내려가는 동안,"}, {"e": "far beyond (c) <b>their<\/b> sight.", "k": "그들<span class=\"r\">(= 아이들)<\/span>의 시야에서 훨씬 벗어나서."}], "easy": "트럭이 길을 따라 멀리 사라질 때까지, 아이들은 철봉 사다리 위에서 계속 손을 흔들며 외쳤어요.", "gist": "마지막 장면. 거리로 간 것은 트럭이고, 아이들은 끝까지 철봉 사다리 위에 있었다."}]}, {"no": "11", "typ": "장문 · 지칭 추론", "src": "2015년 3월 44번", "evn": [13, 14], "ev_en": "In fact, there were two garbage men out there, along with a large garbage truck. / One of (e) them sat behind the wheel of the truck.", "ev_ko": [[13, "(D)-2 사실, 그곳에는 두 명의 쓰레기 수거인이 큰 쓰레기 수거 트럭과 함께 있었다."], [14, "(D)-3 (e) 그들(쓰레기 수거인들) 중 한 명은 트럭의 운전석에 앉아 있었다."]], "why": ["(e) 바로 앞 (D)-2에 <b>two garbage men<\/b>이 나오고, 이어서 <b>One of them<\/b>이 트럭 운전석에 앉아 있었다고 합니다", "그래서 (e)는 <b>두 명의 쓰레기 수거인<\/b>입니다", "나머지 (a)(b)(c)(d)는 모두 <b>세 아이(Michelle, Jimmy, Dwight)<\/b>를 가리킵니다", "지칭 추론은 <b>바로 앞의 복수 명사<\/b>와 <b>그 사람이 할 수 있는 행동인가<\/b>를 함께 확인하면 실수가 없습니다.<br>※ '14번' 같은 숫자는 (A)→(C)→(D)→(B) 순서로 이어 센 번호이고, 문장 앞의 (D)-3 같은 표시가 단락별 번호입니다."], "ch": [{"n": "①", "t": "(a)", "g": "", "ok": false, "e": ["(A)에서 Brooks 씨가 <b>Michelle, Jimmy, Dwight<\/b>가 모래 놀이터로 가는 것을 보고 <b>합류한(joined)<\/b> 대상, 즉 아이들입니다."]}, {"n": "②", "t": "(b)", "g": "", "ok": false, "e": ["(B)에서 트럭 리프트 소리를 흉내 내며 손을 흔들고 '윙윙거린' <b>아이들<\/b>입니다."]}, {"n": "③", "t": "(c)", "g": "", "ok": false, "e": ["(B) 끝에서 트럭이 멀어져 <b>시야에서 벗어난<\/b> 것은 <b>아이들의<\/b> 시야입니다", "아이들은 철봉 사다리 위에서 계속 외치고 있었습니다."]}, {"n": "④", "t": "(d)", "g": "", "ok": false, "e": ["(C)에서 철봉 사다리에 다다랐을 때 <b>Michelle을 포함해 모두 소리치기 시작한<\/b> 아이들입니다", "all of them, including Michelle에서 Michelle과 같은 무리, 즉 아이들임을 알 수 있습니다."]}, {"n": "⑤", "t": "(e)", "g": "", "ok": true, "e": ["(D)의 <b>two garbage men<\/b>을 가리키는 두 명의 쓰레기 수거인입니다", "운전석에 앉은 것은 아이들이 아니라 수거인입니다", "나머지 넷과 다릅니다."]}], "tr": ["(A)-1 아름다운 9월의 아침이었다.", "(A)-2 사실, 날이 너무 좋아 실내에만 있을 수가 없었다.", "(A)-3 그래서 Brooks 씨는 바깥마당에서 시간을 보내기로 마음먹었다.", "(A)-4 일단 밖에 나가자, 그는 Michelle, Jimmy, Dwight가 모래 놀이터 쪽으로 가는 것을 보았고, (a) 그들(아이들)과 합류했다.", "(A)-5 밝은 태양이 그의 목덜미를 따뜻하게 하는 동안, 그는 모래 놀이터 옆에서 꾸벅거리며 졸기 시작했다.", "(C)-1 갑자기 Brooks 씨는 큰 외침 소리를 들었고, 몸을 돌려 아이들 중 한 명인 Michelle이 철봉 사다리 위에 있는 것을 보았다.", "(C)-2 그녀는 소리를 지르며 마당 뒤쪽 울타리 너머를 가리키고 있었다.", "(C)-3 그녀는 소리쳤다. \"그 남자야! 그 남자야!\"", "(C)-4 Brooks 씨는 호기심이 들었다.", "(C)-5 그가 가서 보려고 일어서자, Jimmy와 Dwight도 장난감을 버리고 그를 지나 철봉 사다리로 달려갔다.", "(C)-6 Brooks 씨가 철봉 사다리에 막 다다랐을 때, Michelle을 포함한 (d) 그들(아이들) 모두가 소리치기 시작했다. \"쓰레기차 아저씨다!\" \"쓰레기차 아저씨다!\"", "(D)-1 그는 철봉 사다리를 넘어가 울타리 너머를 내다보았고, 쓰레기 수거인 한 명을 발견했다.", "(D)-2 사실, 그곳에는 두 명의 쓰레기 수거인이 큰 쓰레기 수거 트럭과 함께 있었다.", "(D)-3 (e) 그들(쓰레기 수거인들) 중 한 명은 트럭의 운전석에 앉아 있었다.", "(D)-4 다른 사람은 트럭의 뒤쪽으로 이동했고, 쓰레기 수거함을 (차에 달린) 리프트에 고정시키고 있는 것 같았다.", "(D)-5 그는 그러더니 동료에게 \"준비 됐어.\"라고 소리쳤고, 쓰레기 수거함은 크게 윙윙거리는 소리를 동반하며 바닥에서 올라가기 시작했다.", "(B)-1 아이들은 굉장히 신이 나서 트럭 리프트의 소리를 흉내 내고 있었다. \"윙!\" \"윙!\" \"윙!\"", "(B)-2 쓰레기 수거함이 꼭대기에 도달하여 쓰레기가 트럭 안으로 떨어지자, 아이들은 자기들만의 흥분의 절정에 다다른 것처럼 보였다.", "(B)-3 (b) 그들(아이들)은 손을 흔들며 거의 동시에 '윙윙거렸다'.", "(B)-4 정확히 이 시점에, 트럭 바깥의 쓰레기 수거인이 자기 팬들(아이들)에게 손을 마주 흔들어 주었다.", "(B)-5 트럭이 길을 내려가 (c) 그들(아이들)의 시야에서 아주 벗어나는 동안, 아이들은 철봉 사다리 위에서 계속 손을 흔들며 \"쓰레기차 아저씨!\"라고 외쳤다."], "ps": [{"n": 1, "ch": [{"e": "It was a <b>beautiful<\/b> September morning.", "k": "<span class=\"r\">[(A)-1]<\/span> 아름다운 9월의 아침이었다."}], "easy": "9월의 아주 좋은 아침이었어요.", "gist": "이야기의 시작. 배경(날씨)을 소개한다."}, {"n": 2, "ch": [{"e": "In fact,", "k": "<span class=\"r\">[(A)-2]<\/span> 사실,"}, {"e": "it was <b>much too nice a day<\/b>", "k": "그날은 <b>너무나 좋은 날<\/b>이어서"}, {"e": "to remain indoors.", "k": "실내에만 있을 수 없었다."}], "easy": "너무 좋은 날이라 집 안에만 있을 수 없을 정도였어요.", "gist": "날씨가 얼마나 좋았는지 강조한다."}, {"n": 3, "ch": [{"e": "So Mr. Brooks decided", "k": "<span class=\"r\">[(A)-3]<\/span> 그래서 Brooks 씨는 결정했다"}, {"e": "to spend time", "k": "시간을 보내기로"}, {"e": "in the outside yard.", "k": "바깥마당에서."}], "easy": "그래서 Brooks 씨는 바깥마당에서 시간을 보내기로 했어요.", "gist": "주인공이 마당으로 나가게 된 이유와 결정."}, {"n": 4, "ch": [{"e": "Once outside,", "k": "<span class=\"r\">[(A)-4]<\/span> 일단 밖에 나가자,"}, {"e": "he noticed Michelle, Jimmy, and Dwight", "k": "그는 Michelle, Jimmy, Dwight를 알아챘다"}, {"e": "moving toward the sandpit,", "k": "모래 놀이터 쪽으로 움직이는"}, {"e": "and he joined (a) <b>them<\/b>.", "k": "그리고 그는 그들<span class=\"r\">(= Michelle, Jimmy, Dwight, 즉 아이들)<\/span>과 합류했다."}], "easy": "밖에 나가 보니 Michelle, Jimmy, Dwight가 모래 놀이터로 가고 있어서, 그 아이들과 어울렸어요.", "gist": "주인공이 아이들과 합류하는 장면."}, {"n": 5, "ch": [{"e": "While the bright sun", "k": "<span class=\"r\">[(A)-5]<\/span> 밝은 햇살이"}, {"e": "warmed the back of his neck,", "k": "그의 목덜미를 따뜻하게 하는 동안,"}, {"e": "he began <b>nodding<\/b>", "k": "그는 꾸벅꾸벅 졸기 시작했다"}, {"e": "beside the sandpit.", "k": "모래 놀이터 옆에서."}], "easy": "밝은 햇살이 목덜미를 따뜻하게 비추는 동안, Brooks 씨는 모래 놀이터 옆에서 꾸벅꾸벅 졸기 시작했어요.", "gist": "(A)의 끝. 졸고 있는 상태에서 다음 사건이 시작된다."}, {"n": 6, "ch": [{"e": "<b>Suddenly<\/b>, Mr. Brooks heard a loud shout", "k": "<span class=\"r\">[(C)-1]<\/span> 갑자기 Brooks 씨는 큰 외침을 들었다"}, {"e": "and turned to see one of the kids, Michelle,", "k": "그리고 몸을 돌려 아이들 중 한 명인 Michelle이"}, {"e": "on the climbing bars.", "k": "철봉 사다리 위에 있는 것을 보았다."}], "easy": "갑자기 큰 소리가 들려서 돌아보니, 아이들 중 Michelle이 철봉 사다리 위에 있었어요.", "gist": "(C)의 시작. 졸던 Brooks 씨가 큰 소리에 깨며 새 사건이 시작된다."}, {"n": 7, "ch": [{"e": "<b>She<\/b> was shouting and pointing", "k": "<span class=\"r\">[(C)-2]<\/span> 그녀<span class=\"r\">(= Michelle)<\/span>는 소리치며 가리키고 있었다"}, {"e": "over the back fence of the yard.", "k": "마당 뒤쪽 울타리 너머를."}], "easy": "Michelle은 소리를 지르며 마당 뒤쪽 울타리 너머를 가리키고 있었어요.", "gist": "Michelle의 행동 묘사."}, {"n": 8, "ch": [{"e": "<b>She<\/b> shouted:", "k": "<span class=\"r\">[(C)-3]<\/span> 그녀<span class=\"r\">(= Michelle)<\/span>는 소리쳤다:"}, {"e": "\"It's him! It's him!\"", "k": "\"그 남자야! 그 남자야!\""}], "easy": "Michelle이 \"그 남자야! 그 남자야!\" 하고 외쳤어요.", "gist": "외친 말의 내용. 누구인지는 뒤에서 밝혀진다."}, {"n": 9, "ch": [{"e": "Mr. Brooks <b>got curious<\/b>.", "k": "<span class=\"r\">[(C)-4]<\/span> Brooks 씨는 <b>궁금해졌다<\/b>."}], "easy": "Brooks 씨는 무슨 일인지 궁금해졌어요.", "gist": "Brooks 씨의 반응."}, {"n": 10, "ch": [{"e": "As he got up to go look,", "k": "<span class=\"r\">[(C)-5]<\/span> 그가 보러 가려고 일어서자,"}, {"e": "Jimmy and Dwight <b>abandoned<\/b> their toys", "k": "Jimmy와 Dwight는 장난감을 <b>내팽개치고<\/b>"}, {"e": "and ran past him", "k": "그를 지나 달려갔다"}, {"e": "to the bars.", "k": "철봉 사다리로."}], "easy": "Brooks 씨가 보러 일어서니, Jimmy와 Dwight는 장난감을 던져 놓고 그를 앞질러 철봉 사다리로 달려갔어요.", "gist": "다른 아이들도 철봉 사다리로 모여든다."}, {"n": 11, "ch": [{"e": "<b>Just as<\/b> Mr. Brooks reached the bars,", "k": "<span class=\"r\">[(C)-6]<\/span> Brooks 씨가 철봉 사다리에 <b>막 다다랐을 때<\/b>,"}, {"e": "all of (d) <b>them<\/b>, including Michelle,", "k": "그들<span class=\"r\">(= 아이들)<\/span> 모두가, Michelle을 포함해,"}, {"e": "began shouting:", "k": "소리치기 시작했다:"}, {"e": "\"Garbage man!\" \"Garbage man!\"", "k": "\"쓰레기차 아저씨다!\" \"쓰레기차 아저씨다!\""}], "easy": "Brooks 씨가 철봉 사다리에 닿았을 때, Michelle을 포함한 모든 아이들이 \"쓰레기차 아저씨다!\" 하고 외치기 시작했어요.", "gist": "(C)의 끝. Michelle이 가리키던 '그 남자'가 쓰레기 수거인임이 밝혀진다. 장소는 철봉 사다리다."}, {"n": 12, "ch": [{"e": "<b>He<\/b> moved beyond the bars,", "k": "<span class=\"r\">[(D)-1]<\/span> 그<span class=\"r\">(= Brooks 씨)<\/span>는 철봉 사다리를 넘어가,"}, {"e": "peered out over the fence,", "k": "울타리 너머를 내다보고,"}, {"e": "and saw a garbage man.", "k": "쓰레기 수거인 한 명을 보았다."}], "easy": "Brooks 씨는 철봉 사다리 너머로 가서 울타리 밖을 내다보다가 쓰레기 수거인을 봤어요.", "gist": "(D)의 시작. (C) 끝에서 철봉 사다리에 닿은 바로 그 자리에서 이어진다."}, {"n": 13, "ch": [{"e": "In fact,", "k": "<span class=\"r\">[(D)-2]<\/span> 사실,"}, {"e": "there were <b>two garbage men<\/b> out there,", "k": "그곳에는 <b>두 명의 쓰레기 수거인<\/b>이 있었다,"}, {"e": "along with a large garbage truck.", "k": "큰 쓰레기 수거 트럭과 함께."}], "easy": "사실 밖에는 쓰레기 수거인이 두 명, 큰 쓰레기 트럭과 함께 있었어요.", "gist": "수거인이 한 명이 아니라 두 명이라는 정보. 다음 문장의 them이 가리키는 대상이 된다."}, {"n": 14, "ch": [{"e": "<b>One of<\/b> (e) <b>them<\/b>", "k": "<span class=\"r\">[(D)-3]<\/span> 그들<span class=\"r\">(= 두 명의 쓰레기 수거인)<\/span> 중 한 명은"}, {"e": "sat behind the wheel of the truck.", "k": "트럭의 운전석에 앉아 있었다."}], "easy": "그 두 사람 중 한 명은 트럭 운전석에 앉아 있었어요.", "gist": "them이 수거인 두 명을 가리킨다. 운전석에 앉는 건 수거인이다."}, {"n": 15, "ch": [{"e": "<b>The other man<\/b>", "k": "<span class=\"r\">[(D)-4]<\/span> <b>다른 한 사람<\/b>은"}, {"e": "had moved to the rear of the truck", "k": "트럭 뒤쪽으로 이동해 있었고"}, {"e": "and seemed to be attaching", "k": "고정시키고 있는 것 같았다"}, {"e": "the dumpster to a lift.", "k": "쓰레기 수거함을 리프트에."}], "easy": "다른 한 사람은 트럭 뒤쪽으로 가서 수거함을 리프트에 거는 것 같았어요.", "gist": "두 번째 수거인의 행동. 리프트 작동을 준비한다."}, {"n": 16, "ch": [{"e": "<b>He<\/b> then yelled, \"Ready,\"", "k": "<span class=\"r\">[(D)-5]<\/span> 그<span class=\"r\">(= 다른 한 사람)<\/span>는 그러고 나서 \"준비 됐어\"라고 소리쳤다"}, {"e": "to his partner,", "k": "그의 동료에게,"}, {"e": "and the dumpster began to <b>rise<\/b>", "k": "그러자 쓰레기 수거함이 <b>올라가기<\/b> 시작했다"}, {"e": "from the ground", "k": "바닥에서"}, {"e": "accompanied by a loud whirring.", "k": "크게 윙윙거리는 소리를 동반하며."}], "easy": "그가 동료에게 \"준비 됐어\" 하고 외치자, 수거함이 윙 소리를 내며 올라가기 시작했어요.", "gist": "(D)의 끝. 리프트가 작동하기 시작한다. 이 윙윙 소리를 (B)의 아이들이 흉내 낸다."}, {"n": 17, "ch": [{"e": "The kids were very excited", "k": "<span class=\"r\">[(B)-1]<\/span> 아이들은 매우 신이 났다"}, {"e": "and were imitating the noise of the truck lift:", "k": "그리고 트럭 리프트의 소리를 흉내 내고 있었다:"}, {"e": "\"Whirr!\" \"Whirr!\" \"Whirr!\"", "k": "\"윙!\" \"윙!\" \"윙!\""}], "easy": "아이들은 너무 신이 나서 트럭 리프트 소리를 \"윙! 윙! 윙!\" 하고 따라 했어요.", "gist": "(B)의 시작. (D) 끝의 윙윙 소리를 아이들이 흉내 낸다."}, {"n": 18, "ch": [{"e": "As the dumpster reached its peak", "k": "<span class=\"r\">[(B)-2]<\/span> 쓰레기 수거함이 꼭대기에 이르고"}, {"e": "and the trash fell into the truck,", "k": "쓰레기가 트럭 안으로 떨어지자,"}, {"e": "the kids seemed to reach", "k": "아이들은 ~에 다다른 것 같았다"}, {"e": "their own peak of excitement.", "k": "자기들만의 흥분의 절정에."}], "easy": "수거함이 맨 위까지 올라가 쓰레기가 쏟아질 때, 아이들의 흥분도 최고에 달한 것 같았어요.", "gist": "수거함의 절정과 아이들의 흥분의 절정을 나란히 놓았다."}, {"n": 19, "ch": [{"e": "(b) <b>They<\/b> waved and \"whirred\"", "k": "<span class=\"r\">[(B)-3]<\/span> 그들<span class=\"r\">(= 아이들)<\/span>은 손을 흔들고 '윙윙거렸다'"}, {"e": "nearly at the same time.", "k": "거의 동시에."}], "easy": "아이들은 손을 흔들며 거의 같이 \"윙\" 하고 소리를 냈어요.", "gist": "they가 아이들을 가리킨다."}, {"n": 20, "ch": [{"e": "<b>At exactly this point<\/b>,", "k": "<span class=\"r\">[(B)-4]<\/span> <b>바로 이 순간<\/b>,"}, {"e": "the garbage man outside the truck", "k": "트럭 밖에 있던 쓰레기 수거인이"}, {"e": "waved back", "k": "손을 마주 흔들어 주었다"}, {"e": "to his admirers.", "k": "그의 팬들<span class=\"r\">(= 아이들)<\/span>에게."}], "easy": "바로 그때, 트럭 밖에 있던 수거인이 자기 팬인 아이들에게 손을 흔들어 줬어요.", "gist": "수거인이 아이들에게 답해 주는 장면."}, {"n": 21, "ch": [{"e": "The kids continued waving and shouting", "k": "<span class=\"r\">[(B)-5]<\/span> 아이들은 계속 손을 흔들며 외쳤다"}, {"e": "\"Garbage man!\"", "k": "\"쓰레기차 아저씨!\""}, {"e": "<b>on the bars<\/b>", "k": "<b>철봉 사다리 위에서<\/b>"}, {"e": "as the truck went down the street,", "k": "트럭이 길을 내려가는 동안,"}, {"e": "far beyond (c) <b>their<\/b> sight.", "k": "그들<span class=\"r\">(= 아이들)<\/span>의 시야에서 훨씬 벗어나서."}], "easy": "트럭이 길을 따라 멀리 사라질 때까지, 아이들은 철봉 사다리 위에서 계속 손을 흔들며 외쳤어요.", "gist": "마지막 장면. 거리로 간 것은 트럭이고, 아이들은 끝까지 철봉 사다리 위에 있었다."}]}, {"no": "12", "typ": "장문 · 내용 불일치", "src": "2015년 3월 45번", "evn": [21], "ev_en": "The kids continued waving and shouting \"Garbage man!\" on the bars as the truck went down the street, far beyond (c) their sight.", "ev_ko": [[21, "(B)-5 트럭이 길을 내려가 (c) 그들(아이들)의 시야에서 아주 벗어나는 동안, 아이들은 철봉 사다리 위에서 계속 손을 흔들며 \"쓰레기차 아저씨!\"라고 외쳤다."]], "why": ["길을 내려간 것은 <b>트럭<\/b>이고, 아이들은 끝까지 <b>철봉 사다리 위(on the bars)<\/b>에서 손을 흔들며 외치고 있었습니다", "③은 주어를 바꿔치기한 함정입니다", "내용 불일치 유형에서는 <b>누가 움직였는가<\/b>를 반드시 확인하세요.<br>※ '21번' 같은 숫자는 (A)→(C)→(D)→(B) 순서로 이어 센 번호이고, 문장 앞의 (B)-5 같은 표시가 단락별 번호입니다."], "ch": [{"n": "①", "t": "Brooks 씨는 모래 놀이터 옆에서 졸기 시작했다.", "g": "", "ok": false, "e": ["(A)-5의 <b>he began nodding beside the sandpit<\/b>과 일치합니다", "nod는 여기서 <b>꾸벅거리며 졸다<\/b>라는 뜻입니다."]}, {"n": "②", "t": "아이들은 트럭에서 나는 소리를 따라했다.", "g": "", "ok": false, "e": ["(B)-1의 <b>were imitating the noise of the truck lift<\/b>와 일치합니다."]}, {"n": "③", "t": "아이들은 쓰레기차를 따라 거리로 나갔다.", "g": "", "ok": true, "e": ["아이들은 <b>철봉 사다리 위<\/b>에 있었습니다", "거리로 내려간 것은 트럭이므로 지문과 일치하지 않습니다."]}, {"n": "④", "t": "Michelle이 쓰레기 수거인을 발견하고 소리쳤다.", "g": "", "ok": false, "e": ["(C)-2, 3에서 Michelle이 울타리 너머를 가리키며 \"It's him!\"이라고 외치고, (C)-6에서 모두가 \"Garbage man!\"이라고 외칩니다", "일치합니다."]}, {"n": "⑤", "t": "쓰레기 수거인 두 명이 작업을 하고 있었다.", "g": "", "ok": false, "e": ["(D)-2에 <b>two garbage men<\/b>이 나오고, 한 명은 운전석에 앉아 있었고(D)-3 다른 한 명은 수거함을 리프트에 고정시키고 있었습니다(D)-4.", "일치합니다."]}], "tr": ["(A)-1 아름다운 9월의 아침이었다.", "(A)-2 사실, 날이 너무 좋아 실내에만 있을 수가 없었다.", "(A)-3 그래서 Brooks 씨는 바깥마당에서 시간을 보내기로 마음먹었다.", "(A)-4 일단 밖에 나가자, 그는 Michelle, Jimmy, Dwight가 모래 놀이터 쪽으로 가는 것을 보았고, (a) 그들(아이들)과 합류했다.", "(A)-5 밝은 태양이 그의 목덜미를 따뜻하게 하는 동안, 그는 모래 놀이터 옆에서 꾸벅거리며 졸기 시작했다.", "(C)-1 갑자기 Brooks 씨는 큰 외침 소리를 들었고, 몸을 돌려 아이들 중 한 명인 Michelle이 철봉 사다리 위에 있는 것을 보았다.", "(C)-2 그녀는 소리를 지르며 마당 뒤쪽 울타리 너머를 가리키고 있었다.", "(C)-3 그녀는 소리쳤다. \"그 남자야! 그 남자야!\"", "(C)-4 Brooks 씨는 호기심이 들었다.", "(C)-5 그가 가서 보려고 일어서자, Jimmy와 Dwight도 장난감을 버리고 그를 지나 철봉 사다리로 달려갔다.", "(C)-6 Brooks 씨가 철봉 사다리에 막 다다랐을 때, Michelle을 포함한 (d) 그들(아이들) 모두가 소리치기 시작했다. \"쓰레기차 아저씨다!\" \"쓰레기차 아저씨다!\"", "(D)-1 그는 철봉 사다리를 넘어가 울타리 너머를 내다보았고, 쓰레기 수거인 한 명을 발견했다.", "(D)-2 사실, 그곳에는 두 명의 쓰레기 수거인이 큰 쓰레기 수거 트럭과 함께 있었다.", "(D)-3 (e) 그들(쓰레기 수거인들) 중 한 명은 트럭의 운전석에 앉아 있었다.", "(D)-4 다른 사람은 트럭의 뒤쪽으로 이동했고, 쓰레기 수거함을 (차에 달린) 리프트에 고정시키고 있는 것 같았다.", "(D)-5 그는 그러더니 동료에게 \"준비 됐어.\"라고 소리쳤고, 쓰레기 수거함은 크게 윙윙거리는 소리를 동반하며 바닥에서 올라가기 시작했다.", "(B)-1 아이들은 굉장히 신이 나서 트럭 리프트의 소리를 흉내 내고 있었다. \"윙!\" \"윙!\" \"윙!\"", "(B)-2 쓰레기 수거함이 꼭대기에 도달하여 쓰레기가 트럭 안으로 떨어지자, 아이들은 자기들만의 흥분의 절정에 다다른 것처럼 보였다.", "(B)-3 (b) 그들(아이들)은 손을 흔들며 거의 동시에 '윙윙거렸다'.", "(B)-4 정확히 이 시점에, 트럭 바깥의 쓰레기 수거인이 자기 팬들(아이들)에게 손을 마주 흔들어 주었다.", "(B)-5 트럭이 길을 내려가 (c) 그들(아이들)의 시야에서 아주 벗어나는 동안, 아이들은 철봉 사다리 위에서 계속 손을 흔들며 \"쓰레기차 아저씨!\"라고 외쳤다."], "ps": [{"n": 1, "ch": [{"e": "It was a <b>beautiful<\/b> September morning.", "k": "<span class=\"r\">[(A)-1]<\/span> 아름다운 9월의 아침이었다."}], "easy": "9월의 아주 좋은 아침이었어요.", "gist": "이야기의 시작. 배경(날씨)을 소개한다."}, {"n": 2, "ch": [{"e": "In fact,", "k": "<span class=\"r\">[(A)-2]<\/span> 사실,"}, {"e": "it was <b>much too nice a day<\/b>", "k": "그날은 <b>너무나 좋은 날<\/b>이어서"}, {"e": "to remain indoors.", "k": "실내에만 있을 수 없었다."}], "easy": "너무 좋은 날이라 집 안에만 있을 수 없을 정도였어요.", "gist": "날씨가 얼마나 좋았는지 강조한다."}, {"n": 3, "ch": [{"e": "So Mr. Brooks decided", "k": "<span class=\"r\">[(A)-3]<\/span> 그래서 Brooks 씨는 결정했다"}, {"e": "to spend time", "k": "시간을 보내기로"}, {"e": "in the outside yard.", "k": "바깥마당에서."}], "easy": "그래서 Brooks 씨는 바깥마당에서 시간을 보내기로 했어요.", "gist": "주인공이 마당으로 나가게 된 이유와 결정."}, {"n": 4, "ch": [{"e": "Once outside,", "k": "<span class=\"r\">[(A)-4]<\/span> 일단 밖에 나가자,"}, {"e": "he noticed Michelle, Jimmy, and Dwight", "k": "그는 Michelle, Jimmy, Dwight를 알아챘다"}, {"e": "moving toward the sandpit,", "k": "모래 놀이터 쪽으로 움직이는"}, {"e": "and he joined (a) <b>them<\/b>.", "k": "그리고 그는 그들<span class=\"r\">(= Michelle, Jimmy, Dwight, 즉 아이들)<\/span>과 합류했다."}], "easy": "밖에 나가 보니 Michelle, Jimmy, Dwight가 모래 놀이터로 가고 있어서, 그 아이들과 어울렸어요.", "gist": "주인공이 아이들과 합류하는 장면."}, {"n": 5, "ch": [{"e": "While the bright sun", "k": "<span class=\"r\">[(A)-5]<\/span> 밝은 햇살이"}, {"e": "warmed the back of his neck,", "k": "그의 목덜미를 따뜻하게 하는 동안,"}, {"e": "he began <b>nodding<\/b>", "k": "그는 꾸벅꾸벅 졸기 시작했다"}, {"e": "beside the sandpit.", "k": "모래 놀이터 옆에서."}], "easy": "밝은 햇살이 목덜미를 따뜻하게 비추는 동안, Brooks 씨는 모래 놀이터 옆에서 꾸벅꾸벅 졸기 시작했어요.", "gist": "(A)의 끝. 졸고 있는 상태에서 다음 사건이 시작된다."}, {"n": 6, "ch": [{"e": "<b>Suddenly<\/b>, Mr. Brooks heard a loud shout", "k": "<span class=\"r\">[(C)-1]<\/span> 갑자기 Brooks 씨는 큰 외침을 들었다"}, {"e": "and turned to see one of the kids, Michelle,", "k": "그리고 몸을 돌려 아이들 중 한 명인 Michelle이"}, {"e": "on the climbing bars.", "k": "철봉 사다리 위에 있는 것을 보았다."}], "easy": "갑자기 큰 소리가 들려서 돌아보니, 아이들 중 Michelle이 철봉 사다리 위에 있었어요.", "gist": "(C)의 시작. 졸던 Brooks 씨가 큰 소리에 깨며 새 사건이 시작된다."}, {"n": 7, "ch": [{"e": "<b>She<\/b> was shouting and pointing", "k": "<span class=\"r\">[(C)-2]<\/span> 그녀<span class=\"r\">(= Michelle)<\/span>는 소리치며 가리키고 있었다"}, {"e": "over the back fence of the yard.", "k": "마당 뒤쪽 울타리 너머를."}], "easy": "Michelle은 소리를 지르며 마당 뒤쪽 울타리 너머를 가리키고 있었어요.", "gist": "Michelle의 행동 묘사."}, {"n": 8, "ch": [{"e": "<b>She<\/b> shouted:", "k": "<span class=\"r\">[(C)-3]<\/span> 그녀<span class=\"r\">(= Michelle)<\/span>는 소리쳤다:"}, {"e": "\"It's him! It's him!\"", "k": "\"그 남자야! 그 남자야!\""}], "easy": "Michelle이 \"그 남자야! 그 남자야!\" 하고 외쳤어요.", "gist": "외친 말의 내용. 누구인지는 뒤에서 밝혀진다."}, {"n": 9, "ch": [{"e": "Mr. Brooks <b>got curious<\/b>.", "k": "<span class=\"r\">[(C)-4]<\/span> Brooks 씨는 <b>궁금해졌다<\/b>."}], "easy": "Brooks 씨는 무슨 일인지 궁금해졌어요.", "gist": "Brooks 씨의 반응."}, {"n": 10, "ch": [{"e": "As he got up to go look,", "k": "<span class=\"r\">[(C)-5]<\/span> 그가 보러 가려고 일어서자,"}, {"e": "Jimmy and Dwight <b>abandoned<\/b> their toys", "k": "Jimmy와 Dwight는 장난감을 <b>내팽개치고<\/b>"}, {"e": "and ran past him", "k": "그를 지나 달려갔다"}, {"e": "to the bars.", "k": "철봉 사다리로."}], "easy": "Brooks 씨가 보러 일어서니, Jimmy와 Dwight는 장난감을 던져 놓고 그를 앞질러 철봉 사다리로 달려갔어요.", "gist": "다른 아이들도 철봉 사다리로 모여든다."}, {"n": 11, "ch": [{"e": "<b>Just as<\/b> Mr. Brooks reached the bars,", "k": "<span class=\"r\">[(C)-6]<\/span> Brooks 씨가 철봉 사다리에 <b>막 다다랐을 때<\/b>,"}, {"e": "all of (d) <b>them<\/b>, including Michelle,", "k": "그들<span class=\"r\">(= 아이들)<\/span> 모두가, Michelle을 포함해,"}, {"e": "began shouting:", "k": "소리치기 시작했다:"}, {"e": "\"Garbage man!\" \"Garbage man!\"", "k": "\"쓰레기차 아저씨다!\" \"쓰레기차 아저씨다!\""}], "easy": "Brooks 씨가 철봉 사다리에 닿았을 때, Michelle을 포함한 모든 아이들이 \"쓰레기차 아저씨다!\" 하고 외치기 시작했어요.", "gist": "(C)의 끝. Michelle이 가리키던 '그 남자'가 쓰레기 수거인임이 밝혀진다. 장소는 철봉 사다리다."}, {"n": 12, "ch": [{"e": "<b>He<\/b> moved beyond the bars,", "k": "<span class=\"r\">[(D)-1]<\/span> 그<span class=\"r\">(= Brooks 씨)<\/span>는 철봉 사다리를 넘어가,"}, {"e": "peered out over the fence,", "k": "울타리 너머를 내다보고,"}, {"e": "and saw a garbage man.", "k": "쓰레기 수거인 한 명을 보았다."}], "easy": "Brooks 씨는 철봉 사다리 너머로 가서 울타리 밖을 내다보다가 쓰레기 수거인을 봤어요.", "gist": "(D)의 시작. (C) 끝에서 철봉 사다리에 닿은 바로 그 자리에서 이어진다."}, {"n": 13, "ch": [{"e": "In fact,", "k": "<span class=\"r\">[(D)-2]<\/span> 사실,"}, {"e": "there were <b>two garbage men<\/b> out there,", "k": "그곳에는 <b>두 명의 쓰레기 수거인<\/b>이 있었다,"}, {"e": "along with a large garbage truck.", "k": "큰 쓰레기 수거 트럭과 함께."}], "easy": "사실 밖에는 쓰레기 수거인이 두 명, 큰 쓰레기 트럭과 함께 있었어요.", "gist": "수거인이 한 명이 아니라 두 명이라는 정보. 다음 문장의 them이 가리키는 대상이 된다."}, {"n": 14, "ch": [{"e": "<b>One of<\/b> (e) <b>them<\/b>", "k": "<span class=\"r\">[(D)-3]<\/span> 그들<span class=\"r\">(= 두 명의 쓰레기 수거인)<\/span> 중 한 명은"}, {"e": "sat behind the wheel of the truck.", "k": "트럭의 운전석에 앉아 있었다."}], "easy": "그 두 사람 중 한 명은 트럭 운전석에 앉아 있었어요.", "gist": "them이 수거인 두 명을 가리킨다. 운전석에 앉는 건 수거인이다."}, {"n": 15, "ch": [{"e": "<b>The other man<\/b>", "k": "<span class=\"r\">[(D)-4]<\/span> <b>다른 한 사람<\/b>은"}, {"e": "had moved to the rear of the truck", "k": "트럭 뒤쪽으로 이동해 있었고"}, {"e": "and seemed to be attaching", "k": "고정시키고 있는 것 같았다"}, {"e": "the dumpster to a lift.", "k": "쓰레기 수거함을 리프트에."}], "easy": "다른 한 사람은 트럭 뒤쪽으로 가서 수거함을 리프트에 거는 것 같았어요.", "gist": "두 번째 수거인의 행동. 리프트 작동을 준비한다."}, {"n": 16, "ch": [{"e": "<b>He<\/b> then yelled, \"Ready,\"", "k": "<span class=\"r\">[(D)-5]<\/span> 그<span class=\"r\">(= 다른 한 사람)<\/span>는 그러고 나서 \"준비 됐어\"라고 소리쳤다"}, {"e": "to his partner,", "k": "그의 동료에게,"}, {"e": "and the dumpster began to <b>rise<\/b>", "k": "그러자 쓰레기 수거함이 <b>올라가기<\/b> 시작했다"}, {"e": "from the ground", "k": "바닥에서"}, {"e": "accompanied by a loud whirring.", "k": "크게 윙윙거리는 소리를 동반하며."}], "easy": "그가 동료에게 \"준비 됐어\" 하고 외치자, 수거함이 윙 소리를 내며 올라가기 시작했어요.", "gist": "(D)의 끝. 리프트가 작동하기 시작한다. 이 윙윙 소리를 (B)의 아이들이 흉내 낸다."}, {"n": 17, "ch": [{"e": "The kids were very excited", "k": "<span class=\"r\">[(B)-1]<\/span> 아이들은 매우 신이 났다"}, {"e": "and were imitating the noise of the truck lift:", "k": "그리고 트럭 리프트의 소리를 흉내 내고 있었다:"}, {"e": "\"Whirr!\" \"Whirr!\" \"Whirr!\"", "k": "\"윙!\" \"윙!\" \"윙!\""}], "easy": "아이들은 너무 신이 나서 트럭 리프트 소리를 \"윙! 윙! 윙!\" 하고 따라 했어요.", "gist": "(B)의 시작. (D) 끝의 윙윙 소리를 아이들이 흉내 낸다."}, {"n": 18, "ch": [{"e": "As the dumpster reached its peak", "k": "<span class=\"r\">[(B)-2]<\/span> 쓰레기 수거함이 꼭대기에 이르고"}, {"e": "and the trash fell into the truck,", "k": "쓰레기가 트럭 안으로 떨어지자,"}, {"e": "the kids seemed to reach", "k": "아이들은 ~에 다다른 것 같았다"}, {"e": "their own peak of excitement.", "k": "자기들만의 흥분의 절정에."}], "easy": "수거함이 맨 위까지 올라가 쓰레기가 쏟아질 때, 아이들의 흥분도 최고에 달한 것 같았어요.", "gist": "수거함의 절정과 아이들의 흥분의 절정을 나란히 놓았다."}, {"n": 19, "ch": [{"e": "(b) <b>They<\/b> waved and \"whirred\"", "k": "<span class=\"r\">[(B)-3]<\/span> 그들<span class=\"r\">(= 아이들)<\/span>은 손을 흔들고 '윙윙거렸다'"}, {"e": "nearly at the same time.", "k": "거의 동시에."}], "easy": "아이들은 손을 흔들며 거의 같이 \"윙\" 하고 소리를 냈어요.", "gist": "they가 아이들을 가리킨다."}, {"n": 20, "ch": [{"e": "<b>At exactly this point<\/b>,", "k": "<span class=\"r\">[(B)-4]<\/span> <b>바로 이 순간<\/b>,"}, {"e": "the garbage man outside the truck", "k": "트럭 밖에 있던 쓰레기 수거인이"}, {"e": "waved back", "k": "손을 마주 흔들어 주었다"}, {"e": "to his admirers.", "k": "그의 팬들<span class=\"r\">(= 아이들)<\/span>에게."}], "easy": "바로 그때, 트럭 밖에 있던 수거인이 자기 팬인 아이들에게 손을 흔들어 줬어요.", "gist": "수거인이 아이들에게 답해 주는 장면."}, {"n": 21, "ch": [{"e": "The kids continued waving and shouting", "k": "<span class=\"r\">[(B)-5]<\/span> 아이들은 계속 손을 흔들며 외쳤다"}, {"e": "\"Garbage man!\"", "k": "\"쓰레기차 아저씨!\""}, {"e": "<b>on the bars<\/b>", "k": "<b>철봉 사다리 위에서<\/b>"}, {"e": "as the truck went down the street,", "k": "트럭이 길을 내려가는 동안,"}, {"e": "far beyond (c) <b>their<\/b> sight.", "k": "그들<span class=\"r\">(= 아이들)<\/span>의 시야에서 훨씬 벗어나서."}], "easy": "트럭이 길을 따라 멀리 사라질 때까지, 아이들은 철봉 사다리 위에서 계속 손을 흔들며 외쳤어요.", "gist": "마지막 장면. 거리로 간 것은 트럭이고, 아이들은 끝까지 철봉 사다리 위에 있었다."}]}];
+var ENC="=IakivDpRK+OiGp47IakivjoRK+OkGp4";
+var SETID="g2r04p2", N=D.length, TITLE="고2 미니모의고사 4회 07–12번";
+var CIRC="①②③④⑤";
+function dec(s){var b=atob(s.split("").reverse().join(""));var u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder("utf-8").decode(u);}
+var ANS=dec(ENC).split(";").map(function(x){return x.split("|").map(function(c){return CIRC.indexOf(c)+1;});});
+function isRight(i,a){return ANS[i].indexOf(a)>=0;}
+function ansText(i){return ANS[i].map(function(n){return CIRC[n-1];}).join(", ");}
+
+var GCODE="h2", GRADE="고2", FILE="04b", NEXT="05a.html";
+const KEY='via_mm_'+GCODE+'_'+FILE;
+let S={checks:{},locked:{},res:{},sub:null,q:[]};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* REC 연결 지점: 지금은 기기 안에 대기열로만 쌓음 */
+function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localStorage.getItem('via_minimock_rec_queue')||'[]');q.push(ev);localStorage.setItem('via_minimock_rec_queue',JSON.stringify(q));}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const app=$('#app');
+let view='word',quiz=null,armed=null;
+function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function shuffle(arr,seed){const a=arr.slice();let s=hash(seed)||1;for(let i=a.length-1;i>0;i--){s=Math.imul(s^(s>>>15),2246822519)>>>0;const j=s%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+const WS=WORDS.sets[0];
+
+function hdr(){
+  const on=id=>(view===id)?'on':'';
+  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><a class="link" href="index.html">목록</a></div><div class="tabs"><button class="tab ${on('word')}" data-v="word">단어</button><button class="tab ${on('submit')}" data-v="submit">답 제출</button><button class="tab ${on('exp')}" data-v="exp" ${S.sub?'':'disabled'}>해설</button></div></div></header>`;
+}
+function noteList(){
+  const out=[],ck=S.checks[WS.id]||{};
+  WS.words.forEach((w,i)=>{
+    const c=ck[i];if(!c)return;
+    const parts=['m','s','a'].filter(p=>c[p]&&(p==='m'||w[p]));
+    if(parts.length)out.push({i:i,w:w,parts:parts});
+  });
+  return out;
+}
+function render(){
+  if(view==='word')renderWord();
+  else if(view==='note')renderNote();
+  else if(view==='quiz')renderQuiz();
+  else if(view==='result')renderResult();
+  else if(view==='submit')renderSubmit();
+  else if(view==='exp')renderExp();
+  window.scrollTo(0,0);
+}
+/* ---- 단어 확인 ---- */
+function renderWord(){
+  const ck=S.checks[WS.id]||{},locked=!!S.locked[WS.id],n=noteList().length;
+  let h=hdr()+`<div class="wrap ${locked?'locked':''}">`;
+  WS.words.forEach((w,i)=>{
+    const c=ck[i]||{};
+    h+=`<div class="row"><div class="top"><span class="no">${i+1}</span><span class="word">${esc(w.w)}</span><span class="src">${esc(w.src)}번</span></div><div class="cells">`;
+    h+=`<button class="cell m ${c.m?'bad':''}" data-i="${i}" data-p="m"><span class="tag">뜻</span><span>${esc(w.m)}</span></button>`;
+    if(w.s)h+=`<button class="cell s ${c.s?'bad':''}" data-i="${i}" data-p="s"><span class="tag">유</span><span>${esc(w.s[0])}<span class="ko">${esc(w.s[1])}</span></span></button>`;
+    if(w.a)h+=`<button class="cell a ${c.a?'bad':''}" data-i="${i}" data-p="a"><span class="tag">반</span><span>${esc(w.a[0])}<span class="ko">${esc(w.a[1])}</span></span></button>`;
+    h+=`</div></div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap">`;
+  h+=locked?`<button class="btn" disabled>확인 끝</button>`:`<button class="btn ${armed==='lock'?'arm':''}" id="lock">${armed==='lock'?'한 번 더 누르면 확인 끝':'확인 끝'}</button>`;
+  h+=`<button class="btn pri" id="gonote">단어 오답노트 ${n}</button></div></div>`;
+  app.innerHTML=h;
+  app.querySelectorAll('.cell').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,p=b.dataset.p;
+    S.checks[WS.id]=S.checks[WS.id]||{};
+    const c=S.checks[WS.id][i]=S.checks[WS.id][i]||{};
+    c[p]=c[p]?0:1;save();
+    b.classList.toggle('bad',!!c[p]);
+    $('#gonote').textContent='단어 오답노트 '+noteList().length;
+  });
+  const lk=$('#lock');if(lk)lk.onclick=()=>{
+    if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
+      recSend({type:'word',marks:noteList().map(it=>({w:it.w.w,parts:it.parts}))});}
+    else armed='lock';
+    render();
+  };
+  $('#gonote').onclick=()=>{view='note';armed=null;render();};
+}
+function renderNote(){
+  const list=noteList();
+  let h=`<header><div class="wrap hd2"><h1>단어 오답노트 <span class="meta">${list.length}개</span></h1><button class="link" id="back">확인표</button></div></header><div class="wrap">`;
+  if(!list.length)h+=`<div class="empty">아직 표시한 단어가 없습니다</div>`;
+  list.forEach(it=>{
+    const w=it.w,r=(S.res[WS.id]||{})[it.i]||{};
+    h+=`<div class="note-item"><span class="w">${esc(w.w)}</span><span class="meta">${esc(w.src)}번</span>`;
+    const row=(p,tag,txt,ko)=>{
+      const bad=it.parts.includes(p);
+      const rs=r[p]===1?'<span class="res o">맞춤</span>':r[p]===0?'<span class="res x">틀림</span>':'';
+      return `<div class="part ${p} ${bad?'bad':''}"><span class="tag">${tag}</span><span>${esc(txt)}${ko?`<span class="ko"> ${esc(ko)}</span>`:''}</span>${bad?rs:''}</div>`;
+    };
+    h+=row('m','뜻',w.m,'');
+    if(w.s)h+=row('s','유',w.s[0],w.s[1]);
+    if(w.a)h+=row('a','반',w.a[0],w.a[1]);
+    h+=`</div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap"><button class="btn" id="back2">확인표</button><button class="btn pri" id="start" ${list.length?'':'disabled'}>복습 시작</button></div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='word';armed=null;render();};
+  $('#back2').onclick=()=>{view='word';render();};
+  $('#start').onclick=()=>{quiz={qs:buildQuestions(),n:0,right:0,done:false,shown:false};view='quiz';render();};
+}
+function buildQuestions(){
+  const qs=[];
+  noteList().forEach(it=>{
+    const w=it.w;
+    it.parts.forEach(p=>{
+      let q={i:it.i,p:p,w:w.w};
+      if(p==='m'){
+        const toks=x=>x.split(/[,，]\s*/).map(t=>t.trim());
+        const ct=toks(w.m);
+        const pool=[...new Set(WS.words.filter(o=>o!==w).map(o=>o.m))].filter(m=>!toks(m).some(t=>ct.includes(t)));
+        const wrong=shuffle(pool,WS.id+w.w+'m').slice(0,3);
+        q.type='choice';q.ask='뜻을 고르세요';
+        q.opts=shuffle([{t:w.m,ok:1}].concat(wrong.map(t=>({t:t,ok:0}))),WS.id+w.w+'mo');
+      }else{
+        const ans=w[p],d=WS.dist||[];
+        q.ask=p==='s'?'유의어를 고르세요':'반의어를 고르세요';
+        if(d.length>=3){
+          q.type='choice';
+          q.opts=shuffle([{t:ans[0],ko:ans[1],ok:1}].concat(shuffle(d,WS.id+w.w+p).slice(0,3).map(x=>({t:x[0],ko:x[1],ok:0}))),WS.id+w.w+p+'o');
+        }else{q.type='flip';q.ans=ans;}
+      }
+      qs.push(q);
+    });
+  });
+  return qs;
+}
+function recordRes(q,ok){S.res[WS.id]=S.res[WS.id]||{};const r=S.res[WS.id][q.i]=S.res[WS.id][q.i]||{};r[q.p]=ok?1:0;save();}
+function renderQuiz(){
+  const q=quiz.qs[quiz.n];
+  let h=`<header><div class="wrap hd2"><h1>복습</h1><button class="link" id="back">오답노트</button></div></header><div class="wrap ${quiz.done?'done':''}"><div class="q"><div class="cnt">${quiz.n+1} / ${quiz.qs.length}</div><div class="ask">${q.ask}</div><div class="target">${esc(q.w)}</div>`;
+  if(q.type==='choice'){
+    q.opts.forEach((o,k)=>{
+      let cls='';
+      if(quiz.done){if(o.ok)cls='right';else if(k===quiz.pick)cls='wrong';}
+      h+=`<button class="opt ${cls}" data-k="${k}">${esc(o.t)}${o.ko?`<span class="ko">${esc(o.ko)}</span>`:''}</button>`;
+    });
+  }else if(quiz.shown)h+=`<div class="opt right">${esc(q.ans[0])}<span class="ko">${esc(q.ans[1])}</span></div>`;
+  h+=`</div></div><div class="bar"><div class="wrap">`;
+  if(q.type==='flip'&&!quiz.shown)h+=`<button class="btn pri" id="show">정답 보기</button>`;
+  else if(q.type==='flip')h+=`<button class="btn" id="no">몰랐음</button><button class="btn pri" id="yes">알았음</button>`;
+  else h+=`<button class="btn pri" id="next" ${quiz.done?'':'disabled'}>${quiz.n+1===quiz.qs.length?'결과':'다음'}</button>`;
+  h+=`</div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='note';render();};
+  app.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+    if(quiz.done)return;
+    const k=+b.dataset.k;quiz.pick=k;quiz.done=true;
+    const ok=q.opts[k].ok===1;if(ok)quiz.right++;recordRes(q,ok);render();
+  });
+  const nx=$('#next');if(nx)nx.onclick=()=>advance();
+  const sh=$('#show');if(sh)sh.onclick=()=>{quiz.shown=true;render();};
+  const yes=$('#yes');if(yes)yes.onclick=()=>{quiz.right++;recordRes(q,true);advance();};
+  const no=$('#no');if(no)no.onclick=()=>{recordRes(q,false);advance();};
+}
+function advance(){
+  if(quiz.n+1>=quiz.qs.length){view='result';render();return;}
+  quiz.n++;quiz.done=false;quiz.shown=false;quiz.pick=null;render();
+}
+function renderResult(){
+  app.innerHTML=`<header><div class="wrap hd2"><h1>복습 결과</h1></div></header><div class="wrap"><div class="score">${quiz.right} <small>/ ${quiz.qs.length}</small></div></div><div class="bar"><div class="wrap"><button class="btn" id="a">오답노트</button><button class="btn pri" id="b">확인표</button></div></div>`;
+  $('#a').onclick=()=>{view='note';render();};
+  $('#b').onclick=()=>{view='word';render();};
+}
+/* ---- 답 제출 ---- */
+function renderSubmit(){
+  const done=!!S.sub;
+  while(S.q.length<N)S.q.push(0);
+  let h=hdr()+'<div class="wrap">';
+  for(let i=0;i<N;i++){
+    const sel=done?S.sub.a[i]:S.q[i];
+    h+=`<div class="qrow"><div class="qno">${esc(D[i].no)}</div><div class="opts">`;
+    for(let k=1;k<=5;k++)h+=`<button class="opt2 ${sel===k?'on':''}" data-q="${i}" data-k="${k}" ${done?'disabled':''}>${CIRC[k-1]}</button>`;
+    h+='</div></div>';
+  }
+  h+='</div><div class="bar"><div class="wrap">';
+  if(done)h+='<button class="btn pri" id="toexp">해설 보기</button>';
+  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>제출</button>`;
+  h+='</div></div>';
+  app.innerHTML=h;
+  app.querySelectorAll('.opt2').forEach(b=>b.onclick=()=>{
+    if(S.sub)return;
+    const q=+b.dataset.q,k=+b.dataset.k;S.q[q]=k;save();
+    b.parentNode.querySelectorAll('.opt2').forEach(x=>x.classList.toggle('on',+x.dataset.k===k));
+    $('#sub').disabled=!S.q.every(v=>v>0);
+  });
+  const sb=$('#sub');if(sb)sb.onclick=()=>{
+    let s=0;for(let i=0;i<N;i++)if(isRight(i,S.q[i]))s++;
+    S.sub={t:Date.now(),a:S.q.slice(),s:s};save();
+    recSend({type:'submit',a:S.sub.a,s:s,n:N});
+    view='exp';render();
+  };
+  const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
+}
+/* ---- 해설 ---- */
+function sHtml(s,evn){
+  const ev=evn.indexOf(s.n)>=0;
+  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
+  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
+  const lays=[];
+  if(s.link)lays.push(['이어 읽으면',s.link]);
+  if(s.easy)lays.push(['쉬운 말로',s.easy]);
+  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
+  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
+  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
+  return x+'</div>';
+}
+function qHtml(i,a){
+  const d=D[i],ok=isRight(i,a);
+  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
+  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
+  h+='<h4>정답 근거</h4>';
+  h+=`<p class="en">${esc(d.ev_en)}</p>`;
+  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
+  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  if(d.ps&&d.ps.length){
+    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
+  }
+  h+='<h4>선택지 하나씩</h4>';
+  d.ch.forEach(c=>{
+    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  });
+  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  return h+'</div></details>';
+}
+function renderExp(){
+  const rec=S.sub;
+  let h=hdr()+'<div class="wrap">';
+  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='</div><h2>해설</h2>';
+  for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
+  h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
+  app.innerHTML=h;
+}
+/* 위임 이벤트 */
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tab');
+  if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
+  const ch=e.target.closest('.ch');
+  if(ch){ch.classList.toggle('open');return;}
+  const st=e.target.closest('.stg');
+  if(st){
+    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const shown=lays.filter(l=>l.classList.contains('on')).length;
+    if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
+    else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
+    return;
+  }
+  const al=e.target.closest('.tbtn');
+  if(al){
+    const open=al.dataset.all==='1',body=al.closest('.dkbody');
+    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
+    body.querySelectorAll('.s').forEach(s=>{
+      const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
+      lays.forEach(l=>l.classList.toggle('on',open));
+      if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
+    });
+  }
+});
+render();
+</script>
+</body>
+</html>

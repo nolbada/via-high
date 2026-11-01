@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>고2 미니모의고사 24회 07–12번</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f6f8;--accent:#23406b;--bad:#c2392b;--badbg:#fdeceb;--good:#1f7a4d;--goodbg:#e8f5ee;--hl:#fff3b0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+body{padding-bottom:84px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .row1{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+h1{font-size:16px;margin:0;font-weight:700;line-height:1.3}
+.tabs{display:flex;gap:0}
+.tab{flex:1;border:0;background:none;font-family:inherit;font-size:15px;font-weight:700;color:var(--sub);padding:11px 0;border-bottom:3px solid transparent}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tab[disabled]{opacity:.35}
+.link{text-decoration:none;border:0;background:none;color:var(--accent);font-size:15px;font-weight:700;padding:10px 4px;font-family:inherit}
+.hd2{display:flex;align-items:center;justify-content:space-between;height:54px}
+.hd2 h1{font-size:17px}
+.row{padding:12px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.no{color:var(--sub);font-size:13px;min-width:20px}
+.word{font-size:19px;font-weight:700}
+.src{color:var(--sub);font-size:12px;margin-left:auto}
+.cells{display:flex;flex-direction:column;gap:6px}
+.cell{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 12px;border-radius:8px;background:var(--soft);border:1.5px solid transparent;font-size:16px;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.cell .tag,.part .tag{font-size:12px;font-weight:700;color:#fff;border-radius:4px;padding:2px 7px;min-width:34px;text-align:center;background:#7a8594}
+.cell.s .tag,.part.s .tag{background:#2d62a8}.cell.a .tag,.part.a .tag{background:#b4472f}
+.ko{color:var(--sub);font-size:14px;margin-left:6px}
+.cell.bad{background:var(--badbg);border-color:var(--bad)}
+.cell.bad .tag{background:var(--bad)}
+.locked .cell{pointer-events:none}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:6}
+.bar .wrap{display:flex;gap:10px;padding:0}
+.btn{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;line-height:1.25;font-weight:700;font-family:inherit}
+.btn.pri{background:var(--accent);color:#fff}
+.btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn[disabled]{opacity:.4}
+.note-item{padding:14px 0;border-bottom:1px solid var(--line)}
+.note-item .w{font-size:19px;font-weight:700}
+.meta{color:var(--sub);font-size:12px;margin-left:8px;font-weight:400}
+.part{display:flex;gap:10px;align-items:baseline;padding:6px 0 0;font-size:16px}
+.part .tag{align-self:center}
+.part.bad{color:var(--bad);font-weight:700}
+.part.bad .tag{background:var(--bad)}
+.part .ko{font-weight:400}
+.part .res{margin-left:auto;font-size:13px;font-weight:700}
+.res.o{color:var(--good)}.res.x{color:var(--bad)}
+.empty{color:var(--sub);text-align:center;padding:60px 0;font-size:16px}
+.q{padding:22px 0 8px}
+.q .cnt{color:var(--sub);font-size:14px}
+.q .ask{font-size:15px;color:var(--sub);margin-top:14px}
+.q .target{font-size:28px;font-weight:700;margin:6px 0 18px}
+.opt{display:block;width:100%;text-align:left;min-height:56px;padding:10px 14px;margin-bottom:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:18px;font-family:inherit;color:var(--ink)}
+.opt .ko{display:block;margin:2px 0 0}
+.opt.right{border-color:var(--good);background:var(--goodbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.done .opt{pointer-events:none}
+.score{font-size:34px;font-weight:700;text-align:center;margin:30px 0 6px}
+.score small{font-size:18px;color:var(--sub);font-weight:400}
+.foot{color:var(--sub);font-size:12px;text-align:center;padding:26px 0 8px}
+/* submit */
+.qrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.qno{font-weight:800;font-size:20px;width:34px;flex:none}
+.opts{display:flex;gap:8px;flex:1}
+.opt2{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:20px;font-family:inherit;color:var(--ink)}
+.opt2.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.opt2[disabled]{opacity:.55}
+.opt2.on[disabled]{opacity:1}
+/* explanation */
+h2{font-size:17px;margin:26px 0 10px}
+.quick div{padding:3px 0;font-size:17px}
+.quick .o{color:var(--good)}.quick .x{color:var(--bad)}
+.sub{color:var(--sub)}
+details.qd{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;background:var(--bg)}
+details.qd>summary{list-style:none;cursor:pointer;padding:14px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+details.qd>summary::-webkit-details-marker{display:none}
+details.qd>summary small{font-weight:400;color:var(--sub);font-size:13px}
+.res2{margin-left:auto;font-size:14px}
+.res2.o{color:var(--good)}.res2.x{color:var(--bad)}
+.qx{padding:0 14px 14px}
+.qx h4{font-size:15px;margin:18px 0 8px;color:var(--accent)}
+.qx p{margin:6px 0;line-height:1.75;font-size:16px}
+.ansline b{font-size:17px}
+.en{font-size:16px;line-height:1.7;background:var(--soft);padding:10px 12px;border-radius:8px}
+.kolist{list-style:none;margin:6px 0;padding:0}
+.kolist li{font-size:15px;line-height:1.7}
+.kolist .n{font-size:12px;color:var(--sub);margin-right:6px}
+.why p{margin:4px 0;font-size:15px}
+.c{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.c.ok{border-color:var(--good);background:var(--goodbg)}
+.c .ct{font-weight:700;font-size:16px;line-height:1.5}
+.c .tg{display:inline-block;font-size:12px;color:#fff;background:#7a8594;border-radius:4px;padding:1px 7px;margin-right:6px;font-weight:700}
+.c.ok .tg{background:var(--good)}
+.c p{margin:4px 0 0;font-size:15px}
+.r{color:var(--sub);font-size:13px}
+/* direct reading practice */
+details.dk{margin:16px 0 4px;border:1px solid var(--line);border-radius:10px}
+details.dk>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700;color:var(--accent);font-size:15px}
+details.dk>summary::-webkit-details-marker{display:none}
+.dkbody{padding:0 12px 12px}
+.tool{display:flex;gap:8px;margin:2px 0 10px}
+.tbtn{flex:1;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:inherit;font-size:14px;font-weight:700;color:var(--accent)}
+.s{padding:10px 0 12px;border-top:1px dashed var(--line)}
+.s.ev{background:linear-gradient(90deg,#fffbe8,#fff);margin:0 -6px;padding-left:6px;padding-right:6px}
+.sn{margin-bottom:6px}
+.lb{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--sub);margin-right:6px}
+.lb.ev{background:var(--hl);color:#7a5b00}
+.ch{padding:9px 11px;margin-bottom:6px;border-radius:8px;background:var(--soft);cursor:pointer;border-bottom:2px dotted #c9cfd6}
+.ch .ce{font-size:16px;line-height:1.6}
+.ch .ce b{background:linear-gradient(transparent 55%,var(--hl) 55%)}
+.ch .ck{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--line);color:var(--accent);font-size:15px;line-height:1.65}
+.ch.open{background:#eef2f8;border-bottom-color:transparent}
+.ch.open .ck{display:block}
+.lay{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:14px;line-height:1.7}
+.lay.on{display:block}
+.stg{width:100%;min-height:42px;margin-top:6px;border:1px solid var(--accent);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const WORDS={"sets": [{"id": "g2r24p2", "title": "고2 미니모의고사 24회 07–12번", "range": "07–12번", "words": [{"src": "01", "w": "universality", "m": "보편성", "s": null, "a": null}, {"src": "02", "w": "analogous", "m": "유사한", "s": ["similar", "비슷한"], "a": null}, {"src": "03", "w": "aesthetic", "m": "심미적인", "s": null, "a": null}, {"src": "04", "w": "quote", "m": "인용하다", "s": ["cite", "인용하다"], "a": null}, {"src": "05", "w": "innovative", "m": "혁신적인", "s": ["groundbreaking", "획기적인"], "a": null}, {"src": "06", "w": "remarkably", "m": "놀랍도록", "s": ["strikingly", "두드러지게"], "a": null}, {"src": "07", "w": "refined", "m": "세련된", "s": null, "a": ["crude", "투박한"]}, {"src": "08", "w": "sturdy", "m": "튼튼한", "s": ["robust", "튼튼한"], "a": ["fragile", "깨지기 쉬운"]}, {"src": "09", "w": "criteria", "m": "기준", "s": ["standards", "기준"], "a": null}, {"src": "10", "w": "blindly", "m": "무턱대고", "s": null, "a": null}, {"src": "11", "w": "hardworking", "m": "부지런한", "s": ["diligent", "성실한"], "a": ["lazy", "게으른"]}, {"src": "12", "w": "complain", "m": "불평하다", "s": ["grumble", "투덜거리다"], "a": null}, {"src": "13", "w": "refuse", "m": "거절하다", "s": null, "a": ["accept", "받아들이다"]}, {"src": "14", "w": "dull", "m": "무딘", "s": null, "a": ["sharp", "날카로운"]}, {"src": "15", "w": "meditate", "m": "명상하다", "s": null, "a": null}, {"src": "16", "w": "hardly", "m": "거의 ~않다", "s": ["scarcely", "거의 ~않다"], "a": null}, {"src": "17", "w": "commonplace", "m": "아주 흔한", "s": ["ordinary", "평범한"], "a": ["rare", "드문"]}, {"src": "18", "w": "puzzled", "m": "어리둥절한", "s": ["confused", "혼란스러운"], "a": null}, {"src": "19", "w": "interference", "m": "방해", "s": null, "a": null}, {"src": "20", "w": "slight", "m": "약간의", "s": null, "a": ["considerable", "상당한"]}], "dist": [["vertical", "수직의"], ["donate", "기부하다"], ["swift", "신속한"]]}]};
+var D=[{"no": "07", "typ": "빈칸 추론", "src": "2018년 11월 31번", "evn": [2, 8], "ev_en": "At the Sixteenth Nobel Conference, held in 1980, scientists, musicians, and philosophers all agreed, to quote Freeman Dyson, that “the analogies between science and art are very good as long as you are talking about the creation and the performance. / All of these people, whether they are doing artistic work or scientific work, are trying to solve a problem.”", "ev_ko": [[2, "1980년에 개최된 제16차 노벨 학회에서 과학자들, 음악가들, 그리고 철학자들은 다음과 같은 Freeman Dyson의 말을 인용하는 데 모두 동의했다. “당신이 창조와 실행에 관해 이야기하고 있는 한, 과학과 예술 사이의 유사성은 매우 높다."], [8, "이 사람들 모두는 자신들이 예술적인 작업을 하고 있든 과학적인 작업을 하고 있든 문제를 해결하려고 노력하고 있다.”"]], "why": ["빈칸은 많은 과학자와 예술가가 창의력의 무엇에 주목해 왔는지를 묻는다", "문장 2에서 과학자·음악가·철학자는 <b>the analogies between science and art are very good<\/b>(과학과 예술의 유사성은 매우 높다)에 모두 동의한다", "문장 8은 <b>whether they are doing artistic work or scientific work, are trying to solve a problem<\/b>(예술적인 작업이든 과학적인 작업이든 문제를 해결하려 한다)이라고 말한다", "분야가 달라도 똑같이 나타난다는 뜻이다", "그래서 빈칸은 <b>보편성(universality)<\/b>이다."], "ch": [{"n": "①", "t": "formality", "g": "형식성", "ok": false, "e": ["formality는 ‘형식성’이다", "창의력이 형식적이라는 말은 지문에 나오지 않는다."]}, {"n": "②", "t": "objectivity", "g": "객관성", "ok": false, "e": ["objectivity는 ‘객관성’이다", "지문은 과학과 예술의 <b>공통점<\/b>을 말할 뿐, 객관적이라는 이야기는 하지 않는다."]}, {"n": "③", "t": "complexity", "g": "복잡성", "ok": false, "e": ["complexity는 ‘복잡성’이다", "창의력이 복잡하다는 내용은 지문에 없다."]}, {"n": "④", "t": "universality", "g": "보편성", "ok": true, "e": ["universality는 ‘보편성’이다", "과학자·음악가·철학자·화가·시인·작가·물리학자까지, 분야가 달라도 같은 이야기를 한다", "그래서 창의력이 분야를 가리지 않고 통한다는 <b>보편성<\/b>이 글의 중심이다."]}, {"n": "⑤", "t": "uncertainty", "g": "불확실성", "ok": false, "e": ["uncertainty는 ‘불확실성’이다", "지문에는 오히려 <b>everybody agrees<\/b>(모두가 동의한다)가 두 번 나온다", "불확실하다는 말과는 거리가 멀다."]}], "tr": ["상당히 많은 과학자들과 예술가들이 창의력의 보편성에 주목해 왔다.", "1980년에 개최된 제16차 노벨 학회에서 과학자들, 음악가들, 그리고 철학자들은 다음과 같은 Freeman Dyson의 말을 인용하는 데 모두 동의했다. “당신이 창조와 실행에 관해 이야기하고 있는 한, 과학과 예술 사이의 유사성은 매우 높다.", "(과학과 예술에서의) 창조는 확실히 매우 유사하다.", "행위의 장인 정신에서 나오는 심미적 쾌감은 과학에서도 매우 강하다.”", "몇 년 후 또 다른 여러 학문 분야에 걸친(다학적) 학회에서, 물리학자 Murray Gell-Mann은 다음과 같은 것을 발견했다. “모두가 아이디어가 어디에서 오는지에 대해 동의한다.", "약 10년 전 우리는 몇몇의 화가들, 시인 한 명, 두 명의 작가들, 그리고 물리학자들을 포함하여 이곳에서 세미나를 했다.", "모두가 그것이 진행되는 방식에 동의한다.", "이 사람들 모두는 자신들이 예술적인 작업을 하고 있든 과학적인 작업을 하고 있든 문제를 해결하려고 노력하고 있다.”"], "ps": [{"n": 1, "ch": [{"e": "A good many scientists and artists", "k": "상당히 많은 과학자들과 예술가들이"}, {"e": "have <b>noticed<\/b>", "k": "주목해 왔다"}, {"e": "the <b>universality<\/b> of creativity.", "k": "창의력의 <b>보편성<\/b>에.<span class=\"r\">※ 문제지엔 빈칸으로 되어 있음<\/span>"}], "easy": "많은 과학자와 예술가가 창의력은 분야를 가리지 않고 두루 통한다는 점에 주목해 왔어요.", "gist": "글의 화제. 빈칸은 창의력의 어떤 점에 주목해 왔는지를 묻는다."}, {"n": 2, "ch": [{"e": "At the Sixteenth Nobel Conference,", "k": "제16차 노벨 학회에서,"}, {"e": "held in 1980,", "k": "1980년에 개최된,"}, {"e": "scientists, musicians, and philosophers all agreed,", "k": "과학자들, 음악가들, 그리고 철학자들은 모두 동의했다,"}, {"e": "to quote Freeman Dyson,", "k": "Freeman Dyson의 말을 인용하는 데,"}, {"e": "that “the <b>analogies<\/b> between science and art", "k": "“과학과 예술 사이의 <b>유사성<\/b>은"}, {"e": "are very good", "k": "매우 높다"}, {"e": "as long as you are talking about", "k": "당신이 ~에 관해 이야기하고 있는 한"}, {"e": "the creation and the performance.", "k": "창조와 실행에."}], "easy": "노벨 학회에서 과학자, 음악가, 철학자가 모두 같은 말에 동의했어요. 창조와 실행을 이야기하는 한 과학과 예술은 아주 비슷하다는 말이에요.", "gist": "과학과 예술의 유사성이 매우 높다는 말이 나오는 핵심 문장이다. 분야가 다른 사람들이 같은 데 동의한다.", "link": "1980년에 열린 제16차 노벨 학회에서 과학자들, 음악가들, 철학자들은 Freeman Dyson의 다음 말에 모두 동의했다. 당신이 창조와 실행에 관해 이야기하고 있는 한 과학과 예술 사이의 유사성은 매우 높다."}, {"n": 3, "ch": [{"e": "The <b>creation<\/b>", "k": "(과학과 예술에서의) <b>창조<\/b>는"}, {"e": "is certainly very <b>analogous<\/b>.", "k": "확실히 매우 <b>유사하다<\/b>."}], "easy": "무언가를 만들어 내는 일은 과학과 예술에서 분명히 아주 비슷해요.", "gist": "앞 문장의 ‘유사성’ 중에서 창조가 닮았다는 점을 확인해 준다."}, {"n": 4, "ch": [{"e": "The <b>aesthetic pleasure<\/b>", "k": "<b>심미적 쾌감<\/b>은"}, {"e": "of the craftsmanship of performance", "k": "행위의 장인 정신에서 나오는"}, {"e": "is also very strong in science.”", "k": "과학에서도 매우 강하다.”"}], "easy": "솜씨 있게 해냈을 때 느끼는 아름다움의 기쁨은 과학에서도 아주 커요.", "gist": "유사성의 또 다른 예. 행위의 장인 정신에서 오는 쾌감이 과학에도 있다."}, {"n": 5, "ch": [{"e": "A few years later,", "k": "몇 년 후,"}, {"e": "at another multidisciplinary conference,", "k": "또 다른 여러 학문 분야에 걸친 학회에서,"}, {"e": "physicist Murray Gell-Mann found", "k": "물리학자 Murray Gell-Mann은 발견했다"}, {"e": "that “everybody agrees", "k": "“모두가 동의한다"}, {"e": "on where ideas come from.", "k": "아이디어가 어디에서 오는지에 대해."}], "easy": "몇 년 뒤 다른 학회에서 Gell-Mann은 아이디어가 어디서 나오는지에 대해 모두의 생각이 같다는 걸 알게 됐어요.", "gist": "분야가 서로 다른 사람들이 또 한 번 같은 의견을 낸다는 두 번째 사례의 시작이다."}, {"n": 6, "ch": [{"e": "We had a seminar here,", "k": "우리는 이곳에서 세미나를 했다,"}, {"e": "about ten years ago,", "k": "약 10년 전에,"}, {"e": "including several painters, a poet,", "k": "몇몇 화가들, 시인 한 명,"}, {"e": "a couple of writers, and the physicists.", "k": "두 명의 작가들, 그리고 물리학자들을 포함하여."}], "easy": "10년쯤 전에 여기서 화가, 시인, 작가, 물리학자가 함께 세미나를 했어요.", "gist": "서로 다른 분야의 사람들이 모였다는 점을 보여 주는 사례다."}, {"n": 7, "ch": [{"e": "Everybody agrees", "k": "모두가 동의한다"}, {"e": "on how it works.", "k": "그것이 진행되는 방식에 대해."}], "easy": "모두 그것이 어떻게 이루어지는지에 대해서도 같은 생각이에요.", "gist": "분야가 달라도 모두 같은 생각이라는 점을 한 번 더 말한다."}, {"n": 8, "ch": [{"e": "All of these people,", "k": "이 사람들 모두는,"}, {"e": "<b>whether<\/b> they are doing artistic work <b>or<\/b> scientific work,", "k": "자신들이 예술적인 작업을 하고 있든 과학적인 작업을 하고 있든,"}, {"e": "are <b>trying to solve a problem<\/b>.”", "k": "문제를 해결하려고 <b>노력하고 있다<\/b>.”"}], "easy": "예술 작업을 하든 과학 작업을 하든, 결국 모두 문제를 풀려고 애쓰는 거예요.", "gist": "결론. 분야가 달라도 하는 일의 본질은 같다. 그래서 빈칸은 ‘보편성’이다."}]}, {"no": "08", "typ": "글의 순서", "src": "2023년 9월 37번", "evn": [2, 5, 6, 7, 8, 3], "ev_en": "Yet consider the Elbphilharmonie, a new concert hall in Hamburg, which contains a remarkably beautiful auditorium composed of ten thousand interlocking acoustic panels. / It is the sort of space that makes one instinctively think that only a human being — and a human with a remarkably refined creative sensibility, at that — could design something so aesthetically impressive. / Yet the auditorium was, in fact, designed algorithmically, using a technique known as “parametric design.” / The architects gave the system a set of criteria, and it generated a set of possible designs for the architects to choose from. / Similar software has been used to design lightweight bicycle frames and sturdier chairs, among much else. / Are these systems behaving “creatively”?", "ev_ko": [[2, "그러나 1만 개의 서로 맞물리는 음향 패널로 구성된 놀랍도록 아름다운 강당을 포함하는, 함부르크에 있는 새로운 콘서트 홀인 Elbphilharmonie를 생각해 보자."], [5, "(B) 그것은 오직 인간만이, 그리고 그것도 놀랍도록 세련된 창의적 감수성을 가진 인간만이 그토록 미학적으로 인상적인 것을 디자인할 수 있다고 본능적으로 생각하게 만드는 종류의 공간이다."], [6, "하지만 실제로 그 강당은 ‘파라메트릭 디자인’이라고 알려진 기술을 사용하여 알고리즘으로 디자인되었다."], [7, "(C) 건축가들은 그 방식(시스템)에 일련의 기준을 부여했고, 그것은 건축가들이 선택할 수 있는 일련의 가능한 디자인을 만들어 냈다."], [8, "유사한 소프트웨어가 다른 많은 것들 중에서 경량 자전거 프레임과 더 튼튼한 의자를 디자인하는 데 사용되었다."], [3, "(A) 이러한 방식(시스템)들은 ‘창의적으로’ 움직이는가?"]], "why": ["주어진 글은 문장 2에서 Elbphilharmonie의 <b>강당<\/b>을 소개하고 끝난다", "문장 5의 <b>It<\/b>은 그 강당을 가리키므로 (B)가 먼저 온다", "(B)의 문장 6은 그 강당이 <b>알고리즘으로 디자인되었다<\/b>고 밝힌다", "문장 7의 <b>the system<\/b>이 그 알고리즘 방식을 받아 건축가들이 어떻게 디자인했는지 설명하므로 (C)가 그다음이다", "문장 8은 비슷한 소프트웨어로 디자인한 자전거 프레임과 의자를 말한다", "이것이 문장 3의 <b>these systems<\/b>로 이어지므로 (A)가 마지막이다."], "ch": [{"n": "①", "t": "(A) – (C) – (B)", "g": "", "ok": false, "e": ["(A)의 <b>these systems<\/b>가 가리킬 시스템이 아직 나오지 않았다", "주어진 글에는 system이라는 말이 없다."]}, {"n": "②", "t": "(B) – (A) – (C)", "g": "", "ok": false, "e": ["(B) 다음에 (A)가 오면 these systems가 가리킬 대상이 (C)에서야 처음 나온다", "(C)의 <b>the system<\/b>과 <b>Similar software<\/b>가 먼저 나와야 (A)의 these systems가 그것을 받는다."]}, {"n": "③", "t": "(B) – (C) – (A)", "g": "", "ok": true, "e": ["주어진 글의 강당 → (B)의 It과 알고리즘 설계 → (C)의 the system과 Similar software → (A)의 these systems로 자연스럽게 이어진다."]}, {"n": "④", "t": "(C) – (A) – (B)", "g": "", "ok": false, "e": ["(C)의 <b>the system<\/b>이 받을 대상이 주어진 글에 없다", "주어진 글은 아직 알고리즘 이야기를 꺼내지 않았다."]}, {"n": "⑤", "t": "(C) – (B) – (A)", "g": "", "ok": false, "e": ["(C)가 맨 앞에 올 수 없다", "또 (C)가 설명하는 알고리즘 설계는 (B)의 끝에서 처음 소개되므로, (C)가 (B)보다 앞에 올 수 없다."]}], "tr": ["건축가들은 컴퓨터가 ‘창의적’일 수 없기 때문에 기계는 결코 혁신적이거나 인상적인 건물을 디자인할 수 없다고 말할지도 모른다.", "그러나 1만 개의 서로 맞물리는 음향 패널로 구성된 놀랍도록 아름다운 강당을 포함하는, 함부르크에 있는 새로운 콘서트 홀인 Elbphilharmonie를 생각해 보자.", "(A) 이러한 방식(시스템)들은 ‘창의적으로’ 움직이는가?", "아니다, 그것들은 인간과는 매우 다른 방식으로 작동하면서 다양한 가능한 디자인을 무턱대고 만들기 위해 많은 처리 능력을 사용하고 있다.", "(B) 그것은 오직 인간만이, 그리고 그것도 놀랍도록 세련된 창의적 감수성을 가진 인간만이 그토록 미학적으로 인상적인 것을 디자인할 수 있다고 본능적으로 생각하게 만드는 종류의 공간이다.", "하지만 실제로 그 강당은 ‘파라메트릭 디자인’이라고 알려진 기술을 사용하여 알고리즘으로 디자인되었다.", "(C) 건축가들은 그 방식(시스템)에 일련의 기준을 부여했고, 그것은 건축가들이 선택할 수 있는 일련의 가능한 디자인을 만들어 냈다.", "유사한 소프트웨어가 다른 많은 것들 중에서 경량 자전거 프레임과 더 튼튼한 의자를 디자인하는 데 사용되었다."], "ps": [{"n": 1, "ch": [{"e": "Architects might say", "k": "건축가들은 말할지도 모른다"}, {"e": "a machine can <b>never<\/b> design", "k": "기계는 결코 디자인할 수 없다고"}, {"e": "an <b>innovative<\/b> or <b>impressive<\/b> building", "k": "혁신적이거나 인상적인 건물을"}, {"e": "because a computer cannot be “creative.”", "k": "컴퓨터는 ‘창의적’일 수 없기 때문에."}], "easy": "건축가들은 ‘컴퓨터는 창의적일 수 없으니 기계는 멋진 건물을 디자인하지 못한다’고 말할지도 몰라요.", "gist": "주어진 글의 출발. 컴퓨터는 창의적이지 않아서 대단한 건물을 디자인할 수 없다는 건축가들의 예상이다."}, {"n": 2, "ch": [{"e": "<b>Yet<\/b> consider the Elbphilharmonie,", "k": "<b>그러나<\/b> Elbphilharmonie를 생각해 보자,"}, {"e": "a new concert hall in Hamburg,", "k": "함부르크에 있는 새로운 콘서트 홀인,"}, {"e": "which contains", "k": "그것은<span class=\"r\">(= Elbphilharmonie)<\/span> 포함한다"}, {"e": "a remarkably beautiful auditorium", "k": "놀랍도록 아름다운 강당을"}, {"e": "composed of ten thousand interlocking acoustic panels.", "k": "1만 개의 서로 맞물리는 음향 패널로 구성된."}], "easy": "그런데 함부르크의 새 콘서트 홀 Elbphilharmonie를 생각해 봐요. 이곳 강당은 서로 맞물린 음향 패널 1만 개로 이루어진, 놀랍도록 아름다운 곳이에요.", "gist": "Yet로 앞의 예상과 다른 이야기를 시작하며 Elbphilharmonie의 강당을 소개한다. 다음 글은 이 강당을 It으로 받아 이어진다."}, {"n": 3, "ch": [{"e": "(A) Are <b>these systems<\/b>", "k": "(A) 이러한 방식(시스템)들은<span class=\"r\">(= C 문단의 시스템과 유사한 소프트웨어)<\/span>"}, {"e": "behaving “creatively”?", "k": "‘창의적으로’ 움직이는가?"}], "easy": "이런 시스템들이 정말 ‘창의적으로’ 움직이는 걸까요?", "gist": "these systems가 앞에서 나온 시스템과 소프트웨어를 받아, 그것들이 창의적인지 되묻는다. 그래서 (C) 뒤에 온다."}, {"n": 4, "ch": [{"e": "<b>No<\/b>,", "k": "<b>아니다<\/b>,"}, {"e": "they are using lots of processing power", "k": "그것들은<span class=\"r\">(= 이러한 시스템들)<\/span> 많은 처리 능력을 사용하고 있다"}, {"e": "to <b>blindly<\/b> generate varied possible designs,", "k": "다양한 가능한 디자인을 <b>무턱대고<\/b> 만들기 위해,"}, {"e": "working in a very different way", "k": "매우 다른 방식으로 작동하면서"}, {"e": "from a human being.", "k": "인간과는."}], "easy": "아니에요. 이 시스템들은 사람과는 아주 다른 방식으로, 엄청난 처리 능력을 써서 가능한 디자인을 마구 만들어 낼 뿐이에요.", "gist": "앞 문장의 질문에 대한 대답. 시스템들은 창의적으로 움직이는 것이 아니라 사람과 다른 방식으로 작동한다."}, {"n": 5, "ch": [{"e": "(B) It is the sort of space", "k": "(B) 그것은<span class=\"r\">(= Elbphilharmonie의 강당)<\/span> 그런 종류의 공간이다"}, {"e": "that makes one instinctively think", "k": "본능적으로 생각하게 만드는"}, {"e": "that <b>only a human being<\/b>", "k": "<b>오직 인간만이<\/b>"}, {"e": "— and a human with a remarkably refined creative sensibility, at that —", "k": "— 그것도 놀랍도록 세련된 창의적 감수성을 가진 인간만이 —"}, {"e": "could design something so aesthetically impressive.", "k": "그토록 미학적으로 인상적인 것을 디자인할 수 있다고."}], "easy": "이 강당은 ‘오직 아주 뛰어난 창의적 감수성을 가진 사람만이 이렇게 아름답게 디자인할 수 있겠다’는 생각이 저절로 들게 하는 공간이에요.", "gist": "주어진 글의 강당을 It으로 받아 이어 간다. 그래서 주어진 글 다음에 (B)가 온다.", "link": "그것은 오직 인간만이, 그것도 놀랍도록 세련된 창의적 감수성을 가진 인간만이 그토록 미학적으로 인상적인 것을 디자인할 수 있다고 본능적으로 생각하게 만드는 종류의 공간이다."}, {"n": 6, "ch": [{"e": "<b>Yet<\/b> the auditorium was, <b>in fact<\/b>,", "k": "<b>하지만<\/b> 그 강당은 <b>실제로<\/b>"}, {"e": "designed <b>algorithmically<\/b>,", "k": "<b>알고리즘으로<\/b> 디자인되었다,"}, {"e": "using a technique known as “parametric design.”", "k": "‘파라메트릭 디자인’이라고 알려진 기술을 사용하여."}], "easy": "하지만 사실 이 강당은 ‘파라메트릭 디자인’이라는 기술을 써서 알고리즘으로 디자인된 거예요.", "gist": "반전. 사람이 직접 디자인했을 것 같은 강당이 알고리즘으로 디자인되었다고 밝힌다. 다음 글은 그 방식이 어떻게 쓰였는지 설명한다."}, {"n": 7, "ch": [{"e": "(C) The architects gave", "k": "(C) 건축가들은 부여했다"}, {"e": "the system a set of criteria,", "k": "그 방식(시스템)에 일련의 기준을,"}, {"e": "and it generated", "k": "그리고 그것은<span class=\"r\">(= 그 시스템)<\/span> 만들어 냈다"}, {"e": "a set of possible designs", "k": "일련의 가능한 디자인을"}, {"e": "for the architects to choose from.", "k": "건축가들이 선택할 수 있는."}], "easy": "건축가들이 시스템에 기준을 주자, 시스템은 건축가들이 고를 수 있는 여러 가능한 디자인을 만들어 냈어요.", "gist": "알고리즘 방식이 실제로 어떻게 쓰였는지 설명한다. 이 the system이 알고리즘 설계를 받는다. 그래서 (B) 다음에 (C)가 온다."}, {"n": 8, "ch": [{"e": "Similar software", "k": "유사한 소프트웨어가"}, {"e": "has been used to design", "k": "디자인하는 데 사용되었다"}, {"e": "lightweight bicycle frames and sturdier chairs,", "k": "경량 자전거 프레임과 더 튼튼한 의자를,"}, {"e": "among much else.", "k": "다른 많은 것들 중에서."}], "easy": "비슷한 소프트웨어가 가벼운 자전거 프레임, 더 튼튼한 의자, 그 밖의 많은 것을 디자인하는 데도 쓰였어요.", "gist": "같은 종류의 소프트웨어가 다른 물건에도 쓰인다고 넓혀 간다. 이것이 (A)의 these systems로 이어진다."}]}, {"no": "09", "typ": "장문 순서 (43번)", "src": "2018년 9월 43번", "evn": [16, 7, 20], "ev_en": "Highly motivated by his words, the young woodcutter tried harder the next day, but (c) he could only bring ten trees. / It was as if the old man worked through the break time just as (b) he did. / Suddenly the young woodcutter realized that during break times while the old man was having a drink, he was also re-sharpening his axe, which the young woodcutter never did.", "ev_ko": [[16, "(C) 그(고용인)의 말(칭찬)에 매우 고취되어(자극을 받아), 젊은 나무꾼은 그 다음 날 더욱 열심히 노력했으나, (c) 그(젊은 나무꾼)는 고작 열 그루의 나무들만 (고용인에게) 가져다줄 수 있었다."], [7, "(B) 마치 바로 (b) 그(젊은 나무꾼)가 그러했듯이, 그 노인이 쉬는 시간까지 일을 하는 것만 같았다."], [20, "(D) 불현듯 그 젊은 나무꾼은 쉬는 시간에 노인이 마실 것을 마시는 동안, 그가 (동시에) 도끼날도 (또한) 갈고 있었다는 것을 깨달았는데, 이(도끼날을 가는 것)는 젊은 나무꾼이 결코 (시도) 하지 않았던 일이었다."]], "why": ["(A)는 고용인의 칭찬(<b>Fantastic!<\/b>, <b>Keep up the great work!<\/b>)으로 끝난다", "(C)의 첫 문장 <b>Highly motivated by his words<\/b>에서 his words가 그 칭찬을 받으므로 (A) 다음은 (C)다", "(C)는 노인도 자기와 같은 양, 때로는 더 많은 양을 벤다는 것을 알아차리는 것으로 끝난다", "(B)의 첫 문장 <b>It was as if the old man worked through the break time just as he did<\/b>가 그 내용을 이어받으므로 (C) 다음은 (B)다", "(B)는 노인이 도끼날을 다시 갈지 않는 것이 노력의 낭비라고 말하는 장면으로 끝난다", "(D)는 노인이 쉬는 시간에 도끼날을 갈고 있었다는 것을 <b>realized<\/b>(깨달았다)로 이어 가며 마무리된다", "그래서 (B) 다음은 (D)다."], "ch": [{"n": "①", "t": "(B) – (D) – (C)", "g": "", "ok": false, "e": ["(B)의 <b>It was as if<\/b> 문장이 받을 ‘노인도 나처럼 일한다’는 내용이 (C)의 끝에서 처음 나온다", "(C)가 (B)보다 먼저 와야 한다."]}, {"n": "②", "t": "(C) – (B) – (D)", "g": "", "ok": true, "e": ["(A) 끝의 칭찬 → (C) 첫 문장의 his words, (C) 끝의 알아차림 → (B) 첫 문장의 It was as if, (B) 끝의 도끼날 이야기 → (D)의 깨달음으로 세 군데가 모두 이어진다."]}, {"n": "③", "t": "(C) – (D) – (B)", "g": "", "ok": false, "e": ["(C) 끝의 ‘노인도 나만큼 벤다’는 알아차림을 바로 받는 것은 (B)의 첫 문장 <b>It was as if<\/b>다", "중간에 (D)가 끼면 이 연결이 끊긴다."]}, {"n": "④", "t": "(D) – (B) – (C)", "g": "", "ok": false, "e": ["(A)의 끝은 고용인의 칭찬인데, (D)는 노인이 도끼날을 갈고 있었음을 깨닫는 장면이다", "칭찬을 받은 다음에는 그 말에 고무된 (C)가 이어져야 한다."]}, {"n": "⑤", "t": "(D) – (C) – (B)", "g": "", "ok": false, "e": ["(D)를 맨 앞에 두면 (A)의 칭찬 바로 뒤에서 (C)의 <b>his words<\/b>가 이어지지 못한다", "(D)는 (B) 끝의 도끼날 이야기를 받는 장면이다."]}], "tr": ["(A) 옛날에, 정글에서 나무를 베는 두 명의 나무꾼이 있었다 — 젊고 힘이 센 나무꾼과 나이 든 나무꾼(이었다).", "그 젊은이는 매우 부지런했다.", "그의 (그가 일을 시작한) 첫째 날, (a) 그(젊은 나무꾼)는 그의 쉬는 시간까지 일을 했고, 그 노인이 먹고 마시려고 수차례 휴식을 취하며 시간을 낭비하고 있다고 불평했다.", "그 날, 그 젊은 나무꾼은 그의 고용인에게 열다섯 그루의 나무를 가져다주었다.", "“훌륭하군!” 고용인이 말했다.", "“계속 열심히 해 주게나!”", "(B) 마치 바로 (b) 그(젊은 나무꾼)가 그러했듯이, 그 노인이 쉬는 시간까지 일을 하는 것만 같았다.", "그래서, 그 젊은 나무꾼은 그 다음 날 더 열심히 일하기로 결심했다.", "유감스럽게도, 그 결과는 훨씬 더 심각했다(참혹했다).", "“내가 힘이 (점점) 빠지고 있는 것이 틀림없어.” 젊은이는 생각했다.", "어느 날, 노인은 쉬는 시간 동안 (마실 것이라도) 한 잔 하자며 그(젊은 나무꾼)를 불렀다.", "젊은이는 거절했고, 그가 여유 시간이 없다고 말했다.", "그러자, 노인이 미소 지으며 그에게 말했다.", "“자네의 도끼날을 다시 갈지 않고 계속 나무만 베어내는 것은 노력의 낭비라네(노력을 낭비하는 거라네).", "자네가 너무 많은 힘을 다 써버렸기 때문에(기력을 너무 많이 소진했기 때문에), 머잖아 자네는 (나무 베기를) 그만둬야 할게야.”", "(C) 그(고용인)의 말(칭찬)에 매우 고취되어(자극을 받아), 젊은 나무꾼은 그 다음 날 더욱 열심히 노력했으나, (c) 그(젊은 나무꾼)는 고작 열 그루의 나무들만 (고용인에게) 가져다줄 수 있었다.", "세 번째 날 그는 훨씬 더 열심히 노력했으나, 그는 겨우 일곱 그루의 나무들만 가져다줄 수 있었다.", "날마다, 그는 점점 더 적은 (양의) 나무들을 가져다주고 있었다.", "시간이 지남에 따라, (d) 그(젊은 나무꾼)는 그가 그의 쉬는 시간까지 일을 하고 거의 휴식을 취하지 않았음에도 불구하고, 그 나이 든 나무꾼이 그(젊은 나무꾼)와 똑같은 양의 나무들을 베어내고 있었다는 — 그리고 때로는 심지어 (자신보다) 더 많은 양을 베고 있다는 것을 알아차렸다(알게 되었다).", "(D) 불현듯 그 젊은 나무꾼은 쉬는 시간에 노인이 마실 것을 마시는 동안, 그가 (동시에) 도끼날도 (또한) 갈고 있었다는 것을 깨달았는데, 이(도끼날을 가는 것)는 젊은 나무꾼이 결코 (시도) 하지 않았던 일이었다.", "그것(도끼날을 가는 것)이 (바로) (e) 그(노인)가 젊은이보다 더 적은 시간에 더 많이 벨 수 있었던 방법이다!", "그 노인은 우리 모두가 (잠시) 휴식을 취하고(긴장을 늦추고), 생각하고 명상하며, 배우고 성장할 시간이 필요하다고 말했다.", "만일 우리가 ‘도끼날’을 갈 시간을 갖지 않는다면, 우리는 무뎌지고 우리의 효율성을 잃게 될 것이다."], "ps": [{"n": 1, "ch": [{"e": "(A) Once, there were two woodcutters", "k": "(A) 옛날에, 두 명의 나무꾼이 있었다"}, {"e": "— a young, strong one", "k": "— 젊고 힘이 센 나무꾼과"}, {"e": "and an old one —", "k": "나이 든 나무꾼(이었다) —"}, {"e": "cutting down trees in a jungle.", "k": "정글에서 나무를 베는."}], "easy": "옛날에 정글에서 나무를 베는 나무꾼이 둘 있었어요. 한 명은 젊고 힘이 셌고, 한 명은 나이가 많았어요.", "gist": "(A)의 시작. 이야기의 두 주인공, 젊은 나무꾼과 나이 든 나무꾼을 소개한다."}, {"n": 2, "ch": [{"e": "The young man", "k": "그 젊은이는"}, {"e": "was very <b>hardworking<\/b>.", "k": "매우 <b>부지런했다<\/b>."}], "easy": "젊은 나무꾼은 정말 부지런했어요.", "gist": "젊은 나무꾼의 성격 소개. 부지런함이 이야기의 출발점이다."}, {"n": 3, "ch": [{"e": "On his first day,", "k": "그가 일을 시작한 첫째 날,"}, {"e": "(a) he worked <b>through<\/b> his break time", "k": "(a) 그는<span class=\"r\">(= 젊은 나무꾼)<\/span> 쉬는 시간까지 일을 했고"}, {"e": "and <b>complained<\/b>", "k": "불평했다"}, {"e": "that the old man was wasting time,", "k": "그 노인이 시간을 낭비하고 있다고,"}, {"e": "taking several breaks to eat and drink.", "k": "먹고 마시려고 수차례 휴식을 취하며."}], "easy": "첫날 젊은이는 쉬는 시간에도 일했고, 노인이 먹고 마시며 자주 쉬면서 시간을 낭비한다고 불평했어요.", "gist": "두 사람의 일하는 방식이 대조된다. 젊은이는 쉬는 시간에도 일하고, 노인은 자주 쉰다."}, {"n": 4, "ch": [{"e": "That day,", "k": "그 날,"}, {"e": "the young woodcutter brought <b>15 trees<\/b>", "k": "그 젊은 나무꾼은 열다섯 그루의 나무를 가져다주었다"}, {"e": "to their boss.", "k": "그들의 고용인에게."}], "easy": "그날 젊은 나무꾼은 고용인에게 나무 열다섯 그루를 가져다줬어요.", "gist": "첫날의 성과. 쉬지 않고 일해서 나무 15그루를 가져다줬다. 이 숫자가 뒤에서 점점 줄어든다."}, {"n": 5, "ch": [{"e": "“Fantastic!”", "k": "“훌륭하군!”"}, {"e": "the boss said.", "k": "고용인이 말했다."}], "easy": "고용인이 ‘훌륭하군!’ 하고 칭찬했어요.", "gist": "고용인의 칭찬. 젊은 나무꾼은 이 칭찬에 힘을 얻는다."}, {"n": 6, "ch": [{"e": "“<b>Keep up<\/b> the great work!”", "k": "“계속 열심히 해 주게나!”"}], "easy": "‘지금처럼 계속 잘해 주게!’ 하고 말했어요.", "gist": "(A)의 마지막 말. 이 칭찬을 (C)의 his words가 이어받는다."}, {"n": 7, "ch": [{"e": "(B) It was as if", "k": "(B) ~인 것만 같았다"}, {"e": "the old man worked through the break time", "k": "그 노인이 쉬는 시간까지 일을 하는"}, {"e": "just as (b) he did.", "k": "마치 바로 (b) 그가<span class=\"r\">(= 젊은 나무꾼)<\/span> 그러했듯이."}], "easy": "마치 노인도 젊은이처럼 쉬는 시간에 일하는 것만 같았어요.", "gist": "(C) 끝에서 알아차린 내용(노인도 자기만큼 벤다)을 받아 ‘노인도 쉬는 시간에 일하는 것 같다’고 말한다. 그래서 (C) 다음에 (B)가 온다.", "link": "마치 바로 그(젊은 나무꾼)가 그러했듯이, 그 노인이 쉬는 시간까지 일을 하는 것만 같았다."}, {"n": 8, "ch": [{"e": "So,", "k": "그래서,"}, {"e": "the young woodcutter <b>decided<\/b>", "k": "그 젊은 나무꾼은 결심했다"}, {"e": "to work harder the next day.", "k": "그 다음 날 더 열심히 일하기로."}], "easy": "그래서 젊은 나무꾼은 다음 날 더 열심히 일하기로 마음먹었어요.", "gist": "노인도 쉬는 시간에 일한다고 느낀 젊은이가 더 열심히 하기로 한다."}, {"n": 9, "ch": [{"e": "<b>Unfortunately<\/b>,", "k": "<b>유감스럽게도<\/b>,"}, {"e": "the results were even worse.", "k": "그 결과는 훨씬 더 심각했다(참혹했다)."}], "easy": "안타깝게도 결과는 오히려 훨씬 더 나빴어요.", "gist": "더 열심히 했는데도 결과가 나빠졌다. 이야기의 반전이다."}, {"n": 10, "ch": [{"e": "“I must be losing my strength,”", "k": "“내가 힘이 (점점) 빠지고 있는 것이 틀림없어,”"}, {"e": "the young man thought.", "k": "젊은이는 생각했다."}], "easy": "‘내 힘이 빠지고 있는 게 틀림없어.’ 젊은이는 이렇게 생각했어요.", "gist": "젊은이는 결과가 나쁜 이유를 자기 힘이 빠졌기 때문이라고 짐작한다."}, {"n": 11, "ch": [{"e": "One day,", "k": "어느 날,"}, {"e": "the old man <b>invited<\/b> him", "k": "노인은 그를<span class=\"r\">(= 젊은 나무꾼)<\/span> 불렀다"}, {"e": "for a drink during the break time.", "k": "쉬는 시간 동안 (마실 것이라도) 한 잔 하자며."}], "easy": "어느 날 노인이 쉬는 시간에 같이 한잔하자고 젊은이를 불렀어요.", "gist": "노인이 쉬는 시간에 함께 마시자고 청하는 장면이다."}, {"n": 12, "ch": [{"e": "The young man <b>refused<\/b>", "k": "젊은이는 거절했고,"}, {"e": "and said he had no extra time.", "k": "그가<span class=\"r\">(= 젊은 나무꾼)<\/span> 여유 시간이 없다고 말했다."}], "easy": "젊은이는 거절하면서 여유 시간이 없다고 말했어요.", "gist": "젊은이는 쉬지 않고 일하는 쪽을 택한다."}, {"n": 13, "ch": [{"e": "Then,", "k": "그러자,"}, {"e": "the old man smiled and said to him,", "k": "노인이 미소 지으며 그에게<span class=\"r\">(= 젊은 나무꾼)<\/span> 말했다."}], "easy": "그러자 노인이 웃으면서 이렇게 말했어요.", "gist": "노인의 조언이 시작되는 문장이다."}, {"n": 14, "ch": [{"e": "“It is a <b>waste of effort<\/b>", "k": "“노력의 낭비라네,"}, {"e": "to keep chopping trees", "k": "계속 나무만 베어내는 것은"}, {"e": "without re-sharpening your axe.", "k": "자네의 도끼날을 다시 갈지 않고."}], "easy": "도끼날을 다시 갈지 않고 나무만 계속 베는 건 힘만 낭비하는 일이라고요.", "gist": "노인의 핵심 조언. 도끼날을 갈지 않고 베기만 하면 노력만 낭비된다는 뜻이다."}, {"n": 15, "ch": [{"e": "<b>Sooner or later<\/b>,", "k": "머잖아,"}, {"e": "you will have to <b>give up<\/b>", "k": "자네는 그만둬야 할 걸세"}, {"e": "because you’ve spent too much energy.”", "k": "자네가 너무 많은 힘을 다 써버렸기 때문에.”"}], "easy": "머지않아 힘을 너무 써 버려서 포기하게 될 거라고요.", "gist": "도끼날을 갈지 않고 일만 하면 결국 기력이 바닥나 포기하게 된다는 경고다."}, {"n": 16, "ch": [{"e": "(C) <b>Highly motivated<\/b> by his words,", "k": "(C) 그의 말에<span class=\"r\">(= 고용인의 칭찬)<\/span> 매우 고취되어,"}, {"e": "the young woodcutter tried harder the next day,", "k": "젊은 나무꾼은 그 다음 날 더욱 열심히 노력했으나,"}, {"e": "but (c) he could <b>only<\/b> bring ten trees.", "k": "(c) 그는<span class=\"r\">(= 젊은 나무꾼)<\/span> 고작 열 그루의 나무만 가져다줄 수 있었다."}], "easy": "고용인의 칭찬에 힘을 얻어 다음 날 더 열심히 했는데도, 젊은이는 나무를 열 그루밖에 가져오지 못했어요.", "gist": "(A) 끝의 칭찬을 his words로 받아 이어 간다. 그래서 (A) 다음에 (C)가 온다. 더 열심히 했는데 나무는 15그루에서 10그루로 줄었다."}, {"n": 17, "ch": [{"e": "The third day", "k": "셋째 날"}, {"e": "he tried <b>even harder<\/b>,", "k": "그는<span class=\"r\">(= 젊은 나무꾼)<\/span> 훨씬 더 열심히 노력했으나,"}, {"e": "but he was only able to bring <b>seven<\/b> trees.", "k": "겨우 일곱 그루의 나무만 가져다줄 수 있었다."}], "easy": "셋째 날에는 훨씬 더 열심히 했지만 일곱 그루밖에 못 가져왔어요.", "gist": "노력은 늘었는데 나무는 15그루, 10그루, 7그루로 계속 줄어든다."}, {"n": 18, "ch": [{"e": "<b>Day after day<\/b>,", "k": "날마다,"}, {"e": "he was bringing", "k": "그는<span class=\"r\">(= 젊은 나무꾼)<\/span> 가져다주고 있었다"}, {"e": "<b>less and less<\/b> trees.", "k": "점점 더 적은 나무들을."}], "easy": "날이 갈수록 가져오는 나무가 점점 더 줄어들었어요.", "gist": "나무의 수가 점점 줄었다는 정리 문장이다."}, {"n": 19, "ch": [{"e": "As time went by,", "k": "시간이 지남에 따라,"}, {"e": "(d) he <b>noticed<\/b>", "k": "(d) 그는<span class=\"r\">(= 젊은 나무꾼)<\/span> 알아차렸다"}, {"e": "that even though he worked through his break time", "k": "그가 쉬는 시간까지 일을 하고"}, {"e": "and hardly took a rest,", "k": "거의 휴식을 취하지 않았음에도 불구하고,"}, {"e": "the old woodcutter was cutting down", "k": "그 나이 든 나무꾼이 베어내고 있었다는 것을"}, {"e": "the same amount of trees as him —", "k": "그와<span class=\"r\">(= 젊은 나무꾼)<\/span> 똑같은 양의 나무들을 —"}, {"e": "and sometimes chopped down even more.", "k": "그리고 때로는 심지어 더 많은 양을 베고 있다는 것을."}], "easy": "시간이 지나자 젊은이는 알게 됐어요. 자기는 쉬는 시간에도 일하고 거의 쉬지 않는데, 노인이 자기와 같은 양을, 때로는 더 많이 베고 있었던 거예요.", "gist": "(C)의 마무리. 쉬지 않는 자신과 쉬는 노인이 같은 양을 베고 있다는 알아차림이 (B)의 첫 문장으로 이어진다."}, {"n": 20, "ch": [{"e": "(D) <b>Suddenly<\/b> the young woodcutter <b>realized<\/b>", "k": "(D) 불현듯 그 젊은 나무꾼은 깨달았다"}, {"e": "that during break times", "k": "쉬는 시간에"}, {"e": "while the old man was having a drink,", "k": "노인이 마실 것을 마시는 동안,"}, {"e": "he was also re-sharpening his axe,", "k": "그가<span class=\"r\">(= 노인)<\/span> 도끼날도 갈고 있었다는 것을,"}, {"e": "which the young woodcutter never did.", "k": "그것은<span class=\"r\">(= 도끼날을 가는 것)<\/span> 젊은 나무꾼이 결코 하지 않았던 일이었다."}], "easy": "그때 젊은 나무꾼은 문득 깨달았어요. 노인이 쉬는 시간에 음료를 마시면서 도끼날도 갈고 있었다는 걸요. 그건 자기가 한 번도 안 한 일이었어요.", "gist": "(B) 끝에서 노인이 말한 도끼날 이야기를 받아, 노인이 실제로 도끼날을 갈고 있었음을 깨닫는 장면이다."}, {"n": 21, "ch": [{"e": "That’s how", "k": "그것이<span class=\"r\">(= 도끼날을 가는 것)<\/span> 바로 방법이다"}, {"e": "(e) he could chop", "k": "(e) 그가<span class=\"r\">(= 노인)<\/span> 벨 수 있었던"}, {"e": "more than the young man", "k": "젊은이보다 더 많이"}, {"e": "in less time!", "k": "더 적은 시간에!"}], "easy": "바로 그 덕분에 노인은 젊은이보다 더 적은 시간에 더 많이 벨 수 있었던 거예요!", "gist": "도끼날을 가는 것이 노인이 더 적은 시간에 더 많이 벤 비결이다."}, {"n": 22, "ch": [{"e": "The old man said", "k": "노인은 말했다"}, {"e": "that we all need time", "k": "우리 모두가 시간이 필요하다고"}, {"e": "to relax,", "k": "(잠시) 휴식을 취하고(긴장을 늦추고),"}, {"e": "to think and meditate,", "k": "생각하고 명상하며,"}, {"e": "and to learn and grow.", "k": "배우고 성장할."}], "easy": "노인은 우리 모두에게 쉬고, 생각하고, 배우고 성장할 시간이 필요하다고 말했어요.", "gist": "도끼날 이야기에서 교훈으로 넘어간다. 쉬고 배울 시간이 필요하다는 말이다."}, {"n": 23, "ch": [{"e": "If we don’t take the time", "k": "만일 우리가 시간을 갖지 않는다면"}, {"e": "to sharpen the “axe,”", "k": "‘도끼날’을 갈,"}, {"e": "we will become <b>dull<\/b>", "k": "우리는 무뎌지고"}, {"e": "and lose our effectiveness.", "k": "우리의 효율성을 잃게 될 것이다."}], "easy": "‘도끼날’을 갈 시간을 내지 않으면 우리는 무뎌지고 효율도 잃게 돼요.", "gist": "이야기의 교훈. 도끼날을 가는 시간은 쉬고 배우고 성장하는 시간을 뜻하고, 그 시간이 없으면 효율이 떨어진다."}]}, {"no": "10", "typ": "장문 지칭 (44번)", "src": "2018년 9월 44번", "evn": [21], "ev_en": "That’s how (e) he could chop more than the young man in less time!", "ev_ko": [[21, "그것(도끼날을 가는 것)이 (바로) (e) 그(노인)가 젊은이보다 더 적은 시간에 더 많이 벨 수 있었던 방법이다!"]], "why": ["본문에서 he/his/him으로 가리킬 수 있는 인물은 노인, 젊은이, 고용인이다", "(e)는 나무를 베는 사람이므로 나무꾼 중 한 명이다", "같은 문장에 <b>than the young man<\/b>(젊은이보다)이 있으므로 젊은이가 아니라 <b>노인<\/b>이다", "(a)~(d)는 모두 젊은 나무꾼을 가리키므로 (e)만 다르다."], "ch": [{"n": "①", "t": "(a)", "g": "", "ok": false, "e": ["첫날 쉬는 시간까지 일하고 노인이 시간을 낭비한다고 불평한 사람이므로 젊은 나무꾼이다."]}, {"n": "②", "t": "(b)", "g": "", "ok": false, "e": ["‘마치 바로 (b)가 그러했듯이 노인이 쉬는 시간까지 일을 하는 것만 같았다’에서 노인과 견주는 쪽이므로 젊은 나무꾼이다."]}, {"n": "③", "t": "(c)", "g": "", "ok": false, "e": ["고용인의 칭찬에 고취되어 더 열심히 했지만 열 그루밖에 가져다주지 못한 사람이므로 젊은 나무꾼이다."]}, {"n": "④", "t": "(d)", "g": "", "ok": false, "e": ["쉬는 시간까지 일하고 거의 쉬지 않았는데도 노인이 자기와 같은 양을 벤다는 것을 알아차린 사람이므로 젊은 나무꾼이다."]}, {"n": "⑤", "t": "(e)", "g": "", "ok": true, "e": ["나무를 베는 사람이고 <b>than the young man<\/b>(젊은이보다) 더 적은 시간에 더 많이 벨 수 있었다고 했으므로 노인이다", "나머지 (a)~(d)는 젊은 나무꾼이다."]}], "tr": ["(A) 옛날에, 정글에서 나무를 베는 두 명의 나무꾼이 있었다 — 젊고 힘이 센 나무꾼과 나이 든 나무꾼(이었다).", "그 젊은이는 매우 부지런했다.", "그의 (그가 일을 시작한) 첫째 날, (a) 그(젊은 나무꾼)는 그의 쉬는 시간까지 일을 했고, 그 노인이 먹고 마시려고 수차례 휴식을 취하며 시간을 낭비하고 있다고 불평했다.", "그 날, 그 젊은 나무꾼은 그의 고용인에게 열다섯 그루의 나무를 가져다주었다.", "“훌륭하군!” 고용인이 말했다.", "“계속 열심히 해 주게나!”", "(B) 마치 바로 (b) 그(젊은 나무꾼)가 그러했듯이, 그 노인이 쉬는 시간까지 일을 하는 것만 같았다.", "그래서, 그 젊은 나무꾼은 그 다음 날 더 열심히 일하기로 결심했다.", "유감스럽게도, 그 결과는 훨씬 더 심각했다(참혹했다).", "“내가 힘이 (점점) 빠지고 있는 것이 틀림없어.” 젊은이는 생각했다.", "어느 날, 노인은 쉬는 시간 동안 (마실 것이라도) 한 잔 하자며 그(젊은 나무꾼)를 불렀다.", "젊은이는 거절했고, 그가 여유 시간이 없다고 말했다.", "그러자, 노인이 미소 지으며 그에게 말했다.", "“자네의 도끼날을 다시 갈지 않고 계속 나무만 베어내는 것은 노력의 낭비라네(노력을 낭비하는 거라네).", "자네가 너무 많은 힘을 다 써버렸기 때문에(기력을 너무 많이 소진했기 때문에), 머잖아 자네는 (나무 베기를) 그만둬야 할게야.”", "(C) 그(고용인)의 말(칭찬)에 매우 고취되어(자극을 받아), 젊은 나무꾼은 그 다음 날 더욱 열심히 노력했으나, (c) 그(젊은 나무꾼)는 고작 열 그루의 나무들만 (고용인에게) 가져다줄 수 있었다.", "세 번째 날 그는 훨씬 더 열심히 노력했으나, 그는 겨우 일곱 그루의 나무들만 가져다줄 수 있었다.", "날마다, 그는 점점 더 적은 (양의) 나무들을 가져다주고 있었다.", "시간이 지남에 따라, (d) 그(젊은 나무꾼)는 그가 그의 쉬는 시간까지 일을 하고 거의 휴식을 취하지 않았음에도 불구하고, 그 나이 든 나무꾼이 그(젊은 나무꾼)와 똑같은 양의 나무들을 베어내고 있었다는 — 그리고 때로는 심지어 (자신보다) 더 많은 양을 베고 있다는 것을 알아차렸다(알게 되었다).", "(D) 불현듯 그 젊은 나무꾼은 쉬는 시간에 노인이 마실 것을 마시는 동안, 그가 (동시에) 도끼날도 (또한) 갈고 있었다는 것을 깨달았는데, 이(도끼날을 가는 것)는 젊은 나무꾼이 결코 (시도) 하지 않았던 일이었다.", "그것(도끼날을 가는 것)이 (바로) (e) 그(노인)가 젊은이보다 더 적은 시간에 더 많이 벨 수 있었던 방법이다!", "그 노인은 우리 모두가 (잠시) 휴식을 취하고(긴장을 늦추고), 생각하고 명상하며, 배우고 성장할 시간이 필요하다고 말했다.", "만일 우리가 ‘도끼날’을 갈 시간을 갖지 않는다면, 우리는 무뎌지고 우리의 효율성을 잃게 될 것이다."], "ps": [{"n": 1, "ch": [{"e": "(A) Once, there were two woodcutters", "k": "(A) 옛날에, 두 명의 나무꾼이 있었다"}, {"e": "— a young, strong one", "k": "— 젊고 힘이 센 나무꾼과"}, {"e": "and an old one —", "k": "나이 든 나무꾼(이었다) —"}, {"e": "cutting down trees in a jungle.", "k": "정글에서 나무를 베는."}], "easy": "옛날에 정글에서 나무를 베는 나무꾼이 둘 있었어요. 한 명은 젊고 힘이 셌고, 한 명은 나이가 많았어요.", "gist": "(A)의 시작. 이야기의 두 주인공, 젊은 나무꾼과 나이 든 나무꾼을 소개한다."}, {"n": 2, "ch": [{"e": "The young man", "k": "그 젊은이는"}, {"e": "was very <b>hardworking<\/b>.", "k": "매우 <b>부지런했다<\/b>."}], "easy": "젊은 나무꾼은 정말 부지런했어요.", "gist": "젊은 나무꾼의 성격 소개. 부지런함이 이야기의 출발점이다."}, {"n": 3, "ch": [{"e": "On his first day,", "k": "그가 일을 시작한 첫째 날,"}, {"e": "(a) he worked <b>through<\/b> his break time", "k": "(a) 그는<span class=\"r\">(= 젊은 나무꾼)<\/span> 쉬는 시간까지 일을 했고"}, {"e": "and <b>complained<\/b>", "k": "불평했다"}, {"e": "that the old man was wasting time,", "k": "그 노인이 시간을 낭비하고 있다고,"}, {"e": "taking several breaks to eat and drink.", "k": "먹고 마시려고 수차례 휴식을 취하며."}], "easy": "첫날 젊은이는 쉬는 시간에도 일했고, 노인이 먹고 마시며 자주 쉬면서 시간을 낭비한다고 불평했어요.", "gist": "두 사람의 일하는 방식이 대조된다. 젊은이는 쉬는 시간에도 일하고, 노인은 자주 쉰다."}, {"n": 4, "ch": [{"e": "That day,", "k": "그 날,"}, {"e": "the young woodcutter brought <b>15 trees<\/b>", "k": "그 젊은 나무꾼은 열다섯 그루의 나무를 가져다주었다"}, {"e": "to their boss.", "k": "그들의 고용인에게."}], "easy": "그날 젊은 나무꾼은 고용인에게 나무 열다섯 그루를 가져다줬어요.", "gist": "첫날의 성과. 쉬지 않고 일해서 나무 15그루를 가져다줬다. 이 숫자가 뒤에서 점점 줄어든다."}, {"n": 5, "ch": [{"e": "“Fantastic!”", "k": "“훌륭하군!”"}, {"e": "the boss said.", "k": "고용인이 말했다."}], "easy": "고용인이 ‘훌륭하군!’ 하고 칭찬했어요.", "gist": "고용인의 칭찬. 젊은 나무꾼은 이 칭찬에 힘을 얻는다."}, {"n": 6, "ch": [{"e": "“<b>Keep up<\/b> the great work!”", "k": "“계속 열심히 해 주게나!”"}], "easy": "‘지금처럼 계속 잘해 주게!’ 하고 말했어요.", "gist": "(A)의 마지막 말. 이 칭찬을 (C)의 his words가 이어받는다."}, {"n": 7, "ch": [{"e": "(B) It was as if", "k": "(B) ~인 것만 같았다"}, {"e": "the old man worked through the break time", "k": "그 노인이 쉬는 시간까지 일을 하는"}, {"e": "just as (b) he did.", "k": "마치 바로 (b) 그가<span class=\"r\">(= 젊은 나무꾼)<\/span> 그러했듯이."}], "easy": "마치 노인도 젊은이처럼 쉬는 시간에 일하는 것만 같았어요.", "gist": "(C) 끝에서 알아차린 내용(노인도 자기만큼 벤다)을 받아 ‘노인도 쉬는 시간에 일하는 것 같다’고 말한다. 그래서 (C) 다음에 (B)가 온다.", "link": "마치 바로 그(젊은 나무꾼)가 그러했듯이, 그 노인이 쉬는 시간까지 일을 하는 것만 같았다."}, {"n": 8, "ch": [{"e": "So,", "k": "그래서,"}, {"e": "the young woodcutter <b>decided<\/b>", "k": "그 젊은 나무꾼은 결심했다"}, {"e": "to work harder the next day.", "k": "그 다음 날 더 열심히 일하기로."}], "easy": "그래서 젊은 나무꾼은 다음 날 더 열심히 일하기로 마음먹었어요.", "gist": "노인도 쉬는 시간에 일한다고 느낀 젊은이가 더 열심히 하기로 한다."}, {"n": 9, "ch": [{"e": "<b>Unfortunately<\/b>,", "k": "<b>유감스럽게도<\/b>,"}, {"e": "the results were even worse.", "k": "그 결과는 훨씬 더 심각했다(참혹했다)."}], "easy": "안타깝게도 결과는 오히려 훨씬 더 나빴어요.", "gist": "더 열심히 했는데도 결과가 나빠졌다. 이야기의 반전이다."}, {"n": 10, "ch": [{"e": "“I must be losing my strength,”", "k": "“내가 힘이 (점점) 빠지고 있는 것이 틀림없어,”"}, {"e": "the young man thought.", "k": "젊은이는 생각했다."}], "easy": "‘내 힘이 빠지고 있는 게 틀림없어.’ 젊은이는 이렇게 생각했어요.", "gist": "젊은이는 결과가 나쁜 이유를 자기 힘이 빠졌기 때문이라고 짐작한다."}, {"n": 11, "ch": [{"e": "One day,", "k": "어느 날,"}, {"e": "the old man <b>invited<\/b> him", "k": "노인은 그를<span class=\"r\">(= 젊은 나무꾼)<\/span> 불렀다"}, {"e": "for a drink during the break time.", "k": "쉬는 시간 동안 (마실 것이라도) 한 잔 하자며."}], "easy": "어느 날 노인이 쉬는 시간에 같이 한잔하자고 젊은이를 불렀어요.", "gist": "노인이 쉬는 시간에 함께 마시자고 청하는 장면이다."}, {"n": 12, "ch": [{"e": "The young man <b>refused<\/b>", "k": "젊은이는 거절했고,"}, {"e": "and said he had no extra time.", "k": "그가<span class=\"r\">(= 젊은 나무꾼)<\/span> 여유 시간이 없다고 말했다."}], "easy": "젊은이는 거절하면서 여유 시간이 없다고 말했어요.", "gist": "젊은이는 쉬지 않고 일하는 쪽을 택한다."}, {"n": 13, "ch": [{"e": "Then,", "k": "그러자,"}, {"e": "the old man smiled and said to him,", "k": "노인이 미소 지으며 그에게<span class=\"r\">(= 젊은 나무꾼)<\/span> 말했다."}], "easy": "그러자 노인이 웃으면서 이렇게 말했어요.", "gist": "노인의 조언이 시작되는 문장이다."}, {"n": 14, "ch": [{"e": "“It is a <b>waste of effort<\/b>", "k": "“노력의 낭비라네,"}, {"e": "to keep chopping trees", "k": "계속 나무만 베어내는 것은"}, {"e": "without re-sharpening your axe.", "k": "자네의 도끼날을 다시 갈지 않고."}], "easy": "도끼날을 다시 갈지 않고 나무만 계속 베는 건 힘만 낭비하는 일이라고요.", "gist": "노인의 핵심 조언. 도끼날을 갈지 않고 베기만 하면 노력만 낭비된다는 뜻이다."}, {"n": 15, "ch": [{"e": "<b>Sooner or later<\/b>,", "k": "머잖아,"}, {"e": "you will have to <b>give up<\/b>", "k": "자네는 그만둬야 할 걸세"}, {"e": "because you’ve spent too much energy.”", "k": "자네가 너무 많은 힘을 다 써버렸기 때문에.”"}], "easy": "머지않아 힘을 너무 써 버려서 포기하게 될 거라고요.", "gist": "도끼날을 갈지 않고 일만 하면 결국 기력이 바닥나 포기하게 된다는 경고다."}, {"n": 16, "ch": [{"e": "(C) <b>Highly motivated<\/b> by his words,", "k": "(C) 그의 말에<span class=\"r\">(= 고용인의 칭찬)<\/span> 매우 고취되어,"}, {"e": "the young woodcutter tried harder the next day,", "k": "젊은 나무꾼은 그 다음 날 더욱 열심히 노력했으나,"}, {"e": "but (c) he could <b>only<\/b> bring ten trees.", "k": "(c) 그는<span class=\"r\">(= 젊은 나무꾼)<\/span> 고작 열 그루의 나무만 가져다줄 수 있었다."}], "easy": "고용인의 칭찬에 힘을 얻어 다음 날 더 열심히 했는데도, 젊은이는 나무를 열 그루밖에 가져오지 못했어요.", "gist": "(A) 끝의 칭찬을 his words로 받아 이어 간다. 그래서 (A) 다음에 (C)가 온다. 더 열심히 했는데 나무는 15그루에서 10그루로 줄었다."}, {"n": 17, "ch": [{"e": "The third day", "k": "셋째 날"}, {"e": "he tried <b>even harder<\/b>,", "k": "그는<span class=\"r\">(= 젊은 나무꾼)<\/span> 훨씬 더 열심히 노력했으나,"}, {"e": "but he was only able to bring <b>seven<\/b> trees.", "k": "겨우 일곱 그루의 나무만 가져다줄 수 있었다."}], "easy": "셋째 날에는 훨씬 더 열심히 했지만 일곱 그루밖에 못 가져왔어요.", "gist": "노력은 늘었는데 나무는 15그루, 10그루, 7그루로 계속 줄어든다."}, {"n": 18, "ch": [{"e": "<b>Day after day<\/b>,", "k": "날마다,"}, {"e": "he was bringing", "k": "그는<span class=\"r\">(= 젊은 나무꾼)<\/span> 가져다주고 있었다"}, {"e": "<b>less and less<\/b> trees.", "k": "점점 더 적은 나무들을."}], "easy": "날이 갈수록 가져오는 나무가 점점 더 줄어들었어요.", "gist": "나무의 수가 점점 줄었다는 정리 문장이다."}, {"n": 19, "ch": [{"e": "As time went by,", "k": "시간이 지남에 따라,"}, {"e": "(d) he <b>noticed<\/b>", "k": "(d) 그는<span class=\"r\">(= 젊은 나무꾼)<\/span> 알아차렸다"}, {"e": "that even though he worked through his break time", "k": "그가 쉬는 시간까지 일을 하고"}, {"e": "and hardly took a rest,", "k": "거의 휴식을 취하지 않았음에도 불구하고,"}, {"e": "the old woodcutter was cutting down", "k": "그 나이 든 나무꾼이 베어내고 있었다는 것을"}, {"e": "the same amount of trees as him —", "k": "그와<span class=\"r\">(= 젊은 나무꾼)<\/span> 똑같은 양의 나무들을 —"}, {"e": "and sometimes chopped down even more.", "k": "그리고 때로는 심지어 더 많은 양을 베고 있다는 것을."}], "easy": "시간이 지나자 젊은이는 알게 됐어요. 자기는 쉬는 시간에도 일하고 거의 쉬지 않는데, 노인이 자기와 같은 양을, 때로는 더 많이 베고 있었던 거예요.", "gist": "(C)의 마무리. 쉬지 않는 자신과 쉬는 노인이 같은 양을 베고 있다는 알아차림이 (B)의 첫 문장으로 이어진다."}, {"n": 20, "ch": [{"e": "(D) <b>Suddenly<\/b> the young woodcutter <b>realized<\/b>", "k": "(D) 불현듯 그 젊은 나무꾼은 깨달았다"}, {"e": "that during break times", "k": "쉬는 시간에"}, {"e": "while the old man was having a drink,", "k": "노인이 마실 것을 마시는 동안,"}, {"e": "he was also re-sharpening his axe,", "k": "그가<span class=\"r\">(= 노인)<\/span> 도끼날도 갈고 있었다는 것을,"}, {"e": "which the young woodcutter never did.", "k": "그것은<span class=\"r\">(= 도끼날을 가는 것)<\/span> 젊은 나무꾼이 결코 하지 않았던 일이었다."}], "easy": "그때 젊은 나무꾼은 문득 깨달았어요. 노인이 쉬는 시간에 음료를 마시면서 도끼날도 갈고 있었다는 걸요. 그건 자기가 한 번도 안 한 일이었어요.", "gist": "(B) 끝에서 노인이 말한 도끼날 이야기를 받아, 노인이 실제로 도끼날을 갈고 있었음을 깨닫는 장면이다."}, {"n": 21, "ch": [{"e": "That’s how", "k": "그것이<span class=\"r\">(= 도끼날을 가는 것)<\/span> 바로 방법이다"}, {"e": "(e) he could chop", "k": "(e) 그가<span class=\"r\">(= 노인)<\/span> 벨 수 있었던"}, {"e": "more than the young man", "k": "젊은이보다 더 많이"}, {"e": "in less time!", "k": "더 적은 시간에!"}], "easy": "바로 그 덕분에 노인은 젊은이보다 더 적은 시간에 더 많이 벨 수 있었던 거예요!", "gist": "도끼날을 가는 것이 노인이 더 적은 시간에 더 많이 벤 비결이다."}, {"n": 22, "ch": [{"e": "The old man said", "k": "노인은 말했다"}, {"e": "that we all need time", "k": "우리 모두가 시간이 필요하다고"}, {"e": "to relax,", "k": "(잠시) 휴식을 취하고(긴장을 늦추고),"}, {"e": "to think and meditate,", "k": "생각하고 명상하며,"}, {"e": "and to learn and grow.", "k": "배우고 성장할."}], "easy": "노인은 우리 모두에게 쉬고, 생각하고, 배우고 성장할 시간이 필요하다고 말했어요.", "gist": "도끼날 이야기에서 교훈으로 넘어간다. 쉬고 배울 시간이 필요하다는 말이다."}, {"n": 23, "ch": [{"e": "If we don’t take the time", "k": "만일 우리가 시간을 갖지 않는다면"}, {"e": "to sharpen the “axe,”", "k": "‘도끼날’을 갈,"}, {"e": "we will become <b>dull<\/b>", "k": "우리는 무뎌지고"}, {"e": "and lose our effectiveness.", "k": "우리의 효율성을 잃게 될 것이다."}], "easy": "‘도끼날’을 갈 시간을 내지 않으면 우리는 무뎌지고 효율도 잃게 돼요.", "gist": "이야기의 교훈. 도끼날을 가는 시간은 쉬고 배우고 성장하는 시간을 뜻하고, 그 시간이 없으면 효율이 떨어진다."}]}, {"no": "11", "typ": "장문 내용 불일치 (45번)", "src": "2018년 9월 45번", "evn": [4, 16, 17, 18], "ev_en": "That day, the young woodcutter brought 15 trees to their boss. / Highly motivated by his words, the young woodcutter tried harder the next day, but (c) he could only bring ten trees. / The third day he tried even harder, but he was only able to bring seven trees. / Day after day, he was bringing less and less trees.", "ev_ko": [[4, "그 날, 그 젊은 나무꾼은 그의 고용인에게 열다섯 그루의 나무를 가져다주었다."], [16, "(C) 그(고용인)의 말(칭찬)에 매우 고취되어(자극을 받아), 젊은 나무꾼은 그 다음 날 더욱 열심히 노력했으나, (c) 그(젊은 나무꾼)는 고작 열 그루의 나무들만 (고용인에게) 가져다줄 수 있었다."], [17, "세 번째 날 그는 훨씬 더 열심히 노력했으나, 그는 겨우 일곱 그루의 나무들만 가져다줄 수 있었다."], [18, "날마다, 그는 점점 더 적은 (양의) 나무들을 가져다주고 있었다."]], "why": ["④는 ‘가져온 나무의 수가 점점 늘어났다’인데, 본문은 <b>less and less trees<\/b>, 즉 날마다 점점 더 적은 나무를 가져다주었다고 한다", "첫날 15그루, 다음 날 10그루, 셋째 날 7그루로 숫자까지 줄어든다", "그래서 ④가 글의 내용과 일치하지 않는다", "방향이 정반대다", "숫자가 나오는 문장은 숫자로 직접 확인하면 정확하다."], "ch": [{"n": "①", "t": "쉬는 시간에도 열심히 일했다", "g": "", "ok": false, "e": ["(A)에서 첫날 <b>he worked through his break time<\/b>이라고 했으므로 일치한다."]}, {"n": "②", "t": "첫 날 15개의 나무를 가져왔다", "g": "", "ok": false, "e": ["(A)의 <b>That day, the young woodcutter brought 15 trees<\/b>가 첫날의 일이므로 일치한다."]}, {"n": "③", "t": "쉬는 시간에 함께 음료를 마시자는 노인의 초대를 거절했다", "g": "", "ok": false, "e": ["(B)에서 노인이 쉬는 시간에 한잔하자고 청했고 <b>The young man refused<\/b>라고 했으므로 일치한다."]}, {"n": "④", "t": "가져온 나무의 수는 점점 늘어났다", "g": "", "ok": true, "e": ["(C)는 <b>less and less trees<\/b>, 즉 15그루 → 10그루 → 7그루로 줄어든다고 말한다", "방향이 정반대다."]}, {"n": "⑤", "t": "노인이 쉬는 시간에 도끼날을 갈고 있었다는 사실을 깨달았다", "g": "", "ok": false, "e": ["(D)에서 젊은 나무꾼이 노인이 <b>he was also re-sharpening his axe<\/b>라는 것을 <b>realized<\/b>(깨달았다)라고 했으므로 일치한다."]}], "tr": ["(A) 옛날에, 정글에서 나무를 베는 두 명의 나무꾼이 있었다 — 젊고 힘이 센 나무꾼과 나이 든 나무꾼(이었다).", "그 젊은이는 매우 부지런했다.", "그의 (그가 일을 시작한) 첫째 날, (a) 그(젊은 나무꾼)는 그의 쉬는 시간까지 일을 했고, 그 노인이 먹고 마시려고 수차례 휴식을 취하며 시간을 낭비하고 있다고 불평했다.", "그 날, 그 젊은 나무꾼은 그의 고용인에게 열다섯 그루의 나무를 가져다주었다.", "“훌륭하군!” 고용인이 말했다.", "“계속 열심히 해 주게나!”", "(B) 마치 바로 (b) 그(젊은 나무꾼)가 그러했듯이, 그 노인이 쉬는 시간까지 일을 하는 것만 같았다.", "그래서, 그 젊은 나무꾼은 그 다음 날 더 열심히 일하기로 결심했다.", "유감스럽게도, 그 결과는 훨씬 더 심각했다(참혹했다).", "“내가 힘이 (점점) 빠지고 있는 것이 틀림없어.” 젊은이는 생각했다.", "어느 날, 노인은 쉬는 시간 동안 (마실 것이라도) 한 잔 하자며 그(젊은 나무꾼)를 불렀다.", "젊은이는 거절했고, 그가 여유 시간이 없다고 말했다.", "그러자, 노인이 미소 지으며 그에게 말했다.", "“자네의 도끼날을 다시 갈지 않고 계속 나무만 베어내는 것은 노력의 낭비라네(노력을 낭비하는 거라네).", "자네가 너무 많은 힘을 다 써버렸기 때문에(기력을 너무 많이 소진했기 때문에), 머잖아 자네는 (나무 베기를) 그만둬야 할게야.”", "(C) 그(고용인)의 말(칭찬)에 매우 고취되어(자극을 받아), 젊은 나무꾼은 그 다음 날 더욱 열심히 노력했으나, (c) 그(젊은 나무꾼)는 고작 열 그루의 나무들만 (고용인에게) 가져다줄 수 있었다.", "세 번째 날 그는 훨씬 더 열심히 노력했으나, 그는 겨우 일곱 그루의 나무들만 가져다줄 수 있었다.", "날마다, 그는 점점 더 적은 (양의) 나무들을 가져다주고 있었다.", "시간이 지남에 따라, (d) 그(젊은 나무꾼)는 그가 그의 쉬는 시간까지 일을 하고 거의 휴식을 취하지 않았음에도 불구하고, 그 나이 든 나무꾼이 그(젊은 나무꾼)와 똑같은 양의 나무들을 베어내고 있었다는 — 그리고 때로는 심지어 (자신보다) 더 많은 양을 베고 있다는 것을 알아차렸다(알게 되었다).", "(D) 불현듯 그 젊은 나무꾼은 쉬는 시간에 노인이 마실 것을 마시는 동안, 그가 (동시에) 도끼날도 (또한) 갈고 있었다는 것을 깨달았는데, 이(도끼날을 가는 것)는 젊은 나무꾼이 결코 (시도) 하지 않았던 일이었다.", "그것(도끼날을 가는 것)이 (바로) (e) 그(노인)가 젊은이보다 더 적은 시간에 더 많이 벨 수 있었던 방법이다!", "그 노인은 우리 모두가 (잠시) 휴식을 취하고(긴장을 늦추고), 생각하고 명상하며, 배우고 성장할 시간이 필요하다고 말했다.", "만일 우리가 ‘도끼날’을 갈 시간을 갖지 않는다면, 우리는 무뎌지고 우리의 효율성을 잃게 될 것이다."], "ps": [{"n": 1, "ch": [{"e": "(A) Once, there were two woodcutters", "k": "(A) 옛날에, 두 명의 나무꾼이 있었다"}, {"e": "— a young, strong one", "k": "— 젊고 힘이 센 나무꾼과"}, {"e": "and an old one —", "k": "나이 든 나무꾼(이었다) —"}, {"e": "cutting down trees in a jungle.", "k": "정글에서 나무를 베는."}], "easy": "옛날에 정글에서 나무를 베는 나무꾼이 둘 있었어요. 한 명은 젊고 힘이 셌고, 한 명은 나이가 많았어요.", "gist": "(A)의 시작. 이야기의 두 주인공, 젊은 나무꾼과 나이 든 나무꾼을 소개한다."}, {"n": 2, "ch": [{"e": "The young man", "k": "그 젊은이는"}, {"e": "was very <b>hardworking<\/b>.", "k": "매우 <b>부지런했다<\/b>."}], "easy": "젊은 나무꾼은 정말 부지런했어요.", "gist": "젊은 나무꾼의 성격 소개. 부지런함이 이야기의 출발점이다."}, {"n": 3, "ch": [{"e": "On his first day,", "k": "그가 일을 시작한 첫째 날,"}, {"e": "(a) he worked <b>through<\/b> his break time", "k": "(a) 그는<span class=\"r\">(= 젊은 나무꾼)<\/span> 쉬는 시간까지 일을 했고"}, {"e": "and <b>complained<\/b>", "k": "불평했다"}, {"e": "that the old man was wasting time,", "k": "그 노인이 시간을 낭비하고 있다고,"}, {"e": "taking several breaks to eat and drink.", "k": "먹고 마시려고 수차례 휴식을 취하며."}], "easy": "첫날 젊은이는 쉬는 시간에도 일했고, 노인이 먹고 마시며 자주 쉬면서 시간을 낭비한다고 불평했어요.", "gist": "두 사람의 일하는 방식이 대조된다. 젊은이는 쉬는 시간에도 일하고, 노인은 자주 쉰다."}, {"n": 4, "ch": [{"e": "That day,", "k": "그 날,"}, {"e": "the young woodcutter brought <b>15 trees<\/b>", "k": "그 젊은 나무꾼은 열다섯 그루의 나무를 가져다주었다"}, {"e": "to their boss.", "k": "그들의 고용인에게."}], "easy": "그날 젊은 나무꾼은 고용인에게 나무 열다섯 그루를 가져다줬어요.", "gist": "첫날의 성과. 쉬지 않고 일해서 나무 15그루를 가져다줬다. 이 숫자가 뒤에서 점점 줄어든다."}, {"n": 5, "ch": [{"e": "“Fantastic!”", "k": "“훌륭하군!”"}, {"e": "the boss said.", "k": "고용인이 말했다."}], "easy": "고용인이 ‘훌륭하군!’ 하고 칭찬했어요.", "gist": "고용인의 칭찬. 젊은 나무꾼은 이 칭찬에 힘을 얻는다."}, {"n": 6, "ch": [{"e": "“<b>Keep up<\/b> the great work!”", "k": "“계속 열심히 해 주게나!”"}], "easy": "‘지금처럼 계속 잘해 주게!’ 하고 말했어요.", "gist": "(A)의 마지막 말. 이 칭찬을 (C)의 his words가 이어받는다."}, {"n": 7, "ch": [{"e": "(B) It was as if", "k": "(B) ~인 것만 같았다"}, {"e": "the old man worked through the break time", "k": "그 노인이 쉬는 시간까지 일을 하는"}, {"e": "just as (b) he did.", "k": "마치 바로 (b) 그가<span class=\"r\">(= 젊은 나무꾼)<\/span> 그러했듯이."}], "easy": "마치 노인도 젊은이처럼 쉬는 시간에 일하는 것만 같았어요.", "gist": "(C) 끝에서 알아차린 내용(노인도 자기만큼 벤다)을 받아 ‘노인도 쉬는 시간에 일하는 것 같다’고 말한다. 그래서 (C) 다음에 (B)가 온다.", "link": "마치 바로 그(젊은 나무꾼)가 그러했듯이, 그 노인이 쉬는 시간까지 일을 하는 것만 같았다."}, {"n": 8, "ch": [{"e": "So,", "k": "그래서,"}, {"e": "the young woodcutter <b>decided<\/b>", "k": "그 젊은 나무꾼은 결심했다"}, {"e": "to work harder the next day.", "k": "그 다음 날 더 열심히 일하기로."}], "easy": "그래서 젊은 나무꾼은 다음 날 더 열심히 일하기로 마음먹었어요.", "gist": "노인도 쉬는 시간에 일한다고 느낀 젊은이가 더 열심히 하기로 한다."}, {"n": 9, "ch": [{"e": "<b>Unfortunately<\/b>,", "k": "<b>유감스럽게도<\/b>,"}, {"e": "the results were even worse.", "k": "그 결과는 훨씬 더 심각했다(참혹했다)."}], "easy": "안타깝게도 결과는 오히려 훨씬 더 나빴어요.", "gist": "더 열심히 했는데도 결과가 나빠졌다. 이야기의 반전이다."}, {"n": 10, "ch": [{"e": "“I must be losing my strength,”", "k": "“내가 힘이 (점점) 빠지고 있는 것이 틀림없어,”"}, {"e": "the young man thought.", "k": "젊은이는 생각했다."}], "easy": "‘내 힘이 빠지고 있는 게 틀림없어.’ 젊은이는 이렇게 생각했어요.", "gist": "젊은이는 결과가 나쁜 이유를 자기 힘이 빠졌기 때문이라고 짐작한다."}, {"n": 11, "ch": [{"e": "One day,", "k": "어느 날,"}, {"e": "the old man <b>invited<\/b> him", "k": "노인은 그를<span class=\"r\">(= 젊은 나무꾼)<\/span> 불렀다"}, {"e": "for a drink during the break time.", "k": "쉬는 시간 동안 (마실 것이라도) 한 잔 하자며."}], "easy": "어느 날 노인이 쉬는 시간에 같이 한잔하자고 젊은이를 불렀어요.", "gist": "노인이 쉬는 시간에 함께 마시자고 청하는 장면이다."}, {"n": 12, "ch": [{"e": "The young man <b>refused<\/b>", "k": "젊은이는 거절했고,"}, {"e": "and said he had no extra time.", "k": "그가<span class=\"r\">(= 젊은 나무꾼)<\/span> 여유 시간이 없다고 말했다."}], "easy": "젊은이는 거절하면서 여유 시간이 없다고 말했어요.", "gist": "젊은이는 쉬지 않고 일하는 쪽을 택한다."}, {"n": 13, "ch": [{"e": "Then,", "k": "그러자,"}, {"e": "the old man smiled and said to him,", "k": "노인이 미소 지으며 그에게<span class=\"r\">(= 젊은 나무꾼)<\/span> 말했다."}], "easy": "그러자 노인이 웃으면서 이렇게 말했어요.", "gist": "노인의 조언이 시작되는 문장이다."}, {"n": 14, "ch": [{"e": "“It is a <b>waste of effort<\/b>", "k": "“노력의 낭비라네,"}, {"e": "to keep chopping trees", "k": "계속 나무만 베어내는 것은"}, {"e": "without re-sharpening your axe.", "k": "자네의 도끼날을 다시 갈지 않고."}], "easy": "도끼날을 다시 갈지 않고 나무만 계속 베는 건 힘만 낭비하는 일이라고요.", "gist": "노인의 핵심 조언. 도끼날을 갈지 않고 베기만 하면 노력만 낭비된다는 뜻이다."}, {"n": 15, "ch": [{"e": "<b>Sooner or later<\/b>,", "k": "머잖아,"}, {"e": "you will have to <b>give up<\/b>", "k": "자네는 그만둬야 할 걸세"}, {"e": "because you’ve spent too much energy.”", "k": "자네가 너무 많은 힘을 다 써버렸기 때문에.”"}], "easy": "머지않아 힘을 너무 써 버려서 포기하게 될 거라고요.", "gist": "도끼날을 갈지 않고 일만 하면 결국 기력이 바닥나 포기하게 된다는 경고다."}, {"n": 16, "ch": [{"e": "(C) <b>Highly motivated<\/b> by his words,", "k": "(C) 그의 말에<span class=\"r\">(= 고용인의 칭찬)<\/span> 매우 고취되어,"}, {"e": "the young woodcutter tried harder the next day,", "k": "젊은 나무꾼은 그 다음 날 더욱 열심히 노력했으나,"}, {"e": "but (c) he could <b>only<\/b> bring ten trees.", "k": "(c) 그는<span class=\"r\">(= 젊은 나무꾼)<\/span> 고작 열 그루의 나무만 가져다줄 수 있었다."}], "easy": "고용인의 칭찬에 힘을 얻어 다음 날 더 열심히 했는데도, 젊은이는 나무를 열 그루밖에 가져오지 못했어요.", "gist": "(A) 끝의 칭찬을 his words로 받아 이어 간다. 그래서 (A) 다음에 (C)가 온다. 더 열심히 했는데 나무는 15그루에서 10그루로 줄었다."}, {"n": 17, "ch": [{"e": "The third day", "k": "셋째 날"}, {"e": "he tried <b>even harder<\/b>,", "k": "그는<span class=\"r\">(= 젊은 나무꾼)<\/span> 훨씬 더 열심히 노력했으나,"}, {"e": "but he was only able to bring <b>seven<\/b> trees.", "k": "겨우 일곱 그루의 나무만 가져다줄 수 있었다."}], "easy": "셋째 날에는 훨씬 더 열심히 했지만 일곱 그루밖에 못 가져왔어요.", "gist": "노력은 늘었는데 나무는 15그루, 10그루, 7그루로 계속 줄어든다."}, {"n": 18, "ch": [{"e": "<b>Day after day<\/b>,", "k": "날마다,"}, {"e": "he was bringing", "k": "그는<span class=\"r\">(= 젊은 나무꾼)<\/span> 가져다주고 있었다"}, {"e": "<b>less and less<\/b> trees.", "k": "점점 더 적은 나무들을."}], "easy": "날이 갈수록 가져오는 나무가 점점 더 줄어들었어요.", "gist": "나무의 수가 점점 줄었다는 정리 문장이다."}, {"n": 19, "ch": [{"e": "As time went by,", "k": "시간이 지남에 따라,"}, {"e": "(d) he <b>noticed<\/b>", "k": "(d) 그는<span class=\"r\">(= 젊은 나무꾼)<\/span> 알아차렸다"}, {"e": "that even though he worked through his break time", "k": "그가 쉬는 시간까지 일을 하고"}, {"e": "and hardly took a rest,", "k": "거의 휴식을 취하지 않았음에도 불구하고,"}, {"e": "the old woodcutter was cutting down", "k": "그 나이 든 나무꾼이 베어내고 있었다는 것을"}, {"e": "the same amount of trees as him —", "k": "그와<span class=\"r\">(= 젊은 나무꾼)<\/span> 똑같은 양의 나무들을 —"}, {"e": "and sometimes chopped down even more.", "k": "그리고 때로는 심지어 더 많은 양을 베고 있다는 것을."}], "easy": "시간이 지나자 젊은이는 알게 됐어요. 자기는 쉬는 시간에도 일하고 거의 쉬지 않는데, 노인이 자기와 같은 양을, 때로는 더 많이 베고 있었던 거예요.", "gist": "(C)의 마무리. 쉬지 않는 자신과 쉬는 노인이 같은 양을 베고 있다는 알아차림이 (B)의 첫 문장으로 이어진다."}, {"n": 20, "ch": [{"e": "(D) <b>Suddenly<\/b> the young woodcutter <b>realized<\/b>", "k": "(D) 불현듯 그 젊은 나무꾼은 깨달았다"}, {"e": "that during break times", "k": "쉬는 시간에"}, {"e": "while the old man was having a drink,", "k": "노인이 마실 것을 마시는 동안,"}, {"e": "he was also re-sharpening his axe,", "k": "그가<span class=\"r\">(= 노인)<\/span> 도끼날도 갈고 있었다는 것을,"}, {"e": "which the young woodcutter never did.", "k": "그것은<span class=\"r\">(= 도끼날을 가는 것)<\/span> 젊은 나무꾼이 결코 하지 않았던 일이었다."}], "easy": "그때 젊은 나무꾼은 문득 깨달았어요. 노인이 쉬는 시간에 음료를 마시면서 도끼날도 갈고 있었다는 걸요. 그건 자기가 한 번도 안 한 일이었어요.", "gist": "(B) 끝에서 노인이 말한 도끼날 이야기를 받아, 노인이 실제로 도끼날을 갈고 있었음을 깨닫는 장면이다."}, {"n": 21, "ch": [{"e": "That’s how", "k": "그것이<span class=\"r\">(= 도끼날을 가는 것)<\/span> 바로 방법이다"}, {"e": "(e) he could chop", "k": "(e) 그가<span class=\"r\">(= 노인)<\/span> 벨 수 있었던"}, {"e": "more than the young man", "k": "젊은이보다 더 많이"}, {"e": "in less time!", "k": "더 적은 시간에!"}], "easy": "바로 그 덕분에 노인은 젊은이보다 더 적은 시간에 더 많이 벨 수 있었던 거예요!", "gist": "도끼날을 가는 것이 노인이 더 적은 시간에 더 많이 벤 비결이다."}, {"n": 22, "ch": [{"e": "The old man said", "k": "노인은 말했다"}, {"e": "that we all need time", "k": "우리 모두가 시간이 필요하다고"}, {"e": "to relax,", "k": "(잠시) 휴식을 취하고(긴장을 늦추고),"}, {"e": "to think and meditate,", "k": "생각하고 명상하며,"}, {"e": "and to learn and grow.", "k": "배우고 성장할."}], "easy": "노인은 우리 모두에게 쉬고, 생각하고, 배우고 성장할 시간이 필요하다고 말했어요.", "gist": "도끼날 이야기에서 교훈으로 넘어간다. 쉬고 배울 시간이 필요하다는 말이다."}, {"n": 23, "ch": [{"e": "If we don’t take the time", "k": "만일 우리가 시간을 갖지 않는다면"}, {"e": "to sharpen the “axe,”", "k": "‘도끼날’을 갈,"}, {"e": "we will become <b>dull<\/b>", "k": "우리는 무뎌지고"}, {"e": "and lose our effectiveness.", "k": "우리의 효율성을 잃게 될 것이다."}], "easy": "‘도끼날’을 갈 시간을 내지 않으면 우리는 무뎌지고 효율도 잃게 돼요.", "gist": "이야기의 교훈. 도끼날을 가는 시간은 쉬고 배우고 성장하는 시간을 뜻하고, 그 시간이 없으면 효율이 떨어진다."}]}, {"no": "12", "typ": "요약문 완성", "src": "2018년 9월 40번", "evn": [8, 10], "ev_en": "Even the slight difference of being unfamiliar with pumpkin pie can serve as a source of interference for the student. / In the mind of a child, all of these questions can become more of the focus than the subject of fractions that the teacher is attempting to teach.", "ev_ko": [[8, "호박 파이에 익숙하지 않다는 작은 차이조차도, 학생에게는 방해 원인의 역할을 할 수 있다(학습을 방해하는 원인이 될 수 있다)."], [10, "한 아이의 마음속에서, 이러한 모든 질문들은 그 선생님이 가르치려고 시도하고 있는 분수라는 주제보다 더 초점이 될 수 있다."]], "why": ["요약문의 (A) knowledge는 호박 파이를 모르는 작은 차이를 말한다", "문장 8은 <b>the slight difference of being unfamiliar with pumpkin pie<\/b>가 학생에게 <b>interference<\/b>(방해)의 원인이 될 수 있다고 한다", "호박 파이냐 고구마 파이냐는 아프리카계 미국인 가정의 명절 음식, 즉 <b>문화<\/b>에 따른 차이이므로 (A)는 cultural이다", "문장 10에서 아이는 호박 파이에 대한 질문들 때문에 선생님이 가르치려는 분수보다 그쪽에 더 초점을 두게 된다", "그래서 영향을 받는 것은 수업 내용의 <b>학습(learning)<\/b>이다."], "ch": [{"n": "①", "t": "(A) cultural …… (B) learning", "g": "문화적 …… 학습", "ok": true, "e": ["(A)는 호박 파이와 고구마 파이처럼 문화에 따라 다른 지식이다", "(B)는 학습이다", "그 작은 차이가 분수 수업보다 호박 파이 질문에 초점을 두게 만든다(문장 9·10)."]}, {"n": "②", "t": "(A) cultural …… (B) responsibility", "g": "문화적 …… 책임", "ok": false, "e": ["(A) cultural은 맞다", "하지만 <b>responsibility<\/b>(책임)는 지문에 나오지 않는다", "아이에게 책임을 묻는 글이 아니다."]}, {"n": "③", "t": "(A) mathematical …… (B) imagination", "g": "수학적 …… 상상", "ok": false, "e": ["<b>mathematical<\/b>(수학적)이 틀렸다", "아이가 낯설어한 것은 수학이 아니라 호박 파이다."]}, {"n": "④", "t": "(A) mathematical …… (B) intelligence", "g": "수학적 …… 지능", "ok": false, "e": ["(A) mathematical이 틀린 데다 <b>intelligence<\/b>(지능)에 관한 이야기도 지문에 없다."]}, {"n": "⑤", "t": "(A) nutritional …… (B) development", "g": "영양상의 …… 발달", "ok": false, "e": ["<b>nutritional<\/b>(영양상의)은 지문과 관련이 없다", "파이의 영양에 관한 말은 나오지 않는다."]}], "tr": ["한 초등학교 선생님이 그녀가 아주 흔한 대상(흔히 언급되는 것)이라고 생각한 것을 사용함으로써 분수 부분을 이해하도록 학생들을 돕고 있는 중이다.", "“오늘 우리는 추수감사절에 가장 인기 있는 것 — 호박 파이를 자르는 것에 대해 이야기할 거예요.”", "그녀는 (분수) 부분들에 대한 설명을 계속했다.", "그녀의 강연이 한참 진행되었을 때, 한 어린 아프리카계 미국인 소년이 어리둥절한 표정을 지으며 “호박 파이가 뭐예요?”(라고) 질문한다.", "대부분의 아프리카계 미국인들은 명절 저녁(만찬)으로 고구마 파이를 차려내는 경향이 있다.", "사실, 아프리카계 미국인 부모들이 그들의 아이들에게 호박 파이를 설명하는 방식들 중에 하나는 (호박 파이가) 고구마 파이와 같은 무언가라고 말하는 것이다.", "그들에게, 고구마 파이는 흔한 지시(언급) 대상이다(가장 흔하게 언급되는 것이다).", "호박 파이에 익숙하지 않다는 작은 차이조차도, 학생에게는 방해 원인의 역할을 할 수 있다(학습을 방해하는 원인이 될 수 있다).", "수업에 활동적으로 참여하기보다, 그는 호박 파이를 상상하기 위해 노력하는 데 사로잡혀 있었을지도 모른다. 그것은 무엇과 같은(무슨) 맛이 날까? 그것은 어떤 냄새가 날까? 그것의 식감이 사과나 체리 파이처럼 덩어리가 씹힐까?", "한 아이의 마음속에서, 이러한 모든 질문들은 그 선생님이 가르치려고 시도하고 있는 분수라는 주제보다 더 초점이 될 수 있다.", "(A)문화적 지식의 작은 차이조차도 학생들의 (B)학습에 영향을 미칠 가능성이 있다."], "ps": [{"n": 1, "ch": [{"e": "A primary school teacher is helping students", "k": "한 초등학교 선생님이 학생들을 돕고 있는 중이다"}, {"e": "to understand fractional parts", "k": "분수 부분을 이해하도록"}, {"e": "by using what she thinks", "k": "그녀가<span class=\"r\">(= 그 선생님)<\/span> ~라고 생각하는 것을 사용함으로써"}, {"e": "is a commonplace reference.", "k": "아주 흔한 대상(흔히 언급되는 것)인."}], "easy": "초등학교 선생님이 학생들이 분수를 이해하도록, 자기가 보기에 누구나 아는 흔한 소재를 들어 설명해 주고 있어요.", "gist": "글의 배경. 선생님은 흔한 소재라고 생각하지만, 뒤에서 그 소재를 모르는 학생이 나온다."}, {"n": 2, "ch": [{"e": "“Today, we’re going to talk about", "k": "“오늘 우리는 이야기할 거예요"}, {"e": "cutting up", "k": "자르는 것에 대해"}, {"e": "a Thanksgiving holiday favorite —", "k": "추수감사절에 가장 인기 있는 것 —"}, {"e": "pumpkin pie.”", "k": "호박 파이를.”"}], "easy": "‘오늘은 추수감사절에 가장 인기 있는 호박 파이를 자르는 것에 대해 이야기해 볼 거예요.’라고 선생님이 말해요.", "gist": "선생님이 분수를 설명하려고 고른 소재가 호박 파이다."}, {"n": 3, "ch": [{"e": "She continues", "k": "그녀는<span class=\"r\">(= 그 선생님)<\/span> 계속했다"}, {"e": "with an explanation of parts.", "k": "(분수) 부분들에 대한 설명을."}], "easy": "선생님은 부분에 대한 설명을 이어 갔어요.", "gist": "수업이 계속 진행되는 장면이다."}, {"n": 4, "ch": [{"e": "Well into her discourse,", "k": "그녀의 강연이 <b>한참 진행되었을 때<\/b>,"}, {"e": "a young African American boy,", "k": "한 어린 아프리카계 미국인 소년이"}, {"e": "looking puzzled,", "k": "어리둥절한 표정을 지으며"}, {"e": "asks,", "k": "질문한다,"}, {"e": "“What is pumpkin pie?”", "k": "“호박 파이가 뭐예요?”(라고)"}], "easy": "선생님이 설명을 한참 이어 가는 중에, 어리둥절한 표정의 아프리카계 미국인 남자아이가 ‘호박 파이가 뭐예요?’라고 물어요.", "gist": "사건의 시작. 호박 파이를 모르는 아이가 질문한다."}, {"n": 5, "ch": [{"e": "Most African Americans", "k": "대부분의 아프리카계 미국인들은"}, {"e": "are likely to serve", "k": "차려내는 경향이 있다"}, {"e": "sweet potato pie", "k": "고구마 파이를"}, {"e": "for holiday dinners.", "k": "명절 저녁(만찬)으로."}], "easy": "아프리카계 미국인들은 대부분 명절 저녁에 고구마 파이를 내는 경향이 있어요.", "gist": "아이가 호박 파이를 낯설어한 배경을 알려 주는 문장이다."}, {"n": 6, "ch": [{"e": "In fact,", "k": "사실,"}, {"e": "one of the ways", "k": "방식들 중에 하나는"}, {"e": "that African American parents explain pumpkin pie to their children", "k": "아프리카계 미국인 부모들이 그들의 아이들에게 호박 파이를 설명하는"}, {"e": "is to say", "k": "말하는 것이다"}, {"e": "that it is something like sweet potato pie.", "k": "그것이<span class=\"r\">(= 호박 파이)<\/span> 고구마 파이와 같은 무언가라고."}], "easy": "사실 아프리카계 미국인 부모들은 아이에게 호박 파이를 ‘고구마 파이 비슷한 거야’라고 설명하기도 해요.", "gist": "고구마 파이가 이 가정들에서 얼마나 기준이 되는 음식인지 보여 주는 예다."}, {"n": 7, "ch": [{"e": "For them,", "k": "그들에게<span class=\"r\">(= 아프리카계 미국인들)<\/span>,"}, {"e": "sweet potato pie is the common referent.", "k": "고구마 파이는 흔한 지시(언급) 대상이다."}], "easy": "이들에게는 고구마 파이가 ‘늘 떠올리는 흔한 기준’이에요.", "gist": "호박 파이가 아니라 고구마 파이가 이들에게 흔한 기준이라는 정리 문장이다."}, {"n": 8, "ch": [{"e": "<b>Even the slight difference<\/b>", "k": "<b>작은 차이조차도<\/b>"}, {"e": "of being unfamiliar with pumpkin pie", "k": "호박 파이에 익숙하지 않다는"}, {"e": "can serve as a source of <b>interference<\/b>", "k": "방해 원인의 역할을 할 수 있다"}, {"e": "for the student.", "k": "학생에게는."}], "easy": "호박 파이를 모른다는 작은 차이도 그 학생에게는 수업을 방해하는 원인이 될 수 있어요.", "gist": "이 글의 핵심 문장. 작은 문화적 차이도 학생에게 방해가 될 수 있다. 요약문의 앞부분과 이어진다."}, {"n": 9, "ch": [{"e": "<b>Rather than<\/b> be engaged actively in the lesson,", "k": "수업에 활동적으로 참여하기보다,"}, {"e": "he may have been <b>preoccupied<\/b>", "k": "그는<span class=\"r\">(= 그 아이)<\/span> 사로잡혀 있었을지도 모른다"}, {"e": "with trying to imagine pumpkin pie:", "k": "호박 파이를 상상하기 위해 노력하는 데:"}, {"e": "What does it taste like?", "k": "그것은<span class=\"r\">(= 호박 파이)<\/span> 무엇과 같은(무슨) 맛이 날까?"}, {"e": "How does it smell?", "k": "그것은 어떤 냄새가 날까?"}, {"e": "Is its texture chunky like apple or cherry pie?", "k": "그것의<span class=\"r\">(= 호박 파이)<\/span> 식감이 사과나 체리 파이처럼 덩어리가 씹힐까?"}], "easy": "수업에 집중하는 대신, 그 아이는 호박 파이가 어떤 맛일지, 어떤 냄새일지, 사과나 체리 파이처럼 덩어리가 씹힐지 상상하느라 정신이 팔렸을지도 몰라요.", "gist": "작은 차이가 방해가 되는 구체적인 모습이다. 아이는 수업 대신 호박 파이를 떠올리는 데 사로잡힌다."}, {"n": 10, "ch": [{"e": "In the mind of a child,", "k": "한 아이의 마음속에서,"}, {"e": "all of these questions", "k": "이러한 모든 질문들은"}, {"e": "can become <b>more of the focus<\/b>", "k": "더 초점이 될 수 있다"}, {"e": "than the subject of fractions", "k": "분수라는 주제보다"}, {"e": "that the teacher is attempting to teach.", "k": "그 선생님이 가르치려고 시도하고 있는."}], "easy": "아이의 머릿속에서는 이런 질문들이 선생님이 가르치려는 분수보다 더 큰 관심거리가 될 수 있어요.", "gist": "결과. 호박 파이에 대한 궁금증이 분수 공부보다 앞서게 된다."}, {"n": 11, "ch": [{"e": "Even small differences in <b>cultural<\/b> knowledge", "k": "<b>문화적<\/b> 지식의 작은 차이조차도<span class=\"r\">※ 문제지엔 (A) 빈칸으로 되어 있음<\/span>"}, {"e": "have the potential to affect", "k": "~에 영향을 미칠 가능성이 있다"}, {"e": "students’ <b>learning<\/b>.", "k": "학생들의 <b>학습<\/b>에.<span class=\"r\">※ 문제지엔 (B) 빈칸으로 되어 있음<\/span>"}], "easy": "문화적 지식의 작은 차이도 학생들의 학습에 영향을 줄 수 있어요.", "gist": "요약문. 호박 파이를 모르는 작은 문화적 차이가 학습에 영향을 준다는 글 전체의 결론이다."}]}];
+var ENC="=AakivzoRK+OkGp47EakivjoRK+OjGp4";
+var SETID="g2r24p2", N=D.length, TITLE="고2 미니모의고사 24회 07–12번";
+var CIRC="①②③④⑤";
+function dec(s){var b=atob(s.split("").reverse().join(""));var u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder("utf-8").decode(u);}
+var ANS=dec(ENC).split(";").map(function(x){return x.split("|").map(function(c){return CIRC.indexOf(c)+1;});});
+function isRight(i,a){return ANS[i].indexOf(a)>=0;}
+function ansText(i){return ANS[i].map(function(n){return CIRC[n-1];}).join(", ");}
+
+var GCODE="h2", GRADE="고2", FILE="24b", NEXT="";
+const KEY='via_mm_'+GCODE+'_'+FILE;
+let S={checks:{},locked:{},res:{},sub:null,q:[]};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* REC 연결 지점: 지금은 기기 안에 대기열로만 쌓음 */
+function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localStorage.getItem('via_minimock_rec_queue')||'[]');q.push(ev);localStorage.setItem('via_minimock_rec_queue',JSON.stringify(q));}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const app=$('#app');
+let view='word',quiz=null,armed=null;
+function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function shuffle(arr,seed){const a=arr.slice();let s=hash(seed)||1;for(let i=a.length-1;i>0;i--){s=Math.imul(s^(s>>>15),2246822519)>>>0;const j=s%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+const WS=WORDS.sets[0];
+
+function hdr(){
+  const on=id=>(view===id)?'on':'';
+  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><a class="link" href="index.html">목록</a></div><div class="tabs"><button class="tab ${on('word')}" data-v="word">단어</button><button class="tab ${on('submit')}" data-v="submit">답 제출</button><button class="tab ${on('exp')}" data-v="exp" ${S.sub?'':'disabled'}>해설</button></div></div></header>`;
+}
+function noteList(){
+  const out=[],ck=S.checks[WS.id]||{};
+  WS.words.forEach((w,i)=>{
+    const c=ck[i];if(!c)return;
+    const parts=['m','s','a'].filter(p=>c[p]&&(p==='m'||w[p]));
+    if(parts.length)out.push({i:i,w:w,parts:parts});
+  });
+  return out;
+}
+function render(){
+  if(view==='word')renderWord();
+  else if(view==='note')renderNote();
+  else if(view==='quiz')renderQuiz();
+  else if(view==='result')renderResult();
+  else if(view==='submit')renderSubmit();
+  else if(view==='exp')renderExp();
+  window.scrollTo(0,0);
+}
+/* ---- 단어 확인 ---- */
+function renderWord(){
+  const ck=S.checks[WS.id]||{},locked=!!S.locked[WS.id],n=noteList().length;
+  let h=hdr()+`<div class="wrap ${locked?'locked':''}">`;
+  WS.words.forEach((w,i)=>{
+    const c=ck[i]||{};
+    h+=`<div class="row"><div class="top"><span class="no">${i+1}</span><span class="word">${esc(w.w)}</span><span class="src">${esc(w.src)}번</span></div><div class="cells">`;
+    h+=`<button class="cell m ${c.m?'bad':''}" data-i="${i}" data-p="m"><span class="tag">뜻</span><span>${esc(w.m)}</span></button>`;
+    if(w.s)h+=`<button class="cell s ${c.s?'bad':''}" data-i="${i}" data-p="s"><span class="tag">유</span><span>${esc(w.s[0])}<span class="ko">${esc(w.s[1])}</span></span></button>`;
+    if(w.a)h+=`<button class="cell a ${c.a?'bad':''}" data-i="${i}" data-p="a"><span class="tag">반</span><span>${esc(w.a[0])}<span class="ko">${esc(w.a[1])}</span></span></button>`;
+    h+=`</div></div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap">`;
+  h+=locked?`<button class="btn" disabled>확인 끝</button>`:`<button class="btn ${armed==='lock'?'arm':''}" id="lock">${armed==='lock'?'한 번 더 누르면 확인 끝':'확인 끝'}</button>`;
+  h+=`<button class="btn pri" id="gonote">단어 오답노트 ${n}</button></div></div>`;
+  app.innerHTML=h;
+  app.querySelectorAll('.cell').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,p=b.dataset.p;
+    S.checks[WS.id]=S.checks[WS.id]||{};
+    const c=S.checks[WS.id][i]=S.checks[WS.id][i]||{};
+    c[p]=c[p]?0:1;save();
+    b.classList.toggle('bad',!!c[p]);
+    $('#gonote').textContent='단어 오답노트 '+noteList().length;
+  });
+  const lk=$('#lock');if(lk)lk.onclick=()=>{
+    if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
+      recSend({type:'word',marks:noteList().map(it=>({w:it.w.w,parts:it.parts}))});}
+    else armed='lock';
+    render();
+  };
+  $('#gonote').onclick=()=>{view='note';armed=null;render();};
+}
+function renderNote(){
+  const list=noteList();
+  let h=`<header><div class="wrap hd2"><h1>단어 오답노트 <span class="meta">${list.length}개</span></h1><button class="link" id="back">확인표</button></div></header><div class="wrap">`;
+  if(!list.length)h+=`<div class="empty">아직 표시한 단어가 없습니다</div>`;
+  list.forEach(it=>{
+    const w=it.w,r=(S.res[WS.id]||{})[it.i]||{};
+    h+=`<div class="note-item"><span class="w">${esc(w.w)}</span><span class="meta">${esc(w.src)}번</span>`;
+    const row=(p,tag,txt,ko)=>{
+      const bad=it.parts.includes(p);
+      const rs=r[p]===1?'<span class="res o">맞춤</span>':r[p]===0?'<span class="res x">틀림</span>':'';
+      return `<div class="part ${p} ${bad?'bad':''}"><span class="tag">${tag}</span><span>${esc(txt)}${ko?`<span class="ko"> ${esc(ko)}</span>`:''}</span>${bad?rs:''}</div>`;
+    };
+    h+=row('m','뜻',w.m,'');
+    if(w.s)h+=row('s','유',w.s[0],w.s[1]);
+    if(w.a)h+=row('a','반',w.a[0],w.a[1]);
+    h+=`</div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap"><button class="btn" id="back2">확인표</button><button class="btn pri" id="start" ${list.length?'':'disabled'}>복습 시작</button></div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='word';armed=null;render();};
+  $('#back2').onclick=()=>{view='word';render();};
+  $('#start').onclick=()=>{quiz={qs:buildQuestions(),n:0,right:0,done:false,shown:false};view='quiz';render();};
+}
+function buildQuestions(){
+  const qs=[];
+  noteList().forEach(it=>{
+    const w=it.w;
+    it.parts.forEach(p=>{
+      let q={i:it.i,p:p,w:w.w};
+      if(p==='m'){
+        const toks=x=>x.split(/[,，]\s*/).map(t=>t.trim());
+        const ct=toks(w.m);
+        const pool=[...new Set(WS.words.filter(o=>o!==w).map(o=>o.m))].filter(m=>!toks(m).some(t=>ct.includes(t)));
+        const wrong=shuffle(pool,WS.id+w.w+'m').slice(0,3);
+        q.type='choice';q.ask='뜻을 고르세요';
+        q.opts=shuffle([{t:w.m,ok:1}].concat(wrong.map(t=>({t:t,ok:0}))),WS.id+w.w+'mo');
+      }else{
+        const ans=w[p],d=WS.dist||[];
+        q.ask=p==='s'?'유의어를 고르세요':'반의어를 고르세요';
+        if(d.length>=3){
+          q.type='choice';
+          q.opts=shuffle([{t:ans[0],ko:ans[1],ok:1}].concat(shuffle(d,WS.id+w.w+p).slice(0,3).map(x=>({t:x[0],ko:x[1],ok:0}))),WS.id+w.w+p+'o');
+        }else{q.type='flip';q.ans=ans;}
+      }
+      qs.push(q);
+    });
+  });
+  return qs;
+}
+function recordRes(q,ok){S.res[WS.id]=S.res[WS.id]||{};const r=S.res[WS.id][q.i]=S.res[WS.id][q.i]||{};r[q.p]=ok?1:0;save();}
+function renderQuiz(){
+  const q=quiz.qs[quiz.n];
+  let h=`<header><div class="wrap hd2"><h1>복습</h1><button class="link" id="back">오답노트</button></div></header><div class="wrap ${quiz.done?'done':''}"><div class="q"><div class="cnt">${quiz.n+1} / ${quiz.qs.length}</div><div class="ask">${q.ask}</div><div class="target">${esc(q.w)}</div>`;
+  if(q.type==='choice'){
+    q.opts.forEach((o,k)=>{
+      let cls='';
+      if(quiz.done){if(o.ok)cls='right';else if(k===quiz.pick)cls='wrong';}
+      h+=`<button class="opt ${cls}" data-k="${k}">${esc(o.t)}${o.ko?`<span class="ko">${esc(o.ko)}</span>`:''}</button>`;
+    });
+  }else if(quiz.shown)h+=`<div class="opt right">${esc(q.ans[0])}<span class="ko">${esc(q.ans[1])}</span></div>`;
+  h+=`</div></div><div class="bar"><div class="wrap">`;
+  if(q.type==='flip'&&!quiz.shown)h+=`<button class="btn pri" id="show">정답 보기</button>`;
+  else if(q.type==='flip')h+=`<button class="btn" id="no">몰랐음</button><button class="btn pri" id="yes">알았음</button>`;
+  else h+=`<button class="btn pri" id="next" ${quiz.done?'':'disabled'}>${quiz.n+1===quiz.qs.length?'결과':'다음'}</button>`;
+  h+=`</div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='note';render();};
+  app.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+    if(quiz.done)return;
+    const k=+b.dataset.k;quiz.pick=k;quiz.done=true;
+    const ok=q.opts[k].ok===1;if(ok)quiz.right++;recordRes(q,ok);render();
+  });
+  const nx=$('#next');if(nx)nx.onclick=()=>advance();
+  const sh=$('#show');if(sh)sh.onclick=()=>{quiz.shown=true;render();};
+  const yes=$('#yes');if(yes)yes.onclick=()=>{quiz.right++;recordRes(q,true);advance();};
+  const no=$('#no');if(no)no.onclick=()=>{recordRes(q,false);advance();};
+}
+function advance(){
+  if(quiz.n+1>=quiz.qs.length){view='result';render();return;}
+  quiz.n++;quiz.done=false;quiz.shown=false;quiz.pick=null;render();
+}
+function renderResult(){
+  app.innerHTML=`<header><div class="wrap hd2"><h1>복습 결과</h1></div></header><div class="wrap"><div class="score">${quiz.right} <small>/ ${quiz.qs.length}</small></div></div><div class="bar"><div class="wrap"><button class="btn" id="a">오답노트</button><button class="btn pri" id="b">확인표</button></div></div>`;
+  $('#a').onclick=()=>{view='note';render();};
+  $('#b').onclick=()=>{view='word';render();};
+}
+/* ---- 답 제출 ---- */
+function renderSubmit(){
+  const done=!!S.sub;
+  while(S.q.length<N)S.q.push(0);
+  let h=hdr()+'<div class="wrap">';
+  for(let i=0;i<N;i++){
+    const sel=done?S.sub.a[i]:S.q[i];
+    h+=`<div class="qrow"><div class="qno">${esc(D[i].no)}</div><div class="opts">`;
+    for(let k=1;k<=5;k++)h+=`<button class="opt2 ${sel===k?'on':''}" data-q="${i}" data-k="${k}" ${done?'disabled':''}>${CIRC[k-1]}</button>`;
+    h+='</div></div>';
+  }
+  h+='</div><div class="bar"><div class="wrap">';
+  if(done)h+='<button class="btn pri" id="toexp">해설 보기</button>';
+  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>제출</button>`;
+  h+='</div></div>';
+  app.innerHTML=h;
+  app.querySelectorAll('.opt2').forEach(b=>b.onclick=()=>{
+    if(S.sub)return;
+    const q=+b.dataset.q,k=+b.dataset.k;S.q[q]=k;save();
+    b.parentNode.querySelectorAll('.opt2').forEach(x=>x.classList.toggle('on',+x.dataset.k===k));
+    $('#sub').disabled=!S.q.every(v=>v>0);
+  });
+  const sb=$('#sub');if(sb)sb.onclick=()=>{
+    let s=0;for(let i=0;i<N;i++)if(isRight(i,S.q[i]))s++;
+    S.sub={t:Date.now(),a:S.q.slice(),s:s};save();
+    recSend({type:'submit',a:S.sub.a,s:s,n:N});
+    view='exp';render();
+  };
+  const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
+}
+/* ---- 해설 ---- */
+function sHtml(s,evn){
+  const ev=evn.indexOf(s.n)>=0;
+  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
+  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
+  const lays=[];
+  if(s.link)lays.push(['이어 읽으면',s.link]);
+  if(s.easy)lays.push(['쉬운 말로',s.easy]);
+  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
+  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
+  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
+  return x+'</div>';
+}
+function qHtml(i,a){
+  const d=D[i],ok=isRight(i,a);
+  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
+  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
+  h+='<h4>정답 근거</h4>';
+  h+=`<p class="en">${esc(d.ev_en)}</p>`;
+  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
+  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  if(d.ps&&d.ps.length){
+    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
+  }
+  h+='<h4>선택지 하나씩</h4>';
+  d.ch.forEach(c=>{
+    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  });
+  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  return h+'</div></details>';
+}
+function renderExp(){
+  const rec=S.sub;
+  let h=hdr()+'<div class="wrap">';
+  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='</div><h2>해설</h2>';
+  for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
+  h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
+  app.innerHTML=h;
+}
+/* 위임 이벤트 */
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tab');
+  if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
+  const ch=e.target.closest('.ch');
+  if(ch){ch.classList.toggle('open');return;}
+  const st=e.target.closest('.stg');
+  if(st){
+    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const shown=lays.filter(l=>l.classList.contains('on')).length;
+    if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
+    else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
+    return;
+  }
+  const al=e.target.closest('.tbtn');
+  if(al){
+    const open=al.dataset.all==='1',body=al.closest('.dkbody');
+    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
+    body.querySelectorAll('.s').forEach(s=>{
+      const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
+      lays.forEach(l=>l.classList.toggle('on',open));
+      if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
+    });
+  }
+});
+render();
+</script>
+</body>
+</html>

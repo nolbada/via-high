@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>고2 미니모의고사 2회 07–12번</title>
+<style>
+:root{--ink:#1c2430;--sub:#6b7480;--line:#e3e6ea;--bg:#ffffff;--soft:#f5f6f8;--accent:#23406b;--bad:#c2392b;--badbg:#fdeceb;--good:#1f7a4d;--goodbg:#e8f5ee;--hl:#fff3b0}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Malgun Gothic','맑은 고딕',-apple-system,sans-serif}
+body{padding-bottom:84px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header .row1{display:flex;align-items:center;justify-content:space-between;min-height:48px}
+h1{font-size:16px;margin:0;font-weight:700;line-height:1.3}
+.tabs{display:flex;gap:0}
+.tab{flex:1;border:0;background:none;font-family:inherit;font-size:15px;font-weight:700;color:var(--sub);padding:11px 0;border-bottom:3px solid transparent}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent)}
+.tab[disabled]{opacity:.35}
+.link{text-decoration:none;border:0;background:none;color:var(--accent);font-size:15px;font-weight:700;padding:10px 4px;font-family:inherit}
+.hd2{display:flex;align-items:center;justify-content:space-between;height:54px}
+.hd2 h1{font-size:17px}
+.row{padding:12px 0;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:baseline;gap:8px;margin-bottom:6px}
+.no{color:var(--sub);font-size:13px;min-width:20px}
+.word{font-size:19px;font-weight:700}
+.src{color:var(--sub);font-size:12px;margin-left:auto}
+.cells{display:flex;flex-direction:column;gap:6px}
+.cell{display:flex;align-items:center;gap:10px;min-height:46px;padding:8px 12px;border-radius:8px;background:var(--soft);border:1.5px solid transparent;font-size:16px;text-align:left;font-family:inherit;color:var(--ink);width:100%}
+.cell .tag,.part .tag{font-size:12px;font-weight:700;color:#fff;border-radius:4px;padding:2px 7px;min-width:34px;text-align:center;background:#7a8594}
+.cell.s .tag,.part.s .tag{background:#2d62a8}.cell.a .tag,.part.a .tag{background:#b4472f}
+.ko{color:var(--sub);font-size:14px;margin-left:6px}
+.cell.bad{background:var(--badbg);border-color:var(--bad)}
+.cell.bad .tag{background:var(--bad)}
+.locked .cell{pointer-events:none}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:6}
+.bar .wrap{display:flex;gap:10px;padding:0}
+.btn{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;line-height:1.25;font-weight:700;font-family:inherit}
+.btn.pri{background:var(--accent);color:#fff}
+.btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn[disabled]{opacity:.4}
+.note-item{padding:14px 0;border-bottom:1px solid var(--line)}
+.note-item .w{font-size:19px;font-weight:700}
+.meta{color:var(--sub);font-size:12px;margin-left:8px;font-weight:400}
+.part{display:flex;gap:10px;align-items:baseline;padding:6px 0 0;font-size:16px}
+.part .tag{align-self:center}
+.part.bad{color:var(--bad);font-weight:700}
+.part.bad .tag{background:var(--bad)}
+.part .ko{font-weight:400}
+.part .res{margin-left:auto;font-size:13px;font-weight:700}
+.res.o{color:var(--good)}.res.x{color:var(--bad)}
+.empty{color:var(--sub);text-align:center;padding:60px 0;font-size:16px}
+.q{padding:22px 0 8px}
+.q .cnt{color:var(--sub);font-size:14px}
+.q .ask{font-size:15px;color:var(--sub);margin-top:14px}
+.q .target{font-size:28px;font-weight:700;margin:6px 0 18px}
+.opt{display:block;width:100%;text-align:left;min-height:56px;padding:10px 14px;margin-bottom:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:18px;font-family:inherit;color:var(--ink)}
+.opt .ko{display:block;margin:2px 0 0}
+.opt.right{border-color:var(--good);background:var(--goodbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.done .opt{pointer-events:none}
+.score{font-size:34px;font-weight:700;text-align:center;margin:30px 0 6px}
+.score small{font-size:18px;color:var(--sub);font-weight:400}
+.foot{color:var(--sub);font-size:12px;text-align:center;padding:26px 0 8px}
+/* submit */
+.qrow{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.qno{font-weight:800;font-size:20px;width:34px;flex:none}
+.opts{display:flex;gap:8px;flex:1}
+.opt2{flex:1;min-height:50px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-size:20px;font-family:inherit;color:var(--ink)}
+.opt2.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.opt2[disabled]{opacity:.55}
+.opt2.on[disabled]{opacity:1}
+/* explanation */
+h2{font-size:17px;margin:26px 0 10px}
+.quick div{padding:3px 0;font-size:17px}
+.quick .o{color:var(--good)}.quick .x{color:var(--bad)}
+.sub{color:var(--sub)}
+details.qd{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;background:var(--bg)}
+details.qd>summary{list-style:none;cursor:pointer;padding:14px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+details.qd>summary::-webkit-details-marker{display:none}
+details.qd>summary small{font-weight:400;color:var(--sub);font-size:13px}
+.res2{margin-left:auto;font-size:14px}
+.res2.o{color:var(--good)}.res2.x{color:var(--bad)}
+.qx{padding:0 14px 14px}
+.qx h4{font-size:15px;margin:18px 0 8px;color:var(--accent)}
+.qx p{margin:6px 0;line-height:1.75;font-size:16px}
+.ansline b{font-size:17px}
+.en{font-size:16px;line-height:1.7;background:var(--soft);padding:10px 12px;border-radius:8px}
+.kolist{list-style:none;margin:6px 0;padding:0}
+.kolist li{font-size:15px;line-height:1.7}
+.kolist .n{font-size:12px;color:var(--sub);margin-right:6px}
+.why p{margin:4px 0;font-size:15px}
+.c{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.c.ok{border-color:var(--good);background:var(--goodbg)}
+.c .ct{font-weight:700;font-size:16px;line-height:1.5}
+.c .tg{display:inline-block;font-size:12px;color:#fff;background:#7a8594;border-radius:4px;padding:1px 7px;margin-right:6px;font-weight:700}
+.c.ok .tg{background:var(--good)}
+.c p{margin:4px 0 0;font-size:15px}
+.r{color:var(--sub);font-size:13px}
+/* direct reading practice */
+details.dk{margin:16px 0 4px;border:1px solid var(--line);border-radius:10px}
+details.dk>summary{cursor:pointer;list-style:none;padding:12px;font-weight:700;color:var(--accent);font-size:15px}
+details.dk>summary::-webkit-details-marker{display:none}
+.dkbody{padding:0 12px 12px}
+.tool{display:flex;gap:8px;margin:2px 0 10px}
+.tbtn{flex:1;min-height:40px;border:1px solid var(--line);border-radius:8px;background:var(--bg);font-family:inherit;font-size:14px;font-weight:700;color:var(--accent)}
+.s{padding:10px 0 12px;border-top:1px dashed var(--line)}
+.s.ev{background:linear-gradient(90deg,#fffbe8,#fff);margin:0 -6px;padding-left:6px;padding-right:6px}
+.sn{margin-bottom:6px}
+.lb{display:inline-block;font-size:12px;font-weight:700;border-radius:4px;padding:1px 7px;background:var(--soft);color:var(--sub);margin-right:6px}
+.lb.ev{background:var(--hl);color:#7a5b00}
+.ch{padding:9px 11px;margin-bottom:6px;border-radius:8px;background:var(--soft);cursor:pointer;border-bottom:2px dotted #c9cfd6}
+.ch .ce{font-size:16px;line-height:1.6}
+.ch .ce b{background:linear-gradient(transparent 55%,var(--hl) 55%)}
+.ch .ck{display:none;margin-top:4px;padding-top:4px;border-top:1px solid var(--line);color:var(--accent);font-size:15px;line-height:1.65}
+.ch.open{background:#eef2f8;border-bottom-color:transparent}
+.ch.open .ck{display:block}
+.lay{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:14px;line-height:1.7}
+.lay.on{display:block}
+.stg{width:100%;min-height:42px;margin-top:6px;border:1px solid var(--accent);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const WORDS={"sets": [{"id": "g2r02p2", "title": "고2 미니모의고사 2회 07–12번", "range": "07–12번", "words": [{"src": "01", "w": "adjust", "m": "조절하다, 맞추다", "s": ["modify", "조정하다, 수정하다"], "a": null}, {"src": "02", "w": "standby", "m": "대기 (상태)", "s": null, "a": null}, {"src": "03", "w": "rotate", "m": "돌리다, 회전시키다", "s": null, "a": null}, {"src": "04", "w": "intuition", "m": "직감, 직관", "s": ["instinct", "본능, 직감"], "a": null}, {"src": "05", "w": "remarkable", "m": "놀랄 만한", "s": ["striking", "눈에 띄는, 인상적인"], "a": null}, {"src": "06", "w": "relevant", "m": "관련 있는", "s": null, "a": ["unrelated", "관련 없는"]}, {"src": "07", "w": "underpriced", "m": "저평가된", "s": null, "a": null}, {"src": "08", "w": "accuracy", "m": "정확성", "s": null, "a": null}, {"src": "09", "w": "conduct", "m": "실시하다", "s": null, "a": null}, {"src": "10", "w": "recommend", "m": "권하다, 추천하다", "s": ["advise", "조언하다, 권하다"], "a": null}, {"src": "11", "w": "mortality", "m": "사망(률)", "s": null, "a": ["survival", "생존"]}, {"src": "12", "w": "substantially", "m": "상당히, 크게", "s": ["considerably", "상당히"], "a": null}, {"src": "13", "w": "frame", "m": "(특정 방식으로) 표현하다", "s": null, "a": null}, {"src": "14", "w": "demonstrate", "m": "입증하다, 보여 주다", "s": ["prove", "증명하다"], "a": null}, {"src": "15", "w": "approach", "m": "다가가다", "s": null, "a": null}, {"src": "16", "w": "satisfied", "m": "만족한", "s": null, "a": ["discontented", "불만족한"]}, {"src": "17", "w": "rearrangement", "m": "재배열, 자리 재정리", "s": null, "a": null}, {"src": "18", "w": "posture", "m": "자세", "s": null, "a": null}, {"src": "19", "w": "encouraging", "m": "힘이 되는, 격려가 되는", "s": ["heartening", "용기를 북돋우는"], "a": null}, {"src": "20", "w": "out of respect", "m": "존중의 뜻으로", "s": null, "a": null}], "dist": [["reluctant", "꺼리는"], ["vivid", "생생한"], ["temporary", "일시적인"]]}]};
+var D=[{"no": "07", "typ": "실용문 일치", "src": "2019년 9월 28번", "evn": [10], "ev_en": "Adjust the focus of the image by rotating the focus ring.", "ev_ko": [[10, "· 포커스 링을 돌려서 이미지의 초점을 맞추세요."]], "why": ["실용문은 <b>선택지 순서 = 지문 순서<\/b>입니다", "위에서부터 한 줄씩 짚어 내려가며 색·횟수·방향만 대조하면 됩니다", "④의 근거는 How to Operate의 마지막 줄, <b>rotating the focus ring<\/b> 한 마디입니다."], "ch": [{"n": "①", "t": "전원표시기의 녹색은 대기 상태임을 나타낸다.", "g": "", "ok": false, "e": ["4번과 5번 문장을 보세요", "<b>빨강(Red)<\/b>이 전원 대기 상태이고, <b>초록(Green)<\/b>은 켜져 작동 중입니다", "색을 서로 바꿔 놓은 선택지입니다."]}, {"n": "②", "t": "전원 버튼을 한 번 누르면 전원이 꺼진다.", "g": "", "ok": false, "e": ["대기 모드에서 <b>한 번<\/b> 누르면 <b>켜지고<\/b>(7번), <b>두 번<\/b> 누르면 <b>꺼집니다<\/b>(8번)", "횟수에 따른 결과를 바꿔 놓았습니다."]}, {"n": "③", "t": "조이스틱을 위아래로 움직여 음량을 조절한다.", "g": "", "ok": false, "e": ["9번 문장은 <b>left or right(좌우)<\/b>입니다", "위아래가 아닙니다."]}, {"n": "④", "t": "포커스 링을 돌려서 이미지의 초점을 맞춘다.", "g": "", "ok": true, "e": ["10번 문장 Adjust the focus of the image by rotating the focus ring(포커스 링을 돌려서 이미지의 초점을 맞추세요)과 그대로 일치합니다."]}, {"n": "⑤", "t": "USB 장치에 있는 데이터를 삭제할 수 있다.", "g": "", "ok": false, "e": ["13번 문장은 <b>You cannot write data to or delete data from the USB device<\/b>(USB 장치에 데이터를 저장하거나 삭제할 수 <b>없습니다<\/b>)입니다", "cannot(~할 수 없다)이 있어서 정반대입니다."]}], "tr": ["미니 빔 프로젝터", "– 설명서 –", "■ LED 전원 표시기", "· 빨강: 전원 대기 상태", "· 초록: 프로젝터가 켜져 있으며 작동 중", "■ 작동시키는 방법", "· 대기 모드에서, 프로젝터를 켜기 위해 전원 버튼을 <b>한 번<\/b> 누르세요.", "· 프로젝터를 끄기 위해 전원 버튼을 <b>두 번<\/b> 누르세요.", "· 조이스틱을 <b>좌우로<\/b> 움직여서 음량을 조절하세요.", "· 포커스 링을 돌려서 이미지의 초점을 맞추세요.", "■ USB 장치 연결하기", "당신의 콘텐츠 파일을 즐기기 위해 프로젝터의 USB 포트에 USB 장치를 연결하세요.", "(당신은) USB 장치에 데이터를 저장하거나 USB 장치의 데이터를 삭제할 수 없습니다."], "ps": [{"n": 1, "ch": [{"e": "Mini Beam Projector", "k": "미니 빔 프로젝터"}], "easy": "작은 빔 프로젝터에 대한 안내문이에요.", "gist": "제목이에요. 이 프로젝터의 사용법을 설명하는 글이라는 걸 알려 줘요."}, {"n": 2, "ch": [{"e": "– Instructions –", "k": "– 설명서 –"}], "easy": "사용 설명서라는 뜻이에요.", "gist": "안내문이라는 표시예요. 아래에 항목별로 사용법이 나와요."}, {"n": 3, "ch": [{"e": "LED Power Indicator", "k": "LED 전원 표시기"}], "easy": "전원 상태를 알려 주는 불빛 이야기예요.", "gist": "첫 번째 항목이에요. 불빛 색깔의 뜻을 알려 줘요."}, {"n": 4, "ch": [{"e": "• <b>Red<\/b>:", "k": "· <b>빨강<\/b>:"}, {"e": "Power standby state", "k": "전원 대기 상태"}], "easy": "빨간 불은 '대기 중'이라는 뜻이에요.", "gist": "빨강 = 대기 상태. 선택지 ①에서 색을 바꿔 놓은 부분이에요."}, {"n": 5, "ch": [{"e": "• <b>Green<\/b>:", "k": "· <b>초록<\/b>:"}, {"e": "Projector on and operating", "k": "프로젝터가 켜져 있으며 작동 중"}], "easy": "초록 불은 '켜져서 작동 중'이라는 뜻이에요.", "gist": "초록 = 작동 중. 대기 상태가 아니에요."}, {"n": 6, "ch": [{"e": "How to Operate", "k": "작동시키는 방법"}], "easy": "이제 조작 방법을 알려 주는 부분이에요.", "gist": "두 번째 항목이에요. 버튼·조이스틱·포커스 링 사용법이 나와요."}, {"n": 7, "ch": [{"e": "• In standby mode,", "k": "· 대기 모드에서,"}, {"e": "press the power button <b>once<\/b>", "k": "전원 버튼을 <b>한 번<\/b> 누르세요"}, {"e": "to turn the projector on.", "k": "프로젝터를 켜기 위해."}], "easy": "대기 중일 때 전원 버튼을 한 번 누르면 켜져요.", "gist": "한 번 누르면 켜짐. 선택지 ②의 '한 번 → 꺼짐'과 반대예요."}, {"n": 8, "ch": [{"e": "• Press the power button <b>twice<\/b>", "k": "· 전원 버튼을 <b>두 번<\/b> 누르세요"}, {"e": "to turn the projector off.", "k": "프로젝터를 끄기 위해."}], "easy": "전원 버튼을 두 번 누르면 꺼져요.", "gist": "두 번 누르면 꺼짐. 켜기와 끄기의 횟수가 달라요."}, {"n": 9, "ch": [{"e": "• Adjust the volume level", "k": "· 음량을 조절하세요"}, {"e": "by moving the joystick <b>left or right<\/b>.", "k": "조이스틱을 <b>좌우로<\/b> 움직여서."}], "easy": "소리 크기는 조이스틱을 왼쪽·오른쪽으로 움직여서 바꿔요.", "gist": "좌우로 움직임. 선택지 ③의 '위아래'는 틀려요."}, {"n": 10, "ch": [{"e": "• <b>Adjust the focus<\/b> of the image", "k": "· 이미지의 <b>초점을 맞추세요<\/b>"}, {"e": "by <b>rotating the focus ring<\/b>.", "k": "<b>포커스 링을 돌려서<\/b>."}], "easy": "화면이 또렷하게 보이도록 포커스 링을 돌리면 돼요.", "gist": "이 문장이 정답 ④의 근거예요. 포커스 링을 돌려서 초점을 맞춰요."}, {"n": 11, "ch": [{"e": "Connecting a USB Device", "k": "USB 장치 연결하기"}], "easy": "USB를 꽂는 방법을 알려 주는 부분이에요.", "gist": "세 번째 항목이에요. USB 사용 방법과 제한이 나와요."}, {"n": 12, "ch": [{"e": "Connect a USB device", "k": "USB 장치를 연결하세요"}, {"e": "to the USB port of the projector", "k": "프로젝터의 USB 포트에"}, {"e": "to enjoy your content files.", "k": "당신의 콘텐츠 파일을 즐기기 위해."}], "easy": "프로젝터의 USB 포트에 USB를 꽂으면 파일을 볼 수 있어요.", "gist": "USB는 파일을 '즐기기(보기)' 위해 연결해요."}, {"n": 13, "ch": [{"e": "You <b>cannot<\/b> write data to", "k": "당신은 (USB 장치에) 데이터를 <b>저장할 수 없다<\/b>,"}, {"e": "or delete data from the USB device.", "k": "또는 USB 장치에서 데이터를 <b>삭제할 수 없다<\/b>."}], "link": "당신은 USB 장치에 데이터를 저장하거나 USB 장치의 데이터를 삭제할 수 없습니다.", "easy": "USB에 저장하거나 지우는 건 할 수 없어요.", "gist": "cannot이 핵심이에요. 삭제할 수 있다는 ⑤는 반대 내용이에요."}]}, {"no": "08", "typ": "글의 순서", "src": "2018년 6월 36번", "evn": [6, 4, 2], "ev_en": "When I asked how he had made that decision, he replied that he had recently attended an automobile show and had been impressed. / His response made it very clear that he trusted his gut feeling and was satisfied with himself and with his decision. / Instead, he had listened to his intuition;", "ev_ko": [[6, "(C) 내가 그가 어떻게 그러한 결정을 내렸는지 질문했을 때, 그는 최근에 자동차 전람회에 참석했었고 감명을 받았다고 대답했다."], [4, "(B) 그의 대답은 그가 자신의 직감을 신뢰했고, 자신과 자신의 결정에 만족했다는 것을 매우 분명하게 했다."], [2, "(A) (질문에 대해 고려하는) 대신, 그는 그의 직감에 귀를 기울였다. 그는 자동차를 좋아했고, 그 회사를 좋아했으며, 그것(회사)의 주식을 소유한다는 생각이 마음에 들었다."]], "why": ["순서는 <b>지시어와 연결어<\/b>로 잡습니다", "주어진 글은 '그가 ABC 주식에 투자했다'로 끝납니다", "(C)의 <b>When I asked how he had made that decision<\/b>에서 <b>that decision<\/b>(그 결정)이 바로 그 투자 결정이므로 (C)가 먼저입니다", "(B)의 <b>His response<\/b>(그의 대답)는 (C)에서 나온 대답을 받습니다", "(A)의 <b>Instead<\/b>(대신)는 (B)에서 말한 '핵심 질문을 고려하지 않았다'를 받아 '대신 직감에 귀를 기울였다'로 이어집니다."], "ch": [{"n": "①", "t": "(A) – (C) – (B)", "g": "", "ok": false, "e": ["(A)가 주어진 글 바로 뒤에 오면 <b>Instead<\/b>(대신)가 받을 내용이 없습니다", "'고려했어야 할 질문'은 (B)에서 처음 나옵니다."]}, {"n": "②", "t": "(B) – (A) – (C)", "g": "", "ok": false, "e": ["(B)의 <b>His response<\/b>(그의 대답)가 가리킬 '질문'이 주어진 글에 없습니다", "질문과 대답이 나오는 (C)가 먼저 와야 합니다."]}, {"n": "③", "t": "(B) – (C) – (A)", "g": "", "ok": false, "e": ["②와 같은 이유로 (B)가 가장 먼저 올 수 없습니다."]}, {"n": "④", "t": "(C) – (A) – (B)", "g": "", "ok": false, "e": ["(C)에서 나온 대답을 (B)의 <b>His response<\/b>(그의 대답)가 바로 받아야 하는데 사이에 (A)가 끼면 끊깁니다", "또 (A)의 <b>Instead<\/b>(대신)는 (B)의 '고려하지 않은 질문'을 받는 말이라 (B) 뒤에 와야 합니다."]}, {"n": "⑤", "t": "(C) – (B) – (A)", "g": "", "ok": true, "e": ["질문과 대답(C) → 그 대답에 대한 평가(B) → '그 대신(Instead) 직감을 따랐다'는 정리(A) 순서입니다."]}], "tr": ["〈주어진 글〉 수년 전에 나는 큰 금융 회사의 최고 투자 책임자를 방문했었는데, 그는 당시에 ABC Motor Company의 주식에 수천만 달러를 막 투자했었다.", "(A) (질문에 대해 고려하는) 대신, 그는 그의 직감에 귀를 기울였다. 그는 자동차를 좋아했고, 그 회사를 좋아했으며, 그것(회사)의 주식을 소유한다는 생각이 마음에 들었다.", "주식 선별의 정확성에 대해 우리가 알고 있는 것에 비추어 보면, 그가 자신이 뭘 하고 있는지 알지 못했다고 보는 것이 타당하다.", "(B) 그의 대답은 그가 자신의 직감을 신뢰했고, 자신과 자신의 결정에 만족했다는 것을 매우 분명하게 했다.", "나는 그가 경제학자라면 (이 문제와 밀접하게) 관련 있다고 여길 만한 한 질문을 명백히 고려하지 않았다는 것이 놀랍다고 생각했다. ABC의 주식이 현재 (실제 가치보다) 저평가되지는 않은가?", "(C) 내가 그가 어떻게 그러한 결정을 내렸는지 질문했을 때, 그는 최근에 자동차 전람회에 참석했었고 감명을 받았다고 대답했다.", "그는 \"세상에, 그들(ABC Motor Company의 사람들)은 차를 어떻게 만드는지 알다니!\"라고 말했다."], "ps": [{"n": 1, "ch": [{"e": "Many years ago I visited", "k": "수년 전에 나는 방문했었다"}, {"e": "the <b>chief investment officer<\/b> of a large financial firm,", "k": "큰 금융 회사의 <b>최고 투자 책임자<\/b>를,"}, {"e": "who had just invested", "k": "그는 막 투자한 상태였다"}, {"e": "some tens of millions of dollars", "k": "수천만 달러를"}, {"e": "in the stock of the ABC Motor Company.", "k": "ABC Motor Company의 주식에."}], "link": "수년 전에 나는 큰 금융 회사의 최고 투자 책임자를 방문했었는데, 그는 막 ABC Motor Company의 주식에 수천만 달러를 투자한 상태였다.", "easy": "오래전에 나는 한 큰 금융 회사의 투자 책임자를 찾아갔어요. 그분은 막 ABC 자동차 회사 주식에 큰돈을 투자한 참이었어요.", "gist": "주어진 글이에요. '그가 ABC 주식에 투자했다'는 사실이 깔려 있고, 뒤에서 그 결정의 이유를 묻게 돼요."}, {"n": 2, "ch": [{"e": "(A) <b>Instead<\/b>,", "k": "(A) <b>대신<\/b>,"}, {"e": "he had listened to his <b>intuition<\/b>;", "k": "그는 자신의 <b>직감<\/b>에 귀를 기울였다;"}, {"e": "he liked the cars,", "k": "그는 그 자동차들을 좋아했고,"}, {"e": "he liked the company,", "k": "그 회사를 좋아했고,"}, {"e": "and he liked the idea of owning its stock.", "k": "그리고 그것의(= 회사의) 주식을 소유한다는 생각이 마음에 들었다."}], "easy": "그 대신 그는 직감을 따랐어요. 차도 좋고 회사도 좋고, 그 회사 주식을 갖는다는 생각이 좋았대요.", "gist": "Instead(대신)가 중요해요. 앞 문장(B)에서 말한 '꼭 따졌어야 할 질문' 대신 직감을 따랐다는 뜻이에요."}, {"n": 3, "ch": [{"e": "<b>From what we know<\/b> about the accuracy of stock picking,", "k": "주식 선별의 정확성에 대해 우리가 알고 있는 것에 비추어 보면,"}, {"e": "it is reasonable to believe", "k": "믿는 것이 타당하다"}, {"e": "that he did not know", "k": "그가 알지 못했다고"}, {"e": "what he was doing.", "k": "자신이 무엇을 하고 있는지."}], "easy": "주식을 잘 고르기가 얼마나 어려운지 생각하면, 이분은 자기가 뭘 하는지 잘 몰랐다고 보는 게 합당해요.", "gist": "(A)의 결론이에요. 직감으로 고른 투자는 근거가 약하다는 평가예요."}, {"n": 4, "ch": [{"e": "(B) <b>His response<\/b> made it very clear", "k": "(B) <b>그의 대답<\/b>은 매우 분명하게 했다"}, {"e": "that he trusted his <b>gut feeling<\/b>", "k": "그가 자신의 <b>직감<\/b>을 신뢰했다는 것을"}, {"e": "and was satisfied with himself", "k": "그리고 자기 자신에 만족했다는 것을"}, {"e": "and with his decision.", "k": "그리고 자신의 결정에 (만족했다는 것을)."}], "easy": "그 대답을 들어 보니, 그는 자기 직감을 믿었고 자기 결정에 만족하고 있다는 게 분명했어요.", "gist": "His response(그의 대답)는 앞의 (C)에서 한 대답을 받아요. 그래서 (B)는 (C) 뒤에 와요."}, {"n": 5, "ch": [{"e": "I found it remarkable", "k": "나는 놀랍다고 생각했다"}, {"e": "that he had <b>apparently<\/b> not considered", "k": "그가 명백히 고려하지 않았다는 것이"}, {"e": "the one question", "k": "한 가지 질문을"}, {"e": "that an economist would call <b>relevant<\/b>:", "k": "경제학자라면 (이 문제와 밀접하게) 관련 있다고 부를 만한:"}, {"e": "Is the ABC stock currently <b>underpriced<\/b>?", "k": "ABC의 주식이 현재 (실제 가치보다) <b>저평가되어 있지는<\/b> 않은가?"}], "link": "나는 그가, 경제학자라면 관련 있다고 부를 한 가지 질문 — ABC 주식이 현재 저평가되어 있는가 — 을 명백히 고려하지 않았다는 것이 놀랍다고 생각했다.", "easy": "경제학자라면 꼭 물을 질문이 있어요. '이 주식이 지금 싼 건가?' 그런데 그는 그걸 따져 보지 않았대요. 나는 그게 놀라웠어요.", "gist": "핵심 질문을 고려하지 않았다는 말이에요. 다음 (A)의 Instead(대신)가 바로 이 말을 받아요."}, {"n": 6, "ch": [{"e": "(C) <b>When I asked<\/b>", "k": "(C) 내가 질문했을 때"}, {"e": "how he had made <b>that decision<\/b>,", "k": "그가 어떻게 <b>그 결정<\/b>을(= ABC 주식에 투자한 결정을) 내렸는지,"}, {"e": "he replied", "k": "그는 대답했다"}, {"e": "that he had recently attended an automobile show", "k": "최근에 자동차 전람회에 참석했었다고"}, {"e": "and had been impressed.", "k": "그리고 감명을 받았다고."}], "easy": "내가 '어떻게 그렇게 결정했어요?' 하고 묻자, 그는 얼마 전 자동차 전시회에 갔다가 감명받았다고 대답했어요.", "gist": "(C)는 질문과 대답이 시작되는 부분이에요. that decision이 주어진 글의 투자 결정을 가리키므로 주어진 글 바로 다음에 와요."}, {"n": 7, "ch": [{"e": "He said,", "k": "그는 말했다,"}, {"e": "\"<b>Boy<\/b>, they do know how to make a car!\"", "k": "\"세상에, 그들은(= ABC Motor Company 사람들은) 차를 어떻게 만드는지 정말 아는군요!\""}], "easy": "그는 '와, 그 회사 사람들 차 정말 잘 만들더라고요!' 하고 말했어요.", "gist": "그의 대답은 데이터가 아니라 느낌이에요. 이 대답이 (B)에서 '직감을 믿었다'로 평가돼요."}]}, {"no": "09", "typ": "요약문 완성", "src": "2015년 11월 40번", "evn": [7, 8, 9, 10], "ev_en": "As you may have realized, the two statements describe the same outcome. / However, when the same outcome statistics are framed in terms of ‘survival,’ substantially more physicians choose the surgery. / But when the outcomes are framed in terms of ‘mortality,’ the percentage of physicians who choose surgery drops greatly. / This effect has been demonstrated in politics, medicine, advertising, and all areas in which people make decisions.", "ev_ko": [[7, "당신이 이미 알아차렸을지도 모르는 바와 같이, 두 가지 진술은 똑같은 결과를 설명한다."], [8, "하지만, 똑같은 결과의 통계 자료가 '<b>생존<\/b>'의 관점에서 표현되면 상당히 더 많은 내과 의사들이 수술을 선택한다."], [9, "하지만 '<b>사망<\/b>'의 관점에서 결과가 표현되면, 수술을 선택하는 내과 의사의 비율은 크게 떨어진다."], [10, "이러한 효과는 정치, 의학, 광고, 그리고 사람들이 결정을 내리는 모든 분야에서 입증되어 왔다."]], "why": ["요약문의 두 빈칸은 <b>실험에서 바꾼 것<\/b>과 <b>그 결과 달라진 것<\/b>입니다", "바꾼 것은 정보의 내용이 아니라 <b>표현 방식(framed)<\/b>입니다", "7번 문장이 두 진술은 <b>the same outcome<\/b>(똑같은 결과)이라고 못을 박습니다", "그래서 (A)는 <b>presenting<\/b>(제시하는)입니다", "달라진 것은 의사들의 <b>선택(choose)<\/b>입니다", "10번 문장도 이 효과를 '사람들이 <b>결정<\/b>을 내리는 모든 분야'로 일반화합니다", "그래서 (B)는 <b>decisions<\/b>(결정)입니다."], "ch": [{"n": "①", "t": "presenting … decisions", "g": "제시하는 … 결정", "ok": true, "e": ["framed in terms of ~(~의 관점에서 표현되다) = 정보를 <b>제시하는 방식<\/b>이고, choose the surgery(수술을 선택하다) = <b>결정<\/b>입니다", "(A)와 (B) 모두 지문과 대응합니다."]}, {"n": "②", "t": "storing … judgments", "g": "저장하는 … 판단", "ok": false, "e": ["(B) judgments(판단)는 그럴듯하지만 (A)가 틀립니다", "정보를 <b>저장(storing)<\/b>하는 방식을 비교한 실험이 아닙니다."]}, {"n": "③", "t": "delivering … systems", "g": "전달하는 … 체계", "ok": false, "e": ["(A) delivering(전달하는)은 어느 정도 통하지만 (B)가 틀립니다", "달라진 것은 <b>systems(체계)<\/b>가 아니라 의사들의 <b>선택<\/b>입니다."]}, {"n": "④", "t": "presenting … innovations", "g": "제시하는 … 혁신", "ok": false, "e": ["(A)는 맞지만 (B)가 틀립니다", "지문에는 <b>innovations(혁신)<\/b>에 대한 이야기가 없습니다."]}, {"n": "⑤", "t": "storing … skills", "g": "저장하는 … 기술", "ok": false, "e": ["(A) 저장하는 방식도, (B) skills(기술)도 지문과 맞지 않습니다."]}], "tr": ["1982년에 하버드 의과 대학에서 Amos Tversky에 의해 한 실험이 실시되었다.", "내과 의사들은 (그들의) 폐암 환자들을 위해 수술이나 방사선 치료 중 하나를 권하기로 결정할 것을 요청받았다.", "내과 의사들 가운데 절반은, \"수술 후 한 달 생존율이 90퍼센트입니다.\"(라는 말을) 들었다.", "이 정보가 주어지자, 내과 의사들 중 84퍼센트가 방사선 치료보다 수술을 권하기로 선택했다.", "나머지 내과 의사들은 수술 결과에 대해 이러한 정보를 받았다: \"첫 한 달 내에 10퍼센트의 사망률이 있습니다.\"", "이 후자의 정보가 주어지자, 그 내과 의사들 중 50퍼센트만이 수술을 권하였다.", "당신이 이미 알아차렸을지도 모르는 바와 같이, 두 가지 진술은 똑같은 결과를 설명한다.", "하지만, 똑같은 결과의 통계 자료가 '<b>생존<\/b>'의 관점에서 표현되면 상당히 더 많은 내과 의사들이 수술을 선택한다.", "하지만 '<b>사망<\/b>'의 관점에서 결과가 표현되면, 수술을 선택하는 내과 의사의 비율은 크게 떨어진다.", "이러한 효과는 정치, 의학, 광고, 그리고 사람들이 결정을 내리는 모든 분야에서 입증되어 왔다.", "〈요약문〉 같은 정보를 (A)<b>제시하는<\/b> 서로 다른 방식들이 정보를 근거로 한 (B)<b>결정<\/b>에 영향을 미칠 수 있다."], "ps": [{"n": 1, "ch": [{"e": "An experiment was conducted", "k": "한 실험이 실시되었다"}, {"e": "by Amos Tversky", "k": "Amos Tversky에 의해"}, {"e": "at Harvard Medical School in 1982.", "k": "1982년 하버드 의과 대학에서."}], "easy": "1982년에 하버드 의과 대학에서 Tversky가 한 실험이에요.", "gist": "실험 소개로 글이 시작돼요."}, {"n": 2, "ch": [{"e": "The physicians were asked to decide", "k": "내과 의사들은 결정하라고 요청받았다"}, {"e": "to recommend either surgery or radiation", "k": "수술 또는 방사선 치료 중 하나를 권할지"}, {"e": "for their patients with lung cancer.", "k": "폐암 환자들을 위해."}], "easy": "의사들에게 폐암 환자에게 수술과 방사선 치료 중 어느 쪽을 권할지 정해 달라고 했어요.", "gist": "실험 상황이에요. 의사들은 '권하는' 선택을 해야 해요."}, {"n": 3, "ch": [{"e": "Half of the physicians were told,", "k": "내과 의사들의 절반은 들었다,"}, {"e": "\"The one-month survival rate for surgery is 90%.\"", "k": "\"수술 후 한 달 생존율이 90퍼센트입니다.\""}], "easy": "의사 절반에게는 '수술 후 한 달 생존율이 90%예요'라고 알려 줬어요.", "gist": "첫 번째 집단이에요. <b>생존<\/b>으로 표현된 정보를 받았어요."}, {"n": 4, "ch": [{"e": "<b>Given<\/b> this information,", "k": "이 정보가 주어지자,"}, {"e": "84% of the physicians chose", "k": "내과 의사의 84퍼센트가 선택했다"}, {"e": "to recommend surgery over radiation.", "k": "방사선 치료보다 수술을 권하는 것을."}], "easy": "이 말을 들은 의사 중 84%가 수술을 권했어요.", "gist": "생존 표현 → 수술 선택이 많았어요."}, {"n": 5, "ch": [{"e": "The other physicians were provided with", "k": "나머지 내과 의사들은 받았다"}, {"e": "this information about surgery outcomes:", "k": "수술 결과에 대한 이러한 정보를:"}, {"e": "\"There is a 10% mortality rate in the first month.\"", "k": "\"첫 한 달 내에 10퍼센트의 사망률이 있습니다.\""}], "easy": "나머지 의사들에게는 '수술하면 첫 한 달에 10%가 사망해요'라고 알려 줬어요.", "gist": "두 번째 집단이에요. <b>사망<\/b>으로 표현된 정보를 받았어요."}, {"n": 6, "ch": [{"e": "<b>Given<\/b> this <b>latter<\/b> information,", "k": "이 후자의 정보가 주어지자,"}, {"e": "only 50% of the physicians", "k": "내과 의사의 50퍼센트만이"}, {"e": "recommended surgery.", "k": "수술을 권하였다."}], "easy": "이 말을 들은 의사 중에서는 50%만 수술을 권했어요.", "gist": "사망 표현 → 수술 선택이 크게 줄었어요."}, {"n": 7, "ch": [{"e": "As you may have realized,", "k": "당신이 이미 알아차렸을지도 모르는 바와 같이,"}, {"e": "the two statements <b>describe the same outcome<\/b>.", "k": "두 가지 진술은 <b>똑같은 결과를 설명한다<\/b>."}], "easy": "눈치챘겠지만, 두 말은 같은 사실이에요. 90% 살면 10%가 죽는 거니까요.", "gist": "핵심 포인트예요. 정보는 같고 말투만 달랐다는 걸 못 박아요."}, {"n": 8, "ch": [{"e": "However, when the same outcome statistics", "k": "하지만, 똑같은 결과의 통계 자료가"}, {"e": "are framed in terms of ‘<b>survival<\/b>,’", "k": "'<b>생존<\/b>'의 관점에서 표현되면"}, {"e": "substantially more physicians choose the surgery.", "k": "상당히 더 많은 내과 의사들이 수술을 선택한다."}], "easy": "같은 통계라도 '산다'고 말하면 수술을 고르는 의사가 훨씬 많아요.", "gist": "결과 ①: 생존 틀 → 수술 선택 증가."}, {"n": 9, "ch": [{"e": "But when the outcomes are framed", "k": "하지만 결과가 표현되면"}, {"e": "in terms of ‘<b>mortality<\/b>,’", "k": "'<b>사망<\/b>'의 관점에서"}, {"e": "the percentage of physicians who choose surgery drops greatly.", "k": "수술을 선택하는 내과 의사의 비율은 크게 떨어진다."}], "easy": "'죽는다'고 말하면 수술을 고르는 의사의 비율이 크게 떨어져요.", "gist": "결과 ②: 사망 틀 → 수술 선택 감소."}, {"n": 10, "ch": [{"e": "This effect has been demonstrated", "k": "이러한 효과는 입증되어 왔다"}, {"e": "in politics, medicine, advertising,", "k": "정치, 의학, 광고에서,"}, {"e": "and all areas in which people make decisions.", "k": "그리고 사람들이 결정을 내리는 모든 분야에서."}], "easy": "이런 효과는 정치, 의학, 광고 등 사람이 결정하는 곳 어디서나 확인됐어요.", "gist": "일반화예요. 요약문의 (B)가 '결정(decisions)'인 이유가 여기 있어요."}, {"n": 11, "ch": [{"e": "Different ways of (A) <b>presenting<\/b>", "k": "(A) <b>제시하는<\/b> 서로 다른 방식들이"}, {"e": "the same information", "k": "같은 정보를"}, {"e": "can influence the (B) <b>decisions<\/b>", "k": "(B) <b>결정<\/b>에 영향을 미칠 수 있다 <span class=\"r\">※ 문제지엔 (A), (B)가 빈칸으로 되어 있음<\/span>"}, {"e": "that are based on the information.", "k": "그 정보를 근거로 한."}], "easy": "같은 정보라도 어떻게 보여 주느냐에 따라 그 정보로 내리는 결정이 달라질 수 있어요.", "gist": "글 전체의 결론이에요. 정답은 (A) presenting, (B) decisions예요."}]}, {"no": "10", "typ": "글의 순서", "src": "2023년 3월 43번", "evn": [7, 24, 33, 16, 22, 8, 13], "ev_en": "Then Coach McGraw came and watched the players. [A-7] / Coach McGraw, too, saw the pattern — new kids and others grouping separately. [D-1] / He started pointing, making sure they mixed together. [D-10] / McGraw continued to point, calling each player out, until he was satisfied with the rearrangement. [C-1] / Almost immediately, McGraw noticed a change in their postures and faces. [C-7] / ‘Wow,’ thought Wylder. [B-1] / Now his speech was over. [B-6]", "ev_ko": [[7, "[A-7] 그 후 McGraw 코치가 왔고, 선수들을 보았다."], [24, "(D) [D-1] McGraw 코치도 새로운 아이들과 다른 아이들이 따로 무리를 지어 있는 그 패턴(모습)을 보았다."], [33, "[D-10] 그는 가리키기 시작했고, 그들(선수들)이 서로 섞이는 것을 확실히 했다."], [16, "(C) [C-1] McGraw는 그가 재배열에 만족할 때까지 각 선수를 불러내며 계속해서 가리켰다."], [22, "[C-7] McGraw는 그들의 자세와 얼굴에서 거의 바로 변화를 알아차렸다."], [8, "(B) [B-1] '우와.'라고 Wylder는 생각했다."], [13, "[B-6] 이제 그의 연설이 끝났다."]], "why": ["순서는 <b>too<\/b>와 <b>행동의 이어짐<\/b>으로 잡습니다", "(A)는 Wylder가 새 선수들과 기존 선수들이 따로 있는 모습을 보고, 코치 McGraw가 와서 지켜보는 장면으로 끝납니다", "(D)의 첫 문장 <b>Coach McGraw, too, saw the pattern<\/b>(McGraw 코치도 그 모습을 보았다)이 그 모습을 코치도 보았다고 곧바로 이어받습니다", "(D)에서 코치가 선수들을 가리키기 시작하고(<b>He started pointing<\/b>), (C)가 <b>McGraw continued to point<\/b>(계속해서 가리켰다)로 그 행동을 이어받습니다", "(C) 끝에서 코치가 선수들의 변화를 알아챕니다", "(C)에서 코치가 한 연설은 (B)의 <b>Now his speech was over<\/b>(이제 그의 연설이 끝났다)에서 끝나고, (B)는 <b>Wow<\/b>라는 Wylder의 반응으로 시작합니다", "그래서 (A) 다음은 (D) – (C) – (B)입니다."], "ch": [{"n": "①", "t": "(B) – (D) – (C)", "g": "", "ok": false, "e": ["(B)는 코치의 연설을 듣고 난 Wylder의 반응입니다(<b>Now his speech was over<\/b>, 이제 그의 연설이 끝났다)", "(A) 바로 뒤에는 아직 코치의 연설이 나오지 않았으므로 이어지지 않습니다."]}, {"n": "②", "t": "(C) – (B) – (D)", "g": "", "ok": false, "e": ["(C)의 <b>continued to point<\/b>(계속 가리켰다)는 (D)에서 <b>started pointing<\/b>(가리키기 시작했다)이 나온 뒤에야 성립합니다."]}, {"n": "③", "t": "(C) – (D) – (B)", "g": "", "ok": false, "e": ["②와 같은 이유로 (C)가 (D)보다 앞설 수 없습니다."]}, {"n": "④", "t": "(D) – (B) – (C)", "g": "", "ok": false, "e": ["(B)에서 <b>Now his speech was over<\/b>(이제 그의 연설이 끝났다)라고 했는데, (C)에서 코치가 다시 연설을 시작하면 시간 순서가 뒤집힙니다."]}, {"n": "⑤", "t": "(D) – (C) – (B)", "g": "", "ok": true, "e": ["코치가 상황을 알아챔(D) → 자리를 섞고 연설함(C) → 연설이 끝난 뒤 Wylder의 반응(B) 순서입니다."]}], "tr": ["(A) [A-1] 초가을의 더운 날이었다.", "[A-2] Wylder는 그의 첫 훈련을 위해 학교 운동장으로 향하고 있었다.", "[A-3] 그는 성공적인 적격 시험 후에 다섯 명의 다른 학생들과 막 팀에 합류했다.", "[A-4] 운동장에 가까워지면서, (a)그(Wylder)는 선수들이 준비하고, 그들의 양말을 끌어올리고 정강이 보호대를 착용하는 것을 보았다.", "[A-5] 그러나 그들은 함께가 아니었다.", "[A-6] 새로운 선수들은 차고 근처의 그늘에 앉아 있는 반면, 다른 선수들은 오른쪽 기둥 옆 양지에 서 있었다.", "[A-7] 그 후 McGraw 코치가 왔고, 선수들을 보았다.", "(B) [B-1] '우와.'라고 Wylder는 생각했다.", "[B-2] 잔디 위의 그의 새로운 자리에서 그는 다리를 쭉 폈다.", "[B-3] 그는 그가 듣고 있는 것이 마음에 들었다.", "[B-4] 새로운 팀 정신의 감각, 더 깊은 연대감이 (b)그(Wylder)에게 다가왔다.", "[B-5] 코치가 이것에 대해 말하는 것을 듣는 것과 그가 도전에 정면으로 맞서는 것을 보는 것은 힘을 북돋아 주었다.", "[B-6] 이제 그의 연설이 끝났다.", "[B-7] 선수들은 일어나서 몸을 풀기 위해 운동장을 걷기 시작했다.", "[B-8] Wylder는 존경심을 담아 (c)그(Wylder)의 시선을 아래로 한 채로 McGraw를 지나쳐 걸어가면서 그에게 \"잘하셨습니다, 코치님. 그건 정말 좋았어요.\"라고 낮은 목소리로 말했다.", "(C) [C-1] McGraw는 그가 재배열에 만족할 때까지 각 선수를 불러내며 계속해서 가리켰다.", "[C-2] \"그래, 이렇게 될 거다.\"라고 그가 말을 시작했다.", "[C-3] \"우리는 서로를 믿고 함께 경기하는 방식을 배울 필요가 있다.", "[C-4] 이것이 팀이 경기하는 방식이다.", "[C-5] 이것이 내가 너희가 운동장 안과 밖에서 함께하는 것이 되길(함께하기를) 바라는 방식이다.\"", "[C-6] 선수들은 서로를 바라보았다.", "[C-7] McGraw는 그들의 자세와 얼굴에서 거의 바로 변화를 알아차렸다.", "[C-8] (d)그(McGraw)는 그들 중 몇몇이 미소를 짓기 시작하는 것을 보았다.", "(D) [D-1] McGraw 코치도 새로운 아이들과 다른 아이들이 따로 무리를 지어 있는 그 패턴(모습)을 보았다.", "[D-2] '이건 바뀌어야 해.'라고 그는 생각했다.", "[D-3] 그는 우승하는 팀을 원했다.", "[D-4] 그러기 위해서 그는 관계를 형성해야 했다.", "[D-5] \"난 너희들이 여기 중앙에 와서 앉기를 바란다.\"라며 그는 걸어가면서 선수들을 불렀다.", "[D-6] McGraw가 Wylder를 가리키며 \"너!\"라고 고함쳤다.", "[D-7] \"여기 운동장으로 와서 앉아라.", "[D-8] 그리고 Jonny!", "[D-9] 너는 저기 앉아라!\"", "[D-10] 그는 가리키기 시작했고, 그들(선수들)이 서로 섞이는 것을 확실히 했다.", "[D-11] Wylder는 코치가 무엇을 하려고 하는지를 깨달아서, (e)그(Wylder)는 운동장으로 뛰어 올라왔다."], "ps": [{"n": 1, "ch": [{"e": "(A) It was a hot day", "k": "(A) 더운 날이었다"}, {"e": "in early fall.", "k": "초가을의."}], "easy": "초가을의 더운 날이었어요.", "gist": "이야기 시작이에요. 때와 날씨를 알려 줘요."}, {"n": 2, "ch": [{"e": "Wylder was heading", "k": "Wylder는 향하고 있었다"}, {"e": "to the school field", "k": "학교 운동장으로"}, {"e": "for his first training.", "k": "그의 첫 훈련을 위해."}], "easy": "Wylder는 첫 훈련을 하러 학교 운동장으로 가는 중이었어요.", "gist": "주인공 Wylder 소개예요."}, {"n": 3, "ch": [{"e": "He had just joined the team", "k": "그는 막 팀에 합류한 상태였다"}, {"e": "with five other students", "k": "다섯 명의 다른 학생들과 함께"}, {"e": "after a successful tryout.", "k": "성공적인 적격 시험 후에."}], "easy": "그는 시험에 통과해서 다른 학생 다섯 명과 이제 막 팀에 들어온 참이었어요.", "gist": "Wylder는 새로 들어온 선수예요. 12번 ①의 근거예요."}, {"n": 4, "ch": [{"e": "<b>Approaching<\/b> the field,", "k": "운동장에 가까워지면서,"}, {"e": "(a) he saw players", "k": "(a) 그는(= Wylder는) 선수들이 ~하는 것을 보았다"}, {"e": "getting ready,", "k": "준비하는,"}, {"e": "pulling up their socks", "k": "그들의 양말을 끌어올리고"}, {"e": "and strapping on shin guards.", "k": "정강이 보호대를 차는 것을."}], "easy": "운동장에 가까이 가자, Wylder는 선수들이 양말을 올리고 정강이 보호대를 차며 준비하는 걸 봤어요.", "gist": "(a) he는 Wylder예요. 바로 앞 문장의 주어가 계속 이어져요."}, {"n": 5, "ch": [{"e": "But they weren't together.", "k": "그러나 그들은(= 선수들은) 함께가 아니었다."}], "easy": "그런데 선수들이 한데 모여 있지는 않았어요.", "gist": "갈라져 있다는 문제 상황이 시작돼요."}, {"n": 6, "ch": [{"e": "New players were sitting", "k": "새로운 선수들은 앉아 있었다"}, {"e": "in the shade by the garage,", "k": "차고 옆 그늘에서,"}, {"e": "<b>while<\/b> the others were standing", "k": "반면에 다른 선수들은 서 있었다"}, {"e": "in the sun by the right pole.", "k": "오른쪽 기둥 옆 양지에."}], "easy": "새로 온 선수들은 차고 옆 그늘에 앉아 있고, 나머지 선수들은 오른쪽 기둥 옆 햇볕에 서 있었어요.", "gist": "두 무리가 따로 있는 모습이에요. 뒤의 (D)에서 코치가 이걸 바꾸려 해요."}, {"n": 7, "ch": [{"e": "Then Coach McGraw came", "k": "그때 McGraw 코치가 왔다"}, {"e": "and watched the players.", "k": "그리고 선수들을 지켜보았다."}], "easy": "그때 McGraw 코치가 와서 선수들을 지켜봤어요.", "gist": "(A)의 마지막 문장이에요. 다음 (D)의 'Coach McGraw, too, saw'가 이 장면을 받아요."}, {"n": 8, "ch": [{"e": "(B) ‘Wow,’ thought Wylder.", "k": "(B) '우와.'라고 Wylder는 생각했다."}], "easy": "Wylder는 '우와' 하고 감탄했어요.", "gist": "코치의 연설을 듣고 난 뒤의 반응이에요."}, {"n": 9, "ch": [{"e": "From his new location on the grass,", "k": "잔디 위의 그의 새로운 자리에서,"}, {"e": "he stretched out his legs.", "k": "그는 다리를 쭉 폈다."}], "easy": "잔디 위 새 자리에서 Wylder는 다리를 쭉 폈어요.", "gist": "선택지 12번 ②의 근거예요."}, {"n": 10, "ch": [{"e": "He liked what he was hearing.", "k": "그는 그가 듣고 있는 것이 마음에 들었다."}], "easy": "그는 코치가 하는 말이 마음에 들었어요.", "gist": "연설이 좋았다는 뜻이에요."}, {"n": 11, "ch": [{"e": "A new sense of team spirit", "k": "새로운 팀 정신의 감각이,"}, {"e": "came across (b) him,", "k": "(b) 그에게(= Wylder에게) 다가왔다,"}, {"e": "a deeper sense of connection.", "k": "더 깊은 연대감이."}], "easy": "새로운 팀 정신과 더 깊은 연대감이 Wylder에게 느껴졌어요.", "gist": "(b) him은 Wylder예요. 감동을 받는 쪽이에요."}, {"n": 12, "ch": [{"e": "It was encouraging", "k": "힘을 북돋아 주었다"}, {"e": "to hear Coach talk about this,", "k": "코치가 이것에 대해 말하는 것을 듣는 것이,"}, {"e": "to see him face the challenge head-on.", "k": "그가(= 코치가) 도전에 정면으로 맞서는 것을 보는 것이."}], "easy": "코치가 이 문제를 입에 올리고 정면으로 부딪히는 모습을 보니 힘이 났어요.", "gist": "이 문장의 him은 코치예요. Wylder가 코치를 보며 용기를 얻어요."}, {"n": 13, "ch": [{"e": "Now his speech was over.", "k": "이제 그의(= 코치의) 연설이 끝났다."}], "easy": "이제 코치의 연설이 끝났어요.", "gist": "연설이 끝났다는 신호예요. 그래서 (B)는 (C) 뒤에 와요."}, {"n": 14, "ch": [{"e": "The players got up", "k": "선수들은 일어났다"}, {"e": "and started walking on the field", "k": "그리고 운동장을 걷기 시작했다"}, {"e": "to warm up.", "k": "몸을 풀기 위해."}], "easy": "선수들은 일어나 몸을 풀러 운동장으로 걸어갔어요.", "gist": "연설이 끝나고 선수들이 몸을 풀러 움직이는 장면이에요."}, {"n": 15, "ch": [{"e": "\"Good job, Coach. That was good,\"", "k": "\"잘하셨습니다, 코치님. 그건 정말 좋았어요,\""}, {"e": "Wylder said to McGraw in a low voice", "k": "Wylder는 McGraw에게 낮은 목소리로 말했다"}, {"e": "as he walked past him,", "k": "그가(= Wylder가) 그를(= McGraw를) 지나쳐 걸어가면서,"}, {"e": "keeping (c) his eyes down", "k": "(c) 그의(= Wylder의) 시선을 아래로 한 채로"}, {"e": "out of respect.", "k": "존경심에서."}], "easy": "Wylder는 시선을 내리깔고 낮은 목소리로 '잘하셨어요, 코치님' 하며 코치 옆을 지나갔어요.", "gist": "(c) his는 Wylder예요. 지나가는 사람이 Wylder, 지나치는 대상(him)이 McGraw예요."}, {"n": 16, "ch": [{"e": "(C) McGraw <b>continued to point<\/b>,", "k": "(C) McGraw는 계속해서 가리켰다,"}, {"e": "calling each player out,", "k": "각 선수를 불러내며,"}, {"e": "until he was satisfied", "k": "그가 만족할 때까지"}, {"e": "with the rearrangement.", "k": "재배열에."}], "easy": "McGraw는 자리 배치가 마음에 들 때까지 선수를 한 명씩 불러내며 계속 가리켰어요.", "gist": "continued(계속했다)는 (D)에서 가리키기 시작한 일을 이어받아요. 선택지 12번 ③의 근거예요."}, {"n": 17, "ch": [{"e": "\"Okay, this is how it's going to be,\"", "k": "\"그래, 이렇게 될 거다,\""}, {"e": "he began.", "k": "라고 그가(= McGraw가) 말을 시작했다."}], "easy": "'좋아, 앞으로는 이렇게 간다' 하고 코치가 말을 꺼냈어요.", "gist": "코치의 연설이 시작돼요."}, {"n": 18, "ch": [{"e": "\"We need to learn", "k": "\"우리는 배울 필요가 있다"}, {"e": "how to trust and work with each other.", "k": "서로를 믿고 함께 하는 방법을."}], "link": "우리는 서로를 믿고 함께 경기하는 방식을 배울 필요가 있다.", "easy": "코치는 '우리는 서로 믿고 함께 하는 법을 배워야 한다'고 말해요.", "gist": "연설의 핵심 메시지예요."}, {"n": 19, "ch": [{"e": "This is how a team plays.", "k": "이것이 팀이 경기하는 방식이다."}], "easy": "'그게 바로 팀이 경기하는 방식'이라는 말이에요.", "gist": "앞 문장을 다시 강조해요."}, {"n": 20, "ch": [{"e": "This is how I want you to be", "k": "이것이 내가 너희가 있기를 바라는 방식이다"}, {"e": "on and off the field:", "k": "운동장 안과 밖에서:"}, {"e": "<b>together<\/b>.\"", "k": "함께.\""}], "easy": "운동장 안에서도 밖에서도 함께였으면 좋겠다는 말이에요.", "gist": "연설의 마지막 요점은 together(함께)예요."}, {"n": 21, "ch": [{"e": "The players looked at each other.", "k": "선수들은 서로를 바라보았다."}], "easy": "선수들이 서로를 쳐다봤어요.", "gist": "코치의 말에 선수들이 반응하기 시작해요."}, {"n": 22, "ch": [{"e": "<b>Almost immediately<\/b>,", "k": "거의 바로,"}, {"e": "McGraw noticed a change", "k": "McGraw는 변화를 알아차렸다"}, {"e": "in their postures and faces.", "k": "그들의 자세와 얼굴에서."}], "easy": "거의 곧바로 코치는 선수들의 자세와 표정이 달라진 걸 알아챘어요.", "gist": "선택지 12번 ④의 근거예요. 알아챈 사람은 McGraw예요."}, {"n": 23, "ch": [{"e": "(d) He saw some of them", "k": "(d) 그는(= McGraw는) 그들 중 몇몇이"}, {"e": "starting to smile.", "k": "미소를 짓기 시작하는 것을 보았다."}], "easy": "코치는 몇몇 선수가 웃기 시작하는 것을 봤어요.", "gist": "(d) He는 McGraw예요. 11번의 정답(④)이에요."}, {"n": 24, "ch": [{"e": "(D) Coach McGraw, <b>too<\/b>, saw the pattern", "k": "(D) McGraw 코치도 그 모습을 보았다"}, {"e": "— new kids and others", "k": "새로운 아이들과 다른 아이들이"}, {"e": "grouping separately.", "k": "따로 무리를 짓고 있는."}], "easy": "McGraw 코치도 새로 온 아이들과 나머지가 따로 뭉쳐 있는 모습을 봤어요.", "gist": "too(~도)는 (A)에서 Wylder가 본 '따로 무리 지은 모습'을 코치도 봤다는 뜻이에요. 그래서 (A) 바로 뒤에 와요."}, {"n": 25, "ch": [{"e": "‘This has to change,’", "k": "'이건 바뀌어야 해,'"}, {"e": "he thought.", "k": "라고 그는(= McGraw는) 생각했다."}], "easy": "코치는 '이건 바꿔야 해' 하고 생각했어요.", "gist": "코치가 바꾸기로 마음먹어요."}, {"n": 26, "ch": [{"e": "He wanted a winning team.", "k": "그는(= McGraw는) 우승하는 팀을 원했다."}], "easy": "코치는 이기는 팀을 원했어요.", "gist": "바꾸려는 이유예요."}, {"n": 27, "ch": [{"e": "To do that,", "k": "그러기 위해서,"}, {"e": "he needed to build relationships.", "k": "그는 관계를 형성해야 했다."}], "easy": "그러려면 선수들 사이의 관계를 만들어야 했어요.", "gist": "이기는 팀 → 관계 만들기로 이어져요."}, {"n": 28, "ch": [{"e": "\"I want you guys", "k": "\"나는 너희들이 ~하기를 바란다"}, {"e": "to come over here in the middle and sit,\"", "k": "여기 중앙으로 와서 앉기를,\""}, {"e": "he called the players", "k": "그는 선수들을 불렀다"}, {"e": "as he walked over.", "k": "걸어가면서."}], "easy": "'다들 이쪽 가운데로 와서 앉아라' 하고 코치가 걸어가며 선수들을 불렀어요.", "gist": "12번 ⑤의 근거예요. 코치는 가운데로 와서 앉으라고 했어요."}, {"n": 29, "ch": [{"e": "\"You!\"", "k": "\"너!\""}, {"e": "McGraw roared,", "k": "McGraw가 고함쳤다,"}, {"e": "pointing at Wylder.", "k": "Wylder를 가리키며."}], "easy": "McGraw가 Wylder를 가리키며 '너!' 하고 소리쳤어요.", "gist": "코치가 Wylder를 가리키며 불러요."}, {"n": 30, "ch": [{"e": "\"Come here", "k": "\"여기로 와라"}, {"e": "onto the field and sit.", "k": "운동장 안으로 와서 앉아라."}], "easy": "코치가 Wylder에게 '여기 운동장으로 와서 앉아' 하고 말해요.", "gist": "12번 ⑤의 근거예요. onto the field(운동장 안으로)가 핵심이에요."}, {"n": 31, "ch": [{"e": "And Jonny!", "k": "그리고 Jonny!"}], "easy": "코치가 'Jonny!' 하고 다른 선수도 불러요.", "gist": "다른 선수도 지목해요."}, {"n": 32, "ch": [{"e": "You sit over there!\"", "k": "너는 저기 앉아라!\""}], "easy": "Jonny에게는 '너는 저기 앉아!' 하고 자리를 정해 줘요.", "gist": "새 아이와 기존 아이가 섞이도록 자리를 정해 줘요."}, {"n": 33, "ch": [{"e": "He <b>started pointing<\/b>,", "k": "그는 가리키기 시작했다,"}, {"e": "making sure", "k": "확실히 하며"}, {"e": "they mixed together.", "k": "그들이(= 선수들이) 서로 섞이는 것을."}], "easy": "코치는 선수들을 가리키기 시작해서, 두 무리가 확실히 섞이게 했어요.", "gist": "started pointing(가리키기 시작했다)은 (C)의 continued to point로 이어져요."}, {"n": 34, "ch": [{"e": "Wylder realized", "k": "Wylder는 깨달았다"}, {"e": "what Coach was trying to do,", "k": "코치가 하려는 것이 무엇인지,"}, {"e": "so (e) he hopped onto the field.", "k": "그래서 (e) 그는(= Wylder는) 운동장으로 뛰어 올라왔다."}], "easy": "Wylder는 코치의 뜻을 알아차리고 운동장 안으로 뛰어 올라왔어요.", "gist": "(e) he는 Wylder예요. realized의 주어가 Wylder라서 이어서 he도 Wylder예요."}]}, {"no": "11", "typ": "지칭 추론", "src": "2023년 3월 44번", "evn": [22, 23], "ev_en": "Almost immediately, McGraw noticed a change in their postures and faces. [C-7] / (d) He saw some of them starting to smile. [C-8]", "ev_ko": [[22, "[C-7] McGraw는 그들의 자세와 얼굴에서 거의 바로 변화를 알아차렸다."], [23, "[C-8] (d)그(McGraw)는 그들 중 몇몇이 미소를 짓기 시작하는 것을 보았다."]], "why": ["지칭 문제는 <b>그 대명사가 들어 있는 문장의 앞뒤 주어<\/b>를 확인하는 것이 기본입니다", "(d)가 있는 문장(C-8) 바로 앞(C-7)의 주어가 <b>McGraw<\/b>입니다", "(d) He는 선수들의 표정이 변하는 것을 알아챈 McGraw 코치를 가리킵니다", "나머지 (a), (b), (c), (e)는 모두 이야기의 주인공 <b>Wylder<\/b>를 가리킵니다."], "ch": [{"n": "①", "t": "(a)", "g": "", "ok": false, "e": ["(a) he는 운동장에 다가가며 선수들이 준비하는 것을 본 <b>Wylder<\/b>입니다(A-2·A-3의 주어 Wylder가 이어짐)."]}, {"n": "②", "t": "(b)", "g": "", "ok": false, "e": ["(b) him은 새로운 팀 정신과 연대감이 '다가온' 사람으로, (B)가 Wylder의 생각으로 시작하므로 <b>Wylder<\/b>입니다."]}, {"n": "③", "t": "(c)", "g": "", "ok": false, "e": ["(c) his는 McGraw를 지나쳐 걸어가며 시선을 아래로 둔 사람의 것이므로 <b>Wylder<\/b>입니다", "지나쳐 가는 쪽이 Wylder, 지나쳐 가는 대상(him)이 McGraw입니다."]}, {"n": "④", "t": "(d)", "g": "", "ok": true, "e": ["(d) He는 선수들의 자세와 얼굴의 변화를 알아챈 <b>McGraw 코치<\/b>입니다", "나머지 넷은 Wylder라서 이것만 다릅니다."]}, {"n": "⑤", "t": "(e)", "g": "", "ok": false, "e": ["(e) he는 코치가 무엇을 하려는지 깨닫고 운동장으로 뛰어 올라온 <b>Wylder<\/b>입니다", "앞에 McGraw가 여러 번 나오지만 realized의 주어는 Wylder입니다."]}], "tr": ["(A) [A-1] 초가을의 더운 날이었다.", "[A-2] Wylder는 그의 첫 훈련을 위해 학교 운동장으로 향하고 있었다.", "[A-3] 그는 성공적인 적격 시험 후에 다섯 명의 다른 학생들과 막 팀에 합류했다.", "[A-4] 운동장에 가까워지면서, (a)그(Wylder)는 선수들이 준비하고, 그들의 양말을 끌어올리고 정강이 보호대를 착용하는 것을 보았다.", "[A-5] 그러나 그들은 함께가 아니었다.", "[A-6] 새로운 선수들은 차고 근처의 그늘에 앉아 있는 반면, 다른 선수들은 오른쪽 기둥 옆 양지에 서 있었다.", "[A-7] 그 후 McGraw 코치가 왔고, 선수들을 보았다.", "(B) [B-1] '우와.'라고 Wylder는 생각했다.", "[B-2] 잔디 위의 그의 새로운 자리에서 그는 다리를 쭉 폈다.", "[B-3] 그는 그가 듣고 있는 것이 마음에 들었다.", "[B-4] 새로운 팀 정신의 감각, 더 깊은 연대감이 (b)그(Wylder)에게 다가왔다.", "[B-5] 코치가 이것에 대해 말하는 것을 듣는 것과 그가 도전에 정면으로 맞서는 것을 보는 것은 힘을 북돋아 주었다.", "[B-6] 이제 그의 연설이 끝났다.", "[B-7] 선수들은 일어나서 몸을 풀기 위해 운동장을 걷기 시작했다.", "[B-8] Wylder는 존경심을 담아 (c)그(Wylder)의 시선을 아래로 한 채로 McGraw를 지나쳐 걸어가면서 그에게 \"잘하셨습니다, 코치님. 그건 정말 좋았어요.\"라고 낮은 목소리로 말했다.", "(C) [C-1] McGraw는 그가 재배열에 만족할 때까지 각 선수를 불러내며 계속해서 가리켰다.", "[C-2] \"그래, 이렇게 될 거다.\"라고 그가 말을 시작했다.", "[C-3] \"우리는 서로를 믿고 함께 경기하는 방식을 배울 필요가 있다.", "[C-4] 이것이 팀이 경기하는 방식이다.", "[C-5] 이것이 내가 너희가 운동장 안과 밖에서 함께하는 것이 되길(함께하기를) 바라는 방식이다.\"", "[C-6] 선수들은 서로를 바라보았다.", "[C-7] McGraw는 그들의 자세와 얼굴에서 거의 바로 변화를 알아차렸다.", "[C-8] (d)그(McGraw)는 그들 중 몇몇이 미소를 짓기 시작하는 것을 보았다.", "(D) [D-1] McGraw 코치도 새로운 아이들과 다른 아이들이 따로 무리를 지어 있는 그 패턴(모습)을 보았다.", "[D-2] '이건 바뀌어야 해.'라고 그는 생각했다.", "[D-3] 그는 우승하는 팀을 원했다.", "[D-4] 그러기 위해서 그는 관계를 형성해야 했다.", "[D-5] \"난 너희들이 여기 중앙에 와서 앉기를 바란다.\"라며 그는 걸어가면서 선수들을 불렀다.", "[D-6] McGraw가 Wylder를 가리키며 \"너!\"라고 고함쳤다.", "[D-7] \"여기 운동장으로 와서 앉아라.", "[D-8] 그리고 Jonny!", "[D-9] 너는 저기 앉아라!\"", "[D-10] 그는 가리키기 시작했고, 그들(선수들)이 서로 섞이는 것을 확실히 했다.", "[D-11] Wylder는 코치가 무엇을 하려고 하는지를 깨달아서, (e)그(Wylder)는 운동장으로 뛰어 올라왔다."], "ps": [{"n": 1, "ch": [{"e": "(A) It was a hot day", "k": "(A) 더운 날이었다"}, {"e": "in early fall.", "k": "초가을의."}], "easy": "초가을의 더운 날이었어요.", "gist": "이야기 시작이에요. 때와 날씨를 알려 줘요."}, {"n": 2, "ch": [{"e": "Wylder was heading", "k": "Wylder는 향하고 있었다"}, {"e": "to the school field", "k": "학교 운동장으로"}, {"e": "for his first training.", "k": "그의 첫 훈련을 위해."}], "easy": "Wylder는 첫 훈련을 하러 학교 운동장으로 가는 중이었어요.", "gist": "주인공 Wylder 소개예요."}, {"n": 3, "ch": [{"e": "He had just joined the team", "k": "그는 막 팀에 합류한 상태였다"}, {"e": "with five other students", "k": "다섯 명의 다른 학생들과 함께"}, {"e": "after a successful tryout.", "k": "성공적인 적격 시험 후에."}], "easy": "그는 시험에 통과해서 다른 학생 다섯 명과 이제 막 팀에 들어온 참이었어요.", "gist": "Wylder는 새로 들어온 선수예요. 12번 ①의 근거예요."}, {"n": 4, "ch": [{"e": "<b>Approaching<\/b> the field,", "k": "운동장에 가까워지면서,"}, {"e": "(a) he saw players", "k": "(a) 그는(= Wylder는) 선수들이 ~하는 것을 보았다"}, {"e": "getting ready,", "k": "준비하는,"}, {"e": "pulling up their socks", "k": "그들의 양말을 끌어올리고"}, {"e": "and strapping on shin guards.", "k": "정강이 보호대를 차는 것을."}], "easy": "운동장에 가까이 가자, Wylder는 선수들이 양말을 올리고 정강이 보호대를 차며 준비하는 걸 봤어요.", "gist": "(a) he는 Wylder예요. 바로 앞 문장의 주어가 계속 이어져요."}, {"n": 5, "ch": [{"e": "But they weren't together.", "k": "그러나 그들은(= 선수들은) 함께가 아니었다."}], "easy": "그런데 선수들이 한데 모여 있지는 않았어요.", "gist": "갈라져 있다는 문제 상황이 시작돼요."}, {"n": 6, "ch": [{"e": "New players were sitting", "k": "새로운 선수들은 앉아 있었다"}, {"e": "in the shade by the garage,", "k": "차고 옆 그늘에서,"}, {"e": "<b>while<\/b> the others were standing", "k": "반면에 다른 선수들은 서 있었다"}, {"e": "in the sun by the right pole.", "k": "오른쪽 기둥 옆 양지에."}], "easy": "새로 온 선수들은 차고 옆 그늘에 앉아 있고, 나머지 선수들은 오른쪽 기둥 옆 햇볕에 서 있었어요.", "gist": "두 무리가 따로 있는 모습이에요. 뒤의 (D)에서 코치가 이걸 바꾸려 해요."}, {"n": 7, "ch": [{"e": "Then Coach McGraw came", "k": "그때 McGraw 코치가 왔다"}, {"e": "and watched the players.", "k": "그리고 선수들을 지켜보았다."}], "easy": "그때 McGraw 코치가 와서 선수들을 지켜봤어요.", "gist": "(A)의 마지막 문장이에요. 다음 (D)의 'Coach McGraw, too, saw'가 이 장면을 받아요."}, {"n": 8, "ch": [{"e": "(B) ‘Wow,’ thought Wylder.", "k": "(B) '우와.'라고 Wylder는 생각했다."}], "easy": "Wylder는 '우와' 하고 감탄했어요.", "gist": "코치의 연설을 듣고 난 뒤의 반응이에요."}, {"n": 9, "ch": [{"e": "From his new location on the grass,", "k": "잔디 위의 그의 새로운 자리에서,"}, {"e": "he stretched out his legs.", "k": "그는 다리를 쭉 폈다."}], "easy": "잔디 위 새 자리에서 Wylder는 다리를 쭉 폈어요.", "gist": "선택지 12번 ②의 근거예요."}, {"n": 10, "ch": [{"e": "He liked what he was hearing.", "k": "그는 그가 듣고 있는 것이 마음에 들었다."}], "easy": "그는 코치가 하는 말이 마음에 들었어요.", "gist": "연설이 좋았다는 뜻이에요."}, {"n": 11, "ch": [{"e": "A new sense of team spirit", "k": "새로운 팀 정신의 감각이,"}, {"e": "came across (b) him,", "k": "(b) 그에게(= Wylder에게) 다가왔다,"}, {"e": "a deeper sense of connection.", "k": "더 깊은 연대감이."}], "easy": "새로운 팀 정신과 더 깊은 연대감이 Wylder에게 느껴졌어요.", "gist": "(b) him은 Wylder예요. 감동을 받는 쪽이에요."}, {"n": 12, "ch": [{"e": "It was encouraging", "k": "힘을 북돋아 주었다"}, {"e": "to hear Coach talk about this,", "k": "코치가 이것에 대해 말하는 것을 듣는 것이,"}, {"e": "to see him face the challenge head-on.", "k": "그가(= 코치가) 도전에 정면으로 맞서는 것을 보는 것이."}], "easy": "코치가 이 문제를 입에 올리고 정면으로 부딪히는 모습을 보니 힘이 났어요.", "gist": "이 문장의 him은 코치예요. Wylder가 코치를 보며 용기를 얻어요."}, {"n": 13, "ch": [{"e": "Now his speech was over.", "k": "이제 그의(= 코치의) 연설이 끝났다."}], "easy": "이제 코치의 연설이 끝났어요.", "gist": "연설이 끝났다는 신호예요. 그래서 (B)는 (C) 뒤에 와요."}, {"n": 14, "ch": [{"e": "The players got up", "k": "선수들은 일어났다"}, {"e": "and started walking on the field", "k": "그리고 운동장을 걷기 시작했다"}, {"e": "to warm up.", "k": "몸을 풀기 위해."}], "easy": "선수들은 일어나 몸을 풀러 운동장으로 걸어갔어요.", "gist": "연설이 끝나고 선수들이 몸을 풀러 움직이는 장면이에요."}, {"n": 15, "ch": [{"e": "\"Good job, Coach. That was good,\"", "k": "\"잘하셨습니다, 코치님. 그건 정말 좋았어요,\""}, {"e": "Wylder said to McGraw in a low voice", "k": "Wylder는 McGraw에게 낮은 목소리로 말했다"}, {"e": "as he walked past him,", "k": "그가(= Wylder가) 그를(= McGraw를) 지나쳐 걸어가면서,"}, {"e": "keeping (c) his eyes down", "k": "(c) 그의(= Wylder의) 시선을 아래로 한 채로"}, {"e": "out of respect.", "k": "존경심에서."}], "easy": "Wylder는 시선을 내리깔고 낮은 목소리로 '잘하셨어요, 코치님' 하며 코치 옆을 지나갔어요.", "gist": "(c) his는 Wylder예요. 지나가는 사람이 Wylder, 지나치는 대상(him)이 McGraw예요."}, {"n": 16, "ch": [{"e": "(C) McGraw <b>continued to point<\/b>,", "k": "(C) McGraw는 계속해서 가리켰다,"}, {"e": "calling each player out,", "k": "각 선수를 불러내며,"}, {"e": "until he was satisfied", "k": "그가 만족할 때까지"}, {"e": "with the rearrangement.", "k": "재배열에."}], "easy": "McGraw는 자리 배치가 마음에 들 때까지 선수를 한 명씩 불러내며 계속 가리켰어요.", "gist": "continued(계속했다)는 (D)에서 가리키기 시작한 일을 이어받아요. 선택지 12번 ③의 근거예요."}, {"n": 17, "ch": [{"e": "\"Okay, this is how it's going to be,\"", "k": "\"그래, 이렇게 될 거다,\""}, {"e": "he began.", "k": "라고 그가(= McGraw가) 말을 시작했다."}], "easy": "'좋아, 앞으로는 이렇게 간다' 하고 코치가 말을 꺼냈어요.", "gist": "코치의 연설이 시작돼요."}, {"n": 18, "ch": [{"e": "\"We need to learn", "k": "\"우리는 배울 필요가 있다"}, {"e": "how to trust and work with each other.", "k": "서로를 믿고 함께 하는 방법을."}], "link": "우리는 서로를 믿고 함께 경기하는 방식을 배울 필요가 있다.", "easy": "코치는 '우리는 서로 믿고 함께 하는 법을 배워야 한다'고 말해요.", "gist": "연설의 핵심 메시지예요."}, {"n": 19, "ch": [{"e": "This is how a team plays.", "k": "이것이 팀이 경기하는 방식이다."}], "easy": "'그게 바로 팀이 경기하는 방식'이라는 말이에요.", "gist": "앞 문장을 다시 강조해요."}, {"n": 20, "ch": [{"e": "This is how I want you to be", "k": "이것이 내가 너희가 있기를 바라는 방식이다"}, {"e": "on and off the field:", "k": "운동장 안과 밖에서:"}, {"e": "<b>together<\/b>.\"", "k": "함께.\""}], "easy": "운동장 안에서도 밖에서도 함께였으면 좋겠다는 말이에요.", "gist": "연설의 마지막 요점은 together(함께)예요."}, {"n": 21, "ch": [{"e": "The players looked at each other.", "k": "선수들은 서로를 바라보았다."}], "easy": "선수들이 서로를 쳐다봤어요.", "gist": "코치의 말에 선수들이 반응하기 시작해요."}, {"n": 22, "ch": [{"e": "<b>Almost immediately<\/b>,", "k": "거의 바로,"}, {"e": "McGraw noticed a change", "k": "McGraw는 변화를 알아차렸다"}, {"e": "in their postures and faces.", "k": "그들의 자세와 얼굴에서."}], "easy": "거의 곧바로 코치는 선수들의 자세와 표정이 달라진 걸 알아챘어요.", "gist": "선택지 12번 ④의 근거예요. 알아챈 사람은 McGraw예요."}, {"n": 23, "ch": [{"e": "(d) He saw some of them", "k": "(d) 그는(= McGraw는) 그들 중 몇몇이"}, {"e": "starting to smile.", "k": "미소를 짓기 시작하는 것을 보았다."}], "easy": "코치는 몇몇 선수가 웃기 시작하는 것을 봤어요.", "gist": "(d) He는 McGraw예요. 11번의 정답(④)이에요."}, {"n": 24, "ch": [{"e": "(D) Coach McGraw, <b>too<\/b>, saw the pattern", "k": "(D) McGraw 코치도 그 모습을 보았다"}, {"e": "— new kids and others", "k": "새로운 아이들과 다른 아이들이"}, {"e": "grouping separately.", "k": "따로 무리를 짓고 있는."}], "easy": "McGraw 코치도 새로 온 아이들과 나머지가 따로 뭉쳐 있는 모습을 봤어요.", "gist": "too(~도)는 (A)에서 Wylder가 본 '따로 무리 지은 모습'을 코치도 봤다는 뜻이에요. 그래서 (A) 바로 뒤에 와요."}, {"n": 25, "ch": [{"e": "‘This has to change,’", "k": "'이건 바뀌어야 해,'"}, {"e": "he thought.", "k": "라고 그는(= McGraw는) 생각했다."}], "easy": "코치는 '이건 바꿔야 해' 하고 생각했어요.", "gist": "코치가 바꾸기로 마음먹어요."}, {"n": 26, "ch": [{"e": "He wanted a winning team.", "k": "그는(= McGraw는) 우승하는 팀을 원했다."}], "easy": "코치는 이기는 팀을 원했어요.", "gist": "바꾸려는 이유예요."}, {"n": 27, "ch": [{"e": "To do that,", "k": "그러기 위해서,"}, {"e": "he needed to build relationships.", "k": "그는 관계를 형성해야 했다."}], "easy": "그러려면 선수들 사이의 관계를 만들어야 했어요.", "gist": "이기는 팀 → 관계 만들기로 이어져요."}, {"n": 28, "ch": [{"e": "\"I want you guys", "k": "\"나는 너희들이 ~하기를 바란다"}, {"e": "to come over here in the middle and sit,\"", "k": "여기 중앙으로 와서 앉기를,\""}, {"e": "he called the players", "k": "그는 선수들을 불렀다"}, {"e": "as he walked over.", "k": "걸어가면서."}], "easy": "'다들 이쪽 가운데로 와서 앉아라' 하고 코치가 걸어가며 선수들을 불렀어요.", "gist": "12번 ⑤의 근거예요. 코치는 가운데로 와서 앉으라고 했어요."}, {"n": 29, "ch": [{"e": "\"You!\"", "k": "\"너!\""}, {"e": "McGraw roared,", "k": "McGraw가 고함쳤다,"}, {"e": "pointing at Wylder.", "k": "Wylder를 가리키며."}], "easy": "McGraw가 Wylder를 가리키며 '너!' 하고 소리쳤어요.", "gist": "코치가 Wylder를 가리키며 불러요."}, {"n": 30, "ch": [{"e": "\"Come here", "k": "\"여기로 와라"}, {"e": "onto the field and sit.", "k": "운동장 안으로 와서 앉아라."}], "easy": "코치가 Wylder에게 '여기 운동장으로 와서 앉아' 하고 말해요.", "gist": "12번 ⑤의 근거예요. onto the field(운동장 안으로)가 핵심이에요."}, {"n": 31, "ch": [{"e": "And Jonny!", "k": "그리고 Jonny!"}], "easy": "코치가 'Jonny!' 하고 다른 선수도 불러요.", "gist": "다른 선수도 지목해요."}, {"n": 32, "ch": [{"e": "You sit over there!\"", "k": "너는 저기 앉아라!\""}], "easy": "Jonny에게는 '너는 저기 앉아!' 하고 자리를 정해 줘요.", "gist": "새 아이와 기존 아이가 섞이도록 자리를 정해 줘요."}, {"n": 33, "ch": [{"e": "He <b>started pointing<\/b>,", "k": "그는 가리키기 시작했다,"}, {"e": "making sure", "k": "확실히 하며"}, {"e": "they mixed together.", "k": "그들이(= 선수들이) 서로 섞이는 것을."}], "easy": "코치는 선수들을 가리키기 시작해서, 두 무리가 확실히 섞이게 했어요.", "gist": "started pointing(가리키기 시작했다)은 (C)의 continued to point로 이어져요."}, {"n": 34, "ch": [{"e": "Wylder realized", "k": "Wylder는 깨달았다"}, {"e": "what Coach was trying to do,", "k": "코치가 하려는 것이 무엇인지,"}, {"e": "so (e) he hopped onto the field.", "k": "그래서 (e) 그는(= Wylder는) 운동장으로 뛰어 올라왔다."}], "easy": "Wylder는 코치의 뜻을 알아차리고 운동장 안으로 뛰어 올라왔어요.", "gist": "(e) he는 Wylder예요. realized의 주어가 Wylder라서 이어서 he도 Wylder예요."}]}, {"no": "12", "typ": "내용 불일치", "src": "2023년 3월 45번", "evn": [28, 30], "ev_en": "\"I want you guys to come over here in the middle and sit,\" he called the players as he walked over. [D-5] / \"Come here onto the field and sit. [D-7]", "ev_ko": [[28, "[D-5] \"난 너희들이 여기 중앙에 와서 앉기를 바란다.\"라며 그는 걸어가면서 선수들을 불렀다."], [30, "[D-7] \"여기 운동장으로 와서 앉아라."]], "why": ["불일치 유형은 선택지를 <b>지문 순서대로<\/b> 대조합니다", "⑤의 근거는 (D)에 있습니다", "코치가 시킨 것은 운동장 <b>가운데로 와서 앉으라<\/b>(come over here in the middle and sit / Come here onto the field and sit)는 것입니다", "운동장 <b>밖으로 나가라<\/b>는 말은 없으므로 방향을 정반대로 뒤집은 선택지입니다."], "ch": [{"n": "①", "t": "Wylder는 다섯 명의 다른 학생과 팀에 합류했다.", "g": "", "ok": false, "e": ["(A-3)의 <b>joined the team with five other students<\/b>(다섯 명의 다른 학생들과 팀에 합류했다)와 일치합니다."]}, {"n": "②", "t": "Wylder는 잔디 위의 새로운 자리에서 다리를 쭉 폈다.", "g": "", "ok": false, "e": ["(B-2)의 <b>From his new location on the grass, he stretched out his legs<\/b>(잔디 위의 새로운 자리에서 다리를 쭉 폈다)와 일치합니다."]}, {"n": "③", "t": "McGraw는 재배열이 마음에 들 때까지 선수들을 불러냈다.", "g": "", "ok": false, "e": ["(C-1)의 <b>calling each player out, until he was satisfied with the rearrangement<\/b>(재배열에 만족할 때까지 각 선수를 불러냈다)와 일치합니다."]}, {"n": "④", "t": "McGraw는 선수들의 자세와 얼굴의 변화를 알아차렸다.", "g": "", "ok": false, "e": ["(C-7)의 <b>McGraw noticed a change in their postures and faces<\/b>(선수들의 자세와 얼굴의 변화를 알아챘다)와 일치합니다."]}, {"n": "⑤", "t": "McGraw는 선수들에게 운동장 밖으로 나가라고 말했다.", "g": "", "ok": true, "e": ["(D-5), (D-7)에서 코치는 운동장 <b>안(가운데)으로 와서 앉으라<\/b>고 했습니다", "지문과 맞지 않습니다."]}], "tr": ["(A) [A-1] 초가을의 더운 날이었다.", "[A-2] Wylder는 그의 첫 훈련을 위해 학교 운동장으로 향하고 있었다.", "[A-3] 그는 성공적인 적격 시험 후에 다섯 명의 다른 학생들과 막 팀에 합류했다.", "[A-4] 운동장에 가까워지면서, (a)그(Wylder)는 선수들이 준비하고, 그들의 양말을 끌어올리고 정강이 보호대를 착용하는 것을 보았다.", "[A-5] 그러나 그들은 함께가 아니었다.", "[A-6] 새로운 선수들은 차고 근처의 그늘에 앉아 있는 반면, 다른 선수들은 오른쪽 기둥 옆 양지에 서 있었다.", "[A-7] 그 후 McGraw 코치가 왔고, 선수들을 보았다.", "(B) [B-1] '우와.'라고 Wylder는 생각했다.", "[B-2] 잔디 위의 그의 새로운 자리에서 그는 다리를 쭉 폈다.", "[B-3] 그는 그가 듣고 있는 것이 마음에 들었다.", "[B-4] 새로운 팀 정신의 감각, 더 깊은 연대감이 (b)그(Wylder)에게 다가왔다.", "[B-5] 코치가 이것에 대해 말하는 것을 듣는 것과 그가 도전에 정면으로 맞서는 것을 보는 것은 힘을 북돋아 주었다.", "[B-6] 이제 그의 연설이 끝났다.", "[B-7] 선수들은 일어나서 몸을 풀기 위해 운동장을 걷기 시작했다.", "[B-8] Wylder는 존경심을 담아 (c)그(Wylder)의 시선을 아래로 한 채로 McGraw를 지나쳐 걸어가면서 그에게 \"잘하셨습니다, 코치님. 그건 정말 좋았어요.\"라고 낮은 목소리로 말했다.", "(C) [C-1] McGraw는 그가 재배열에 만족할 때까지 각 선수를 불러내며 계속해서 가리켰다.", "[C-2] \"그래, 이렇게 될 거다.\"라고 그가 말을 시작했다.", "[C-3] \"우리는 서로를 믿고 함께 경기하는 방식을 배울 필요가 있다.", "[C-4] 이것이 팀이 경기하는 방식이다.", "[C-5] 이것이 내가 너희가 운동장 안과 밖에서 함께하는 것이 되길(함께하기를) 바라는 방식이다.\"", "[C-6] 선수들은 서로를 바라보았다.", "[C-7] McGraw는 그들의 자세와 얼굴에서 거의 바로 변화를 알아차렸다.", "[C-8] (d)그(McGraw)는 그들 중 몇몇이 미소를 짓기 시작하는 것을 보았다.", "(D) [D-1] McGraw 코치도 새로운 아이들과 다른 아이들이 따로 무리를 지어 있는 그 패턴(모습)을 보았다.", "[D-2] '이건 바뀌어야 해.'라고 그는 생각했다.", "[D-3] 그는 우승하는 팀을 원했다.", "[D-4] 그러기 위해서 그는 관계를 형성해야 했다.", "[D-5] \"난 너희들이 여기 중앙에 와서 앉기를 바란다.\"라며 그는 걸어가면서 선수들을 불렀다.", "[D-6] McGraw가 Wylder를 가리키며 \"너!\"라고 고함쳤다.", "[D-7] \"여기 운동장으로 와서 앉아라.", "[D-8] 그리고 Jonny!", "[D-9] 너는 저기 앉아라!\"", "[D-10] 그는 가리키기 시작했고, 그들(선수들)이 서로 섞이는 것을 확실히 했다.", "[D-11] Wylder는 코치가 무엇을 하려고 하는지를 깨달아서, (e)그(Wylder)는 운동장으로 뛰어 올라왔다."], "ps": [{"n": 1, "ch": [{"e": "(A) It was a hot day", "k": "(A) 더운 날이었다"}, {"e": "in early fall.", "k": "초가을의."}], "easy": "초가을의 더운 날이었어요.", "gist": "이야기 시작이에요. 때와 날씨를 알려 줘요."}, {"n": 2, "ch": [{"e": "Wylder was heading", "k": "Wylder는 향하고 있었다"}, {"e": "to the school field", "k": "학교 운동장으로"}, {"e": "for his first training.", "k": "그의 첫 훈련을 위해."}], "easy": "Wylder는 첫 훈련을 하러 학교 운동장으로 가는 중이었어요.", "gist": "주인공 Wylder 소개예요."}, {"n": 3, "ch": [{"e": "He had just joined the team", "k": "그는 막 팀에 합류한 상태였다"}, {"e": "with five other students", "k": "다섯 명의 다른 학생들과 함께"}, {"e": "after a successful tryout.", "k": "성공적인 적격 시험 후에."}], "easy": "그는 시험에 통과해서 다른 학생 다섯 명과 이제 막 팀에 들어온 참이었어요.", "gist": "Wylder는 새로 들어온 선수예요. 12번 ①의 근거예요."}, {"n": 4, "ch": [{"e": "<b>Approaching<\/b> the field,", "k": "운동장에 가까워지면서,"}, {"e": "(a) he saw players", "k": "(a) 그는(= Wylder는) 선수들이 ~하는 것을 보았다"}, {"e": "getting ready,", "k": "준비하는,"}, {"e": "pulling up their socks", "k": "그들의 양말을 끌어올리고"}, {"e": "and strapping on shin guards.", "k": "정강이 보호대를 차는 것을."}], "easy": "운동장에 가까이 가자, Wylder는 선수들이 양말을 올리고 정강이 보호대를 차며 준비하는 걸 봤어요.", "gist": "(a) he는 Wylder예요. 바로 앞 문장의 주어가 계속 이어져요."}, {"n": 5, "ch": [{"e": "But they weren't together.", "k": "그러나 그들은(= 선수들은) 함께가 아니었다."}], "easy": "그런데 선수들이 한데 모여 있지는 않았어요.", "gist": "갈라져 있다는 문제 상황이 시작돼요."}, {"n": 6, "ch": [{"e": "New players were sitting", "k": "새로운 선수들은 앉아 있었다"}, {"e": "in the shade by the garage,", "k": "차고 옆 그늘에서,"}, {"e": "<b>while<\/b> the others were standing", "k": "반면에 다른 선수들은 서 있었다"}, {"e": "in the sun by the right pole.", "k": "오른쪽 기둥 옆 양지에."}], "easy": "새로 온 선수들은 차고 옆 그늘에 앉아 있고, 나머지 선수들은 오른쪽 기둥 옆 햇볕에 서 있었어요.", "gist": "두 무리가 따로 있는 모습이에요. 뒤의 (D)에서 코치가 이걸 바꾸려 해요."}, {"n": 7, "ch": [{"e": "Then Coach McGraw came", "k": "그때 McGraw 코치가 왔다"}, {"e": "and watched the players.", "k": "그리고 선수들을 지켜보았다."}], "easy": "그때 McGraw 코치가 와서 선수들을 지켜봤어요.", "gist": "(A)의 마지막 문장이에요. 다음 (D)의 'Coach McGraw, too, saw'가 이 장면을 받아요."}, {"n": 8, "ch": [{"e": "(B) ‘Wow,’ thought Wylder.", "k": "(B) '우와.'라고 Wylder는 생각했다."}], "easy": "Wylder는 '우와' 하고 감탄했어요.", "gist": "코치의 연설을 듣고 난 뒤의 반응이에요."}, {"n": 9, "ch": [{"e": "From his new location on the grass,", "k": "잔디 위의 그의 새로운 자리에서,"}, {"e": "he stretched out his legs.", "k": "그는 다리를 쭉 폈다."}], "easy": "잔디 위 새 자리에서 Wylder는 다리를 쭉 폈어요.", "gist": "선택지 12번 ②의 근거예요."}, {"n": 10, "ch": [{"e": "He liked what he was hearing.", "k": "그는 그가 듣고 있는 것이 마음에 들었다."}], "easy": "그는 코치가 하는 말이 마음에 들었어요.", "gist": "연설이 좋았다는 뜻이에요."}, {"n": 11, "ch": [{"e": "A new sense of team spirit", "k": "새로운 팀 정신의 감각이,"}, {"e": "came across (b) him,", "k": "(b) 그에게(= Wylder에게) 다가왔다,"}, {"e": "a deeper sense of connection.", "k": "더 깊은 연대감이."}], "easy": "새로운 팀 정신과 더 깊은 연대감이 Wylder에게 느껴졌어요.", "gist": "(b) him은 Wylder예요. 감동을 받는 쪽이에요."}, {"n": 12, "ch": [{"e": "It was encouraging", "k": "힘을 북돋아 주었다"}, {"e": "to hear Coach talk about this,", "k": "코치가 이것에 대해 말하는 것을 듣는 것이,"}, {"e": "to see him face the challenge head-on.", "k": "그가(= 코치가) 도전에 정면으로 맞서는 것을 보는 것이."}], "easy": "코치가 이 문제를 입에 올리고 정면으로 부딪히는 모습을 보니 힘이 났어요.", "gist": "이 문장의 him은 코치예요. Wylder가 코치를 보며 용기를 얻어요."}, {"n": 13, "ch": [{"e": "Now his speech was over.", "k": "이제 그의(= 코치의) 연설이 끝났다."}], "easy": "이제 코치의 연설이 끝났어요.", "gist": "연설이 끝났다는 신호예요. 그래서 (B)는 (C) 뒤에 와요."}, {"n": 14, "ch": [{"e": "The players got up", "k": "선수들은 일어났다"}, {"e": "and started walking on the field", "k": "그리고 운동장을 걷기 시작했다"}, {"e": "to warm up.", "k": "몸을 풀기 위해."}], "easy": "선수들은 일어나 몸을 풀러 운동장으로 걸어갔어요.", "gist": "연설이 끝나고 선수들이 몸을 풀러 움직이는 장면이에요."}, {"n": 15, "ch": [{"e": "\"Good job, Coach. That was good,\"", "k": "\"잘하셨습니다, 코치님. 그건 정말 좋았어요,\""}, {"e": "Wylder said to McGraw in a low voice", "k": "Wylder는 McGraw에게 낮은 목소리로 말했다"}, {"e": "as he walked past him,", "k": "그가(= Wylder가) 그를(= McGraw를) 지나쳐 걸어가면서,"}, {"e": "keeping (c) his eyes down", "k": "(c) 그의(= Wylder의) 시선을 아래로 한 채로"}, {"e": "out of respect.", "k": "존경심에서."}], "easy": "Wylder는 시선을 내리깔고 낮은 목소리로 '잘하셨어요, 코치님' 하며 코치 옆을 지나갔어요.", "gist": "(c) his는 Wylder예요. 지나가는 사람이 Wylder, 지나치는 대상(him)이 McGraw예요."}, {"n": 16, "ch": [{"e": "(C) McGraw <b>continued to point<\/b>,", "k": "(C) McGraw는 계속해서 가리켰다,"}, {"e": "calling each player out,", "k": "각 선수를 불러내며,"}, {"e": "until he was satisfied", "k": "그가 만족할 때까지"}, {"e": "with the rearrangement.", "k": "재배열에."}], "easy": "McGraw는 자리 배치가 마음에 들 때까지 선수를 한 명씩 불러내며 계속 가리켰어요.", "gist": "continued(계속했다)는 (D)에서 가리키기 시작한 일을 이어받아요. 선택지 12번 ③의 근거예요."}, {"n": 17, "ch": [{"e": "\"Okay, this is how it's going to be,\"", "k": "\"그래, 이렇게 될 거다,\""}, {"e": "he began.", "k": "라고 그가(= McGraw가) 말을 시작했다."}], "easy": "'좋아, 앞으로는 이렇게 간다' 하고 코치가 말을 꺼냈어요.", "gist": "코치의 연설이 시작돼요."}, {"n": 18, "ch": [{"e": "\"We need to learn", "k": "\"우리는 배울 필요가 있다"}, {"e": "how to trust and work with each other.", "k": "서로를 믿고 함께 하는 방법을."}], "link": "우리는 서로를 믿고 함께 경기하는 방식을 배울 필요가 있다.", "easy": "코치는 '우리는 서로 믿고 함께 하는 법을 배워야 한다'고 말해요.", "gist": "연설의 핵심 메시지예요."}, {"n": 19, "ch": [{"e": "This is how a team plays.", "k": "이것이 팀이 경기하는 방식이다."}], "easy": "'그게 바로 팀이 경기하는 방식'이라는 말이에요.", "gist": "앞 문장을 다시 강조해요."}, {"n": 20, "ch": [{"e": "This is how I want you to be", "k": "이것이 내가 너희가 있기를 바라는 방식이다"}, {"e": "on and off the field:", "k": "운동장 안과 밖에서:"}, {"e": "<b>together<\/b>.\"", "k": "함께.\""}], "easy": "운동장 안에서도 밖에서도 함께였으면 좋겠다는 말이에요.", "gist": "연설의 마지막 요점은 together(함께)예요."}, {"n": 21, "ch": [{"e": "The players looked at each other.", "k": "선수들은 서로를 바라보았다."}], "easy": "선수들이 서로를 쳐다봤어요.", "gist": "코치의 말에 선수들이 반응하기 시작해요."}, {"n": 22, "ch": [{"e": "<b>Almost immediately<\/b>,", "k": "거의 바로,"}, {"e": "McGraw noticed a change", "k": "McGraw는 변화를 알아차렸다"}, {"e": "in their postures and faces.", "k": "그들의 자세와 얼굴에서."}], "easy": "거의 곧바로 코치는 선수들의 자세와 표정이 달라진 걸 알아챘어요.", "gist": "선택지 12번 ④의 근거예요. 알아챈 사람은 McGraw예요."}, {"n": 23, "ch": [{"e": "(d) He saw some of them", "k": "(d) 그는(= McGraw는) 그들 중 몇몇이"}, {"e": "starting to smile.", "k": "미소를 짓기 시작하는 것을 보았다."}], "easy": "코치는 몇몇 선수가 웃기 시작하는 것을 봤어요.", "gist": "(d) He는 McGraw예요. 11번의 정답(④)이에요."}, {"n": 24, "ch": [{"e": "(D) Coach McGraw, <b>too<\/b>, saw the pattern", "k": "(D) McGraw 코치도 그 모습을 보았다"}, {"e": "— new kids and others", "k": "새로운 아이들과 다른 아이들이"}, {"e": "grouping separately.", "k": "따로 무리를 짓고 있는."}], "easy": "McGraw 코치도 새로 온 아이들과 나머지가 따로 뭉쳐 있는 모습을 봤어요.", "gist": "too(~도)는 (A)에서 Wylder가 본 '따로 무리 지은 모습'을 코치도 봤다는 뜻이에요. 그래서 (A) 바로 뒤에 와요."}, {"n": 25, "ch": [{"e": "‘This has to change,’", "k": "'이건 바뀌어야 해,'"}, {"e": "he thought.", "k": "라고 그는(= McGraw는) 생각했다."}], "easy": "코치는 '이건 바꿔야 해' 하고 생각했어요.", "gist": "코치가 바꾸기로 마음먹어요."}, {"n": 26, "ch": [{"e": "He wanted a winning team.", "k": "그는(= McGraw는) 우승하는 팀을 원했다."}], "easy": "코치는 이기는 팀을 원했어요.", "gist": "바꾸려는 이유예요."}, {"n": 27, "ch": [{"e": "To do that,", "k": "그러기 위해서,"}, {"e": "he needed to build relationships.", "k": "그는 관계를 형성해야 했다."}], "easy": "그러려면 선수들 사이의 관계를 만들어야 했어요.", "gist": "이기는 팀 → 관계 만들기로 이어져요."}, {"n": 28, "ch": [{"e": "\"I want you guys", "k": "\"나는 너희들이 ~하기를 바란다"}, {"e": "to come over here in the middle and sit,\"", "k": "여기 중앙으로 와서 앉기를,\""}, {"e": "he called the players", "k": "그는 선수들을 불렀다"}, {"e": "as he walked over.", "k": "걸어가면서."}], "easy": "'다들 이쪽 가운데로 와서 앉아라' 하고 코치가 걸어가며 선수들을 불렀어요.", "gist": "12번 ⑤의 근거예요. 코치는 가운데로 와서 앉으라고 했어요."}, {"n": 29, "ch": [{"e": "\"You!\"", "k": "\"너!\""}, {"e": "McGraw roared,", "k": "McGraw가 고함쳤다,"}, {"e": "pointing at Wylder.", "k": "Wylder를 가리키며."}], "easy": "McGraw가 Wylder를 가리키며 '너!' 하고 소리쳤어요.", "gist": "코치가 Wylder를 가리키며 불러요."}, {"n": 30, "ch": [{"e": "\"Come here", "k": "\"여기로 와라"}, {"e": "onto the field and sit.", "k": "운동장 안으로 와서 앉아라."}], "easy": "코치가 Wylder에게 '여기 운동장으로 와서 앉아' 하고 말해요.", "gist": "12번 ⑤의 근거예요. onto the field(운동장 안으로)가 핵심이에요."}, {"n": 31, "ch": [{"e": "And Jonny!", "k": "그리고 Jonny!"}], "easy": "코치가 'Jonny!' 하고 다른 선수도 불러요.", "gist": "다른 선수도 지목해요."}, {"n": 32, "ch": [{"e": "You sit over there!\"", "k": "너는 저기 앉아라!\""}], "easy": "Jonny에게는 '너는 저기 앉아!' 하고 자리를 정해 줘요.", "gist": "새 아이와 기존 아이가 섞이도록 자리를 정해 줘요."}, {"n": 33, "ch": [{"e": "He <b>started pointing<\/b>,", "k": "그는 가리키기 시작했다,"}, {"e": "making sure", "k": "확실히 하며"}, {"e": "they mixed together.", "k": "그들이(= 선수들이) 서로 섞이는 것을."}], "easy": "코치는 선수들을 가리키기 시작해서, 두 무리가 확실히 섞이게 했어요.", "gist": "started pointing(가리키기 시작했다)은 (C)의 continued to point로 이어져요."}, {"n": 34, "ch": [{"e": "Wylder realized", "k": "Wylder는 깨달았다"}, {"e": "what Coach was trying to do,", "k": "코치가 하려는 것이 무엇인지,"}, {"e": "so (e) he hopped onto the field.", "k": "그래서 (e) 그는(= Wylder는) 운동장으로 뛰어 올라왔다."}], "easy": "Wylder는 코치의 뜻을 알아차리고 운동장 안으로 뛰어 올라왔어요.", "gist": "(e) he는 Wylder예요. realized의 주어가 Wylder라서 이어서 he도 Wylder예요."}]}];
+var ENC="=QakivzoRK+OkGp47AakivDpRK+OjGp4";
+var SETID="g2r02p2", N=D.length, TITLE="고2 미니모의고사 2회 07–12번";
+var CIRC="①②③④⑤";
+function dec(s){var b=atob(s.split("").reverse().join(""));var u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return new TextDecoder("utf-8").decode(u);}
+var ANS=dec(ENC).split(";").map(function(x){return x.split("|").map(function(c){return CIRC.indexOf(c)+1;});});
+function isRight(i,a){return ANS[i].indexOf(a)>=0;}
+function ansText(i){return ANS[i].map(function(n){return CIRC[n-1];}).join(", ");}
+
+var GCODE="h2", GRADE="고2", FILE="02b", NEXT="03a.html";
+const KEY='via_mm_'+GCODE+'_'+FILE;
+let S={checks:{},locked:{},res:{},sub:null,q:[]};
+try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* REC 연결 지점: 지금은 기기 안에 대기열로만 쌓음 */
+function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localStorage.getItem('via_minimock_rec_queue')||'[]');q.push(ev);localStorage.setItem('via_minimock_rec_queue',JSON.stringify(q));}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const app=$('#app');
+let view='word',quiz=null,armed=null;
+function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function shuffle(arr,seed){const a=arr.slice();let s=hash(seed)||1;for(let i=a.length-1;i>0;i--){s=Math.imul(s^(s>>>15),2246822519)>>>0;const j=s%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+const WS=WORDS.sets[0];
+
+function hdr(){
+  const on=id=>(view===id)?'on':'';
+  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><a class="link" href="index.html">목록</a></div><div class="tabs"><button class="tab ${on('word')}" data-v="word">단어</button><button class="tab ${on('submit')}" data-v="submit">답 제출</button><button class="tab ${on('exp')}" data-v="exp" ${S.sub?'':'disabled'}>해설</button></div></div></header>`;
+}
+function noteList(){
+  const out=[],ck=S.checks[WS.id]||{};
+  WS.words.forEach((w,i)=>{
+    const c=ck[i];if(!c)return;
+    const parts=['m','s','a'].filter(p=>c[p]&&(p==='m'||w[p]));
+    if(parts.length)out.push({i:i,w:w,parts:parts});
+  });
+  return out;
+}
+function render(){
+  if(view==='word')renderWord();
+  else if(view==='note')renderNote();
+  else if(view==='quiz')renderQuiz();
+  else if(view==='result')renderResult();
+  else if(view==='submit')renderSubmit();
+  else if(view==='exp')renderExp();
+  window.scrollTo(0,0);
+}
+/* ---- 단어 확인 ---- */
+function renderWord(){
+  const ck=S.checks[WS.id]||{},locked=!!S.locked[WS.id],n=noteList().length;
+  let h=hdr()+`<div class="wrap ${locked?'locked':''}">`;
+  WS.words.forEach((w,i)=>{
+    const c=ck[i]||{};
+    h+=`<div class="row"><div class="top"><span class="no">${i+1}</span><span class="word">${esc(w.w)}</span><span class="src">${esc(w.src)}번</span></div><div class="cells">`;
+    h+=`<button class="cell m ${c.m?'bad':''}" data-i="${i}" data-p="m"><span class="tag">뜻</span><span>${esc(w.m)}</span></button>`;
+    if(w.s)h+=`<button class="cell s ${c.s?'bad':''}" data-i="${i}" data-p="s"><span class="tag">유</span><span>${esc(w.s[0])}<span class="ko">${esc(w.s[1])}</span></span></button>`;
+    if(w.a)h+=`<button class="cell a ${c.a?'bad':''}" data-i="${i}" data-p="a"><span class="tag">반</span><span>${esc(w.a[0])}<span class="ko">${esc(w.a[1])}</span></span></button>`;
+    h+=`</div></div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap">`;
+  h+=locked?`<button class="btn" disabled>확인 끝</button>`:`<button class="btn ${armed==='lock'?'arm':''}" id="lock">${armed==='lock'?'한 번 더 누르면 확인 끝':'확인 끝'}</button>`;
+  h+=`<button class="btn pri" id="gonote">단어 오답노트 ${n}</button></div></div>`;
+  app.innerHTML=h;
+  app.querySelectorAll('.cell').forEach(b=>b.onclick=()=>{
+    const i=+b.dataset.i,p=b.dataset.p;
+    S.checks[WS.id]=S.checks[WS.id]||{};
+    const c=S.checks[WS.id][i]=S.checks[WS.id][i]||{};
+    c[p]=c[p]?0:1;save();
+    b.classList.toggle('bad',!!c[p]);
+    $('#gonote').textContent='단어 오답노트 '+noteList().length;
+  });
+  const lk=$('#lock');if(lk)lk.onclick=()=>{
+    if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
+      recSend({type:'word',marks:noteList().map(it=>({w:it.w.w,parts:it.parts}))});}
+    else armed='lock';
+    render();
+  };
+  $('#gonote').onclick=()=>{view='note';armed=null;render();};
+}
+function renderNote(){
+  const list=noteList();
+  let h=`<header><div class="wrap hd2"><h1>단어 오답노트 <span class="meta">${list.length}개</span></h1><button class="link" id="back">확인표</button></div></header><div class="wrap">`;
+  if(!list.length)h+=`<div class="empty">아직 표시한 단어가 없습니다</div>`;
+  list.forEach(it=>{
+    const w=it.w,r=(S.res[WS.id]||{})[it.i]||{};
+    h+=`<div class="note-item"><span class="w">${esc(w.w)}</span><span class="meta">${esc(w.src)}번</span>`;
+    const row=(p,tag,txt,ko)=>{
+      const bad=it.parts.includes(p);
+      const rs=r[p]===1?'<span class="res o">맞춤</span>':r[p]===0?'<span class="res x">틀림</span>':'';
+      return `<div class="part ${p} ${bad?'bad':''}"><span class="tag">${tag}</span><span>${esc(txt)}${ko?`<span class="ko"> ${esc(ko)}</span>`:''}</span>${bad?rs:''}</div>`;
+    };
+    h+=row('m','뜻',w.m,'');
+    if(w.s)h+=row('s','유',w.s[0],w.s[1]);
+    if(w.a)h+=row('a','반',w.a[0],w.a[1]);
+    h+=`</div>`;
+  });
+  h+=`</div><div class="bar"><div class="wrap"><button class="btn" id="back2">확인표</button><button class="btn pri" id="start" ${list.length?'':'disabled'}>복습 시작</button></div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='word';armed=null;render();};
+  $('#back2').onclick=()=>{view='word';render();};
+  $('#start').onclick=()=>{quiz={qs:buildQuestions(),n:0,right:0,done:false,shown:false};view='quiz';render();};
+}
+function buildQuestions(){
+  const qs=[];
+  noteList().forEach(it=>{
+    const w=it.w;
+    it.parts.forEach(p=>{
+      let q={i:it.i,p:p,w:w.w};
+      if(p==='m'){
+        const toks=x=>x.split(/[,，]\s*/).map(t=>t.trim());
+        const ct=toks(w.m);
+        const pool=[...new Set(WS.words.filter(o=>o!==w).map(o=>o.m))].filter(m=>!toks(m).some(t=>ct.includes(t)));
+        const wrong=shuffle(pool,WS.id+w.w+'m').slice(0,3);
+        q.type='choice';q.ask='뜻을 고르세요';
+        q.opts=shuffle([{t:w.m,ok:1}].concat(wrong.map(t=>({t:t,ok:0}))),WS.id+w.w+'mo');
+      }else{
+        const ans=w[p],d=WS.dist||[];
+        q.ask=p==='s'?'유의어를 고르세요':'반의어를 고르세요';
+        if(d.length>=3){
+          q.type='choice';
+          q.opts=shuffle([{t:ans[0],ko:ans[1],ok:1}].concat(shuffle(d,WS.id+w.w+p).slice(0,3).map(x=>({t:x[0],ko:x[1],ok:0}))),WS.id+w.w+p+'o');
+        }else{q.type='flip';q.ans=ans;}
+      }
+      qs.push(q);
+    });
+  });
+  return qs;
+}
+function recordRes(q,ok){S.res[WS.id]=S.res[WS.id]||{};const r=S.res[WS.id][q.i]=S.res[WS.id][q.i]||{};r[q.p]=ok?1:0;save();}
+function renderQuiz(){
+  const q=quiz.qs[quiz.n];
+  let h=`<header><div class="wrap hd2"><h1>복습</h1><button class="link" id="back">오답노트</button></div></header><div class="wrap ${quiz.done?'done':''}"><div class="q"><div class="cnt">${quiz.n+1} / ${quiz.qs.length}</div><div class="ask">${q.ask}</div><div class="target">${esc(q.w)}</div>`;
+  if(q.type==='choice'){
+    q.opts.forEach((o,k)=>{
+      let cls='';
+      if(quiz.done){if(o.ok)cls='right';else if(k===quiz.pick)cls='wrong';}
+      h+=`<button class="opt ${cls}" data-k="${k}">${esc(o.t)}${o.ko?`<span class="ko">${esc(o.ko)}</span>`:''}</button>`;
+    });
+  }else if(quiz.shown)h+=`<div class="opt right">${esc(q.ans[0])}<span class="ko">${esc(q.ans[1])}</span></div>`;
+  h+=`</div></div><div class="bar"><div class="wrap">`;
+  if(q.type==='flip'&&!quiz.shown)h+=`<button class="btn pri" id="show">정답 보기</button>`;
+  else if(q.type==='flip')h+=`<button class="btn" id="no">몰랐음</button><button class="btn pri" id="yes">알았음</button>`;
+  else h+=`<button class="btn pri" id="next" ${quiz.done?'':'disabled'}>${quiz.n+1===quiz.qs.length?'결과':'다음'}</button>`;
+  h+=`</div></div>`;
+  app.innerHTML=h;
+  $('#back').onclick=()=>{view='note';render();};
+  app.querySelectorAll('.opt[data-k]').forEach(b=>b.onclick=()=>{
+    if(quiz.done)return;
+    const k=+b.dataset.k;quiz.pick=k;quiz.done=true;
+    const ok=q.opts[k].ok===1;if(ok)quiz.right++;recordRes(q,ok);render();
+  });
+  const nx=$('#next');if(nx)nx.onclick=()=>advance();
+  const sh=$('#show');if(sh)sh.onclick=()=>{quiz.shown=true;render();};
+  const yes=$('#yes');if(yes)yes.onclick=()=>{quiz.right++;recordRes(q,true);advance();};
+  const no=$('#no');if(no)no.onclick=()=>{recordRes(q,false);advance();};
+}
+function advance(){
+  if(quiz.n+1>=quiz.qs.length){view='result';render();return;}
+  quiz.n++;quiz.done=false;quiz.shown=false;quiz.pick=null;render();
+}
+function renderResult(){
+  app.innerHTML=`<header><div class="wrap hd2"><h1>복습 결과</h1></div></header><div class="wrap"><div class="score">${quiz.right} <small>/ ${quiz.qs.length}</small></div></div><div class="bar"><div class="wrap"><button class="btn" id="a">오답노트</button><button class="btn pri" id="b">확인표</button></div></div>`;
+  $('#a').onclick=()=>{view='note';render();};
+  $('#b').onclick=()=>{view='word';render();};
+}
+/* ---- 답 제출 ---- */
+function renderSubmit(){
+  const done=!!S.sub;
+  while(S.q.length<N)S.q.push(0);
+  let h=hdr()+'<div class="wrap">';
+  for(let i=0;i<N;i++){
+    const sel=done?S.sub.a[i]:S.q[i];
+    h+=`<div class="qrow"><div class="qno">${esc(D[i].no)}</div><div class="opts">`;
+    for(let k=1;k<=5;k++)h+=`<button class="opt2 ${sel===k?'on':''}" data-q="${i}" data-k="${k}" ${done?'disabled':''}>${CIRC[k-1]}</button>`;
+    h+='</div></div>';
+  }
+  h+='</div><div class="bar"><div class="wrap">';
+  if(done)h+='<button class="btn pri" id="toexp">해설 보기</button>';
+  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>제출</button>`;
+  h+='</div></div>';
+  app.innerHTML=h;
+  app.querySelectorAll('.opt2').forEach(b=>b.onclick=()=>{
+    if(S.sub)return;
+    const q=+b.dataset.q,k=+b.dataset.k;S.q[q]=k;save();
+    b.parentNode.querySelectorAll('.opt2').forEach(x=>x.classList.toggle('on',+x.dataset.k===k));
+    $('#sub').disabled=!S.q.every(v=>v>0);
+  });
+  const sb=$('#sub');if(sb)sb.onclick=()=>{
+    let s=0;for(let i=0;i<N;i++)if(isRight(i,S.q[i]))s++;
+    S.sub={t:Date.now(),a:S.q.slice(),s:s};save();
+    recSend({type:'submit',a:S.sub.a,s:s,n:N});
+    view='exp';render();
+  };
+  const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
+}
+/* ---- 해설 ---- */
+function sHtml(s,evn){
+  const ev=evn.indexOf(s.n)>=0;
+  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
+  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
+  const lays=[];
+  if(s.link)lays.push(['이어 읽으면',s.link]);
+  if(s.easy)lays.push(['쉬운 말로',s.easy]);
+  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
+  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
+  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
+  return x+'</div>';
+}
+function qHtml(i,a){
+  const d=D[i],ok=isRight(i,a);
+  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
+  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
+  h+='<h4>정답 근거</h4>';
+  h+=`<p class="en">${esc(d.ev_en)}</p>`;
+  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
+  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  if(d.ps&&d.ps.length){
+    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
+  }
+  h+='<h4>선택지 하나씩</h4>';
+  d.ch.forEach(c=>{
+    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  });
+  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  return h+'</div></details>';
+}
+function renderExp(){
+  const rec=S.sub;
+  let h=hdr()+'<div class="wrap">';
+  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='</div><h2>해설</h2>';
+  for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
+  h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
+  app.innerHTML=h;
+}
+/* 위임 이벤트 */
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tab');
+  if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
+  const ch=e.target.closest('.ch');
+  if(ch){ch.classList.toggle('open');return;}
+  const st=e.target.closest('.stg');
+  if(st){
+    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const shown=lays.filter(l=>l.classList.contains('on')).length;
+    if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
+    else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
+    return;
+  }
+  const al=e.target.closest('.tbtn');
+  if(al){
+    const open=al.dataset.all==='1',body=al.closest('.dkbody');
+    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
+    body.querySelectorAll('.s').forEach(s=>{
+      const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
+      lays.forEach(l=>l.classList.toggle('on',open));
+      if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
+    });
+  }
+});
+render();
+</script>
+</body>
+</html>
