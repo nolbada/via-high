@@ -70,22 +70,23 @@
     });
     return {ch:ch,sent:sent,n:Object.keys(sent).length};
   }
-  function push(id,keep,skip){
-    var c=pending(skip);if(!c.n)return Promise.resolve(false);
+  function push(id,keep,skip,tomb){
+    var c=pending(skip),tk=Object.keys(tomb||{});if(!c.n&&!tk.length)return Promise.resolve(false);
+    tk.forEach(function(k){c.ch[k]={v:{d:1},t:Date.now()}});
     return post({act:'put',id:id,data:c.ch},keep).then(function(){
-      var meta=jg(MK)||{},k;for(k in c.sent)meta[k]=c.sent[k];s(MK,JSON.stringify(meta));return true});
+      var meta=jg(MK)||{},k;for(k in c.sent)meta[k]=c.sent[k];tk.forEach(function(k){delete meta[k]});s(MK,JSON.stringify(meta));return true});
   }
   /* 받아서 반영(apply) 후 올림 */
   function sync(id,apply){
     if(busy){again=true;return Promise.resolve(false)}busy=true;
     return post({act:'put',id:id,data:{}}).then(function(r){
-      var rem=r.data||{},meta=jg(MK)||{},rl=false,skip={},k;
+      var rem=r.data||{},meta=jg(MK)||{},rl=false,skip={},tomb={},k;
       for(k in rem){
         if(!mirrored(k))continue;
         var rs=unwrap(rem[k].v);if(rs===null)continue;
         var lv=g(k);
         if(lv===rs){meta[k]=rs;continue}
-        if(lv===null){if(apply){s(k,rs);meta[k]=rs;rl=true}continue}
+        if(lv===null){if(meta[k]!==undefined&&meta[k]===rs){tomb[k]=1;continue}if(apply){s(k,rs);meta[k]=rs;rl=true}continue}
         var lchg=meta[k]!==lv;
         if(!lchg){if(apply){s(k,rs);meta[k]=rs;rl=true}}
         else if(meta[k]!==rs){
@@ -93,7 +94,7 @@
         }
       }
       s(MK,JSON.stringify(meta));s(AK,String(Date.now()));
-      return push(id,false,skip).then(function(){busy=false;if(again){again=false;sched()}return rl},function(){busy=false;return rl});
+      return push(id,false,skip,tomb).then(function(){busy=false;if(again){again=false;sched()}return rl},function(){busy=false;return rl});
     },function(e){busy=false;throw e});
   }
   function wipe(){keys().forEach(d);d(MK)}
