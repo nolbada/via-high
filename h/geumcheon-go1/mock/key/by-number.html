@@ -29,7 +29,7 @@ details.act[open]>summary{border-bottom:1px solid #cfd8d6}
 <a class="back" href="../../index.html">← 금천고1 정답 목록</a>
 <h1>고1 26년 10월 모고 번호별 워크북</h1>
 <p class="lead">번호마다 한글채우기 · 어법·어휘 · 동사형 · 영어채우기 정답과 해설</p>
-<h2 class="qh" id="quick">빠른정답</h2>
+<h2 class="qh" id="quick">번호 선택</h2>
 <div class="chips" id="chips"></div>
 <div id="nums"></div>
 <div class="ft">비타민 영어클리닉 · 금천고1</div>
@@ -57,7 +57,7 @@ details.act[open]>summary{border-bottom:1px solid #cfd8d6}
   }
   function cssOf(doc){
     var c='';[].forEach.call(doc.querySelectorAll('style'),function(s){c+=s.textContent});
-    return c.replace(/(^|\})\s*body\s*\{/g,'$1.shell{').replace(/(^|\})\s*html\s*\{/g,'$1.shell0{');
+    return c.replace(/(^|\})\s*body\s*\{/g,'$1.shell{').replace(/(^|\})\s*html\s*\{/g,'$1.shell0{').replace(/:root/g,':host');
   }
   function sectionOf(doc,n){
     var id='p2610_'+n,el=doc.getElementById(id),box=doc.createElement('div');
@@ -71,14 +71,22 @@ details.act[open]>summary{border-bottom:1px solid #cfd8d6}
     [].forEach.call(box.querySelectorAll('a[href^="#"]'),function(a){var s=doc.createElement('span');s.className=a.className;s.innerHTML=a.innerHTML;a.replaceWith(s)});
     return box.innerHTML;
   }
+  function quickOf(doc,n){
+    var box=doc.createElement('div'),pn=doc.getElementById('q2610_'+n);
+    if(pn&&pn.tagName==='A'){var x=pn.nextElementSibling;while(x&&!(x.tagName==='A'&&x.classList.contains('pn'))){box.appendChild(x.cloneNode(true));x=x.nextElementSibling}}
+    else{var q=[].filter.call(doc.querySelectorAll('.qsec'),function(e){var h=e.querySelector('h3');return h&&h.textContent.trim()===n.replace('-','~')+'번'})[0];
+      if(q){[].forEach.call(q.children,function(c){if(c.tagName!=='H3')box.appendChild(c.cloneNode(true))})}}
+    [].forEach.call(box.querySelectorAll('a'),function(a){var s=doc.createElement('span');s.className=a.className;s.innerHTML=a.innerHTML;a.replaceWith(s)});
+    return box.innerHTML;
+  }
   function fill(d){
     var n=d.dataset.n,a=ACTS.filter(function(x){return x[0]===d.dataset.a})[0],body=d.querySelector('.body');
     if(d.dataset.done)return;
     getDoc(a[2]).then(function(doc){
-      var html=sectionOf(doc,n);
+      var html=sectionOf(doc,n),qk=quickOf(doc,n);
       if(!html){body.innerHTML='<div class="ld">이 번호는 이 활동에 없습니다.</div>';return}
       var host=document.createElement('div'),root=host.attachShadow({mode:'open'});
-      root.innerHTML='<style>'+cssOf(doc)+'.shell{font-size:18px;line-height:1.9;color:#1c1c1c;font-family:"Malgun Gothic","맑은 고딕","Noto Sans KR","Noto Sans CJK KR",sans-serif}.shell h2:first-child,.shell h3:first-child{margin-top:6px}</style><div class="shell">'+html+'</div>';
+      root.innerHTML='<style>'+cssOf(doc)+'.shell{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--blue:#1d4ed8;--navy:#1e2a44;--exL:#fff8e6;--ex:#b45309;font-size:18px;line-height:1.9;color:#1c1c1c;font-family:"Malgun Gothic","맑은 고딕","Noto Sans KR","Noto Sans CJK KR",sans-serif}.shell h2:first-child,.shell h3:first-child{margin-top:6px}.qk{font-weight:700;font-size:16px;color:#0f766e;margin:8px 0 4px}.dt{margin:16px 0 0;border-top:1px solid #cfd8d6;padding-top:10px}.dt>summary{cursor:pointer;font-weight:700;font-size:17px;padding:8px 0;color:#222}</style><div class="shell"><div class="qk">빠른정답</div>'+qk+'<details class="dt"><summary>자세한 해설</summary>'+html+'</details></div>';
       body.innerHTML='';body.appendChild(host);d.dataset.done='1';
     }).catch(function(){body.innerHTML='<div class="ld">불러오지 못했습니다. 연결을 확인하고 다시 열어 주세요.</div>'});
   }
