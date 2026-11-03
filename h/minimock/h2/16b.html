@@ -141,6 +141,60 @@ details.dk>summary::-webkit-details-marker{display:none}
 .hcard[disabled]{opacity:.55}
 details.qd>summary::after{content:'\25BE';margin-left:auto;color:var(--sub)}
 details.qd[open]>summary::after{content:'\25B4'}
+.cell.s{padding:8px 12px;border:1.5px solid transparent;margin:0;background:var(--soft)}.cell.s.bad{background:var(--badbg);border-color:var(--bad)}
+
+/* ---- 새 직독직해·해설 화면 ---- */
+.sc{border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden;background:var(--bg)}
+.sc-h{padding:11px 14px 10px;background:#eef2f8;border-bottom:1px solid var(--line)}
+.sc-h .no2{display:inline-block;min-width:26px;height:26px;line-height:26px;border-radius:13px;background:var(--accent);color:#fff;font-weight:800;font-size:13px;text-align:center;padding:0 7px;margin-right:8px}
+.sc-h .at{font-size:13px;color:var(--sub)}
+.sc-h .tt{display:block;margin-top:7px;font-size:15.5px;font-weight:800;color:var(--accent);line-height:1.45}
+.sc-b{padding:10px 12px 12px}
+.sc .ch{margin-bottom:6px}
+.sc .ce{font-size:17px}
+.sc .ce sup,.nt sup{font-size:10px;font-weight:800;color:#b8651f;margin-left:1px}
+.nts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.nt{font-size:13.5px;line-height:1.5;background:#fbf6ee;border:1px solid #f0e2cd;border-radius:8px;padding:5px 9px;color:#4a3a22}
+.nt b{color:#33260f}
+.sc .lay{border-radius:10px}
+.sc .lay.nat{border-left:4px solid var(--accent);background:#f7f9fc}
+.sc .lay.ana{background:#fff8e6;border-color:#f0dcc0;color:#4d3b05}
+.sc .lay.ana b,.why2 b,.opx b,.evx b{background:linear-gradient(transparent 58%,var(--hl) 58%);font-weight:700}
+.sc .lb{margin-bottom:4px}
+.qc{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.qchip{min-width:56px;padding:9px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-family:inherit;font-size:15px;color:var(--ink);font-weight:700}
+.qchip small{display:block;font-size:11px;font-weight:400;color:var(--sub);margin-bottom:1px}
+.qchip.o{border-color:var(--good);background:var(--goodbg)}
+.qchip.x{border-color:var(--bad);background:var(--badbg)}
+.sec{margin:16px 0 6px;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px}
+.sec:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+.trs{list-style:none;margin:0;padding:0;background:var(--soft);border-radius:10px;padding:8px 12px}
+.trs li{font-size:15px;line-height:1.75;padding:2px 0}
+.trs .n{display:inline-block;min-width:20px;font-size:12px;color:var(--sub);font-weight:700}
+.evx{background:var(--goodbg);border:1px solid #bfe0cd;border-radius:10px;padding:10px 12px}
+.evx .en{background:#fff;border:1px solid #d5eadc;font-size:15.5px;margin:0 0 8px}
+.evx p{margin:6px 0;font-size:15.5px;line-height:1.75}
+.evx .evh{font-size:13px;font-weight:800;color:var(--good);margin-bottom:6px}
+.opx{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px;background:var(--bg)}
+.opx.a{border-color:var(--good);background:var(--goodbg)}
+.opx .ot{font-size:15.5px;font-weight:700;line-height:1.55}
+.opx .mk{display:inline-block;min-width:22px;font-weight:800;color:var(--sub);margin-right:4px}
+.opx.a .mk{color:var(--good)}
+.opx .bd{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.opx .bd.g{background:var(--good)}
+.opx .bd.t{background:#b4472f}
+.opx p{margin:5px 0 0;font-size:14.5px;line-height:1.7;color:#333}
+.opx .xm{color:var(--bad);font-weight:800;margin-right:3px}
+.wds{display:flex;flex-wrap:wrap;gap:6px}
+.wds span{font-size:14px;background:var(--soft);border-radius:8px;padding:5px 9px;line-height:1.45}
+.wds b{margin-right:5px}
+.toq{display:block;width:100%;margin-top:14px;min-height:42px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+details.sub2{margin:12px 0 0}
+details.sub2>summary{list-style:none;cursor:pointer;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;padding:6px 0}
+details.sub2>summary::-webkit-details-marker{display:none}
+details.sub2>summary:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+details.sub2>summary:after{content:"+";margin-left:auto;font-size:18px;color:var(--sub)}
+details.sub2[open]>summary:after{content:"\2212"}
 </style>
 </head>
 <body>
@@ -247,8 +301,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const HK=[["07", "1", "Without institutional support, / members of an in-group may be reluctant to interact with outsiders / because they feel doing so is deviant or simply inappropriate.", "제도적 지원이 없으면, / 내집단의 구성원들은 외부인과 교류하기를 꺼릴 수 있다 / 그렇게 하는 것이 일탈적이거나 그저 부적절하다고 느끼기 때문에.", "제도적 지원이 없으면, 내집단 구성원들은 그렇게 하는 것이 일탈적이거나 그저 부적절하다고 느끼기 때문에 외부인과 교류하기를 꺼릴 수 있다.", "Without이 이끄는 조건의 전치사구, because절 안에서 동명사 doing so가 feel의 목적어절 주어로 쓰였다."], ["08", "1", "The color of a glowing object is related to its temperature: / as the temperature rises, the object is first red and then orange, / and finally it gets white, the \"hottest\" color.", "빛나는 물체의 색깔은 그것의 온도와 관련이 있다: / 온도가 오를수록, 물체는 처음에는 빨간색이었다가 주황색이 되고, / 그리고 마침내 흰색이 되는데, 이것이 '가장 뜨거운' 색이다.", "빛나는 물체의 색깔은 온도와 관련이 있어서, 온도가 오를수록 물체는 처음엔 빨간색이었다가 주황색이 되고 마침내 '가장 뜨거운' 색인 흰색이 된다.", "콜론(:) 뒤에서 앞 내용을 구체적으로 설명하며, as가 이끄는 시간·비례의 부사절이 쓰였다."], ["09", "1", "For example, it has long been recognized in some countries, such as the UK and France, / that even past criminal convictions should eventually be \"spent\" and not continue to affect a person's life.", "예를 들어, 몇몇 나라들에서는 오랫동안 인정되어 왔다, 영국과 프랑스 같은, / 심지어 과거의 전과조차도 결국 '효력을 다해야' 하고 한 사람의 삶에 계속 영향을 미쳐서는 안 된다는 것이.", "예를 들어 영국과 프랑스 같은 몇몇 나라들에서는, 심지어 과거의 전과조차도 결국 효력을 다해야 하며 한 사람의 삶에 계속 영향을 미쳐서는 안 된다는 것이 오랫동안 인정되어 왔다.", "가주어 it ~ that(진주어) 구문이며, such as the UK and France가 삽입되어 있다."], ["10", "A-2", "Unable to reverse the vehicle from its plight, / he did the next best thing / and headed for help at a nearby farmhouse.", "차를 곤경에서 후진시킬 수 없어서, / 그는 차선책을 했다 / 그리고 근처 농가로 도움을 구하러 향했다.", "차를 곤경에서 빼낼 수 없었던 그는 차선책으로 근처 농가에 도움을 구하러 향했다.", "문장 맨 앞 Unable to reverse~는 이유를 나타내는 분사구문(Being unable to의 Being 생략)이다."], ["10", "B-2", "As soon as the farmer said, \"Pull Warrick!\" / the donkey heaved and pulled the car out of the ditch, / much to Justin's delight.", "농부가 '풀 워릭!'이라고 말하자마자, / 당나귀는 힘껏 끌어 차를 도랑에서 꺼냈다, / Justin을 매우 기쁘게 하며.", "농부가 '풀 워릭!'이라고 외치자마자 당나귀는 힘껏 끌어 차를 도랑에서 꺼냈고, Justin은 매우 기뻐했다.", "As soon as는 '~하자마자'라는 시간의 부사절이고, much to Justin's delight는 '~를 매우 기쁘게 하며'라는 관용 삽입 표현이다."], ["10", "C-1", "When he was just going to move off to get into his car, / Justin stopped, turned to the old man, / and asked, \"Tell me, sir, why did you have to call on all those names ...?\"", "그가 막 차에 타려고 움직이려던 때, / Justin은 멈췄고, 노인을 향해 돌아섰다, / 그리고 물었다, '말씀해 주세요, 왜 그 모든 이름들을 부르셔야 했나요...?'", "막 차에 타려던 순간, Justin은 멈춰 서서 노인을 돌아보며 왜 그 모든 이름을 불러야 했는지 물었다.", "When이 이끄는 시간의 부사절 뒤에, stopped·turned·asked 세 동사가 주절에서 병렬로 이어진다."], ["10", "D-3", "There was no other choice; / there was just this octogenarian and his equally old donkey.", "다른 선택은 없었다; / 그저 이 80대 노인과 그와 똑같이 늙은 당나귀가 있을 뿐이었다.", "다른 선택의 여지가 없었다. 그저 이 80대 노인과 그만큼이나 늙은 당나귀뿐이었다.", "세미콜론(;)으로 두 개의 독립된 절이 연결되어, 앞 내용을 구체적으로 부연한다."], ["10", "D-4", "The farmer — with the donkey, a rope, and Justin — / made his way slowly to the stranded vehicle.", "농부는 — 당나귀와 밧줄, 그리고 Justin과 함께 — / 오도 가도 못하는 차량 쪽으로 천천히 나아갔다.", "농부는 당나귀와 밧줄, 그리고 Justin과 함께 오도 가도 못하는 차량을 향해 천천히 나아갔다.", "대시(—~—) 사이에 동반 대상을 나열하는 삽입구가 들어가 있다."]];
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const CF={"sn": [{"i": "01", "q": "07", "s": "1", "title": "Without 조건 전치사구 + 동명사 주어", "eng": "Without institutional support, / members of an in-group<sup>1<\/sup> may be reluctant<sup>2<\/sup> to interact with outsiders / because they feel doing so is deviant<sup>3<\/sup> or simply inappropriate.", "notes": [["1", "in-group", "내집단"], ["2", "reluctant", "꺼리는"], ["3", "deviant", "일탈적인"]], "lit": "제도적 지원이 없으면, / 내집단의 구성원들은 외부인과 교류하기를 꺼릴 수 있다 / 그렇게 하는 것이 일탈적이거나 그저 부적절하다고 느끼기 때문에.", "nat": "제도적 지원이 없으면, 내집단 구성원들은 그렇게 하는 것이 일탈적이거나 그저 부적절하다고 느끼기 때문에 외부인과 교류하기를 꺼릴 수 있다.", "ana": "Without이 이끄는 조건의 전치사구, because절 안에서 동명사 doing so가 feel의 목적어절 주어로 쓰였다."}, {"i": "02", "q": "08", "s": "1", "title": "콜론(:) 부연설명 + as 비례 부사절", "eng": "The color of a glowing<sup>1<\/sup> object is related to its temperature<sup>2<\/sup>: / as the temperature rises, the object is first red and then orange, / and finally it gets white, the \"hottest\" color.", "notes": [["1", "glow", "빛나는"], ["2", "temperature", "온도"]], "lit": "빛나는 물체의 색깔은 그것의 온도와 관련이 있다: / 온도가 오를수록, 물체는 처음에는 빨간색이었다가 주황색이 되고, / 그리고 마침내 흰색이 되는데, 이것이 '가장 뜨거운' 색이다.", "nat": "빛나는 물체의 색깔은 온도와 관련이 있어서, 온도가 오를수록 물체는 처음엔 빨간색이었다가 주황색이 되고 마침내 '가장 뜨거운' 색인 흰색이 된다.", "ana": "콜론(:) 뒤에서 앞 내용을 구체적으로 설명하며, as가 이끄는 시간·비례의 부사절이 쓰였다."}, {"i": "03", "q": "09", "s": "1", "title": "가주어 it ~ that(진주어) + 삽입구", "eng": "For example, it has long been recognized<sup>1<\/sup> in some countries, such as the UK and France, / that even past criminal conviction<sup>2<\/sup>s should eventually be \"spent\" and not continue to affect a person's life.", "notes": [["1", "recognize", "인정되다"], ["2", "criminal conviction", "전과"]], "lit": "예를 들어, 몇몇 나라들에서는 오랫동안 인정되어 왔다, 영국과 프랑스 같은, / 심지어 과거의 전과조차도 결국 '효력을 다해야' 하고 한 사람의 삶에 계속 영향을 미쳐서는 안 된다는 것이.", "nat": "예를 들어 영국과 프랑스 같은 몇몇 나라들에서는, 심지어 과거의 전과조차도 결국 효력을 다해야 하며 한 사람의 삶에 계속 영향을 미쳐서는 안 된다는 것이 오랫동안 인정되어 왔다.", "ana": "가주어 it ~ that(진주어) 구문이며, such as the UK and France가 삽입되어 있다."}, {"i": "04", "q": "10", "s": "A-2", "title": "분사구문(이유, Being 생략)", "eng": "Unable to reverse<sup>1<\/sup> the vehicle from its plight<sup>2<\/sup>, / he did the next best thing / and headed for help at a nearby farmhouse<sup>3<\/sup>.", "notes": [["1", "reverse", "후진시키다"], ["2", "plight", "곤경"], ["3", "farmhouse", "농가"]], "lit": "차를 곤경에서 후진시킬 수 없어서, / 그는 차선책을 했다 / 그리고 근처 농가로 도움을 구하러 향했다.", "nat": "차를 곤경에서 빼낼 수 없었던 그는 차선책으로 근처 농가에 도움을 구하러 향했다.", "ana": "문장 맨 앞 Unable to reverse~는 이유를 나타내는 분사구문(Being unable to의 Being 생략)이다."}, {"i": "05", "q": "10", "s": "B-2", "title": "As soon as 시간부사절 + 관용 삽입구", "eng": "As soon as the farmer said, \"Pull Warrick!\" / the donkey heaved<sup>1<\/sup> and pulled the car out of the ditch<sup>2<\/sup>, / much to Justin's delight.", "notes": [["1", "heave", "힘껏 잡아당겼다"], ["2", "ditch", "도랑"]], "lit": "농부가 '풀 워릭!'이라고 말하자마자, / 당나귀는 힘껏 끌어 차를 도랑에서 꺼냈다, / Justin을 매우 기쁘게 하며.", "nat": "농부가 '풀 워릭!'이라고 외치자마자 당나귀는 힘껏 끌어 차를 도랑에서 꺼냈고, Justin은 매우 기뻐했다.", "ana": "As soon as는 '~하자마자'라는 시간의 부사절이고, much to Justin's delight는 '~를 매우 기쁘게 하며'라는 관용 삽입 표현이다."}, {"i": "06", "q": "10", "s": "C-1", "title": "When 시간부사절 + 동사 3중 병렬", "eng": "When he was just going to move off<sup>1<\/sup> to get into his car, / Justin stopped, turned to the old man, / and asked, \"Tell me, sir, why did you have to call on all those names ...?\"", "notes": [["1", "move off", "움직여 떠나다"]], "lit": "그가 막 차에 타려고 움직이려던 때, / Justin은 멈췄고, 노인을 향해 돌아섰다, / 그리고 물었다, '말씀해 주세요, 왜 그 모든 이름들을 부르셔야 했나요...?'", "nat": "막 차에 타려던 순간, Justin은 멈춰 서서 노인을 돌아보며 왜 그 모든 이름을 불러야 했는지 물었다.", "ana": "When이 이끄는 시간의 부사절 뒤에, stopped·turned·asked 세 동사가 주절에서 병렬로 이어진다."}, {"i": "07", "q": "10", "s": "D-3", "title": "세미콜론 병렬", "eng": "There was no other choice; / there was just this octogenarian<sup>1<\/sup> and his equally old donkey.", "notes": [["1", "octogenarian", "80대 노인"]], "lit": "다른 선택은 없었다; / 그저 이 80대 노인과 그와 똑같이 늙은 당나귀가 있을 뿐이었다.", "nat": "다른 선택의 여지가 없었다. 그저 이 80대 노인과 그만큼이나 늙은 당나귀뿐이었다.", "ana": "세미콜론(;)으로 두 개의 독립된 절이 연결되어, 앞 내용을 구체적으로 부연한다."}, {"i": "08", "q": "10", "s": "D-4", "title": "대시 삽입구", "eng": "The farmer — with the donkey, a rope, and Justin — / made his way slowly to the stranded<sup>1<\/sup> vehicle.", "notes": [["1", "stranded", "오도가도 못하는"]], "lit": "농부는 — 당나귀와 밧줄, 그리고 Justin과 함께 — / 오도 가도 못하는 차량 쪽으로 천천히 나아갔다.", "nat": "농부는 당나귀와 밧줄, 그리고 Justin과 함께 오도 가도 못하는 차량을 향해 천천히 나아갔다.", "ana": "대시(—~—) 사이에 동반 대상을 나열하는 삽입구가 들어가 있다."}], "qs": [{"q": "07", "type": "요약", "src": "2019년 6월 40번", "ans": "①", "tr": [["1", "집단 간 접촉은 그것이 집단 간 평등을 증진하는 사회적 규범에 의해 뒷받침될 때 고정관념을 줄이고 호의적인 태도를 만들어낼 가능성이 더 크다."], ["2", "만약 그 규범이 개방성, 우호성, 상호 존중을 지지한다면, 그 접촉은 그렇지 않을 때보다 태도를 변화시키고 편견을 줄일 가능성이 더 크다."], ["3", "제도적으로 뒷받침되는 집단 간 접촉 — 즉, 외부 권위나 확립된 관습에 의해 승인된 접촉 — 은 뒷받침되지 않는 접촉보다 긍정적인 변화를 만들어낼 가능성이 더 크다."], ["4", "제도적 지원이 없으면, 내집단 구성원들은 그렇게 하는 것이 일탈적이거나 그저 부적절하다고 느끼기 때문에 외부인과 교류하기를 꺼릴 수 있다."], ["5", "그러나 제도적 지원이 있으면, 집단 간 접촉은 적절하고, 예상되며, 가치 있는 것으로 여겨질 가능성이 더 크다."], ["6", "예를 들어, 초등학교의 인종 차별 폐지와 관련해서, 인종 차별 폐지를 반대하기보다 지지한 교사(즉, 권위자)가 진행한 수업에서 학생들이 더 큰 동기를 가지고 더 많이 배웠다는 증거가 있다."]], "evh": "1번 문장", "ev": [{"en": true, "h": "Intergroup contact is more likely to reduce stereotyping and create favorable attitudes if it is backed by social norms that promote equality among groups."}, {"en": false, "h": "사회적 규범의 뒷받침이 집단 간 접촉의 고정관념 감소 효과를 높인다는 것이 요약문 (A)=bias(편견), (B)=organizational(제도적)의 근거이다."}], "opts": [{"n": "①", "t": "bias ... organizational", "a": true, "x": false, "trap": false, "e": "제도적 지원이 있을 때 집단 간 접촉이 편견을 더 약화시킨다는 내용과 정확히 일치한다."}, {"n": "②", "t": "bias ... individualized", "a": false, "x": true, "trap": false, "e": "개인화된 지원이 아니라 제도적(organizational) 지원이 핵심이다."}, {"n": "③", "t": "bias ... financial", "a": false, "x": true, "trap": false, "e": "재정적 지원에 대한 언급은 본문에 없다."}, {"n": "④", "t": "balance ... organizational", "a": false, "x": true, "trap": true, "e": "빈칸 (A)는 '균형'이 아니라 '고정관념/편견'이 약화되는 것이 맞다 — 가장 많이 걸리는 오답."}, {"n": "⑤", "t": "balance ... individualized", "a": false, "x": true, "trap": false, "e": "위와 같은 이유로 (A), (B) 모두 부적절하다."}], "w": [["stereotyping", "고정관념 형성"], ["institutionally", "제도적으로"], ["in-group", "내집단"], ["desegregation", "인종 차별 폐지"]]}, {"q": "08", "type": "문장삽입", "src": "2022년 6월 38번", "ans": "④", "tr": [["1", "온도를 측정하는 한 가지 방법은 물체가 눈에 띄게 빛날 만큼 뜨거울 때 일어나는데, 불 속에 놓아둔 쇠 부지깽이가 그 예이다."], ["2", "( ① ) 빛나는 물체의 색깔은 그것의 온도와 관련이 있다: 온도가 오를수록, 물체는 처음엔 빨간색이었다가 주황색이 되고, 마침내 흰색이 되는데, 이것이 '가장 뜨거운' 색이다."], ["3", "( ② ) 온도와 빛나는 물체의 색깔 사이의 관계는 천문학자들에게 유용하다."], ["4", "( ③ ) 별의 색깔은 그것의 온도와 관련이 있으며, 사람들이 아직 그 먼 거리를 별까지 여행해서 더 정확한 방식으로 온도를 측정할 수 없기 때문에, 천문학자들은 그 색깔에 의존한다."], ["5", "( ④ ) 별의 내부는 훨씬 더 높은 온도이지만, 그것은 숨겨져 있다."], ["6", "( ⑤ ) 그러나 별의 색깔로부터 얻은 정보는 여전히 유용하다."], ["7", "[주어진 문장] 이 온도는 별의 표면, 즉 눈에 보이는 빛을 방출하고 있는 별의 부분의 온도이다."]], "evh": "4번 문장", "ev": [{"en": true, "h": "The color of stars is related to their temperature ... astronomers rely on their color. (④) The interior of the star is at a much higher temperature, though it is concealed."}, {"en": false, "h": "주어진 문장은 '이 온도'가 별의 '표면' 온도임을 밝힌다. 색깔로 알아낸 온도(표면 온도)를 설명한 직후, 이와 대비되는 '내부는 훨씬 높은 온도'라는 내용 바로 앞인 ④ 자리에 들어가야 자연스럽다."}], "opts": [{"n": "①", "t": "①", "a": false, "x": true, "trap": false, "e": "아직 온도-색깔의 기본 관계를 설명하는 도입부라 '표면' 개념이 등장할 위치가 아니다."}, {"n": "②", "t": "②", "a": false, "x": true, "trap": false, "e": "천문학자에게 유용하다는 문장 앞뒤로 아직 구체적 원리 설명이 이어지는 중이다."}, {"n": "③", "t": "③", "a": false, "x": true, "trap": false, "e": "별의 색깔과 온도의 관계가 막 설명되는 지점으로 '표면'이라는 구체화가 아직 이르다."}, {"n": "④", "t": "④", "a": true, "x": false, "trap": false, "e": "색깔로 알아낸 온도가 '표면' 온도임을 밝힌 뒤, 이와 대비되는 '내부는 그보다 훨씬 뜨겁다'는 내용으로 자연스럽게 이어진다."}, {"n": "⑤", "t": "⑤", "a": false, "x": true, "trap": true, "e": "이미 내부 온도 이야기가 나온 뒤이므로 이 자리에 들어가면 '이 온도'가 가리키는 대상이 모호해진다 — 가장 많이 걸리는 오답."}], "w": [["emit", "방출하다"], ["be related to", "관련이 있다"], ["astronomer", "천문학자"], ["interior", "내부"]]}, {"q": "09", "type": "순서배열", "src": "2022년 11월 36번", "ans": "②", "tr": [["1", "잊힐 권리는 사생활 보호권과는 구별되지만 관련이 있는 권리이다."], ["2", "사생활 보호권은, 무엇보다도, 전통적으로 보호되거나 개인적인 것으로 여겨지는 정보가 공개되지 않을 권리이다."], ["3", "(A) 그러한 권리의 한 가지 동기는 개인들이 특정 사건이나 시기에 의해 규정되지 않고 자신의 삶을 살아갈 수 있게 하는 것이다. 예를 들어, 영국과 프랑스 같은 몇몇 나라들에서는 심지어 과거의 전과조차도 결국 '효력을 다해야' 하며 한 사람의 삶에 계속 영향을 미쳐서는 안 된다는 것이 오랫동안 인정되어 왔다."], ["4", "(B) 반면에 잊힐 권리는 이미 공공 영역에 있었던 정보에도 적용될 수 있다. 잊힐 권리는 한 개인이 특정 시점의 정보에 의해 영원히 규정되지 않을 권리를 폭넓게 포함한다."], ["5", "(C) 잊힐 권리를 지지하는 이유에도 불구하고, 잊힐 권리는 때때로 다른 권리들과 충돌할 수 있다. 예를 들어, 안보나 공중 보건을 이유로 공식적인 예외가 만들어지기도 한다."]], "evh": "0번 문장", "ev": [{"en": true, "h": "The right to privacy is ... not to be revealed. → (B) The right to be forgotten, in contrast, can be applied to information that has been in the public domain. → (A) One motivation for such a right is ... → (C) Despite the reason for supporting the right to be forgotten ..."}, {"en": false, "h": "도입부가 사생활 보호권을 설명한 직후, 'in contrast'로 잊힐 권리를 대비시키는 (B)가 이어지고, 그 권리의 '동기'를 설명하는 (A)가 뒤따른 뒤, 마지막으로 한계를 언급하는 (C)로 마무리되는 것이 논리적으로 자연스럽다."}], "opts": [{"n": "①", "t": "(A)–(C)–(B)", "a": false, "x": true, "trap": false, "e": "(B)의 'in contrast'는 도입부의 사생활 보호권과 곧바로 대비되어야 하므로 (A)가 먼저 올 수 없다."}, {"n": "②", "t": "(B)–(A)–(C)", "a": true, "x": false, "trap": false, "e": "사생활 보호권과 대비되는 (B) → 잊힐 권리의 동기를 설명하는 (A) → 한계를 언급하는 (C) 순서가 논리적으로 자연스럽다."}, {"n": "③", "t": "(B)–(C)–(A)", "a": false, "x": true, "trap": true, "e": "(C)의 '지지하는 이유'는 (A)에서 먼저 설명되어야 한다 — 가장 많이 걸리는 오답."}, {"n": "④", "t": "(C)–(A)–(B)", "a": false, "x": true, "trap": false, "e": "(C)는 마무리 성격의 단락이라 맨 처음에 올 수 없다."}, {"n": "⑤", "t": "(C)–(B)–(A)", "a": false, "x": true, "trap": false, "e": "위와 같은 이유로 (C)가 먼저 올 수 없다."}], "w": [["distinct from", "~와 구별되는"], ["in contrast", "반면에"], ["public domain", "공공 영역"], ["come into conflict with", "~와 충돌하다"]]}, {"q": "10", "type": "순서배열", "src": "2018년 3월 43번", "ans": "④", "tr": [["1", "(A) Justin은 한적한 농로에서 운전하고 있었는데 갑자기 집중력을 잃었고, 그의 차는 결국 도랑에 빠졌다. 차를 곤경에서 빼낼 수 없었던 그는 차선책으로 근처 농가에 도움을 구하러 향했다. Justin은 한 늙은 농부의 환영을 받았다. 무슨 일이 있었는지 듣고 나서, (a)그(농부)는 고개를 끄덕이며 말했다, '걱정 마세요, Old Warrick이 당신을 꺼내줄 겁니다.'"], ["2", "(B) 그들이 그곳(헛간)에 도착했을 때, 농부는 밧줄의 한쪽 끝을 차에, 다른 쪽 끝을 당나귀에 묶고 외치기 시작했다, '풀 존! 풀 스티브! 풀 마이크! 풀 워릭!' 농부가 '풀 워릭!'이라고 외치자마자, 당나귀는 힘껏 끌어 차를 도랑에서 꺼냈고, Justin은 매우 기뻐했다. (b)그(Justin)는 당나귀를 쓰다듬고 늙은 농부에게 감사했다."], ["3", "(C) 막 차에 타려고 움직이려던 순간, Justin은 멈춰서 노인을 향해 돌아서며 물었다, '말씀해 주세요, Old Warrick에게 차를 도랑에서 꺼내라는 지시를 내리기 전에 왜 그 모든 이름들을 불러야 했나요?' (c)그(농부)는 미소 지으며 대답했다, '그게 말이죠, Old Warrick은 나이가 아주 많아요 — 시력은 거의 없고, 청력도 그리 좋지 않고, 먹고 걷는 것도 힘겨워하죠 — 하지만 그가 팀의 일원이라고 믿는 한, 그는 대단한 일을 해낼 수 있답니다.'"], ["4", "(D) 농부는 그런 다음 그를 뒤쪽 헛간으로 이끌었다. 그곳에는 (d)그(농부)의 당나귀가 서 있었는데, 농부만큼이나 늙고 낡아 보였다. 다른 선택은 없었다; 그저 이 80대 노인과 그만큼이나 늙은 당나귀뿐이었다. 농부는 — 당나귀와 밧줄, 그리고 Justin과 함께 — (e)그의 방식대로 오도 가도 못하는 차량 쪽으로 천천히 나아갔다."]], "evh": "0번 문장", "ev": [{"en": true, "h": "(A) ... he was greeted by an old farmer ... 'Old Warrick will get you out.' → (D) The farmer then led him to the barn ... → (B) When they arrived there, the farmer tied one end of the rope ... → (C) ... Justin stopped ... and asked ..."}, {"en": false, "h": "(A)에서 농부가 'Old Warrick이 꺼내줄 것'이라 말한 직후, 당나귀를 데리러 헛간으로 가는 (D) → 밧줄로 차를 꺼내는 (B) → Justin이 이유를 묻고 농부가 답하는 (C) 순서가 시간·논리상 자연스럽다."}], "opts": [{"n": "①", "t": "(B)–(D)–(C)", "a": false, "x": true, "trap": false, "e": "(B)는 이미 헛간에 '도착한' 이후의 장면이므로 당나귀를 데리러 가는 (D)보다 먼저 나올 수 없다."}, {"n": "②", "t": "(C)–(B)–(D)", "a": false, "x": true, "trap": false, "e": "(C)는 당나귀로 차를 꺼낸 뒤 Justin이 이유를 묻는 장면이므로 가장 마지막에 와야 한다."}, {"n": "③", "t": "(C)–(D)–(B)", "a": false, "x": true, "trap": false, "e": "위와 같은 이유로 (C)가 먼저 올 수 없다."}, {"n": "④", "t": "(D)–(B)–(C)", "a": true, "x": false, "trap": false, "e": "헛간에서 당나귀를 데려오는 (D) → 당나귀로 차를 꺼내는 (B) → Justin이 이유를 묻고 농부가 답하는 (C) 순서가 자연스럽다."}, {"n": "⑤", "t": "(D)–(C)–(B)", "a": false, "x": true, "trap": true, "e": "(C)의 질문('왜 그 모든 이름을 불러야 했나요')은 당나귀가 차를 꺼낸 뒤(B)에 나와야 자연스럽다 — 가장 많이 걸리는 오답."}], "w": [["head for", "~로 향하다"], ["tie A to B", "A를 B에 묶다"], ["heave", "힘껏 잡아당기다"], ["instruction", "지시"]]}, {"q": "11", "type": "지칭 추론", "src": "2018년 3월 44번", "ans": "②", "tr": [["1", "(A) Justin은 한적한 농로에서 운전하고 있었는데 갑자기 집중력을 잃었고, 그의 차는 결국 도랑에 빠졌다. 차를 곤경에서 빼낼 수 없었던 그는 차선책으로 근처 농가에 도움을 구하러 향했다. Justin은 한 늙은 농부의 환영을 받았다. 무슨 일이 있었는지 듣고 나서, (a)그는 고개를 끄덕이며 말했다, '걱정 마세요, Old Warrick이 당신을 꺼내줄 겁니다.'"], ["2", "(B) 그들이 그곳에 도착했을 때, 농부는 밧줄의 한쪽 끝을 차에, 다른 쪽 끝을 당나귀에 묶고 외치기 시작했다, '풀 존! 풀 스티브! 풀 마이크! 풀 워릭!' 농부가 '풀 워릭!'이라고 외치자마자, 당나귀는 힘껏 끌어 차를 도랑에서 꺼냈고, Justin은 매우 기뻐했다. (b)그는 당나귀를 쓰다듬고 늙은 농부에게 감사했다."], ["3", "(C) 막 차에 타려고 움직이려던 순간, Justin은 멈춰서 노인을 향해 돌아서며 물었다, '말씀해 주세요, 왜 그 모든 이름들을 불러야 했나요?' (c)그는 미소 지으며 대답했다, 'Old Warrick은 나이가 아주 많지만, 그가 팀의 일원이라고 믿는 한 대단한 일을 해낼 수 있답니다.'"], ["4", "(D) 농부는 그런 다음 그를 뒤쪽 헛간으로 이끌었다. 그곳에는 (d)그의 당나귀가 서 있었는데, 농부만큼이나 늙고 낡아 보였다. 농부는 — 당나귀와 밧줄, 그리고 Justin과 함께 — (e)그의 방식대로 오도 가도 못하는 차량 쪽으로 천천히 나아갔다."]], "evh": "0번 문장", "ev": [{"en": true, "h": "(a) he nodded ... (b) He patted the donkey and thanked the old farmer ... (c) He smiled and replied ... (d) his donkey ... (e) his way"}, {"en": false, "h": "(a),(c),(d),(e)는 모두 농부를 가리키지만, (b)는 당나귀를 쓰다듬고 '농부에게' 감사를 전하는 주체이므로 Justin을 가리켜 나머지와 다르다."}], "opts": [{"n": "①", "t": "(a)", "a": false, "x": true, "trap": false, "e": "'그는 고개를 끄덕였다'의 그는 Justin의 사정을 들은 농부를 가리킨다."}, {"n": "②", "t": "(b)", "a": true, "x": false, "trap": false, "e": "'그는 당나귀를 쓰다듬고 농부에게 감사했다'의 그는 감사를 전하는 주체인 Justin을 가리키므로 나머지와 다르다."}, {"n": "③", "t": "(c)", "a": false, "x": true, "trap": false, "e": "'그는 미소 지으며 대답했다'의 그는 Justin의 질문에 답하는 농부를 가리킨다."}, {"n": "④", "t": "(d)", "a": false, "x": true, "trap": false, "e": "'그의 당나귀'의 그는 당나귀 주인인 농부를 가리킨다."}, {"n": "⑤", "t": "(e)", "a": false, "x": true, "trap": false, "e": "'그의 방식대로 나아갔다'의 그는 문장의 주어인 농부를 가리킨다."}], "w": [["tie A to B", "A를 B에 묶다"], ["pat", "쓰다듬다"], ["instruction", "지시"]]}, {"q": "12", "type": "내용 불일치", "src": "2018년 3월 45번", "ans": "②", "tr": [["1", "(A) Justin은 한적한 농로에서 운전하고 있었는데 갑자기 집중력을 잃었고, 그의 차는 결국 도랑에 빠졌다. 차를 곤경에서 빼낼 수 없었던 그는 차선책으로 근처 농가에 도움을 구하러 향했다. Justin은 한 늙은 농부의 환영을 받았다."], ["2", "(B) 그들이 그곳에 도착했을 때, 농부는 밧줄의 한쪽 끝을 차에, 다른 쪽 끝을 당나귀에 묶고 외치기 시작했다, '풀 존! 풀 스티브! 풀 마이크! 풀 워릭!' 당나귀는 힘껏 끌어 차를 도랑에서 꺼냈다."], ["3", "(C) Justin이 왜 그 모든 이름들을 불러야 했는지 묻자, 농부는 미소 지으며 대답했다, 'Old Warrick은 나이가 아주 많아요 — 시력은 거의 없고, 청력도 그리 좋지 않지만, 그가 팀의 일원이라고 믿는 한 대단한 일을 해낼 수 있답니다.'"], ["4", "(D) 농부는 그런 다음 그를 뒤쪽 헛간으로 이끌었다."]], "evh": "0번 문장", "ev": [{"en": true, "h": "the farmer tied one end of the rope to the car and the other to the donkey"}, {"en": false, "h": "밧줄로 차와 당나귀를 묶은 것은 Justin이 아니라 농부이므로 ②는 사실과 다르다."}], "opts": [{"n": "①", "t": "Justin은 도움을 받기 위해 가까운 농가로 향했다.", "a": false, "x": true, "trap": false, "e": "(A)에서 근처 농가로 도움을 구하러 향한 내용과 일치한다."}, {"n": "②", "t": "Justin은 밧줄로 자신의 차와 당나귀를 서로 묶었다.", "a": true, "x": false, "trap": false, "e": "밧줄로 차와 당나귀를 묶은 것은 농부이므로 사실과 다르다 — 정답."}, {"n": "③", "t": "농부는 자신의 당나귀의 이름을 소리쳐 불렀다.", "a": false, "x": true, "trap": false, "e": "(B)에서 여러 이름을 외친 내용과 일치한다."}, {"n": "④", "t": "농부의 당나귀는 시력을 거의 잃었다.", "a": false, "x": true, "trap": false, "e": "(C)의 'his eyesight is almost gone'과 일치한다."}, {"n": "⑤", "t": "농부는 Justin을 헛간으로 데리고 갔다.", "a": false, "x": true, "trap": false, "e": "(D) 첫 문장과 일치한다."}], "w": [["greet", "맞이하다"], ["struggle to", "애쓰다"], ["weathered", "낡은, 풍화된"]]}]};
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크북 '+CF.sn.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -276,18 +330,22 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
-function hkHtml(it){
-  const E=it[2].split(' / '),K=it[3].split(' / ');
-  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
-  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
-  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
-  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
-  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+function esc2(s){return String(s)}
+function chunkSplit(s){return String(s).split(' / ')}
+function scHtml(c){
+  const esc=String;
+  const E=chunkSplit(c.eng),K=chunkSplit(c.lit);
+  let x='<div class="sc"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span><span class="tt">'+esc(c.title)+'</span></div><div class="sc-b">';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+E[j]+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  if(c.notes.length){x+='<div class="nts">'+c.notes.map(n=>'<span class="nt"><sup>'+n[0]+'</sup> <b>'+esc(n[1])+'</b> '+esc(n[2])+'</span>').join('')+'</div>';}
+  x+='<div class="lay nat"><span class="lb">자연스러운 해석</span>'+esc(c.nat)+'</div>';
+  if(c.ana)x+='<div class="lay ana"><span class="lb">분석</span>'+c.ana+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|분석">자연스러운 해석</button></div></div>';
   return x;
 }
 function renderDk(){
   let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-  HK.forEach(it=>{h+=hkHtml(it);});
+  CF.sn.forEach(c=>{h+=scHtml(c);});
   h+='</div></div>';
   app.innerHTML=h;
 }
@@ -441,41 +499,29 @@ function renderSubmit(){
   const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
 }
 /* ---- 해설 ---- */
-function sHtml(s,evn){
-  const ev=evn.indexOf(s.n)>=0;
-  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
-  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
-  const lays=[];
-  if(s.link)lays.push(['이어 읽으면',s.link]);
-  if(s.easy)lays.push(['쉬운 말로',s.easy]);
-  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
-  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
-  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
-  return x+'</div>';
-}
 function qHtml(i,a){
+  const esc=String;
   const d=D[i],ok=isRight(i,a);
-  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
-  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
-  h+='<h4>정답 근거</h4>';
-  h+=`<p class="en">${esc(d.ev_en)}</p>`;
-  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
-  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
-  if(d.ps&&d.ps.length){
-    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
-  }
-  h+='<h4>선택지 하나씩</h4>';
-  d.ch.forEach(c=>{
-    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  const cq=CF.qs.find(x=>x.q===d.no);
+  if(!cq)return '';
+  let h='<details class="qd" id="qd'+i+'" '+(ok?'':'open')+'><summary>'+esc(cq.q)+'번 · '+esc(cq.type)+'<small>'+esc(cq.src)+'</small><span class="res2 '+(ok?'o':'x')+'">'+(ok?'○ 정답':'✕ 오답')+'</span></summary><div class="qx">';
+  h+='<p class="ansline"><b>정답 '+esc(cq.ans)+'</b>'+(ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>')+'</p>';
+  h+='<details class="sub2"><summary>전문 해석</summary><ol class="trs" style="list-style:none">'+cq.tr.map(t=>'<li><span class="n">'+(t[0]==null?'':esc(t[0]))+'</span>'+t[1]+'</li>').join('')+'</ol></details>';
+  h+='<div class="sec">답의 근거 · '+esc(cq.evh)+'</div><div class="evx">';
+  cq.ev.forEach(p=>{h+=p.en?'<p class="en">'+p.h+'</p>':'<p>'+p.h+'</p>';});
+  h+='</div><div class="sec">선택지 하나씩</div>';
+  cq.opts.forEach(o=>{
+    h+='<div class="opx '+(o.a?'a':'')+'"><div class="ot"><span class="mk">'+esc(o.n)+'</span>'+o.t+(o.a?'<span class="bd g">정답</span>':'')+(o.trap?'<span class="bd t">가장 많이 걸리는 오답</span>':'')+'</div>'+(o.e?'<p>'+(o.x?'<span class="xm">✕</span>':'')+o.e+'</p>':'')+'</div>';
   });
-  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  if(cq.w.length){h+='<div class="sec">단어</div><div class="wds">'+cq.w.map(w=>'<span><b>'+esc(w[0])+'</b>'+esc(w[1])+'</span>').join('')+'</div>';}
+  h+='<button class="toq" data-i="'+i+'">빠른 정답으로</button>';
   return h+'</div></details>';
 }
 function renderExp(){
   const rec=S.sub;
   let h=hdr()+band(4)+'<div class="wrap">';
-  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
-  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='<div class="score">'+rec.s+' <small>/ '+N+'</small></div><h2 id="quick">빠른 정답</h2><div class="qc">';
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+='<button class="qchip '+(ok?'o':'x')+'" data-i="'+i+'"><small>'+esc(D[i].no)+'번</small>'+ansText(i)+' '+(ok?'○':'✕')+'</button>';}
   h+='</div><h2>해설</h2>';
   for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
   h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
@@ -514,13 +560,17 @@ function mmInit(){
 }
 /* 위임 이벤트 */
 document.addEventListener('click',e=>{
+  const qchip=e.target.closest('.qchip');
+  if(qchip){const dd=document.getElementById('qd'+qchip.dataset.i);if(dd){dd.open=true;dd.scrollIntoView({block:'start'});}return;}
+  const toq=e.target.closest('.toq');
+  if(toq){const qq=document.getElementById('quick');if(qq)qq.scrollIntoView({block:'start'});return;}
   const tb=e.target.closest('.tab,.hcard,.gohome');
   if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
   const ch=e.target.closest('.ch');
   if(ch){ch.classList.toggle('open');return;}
   const st=e.target.closest('.stg');
   if(st){
-    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const s=st.closest('.s,.sc'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
     const shown=lays.filter(l=>l.classList.contains('on')).length;
     if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
     else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
@@ -530,7 +580,7 @@ document.addEventListener('click',e=>{
   if(al){
     const open=al.dataset.all==='1',body=al.closest('.dkbody');
     body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
-    body.querySelectorAll('.s').forEach(s=>{
+    body.querySelectorAll('.s,.sc').forEach(s=>{
       const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
       lays.forEach(l=>l.classList.toggle('on',open));
       if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
