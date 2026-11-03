@@ -247,7 +247,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','덩어리별 해석 확인'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const HK=[["01", "4", "These expressions are / colorful / and often appealing / in their economy and ability / to convey an image or description / of an emotion or situation.", "이러한 표현들은 / 다채롭고 / 종종 매력적이다 / 그것들의 간결함과 능력에 있어 / 이미지나 묘사를 전달하는 / 감정이나 상황에 대한", "이러한 표현들은 다채롭고, 감정이나 상황에 대한 이미지나 묘사를 전달하는 간결함과 능력에서 종종 매력적이다.", "in their economy and ability to convey ~에서 <b>economy<\/b>와 <b>ability<\/b>가 <b>and<\/b>로 병렬 연결된 명사이며, <b>to convey<\/b>는 ability를 수식하는 <b>형용사적 용법의 to부정사<\/b>입니다."], ["01", "9", "Your reader / has heard and read / these expressions / so often / that they tend to / \"bounce off\" the reader / so swiftly / that they lose / their appeal.", "당신의 독자는 / 듣고 읽어 왔다 / 이러한 표현들을 / 너무 자주 / 그래서 그것들은 경향이 있다 / 독자에게 \"튕겨 나가는\" / 너무 빠르게 / 그래서 그것들은 잃는다 / 그것들의 매력을", "독자는 이러한 표현들을 너무 자주 듣고 읽어서, 그것들은 너무 빠르게 독자에게 '튕겨 나가' 매력을 잃어버리는 경향이 있다.", "<b>so ~ that …<\/b> 구문이 <b>두 번 연속<\/b>으로 쓰였습니다. so often that they tend to ~와 so swiftly that they lose ~가 각각 '너무 ~해서 …하다'라는 결과를 나타냅니다."], ["03", "4", "Few / people / would choose / to walk or bike / on roadways / that lack safe sidewalks or marked bicycle lanes, / where vehicles speed by, / or where the air is polluted.", "거의 없을 것이다 / 사람들은 / 선택할 / 걷거나 자전거를 타기로 / 도로에서 / 안전한 보도나 표시된 자전거 도로가 없는 / 차량들이 빠르게 지나가는 / 혹은 공기가 오염된", "안전한 보도나 표시된 자전거 도로가 없거나, 차량이 빠르게 지나가거나, 공기가 오염된 도로에서 걷거나 자전거를 타려는 사람은 거의 없을 것이다.", "<b>that<\/b>은 roadways를 선행사로 하는 <b>주격 관계대명사<\/b>이고, 두 개의 <b>where<\/b>는 각각 roadways를 부가 설명하는 <b>관계부사절<\/b>로 <b>or<\/b>로 병렬 연결되어 있습니다."], ["03", "5", "Few / would choose / to walk up stairs / in inconvenient and unsafe stairwells / in modern buildings.", "거의 없을 것이다 / 사람들은 / 계단을 걸어 올라가기로 선택할 / 불편하고 안전하지 않은 계단실에서 / 현대식 건물의", "현대식 건물의 불편하고 안전하지 않은 계단실에서 계단을 걸어 올라가려는 사람은 거의 없을 것이다.", "<b>Few<\/b>는 '거의 없는'이라는 <b>부정의 의미를 가진 대명사<\/b>로 쓰였으며, <b>inconvenient and unsafe<\/b>는 and로 연결되어 stairwells를 함께 수식하는 <b>형용사 병렬<\/b>입니다."], ["04", "3", "Recent progress / in telecommunications technologies / is not more revolutionary / than what happened / in the late nineteenth century / in relative terms.", "최근의 발전은 / 통신 기술에서의 / 더 혁명적이지 않다 / 일어난 것보다 / 19세기 말에 / 상대적인 측면에서", "통신 기술의 최근 발전은 상대적으로 볼 때 19세기 말에 일어난 일보다 더 혁명적이지 않다.", "<b>what happened ~<\/b>는 <b>선행사를 포함하는 관계대명사 what<\/b>이 이끄는 명사절로, <b>비교급 than<\/b>의 비교 대상이 되는 자리입니다."], ["04", "6", "We should not / \"put the telescope backward\" / when we look into the past / and underestimate the old / and overestimate the new.", "우리는 해서는 안 된다 / '망원경을 거꾸로 놓아서는' / 우리가 과거를 들여다볼 때 / 그리고 옛것을 과소평가하고 / 새것을 과대평가할 때", "우리는 과거를 돌아볼 때 '망원경을 거꾸로 놓고' 오래된 것을 과소평가하고 새로운 것을 과대평가해서는 안 된다.", "when절 안에서 <b>look into, underestimate, overestimate<\/b> 세 개의 동사가 <b>and로 병렬<\/b> 연결되어 있고, <b>underestimate the old<\/b>와 <b>overestimate the new<\/b>가 <b>대구(대조)<\/b>를 이룹니다."], ["05", "7", "Just as trains bring materials and textiles / into a city, / which become processed into the economy, / so the raw electrochemical signals / from sensory organs / are transported / along superhighways of neurons.", "기차가 자재와 직물을 가져오는 것처럼 / 도시 안으로 / 그것들은 처리되어 경제 속으로 들어가는데 / 그렇게 가공되지 않은 전기화학적 신호는 / 감각 기관으로부터 온 / 전해진다 / 뉴런의 초고속도로를 따라", "기차가 자재와 직물을 도시로 실어 오고 그것이 처리되어 경제 속으로 들어가는 것처럼, 감각 기관에서 온 가공되지 않은 전기화학적 신호는 뉴런의 초고속도로를 따라 전해진다.", "<b>Just as ~, so …<\/b>는 '~인 것처럼, 마찬가지로 …하다'라는 <b>상관 구문<\/b>입니다. <b>which become processed<\/b>는 materials and textiles를 보충 설명하는 <b>계속적 용법의 관계대명사절<\/b>이며, are transported는 <b>수동태<\/b>입니다."], ["06", "1", "The acceleration / of human migration / toward the shores / is a contemporary phenomenon, / but the knowledge and understanding / of the potential risks / regarding coastal living / are not.", "가속화는 / 인간 이주의 / 해안 쪽으로의 / 현대적인 현상이다 / 하지만 지식과 이해는 / 잠재적 위험에 대한 / 해안 거주와 관련된 / 그렇지 않다", "해안 쪽으로 향하는 인간 이주의 가속화는 현대적인 현상이지만, 해안 거주의 잠재적 위험에 대한 지식과 이해는 그렇지 않다.", "문장 뒤의 <b>are not<\/b>은 반복되는 표현인 <b>a contemporary phenomenon이 생략된 형태<\/b>입니다. 즉 'are not (a contemporary phenomenon)'으로, <b>반복 어구의 생략<\/b>이 일어났습니다."]];
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -275,16 +276,19 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
+function hkHtml(it){
+  const E=it[2].split(' / '),K=it[3].split(' / ');
+  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
+  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+  return x;
+}
 function renderDk(){
-  let h=hdr()+band(2)+'<div class="wrap">';
-  for(let i=0;i<N;i++){
-    const d=D[i];
-    h+='<details class="qd" '+(i===0?'open':'')+'><summary>'+esc(d.no)+'번 지문<small>'+esc(d.typ)+'</small></summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-    if(d.ps&&d.ps.length)h+=d.ps.map(sHtmlP).join('');
-    else h+='<ol>'+d.tr.map(t=>'<li>'+t+'</li>').join('')+'</ol>';
-    h+='</div></details>';
-  }
-  h+='</div>';
+  let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
+  HK.forEach(it=>{h+=hkHtml(it);});
+  h+='</div></div>';
   app.innerHTML=h;
 }
 /* ---- 단어 확인 ---- */

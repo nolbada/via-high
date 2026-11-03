@@ -247,7 +247,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','덩어리별 해석 확인'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const HK=[["01", "4", "I can see / why it was your first choice, / and I am very pleased for you.", "나는 알 수 있다 / 왜 그것이 너의 첫 번째 지망이었는지 / 그리고 나는 너를 위해 매우 기쁘다", "왜 그곳이 네 첫 번째 지망이었는지 알 것 같고, 나도 네가 잘돼서 정말 기쁘다.", "<b>why<\/b>가 이끄는 절이 see의 목적어로 쓰인 <b>의문사 명사절<\/b>이다. 명사절 안에서는 의문문 어순이 아니라 <b>it was<\/b>처럼 '주어 + 동사' 평서문 어순을 지킨다. 뒤의 <b>and<\/b>는 I can see ~와 I am ~ 두 문장을 이어 주는 등위접속사이다."], ["02", "1", "Deep within the jungle of the southeast Indonesian province of Papua / lives the Korowai tribe.", "인도네시아 남동부 파푸아 주의 정글 깊숙한 곳에 / Korowai 부족이 산다", "인도네시아 남동부 파푸아 주의 정글 깊숙한 곳에 Korowai 부족이 산다.", "<b>장소를 나타내는 부사구<\/b>가 문장 맨 앞으로 나가면 뒤가 <b>동사 + 주어<\/b> 순서로 뒤집히는 도치가 일어난다. 여기서 진짜 주어는 <b>the Korowai tribe<\/b>이고 동사는 <b>lives<\/b>이다. 앞의 긴 부사구를 주어로 착각하면 문장 전체가 무너진다."], ["03", "1", "When it comes to climate change, / many blame the fossil fuel industry for pumping greenhouse gases, / the agricultural sector for burning rainforests, / or the fashion industry for producing excessive clothes.", "기후 변화에 관해서라면 / 많은 사람이 온실가스를 내뿜는다고 화석 연료 산업을 탓하고 / 열대 우림을 태운다고 농업 부문을 탓하고 / 또는 지나치게 많은 옷을 만든다고 패션 산업을 탓한다", "기후 변화 이야기가 나오면 많은 사람이 온실가스를 내뿜는다고 화석 연료 산업을, 열대 우림을 태운다고 농업 부문을, 옷을 지나치게 많이 만든다고 패션 산업을 탓한다.", "<b>blame A for B<\/b>(B에 대해 A를 탓하다)가 세 번 반복되는데, 두 번째·세 번째에서는 동사 <b>blame<\/b>이 생략되고 <b>A for B<\/b> 덩어리만 남았다. 반복되는 부분이 생략된 병렬 구조는 앞의 동사를 그대로 끌어와서 읽어야 한다. <b>when it comes to<\/b>는 '~에 관해서라면'이라는 관용 표현이다."], ["04", "2", "For example, a large majority of the general public thinks / that they are more intelligent, more fair-minded, less prejudiced, and more skilled behind the wheel of an automobile / than the average person.", "예를 들어 일반 대중의 대다수는 생각한다 / 자기가 더 똑똑하고, 더 공정하고, 편견이 덜하고, 자동차 운전대를 잡았을 때 더 능숙하다고 / 보통 사람보다", "예를 들어 일반 대중의 대다수는 자기가 보통 사람보다 더 똑똑하고, 더 공정하고, 편견이 덜하며, 운전도 더 잘한다고 생각한다.", "<b>that<\/b>절 안에 <b>more intelligent / more fair-minded / less prejudiced / more skilled<\/b> 네 개의 비교급 보어가 나란히 병렬되어 있고, 이 넷 전체가 맨 끝의 <b>than the average person<\/b> 하나에 걸린다. <b>behind the wheel of an automobile<\/b>은 '자동차를 운전할 때'라는 뜻의 관용 표현이다."], ["04", "3", "This phenomenon is so reliable and ubiquitous / that it has come to be known as the “Lake Wobegon effect,” / after Garrison Keillor’s fictional community / where “the women are strong, the men are good-looking, and all the children are above average.”", "이 현상은 매우 일관되게 도처에서 나타나서 / 그것은 ‘레이크 워비곤 효과’라고 알려지게 되었다 / Garrison Keillor의 가상의 마을 이름을 따서 / 그 마을에서는 ‘여자들은 강하고, 남자들은 잘생겼고, 모든 아이들은 평균 이상이다’", "이 현상이 워낙 일관되게 어디서나 나타나다 보니, ‘여자들은 강하고 남자들은 잘생겼으며 아이들은 모두 평균 이상’인 Garrison Keillor의 가상 마을 이름을 따서 ‘레이크 워비곤 효과’라고 불리게 되었다.", "<b>so ~ that …<\/b>(너무 ~해서 …하다) 구문이 문장의 뼈대이다. <b>come to be known as<\/b>는 '~로 알려지게 되다'이고, 여기서 <b>after<\/b>는 '~의 이름을 따서'라는 뜻으로 쓰였다. 맨 끝의 <b>where<\/b>는 앞의 community를 꾸미는 관계부사이다."], ["05", "2", "With technology progressing faster than ever before, / there are plenty of devices / that consumers can install in their homes / to save more.", "기술이 그 어느 때보다 빠르게 발전하면서 / 많은 기기들이 있다 / 소비자들이 자기 집에 설치할 수 있는 / 물을 더 아끼기 위해", "기술이 그 어느 때보다 빠르게 발전하면서, 소비자가 물을 더 아끼려고 집에 설치할 수 있는 기기가 아주 많아졌다.", "<b>with + 목적어 + 분사<\/b> 형태의 부대상황 구문으로 '기술이 발전하면서'라는 뜻이다. 주절의 뼈대는 <b>there are plenty of devices<\/b>이고, <b>that<\/b> 이하는 devices를 꾸미는 목적격 관계대명사절이다. 맨 끝의 <b>to save<\/b>는 목적을 나타내는 부정사이다."], ["05", "5", "Appliances officially approved as most efficient / are tagged with the Energy Star logo / to alert the shopper.", "가장 효율적이라고 공식적으로 승인된 가전제품은 / Energy Star 로고가 붙는다 / 구매자에게 알려 주기 위해", "가장 효율적이라고 공식 승인을 받은 가전제품에는 구매자가 알아볼 수 있도록 Energy Star 로고가 붙는다.", "<b>officially approved as most efficient<\/b>는 주어 Appliances를 뒤에서 꾸미는 <b>과거분사구<\/b>이다. 주어가 길어졌을 뿐 동사는 <b>are tagged<\/b> 하나이며, 가전제품이 로고를 '붙임 당하는' 쪽이므로 수동태가 쓰였다. 맨 끝의 <b>to alert<\/b>는 목적을 나타낸다."], ["06", "9", "But even when there is no single causal act, / that doesn’t stop people from assigning one.", "그러나 단 하나의 인과적 행위가 없을 때조차 / 그것이 사람들이 원인 하나를 갖다 붙이는 것을 막지는 못한다", "그러나 원인이 되는 행위가 단 하나도 없을 때조차, 사람들이 원인 하나를 갖다 붙이는 것을 막지는 못한다.", "<b>even when<\/b>은 '~할 때조차'라는 양보의 뜻을 담은 시간절이다. 주절의 <b>stop A from v-ing<\/b>는 'A가 ~하지 못하게 막다'라는 뜻이고, 맨 끝의 <b>one<\/b>은 앞에 나온 a single causal act를 대신하는 부정대명사이다."]];
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -275,16 +276,19 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
+function hkHtml(it){
+  const E=it[2].split(' / '),K=it[3].split(' / ');
+  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
+  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+  return x;
+}
 function renderDk(){
-  let h=hdr()+band(2)+'<div class="wrap">';
-  for(let i=0;i<N;i++){
-    const d=D[i];
-    h+='<details class="qd" '+(i===0?'open':'')+'><summary>'+esc(d.no)+'번 지문<small>'+esc(d.typ)+'</small></summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-    if(d.ps&&d.ps.length)h+=d.ps.map(sHtmlP).join('');
-    else h+='<ol>'+d.tr.map(t=>'<li>'+t+'</li>').join('')+'</ol>';
-    h+='</div></details>';
-  }
-  h+='</div>';
+  let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
+  HK.forEach(it=>{h+=hkHtml(it);});
+  h+='</div></div>';
   app.innerHTML=h;
 }
 /* ---- 단어 확인 ---- */
