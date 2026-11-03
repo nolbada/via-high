@@ -408,6 +408,37 @@ function renderExp(){
   for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
   h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
   app.innerHTML=h;
+  mmInit();
+}
+/* 해설 확인완료 → REC (미니모고) */
+function mmInit(){
+  try{
+    var lv='미니모고 '+(GCODE==='h2'?'고2':'고1'),m=String(FILE).match(/^(\d\d)([ab])$/),day=m?(+m[1])*2-(m[2]==='a'?1:0):0;
+    if(!day||!window.WN)return;
+    var seen=S.seen||(S.seen={});
+    if(!S.mmP&&!S.mmD){S.mmP=1;save();WN.hw(lv,day,'진행중');}
+    var ds=document.querySelectorAll('details.qd'),w=document.querySelector('.bar .wrap');
+    if(!w||!ds.length)return;
+    var b=document.createElement('button');b.className='btn pri';b.id='mmdone';
+    w.insertBefore(b,w.firstChild);
+    function upd(){
+      var k=0;ds.forEach(function(d,i){if(seen[i])k++;});
+      if(S.mmD){b.textContent='확인완료 ✓';b.disabled=true;return;}
+      var all=k>=ds.length;
+      b.textContent=all?'확인완료':'해설 확인 '+k+' / '+ds.length;
+      b.disabled=!all;
+    }
+    ds.forEach(function(d,i){
+      if(d.open)seen[i]=1;
+      d.addEventListener('toggle',function(){if(d.open&&!seen[i]){seen[i]=1;save();upd();}});
+    });
+    save();upd();
+    b.onclick=function(){
+      if(S.mmD)return;
+      S.mmD=1;save();upd();
+      WN.hw(lv,day,'확인완료');
+    };
+  }catch(e){}
 }
 /* 위임 이벤트 */
 document.addEventListener('click',e=>{
