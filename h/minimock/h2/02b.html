@@ -142,6 +142,59 @@ details.dk>summary::-webkit-details-marker{display:none}
 details.qd>summary::after{content:'\25BE';margin-left:auto;color:var(--sub)}
 details.qd[open]>summary::after{content:'\25B4'}
 .cell.s{padding:8px 12px;border:1.5px solid transparent;margin:0;background:var(--soft)}.cell.s.bad{background:var(--badbg);border-color:var(--bad)}
+
+/* ---- 새 직독직해·해설 화면 ---- */
+.sc{border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden;background:var(--bg)}
+.sc-h{padding:11px 14px 10px;background:#eef2f8;border-bottom:1px solid var(--line)}
+.sc-h .no2{display:inline-block;min-width:26px;height:26px;line-height:26px;border-radius:13px;background:var(--accent);color:#fff;font-weight:800;font-size:13px;text-align:center;padding:0 7px;margin-right:8px}
+.sc-h .at{font-size:13px;color:var(--sub)}
+.sc-h .tt{display:block;margin-top:7px;font-size:15.5px;font-weight:800;color:var(--accent);line-height:1.45}
+.sc-b{padding:10px 12px 12px}
+.sc .ch{margin-bottom:6px}
+.sc .ce{font-size:17px}
+.sc .ce sup,.nt sup{font-size:10px;font-weight:800;color:#b8651f;margin-left:1px}
+.nts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.nt{font-size:13.5px;line-height:1.5;background:#fbf6ee;border:1px solid #f0e2cd;border-radius:8px;padding:5px 9px;color:#4a3a22}
+.nt b{color:#33260f}
+.sc .lay{border-radius:10px}
+.sc .lay.nat{border-left:4px solid var(--accent);background:#f7f9fc}
+.sc .lay.ana{background:#fff8e6;border-color:#f0dcc0;color:#4d3b05}
+.sc .lay.ana b,.why2 b,.opx b,.evx b{background:linear-gradient(transparent 58%,var(--hl) 58%);font-weight:700}
+.sc .lb{margin-bottom:4px}
+.qc{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.qchip{min-width:56px;padding:9px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-family:inherit;font-size:15px;color:var(--ink);font-weight:700}
+.qchip small{display:block;font-size:11px;font-weight:400;color:var(--sub);margin-bottom:1px}
+.qchip.o{border-color:var(--good);background:var(--goodbg)}
+.qchip.x{border-color:var(--bad);background:var(--badbg)}
+.sec{margin:16px 0 6px;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px}
+.sec:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+.trs{list-style:none;margin:0;padding:0;background:var(--soft);border-radius:10px;padding:8px 12px}
+.trs li{font-size:15px;line-height:1.75;padding:2px 0}
+.trs .n{display:inline-block;min-width:20px;font-size:12px;color:var(--sub);font-weight:700}
+.evx{background:var(--goodbg);border:1px solid #bfe0cd;border-radius:10px;padding:10px 12px}
+.evx .en{background:#fff;border:1px solid #d5eadc;font-size:15.5px;margin:0 0 8px}
+.evx p{margin:6px 0;font-size:15.5px;line-height:1.75}
+.evx .evh{font-size:13px;font-weight:800;color:var(--good);margin-bottom:6px}
+.opx{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px;background:var(--bg)}
+.opx.a{border-color:var(--good);background:var(--goodbg)}
+.opx .ot{font-size:15.5px;font-weight:700;line-height:1.55}
+.opx .mk{display:inline-block;min-width:22px;font-weight:800;color:var(--sub);margin-right:4px}
+.opx.a .mk{color:var(--good)}
+.opx .bd{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.opx .bd.g{background:var(--good)}
+.opx .bd.t{background:#b4472f}
+.opx p{margin:5px 0 0;font-size:14.5px;line-height:1.7;color:#333}
+.opx .xm{color:var(--bad);font-weight:800;margin-right:3px}
+.wds{display:flex;flex-wrap:wrap;gap:6px}
+.wds span{font-size:14px;background:var(--soft);border-radius:8px;padding:5px 9px;line-height:1.45}
+.wds b{margin-right:5px}
+.toq{display:block;width:100%;margin-top:14px;min-height:42px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+details.sub2{margin:12px 0 0}
+details.sub2>summary{list-style:none;cursor:pointer;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;padding:6px 0}
+details.sub2>summary::-webkit-details-marker{display:none}
+details.sub2>summary:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+details.sub2>summary:after{content:"+";margin-left:auto;font-size:18px;color:var(--sub)}
+details.sub2[open]>summary:after{content:"\2212"}
 </style>
 </head>
 <body>
@@ -248,8 +301,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const HK=[["07", "13", "You cannot write data to / or delete data from / the USB device.", "당신은 데이터를 저장할 수 없다 / 또는 데이터를 삭제할 수 없다 / 그 USB 장치에서", "USB 장치에 데이터를 저장하거나 USB 장치에서 데이터를 삭제할 수는 없습니다.", "<b>write data to<\/b>와 <b>delete data from<\/b>이 or로 묶인 <b>병렬<\/b>인데, 두 동사가 <b>서로 다른 전치사<\/b>를 쓰기 때문에 목적어(the USB device)가 <b>맨 뒤 한 번만<\/b> 나옵니다. to와 from이 둘 다 그 목적어에 걸린다는 것을 화살표로 표시해 보세요. cannot이 <b>둘 모두<\/b>에 걸린다는 점도 놓치면 안 됩니다."], ["08", "B-2", "I found it remarkable / that he had apparently not considered the one question / that an economist would call relevant: / Is the ABC stock currently underpriced?", "나는 그것이 놀랍다고 여겼다 / 그가 명백히 그 한 가지 질문을 고려하지 않았다는 것이 / 경제학자라면 관련 있다고 부를 / ABC 주식이 현재 저평가되어 있는가?", "경제학자라면 당연히 핵심이라고 부를 질문 — ABC 주식이 지금 저평가되어 있는가 — 을 그가 아예 고려하지 않았다는 점이 나는 놀라웠다.", "<b>found it remarkable that ~<\/b>에서 <b>it은 가목적어<\/b>이고 진짜 목적어는 that절입니다. 'find + 목적어 + 목적격보어' 자리에 절이 들어가면 이렇게 it을 앞세웁니다. 뒤의 <b>that an economist would call relevant<\/b>는 the one question을 꾸미는 관계절이고, call A B(A를 B라고 부르다)에서 <b>A가 빠져나간<\/b> 형태입니다."], ["08", "A-2", "From what we know about the accuracy of stock picking, / it is reasonable to believe / that he did not know / what he was doing.", "우리가 종목 고르기의 정확성에 대해 아는 것으로 미루어 보면 / 믿는 것이 타당하다 / 그가 알지 못했다고 / 자신이 무엇을 하고 있는지를", "종목 고르기가 얼마나 정확한지에 대해 우리가 아는 바에 비추어 보면, 그가 자기가 무엇을 하고 있는지 몰랐다고 보는 편이 타당하다.", "<b>what<\/b>이 두 번 나오는데 역할이 다릅니다. 앞의 From what we know는 전치사 From의 목적어가 된 <b>관계대명사 what절<\/b>(=우리가 아는 것), 뒤의 what he was doing은 know의 목적어가 된 <b>간접의문문<\/b>(=자기가 무엇을 하고 있는지)입니다. 가운데 <b>it is reasonable to believe<\/b>의 it은 가주어이고 진짜 주어는 to believe 이하입니다."], ["09", "2", "The physicians were asked / to decide / whether to recommend either surgery or radiation / for their patients with lung cancer.", "그 내과 의사들은 요청받았다 / 결정하도록 / 수술과 방사선 치료 중 어느 쪽을 권할지를 / 폐암을 앓는 자기 환자들에게", "의사들은 폐암 환자에게 수술과 방사선 치료 가운데 어느 쪽을 권할지 결정해 달라는 요청을 받았다.", "<b>be asked to V<\/b>는 'ask A to V(A에게 V하라고 요청하다)'의 수동형입니다. 능동으로 되돌려 보면 구조가 선명해집니다. <b>whether to recommend<\/b>는 '~할지 말지'가 아니라 뒤의 either A or B와 짝을 이루어 <b>'A와 B 중 어느 쪽을 ~할지'<\/b>로 읽어야 합니다."], ["09", "5", "The other physicians were provided with this information about surgery outcomes: / \"There is a 10% mortality rate in the first month.\"", "나머지 의사들은 수술 결과에 대한 이 정보를 제공받았다 / \"첫 달 사망률이 10퍼센트다.\"", "다른 의사들에게는 수술 결과에 대해 이런 정보가 주어졌다 — \"첫 한 달 사망률이 10퍼센트입니다.\"", "<b>provide A with B<\/b>(A에게 B를 제공하다)의 수동형이 <b>A be provided with B<\/b>입니다. with를 '~와 함께'로 읽으면 안 됩니다. 콜론(:) 뒤 인용문은 앞의 <b>this information의 내용<\/b>을 그대로 풀어 준 <b>동격<\/b>입니다."], ["10", "A-4", "Approaching the field, / he saw players getting ready, / pulling up their socks / and strapping on shin guards.", "운동장에 다가가면서 / 그는 선수들이 준비하고 있는 것을 보았다 / 양말을 끌어올리면서 / 그리고 정강이 보호대를 착용하면서", "운동장에 가까워지면서, 그는 선수들이 양말을 끌어올리고 정강이 보호대를 차며 준비하는 모습을 보았다.", "맨 앞 <b>Approaching the field<\/b>는 <b>분사구문<\/b>(=As he approached)이고, 문장의 동사는 <b>saw<\/b>입니다. <b>see + 목적어 + -ing<\/b>는 '~가 …하고 있는 것을 보다'입니다. 뒤의 pulling / strapping은 players의 동작을 이어 붙인 <b>분사 병렬<\/b>이라 getting과 같은 층입니다."], ["10", "A-6", "New players were sitting in the shade by the garage, / while the others were standing in the sun / by the right pole.", "새 선수들은 차고 옆 그늘에 앉아 있었다 / 반면 나머지 선수들은 양지에 서 있었다 / 오른쪽 기둥 옆에", "새로 들어온 선수들은 차고 옆 그늘에 앉아 있었고, 나머지 선수들은 오른쪽 기둥 옆 양지에 서 있었다.", "여기서 <b>while<\/b>은 '~하는 동안'이 아니라 <b>대조<\/b>('반면에')입니다. 앞뒤에 서로 반대되는 그림이 놓이면 대조로 읽으세요. <b>the others<\/b>는 '앞에 언급된 나머지 전부'를 뜻합니다 — others(막연한 다른 사람들)와 구별해야 합니다."], ["10", "B-6", "It was encouraging / to hear Coach talk about this, / to see him face the challenge head-on.", "그것은 힘이 되는 일이었다 / 코치가 이것에 대해 이야기하는 것을 듣는 것은 / 그가 그 문제에 정면으로 맞서는 것을 보는 것은", "코치가 이 이야기를 꺼내는 것을 듣고, 그가 그 문제에 정면으로 부딪히는 모습을 보는 것은 힘이 되는 일이었다.", "맨 앞 <b>It은 가주어<\/b>이고 진짜 주어는 <b>to hear ~<\/b>와 <b>to see ~<\/b> 두 개가 병렬로 놓인 것입니다. 그리고 hear와 see는 <b>지각동사<\/b>라서 뒤에 <b>원형부정사<\/b>가 옵니다 — talk와 face에 to가 없는 이유입니다. face를 명사 '얼굴'로 읽으면 문장이 무너집니다."]];
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const CF={"sn": [{"i": "01", "q": "07", "s": "13", "title": "조동사 부정 + 전치사 분리 병렬(write to / delete from)", "eng": "You cannot write data to<sup>1<\/sup> / or delete<sup>2<\/sup> data from / the USB device<sup>3<\/sup>.", "notes": [["1", "write data to", "~에 데이터를 저장하다"], ["2", "delete", "삭제하다"], ["3", "USB device", "USB 장치"]], "lit": "당신은 데이터를 저장할 수 없다 / 또는 데이터를 삭제할 수 없다 / 그 USB 장치에서", "nat": "USB 장치에 데이터를 저장하거나 USB 장치에서 데이터를 삭제할 수는 없습니다.", "ana": "<b>write data to<\/b>와 <b>delete data from<\/b>이 or로 묶인 <b>병렬<\/b>인데, 두 동사가 <b>서로 다른 전치사<\/b>를 쓰기 때문에 목적어(the USB device)가 <b>맨 뒤 한 번만<\/b> 나옵니다. to와 from이 둘 다 그 목적어에 걸린다는 것을 화살표로 표시해 보세요. cannot이 <b>둘 모두<\/b>에 걸린다는 점도 놓치면 안 됩니다."}, {"i": "02", "q": "08", "s": "B-2", "title": "가목적어 it + 목적격보어 + 관계사 that", "eng": "I found it remarkable<sup>1<\/sup> / that he had apparently<sup>2<\/sup> not considered the one question / that an economist<sup>3<\/sup> would call relevant<sup>4<\/sup>: / Is the ABC stock currently underpriced<sup>5<\/sup>?", "notes": [["1", "remarkable", "놀랄 만한"], ["2", "apparently", "보아하니, 명백히"], ["3", "economist", "경제학자"], ["4", "relevant", "(밀접하게) 관련 있는"], ["5", "underpriced", "저평가된"]], "lit": "나는 그것이 놀랍다고 여겼다 / 그가 명백히 그 한 가지 질문을 고려하지 않았다는 것이 / 경제학자라면 관련 있다고 부를 / ABC 주식이 현재 저평가되어 있는가?", "nat": "경제학자라면 당연히 핵심이라고 부를 질문 — ABC 주식이 지금 저평가되어 있는가 — 을 그가 아예 고려하지 않았다는 점이 나는 놀라웠다.", "ana": "<b>found it remarkable that ~<\/b>에서 <b>it은 가목적어<\/b>이고 진짜 목적어는 that절입니다. 'find + 목적어 + 목적격보어' 자리에 절이 들어가면 이렇게 it을 앞세웁니다. 뒤의 <b>that an economist would call relevant<\/b>는 the one question을 꾸미는 관계절이고, call A B(A를 B라고 부르다)에서 <b>A가 빠져나간<\/b> 형태입니다."}, {"i": "03", "q": "08", "s": "A-2", "title": "관계대명사 what + 가주어 it + 간접의문", "eng": "From what we know about the accuracy<sup>1<\/sup> of stock picking<sup>2<\/sup>, / it is reasonable<sup>3<\/sup> to believe / that he did not know / what he was doing.", "notes": [["1", "accuracy", "정확성"], ["2", "stock picking", "종목 고르기"], ["3", "reasonable", "타당한, 합리적인"]], "lit": "우리가 종목 고르기의 정확성에 대해 아는 것으로 미루어 보면 / 믿는 것이 타당하다 / 그가 알지 못했다고 / 자신이 무엇을 하고 있는지를", "nat": "종목 고르기가 얼마나 정확한지에 대해 우리가 아는 바에 비추어 보면, 그가 자기가 무엇을 하고 있는지 몰랐다고 보는 편이 타당하다.", "ana": "<b>what<\/b>이 두 번 나오는데 역할이 다릅니다. 앞의 From what we know는 전치사 From의 목적어가 된 <b>관계대명사 what절<\/b>(=우리가 아는 것), 뒤의 what he was doing은 know의 목적어가 된 <b>간접의문문<\/b>(=자기가 무엇을 하고 있는지)입니다. 가운데 <b>it is reasonable to believe<\/b>의 it은 가주어이고 진짜 주어는 to believe 이하입니다."}, {"i": "04", "q": "09", "s": "2", "title": "수동태 + whether to부정사 + either A or B", "eng": "The physicians<sup>1<\/sup> were asked / to decide / whether to<sup>2<\/sup> recommend<sup>3<\/sup> either surgery or radiation<sup>4<\/sup> / for their patients with lung cancer<sup>5<\/sup>.", "notes": [["1", "physician", "내과 의사"], ["2", "whether to V", "~할지"], ["3", "recommend", "권하다, 추천하다"], ["4", "radiation", "방사선 치료"], ["5", "lung cancer", "폐암"]], "lit": "그 내과 의사들은 요청받았다 / 결정하도록 / 수술과 방사선 치료 중 어느 쪽을 권할지를 / 폐암을 앓는 자기 환자들에게", "nat": "의사들은 폐암 환자에게 수술과 방사선 치료 가운데 어느 쪽을 권할지 결정해 달라는 요청을 받았다.", "ana": "<b>be asked to V<\/b>는 'ask A to V(A에게 V하라고 요청하다)'의 수동형입니다. 능동으로 되돌려 보면 구조가 선명해집니다. <b>whether to recommend<\/b>는 '~할지 말지'가 아니라 뒤의 either A or B와 짝을 이루어 <b>'A와 B 중 어느 쪽을 ~할지'<\/b>로 읽어야 합니다."}, {"i": "05", "q": "09", "s": "5", "title": "수동태 be provided with + 콜론 동격", "eng": "The other physicians were provided with<sup>1<\/sup> this information about surgery outcomes<sup>2<\/sup>: / \"There is a 10% mortality rate<sup>3<\/sup> in the first month.\"", "notes": [["1", "be provided with", "~을 제공받다"], ["2", "outcome", "결과"], ["3", "mortality rate", "사망률"]], "lit": "나머지 의사들은 수술 결과에 대한 이 정보를 제공받았다 / \"첫 달 사망률이 10퍼센트다.\"", "nat": "다른 의사들에게는 수술 결과에 대해 이런 정보가 주어졌다 — \"첫 한 달 사망률이 10퍼센트입니다.\"", "ana": "<b>provide A with B<\/b>(A에게 B를 제공하다)의 수동형이 <b>A be provided with B<\/b>입니다. with를 '~와 함께'로 읽으면 안 됩니다. 콜론(:) 뒤 인용문은 앞의 <b>this information의 내용<\/b>을 그대로 풀어 준 <b>동격<\/b>입니다."}, {"i": "06", "q": "10", "s": "A-4", "title": "분사구문 + 지각동사 see + 현재분사 병렬", "eng": "Approaching<sup>1<\/sup> the field, / he saw players getting ready<sup>2<\/sup>, / pulling up<sup>3<\/sup> their socks / and strapping on<sup>4<\/sup> shin guards<sup>5<\/sup>.", "notes": [["1", "approach", "다가가다"], ["2", "get ready", "준비하다"], ["3", "pull up", "끌어올리다"], ["4", "strap on", "(끈으로) 착용하다"], ["5", "shin guard", "정강이 보호대"]], "lit": "운동장에 다가가면서 / 그는 선수들이 준비하고 있는 것을 보았다 / 양말을 끌어올리면서 / 그리고 정강이 보호대를 착용하면서", "nat": "운동장에 가까워지면서, 그는 선수들이 양말을 끌어올리고 정강이 보호대를 차며 준비하는 모습을 보았다.", "ana": "맨 앞 <b>Approaching the field<\/b>는 <b>분사구문<\/b>(=As he approached)이고, 문장의 동사는 <b>saw<\/b>입니다. <b>see + 목적어 + -ing<\/b>는 '~가 …하고 있는 것을 보다'입니다. 뒤의 pulling / strapping은 players의 동작을 이어 붙인 <b>분사 병렬<\/b>이라 getting과 같은 층입니다."}, {"i": "07", "q": "10", "s": "A-6", "title": "대조의 while + 과거진행 병렬", "eng": "New players were sitting in the shade<sup>1<\/sup> by the garage<sup>2<\/sup>, / while the others were standing in the sun<sup>3<\/sup> / by the right pole<sup>4<\/sup>.", "notes": [["1", "in the shade", "그늘에서"], ["2", "garage", "차고"], ["3", "in the sun", "양지에서"], ["4", "pole", "기둥, 막대"]], "lit": "새 선수들은 차고 옆 그늘에 앉아 있었다 / 반면 나머지 선수들은 양지에 서 있었다 / 오른쪽 기둥 옆에", "nat": "새로 들어온 선수들은 차고 옆 그늘에 앉아 있었고, 나머지 선수들은 오른쪽 기둥 옆 양지에 서 있었다.", "ana": "여기서 <b>while<\/b>은 '~하는 동안'이 아니라 <b>대조<\/b>('반면에')입니다. 앞뒤에 서로 반대되는 그림이 놓이면 대조로 읽으세요. <b>the others<\/b>는 '앞에 언급된 나머지 전부'를 뜻합니다 — others(막연한 다른 사람들)와 구별해야 합니다."}, {"i": "08", "q": "10", "s": "B-6", "title": "가주어 it + to부정사 병렬 + 지각동사 see + 원형부정사", "eng": "It was encouraging<sup>1<\/sup> / to hear Coach talk about this, / to see him face the challenge<sup>2<\/sup> head-on<sup>3<\/sup>.", "notes": [["1", "encouraging", "힘이 되는, 격려가 되는"], ["2", "face the challenge", "도전에 맞서다"], ["3", "head-on", "정면으로"]], "lit": "그것은 힘이 되는 일이었다 / 코치가 이것에 대해 이야기하는 것을 듣는 것은 / 그가 그 문제에 정면으로 맞서는 것을 보는 것은", "nat": "코치가 이 이야기를 꺼내는 것을 듣고, 그가 그 문제에 정면으로 부딪히는 모습을 보는 것은 힘이 되는 일이었다.", "ana": "맨 앞 <b>It은 가주어<\/b>이고 진짜 주어는 <b>to hear ~<\/b>와 <b>to see ~<\/b> 두 개가 병렬로 놓인 것입니다. 그리고 hear와 see는 <b>지각동사<\/b>라서 뒤에 <b>원형부정사<\/b>가 옵니다 — talk와 face에 to가 없는 이유입니다. face를 명사 '얼굴'로 읽으면 문장이 무너집니다."}], "qs": [{"q": "07", "type": "실용문 일치", "src": "2019년 9월 28번", "ans": "④", "tr": [["1", "미니 빔 프로젝터 — 사용 설명"], ["2", "■ LED 전원 표시등"], ["3", "· 빨간색: 전원 대기 상태"], ["4", "· 초록색: 프로젝터가 켜져 작동 중"], ["5", "■ 작동시키는 방법"], ["6", "· 대기 모드에서 전원 버튼을 한 번 누르면 프로젝터가 켜집니다."], ["7", "· 전원 버튼을 두 번 누르면 프로젝터가 꺼집니다."], ["8", "· 조이스틱을 좌우로 움직여 음량을 조절합니다."], ["9", "· 포커스 링을 돌려 이미지의 초점을 맞춥니다."], ["10", "■ USB 장치 연결하기"], ["11", "· 콘텐츠 파일을 즐기려면 USB 장치를 프로젝터의 USB 포트에 연결하세요. USB 장치에 데이터를 저장하거나 삭제할 수는 없습니다."]], "evh": "9번 문장", "ev": [{"en": true, "h": "Adjust the focus of the image by rotating the focus ring."}, {"en": false, "h": "실용문은 <b>선택지 순서 = 지문 순서<\/b>입니다. 위에서부터 한 줄씩 짚어 내려가며 색·횟수·방향만 대조하면 됩니다. ④의 근거는 How to Operate 마지막 줄, <b>rotating the focus ring<\/b> 한 마디입니다."}], "opts": [{"n": "①", "t": "전원표시기의 녹색은 대기 상태임을 나타낸다.", "a": false, "x": true, "trap": false, "e": "녹색은 <b>켜져 작동 중<\/b>, 대기 상태는 <b>빨간색<\/b>입니다. 색을 뒤바꾼 함정입니다."}, {"n": "②", "t": "전원 버튼을 한 번 누르면 전원이 꺼진다.", "a": false, "x": true, "trap": false, "e": "한 번은 <b>켜기<\/b>, 두 번은 <b>끄기<\/b>입니다. 횟수를 바꿔치기했습니다."}, {"n": "③", "t": "조이스틱을 위아래로 움직여 음량을 조절한다.", "a": false, "x": true, "trap": false, "e": "<b>좌우로(left or right)<\/b>입니다. 방향을 바꾼 함정입니다."}, {"n": "④", "t": "포커스 링을 돌려서 이미지의 초점을 맞춘다.", "a": true, "x": false, "trap": false, "e": "Adjust the focus of the image by rotating the focus ring과 그대로 일치합니다."}, {"n": "⑤", "t": "USB 장치에 있는 데이터를 삭제할 수 있다.", "a": false, "x": true, "trap": true, "e": "<b>You cannot ... delete data from the USB device<\/b> — 할 수 <b>없다<\/b>고 되어 있습니다. cannot 하나를 놓치면 걸립니다."}], "w": [["indicator", "표시등, 지표"], ["standby state", "대기 상태"], ["operate", "작동하다"], ["press", "누르다"], ["twice", "두 번"], ["adjust", "조절하다"], ["volume level", "음량"], ["rotate", "돌리다"], ["focus ring", "포커스 링"], ["delete", "삭제하다"]]}, {"q": "08", "type": "글의 순서", "src": "2018년 6월 36번", "ans": "⑤", "tr": [["1", "〈주어진 글〉 수년 전 나는 한 대형 금융회사의 최고 투자 책임자를 찾아갔는데, 그는 막 ABC 자동차 회사 주식에 수천만 달러를 투자한 참이었다."], ["2", "(C) 그 결정을 어떻게 내렸느냐고 묻자, 그는 최근에 자동차 전시회에 다녀왔는데 인상 깊었다고 답했다. 그가 말했다. \"이야, 저 사람들 정말 차 만들 줄 알더군요!\""], ["3", "(B) 그 대답은 그가 자기 직감을 믿었고 자기 자신과 자기 결정에 만족하고 있다는 것을 아주 분명히 보여 주었다. 경제학자라면 당연히 핵심이라고 부를 질문 — ABC 주식이 지금 저평가되어 있는가 — 을 그가 아예 고려하지 않았다는 점이 나는 놀라웠다."], ["4", "(A) 대신 그는 자기 직관에 귀를 기울였다. 그는 그 차가 좋았고, 그 회사가 좋았고, 그 회사 주식을 갖는다는 생각이 좋았다. 종목 고르기가 얼마나 정확한지에 대해 우리가 아는 바에 비추어 보면, 그가 자기가 무엇을 하고 있는지 몰랐다고 보는 편이 타당하다."]], "evh": "(C)→(B)", "ev": [{"en": true, "h": "When I asked how he had made that decision, he replied ... / His response made it very clear that he trusted his gut feeling ..."}, {"en": false, "h": "순서는 <b>대명사와 지시어<\/b>로 잡습니다. (C)의 첫 문장 <b>When I asked<\/b>가 주어진 글의 '방문'에 바로 이어지고, (B)의 <b>His response<\/b>(그 대답)는 (C)의 대사를 받습니다. (A)의 <b>Instead<\/b>는 (B)의 '핵심 질문을 고려하지 않았다'를 받아 '대신 직관에 귀 기울였다'로 이어집니다."}], "opts": [{"n": "①", "t": "(A) – (C) – (B)", "a": false, "x": true, "trap": false, "e": "(A)의 Instead가 받을 앞 내용이 없습니다."}, {"n": "②", "t": "(B) – (A) – (C)", "a": false, "x": true, "trap": false, "e": "(B)의 His response가 가리킬 '대답'이 아직 나오지 않았습니다."}, {"n": "③", "t": "(B) – (C) – (A)", "a": false, "x": true, "trap": false, "e": "같은 이유로 (B)가 먼저 올 수 없습니다."}, {"n": "④", "t": "(C) – (A) – (B)", "a": false, "x": true, "trap": true, "e": "(A)의 Instead는 (B)의 '핵심 질문을 고려하지 않았다'를 받아야 합니다. (A)가 (B)보다 앞서면 Instead가 붕 뜹니다."}, {"n": "⑤", "t": "(C) – (B) – (A)", "a": true, "x": false, "trap": false, "e": "질문과 대답(C) → 그 대답에 대한 평가(B) → 그 대신 무엇을 했는지(A)."}], "w": [["chief investment officer", "최고 투자 책임자"], ["financial firm", "금융 회사"], ["invest in", "~에 투자하다"], ["stock", "주식"], ["gut feeling", "직감"], ["be satisfied with", "~에 만족하다"], ["remarkable", "놀랄 만한"], ["relevant", "관련 있는"], ["underpriced", "저평가된"], ["intuition", "직관, 직감"]]}, {"q": "09", "type": "요약문 완성", "src": "2015년 11월 40번", "ans": "①", "tr": [["1", "1982년 하버드 의과대학에서 Amos Tversky가 한 실험을 실시했다."], ["2", "의사들은 폐암 환자에게 수술과 방사선 치료 가운데 어느 쪽을 권할지 결정해 달라는 요청을 받았다."], ["3", "의사 절반에게는 \"수술의 한 달 생존율은 90퍼센트입니다.\"라고 알려 주었다."], ["4", "이 정보를 받은 의사 중 84퍼센트가 방사선 치료보다 수술을 권하기로 했다."], ["5", "나머지 의사들에게는 수술 결과에 대해 이런 정보가 주어졌다 — \"첫 한 달 사망률이 10퍼센트입니다.\""], ["6", "이 뒤쪽 정보를 받은 의사 중에서는 50퍼센트만이 수술을 권했다."], ["7", "이미 눈치챘겠지만, 두 진술은 똑같은 결과를 말하고 있다."], ["8", "그런데 똑같은 결과 통계를 '생존'의 틀로 표현하면 훨씬 더 많은 의사가 수술을 택한다."], ["9", "반대로 '사망'의 틀로 표현하면 수술을 택하는 의사의 비율이 크게 떨어진다."], ["10", "이 효과는 정치, 의학, 광고 등 사람이 결정을 내리는 모든 분야에서 확인되었다."], ["11", "〈요약문〉 같은 정보를 (A)제시하는 방식이 달라지면, 그 정보에 근거한 (B)결정이 달라질 수 있다."]], "evh": "7 · 8 · 9번 문장", "ev": [{"en": true, "h": "the two statements describe the same outcome / when ... framed in terms of 'survival,' substantially more physicians choose the surgery / when ... framed in terms of 'mortality,' the percentage ... drops greatly"}, {"en": false, "h": "요약문의 두 빈칸은 <b>실험의 조작 변인<\/b>과 <b>결과 변인<\/b>입니다. 바꾼 것은 정보 내용이 아니라 <b>표현 방식(framing)<\/b> → (A) presenting. 달라진 것은 의사들의 <b>선택<\/b> → (B) decisions. 7번의 the same outcome이 '정보는 같았다'는 못을 박아 줍니다."}], "opts": [{"n": "①", "t": "presenting … decisions (제시하는 … 결정)", "a": true, "x": false, "trap": false, "e": "framed in terms of ~ = 제시 방식, choose the surgery = 결정. 정확히 대응합니다."}, {"n": "②", "t": "storing … judgments (저장하는 … 판단)", "a": false, "x": true, "trap": false, "e": "(B)는 그럴듯하지만 (A)가 틀립니다. 정보를 <b>저장<\/b>한 실험이 아닙니다."}, {"n": "③", "t": "delivering … systems (전달하는 … 체계)", "a": false, "x": true, "trap": true, "e": "(A)는 통하지만 (B)가 틀립니다. 달라진 것은 체계가 아니라 <b>선택<\/b>입니다."}, {"n": "④", "t": "presenting … innovations (제시하는 … 혁신)", "a": false, "x": true, "trap": false, "e": "혁신에 대한 언급이 없습니다."}, {"n": "⑤", "t": "storing … skills (저장하는 … 기술)", "a": false, "x": true, "trap": false, "e": "(A)도 (B)도 지문과 맞지 않습니다."}], "w": [["conduct", "실시하다"], ["physician", "내과 의사"], ["radiation", "방사선 치료"], ["survival rate", "생존율"], ["mortality rate", "사망률"], ["latter", "후자의, 나중의"], ["statement", "진술"], ["frame", "(특정 방식으로) 표현하다"], ["substantially", "상당히"], ["demonstrate", "입증하다"]]}, {"q": "10", "type": "글의 순서", "src": "2023년 3월 43번", "ans": "⑤", "tr": [["1", "(A) 초가을의 더운 날이었다. Wylder는 첫 훈련을 위해 학교 운동장으로 향하고 있었다. 그는 입단 테스트를 통과해 다섯 명의 다른 학생들과 함께 막 팀에 합류한 참이었다. 운동장에 가까워지면서, 그는 선수들이 양말을 끌어올리고 정강이 보호대를 차며 준비하는 모습을 보았다. 그런데 그들은 함께 있지 않았다. 새 선수들은 차고 옆 그늘에 앉아 있었고, 나머지 선수들은 오른쪽 기둥 옆 양지에 서 있었다. 그때 McGraw 코치가 와서 선수들을 지켜보았다."], ["2", "(D) McGraw 코치도 그 모습을 보았다 — 새 아이들과 나머지가 따로 무리 지어 있는 것을. '이건 바뀌어야 해.' 그는 생각했다. 그는 이기는 팀을 원했다. 그러려면 관계를 만들어야 했다. \"다들 이쪽 가운데로 와서 앉아라.\" 그는 걸어가며 선수들을 불렀다. \"너!\" McGraw가 Wylder를 가리키며 고함쳤다. \"운동장 안으로 들어와서 앉아. 그리고 Jonny! 너는 저기 앉고!\" 그는 손가락질을 이어 가며 아이들이 반드시 섞여 앉게 했다. Wylder는 코치가 무엇을 하려는지 알아채고 운동장 안으로 뛰어들었다."], ["3", "(C) McGraw는 자리 배치가 마음에 들 때까지 선수들을 한 명씩 불러내며 계속 가리켰다. \"좋아, 앞으로는 이렇게 간다.\" 그가 입을 열었다. \"우리는 서로를 믿고 함께 하는 법을 배워야 한다. 팀은 그렇게 경기하는 거야. 나는 너희가 운동장 안에서도 밖에서도 이렇게 있기를 바란다 — 함께.\" 선수들은 서로를 바라보았다. 거의 곧바로 McGraw는 그들의 자세와 표정이 달라지는 것을 알아챘다. 그는 몇몇이 웃기 시작하는 것을 보았다."], ["4", "(B) '우와.' Wylder는 생각했다. 잔디 위 새 자리에서 그는 다리를 쭉 폈다. 그는 자기가 듣고 있는 말이 좋았다. 새로운 팀 정신이, 더 깊은 연대감이 그에게 밀려왔다. 코치가 이 이야기를 꺼내는 것을 듣고, 그가 그 문제에 정면으로 부딪히는 모습을 보는 것은 힘이 되는 일이었다. 이제 코치의 말이 끝났다. 선수들은 일어나 몸을 풀러 운동장으로 걸어 나갔다. \"좋았습니다, 코치님. 정말 좋았어요.\" Wylder는 코치를 지나쳐 걸어가며 존중의 뜻으로 눈을 아래로 둔 채 낮은 목소리로 말했다."]], "evh": "(A)→(D)", "ev": [{"en": true, "h": "Then Coach McGraw came and watched the players. / Coach McGraw, too, saw the pattern — new kids and others grouping separately."}, {"en": false, "h": "순서의 열쇠는 <b>too<\/b>와 <b>시간의 흐름<\/b>입니다. (A) 끝에서 코치가 와서 선수들을 봅니다 → (D)의 <b>Coach McGraw, too, saw the pattern<\/b>이 바로 그 장면을 잇습니다. (D)에서 자리를 옮기게 하고, (C)에서 <b>continued to point<\/b>로 그 동작을 이어받아 연설을 끝냅니다. (B)는 <b>new location<\/b>(새 자리)과 <b>his speech was over<\/b>로 (C) 뒤임이 확정됩니다."}], "opts": [{"n": "①", "t": "(B) – (D) – (C)", "a": false, "x": true, "trap": false, "e": "(B)의 '새 자리'는 자리를 옮긴 뒤에만 가능합니다."}, {"n": "②", "t": "(C) – (B) – (D)", "a": false, "x": true, "trap": false, "e": "(C)의 continued to point는 (D)에서 가리키기 시작한 뒤라야 성립합니다."}, {"n": "③", "t": "(C) – (D) – (B)", "a": false, "x": true, "trap": false, "e": "같은 이유로 (C)가 (D)보다 앞설 수 없습니다."}, {"n": "④", "t": "(D) – (B) – (C)", "a": false, "x": true, "trap": true, "e": "(B)에서 이미 <b>연설이 끝났다<\/b>고 했는데 (C)에서 다시 연설을 시작하면 시간이 거꾸로 갑니다."}, {"n": "⑤", "t": "(D) – (C) – (B)", "a": true, "x": false, "trap": false, "e": "코치가 상황을 알아챔(D) → 자리 재배치와 연설(C) → 연설이 끝난 뒤 Wylder의 소감(B)."}], "w": [["head to", "~로 향하다"], ["tryout", "입단 테스트"], ["shin guard", "정강이 보호대"], ["in the shade", "그늘에서"], ["group separately", "따로 무리 짓다"], ["rearrangement", "자리 재정리"], ["posture", "자세"], ["sense of connection", "연대감"], ["head-on", "정면으로"], ["out of respect", "존중의 뜻으로"]]}, {"q": "11", "type": "지칭 추론", "src": "2023년 3월 44번", "ans": "④", "tr": [["1", "(a) he — 운동장에 다가가며 선수들이 준비하는 것을 본 사람 → Wylder"], ["2", "(b) him — 새로운 팀 정신과 연대감이 밀려온 사람 → Wylder"], ["3", "(c) his — 코치를 지나치며 눈을 아래로 둔 사람 → Wylder"], ["4", "(d) He — 몇몇이 웃기 시작하는 것을 본 사람 → McGraw 코치"], ["5", "(e) he — 코치의 의도를 알아채고 운동장으로 뛰어든 사람 → Wylder"]], "evh": "(C)", "ev": [{"en": true, "h": "Almost immediately, McGraw noticed a change in their postures and faces. (d) He saw some of them starting to smile."}, {"en": false, "h": "지칭 문제는 <b>바로 앞 문장의 주어<\/b>를 확인하는 것이 기본입니다. (d) 앞 문장의 주어가 <b>McGraw<\/b>이고, (d)가 있는 문장도 <b>선수들(some of them)을 바라보는 쪽<\/b>입니다. 나머지 넷은 모두 상황을 <b>겪는 쪽<\/b>인 Wylder입니다 — 보는 사람과 보이는 사람을 갈라놓으면 바로 풀립니다."}], "opts": [{"n": "①", "t": "(a)", "a": false, "x": true, "trap": false, "e": "운동장에 다가가는 사람 = 첫 훈련을 하러 온 Wylder입니다."}, {"n": "②", "t": "(b)", "a": false, "x": true, "trap": false, "e": "연대감이 밀려온 사람 = 감동을 받은 Wylder입니다."}, {"n": "③", "t": "(c)", "a": false, "x": true, "trap": false, "e": "코치를 지나치며 눈을 내리깐 사람 = 선수인 Wylder입니다."}, {"n": "④", "t": "(d)", "a": true, "x": false, "trap": false, "e": "선수들의 표정 변화를 알아챈 McGraw 코치입니다. 나머지 넷과 다릅니다."}, {"n": "⑤", "t": "(e)", "a": false, "x": true, "trap": true, "e": "코치의 의도를 깨닫고 운동장으로 뛰어든 사람 = Wylder입니다. 바로 앞에 McGraw가 여러 번 나와서 헷갈리지만, 지시를 <b>따르는<\/b> 쪽입니다."}], "w": [["approach", "다가가다"], ["come across", "(감정이) 밀려오다"], ["keep one's eyes down", "눈을 아래로 두다"], ["notice", "알아차리다"], ["posture", "자세"], ["hop onto", "~ 위로 뛰어오르다"], ["point at", "~을 가리키다"], ["roar", "고함치다"], ["make sure", "반드시 ~하게 하다"], ["mix together", "서로 섞이다"]]}, {"q": "12", "type": "내용 불일치", "src": "2023년 3월 45번", "ans": "⑤", "tr": [["1", "① Wylder는 다섯 명의 다른 학생과 팀에 합류했다. → (A) He had just joined the team with five other students — 일치"], ["2", "② Wylder는 잔디 위의 새로운 자리에서 다리를 쭉 폈다. → (B) From his new location on the grass, he stretched out his legs — 일치"], ["3", "③ McGraw는 재배열이 마음에 들 때까지 선수들을 불러냈다. → (C) calling each player out, until he was satisfied with the rearrangement — 일치"], ["4", "④ McGraw는 선수들의 자세와 얼굴의 변화를 알아차렸다. → (C) noticed a change in their postures and faces — 일치"], ["5", "⑤ McGraw는 선수들에게 운동장 밖으로 나가라고 말했다. → (D) \"Come here onto the field and sit.\" — 불일치"]], "evh": "(D)", "ev": [{"en": true, "h": "\"I want you guys to come over here in the middle and sit\" / \"Come here onto the field and sit.\""}, {"en": false, "h": "불일치 유형은 선택지를 <b>지문 순서대로<\/b> 대조합니다. ⑤의 근거는 (D)에 있고, 코치가 시킨 것은 운동장 <b>안 가운데로 와서 앉으라<\/b>는 것입니다. 방향을 정반대로 뒤집은 함정입니다. onto the field 한 마디만 확인하면 끝납니다."}], "opts": [{"n": "①", "t": "Wylder는 다섯 명의 다른 학생과 팀에 합류했다.", "a": false, "x": true, "trap": false, "e": "(A)의 joined the team with five other students와 일치합니다."}, {"n": "②", "t": "Wylder는 잔디 위의 새로운 자리에서 다리를 쭉 폈다.", "a": false, "x": true, "trap": false, "e": "(B)의 stretched out his legs와 일치합니다."}, {"n": "③", "t": "McGraw는 재배열이 마음에 들 때까지 선수들을 불러냈다.", "a": false, "x": true, "trap": false, "e": "(C)의 until he was satisfied with the rearrangement와 일치합니다."}, {"n": "④", "t": "McGraw는 선수들의 자세와 얼굴의 변화를 알아차렸다.", "a": false, "x": true, "trap": false, "e": "(C)의 noticed a change in their postures and faces와 일치합니다."}, {"n": "⑤", "t": "McGraw는 선수들에게 운동장 밖으로 나가라고 말했다.", "a": true, "x": false, "trap": false, "e": "운동장 <b>안<\/b>으로 와서 앉으라고 했습니다. 정반대입니다."}], "w": [["join", "합류하다"], ["stretch out", "(다리를) 쭉 뻗다"], ["call out", "불러내다"], ["be satisfied with", "~에 만족하다"], ["rearrangement", "자리 재정리"], ["posture", "자세"], ["onto the field", "운동장 안으로"], ["in the middle", "가운데에"], ["warm up", "몸을 풀다"], ["be over", "끝나다"]]}]};
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크북 '+CF.sn.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -277,18 +330,22 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
-function hkHtml(it){
-  const E=it[2].split(' / '),K=it[3].split(' / ');
-  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
-  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
-  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
-  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
-  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+function esc2(s){return String(s)}
+function chunkSplit(s){return String(s).split(' / ')}
+function scHtml(c){
+  const esc=String;
+  const E=chunkSplit(c.eng),K=chunkSplit(c.lit);
+  let x='<div class="sc"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span><span class="tt">'+esc(c.title)+'</span></div><div class="sc-b">';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+E[j]+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  if(c.notes.length){x+='<div class="nts">'+c.notes.map(n=>'<span class="nt"><sup>'+n[0]+'</sup> <b>'+esc(n[1])+'</b> '+esc(n[2])+'</span>').join('')+'</div>';}
+  x+='<div class="lay nat"><span class="lb">자연스러운 해석</span>'+esc(c.nat)+'</div>';
+  if(c.ana)x+='<div class="lay ana"><span class="lb">분석</span>'+c.ana+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|분석">자연스러운 해석</button></div></div>';
   return x;
 }
 function renderDk(){
   let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-  HK.forEach(it=>{h+=hkHtml(it);});
+  CF.sn.forEach(c=>{h+=scHtml(c);});
   h+='</div></div>';
   app.innerHTML=h;
 }
@@ -442,41 +499,29 @@ function renderSubmit(){
   const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
 }
 /* ---- 해설 ---- */
-function sHtml(s,evn){
-  const ev=evn.indexOf(s.n)>=0;
-  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
-  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
-  const lays=[];
-  if(s.link)lays.push(['이어 읽으면',s.link]);
-  if(s.easy)lays.push(['쉬운 말로',s.easy]);
-  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
-  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
-  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
-  return x+'</div>';
-}
 function qHtml(i,a){
+  const esc=String;
   const d=D[i],ok=isRight(i,a);
-  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
-  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
-  h+='<h4>정답 근거</h4>';
-  h+=`<p class="en">${esc(d.ev_en)}</p>`;
-  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
-  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
-  if(d.ps&&d.ps.length){
-    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
-  }
-  h+='<h4>선택지 하나씩</h4>';
-  d.ch.forEach(c=>{
-    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  const cq=CF.qs.find(x=>x.q===d.no);
+  if(!cq)return '';
+  let h='<details class="qd" id="qd'+i+'" '+(ok?'':'open')+'><summary>'+esc(cq.q)+'번 · '+esc(cq.type)+'<small>'+esc(cq.src)+'</small><span class="res2 '+(ok?'o':'x')+'">'+(ok?'○ 정답':'✕ 오답')+'</span></summary><div class="qx">';
+  h+='<p class="ansline"><b>정답 '+esc(cq.ans)+'</b>'+(ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>')+'</p>';
+  h+='<details class="sub2"><summary>전문 해석</summary><ol class="trs" style="list-style:none">'+cq.tr.map(t=>'<li><span class="n">'+(t[0]==null?'':esc(t[0]))+'</span>'+t[1]+'</li>').join('')+'</ol></details>';
+  h+='<div class="sec">답의 근거 · '+esc(cq.evh)+'</div><div class="evx">';
+  cq.ev.forEach(p=>{h+=p.en?'<p class="en">'+p.h+'</p>':'<p>'+p.h+'</p>';});
+  h+='</div><div class="sec">선택지 하나씩</div>';
+  cq.opts.forEach(o=>{
+    h+='<div class="opx '+(o.a?'a':'')+'"><div class="ot"><span class="mk">'+esc(o.n)+'</span>'+o.t+(o.a?'<span class="bd g">정답</span>':'')+(o.trap?'<span class="bd t">가장 많이 걸리는 오답</span>':'')+'</div>'+(o.e?'<p>'+(o.x?'<span class="xm">✕</span>':'')+o.e+'</p>':'')+'</div>';
   });
-  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  if(cq.w.length){h+='<div class="sec">단어</div><div class="wds">'+cq.w.map(w=>'<span><b>'+esc(w[0])+'</b>'+esc(w[1])+'</span>').join('')+'</div>';}
+  h+='<button class="toq" data-i="'+i+'">빠른 정답으로</button>';
   return h+'</div></details>';
 }
 function renderExp(){
   const rec=S.sub;
   let h=hdr()+band(4)+'<div class="wrap">';
-  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
-  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='<div class="score">'+rec.s+' <small>/ '+N+'</small></div><h2 id="quick">빠른 정답</h2><div class="qc">';
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+='<button class="qchip '+(ok?'o':'x')+'" data-i="'+i+'"><small>'+esc(D[i].no)+'번</small>'+ansText(i)+' '+(ok?'○':'✕')+'</button>';}
   h+='</div><h2>해설</h2>';
   for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
   h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
@@ -515,13 +560,17 @@ function mmInit(){
 }
 /* 위임 이벤트 */
 document.addEventListener('click',e=>{
+  const qchip=e.target.closest('.qchip');
+  if(qchip){const dd=document.getElementById('qd'+qchip.dataset.i);if(dd){dd.open=true;dd.scrollIntoView({block:'start'});}return;}
+  const toq=e.target.closest('.toq');
+  if(toq){const qq=document.getElementById('quick');if(qq)qq.scrollIntoView({block:'start'});return;}
   const tb=e.target.closest('.tab,.hcard,.gohome');
   if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
   const ch=e.target.closest('.ch');
   if(ch){ch.classList.toggle('open');return;}
   const st=e.target.closest('.stg');
   if(st){
-    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const s=st.closest('.s,.sc'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
     const shown=lays.filter(l=>l.classList.contains('on')).length;
     if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
     else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
@@ -531,7 +580,7 @@ document.addEventListener('click',e=>{
   if(al){
     const open=al.dataset.all==='1',body=al.closest('.dkbody');
     body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
-    body.querySelectorAll('.s').forEach(s=>{
+    body.querySelectorAll('.s,.sc').forEach(s=>{
       const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
       lays.forEach(l=>l.classList.toggle('on',open));
       if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
