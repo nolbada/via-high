@@ -247,7 +247,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','덩어리별 해석 확인'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const HK=[["07", "1", "Humans are omnivorous, / meaning / that they can consume and digest / a wide selection of plants and animals / found in their surroundings.", "인간은 잡식성이다 / 그것은 뜻한다 / 그들이 섭취하고 소화할 수 있다는 것을 / 아주 다양한 식물과 동물을 / 자기 주변에서 발견되는", "인간은 잡식성이다. 다시 말해 주변에서 구할 수 있는 아주 다양한 식물과 동물을 먹고 소화할 수 있다는 뜻이다.", "콤마 뒤의 <b>meaning<\/b>은 앞 문장 전체를 받아 '즉 ~라는 뜻이다'로 이어 주는 <b>분사구문<\/b>입니다. 새 문장의 동사가 아니라는 점을 표시해 두세요. <b>consume<\/b>과 <b>digest<\/b>는 can에 함께 걸리는 병렬입니다. 맨 뒤 <b>found in their surroundings<\/b>는 plants and animals를 뒤에서 꾸미는 <b>과거분사<\/b>로 '발견되는'입니다 — find의 과거형으로 읽으면 동사가 두 개가 되어 문장이 깨집니다."], ["07", "3", "The disadvantage is / that no single food provides the nutrition / necessary for survival.", "단점은 ~이다 / 어떤 단일한 음식도 영양을 제공하지 않는다는 것 / 생존에 필요한", "단점은 어느 한 가지 음식만으로는 생존에 필요한 영양을 다 얻을 수 없다는 것이다.", "is 뒤의 <b>that절<\/b>은 주격보어입니다. '~라는 것이다'로 받아 읽으세요. <b>no single food<\/b>는 '어떤 하나의 음식도 ~않다'라는 <b>전체 부정<\/b>이라, not을 따로 넣지 않아도 이미 부정문입니다. 맨 뒤 <b>necessary for survival<\/b>은 the nutrition을 <b>뒤에서 꾸미는 형용사구<\/b>입니다 — 형용사가 딸린 말을 데리고 오면 명사 뒤에 놓인다는 규칙을 기억하세요."], ["08", "1", "As we look toward a future of more renewable energy dependency, / having reliable energy storage / to back up wind and solar / will be necessary / for everything to run smoothly.", "우리가 재생 에너지 의존이 더 커진 미래를 바라볼 때 / 믿을 만한 에너지 저장 수단을 갖추는 것이 / 풍력과 태양광을 뒷받침할 / 필요할 것이다 / 모든 것이 원활하게 돌아가려면", "재생 에너지에 더 많이 기대는 미래로 갈수록, 풍력과 태양광을 받쳐 줄 믿을 만한 저장 장치를 갖추는 일이 모든 것이 매끄럽게 돌아가는 데 꼭 필요해질 것이다.", "주절의 주어는 <b>having reliable energy storage<\/b>라는 <b>동명사구<\/b>이고 동사는 <b>will be<\/b>입니다. having을 앞 절의 분사구문으로 착각하면 주어가 사라집니다. <b>to back up ~<\/b>은 storage를 꾸미는 형용사적 용법입니다. 맨 뒤 <b>for everything to run smoothly<\/b>에서 <b>for everything<\/b>은 to부정사의 <b>의미상 주어<\/b>입니다 — for를 '~을 위해'로만 읽으면 어색해집니다."], ["08", "6", "Computer models show / that those wrinkles relax the stress in the battery / during charging and recharging, / creating a flexible and long-lasting battery.", "컴퓨터 모델은 보여 준다 / 그 주름들이 배터리 내부의 응력을 풀어 준다는 것을 / 충전과 재충전 동안 / 그리하여 유연하고 오래가는 배터리를 만들어 낸다", "컴퓨터 모델에 따르면, 그 주름이 충전과 재충전 과정에서 배터리에 걸리는 힘을 풀어 주어 유연하고 오래가는 배터리가 된다.", "<b>show that ~<\/b>은 '~임을 보여 준다'로, that절 전체가 목적어입니다. 콤마 뒤의 <b>creating<\/b>은 <b>결과를 나타내는 분사구문<\/b>이라 '그래서 ~하게 된다'로 이어 읽습니다 — 앞 명사 recharging에 붙이면 뜻이 엉킵니다. <b>relax<\/b>는 '쉬다'가 아니라 여기서는 <b>'(힘·긴장을) 풀어 주다'<\/b>라는 타동사입니다. 기술 지문에서 익숙한 단어가 낯선 뜻으로 쓰이는 전형적인 예입니다."], ["09", "P-2", "We cannot get by on reason alone / since any reason always eventually leads to a feeling.", "우리는 이성만으로 해 나갈 수 없다 / 어떤 이성이든 결국 항상 감정으로 이어지기 때문에", "어떤 이성적 판단도 결국은 감정으로 이어지기 때문에, 우리는 이성만으로 살아갈 수 없다.", "<b>since<\/b>는 여기서 '~한 이래로'가 아니라 <b>'~이기 때문에'<\/b>입니다. 주절에 현재완료가 없고 <b>이유<\/b>가 자연스러우면 이 뜻입니다. <b>get by on<\/b>은 '~만으로 그럭저럭 해 나가다'라는 구동사이고, <b>alone<\/b>은 명사 뒤에 붙어 <b>'~만'<\/b>이라는 뜻입니다 — '홀로'로 읽으면 어색해집니다. <b>any<\/b>는 부정문이 아닌 이 자리에서 <b>'어떤 ~이든'<\/b>이라는 강한 긍정입니다."], ["10", "A-2", "In fact, / it was much too nice a day / to remain indoors.", "사실 / 그날은 너무나 좋은 날이었다 / 실내에 머물기에는", "사실 실내에만 있기에는 너무 좋은 날이었다.", "<b>too ~ to V<\/b>는 '너무 …해서 V할 수 없다'입니다. 여기서는 <b>too nice a day<\/b>라는 <b>특이한 어순<\/b>이 핵심입니다 — too/so/as/how 뒤에서는 <b>형용사 + a(n) + 명사<\/b> 순서가 되어 a가 형용사 뒤로 밀립니다(a too nice day가 아닙니다). 앞의 <b>much<\/b>는 too를 강조해 '훨씬, 너무나'입니다. <b>remain<\/b>은 '남아 있다, 머무르다'입니다."], ["10", "C-5", "Just as Mr. Brooks reached the bars, / all of (d) them, / including Michelle, / began shouting: \"Garbage man!\"", "Brooks 씨가 철봉에 막 다다랐을 때 / 그들 모두가 / Michelle을 포함해 / 소리치기 시작했다: \"환경미화원이다!\"", "Brooks 씨가 철봉에 막 닿는 순간, Michelle을 비롯한 아이들 모두가 \"환경미화원이다!\" 하고 소리치기 시작했다.", "맨 앞 <b>Just as<\/b>는 앞에서 본 비교의 as가 아니라 <b>'막 ~하는 그때'<\/b>라는 시간 접속사입니다. 같은 as라도 뒤에 <b>사건<\/b>이 오면 시간, <b>상태·성질<\/b>이 오면 비교로 갈립니다. 콤마로 묶인 <b>including Michelle<\/b>은 <b>삽입<\/b>이니 괄호를 치고 넘어가면 주어가 <b>all of them<\/b>임이 바로 보입니다. <b>begin -ing<\/b>는 begin to V와 같은 뜻으로 씁니다."], ["10", "D-4", "The other man had moved to the rear of the truck / and seemed to be attaching the dumpster to a lift.", "다른 한 사람은 트럭 뒤쪽으로 이동해 있었다 / 그리고 쓰레기 수거함을 리프트에 붙이고 있는 것처럼 보였다", "다른 한 사람은 이미 트럭 뒤쪽으로 가서, 수거함을 리프트에 걸고 있는 것 같았다.", "<b>had moved<\/b>는 <b>과거완료<\/b>로, 바라본 시점보다 <b>먼저<\/b> 일어난 일입니다 — '이미 ~해 있었다'로 시간 순서를 표시하며 읽으세요. <b>seemed to be attaching<\/b>은 seem + to부정사의 <b>진행형<\/b>이라 '~하고 있는 것처럼 보였다'입니다. to be를 빼고 seemed attaching이라고 쓰지 않습니다. <b>attach A to B<\/b>는 'A를 B에 붙이다'이고, <b>the other<\/b>는 둘 중 <b>나머지 하나<\/b>를 가리킵니다."]];
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -275,16 +276,19 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
+function hkHtml(it){
+  const E=it[2].split(' / '),K=it[3].split(' / ');
+  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
+  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+  return x;
+}
 function renderDk(){
-  let h=hdr()+band(2)+'<div class="wrap">';
-  for(let i=0;i<N;i++){
-    const d=D[i];
-    h+='<details class="qd" '+(i===0?'open':'')+'><summary>'+esc(d.no)+'번 지문<small>'+esc(d.typ)+'</small></summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-    if(d.ps&&d.ps.length)h+=d.ps.map(sHtmlP).join('');
-    else h+='<ol>'+d.tr.map(t=>'<li>'+t+'</li>').join('')+'</ol>';
-    h+='</div></details>';
-  }
-  h+='</div>';
+  let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
+  HK.forEach(it=>{h+=hkHtml(it);});
+  h+='</div></div>';
   app.innerHTML=h;
 }
 /* ---- 단어 확인 ---- */
