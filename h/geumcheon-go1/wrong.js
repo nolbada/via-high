@@ -22,7 +22,7 @@ var WN=(function(){
   function mxSave(o){try{localStorage.setItem(MKEY,JSON.stringify(o))}catch(e){}}
   var MS=MX?mxLoad():null;
   function here(){var p=location.pathname,k=(/\/(L\d+|mock)\//.exec(p)||[])[1]||'',f=p.split('/').pop().replace('.html','');
-    var a={'vocab':'voc','find':'find','awkward-test':'awk','eobeop-test':'eobeop','sunseo-ko':'ko','sunseo-abc':'abc','sunseo-mun':'mun','blank':'blank'}[f];
+    var a={'vocab':'voc','find':'find','awkward-test':'awk','eobeop-test':'eobeop','sunseo-ko':'ko','sunseo-abc':'abc','sunseo-mun':'mun','blank':'blank','nd-voc':'voc','nd-find':'find','nd-eob':'eobeop','nd-awk':'awk','nd-und':'und'}[f];
     var m=/[?&]part=(\d+)/.exec(location.search);return{kind:k,part:m?+m[1]:0,act:a}}
   function mxPick(kind,part,act){return ((MS&&MS.cur)||[]).filter(function(x){return x.kind===kind&&x.part===part&&x.act===act})}
   if(MX){var go=function(){[].forEach.call(document.querySelectorAll('a.back'),function(a){a.href=base()+'mix.html';a.textContent='← 랜덤 문제'})};
