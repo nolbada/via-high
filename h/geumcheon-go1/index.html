@@ -217,16 +217,16 @@ mark{background:color-mix(in srgb,var(--c) 18%,transparent);color:inherit;border
 <script>var JJ4={},JJM={},EZ={},KEY15={groups:[]},GRAM={};</script>
 <script>
 (function(){
-var ACT=[['voc','어휘'],['find','TF'],['eobeop','어법선택'],['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['awk','어색한 곳'],['blank','빈칸추론'],['wk','틀린 문제 다시 풀기'],['wt','약한 유형 골라 풀기']];
+var ACT=[['voc','어휘'],['find','TF'],['eobeop','어법선택'],['ko','한글 순서'],['abc','ABC 순서'],['mun','문장삽입'],['awk','어색한 곳'],['blank','빈칸추론'],['und','밑줄의 의미'],['wk','틀린 문제 다시 풀기'],['wt','약한 유형 골라 풀기']];
 var SEC=[
  {label:'교과서 4과',set:'L4',url:{ko:'L4/sunseo-ko.html',abc:'L4/sunseo-abc.html',mun:'L4/sunseo-mun.html',blank:'L4/blank.html',find:'L4/find.html',awk:'L4/awkward-test.html',eobeop:'L4/eobeop-test.html',voc:'L4/vocab.html'}},
- {label:'모의고사',set:'mock',url:{}},
+ {label:'모의고사',set:'mock',url:{voc:'mock/nd-voc.html',find:'mock/nd-find.html',eobeop:'mock/nd-eob.html',awk:'mock/nd-awk.html',und:'mock/nd-und.html'}},
  {label:'교과서 3과',set:'L3',url:{ko:'L3/sunseo-ko.html',abc:'L3/sunseo-abc.html',mun:'L3/sunseo-mun.html',blank:'L3/blank.html',find:'L3/find.html',awk:'L3/awkward-test.html',eobeop:'L3/eobeop-test.html',voc:'L3/vocab.html'}},
  {label:'최종점검',set:'F',url:{wk:'wrong.html',wt:'mix.html'}}
 ];
 function durTxt(k){var t=0;try{t=+localStorage.getItem('vhd:'+k)||0}catch(e){}if(!t)return '';return ' '+(t>=60?Math.floor(t/60)+'분':t+'초')}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-var CNT={"L3p1:ko": 2, "L3p2:ko": 2, "L3p3:ko": 2, "L3p4:ko": 2, "L3p1:abc": 6, "L3p2:abc": 3, "L3p3:abc": 4, "L3p4:abc": 2, "L3p1:mun": 2, "L3p2:mun": 2, "L3p3:mun": 2, "L3p4:mun": 2, "L3p1:blank": 2, "L3p2:blank": 2, "L3p3:blank": 2, "L3p4:blank": 2, "L4p1:ko": 2, "L4p2:ko": 2, "L4p3:ko": 2, "L4p4:ko": 2, "L4p1:abc": 6, "L4p2:abc": 6, "L4p3:abc": 2, "L4p4:abc": 5, "L4p1:mun": 3, "L4p2:mun": 2, "L4p3:mun": 2, "L4p4:mun": 2, "L4p1:blank": 2, "L4p2:blank": 2, "L4p3:blank": 2, "L4p4:blank": 2, "L3p1:find": 4, "L3p1:awk": 4, "L3p1:eobeop": 7, "L3p2:find": 4, "L3p2:awk": 4, "L3p2:eobeop": 9, "L3p3:find": 4, "L3p3:awk": 4, "L3p3:eobeop": 9, "L3p4:find": 2, "L3p4:awk": 2, "L3p4:eobeop": 7, "L4p1:find": 5, "L4p1:awk": 4, "L4p1:eobeop": 12, "L4p2:find": 5, "L4p2:awk": 2, "L4p2:eobeop": 10, "L4p3:find": 3, "L4p3:awk": 2, "L4p3:eobeop": 9, "L4p4:find": 4, "L4p4:awk": 2, "L4p4:eobeop": 12, "L3p1:voc": 15, "L3p2:voc": 25, "L3p3:voc": 35, "L3p4:voc": 21, "L4p1:voc": 31, "L4p2:voc": 20, "L4p3:voc": 23, "L4p4:voc": 27};
+var CNT={"mockp1:voc": 36, "mockp1:find": 48, "mockp1:eobeop": 19, "mockp1:awk": 16, "mockp1:und": 16, "L3p1:ko": 2, "L3p2:ko": 2, "L3p3:ko": 2, "L3p4:ko": 2, "L3p1:abc": 6, "L3p2:abc": 3, "L3p3:abc": 4, "L3p4:abc": 2, "L3p1:mun": 2, "L3p2:mun": 2, "L3p3:mun": 2, "L3p4:mun": 2, "L3p1:blank": 2, "L3p2:blank": 2, "L3p3:blank": 2, "L3p4:blank": 2, "L4p1:ko": 2, "L4p2:ko": 2, "L4p3:ko": 2, "L4p4:ko": 2, "L4p1:abc": 6, "L4p2:abc": 6, "L4p3:abc": 2, "L4p4:abc": 5, "L4p1:mun": 3, "L4p2:mun": 2, "L4p3:mun": 2, "L4p4:mun": 2, "L4p1:blank": 2, "L4p2:blank": 2, "L4p3:blank": 2, "L4p4:blank": 2, "L3p1:find": 4, "L3p1:awk": 4, "L3p1:eobeop": 7, "L3p2:find": 4, "L3p2:awk": 4, "L3p2:eobeop": 9, "L3p3:find": 4, "L3p3:awk": 4, "L3p3:eobeop": 9, "L3p4:find": 2, "L3p4:awk": 2, "L3p4:eobeop": 7, "L4p1:find": 5, "L4p1:awk": 4, "L4p1:eobeop": 12, "L4p2:find": 5, "L4p2:awk": 2, "L4p2:eobeop": 10, "L4p3:find": 3, "L4p3:awk": 2, "L4p3:eobeop": 9, "L4p4:find": 4, "L4p4:awk": 2, "L4p4:eobeop": 12, "L3p1:voc": 15, "L3p2:voc": 25, "L3p3:voc": 35, "L3p4:voc": 21, "L4p1:voc": 31, "L4p2:voc": 20, "L4p3:voc": 23, "L4p4:voc": 27};
 var OPT={ko:1},VAR={voc:1,ko:1,abc:1,mun:1,blank:1};
 var EXAMD=["2026-12-07", "2026-12-08", "2026-12-09", "2026-12-10"];
 var EXAM=new Date(2026,11,7);
@@ -237,7 +237,7 @@ var SOON='내용은 준비 중이에요';
 var VIS=[
  [{T:1,t:'3과 1회',s:'본문 ❶'},{T:2,t:'3과 2회',s:'본문 ❷'},{T:3,t:'3과 3회',s:'본문 ❸'}],
  [{T:4,t:'3과 4회',s:'본문 ❹'},{L:1,t:'4과 1회',s:'본문 ❶'},{L:2,t:'4과 2회',s:'본문 ❷'}],
- [{L:3,t:'4과 3회',s:'본문 ❸'},{L:4,t:'4과 4회',s:'본문 ❹'},{D:1,t:'모의고사 1회',s:'26년 10월 모의고사',x:SOON}],
+ [{L:3,t:'4과 3회',s:'본문 ❸'},{L:4,t:'4과 4회',s:'본문 ❹'},{D:1,t:'모의고사 1회',s:'26년 10월 21~24번'}],
  [{D:2,t:'모의고사 2회',s:'26년 10월 모의고사',x:SOON},{D:3,t:'모의고사 3회',s:'26년 10월 모의고사',x:SOON},{D:4,t:'모의고사 4회',s:'26년 10월 모의고사',x:SOON}],
  [{D:5,t:'모의고사 5회',s:'26년 10월 모의고사',x:SOON},{D:6,t:'모의고사 6회',s:'26년 10월 모의고사',x:SOON},{D:7,t:'모의고사 7회',s:'26년 10월 모의고사',x:SOON}],
  [{D:8,t:'모의고사 8회',s:'26년 10월 모의고사',x:SOON},{D:9,t:'모의고사 9회',s:'26년 10월 모의고사',x:SOON},{D:10,t:'모의고사 10회',s:'26년 10월 모의고사',x:SOON}],
@@ -315,7 +315,7 @@ function today(){
   ACT.forEach(function(a){var id=a[0],sc=setOf(v),u=sc.url[id];if(!u||stt==='lock')return;
     var on=isOn(v,id);
     var sk=key(v,id),href=(v.F?u:u+'?part='+(v.L||v.T||v.D)),chk=QS[sk]!==undefined?QS[sk]:(!on&&!OPT[id]);
-    h+='<div class="arow'+(on?' dn':'')+'">'+(on?'<span class="ck"><i class="okb">✓</i></span>':v.F?'<span class="ck"></span>':'<label class="ck"><input type="checkbox" data-q="'+sk+'"'+(chk?' checked':'')+'></label>')+'<a class="at" href="'+href+'"'+(v.F?' data-fm="'+sk+'"':'')+'><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+'</b>'+(CNT[sk]?' <span class="cn">'+(id==='voc'?'약 ':'')+CNT[sk]+(id==='find'?'개':'문제')+'</span>':'')+(VAR[id]?'<i class="vr">매번 다른 문제</i>':(id==='wk'||id==='wt')?'':'<i class="vr o">1회성</i>')+(v.F&&WN.solvedBy(id==='wk'?'w':'m')?' <span class="cn">'+WN.solvedBy(id==='wk'?'w':'m')+'문제 풀었어요</span>':'')+'</a></div>'});
+    h+='<div class="arow'+(on?' dn':'')+'">'+(on?'<span class="ck"><i class="okb">✓</i></span>':v.F?'<span class="ck"></span>':'<label class="ck"><input type="checkbox" data-q="'+sk+'"'+(chk?' checked':'')+'></label>')+'<a class="at" href="'+href+'"'+(v.F?' data-fm="'+sk+'"':'')+'><b>'+(ACT.indexOf(a)+1)+'. '+esc(nm[id])+(OPT[id]?' <em>(선택)</em>':'')+'</b>'+(CNT[sk]?' <span class="cn">'+(id==='voc'?'약 ':'')+CNT[sk]+(id==='find'?'개':'문제')+'</span>':'')+(v.D&&{voc:1,find:1,eobeop:1,awk:1,und:1}[id]?'<i class="vr o">틀린 것만 반복</i>':VAR[id]?'<i class="vr">매번 다른 문제</i>':(id==='wk'||id==='wt')?'':'<i class="vr o">1회성</i>')+(v.F&&WN.solvedBy(id==='wk'?'w':'m')?' <span class="cn">'+WN.solvedBy(id==='wk'?'w':'m')+'문제 풀었어요</span>':'')+'</a></div>'});
   if(pr.n&&!v.F&&stt!=='lock')h+='<div class="qsel"><button type="button" data-qall="1">전체 선택</button><button type="button" data-qall="0">전체 해제</button></div>';
   if(pr.n&&!v.F&&stt!=='lock')h+='<button type="button" class="qgo" data-qgo="1">체크한 유형 이어서 풀기 (<span id="qn">0</span>)</button>';
   window.QGO=function(){var items=[];ACT.forEach(function(a){var id=a[0],u=setOf(v).url[id];if(!u||v.F)return;var k=key(v,id),cb=document.querySelector('#today input[data-q="'+k+'"]');if(!cb||!cb.checked)return;var U=new URL(u+'?part='+(v.L||v.T||v.D),location.href);items.push({u:U.pathname+U.search,n:nm[id],k:k})});
@@ -325,7 +325,7 @@ function today(){
   if(qt&&stt!=='lock')h+='<div class="qtot"><span>이 회 합계</span><b>약 '+qt+'문제</b></div>';
   h+='</div></div>';
   }
-  var SH={voc:'어휘',find:'TF',eobeop:'어법',ko:'한글',abc:'ABC',mun:'삽입',awk:'어색',blank:'빈칸',wk:'오답',wt:'약점'};
+  var SH={voc:'어휘',find:'TF',eobeop:'어법',ko:'한글',abc:'ABC',mun:'삽입',awk:'어색',blank:'빈칸',und:'밑줄',wk:'오답',wt:'약점'};
   function TGR(){var Q=PG.get(),cols=[];
     ACT.forEach(function(a){var any=false;flat.forEach(function(f){if(setOf(f.v).url[a[0]]&&!OPT[a[0]])any=true});if(any)cols.push(a)});
     var o='<div style="overflow-x:auto"><table class="tgt"><thead><tr><th></th>'+cols.map(function(a){return '<th>'+esc(SH[a[0]]||a[1])+'</th>'}).join('')+'</tr></thead><tbody>';
@@ -343,7 +343,7 @@ function today(){
   h+='<div class="rec"><div class="rh"><b>나의 학습 기록</b></div>'
    +(function(){var CNK={"key:mock:21:qa":8,"key:mock:22:qa":7,"key:mock:23:qa":7,"key:mock:24:qa":7,"key:mock:29:qa":8,"key:mock:30:qa":8,"key:mock:31:qa":8,"key:mock:32:qa":7,"key:mock:33:qa":7,"key:mock:34:qa":8,"key:mock:35:qa":7,"key:mock:36:qa":7,"key:mock:37:qa":7,"key:mock:38:qa":7,"key:mock:39:qa":7,"key:mock:40:qa":7,"key:mock:41-42:qa":8,"key:mock:hangeul-2610":127,"key:mock:eobeop-2610":127,"key:mock:dongsa-2610":127,"key:mock:yeongeo-2610":127,"key:L3:hangeul":40,"key:L3:eobeop":32,"key:L3:dongsa":41,"key:L3:check":84,"key:L3:yeongeo":40,"key:L3:yesang1":20,"key:L3:yesang2":21,"key:L3:yesang3":20,"key:L3:yesang4":20,"key:L4:hangeul":42,"key:L4:eobeop":42,"key:L4:dongsa":46,"key:L4:check":120,"key:L4:yeongeo":42,"key:L4:yesang1":20,"key:L4:yesang2":20,"key:L4:yesang3":20,"key:L4:yesang4":20,"key:plus:c2-mirae-kim-34:g1":22,"key:plus:c2-mirae-kim-34:g2":22,"key:plus:c2-mirae-kim-34:g3":21,"key:plus:c2-mirae-kim-34:b3_1":25,"key:plus:c2-mirae-kim-34:b3_2":25,"key:plus:c2-mirae-kim-34:b4_1":25,"key:plus:c2-mirae-kim-34:b4_2":25,"key:plus:c2-mirae-kim-34:b34_1":25},qg=0,qd=0,TM={q:0,w:0,h:0,tq:0,tw:0,th:0},sc=WN.school,re=new RegExp('^(?:S:)?vhts:'+sc+':(\\d{4}-\\d\\d-\\d\\d):[^:]+:([qwh])$');
      function fd(s){return s>=3600?Math.floor(s/3600)+'시간 '+Math.round(s%3600/60)+'분':s>=60?Math.round(s/60)+'분':s+'초'}
-     function wk(){var NMW={voc:'어휘',find:'TF',eobeop:'어법선택',ko:'한글 순서',abc:'ABC 순서',mun:'문장삽입',awk:'어색한 곳',blank:'빈칸추론'},c={},n=0;try{WN.list().forEach(function(x){if(x.w===0)return;var v=x.c||1,ea=x.kind==='dj'?((x.qid||'').charAt(0)==='g'?'eobeop':'voc'):x.act;c[ea]=(c[ea]||0)+v;n+=v})}catch(e){}
+     function wk(){var NMW={voc:'어휘',find:'TF',eobeop:'어법선택',ko:'한글 순서',abc:'ABC 순서',mun:'문장삽입',awk:'어색한 곳',blank:'빈칸추론',und:'밑줄의 의미'},c={},n=0;try{WN.list().forEach(function(x){if(x.w===0)return;var v=x.c||1,ea=x.kind==='dj'?((x.qid||'').charAt(0)==='g'?'eobeop':'voc'):x.act;c[ea]=(c[ea]||0)+v;n+=v})}catch(e){}
      var a=Object.keys(c).sort(function(p,q){return c[q]-c[p]}).slice(0,3),o='<div class="rr"><em>나의 약점 유형 TOP3</em>';
      if(n<5||!a.length)return o+'<small>오답이 조금 더 쌓이면 나와요</small></div>';
      return o+'<ol class="wk">'+a.map(function(k,i){return '<li><i>'+(i+1)+'</i><b>'+(NMW[k]||k)+'</b><span>'+c[k]+'번 틀림</span></li>'}).join('')+'</ol></div>'}
