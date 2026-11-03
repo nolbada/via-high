@@ -142,6 +142,59 @@ details.dk>summary::-webkit-details-marker{display:none}
 details.qd>summary::after{content:'\25BE';margin-left:auto;color:var(--sub)}
 details.qd[open]>summary::after{content:'\25B4'}
 .cell.s{padding:8px 12px;border:1.5px solid transparent;margin:0;background:var(--soft)}.cell.s.bad{background:var(--badbg);border-color:var(--bad)}
+
+/* ---- 새 직독직해·해설 화면 ---- */
+.sc{border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden;background:var(--bg)}
+.sc-h{padding:11px 14px 10px;background:#eef2f8;border-bottom:1px solid var(--line)}
+.sc-h .no2{display:inline-block;min-width:26px;height:26px;line-height:26px;border-radius:13px;background:var(--accent);color:#fff;font-weight:800;font-size:13px;text-align:center;padding:0 7px;margin-right:8px}
+.sc-h .at{font-size:13px;color:var(--sub)}
+.sc-h .tt{display:block;margin-top:7px;font-size:15.5px;font-weight:800;color:var(--accent);line-height:1.45}
+.sc-b{padding:10px 12px 12px}
+.sc .ch{margin-bottom:6px}
+.sc .ce{font-size:17px}
+.sc .ce sup,.nt sup{font-size:10px;font-weight:800;color:#b8651f;margin-left:1px}
+.nts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.nt{font-size:13.5px;line-height:1.5;background:#fbf6ee;border:1px solid #f0e2cd;border-radius:8px;padding:5px 9px;color:#4a3a22}
+.nt b{color:#33260f}
+.sc .lay{border-radius:10px}
+.sc .lay.nat{border-left:4px solid var(--accent);background:#f7f9fc}
+.sc .lay.ana{background:#fff8e6;border-color:#f0dcc0;color:#4d3b05}
+.sc .lay.ana b,.why2 b,.opx b,.evx b{background:linear-gradient(transparent 58%,var(--hl) 58%);font-weight:700}
+.sc .lb{margin-bottom:4px}
+.qc{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.qchip{min-width:56px;padding:9px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-family:inherit;font-size:15px;color:var(--ink);font-weight:700}
+.qchip small{display:block;font-size:11px;font-weight:400;color:var(--sub);margin-bottom:1px}
+.qchip.o{border-color:var(--good);background:var(--goodbg)}
+.qchip.x{border-color:var(--bad);background:var(--badbg)}
+.sec{margin:16px 0 6px;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px}
+.sec:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+.trs{list-style:none;margin:0;padding:0;background:var(--soft);border-radius:10px;padding:8px 12px}
+.trs li{font-size:15px;line-height:1.75;padding:2px 0}
+.trs .n{display:inline-block;min-width:20px;font-size:12px;color:var(--sub);font-weight:700}
+.evx{background:var(--goodbg);border:1px solid #bfe0cd;border-radius:10px;padding:10px 12px}
+.evx .en{background:#fff;border:1px solid #d5eadc;font-size:15.5px;margin:0 0 8px}
+.evx p{margin:6px 0;font-size:15.5px;line-height:1.75}
+.evx .evh{font-size:13px;font-weight:800;color:var(--good);margin-bottom:6px}
+.opx{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px;background:var(--bg)}
+.opx.a{border-color:var(--good);background:var(--goodbg)}
+.opx .ot{font-size:15.5px;font-weight:700;line-height:1.55}
+.opx .mk{display:inline-block;min-width:22px;font-weight:800;color:var(--sub);margin-right:4px}
+.opx.a .mk{color:var(--good)}
+.opx .bd{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.opx .bd.g{background:var(--good)}
+.opx .bd.t{background:#b4472f}
+.opx p{margin:5px 0 0;font-size:14.5px;line-height:1.7;color:#333}
+.opx .xm{color:var(--bad);font-weight:800;margin-right:3px}
+.wds{display:flex;flex-wrap:wrap;gap:6px}
+.wds span{font-size:14px;background:var(--soft);border-radius:8px;padding:5px 9px;line-height:1.45}
+.wds b{margin-right:5px}
+.toq{display:block;width:100%;margin-top:14px;min-height:42px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+details.sub2{margin:12px 0 0}
+details.sub2>summary{list-style:none;cursor:pointer;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;padding:6px 0}
+details.sub2>summary::-webkit-details-marker{display:none}
+details.sub2>summary:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+details.sub2>summary:after{content:"+";margin-left:auto;font-size:18px;color:var(--sub)}
+details.sub2[open]>summary:after{content:"\2212"}
 </style>
 </head>
 <body>
@@ -248,8 +301,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const HK=[["01", "1", "One of the most common mistakes made by organizations / when they first consider experimenting with social media / is that they focus too much on social media tools and platforms / and not enough on their business objectives.", "가장 흔한 실수들 중 하나는 / 그들이 처음 소셜 미디어를 시도해 보는 것을 고려할 때 / 그들이 소셜 미디어 도구와 플랫폼에 너무 많이 집중한다는 것이다 / 그리고 그들의 사업 목표에는 충분히 집중하지 않는다는 것이다", "조직들이 소셜 미디어를 처음 시도해 보려 할 때 저지르는 가장 흔한 실수 중 하나는 소셜 미디어 도구와 플랫폼에 지나치게 집중하고 정작 사업 목표에는 충분히 신경 쓰지 않는다는 것이다.", "<b>when ~<\/b>은 시간을 나타내는 <b>부사절<\/b>이고, 동사 focus too much on A와 not enough on B가 and로 <b>병렬<\/b> 연결되어 있다."], ["01", "2", "The reality of success in the social web for businesses / is that creating a social media program begins / not with insight into the latest social media tools and channels / but with a thorough understanding of the organization's own goals and objectives.", "기업들에게 있어 소셜 웹에서의 성공의 현실은 / 소셜 미디어 프로그램을 만드는 것이 시작되는 것은 / 최신 소셜 미디어 도구와 채널에 대한 통찰이 아니라 / 조직 자체의 목표와 목적에 대한 철저한 이해에서라는 것이다", "기업이 소셜 웹에서 성공하는 현실은, 소셜 미디어 프로그램을 만드는 일이 최신 소셜 미디어 도구와 채널에 대한 통찰에서 시작되는 것이 아니라 조직 자체의 목표와 목적에 대한 철저한 이해에서 시작된다는 것이다.", "<b>not A but B(A가 아니라 B)<\/b> 상관접속사 구조이며, 주어로 쓰인 <b>동명사구<\/b> creating a social media program이 begins의 주어이다."], ["02", "6", "In it, she tells the story of a black girl / who could pass for white / but ultimately claims her racial identity and pride.", "그 작품에서, 그녀는 한 흑인 소녀의 이야기를 들려준다 / 백인으로 통할 수 있었던 / 하지만 결국 자신의 인종적 정체성과 자긍심을 받아들이는", "그 작품에서 그녀는 백인 행세를 할 수 있었지만 결국 자신의 인종적 정체성과 자긍심을 받아들이는 한 흑인 소녀의 이야기를 그린다.", "<b>who ~<\/b>는 a black girl을 수식하는 <b>주격 관계대명사절<\/b>이며, 절 안에서 <b>could pass<\/b>와 <b>(could) claims<\/b>가 but으로 <b>병렬<\/b> 연결되어 있다."], ["04", "1", "Without the formation and maintenance of social bonds, / early human beings probably would not have been able to cope with or adapt to their physical environments.", "사회적 유대의 형성과 유지가 없었다면, / 초기 인간은 아마도 자신의 물리적 환경에 대처하거나 적응할 수 없었을 것이다", "사회적 유대의 형성과 유지가 없었다면, 초기 인간은 아마도 자신의 물리적 환경에 대처하거나 그에 적응할 수 없었을 것이다.", "<b>Without ~<\/b>는 '~이 없었다면'이라는 뜻으로 <b>가정법 과거완료<\/b>(would not have been able to)와 함께 쓰여 과거 사실의 반대를 나타낸다."], ["04", "2", "Human beings have long depended on the cooperation of others / for the supply of food, protection from predators, / and the acquisition of essential knowledge.", "인간은 오랫동안 다른 사람들의 협력에 의존해 왔다 / 식량 공급, 포식자로부터의 보호를 위해, / 그리고 필수적인 지식의 습득을 위해", "인간은 식량 공급, 포식자로부터의 보호, 필수적인 지식의 습득을 위해 오랫동안 다른 사람들의 협력에 의존해 왔다.", "전치사 <b>for<\/b>의 목적어로 the supply of food, protection from predators, the acquisition of essential knowledge 세 개의 명사구가 <b>병렬<\/b> 연결되어 있다."], ["05", "2", "The most obvious way of identifying a genuine smile from an insincere one / is that a fake smile primarily only affects the lower half of the face, / mainly with the mouth alone.", "진짜 미소를 진실하지 못한 미소와 구별하는 가장 명확한 방법은 / 가짜 미소가 주로 얼굴 아랫부분에만 영향을 미친다는 것이다, / 주로 입 하나에만", "진짜 미소를 진실하지 못한 미소와 구별하는 가장 명확한 방법은, 가짜 미소가 주로 얼굴 아랫부분, 주로 입에만 영향을 미친다는 것이다.", "<b>동명사구<\/b> identifying ~ one이 전치사 of의 목적어로 쓰였고, is 뒤에는 <b>that 명사절<\/b>이 보어로 쓰였다."], ["06", "4", "This old-school, adversarial approach / may be useful in a one-off negotiation / where you will probably not deal with that person again.", "이런 구식의, 적대적인 접근법은 / 일회성 협상에서는 유용할 수도 있다 / 그 사람과 아마 다시 상대하지 않을", "이런 구식의 적대적인 접근법은, 그 사람과 아마 다시 상대하지 않을 일회성 협상에서는 유용할 수도 있다.", "<b>where ~<\/b>는 a one-off negotiation을 수식하는 <b>관계부사절<\/b>이다."], ["06", "5", "However, such transactions are becoming increasingly rare, / because most of us deal with the same people repeatedly / — our spouses and children, our friends and colleagues, our customers and clients.", "하지만, 그러한 거래는 점점 더 드물어지고 있다, / 우리 대부분이 같은 사람들을 반복적으로 상대하기 때문이다 / 즉 우리의 배우자와 자녀, 우리의 친구와 동료, 우리의 고객과 의뢰인을", "하지만, 우리 대부분이 배우자와 자녀, 친구와 동료, 고객과 의뢰인처럼 같은 사람들을 반복적으로 상대하기 때문에, 그러한 거래는 점점 더 드물어지고 있다.", "<b>because ~<\/b>는 이유를 나타내는 <b>부사절<\/b>이고, 대시(—) 뒤는 the same people을 구체적으로 설명하는 <b>동격 삽입구<\/b>이다."]];
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const CF={"sn": [{"i": "01", "q": "01", "s": "1", "title": "when 부사절 + 병렬구조(focus A and not B)", "eng": "One of the most common mistakes<sup>1<\/sup> made by organizations / when they first consider experimenting<sup>2<\/sup> with social media / is that they focus too much on social media tools and platforms / and not enough on their business objectives<sup>3<\/sup>.", "notes": [["1", "mistake", "실수"], ["2", "experiment", "시도하다, 실험하다"], ["3", "objective", "목표"]], "lit": "가장 흔한 실수들 중 하나는 / 그들이 처음 소셜 미디어를 시도해 보는 것을 고려할 때 / 그들이 소셜 미디어 도구와 플랫폼에 너무 많이 집중한다는 것이다 / 그리고 그들의 사업 목표에는 충분히 집중하지 않는다는 것이다", "nat": "조직들이 소셜 미디어를 처음 시도해 보려 할 때 저지르는 가장 흔한 실수 중 하나는 소셜 미디어 도구와 플랫폼에 지나치게 집중하고 정작 사업 목표에는 충분히 신경 쓰지 않는다는 것이다.", "ana": "<b>when ~<\/b>은 시간을 나타내는 <b>부사절<\/b>이고, 동사 focus too much on A와 not enough on B가 and로 <b>병렬<\/b> 연결되어 있다."}, {"i": "02", "q": "01", "s": "2", "title": "상관접속사(not A but B) + 동명사 주어", "eng": "The reality of success in the social web for businesses / is that creating a social media program begins / not with insight<sup>1<\/sup> into the latest social media tools and channels<sup>2<\/sup> / but with a thorough<sup>3<\/sup> understanding of the organization's own goals and objectives.", "notes": [["1", "insight", "통찰"], ["2", "channel", "채널"], ["3", "thorough", "철저한"]], "lit": "기업들에게 있어 소셜 웹에서의 성공의 현실은 / 소셜 미디어 프로그램을 만드는 것이 시작되는 것은 / 최신 소셜 미디어 도구와 채널에 대한 통찰이 아니라 / 조직 자체의 목표와 목적에 대한 철저한 이해에서라는 것이다", "nat": "기업이 소셜 웹에서 성공하는 현실은, 소셜 미디어 프로그램을 만드는 일이 최신 소셜 미디어 도구와 채널에 대한 통찰에서 시작되는 것이 아니라 조직 자체의 목표와 목적에 대한 철저한 이해에서 시작된다는 것이다.", "ana": "<b>not A but B(A가 아니라 B)<\/b> 상관접속사 구조이며, 주어로 쓰인 <b>동명사구<\/b> creating a social media program이 begins의 주어이다."}, {"i": "03", "q": "02", "s": "6", "title": "관계대명사 who + 병렬구조(could pass ~ but claims)", "eng": "In it, she tells the story of a black girl / who could pass for<sup>1<\/sup> white / but ultimately claims her racial identity<sup>2<\/sup> and pride<sup>3<\/sup>.", "notes": [["1", "pass for", "~으로 통하다"], ["2", "racial identity", "인종적 정체성"], ["3", "pride", "자긍심"]], "lit": "그 작품에서, 그녀는 한 흑인 소녀의 이야기를 들려준다 / 백인으로 통할 수 있었던 / 하지만 결국 자신의 인종적 정체성과 자긍심을 받아들이는", "nat": "그 작품에서 그녀는 백인 행세를 할 수 있었지만 결국 자신의 인종적 정체성과 자긍심을 받아들이는 한 흑인 소녀의 이야기를 그린다.", "ana": "<b>who ~<\/b>는 a black girl을 수식하는 <b>주격 관계대명사절<\/b>이며, 절 안에서 <b>could pass<\/b>와 <b>(could) claims<\/b>가 but으로 <b>병렬<\/b> 연결되어 있다."}, {"i": "04", "q": "04", "s": "1", "title": "Without + 가정법 과거완료(would not have p.p.)", "eng": "Without the formation<sup>1<\/sup> and maintenance<sup>2<\/sup> of social bonds, / early human beings probably would not have been able to cope with<sup>3<\/sup> or adapt to<sup>4<\/sup> their physical environments.", "notes": [["1", "formation", "형성"], ["2", "maintenance", "유지"], ["3", "cope with", "대처하다"], ["4", "adapt to", "적응하다"]], "lit": "사회적 유대의 형성과 유지가 없었다면, / 초기 인간은 아마도 자신의 물리적 환경에 대처하거나 적응할 수 없었을 것이다", "nat": "사회적 유대의 형성과 유지가 없었다면, 초기 인간은 아마도 자신의 물리적 환경에 대처하거나 그에 적응할 수 없었을 것이다.", "ana": "<b>Without ~<\/b>는 '~이 없었다면'이라는 뜻으로 <b>가정법 과거완료<\/b>(would not have been able to)와 함께 쓰여 과거 사실의 반대를 나타낸다."}, {"i": "05", "q": "04", "s": "2", "title": "전치사 for의 목적어 병렬구조(3개 명사구)", "eng": "Human beings have long depended on<sup>1<\/sup> the cooperation of others / for the supply of food, protection from predators<sup>2<\/sup>, / and the acquisition<sup>3<\/sup> of essential knowledge.", "notes": [["1", "depend on", "의존하다"], ["2", "predator", "포식자"], ["3", "acquisition", "습득"]], "lit": "인간은 오랫동안 다른 사람들의 협력에 의존해 왔다 / 식량 공급, 포식자로부터의 보호를 위해, / 그리고 필수적인 지식의 습득을 위해", "nat": "인간은 식량 공급, 포식자로부터의 보호, 필수적인 지식의 습득을 위해 오랫동안 다른 사람들의 협력에 의존해 왔다.", "ana": "전치사 <b>for<\/b>의 목적어로 the supply of food, protection from predators, the acquisition of essential knowledge 세 개의 명사구가 <b>병렬<\/b> 연결되어 있다."}, {"i": "06", "q": "05", "s": "2", "title": "동명사구 주어 + that 명사절 보어", "eng": "The most obvious way of identifying a genuine<sup>1<\/sup> smile from an insincere<sup>2<\/sup> one / is that a fake smile primarily<sup>3<\/sup> only affects the lower half of the face, / mainly with the mouth alone.", "notes": [["1", "genuine", "진짜의"], ["2", "insincere", "진실하지 못한"], ["3", "primarily", "주로"]], "lit": "진짜 미소를 진실하지 못한 미소와 구별하는 가장 명확한 방법은 / 가짜 미소가 주로 얼굴 아랫부분에만 영향을 미친다는 것이다, / 주로 입 하나에만", "nat": "진짜 미소를 진실하지 못한 미소와 구별하는 가장 명확한 방법은, 가짜 미소가 주로 얼굴 아랫부분, 주로 입에만 영향을 미친다는 것이다.", "ana": "<b>동명사구<\/b> identifying ~ one이 전치사 of의 목적어로 쓰였고, is 뒤에는 <b>that 명사절<\/b>이 보어로 쓰였다."}, {"i": "07", "q": "06", "s": "4", "title": "관계부사 where절", "eng": "This old-school<sup>1<\/sup>, adversarial<sup>2<\/sup> approach / may be useful in a one-off<sup>3<\/sup> negotiation / where you will probably not deal with that person again.", "notes": [["1", "old-school", "구식의"], ["2", "adversarial", "적대적인"], ["3", "one-off", "일회성의"]], "lit": "이런 구식의, 적대적인 접근법은 / 일회성 협상에서는 유용할 수도 있다 / 그 사람과 아마 다시 상대하지 않을", "nat": "이런 구식의 적대적인 접근법은, 그 사람과 아마 다시 상대하지 않을 일회성 협상에서는 유용할 수도 있다.", "ana": "<b>where ~<\/b>는 a one-off negotiation을 수식하는 <b>관계부사절<\/b>이다."}, {"i": "08", "q": "06", "s": "5", "title": "because 부사절 + 동격 삽입구(대시)", "eng": "However, such transactions<sup>1<\/sup> are becoming increasingly<sup>2<\/sup> rare, / because most of us deal with the same people repeatedly<sup>3<\/sup> / — our spouses and children, our friends and colleagues<sup>4<\/sup>, our customers and clients.", "notes": [["1", "transaction", "거래"], ["2", "increasingly", "점점 더"], ["3", "repeatedly", "반복적으로"], ["4", "colleague", "동료"]], "lit": "하지만, 그러한 거래는 점점 더 드물어지고 있다, / 우리 대부분이 같은 사람들을 반복적으로 상대하기 때문이다 / 즉 우리의 배우자와 자녀, 우리의 친구와 동료, 우리의 고객과 의뢰인을", "nat": "하지만, 우리 대부분이 배우자와 자녀, 친구와 동료, 고객과 의뢰인처럼 같은 사람들을 반복적으로 상대하기 때문에, 그러한 거래는 점점 더 드물어지고 있다.", "ana": "<b>because ~<\/b>는 이유를 나타내는 <b>부사절<\/b>이고, 대시(—) 뒤는 the same people을 구체적으로 설명하는 <b>동격 삽입구<\/b>이다."}], "qs": [{"q": "01", "type": "주장", "src": "2022학년도 수능 20번", "ans": "③", "tr": [["1", "조직들이 소셜 미디어를 처음 시도해 보려 할 때 저지르는 가장 흔한 실수 중 하나는 소셜 미디어 도구와 플랫폼에 지나치게 집중하고 정작 사업 목표에는 충분히 신경 쓰지 않는다는 것이다."], ["2", "기업이 소셜 웹에서 성공하는 현실은, 소셜 미디어 프로그램을 만드는 일이 최신 소셜 미디어 도구와 채널에 대한 통찰에서 시작되는 것이 아니라 조직 자체의 목표와 목적에 대한 철저한 이해에서 시작된다는 것이다."], ["3", "소셜 미디어 프로그램은 그저 '다들 하니까'라는 이유로 인기 있는 소셜 네트워크에서 '존재감'을 관리해야 한다는 막연한 필요를 채우는 것이 아니다."], ["4", "'소셜 미디어에 존재한다는 것' 자체는 그 자체만으로는 아무 목적도 이루지 못한다."], ["5", "어떤 목적이든 이루려면, 소셜 미디어에서의 존재는 반드시 조직과 그 고객을 위한 문제를 해결하거나 (가급적 측정 가능한) 어떤 종류의 개선으로 이어져야 한다."], ["6", "모든 일에서, 목적이 성공을 이끈다."], ["7", "소셜 미디어의 세계도 다르지 않다."]], "evh": "5·6번 문장", "ev": [{"en": true, "h": "a social media presence must either solve a problem for the organization and its customers or result in an improvement of some sort. / In all things, purpose drives success."}, {"en": false, "h": "소셜 미디어에서의 존재는 문제 해결이나 개선이라는 '목적'에 기반해야 하며 목적이 성공을 이끈다는 5·6번의 내용을 종합하면, 주장은 '기업은 소셜 미디어를 활용할 때 사업 목표를 토대로 해야 한다'는 것이다."}], "opts": [{"n": "①", "t": "기업 이미지에 부합하는 소셜 미디어를 직접 개발하여 운영해야 한다.", "a": false, "x": true, "trap": false, "e": "소셜 미디어를 직접 개발·운영해야 한다는 내용은 본문에 없다."}, {"n": "②", "t": "기업은 사회적 가치와 요구를 반영하여 사업 목표를 수립해야 한다.", "a": false, "x": true, "trap": true, "e": "사회적 가치나 요구를 반영하라는 내용은 본문에 없다."}, {"n": "③", "t": "기업은 소셜 미디어를 활용할 때 사업 목표를 토대로 해야 한다.", "a": true, "x": false, "trap": false, "e": "소셜 미디어 프로그램은 조직 자체의 목표와 목적에 대한 이해에서 시작되어야 하며 목적이 성공을 이끈다는 2·5·6번의 내용과 정확히 일치한다."}, {"n": "④", "t": "소셜 미디어로 제품을 홍보할 때는 구체적인 정보를 제공해야 한다.", "a": false, "x": true, "trap": false, "e": "제품 홍보나 정보 제공에 관한 언급은 본문에 없다."}, {"n": "⑤", "t": "소비자의 의견을 수렴하기 위해 소셜 미디어를 적극 활용해야 한다.", "a": false, "x": true, "trap": false, "e": "소비자 의견 수렴에 관한 언급은 본문에 없다."}], "w": [["organization", "조직, 기업"], ["objective", "목표"], ["thorough", "철저한"], ["fulfillment", "충족, 실현"], ["vague", "막연한, 모호한"], ["presence", "존재(감)"], ["purpose", "목적"], ["drive", "이끌다"], ["measurable", "측정 가능한"], ["insight", "통찰"]]}, {"q": "02", "type": "내용 불일치", "src": "2020년 9월 26번", "ans": "③", "tr": [["1", "Jessie Redmon Fauset는 1884년 뉴저지주 스노우 힐에서 태어났다."], ["2", "그녀는 코넬 대학교를 졸업한 최초의 흑인 여성이었다."], ["3", "소설, 시, 단편소설, 에세이를 쓴 것 외에도, Fauset는 워싱턴 D.C.의 공립학교에서 프랑스어를 가르쳤고 잡지 편집자로도 일했다."], ["4", "편집자로 일하는 동안, 그녀는 할렘 르네상스의 유명한 작가들을 많이 격려했다."], ["5", "그녀는 소설가로서보다 편집자로서 더 유명하지만, 많은 평론가들은 그녀의 소설 《Plum Bun》을 Fauset의 최고 걸작으로 여긴다."], ["6", "그 작품에서 그녀는 백인 행세를 할 수 있었지만 결국 자신의 인종적 정체성과 자긍심을 받아들이는 한 흑인 소녀의 이야기를 그린다."], ["7", "Fauset는 1961년 4월 30일 필라델피아에서 심장병으로 사망했다."]], "evh": "5번 문장", "ev": [{"en": true, "h": "Though she is more famous for being an editor than for being a fiction writer, many critics consider her novel Plum Bun Fauset's strongest work."}, {"en": false, "h": "본문은 그녀가 소설가보다 편집자로 더 유명하다고 했는데, ③번은 이를 반대로 '편집자보다는 소설가로서 더 유명하다'고 진술하여 본문과 일치하지 않는다."}], "opts": [{"n": "①", "t": "Cornell University를 졸업한 최초의 흑인 여성이었다.", "a": false, "x": true, "trap": false, "e": "2번 문장과 정확히 일치한다."}, {"n": "②", "t": "Washington, D.C.의 공립학교에서 프랑스어를 가르쳤다.", "a": false, "x": true, "trap": false, "e": "3번 문장과 정확히 일치한다."}, {"n": "③", "t": "편집자보다는 소설가로서 더 유명하다.", "a": true, "x": false, "trap": false, "e": "본문은 반대로 소설가보다 편집자로서 더 유명하다고 했으므로 일치하지 않는다."}, {"n": "④", "t": "흑인 소녀의 이야기를 다룬 소설을 썼다.", "a": false, "x": true, "trap": true, "e": "6번 문장(백인 행세를 할 수 있었던 흑인 소녀 이야기)과 일치한다."}, {"n": "⑤", "t": "Philadelphia에서 심장병으로 사망했다.", "a": false, "x": true, "trap": false, "e": "7번 문장과 정확히 일치한다."}], "w": [["graduate", "졸업하다"], ["editor", "편집자"], ["encourage", "격려하다"], ["critic", "평론가"], ["fiction writer", "소설가"], ["racial identity", "인종적 정체성"], ["pride", "자긍심"], ["journal", "잡지, 저널"], ["novel", "소설"], ["essay", "에세이, 수필"]]}, {"q": "03", "type": "안내문 일치", "src": "2019년 11월 28번", "ans": "③", "tr": [["1", "가구 제작 입문"], ["2", "이 4주간의 워크숍 내내, 수강생들은 목공이라는 새로운 도전을 위한 탄탄한 기초를 다지게 됩니다."], ["3", "연령 제한: 16세 이상"], ["4", "장소: Hoboken 지역 문화 센터"], ["5", "일정: 12월 7일 – 12월 28일 (매주 토요일)"], ["6", "시간: 오후 1시 – 오후 5시"], ["7", "가격: 399달러"], ["8", "참고 사항: 이전 목공 경험은 필요하지 않습니다. 적어도 10일 전에 취소하시면 전액 환불해 드립니다."], ["9", "강사의 지도 아래, 각 수강생은 직접 만든 사이드 테이블을 가지고 가게 될 것입니다."], ["10", "더 자세한 정보나 등록을 원하시면 Dave Malka(davemalka@woodfurniture.org)에게 연락하세요."]], "evh": "Note", "ev": [{"en": true, "h": "Previous woodworking experience is not necessary."}, {"en": false, "h": "'이전 목공 경험은 필요하지 않다'는 안내와 정확히 일치하는 것은 ③번 '목공 경험이 없는 사람도 참여할 수 있다'이다."}], "opts": [{"n": "①", "t": "연령에 제한이 없다.", "a": false, "x": true, "trap": false, "e": "16세 이상이라는 연령 제한이 있으므로 일치하지 않는다."}, {"n": "②", "t": "토요일에 5시간씩 진행된다.", "a": false, "x": true, "trap": true, "e": "오후 1시~5시는 4시간이므로 5시간이라는 진술은 일치하지 않는다."}, {"n": "③", "t": "목공 경험이 없는 사람도 참여할 수 있다.", "a": true, "x": false, "trap": false, "e": "'이전 목공 경험은 필요하지 않다'는 안내와 정확히 일치한다."}, {"n": "④", "t": "적어도 일주일 전에 취소하면 전액을 환불해 준다.", "a": false, "x": true, "trap": false, "e": "실제로는 '10일 전'이며 일주일(7일)이 아니므로 일치하지 않는다."}, {"n": "⑤", "t": "수강생들은 수작업으로 만든 의자를 가지고 가게 된다.", "a": false, "x": true, "trap": false, "e": "실제로는 '사이드 테이블'이며 의자가 아니므로 일치하지 않는다."}], "w": [["introduction", "입문, 소개"], ["workshop", "워크숍"], ["solid foundation", "탄탄한 기초"], ["venture", "새로운 도전"], ["woodworking", "목공"], ["age requirement", "연령 제한"], ["community center", "지역 문화 센터"], ["in advance", "미리, 사전에"], ["guidance", "지도"], ["instructor", "강사"], ["hand-crafted", "수작업으로 만든"], ["register", "등록하다"]]}, {"q": "04", "type": "주제", "src": "2018년 6월 22번", "ans": "④", "tr": [["1", "인간은 대인관계를 형성하고 유지하려는 타고난 욕구에 의해 움직인다."], ["2", "이런 관점에서, 사람들은 근본적인 욕구를 채우기 위해 다른 사람들과의 관계를 추구하며, 이 욕구는 평생에 걸쳐 많은 감정, 행동, 결정의 바탕이 된다."], ["3", "아마도, 소속되고자 하는 욕구는 인간이 사회적 종으로서 거쳐 온 진화의 역사가 낳은 산물일 것이다."], ["4", "인간은 식량 공급, 포식자로부터의 보호, 필수적인 지식의 습득을 위해 오랫동안 다른 사람들의 협력에 의존해 왔다."], ["5", "사회적 유대의 형성과 유지가 없었다면, 초기 인간은 아마도 자신의 물리적 환경에 대처하거나 그에 적응할 수 없었을 것이다."], ["6", "따라서, 친밀함과 의미 있는 관계를 추구하는 것은 오랫동안 인간의 생존에 필수적이었다."]], "evh": "6번 문장", "ev": [{"en": true, "h": "Thus, seeking closeness and meaningful relationships has long been vital for human survival."}, {"en": false, "h": "친밀함과 의미 있는 관계를 추구하는 것이 인간 생존에 필수적이었다는 마지막 문장을 종합하면, 주제는 '인간 생존을 위한 사회적 유대 형성의 필요성'이다."}], "opts": [{"n": "①", "t": "emotion as an essential factor in evolution", "a": false, "x": true, "trap": true, "e": "감정은 관계 추구의 결과로 언급될 뿐 진화의 핵심 요소로 다뤄지지 않는다."}, {"n": "②", "t": "difficulties in cooperating with other people", "a": false, "x": true, "trap": false, "e": "협력의 어려움에 관한 언급은 본문에 없다."}, {"n": "③", "t": "ways to keep close relationships with others", "a": false, "x": true, "trap": false, "e": "관계를 유지하는 구체적 방법이 아니라 그 필요성에 관한 글이다."}, {"n": "④", "t": "need to build social bonds for human survival", "a": true, "x": false, "trap": false, "e": "사회적 유대의 형성과 유지가 인간 생존에 필수적이었다는 4·5·6번의 내용과 정확히 일치한다."}, {"n": "⑤", "t": "impact of human evolution on the environment", "a": false, "x": true, "trap": false, "e": "인간이 환경에 미치는 영향이 아니라 반대로 환경에 대한 적응을 다루는 글이다."}], "w": [["interpersonal relationship", "대인관계"], ["fundamental", "근본적인"], ["underlie", "~의 바탕이 되다"], ["belong", "소속되다"], ["evolutionary", "진화의"], ["predator", "포식자"], ["acquisition", "습득"], ["social bond", "사회적 유대"], ["cope with", "~에 대처하다"], ["adapt to", "~에 적응하다"], ["vital", "필수적인"]]}, {"q": "05", "type": "어법", "src": "2021년 6월 29번", "ans": "⑤", "tr": [["1", "여러분이 미소를 관찰하고 그것이 진짜가 아니라고 느낄 수 있었던 경우가 있었을 것이다."], ["2", "진짜 미소를 진실하지 못한 미소와 구별하는 가장 명확한 방법은, 가짜 미소가 주로 얼굴 아랫부분, 주로 입에만 영향을 미친다는 것이다."], ["3", "눈은 별로 관련이 없다."], ["4", "거울을 들여다보고 얼굴 아랫부분만 사용해서 미소를 지어 보라."], ["5", "이렇게 할 때, 여러분의 얼굴이 실제로 얼마나 행복해 보이는지 판단해 보라 — 그것은 진짜인가?"], ["6", "진짜 미소는 눈 주변의 근육과 주름에 영향을 미치며, 티가 덜 나게는, 눈썹과 윗눈꺼풀 사이의 피부가 진정한 즐거움과 함께 살짝 처진다."], ["7", "진짜 미소는 얼굴 전체에 영향을 줄 수 있다."]], "evh": "6번 문장", "ev": [{"en": true, "h": "A genuine smile will impact on the muscles and wrinkles around the eyes and less noticeably, the skin between the eyebrow and upper eyelid ⑤ are lowered slightly with true enjoyment."}, {"en": false, "h": "등위접속사 and로 impact와 병렬 연결된 두 번째 동사의 주어는 단수 명사 the skin이므로 복수동사 are가 아니라 단수동사 is로 고쳐야 한다."}], "opts": [{"n": "①", "t": "in which", "a": false, "x": true, "trap": false, "e": "선행사 occasions 뒤에 완전한 절이 이어지는 '전치사+관계대명사' 구조이므로 in which는 어법에 맞다."}, {"n": "②", "t": "one", "a": false, "x": true, "trap": false, "e": "앞의 단수 명사 smile의 반복을 피하기 위한 부정대명사이므로 one은 어법에 맞다."}, {"n": "③", "t": "using", "a": false, "x": true, "trap": false, "e": "등위접속사 and로 연결된 명령문의 두 번째 동사구를 수식하는 분사구문이므로 using은 어법에 맞다."}, {"n": "④", "t": "how", "a": false, "x": true, "trap": true, "e": "judge의 목적어로 쓰인 간접의문문을 이끄는 의문부사이며 뒤에 '주어+동사' 어순이 이어지므로 how는 어법에 맞다."}, {"n": "⑤", "t": "are", "a": true, "x": false, "trap": false, "e": "주어가 단수 명사 the skin이므로 복수동사 are가 아니라 단수동사 is로 고쳐야 한다."}], "w": [["occasion", "경우"], ["genuine", "진짜의"], ["insincere", "진실하지 못한"], ["primarily", "주로"], ["mainly", "주로"], ["manufacture", "(억지로) 만들어 내다"], ["wrinkle", "주름"], ["noticeably", "눈에 띄게"], ["eyelid", "눈꺼풀"], ["impact on", "~에 영향을 미치다"]]}, {"q": "06", "type": "요지", "src": "2023년 9월 22번", "ans": "④", "tr": [["1", "우리가 그것을 알아차리든 아니든, 우리 모두는 매일 협상한다."], ["2", "그러나 어떻게 협상해야 하는지를 배우는 사람은 거의 없다."], ["3", "그렇게 하는 사람들조차 대개 윈-윈 합의로 이어질 가능성이 큰 접근법보다는 전통적인 승자독식 협상 방식을 배운다."], ["4", "이런 구식의, 적대적인 접근법은, 그 사람과 아마 다시 상대하지 않을 일회성 협상에서는 유용할 수도 있다."], ["5", "하지만, 우리 대부분이 배우자와 자녀, 친구와 동료, 고객과 의뢰인처럼 같은 사람들을 반복적으로 상대하기 때문에, 그러한 거래는 점점 더 드물어지고 있다."], ["6", "이런 점에서, 우리 자신을 위해 성공적인 결과를 얻는 동시에 협상 상대와 건강한 관계를 유지하는 것이 필수적이다."], ["7", "오늘날처럼 사업 파트너십과 장기적 관계가 상호 의존적인 세상에서, 윈-윈 결과는 빠르게 유일하게 받아들여질 수 있는 결과가 되어가고 있다."]], "evh": "6·7번 문장", "ev": [{"en": true, "h": "it's essential to achieve successful results for ourselves and maintain a healthy relationship with our negotiating partners at the same time. / a win-win outcome is fast becoming the only acceptable result."}, {"en": false, "h": "성공적인 결과와 건강한 관계 유지를 동시에 이루어야 한다는 6번과, 윈-윈 결과가 유일한 결과가 되어간다는 7번의 내용을 종합하면 요지는 '양측에 유리한 협상으로 좋은 관계를 유지해야 한다'는 것이다."}], "opts": [{"n": "①", "t": "협상 상대의 단점뿐 아니라 장점을 철저히 분석해야 한다.", "a": false, "x": true, "trap": false, "e": "상대의 장단점 분석에 관한 내용은 본문에 없다."}, {"n": "②", "t": "의사소통 과정에서 서로의 의도를 확인하는 것이 바람직하다.", "a": false, "x": true, "trap": false, "e": "의도 확인에 관한 언급은 본문에 없다."}, {"n": "③", "t": "성공적인 협상을 위해 다양한 대안을 준비하는 것이 중요하다.", "a": false, "x": true, "trap": true, "e": "대안 준비에 관한 언급은 본문에 없다."}, {"n": "④", "t": "양측에 유리한 협상을 통해 상대와 좋은 관계를 유지해야 한다.", "a": true, "x": false, "trap": false, "e": "윈-윈 결과를 통해 성공적인 결과와 건강한 관계를 동시에 얻어야 한다는 6·7번의 내용과 정확히 일치한다."}, {"n": "⑤", "t": "원만한 인간관계를 위해 상호독립성을 인정하는 것이 필요하다.", "a": false, "x": true, "trap": false, "e": "본문은 오히려 오늘날의 세상이 '상호 의존적(interdependent)'이라고 했으므로 반대된다."}], "w": [["negotiate", "협상하다"], ["win-lose", "승자독식의"], ["win-win", "윈-윈의, 양측에 유리한"], ["adversarial", "적대적인"], ["one-off", "일회성의"], ["transaction", "거래"], ["spouse", "배우자"], ["colleague", "동료"], ["interdependent", "상호 의존적인"], ["essential", "필수적인"], ["in view of", "~을 고려하여"]]}]};
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크북 '+CF.sn.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -277,18 +330,22 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
-function hkHtml(it){
-  const E=it[2].split(' / '),K=it[3].split(' / ');
-  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
-  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
-  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
-  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
-  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+function esc2(s){return String(s)}
+function chunkSplit(s){return String(s).split(' / ')}
+function scHtml(c){
+  const esc=String;
+  const E=chunkSplit(c.eng),K=chunkSplit(c.lit);
+  let x='<div class="sc"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span><span class="tt">'+esc(c.title)+'</span></div><div class="sc-b">';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+E[j]+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  if(c.notes.length){x+='<div class="nts">'+c.notes.map(n=>'<span class="nt"><sup>'+n[0]+'</sup> <b>'+esc(n[1])+'</b> '+esc(n[2])+'</span>').join('')+'</div>';}
+  x+='<div class="lay nat"><span class="lb">자연스러운 해석</span>'+esc(c.nat)+'</div>';
+  if(c.ana)x+='<div class="lay ana"><span class="lb">분석</span>'+c.ana+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|분석">자연스러운 해석</button></div></div>';
   return x;
 }
 function renderDk(){
   let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-  HK.forEach(it=>{h+=hkHtml(it);});
+  CF.sn.forEach(c=>{h+=scHtml(c);});
   h+='</div></div>';
   app.innerHTML=h;
 }
@@ -442,41 +499,29 @@ function renderSubmit(){
   const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
 }
 /* ---- 해설 ---- */
-function sHtml(s,evn){
-  const ev=evn.indexOf(s.n)>=0;
-  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
-  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
-  const lays=[];
-  if(s.link)lays.push(['이어 읽으면',s.link]);
-  if(s.easy)lays.push(['쉬운 말로',s.easy]);
-  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
-  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
-  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
-  return x+'</div>';
-}
 function qHtml(i,a){
+  const esc=String;
   const d=D[i],ok=isRight(i,a);
-  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
-  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
-  h+='<h4>정답 근거</h4>';
-  h+=`<p class="en">${esc(d.ev_en)}</p>`;
-  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
-  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
-  if(d.ps&&d.ps.length){
-    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
-  }
-  h+='<h4>선택지 하나씩</h4>';
-  d.ch.forEach(c=>{
-    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  const cq=CF.qs.find(x=>x.q===d.no);
+  if(!cq)return '';
+  let h='<details class="qd" id="qd'+i+'" '+(ok?'':'open')+'><summary>'+esc(cq.q)+'번 · '+esc(cq.type)+'<small>'+esc(cq.src)+'</small><span class="res2 '+(ok?'o':'x')+'">'+(ok?'○ 정답':'✕ 오답')+'</span></summary><div class="qx">';
+  h+='<p class="ansline"><b>정답 '+esc(cq.ans)+'</b>'+(ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>')+'</p>';
+  h+='<details class="sub2"><summary>전문 해석</summary><ol class="trs" style="list-style:none">'+cq.tr.map(t=>'<li><span class="n">'+(t[0]==null?'':esc(t[0]))+'</span>'+t[1]+'</li>').join('')+'</ol></details>';
+  h+='<div class="sec">답의 근거 · '+esc(cq.evh)+'</div><div class="evx">';
+  cq.ev.forEach(p=>{h+=p.en?'<p class="en">'+p.h+'</p>':'<p>'+p.h+'</p>';});
+  h+='</div><div class="sec">선택지 하나씩</div>';
+  cq.opts.forEach(o=>{
+    h+='<div class="opx '+(o.a?'a':'')+'"><div class="ot"><span class="mk">'+esc(o.n)+'</span>'+o.t+(o.a?'<span class="bd g">정답</span>':'')+(o.trap?'<span class="bd t">가장 많이 걸리는 오답</span>':'')+'</div>'+(o.e?'<p>'+(o.x?'<span class="xm">✕</span>':'')+o.e+'</p>':'')+'</div>';
   });
-  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  if(cq.w.length){h+='<div class="sec">단어</div><div class="wds">'+cq.w.map(w=>'<span><b>'+esc(w[0])+'</b>'+esc(w[1])+'</span>').join('')+'</div>';}
+  h+='<button class="toq" data-i="'+i+'">빠른 정답으로</button>';
   return h+'</div></details>';
 }
 function renderExp(){
   const rec=S.sub;
   let h=hdr()+band(4)+'<div class="wrap">';
-  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
-  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='<div class="score">'+rec.s+' <small>/ '+N+'</small></div><h2 id="quick">빠른 정답</h2><div class="qc">';
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+='<button class="qchip '+(ok?'o':'x')+'" data-i="'+i+'"><small>'+esc(D[i].no)+'번</small>'+ansText(i)+' '+(ok?'○':'✕')+'</button>';}
   h+='</div><h2>해설</h2>';
   for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
   h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
@@ -515,13 +560,17 @@ function mmInit(){
 }
 /* 위임 이벤트 */
 document.addEventListener('click',e=>{
+  const qchip=e.target.closest('.qchip');
+  if(qchip){const dd=document.getElementById('qd'+qchip.dataset.i);if(dd){dd.open=true;dd.scrollIntoView({block:'start'});}return;}
+  const toq=e.target.closest('.toq');
+  if(toq){const qq=document.getElementById('quick');if(qq)qq.scrollIntoView({block:'start'});return;}
   const tb=e.target.closest('.tab,.hcard,.gohome');
   if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
   const ch=e.target.closest('.ch');
   if(ch){ch.classList.toggle('open');return;}
   const st=e.target.closest('.stg');
   if(st){
-    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const s=st.closest('.s,.sc'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
     const shown=lays.filter(l=>l.classList.contains('on')).length;
     if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
     else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
@@ -531,7 +580,7 @@ document.addEventListener('click',e=>{
   if(al){
     const open=al.dataset.all==='1',body=al.closest('.dkbody');
     body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
-    body.querySelectorAll('.s').forEach(s=>{
+    body.querySelectorAll('.s,.sc').forEach(s=>{
       const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
       lays.forEach(l=>l.classList.toggle('on',open));
       if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}

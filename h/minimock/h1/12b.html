@@ -142,6 +142,59 @@ details.dk>summary::-webkit-details-marker{display:none}
 details.qd>summary::after{content:'\25BE';margin-left:auto;color:var(--sub)}
 details.qd[open]>summary::after{content:'\25B4'}
 .cell.s{padding:8px 12px;border:1.5px solid transparent;margin:0;background:var(--soft)}.cell.s.bad{background:var(--badbg);border-color:var(--bad)}
+
+/* ---- 새 직독직해·해설 화면 ---- */
+.sc{border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden;background:var(--bg)}
+.sc-h{padding:11px 14px 10px;background:#eef2f8;border-bottom:1px solid var(--line)}
+.sc-h .no2{display:inline-block;min-width:26px;height:26px;line-height:26px;border-radius:13px;background:var(--accent);color:#fff;font-weight:800;font-size:13px;text-align:center;padding:0 7px;margin-right:8px}
+.sc-h .at{font-size:13px;color:var(--sub)}
+.sc-h .tt{display:block;margin-top:7px;font-size:15.5px;font-weight:800;color:var(--accent);line-height:1.45}
+.sc-b{padding:10px 12px 12px}
+.sc .ch{margin-bottom:6px}
+.sc .ce{font-size:17px}
+.sc .ce sup,.nt sup{font-size:10px;font-weight:800;color:#b8651f;margin-left:1px}
+.nts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.nt{font-size:13.5px;line-height:1.5;background:#fbf6ee;border:1px solid #f0e2cd;border-radius:8px;padding:5px 9px;color:#4a3a22}
+.nt b{color:#33260f}
+.sc .lay{border-radius:10px}
+.sc .lay.nat{border-left:4px solid var(--accent);background:#f7f9fc}
+.sc .lay.ana{background:#fff8e6;border-color:#f0dcc0;color:#4d3b05}
+.sc .lay.ana b,.why2 b,.opx b,.evx b{background:linear-gradient(transparent 58%,var(--hl) 58%);font-weight:700}
+.sc .lb{margin-bottom:4px}
+.qc{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.qchip{min-width:56px;padding:9px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-family:inherit;font-size:15px;color:var(--ink);font-weight:700}
+.qchip small{display:block;font-size:11px;font-weight:400;color:var(--sub);margin-bottom:1px}
+.qchip.o{border-color:var(--good);background:var(--goodbg)}
+.qchip.x{border-color:var(--bad);background:var(--badbg)}
+.sec{margin:16px 0 6px;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px}
+.sec:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+.trs{list-style:none;margin:0;padding:0;background:var(--soft);border-radius:10px;padding:8px 12px}
+.trs li{font-size:15px;line-height:1.75;padding:2px 0}
+.trs .n{display:inline-block;min-width:20px;font-size:12px;color:var(--sub);font-weight:700}
+.evx{background:var(--goodbg);border:1px solid #bfe0cd;border-radius:10px;padding:10px 12px}
+.evx .en{background:#fff;border:1px solid #d5eadc;font-size:15.5px;margin:0 0 8px}
+.evx p{margin:6px 0;font-size:15.5px;line-height:1.75}
+.evx .evh{font-size:13px;font-weight:800;color:var(--good);margin-bottom:6px}
+.opx{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px;background:var(--bg)}
+.opx.a{border-color:var(--good);background:var(--goodbg)}
+.opx .ot{font-size:15.5px;font-weight:700;line-height:1.55}
+.opx .mk{display:inline-block;min-width:22px;font-weight:800;color:var(--sub);margin-right:4px}
+.opx.a .mk{color:var(--good)}
+.opx .bd{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.opx .bd.g{background:var(--good)}
+.opx .bd.t{background:#b4472f}
+.opx p{margin:5px 0 0;font-size:14.5px;line-height:1.7;color:#333}
+.opx .xm{color:var(--bad);font-weight:800;margin-right:3px}
+.wds{display:flex;flex-wrap:wrap;gap:6px}
+.wds span{font-size:14px;background:var(--soft);border-radius:8px;padding:5px 9px;line-height:1.45}
+.wds b{margin-right:5px}
+.toq{display:block;width:100%;margin-top:14px;min-height:42px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+details.sub2{margin:12px 0 0}
+details.sub2>summary{list-style:none;cursor:pointer;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;padding:6px 0}
+details.sub2>summary::-webkit-details-marker{display:none}
+details.sub2>summary:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+details.sub2>summary:after{content:"+";margin-left:auto;font-size:18px;color:var(--sub)}
+details.sub2[open]>summary:after{content:"\2212"}
 </style>
 </head>
 <body>
@@ -248,8 +301,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const HK=[["07", "2", "One group was made intellectually superior / by modifying the gene for the glutamate receptor.", "한 집단은 지적으로 우월하게 만들어졌다 / 글루타민산염 수용체의 유전자를 변형함으로써", "한 집단은 글루타민산염 수용체의 유전자를 변형함으로써 지적으로 우월하게 만들어졌다.", "<b>was made superior<\/b>는 <b>수동태<\/b>이며, <b>by modifying ~<\/b>은 전치사 by + 동명사로 수단을 나타낸다."], ["07", "6", "At the end of the study, / although the intellectually inferior mice were genetically handicapped, / they were able to perform / just as well as their genetic superiors.", "그 연구가 끝날 무렵, / 비록 지적으로 열등한 쥐들이 유전적으로 장애가 있었지만, / 그들은 수행할 수 있었다 / 그들의 유전적 우월자들만큼 딱 그렇게 잘", "연구가 끝날 무렵, 지적으로 열등한 쥐들은 비록 유전적으로 장애가 있었지만, 자신의 유전적 우월자들만큼 잘 수행할 수 있었다.", "<b>although ~<\/b>는 <b>양보의 부사절<\/b>이고, <b>just as well as ~<\/b>는 <b>원급 비교(as~as)<\/b>로 '~만큼 잘'이라는 뜻이다."], ["08", "3", "At work or school, / we are all more likely to become friends with someone who has a lot of friends / than we are to befriend someone with few friends.", "직장이나 학교에서, / 우리는 모두 친구가 많은 누군가와 친구가 될 가능성이 더 높다 / 우리가 친구가 적은 누군가와 친구가 될 가능성보다", "직장이나 학교에서 우리는 모두 친구가 적은 사람보다는 친구가 많은 사람과 친구가 될 가능성이 더 높다.", "<b>more likely ~ than ~<\/b>은 <b>비교급<\/b> 구문이고, <b>who has a lot of friends<\/b>는 someone을 수식하는 <b>주격 관계대명사절<\/b>이다."], ["09", "5", "Doctors such as Jon Snow, from England, and Rudolf Virchow, of Germany, / saw the connection / between poor living conditions, overcrowding, sanitation, and disease.", "영국의 Jon Snow와 독일의 Rudolf Virchow와 같은 의사들은 / 연관성을 보았다 / 열악한 주거 환경, 과밀 거주, 위생, 그리고 질병 사이의", "영국의 Jon Snow와 독일의 Rudolf Virchow 같은 의사들은 열악한 주거 환경, 과밀 거주, 위생, 그리고 질병 사이의 연관성을 발견했다.", "<b>such as ~<\/b>는 Doctors의 <b>동격 예시<\/b>이며, <b>between A, B, C, and D<\/b>는 네 개의 명사가 <b>병렬<\/b> 연결된 구조이다."], ["09", "6", "A recognition of this connection / led to the replanning and rebuilding of cities / to stop the spread of epidemics.", "이 연관성에 대한 인식은 / 도시의 재계획과 재건으로 이어졌다 / 전염병의 확산을 막기 위해", "이러한 연관성에 대한 인식은 전염병의 확산을 막기 위한 도시의 재계획과 재건으로 이어졌다.", "<b>to stop ~<\/b>은 <b>목적<\/b>을 나타내는 to부정사이고, <b>replanning and rebuilding<\/b>은 전치사 of의 목적어로 <b>병렬<\/b> 연결된 동명사이다."], ["10", "A-1", "A long time ago, / a farmer in a small town had a neighbor / who was a hunter.", "오래 전, / 한 작은 마을의 농부는 이웃을 두고 있었다 / 사냥꾼인", "오래 전, 한 작은 마을에 사는 농부에게는 사냥꾼인 이웃이 있었다.", "<b>who was a hunter<\/b>는 a neighbor를 수식하는 <b>주격 관계대명사절<\/b>이다."], ["10", "A-5", "One day when the dogs jumped the fence, / they attacked and severely injured / several of the lambs.", "어느 날 개들이 울타리를 뛰어넘었을 때, / 그것들은 공격했다 그리고 심하게 다치게 했다 / 그 새끼 양들 중 몇 마리를", "어느 날 개들이 울타리를 뛰어넘었을 때, 그것들은 새끼 양 몇 마리를 공격해 심하게 다치게 했다.", "<b>when ~<\/b>은 시간의 <b>부사절<\/b>이고, <b>attacked<\/b>와 <b>injured<\/b>는 and로 <b>병렬<\/b> 연결된 동사이다."], ["10", "C-2", "Having heard the judge's solution, / the farmer agreed.", "재판관의 해결책을 들은 후, / 농부는 동의했다", "재판관의 해결책을 듣고서, 농부는 동의했다.", "<b>Having heard ~<\/b>는 완료형 <b>분사구문(Having p.p.)<\/b>으로, 주절보다 앞선 시점의 일임을 나타낸다."]];
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const CF={"sn": [{"i": "01", "q": "07", "s": "2", "title": "수동태(be made) + 전치사+동명사(by -ing)", "eng": "One group was made intellectually superior<sup>1<\/sup> / by modifying<sup>2<\/sup> the gene for the glutamate receptor<sup>3<\/sup>.", "notes": [["1", "intellectually superior", "지적으로 우월한"], ["2", "modify", "변형하다"], ["3", "glutamate receptor", "글루타민산염 수용체"]], "lit": "한 집단은 지적으로 우월하게 만들어졌다 / 글루타민산염 수용체의 유전자를 변형함으로써", "nat": "한 집단은 글루타민산염 수용체의 유전자를 변형함으로써 지적으로 우월하게 만들어졌다.", "ana": "<b>was made superior<\/b>는 <b>수동태<\/b>이며, <b>by modifying ~<\/b>은 전치사 by + 동명사로 수단을 나타낸다."}, {"i": "02", "q": "07", "s": "6", "title": "양보 접속사 although + 원급 비교(as~as)", "eng": "At the end of the study, / although the intellectually inferior mice were genetically handicapped<sup>1<\/sup>, / they were able to perform<sup>2<\/sup> / just as well as their genetic superiors<sup>3<\/sup>.", "notes": [["1", "handicapped", "장애가 있는"], ["2", "perform", "수행하다"], ["3", "genetic superior", "유전적 우월자"]], "lit": "그 연구가 끝날 무렵, / 비록 지적으로 열등한 쥐들이 유전적으로 장애가 있었지만, / 그들은 수행할 수 있었다 / 그들의 유전적 우월자들만큼 딱 그렇게 잘", "nat": "연구가 끝날 무렵, 지적으로 열등한 쥐들은 비록 유전적으로 장애가 있었지만, 자신의 유전적 우월자들만큼 잘 수행할 수 있었다.", "ana": "<b>although ~<\/b>는 <b>양보의 부사절<\/b>이고, <b>just as well as ~<\/b>는 <b>원급 비교(as~as)<\/b>로 '~만큼 잘'이라는 뜻이다."}, {"i": "03", "q": "08", "s": "3", "title": "비교급 more likely ~ than + 관계대명사 who", "eng": "At work or school, / we are all more likely<sup>1<\/sup> to become friends with someone who has a lot of friends / than we are to befriend<sup>2<\/sup> someone with few friends.", "notes": [["1", "more likely", "가능성이 더 높은"], ["2", "befriend", "~와 친구가 되다"]], "lit": "직장이나 학교에서, / 우리는 모두 친구가 많은 누군가와 친구가 될 가능성이 더 높다 / 우리가 친구가 적은 누군가와 친구가 될 가능성보다", "nat": "직장이나 학교에서 우리는 모두 친구가 적은 사람보다는 친구가 많은 사람과 친구가 될 가능성이 더 높다.", "ana": "<b>more likely ~ than ~<\/b>은 <b>비교급<\/b> 구문이고, <b>who has a lot of friends<\/b>는 someone을 수식하는 <b>주격 관계대명사절<\/b>이다."}, {"i": "04", "q": "09", "s": "5", "title": "동격 such as + between A, B, C, and D 병렬", "eng": "Doctors such as Jon Snow, from England, and Rudolf Virchow, of Germany, / saw the connection<sup>1<\/sup> / between poor living conditions, overcrowding<sup>2<\/sup>, sanitation<sup>3<\/sup>, and disease.", "notes": [["1", "connection", "연관성"], ["2", "overcrowding", "과밀 거주"], ["3", "sanitation", "위생"]], "lit": "영국의 Jon Snow와 독일의 Rudolf Virchow와 같은 의사들은 / 연관성을 보았다 / 열악한 주거 환경, 과밀 거주, 위생, 그리고 질병 사이의", "nat": "영국의 Jon Snow와 독일의 Rudolf Virchow 같은 의사들은 열악한 주거 환경, 과밀 거주, 위생, 그리고 질병 사이의 연관성을 발견했다.", "ana": "<b>such as ~<\/b>는 Doctors의 <b>동격 예시<\/b>이며, <b>between A, B, C, and D<\/b>는 네 개의 명사가 <b>병렬<\/b> 연결된 구조이다."}, {"i": "05", "q": "09", "s": "6", "title": "to부정사(목적) + 동명사구 병렬", "eng": "A recognition<sup>1<\/sup> of this connection / led to the replanning<sup>2<\/sup> and rebuilding of cities / to stop the spread of epidemics<sup>3<\/sup>.", "notes": [["1", "recognition", "인식"], ["2", "replanning", "재계획"], ["3", "epidemic", "전염병"]], "lit": "이 연관성에 대한 인식은 / 도시의 재계획과 재건으로 이어졌다 / 전염병의 확산을 막기 위해", "nat": "이러한 연관성에 대한 인식은 전염병의 확산을 막기 위한 도시의 재계획과 재건으로 이어졌다.", "ana": "<b>to stop ~<\/b>은 <b>목적<\/b>을 나타내는 to부정사이고, <b>replanning and rebuilding<\/b>은 전치사 of의 목적어로 <b>병렬<\/b> 연결된 동명사이다."}, {"i": "06", "q": "10", "s": "A-1", "title": "주격 관계대명사 who", "eng": "A long time ago, / a farmer in a small town had a neighbor<sup>1<\/sup> / who was a hunter<sup>2<\/sup>.", "notes": [["1", "neighbor", "이웃"], ["2", "hunter", "사냥꾼"]], "lit": "오래 전, / 한 작은 마을의 농부는 이웃을 두고 있었다 / 사냥꾼인", "nat": "오래 전, 한 작은 마을에 사는 농부에게는 사냥꾼인 이웃이 있었다.", "ana": "<b>who was a hunter<\/b>는 a neighbor를 수식하는 <b>주격 관계대명사절<\/b>이다."}, {"i": "07", "q": "10", "s": "A-5", "title": "부사절 when + 동사 병렬", "eng": "One day when the dogs jumped the fence<sup>1<\/sup>, / they attacked and severely<sup>2<\/sup> injured<sup>3<\/sup> / several of the lambs.", "notes": [["1", "jump the fence", "울타리를 뛰어넘다"], ["2", "severely", "심하게"], ["3", "injure", "다치게 하다"]], "lit": "어느 날 개들이 울타리를 뛰어넘었을 때, / 그것들은 공격했다 그리고 심하게 다치게 했다 / 그 새끼 양들 중 몇 마리를", "nat": "어느 날 개들이 울타리를 뛰어넘었을 때, 그것들은 새끼 양 몇 마리를 공격해 심하게 다치게 했다.", "ana": "<b>when ~<\/b>은 시간의 <b>부사절<\/b>이고, <b>attacked<\/b>와 <b>injured<\/b>는 and로 <b>병렬<\/b> 연결된 동사이다."}, {"i": "08", "q": "10", "s": "C-2", "title": "분사구문(완료형, Having p.p.)", "eng": "Having heard the judge's solution<sup>1<\/sup>, / the farmer agreed<sup>2<\/sup>.", "notes": [["1", "solution", "해결책"], ["2", "agree", "동의하다"]], "lit": "재판관의 해결책을 들은 후, / 농부는 동의했다", "nat": "재판관의 해결책을 듣고서, 농부는 동의했다.", "ana": "<b>Having heard ~<\/b>는 완료형 <b>분사구문(Having p.p.)<\/b>으로, 주절보다 앞선 시점의 일임을 나타낸다."}], "qs": [{"q": "07", "type": "빈칸", "src": "2022년 6월 33번", "ans": "③", "tr": [["1", "1992년 프린스턴 대학의 한 연구에서, 연구 과학자들은 두 개의 다른 쥐 집단을 관찰했다."], ["2", "한 집단은 글루타민산염 수용체의 유전자를 변형함으로써 지적으로 우월하게 만들어졌다."], ["3", "글루타민산염은 학습에 필수적인 뇌 화학 물질이다."], ["4", "다른 집단도 지적으로 열등하게 만들어졌는데, 이 역시 글루타민산염 수용체에 대한 유전자를 변형함으로써 이루어졌다."], ["5", "그런 다음 똑똑한 쥐들은 표준 우리에서 길러졌고, 반면 열등한 쥐들은 장난감과 쳇바퀴가 있고 사회적 상호작용이 많은 큰 우리에서 길러졌다."], ["6", "연구가 끝날 무렵, 지적으로 열등한 쥐들은 비록 유전적으로 장애가 있었지만, 자신의 유전적 우월자들만큼 잘 수행할 수 있었다."], ["7", "이것은 천성(선천적 성질)에 대한 양육(후천적 환경)의 진정한 승리였다."], ["8", "유전자는 여러분 주변에 있는 것에 따라 켜지거나 꺼진다."]], "evh": "6·7번 문장", "ev": [{"en": true, "h": "At the end of the study, although the intellectually inferior mice were genetically handicapped, they were able to perform just as well as their genetic superiors. / This was a real triumph for nurture over nature."}, {"en": false, "h": "유전적으로 열등한 쥐도 풍부한 환경에서 자라면 우월한 쥐만큼 잘 수행했다는 6번의 내용과, 이것이 천성보다 양육(환경)이 중요함을 보여 준다는 7번의 결론을 종합하면, 빈칸에는 '유전자가 주변 환경에 따라 작동한다'는 내용이 들어가야 한다."}], "opts": [{"n": "①", "t": "by themselves for survival", "a": false, "x": true, "trap": false, "e": "생존을 위해 스스로 작동한다는 내용은 본문에 없다."}, {"n": "②", "t": "free from social interaction", "a": false, "x": true, "trap": false, "e": "오히려 사회적 상호작용이 많은 환경이 쥐의 수행 능력에 영향을 주었으므로 본문과 반대된다."}, {"n": "③", "t": "based on what is around you", "a": true, "x": false, "trap": false, "e": "열등한 쥐도 풍부한(사회적 상호작용이 많은) 환경에서 길러지면 우월한 쥐만큼 잘 수행했다는 6·7번의 내용, 즉 유전자가 '주변 환경에 따라' 작동한다는 것과 정확히 일치한다."}, {"n": "④", "t": "depending on genetic superiority", "a": false, "x": true, "trap": true, "e": "유전적 우월성이 아니라 후천적 환경이 수행 능력을 좌우했다는 내용이므로 반대된다."}, {"n": "⑤", "t": "so as to keep ourselves entertained", "a": false, "x": true, "trap": false, "e": "자신을 즐겁게 하기 위해서라는 내용은 본문에 없다."}], "w": [["intellectually superior", "지적으로 우월한"], ["modify", "변형하다, 수정하다"], ["glutamate receptor", "글루타민산염 수용체"], ["genetically manipulate", "유전적으로 조작하다"], ["handicapped", "장애가 있는"], ["perform", "수행하다"], ["triumph", "승리, 업적"], ["nurture", "양육"], ["nature", "천성, 본성"]]}, {"q": "08", "type": "문장삽입", "src": "2014년 9월 38번", "ans": "④", "tr": [["1", "당신의 친구들이 당신보다 더 인기가 있는가?"], ["2", "이것이 사실이라고 생각할 아무 분명한 근거도 없어 보이지만, 그것은 아마도 사실일 것이다."], ["3", "직장이나 학교에서 우리는 모두 친구가 적은 사람보다는 친구가 많은 사람과 친구가 될 가능성이 더 높다."], ["4", "우리가 친구가 적은 동료나 학급 친구를 피하는 것이 아니라, 오히려 그들(친구)이 상당히 많은 그 사람의 친구들 중 한 사람이 될 가능성이 더 크기 때문이다."], ["5", "이 단순한 깨달음은 실제 생활에서의 친구들뿐만 아니라 소셜 미디어 웹사이트의 팔로워들에게도 관련이 있다."], ["6", "예를 들어, 트위터에서 그것은 팔로워 역설이라고 불릴 수 있는 것을 초래한다: 대부분의 사람들이 그들의 팔로워보다 팔로워 수가 더 적다."], ["7", "당신이 더 인기 있어지겠다고 다짐하기 전에, 대부분의 사람들이 비슷하고, 인구 밀도가 낮은 배에 타고 있다는 것을 기억하라."]], "evh": "3·5번 문장", "ev": [{"en": true, "h": "At work or school, we are all more likely to become friends with someone who has a lot of friends than we are to befriend someone with few friends. / In Twitter, for example, it gives rise to what might be called the follower paradox: most people have fewer followers than their followers do."}, {"en": false, "h": "친구가 많은 사람과 친구가 될 가능성이 높다는 3번의 '단순한 깨달음(this simple realization)'이 실제 친구뿐 아니라 소셜 미디어 팔로워에게도 적용된다는 주어진 문장이 들어간 뒤, 이를 구체적인 트위터 예시(5번)로 이어가는 것이 자연스러우므로 ④에 들어가야 한다."}], "opts": [{"n": "①", "t": "①", "a": false, "x": true, "trap": false, "e": "이 위치 앞에는 아직 '단순한 깨달음' 자체가 제시되지 않았으므로, 주어진 문장의 'This simple realization'이 가리킬 대상이 없다."}, {"n": "②", "t": "②", "a": false, "x": true, "trap": false, "e": "마찬가지로 '깨달음'의 구체적 내용(친구가 많은 사람과 친구가 되기 쉬움)이 아직 나오지 않았다."}, {"n": "③", "t": "③", "a": false, "x": true, "trap": true, "e": "이 위치 다음 문장이 이미 '깨달음'의 이유를 설명하고 있으므로, 주어진 문장이 여기 들어가면 흐름이 끊긴다."}, {"n": "④", "t": "④", "a": true, "x": false, "trap": false, "e": "바로 앞 문장(친구가 많은 사람과 친구가 될 가능성)이 '단순한 깨달음'의 내용이고, 이 문장이 그것을 소셜 미디어로 확장한 뒤, 바로 뒤 문장이 트위터의 구체적 예시로 이어지는 것이 가장 자연스럽다."}, {"n": "⑤", "t": "⑤", "a": false, "x": true, "trap": false, "e": "이 위치 앞에는 이미 트위터 예시가 나온 뒤이므로, 그 뒤에 '이 깨달음이 소셜 미디어에도 관련 있다'는 문장이 오면 순서가 뒤바뀐다."}], "w": [["realization", "깨달음"], ["follower", "팔로워"], ["suppose", "생각하다, 추측하다"], ["befriend", "~와 친구가 되다"], ["give rise to", "~을 낳다, 초래하다"], ["paradox", "역설"], ["resolve to", "~하기로 다짐하다"], ["sparsely populated", "인구밀도가 낮은"]]}, {"q": "09", "type": "무관 문장", "src": "2021년 6월 35번", "ans": "④", "tr": [["1", "건강과 질병의 확산은 우리가 어떻게 사는지, 그리고 우리의 도시들이 어떻게 운영되는지와 아주 밀접하게 연관되어 있다."], ["2", "좋은 소식은 도시들이 놀라울 정도로 회복력이 있다는 것이다."], ["3", "많은 도시들이 과거에 전염병을 경험했고, 살아남았을 뿐만 아니라 발전하기도 했다."], ["4", "①19세기와 20세기 초반은 유럽 도시들에서 콜레라, 장티푸스, 독감의 파괴적인 발생을 목격했다."], ["5", "②영국의 Jon Snow와 독일의 Rudolf Virchow 같은 의사들은 열악한 주거 환경, 과밀 거주, 위생, 그리고 질병 사이의 연관성을 발견했다."], ["6", "③이러한 연관성에 대한 인식은 전염병의 확산을 막기 위한 도시의 재계획과 재건으로 이어졌다."], ["7", "④재건 노력에도 불구하고, 도시들은 많은 지역에서 쇠퇴했으며 많은 사람들이 떠나기 시작했다."], ["8", "⑤19세기 중반, 오늘날까지도 기여하고 있는 런던의 선구적인 하수 처리 시스템은 콜레라의 확산을 막기 위한 깨끗한 물의 중요성을 이해한 것의 결과로 지어졌다."]], "evh": "1·2·3번 문장", "ev": [{"en": true, "h": "Health and the spread of disease are very closely linked to how we live and how our cities operate. / The good news is that cities are incredibly resilient. / Many cities have experienced epidemics in the past and have not only survived, but advanced."}, {"en": false, "h": "이 글은 도시가 전염병을 극복하고 오히려 발전해 왔다는 긍정적인 흐름(1~3번)으로 이어지는데, ④번은 '도시가 쇠퇴하고 사람들이 떠났다'는 정반대의 내용이므로 전체 흐름과 관계가 없다."}], "opts": [{"n": "①", "t": "①", "a": false, "x": true, "trap": false, "e": "도시들이 극복해 온 과거의 전염병 사례(콜레라, 장티푸스, 독감)를 제시하며 글의 흐름과 일치한다."}, {"n": "②", "t": "②", "a": false, "x": true, "trap": false, "e": "질병과 주거 환경의 연관성을 발견한 의사들의 사례로, 글의 흐름과 자연스럽게 이어진다."}, {"n": "③", "t": "③", "a": false, "x": true, "trap": false, "e": "이러한 연관성에 대한 인식이 도시 재정비로 이어졌다는 내용으로 흐름과 일치한다."}, {"n": "④", "t": "④", "a": true, "x": false, "trap": false, "e": "이 글은 도시가 전염병을 극복하고 발전해 왔다는 내용인데, ④번은 도시가 '쇠퇴했다'는 반대되는 내용이므로 전체 흐름과 관계가 없다."}, {"n": "⑤", "t": "⑤", "a": false, "x": true, "trap": true, "e": "③번에서 언급된 도시 재정비의 구체적 성공 사례(런던의 하수 시스템)로 자연스럽게 이어진다."}], "w": [["spread", "확산, 전파"], ["resilient", "회복력 있는"], ["epidemic", "전염병"], ["destructive", "파괴적인"], ["outbreak", "발생, 창궐"], ["overcrowding", "과밀 거주"], ["sanitation", "공중위생"], ["reconstruction", "재건, 복원"], ["decline", "쇠퇴하다"], ["pioneering", "선구적인"], ["sewer system", "하수 처리 시스템"]]}, {"q": "10", "type": "순서", "src": "2019년 11월 43번", "ans": "⑤", "tr": [["1", "오래 전, 한 작은 마을에 사는 농부에게는 사냥꾼인 이웃이 있었다."], ["2", "그 사냥꾼은 사납고 제대로 훈련되지 않은 사냥개 몇 마리를 기르고 있었다."], ["3", "그 개들은 자주 울타리를 뛰어넘어 농부의 새끼 양들을 뒤쫓았다."], ["4", "농부는 이웃에게 그의 개들을 잘 관리해 달라고 부탁했지만, 그의 말은 무시되었다."], ["5", "어느 날 개들이 울타리를 뛰어넘었을 때, 그것들은 새끼 양 몇 마리를 공격해 심하게 다치게 했다."], ["6", "농부는 이쯤 되자 더는 참을 수 없었다."], ["7", "그는 재판관에게 조언을 구하기 위해 가장 가까운 도시로 갔다."], ["8", "그의 이야기를 주의 깊게 들은 후, 재판관은 \"나는 그 사냥꾼을 벌하고 그에게 개들을 사슬로 묶거나 가두어 두라고 지시할 수도 있습니다."], ["9", "하지만 당신은 친구를 잃고 적을 얻게 될 것입니다."], ["10", "이웃으로 친구와 적 중 어느 쪽을 두고 싶습니까?\"라고 말했다."], ["11", "농부는 친구를 선호한다고 대답했다."], ["12", "\"좋습니다, 제가 당신의 양들을 안전하게 지키면서 동시에 당신의 이웃을 좋은 친구로 바꿔 줄 해결책을 제안하겠습니다.\""], ["13", "재판관의 해결책을 듣고서, 농부는 동의했다."], ["14", "농부는 집에 돌아오자마자, 곧바로 재판관의 제안을 시험해 보았다."], ["15", "그는 자신의 농장에서 가장 귀여운 새끼 양 세 마리를 골랐다."], ["16", "그런 다음 그것들을 이웃의 세 어린 아들에게 선물했다."], ["17", "아이들은 기쁘게 받아들였고 그것들과 놀기 시작했다."], ["18", "아들들의 새로 얻은 놀이 친구를 보호하기 위해, 사냥꾼은 자신의 개들을 위해 튼튼한 개집을 지었다."], ["19", "개들은 다시는 농부의 새끼 양들을 괴롭히지 않았다."], ["20", "농부가 자신의 아이들에게 베푼 관대함에 감사하는 마음에서, 사냥꾼은 종종 농부를 만찬에 초대했다."], ["21", "그 보답으로, 농부는 그에게 자신이 만든 양고기와 치즈를 주었다."], ["22", "농부는 그와 두터운 우정을 빠르게 쌓아 나갔다."]], "evh": "D·C·B", "ev": [{"en": true, "h": "The farmer had had enough by this point. ~ / \"All right, I will offer you a solution ~\" ~ / To protect his sons' newly acquired playmates, the hunter built a strong doghouse for his dogs."}, {"en": false, "h": "(A)에서 개들이 양을 공격한 뒤, 농부가 참다못해 재판관을 찾아가 조언을 구하고(D), 재판관의 해결책을 실행에 옮겨 새끼 양을 선물하고(C), 그 결과 사냥꾼이 개집을 지어 우정이 깊어지는(B) 순서로 이어지는 것이 자연스러우므로 (D)-(C)-(B)가 정답이다."}], "opts": [{"n": "①", "t": "(B)-(D)-(C)", "a": false, "x": true, "trap": false, "e": "(B)는 사냥꾼이 개집을 지어 우정이 깊어지는 결과인데, 이는 (C)에서 양을 선물한 뒤에 일어나는 일이므로 (B)가 먼저 올 수 없다."}, {"n": "②", "t": "(C)-(B)-(D)", "a": false, "x": true, "trap": false, "e": "(C)의 재판관의 해결책은 (D)에서 농부가 재판관을 찾아간 뒤에 나온 것이므로 (C)가 (D)보다 먼저 올 수 없다."}, {"n": "③", "t": "(C)-(D)-(B)", "a": false, "x": true, "trap": true, "e": "같은 이유로 (C)가 (D)보다 먼저 나올 수 없다."}, {"n": "④", "t": "(D)-(B)-(C)", "a": false, "x": true, "trap": false, "e": "(B)의 '아들들의 새로 얻은 놀이 친구'는 (C)에서 새끼 양을 선물받은 뒤에야 존재하므로, (B)가 (C)보다 먼저 올 수 없다."}, {"n": "⑤", "t": "(D)-(C)-(B)", "a": true, "x": false, "trap": false, "e": "농부가 재판관을 찾아가고(D), 해결책대로 새끼 양을 선물하고(C), 그 결과 사냥꾼이 개집을 지어 우정이 깊어지는(B) 순서가 논리적으로 자연스럽다."}], "w": [["neighbor", "이웃"], ["hunter", "사냥꾼"], ["fierce", "사나운"], ["keep in check", "잘 관리하다, 억제하다"], ["fall on deaf ears", "무시되다, 흘려듣다"], ["severely", "심하게"], ["have had enough", "더는 못 참다"], ["consult", "상담하다, 조언을 구하다"], ["instruct", "지시하다"], ["chain", "사슬로 묶다"], ["lose", "잃다"], ["gain", "얻다"]]}, {"q": "11", "type": "지칭 추론", "src": "2019년 11월 44번", "ans": "④", "tr": [["1", "오래 전, 한 작은 마을에 사는 농부에게는 사냥꾼인 이웃이 있었다."], ["2", "그 사냥꾼은 사납고 제대로 훈련되지 않은 사냥개 몇 마리를 기르고 있었다."], ["3", "그 개들은 자주 울타리를 뛰어넘어 농부의 새끼 양들을 뒤쫓았다."], ["4", "농부는 이웃에게 그의 개들을 잘 관리해 달라고 부탁했지만, 그의 말은 무시되었다."], ["5", "어느 날 개들이 울타리를 뛰어넘었을 때, 그것들은 새끼 양 몇 마리를 공격해 심하게 다치게 했다."], ["6", "농부는 이쯤 되자 더는 참을 수 없었다."], ["7", "그는 재판관에게 조언을 구하기 위해 가장 가까운 도시로 갔다."], ["8", "그의 이야기를 주의 깊게 들은 후, 재판관은 \"나는 그 사냥꾼을 벌하고 그에게 개들을 사슬로 묶거나 가두어 두라고 지시할 수도 있습니다."], ["9", "하지만 당신은 친구를 잃고 적을 얻게 될 것입니다."], ["10", "이웃으로 친구와 적 중 어느 쪽을 두고 싶습니까?\"라고 말했다."], ["11", "농부는 친구를 선호한다고 대답했다."], ["12", "\"좋습니다, 제가 당신의 양들을 안전하게 지키면서 동시에 당신의 이웃을 좋은 친구로 바꿔 줄 해결책을 제안하겠습니다.\""], ["13", "재판관의 해결책을 듣고서, 농부는 동의했다."], ["14", "농부는 집에 돌아오자마자, 곧바로 재판관의 제안을 시험해 보았다."], ["15", "그는 자신의 농장에서 가장 귀여운 새끼 양 세 마리를 골랐다."], ["16", "그런 다음 그것들을 이웃의 세 어린 아들에게 선물했다."], ["17", "아이들은 기쁘게 받아들였고 그것들과 놀기 시작했다."], ["18", "아들들의 새로 얻은 놀이 친구를 보호하기 위해, 사냥꾼은 자신의 개들을 위해 튼튼한 개집을 지었다."], ["19", "개들은 다시는 농부의 새끼 양들을 괴롭히지 않았다."], ["20", "농부가 자신의 아이들에게 베푼 관대함에 감사하는 마음에서, 사냥꾼은 종종 농부를 만찬에 초대했다."], ["21", "그 보답으로, 농부는 그에게 자신이 만든 양고기와 치즈를 주었다."], ["22", "농부는 그와 두터운 우정을 빠르게 쌓아 나갔다."]], "evh": "(d)", "ev": [{"en": true, "h": "(d) He selected three of the cutest lambs from his farm."}, {"en": false, "h": "(a), (b), (c), (e)는 모두 사냥꾼을 가리키지만, (d)는 재판관의 해결책을 실행에 옮기는 주체인 농부를 가리키므로 나머지 넷과 다르다."}], "opts": [{"n": "①", "t": "(a)", "a": false, "x": true, "trap": false, "e": "'농부는 이웃(사냥꾼)에게 (a)그의 개들을 잘 관리해 달라고 부탁했다'에서 (a)는 개를 소유한 사냥꾼을 가리킨다."}, {"n": "②", "t": "(b)", "a": false, "x": true, "trap": false, "e": "'농부의 관대함에 감사하는 마음에서 사냥꾼은 (b)그의 아이들을 위해 ~'에서 (b)는 감사를 느끼는 주체인 사냥꾼을 가리킨다."}, {"n": "③", "t": "(c)", "a": false, "x": true, "trap": false, "e": "'농부는 (c)그와 두터운 우정을 쌓았다'에서 (c)는 앞서 언급된 사냥꾼을 가리킨다."}, {"n": "④", "t": "(d)", "a": true, "x": false, "trap": false, "e": "'(d)그는 자신의 농장에서 가장 귀여운 새끼 양 세 마리를 골랐다'에서 (d)는 재판관의 해결책을 실행하는 농부를 가리키므로, 나머지가 모두 사냥꾼을 가리키는 것과 다르다."}, {"n": "⑤", "t": "(e)", "a": false, "x": true, "trap": false, "e": "'재판관은 (e)그에게 개들을 사슬로 묶으라고 지시할 수 있다고 말했다'에서 (e)는 개의 주인인 사냥꾼을 가리킨다."}], "w": [["prefer", "선호하다"], ["solution", "해결책"], ["put to the test", "시험해 보다"], ["select", "선택하다"], ["present A to B", "A를 B에게 선물하다"], ["newly acquired", "새로 얻은"], ["playmate", "놀이 친구"], ["protect", "보호하다"], ["doghouse", "개집"], ["bother", "괴롭히다"], ["out of gratitude", "감사하는 마음에서"], ["generosity", "관대함"]]}, {"q": "12", "type": "내용 불일치", "src": "2019년 11월 45번", "ans": "②", "tr": [["1", "오래 전, 한 작은 마을에 사는 농부에게는 사냥꾼인 이웃이 있었다."], ["2", "그 사냥꾼은 사납고 제대로 훈련되지 않은 사냥개 몇 마리를 기르고 있었다."], ["3", "그 개들은 자주 울타리를 뛰어넘어 농부의 새끼 양들을 뒤쫓았다."], ["4", "농부는 이웃에게 그의 개들을 잘 관리해 달라고 부탁했지만, 그의 말은 무시되었다."], ["5", "어느 날 개들이 울타리를 뛰어넘었을 때, 그것들은 새끼 양 몇 마리를 공격해 심하게 다치게 했다."], ["6", "농부는 이쯤 되자 더는 참을 수 없었다."], ["7", "그는 재판관에게 조언을 구하기 위해 가장 가까운 도시로 갔다."], ["8", "그의 이야기를 주의 깊게 들은 후, 재판관은 \"나는 그 사냥꾼을 벌하고 그에게 개들을 사슬로 묶거나 가두어 두라고 지시할 수도 있습니다."], ["9", "하지만 당신은 친구를 잃고 적을 얻게 될 것입니다."], ["10", "이웃으로 친구와 적 중 어느 쪽을 두고 싶습니까?\"라고 말했다."], ["11", "농부는 친구를 선호한다고 대답했다."], ["12", "\"좋습니다, 제가 당신의 양들을 안전하게 지키면서 동시에 당신의 이웃을 좋은 친구로 바꿔 줄 해결책을 제안하겠습니다.\""], ["13", "재판관의 해결책을 듣고서, 농부는 동의했다."], ["14", "농부는 집에 돌아오자마자, 곧바로 재판관의 제안을 시험해 보았다."], ["15", "그는 자신의 농장에서 가장 귀여운 새끼 양 세 마리를 골랐다."], ["16", "그런 다음 그것들을 이웃의 세 어린 아들에게 선물했다."], ["17", "아이들은 기쁘게 받아들였고 그것들과 놀기 시작했다."], ["18", "아들들의 새로 얻은 놀이 친구를 보호하기 위해, 사냥꾼은 자신의 개들을 위해 튼튼한 개집을 지었다."], ["19", "개들은 다시는 농부의 새끼 양들을 괴롭히지 않았다."], ["20", "농부가 자신의 아이들에게 베푼 관대함에 감사하는 마음에서, 사냥꾼은 종종 농부를 만찬에 초대했다."], ["21", "그 보답으로, 농부는 그에게 자신이 만든 양고기와 치즈를 주었다."], ["22", "농부는 그와 두터운 우정을 빠르게 쌓아 나갔다."]], "evh": "B4번 문장", "ev": [{"en": true, "h": "In turn, the farmer offered him lamb meat and cheese he had made."}, {"en": false, "h": "양고기와 치즈는 농부가 사냥꾼에게 '준' 것이지 농부가 사냥꾼에게서 '받은' 것이 아니므로, ②번은 본문 내용과 반대된다."}], "opts": [{"n": "①", "t": "그의 양이 사냥개의 공격을 받았다.", "a": false, "x": true, "trap": false, "e": "'개들이 새끼 양 몇 마리를 공격해 심하게 다치게 했다'는 내용과 일치한다."}, {"n": "②", "t": "사냥꾼에게 양고기와 치즈를 받았다.", "a": true, "x": false, "trap": false, "e": "실제로는 농부가 사냥꾼에게 양고기와 치즈를 '주었으므로', 농부가 '받았다'는 것은 본문 내용과 반대된다."}, {"n": "③", "t": "재판관의 해결책에 동의했다.", "a": false, "x": true, "trap": false, "e": "'재판관의 해결책을 듣고서, 농부는 동의했다'는 내용과 일치한다."}, {"n": "④", "t": "세 명의 아들을 둔 이웃이 있었다.", "a": false, "x": true, "trap": true, "e": "새끼 양을 '이웃의 세 어린 아들에게 선물했다'는 내용과 일치한다."}, {"n": "⑤", "t": "도시로 조언을 구하러 갔다.", "a": false, "x": true, "trap": false, "e": "'재판관에게 조언을 구하기 위해 가장 가까운 도시로 갔다'는 내용과 일치한다."}], "w": [["solution", "해결책"], ["put to the test", "시험해 보다"], ["select", "선택하다"], ["present A to B", "A를 B에게 선물하다"], ["newly acquired", "새로 얻은"], ["playmate", "놀이 친구"], ["protect", "보호하다"], ["doghouse", "개집"], ["bother", "괴롭히다"], ["out of gratitude", "감사하는 마음에서"], ["generosity", "관대함"], ["in turn", "그 대가로, 답례로"]]}]};
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크북 '+CF.sn.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -277,18 +330,22 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
-function hkHtml(it){
-  const E=it[2].split(' / '),K=it[3].split(' / ');
-  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
-  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
-  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
-  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
-  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+function esc2(s){return String(s)}
+function chunkSplit(s){return String(s).split(' / ')}
+function scHtml(c){
+  const esc=String;
+  const E=chunkSplit(c.eng),K=chunkSplit(c.lit);
+  let x='<div class="sc"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span><span class="tt">'+esc(c.title)+'</span></div><div class="sc-b">';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+E[j]+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  if(c.notes.length){x+='<div class="nts">'+c.notes.map(n=>'<span class="nt"><sup>'+n[0]+'</sup> <b>'+esc(n[1])+'</b> '+esc(n[2])+'</span>').join('')+'</div>';}
+  x+='<div class="lay nat"><span class="lb">자연스러운 해석</span>'+esc(c.nat)+'</div>';
+  if(c.ana)x+='<div class="lay ana"><span class="lb">분석</span>'+c.ana+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|분석">자연스러운 해석</button></div></div>';
   return x;
 }
 function renderDk(){
   let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-  HK.forEach(it=>{h+=hkHtml(it);});
+  CF.sn.forEach(c=>{h+=scHtml(c);});
   h+='</div></div>';
   app.innerHTML=h;
 }
@@ -442,41 +499,29 @@ function renderSubmit(){
   const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
 }
 /* ---- 해설 ---- */
-function sHtml(s,evn){
-  const ev=evn.indexOf(s.n)>=0;
-  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
-  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
-  const lays=[];
-  if(s.link)lays.push(['이어 읽으면',s.link]);
-  if(s.easy)lays.push(['쉬운 말로',s.easy]);
-  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
-  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
-  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
-  return x+'</div>';
-}
 function qHtml(i,a){
+  const esc=String;
   const d=D[i],ok=isRight(i,a);
-  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
-  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
-  h+='<h4>정답 근거</h4>';
-  h+=`<p class="en">${esc(d.ev_en)}</p>`;
-  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
-  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
-  if(d.ps&&d.ps.length){
-    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
-  }
-  h+='<h4>선택지 하나씩</h4>';
-  d.ch.forEach(c=>{
-    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  const cq=CF.qs.find(x=>x.q===d.no);
+  if(!cq)return '';
+  let h='<details class="qd" id="qd'+i+'" '+(ok?'':'open')+'><summary>'+esc(cq.q)+'번 · '+esc(cq.type)+'<small>'+esc(cq.src)+'</small><span class="res2 '+(ok?'o':'x')+'">'+(ok?'○ 정답':'✕ 오답')+'</span></summary><div class="qx">';
+  h+='<p class="ansline"><b>정답 '+esc(cq.ans)+'</b>'+(ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>')+'</p>';
+  h+='<details class="sub2"><summary>전문 해석</summary><ol class="trs" style="list-style:none">'+cq.tr.map(t=>'<li><span class="n">'+(t[0]==null?'':esc(t[0]))+'</span>'+t[1]+'</li>').join('')+'</ol></details>';
+  h+='<div class="sec">답의 근거 · '+esc(cq.evh)+'</div><div class="evx">';
+  cq.ev.forEach(p=>{h+=p.en?'<p class="en">'+p.h+'</p>':'<p>'+p.h+'</p>';});
+  h+='</div><div class="sec">선택지 하나씩</div>';
+  cq.opts.forEach(o=>{
+    h+='<div class="opx '+(o.a?'a':'')+'"><div class="ot"><span class="mk">'+esc(o.n)+'</span>'+o.t+(o.a?'<span class="bd g">정답</span>':'')+(o.trap?'<span class="bd t">가장 많이 걸리는 오답</span>':'')+'</div>'+(o.e?'<p>'+(o.x?'<span class="xm">✕</span>':'')+o.e+'</p>':'')+'</div>';
   });
-  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  if(cq.w.length){h+='<div class="sec">단어</div><div class="wds">'+cq.w.map(w=>'<span><b>'+esc(w[0])+'</b>'+esc(w[1])+'</span>').join('')+'</div>';}
+  h+='<button class="toq" data-i="'+i+'">빠른 정답으로</button>';
   return h+'</div></details>';
 }
 function renderExp(){
   const rec=S.sub;
   let h=hdr()+band(4)+'<div class="wrap">';
-  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
-  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='<div class="score">'+rec.s+' <small>/ '+N+'</small></div><h2 id="quick">빠른 정답</h2><div class="qc">';
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+='<button class="qchip '+(ok?'o':'x')+'" data-i="'+i+'"><small>'+esc(D[i].no)+'번</small>'+ansText(i)+' '+(ok?'○':'✕')+'</button>';}
   h+='</div><h2>해설</h2>';
   for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
   h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
@@ -515,13 +560,17 @@ function mmInit(){
 }
 /* 위임 이벤트 */
 document.addEventListener('click',e=>{
+  const qchip=e.target.closest('.qchip');
+  if(qchip){const dd=document.getElementById('qd'+qchip.dataset.i);if(dd){dd.open=true;dd.scrollIntoView({block:'start'});}return;}
+  const toq=e.target.closest('.toq');
+  if(toq){const qq=document.getElementById('quick');if(qq)qq.scrollIntoView({block:'start'});return;}
   const tb=e.target.closest('.tab,.hcard,.gohome');
   if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
   const ch=e.target.closest('.ch');
   if(ch){ch.classList.toggle('open');return;}
   const st=e.target.closest('.stg');
   if(st){
-    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const s=st.closest('.s,.sc'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
     const shown=lays.filter(l=>l.classList.contains('on')).length;
     if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
     else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
@@ -531,7 +580,7 @@ document.addEventListener('click',e=>{
   if(al){
     const open=al.dataset.all==='1',body=al.closest('.dkbody');
     body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
-    body.querySelectorAll('.s').forEach(s=>{
+    body.querySelectorAll('.s,.sc').forEach(s=>{
       const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
       lays.forEach(l=>l.classList.toggle('on',open));
       if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}

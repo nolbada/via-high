@@ -142,6 +142,59 @@ details.dk>summary::-webkit-details-marker{display:none}
 details.qd>summary::after{content:'\25BE';margin-left:auto;color:var(--sub)}
 details.qd[open]>summary::after{content:'\25B4'}
 .cell.s{padding:8px 12px;border:1.5px solid transparent;margin:0;background:var(--soft)}.cell.s.bad{background:var(--badbg);border-color:var(--bad)}
+
+/* ---- 새 직독직해·해설 화면 ---- */
+.sc{border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden;background:var(--bg)}
+.sc-h{padding:11px 14px 10px;background:#eef2f8;border-bottom:1px solid var(--line)}
+.sc-h .no2{display:inline-block;min-width:26px;height:26px;line-height:26px;border-radius:13px;background:var(--accent);color:#fff;font-weight:800;font-size:13px;text-align:center;padding:0 7px;margin-right:8px}
+.sc-h .at{font-size:13px;color:var(--sub)}
+.sc-h .tt{display:block;margin-top:7px;font-size:15.5px;font-weight:800;color:var(--accent);line-height:1.45}
+.sc-b{padding:10px 12px 12px}
+.sc .ch{margin-bottom:6px}
+.sc .ce{font-size:17px}
+.sc .ce sup,.nt sup{font-size:10px;font-weight:800;color:#b8651f;margin-left:1px}
+.nts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.nt{font-size:13.5px;line-height:1.5;background:#fbf6ee;border:1px solid #f0e2cd;border-radius:8px;padding:5px 9px;color:#4a3a22}
+.nt b{color:#33260f}
+.sc .lay{border-radius:10px}
+.sc .lay.nat{border-left:4px solid var(--accent);background:#f7f9fc}
+.sc .lay.ana{background:#fff8e6;border-color:#f0dcc0;color:#4d3b05}
+.sc .lay.ana b,.why2 b,.opx b,.evx b{background:linear-gradient(transparent 58%,var(--hl) 58%);font-weight:700}
+.sc .lb{margin-bottom:4px}
+.qc{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.qchip{min-width:56px;padding:9px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-family:inherit;font-size:15px;color:var(--ink);font-weight:700}
+.qchip small{display:block;font-size:11px;font-weight:400;color:var(--sub);margin-bottom:1px}
+.qchip.o{border-color:var(--good);background:var(--goodbg)}
+.qchip.x{border-color:var(--bad);background:var(--badbg)}
+.sec{margin:16px 0 6px;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px}
+.sec:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+.trs{list-style:none;margin:0;padding:0;background:var(--soft);border-radius:10px;padding:8px 12px}
+.trs li{font-size:15px;line-height:1.75;padding:2px 0}
+.trs .n{display:inline-block;min-width:20px;font-size:12px;color:var(--sub);font-weight:700}
+.evx{background:var(--goodbg);border:1px solid #bfe0cd;border-radius:10px;padding:10px 12px}
+.evx .en{background:#fff;border:1px solid #d5eadc;font-size:15.5px;margin:0 0 8px}
+.evx p{margin:6px 0;font-size:15.5px;line-height:1.75}
+.evx .evh{font-size:13px;font-weight:800;color:var(--good);margin-bottom:6px}
+.opx{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px;background:var(--bg)}
+.opx.a{border-color:var(--good);background:var(--goodbg)}
+.opx .ot{font-size:15.5px;font-weight:700;line-height:1.55}
+.opx .mk{display:inline-block;min-width:22px;font-weight:800;color:var(--sub);margin-right:4px}
+.opx.a .mk{color:var(--good)}
+.opx .bd{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.opx .bd.g{background:var(--good)}
+.opx .bd.t{background:#b4472f}
+.opx p{margin:5px 0 0;font-size:14.5px;line-height:1.7;color:#333}
+.opx .xm{color:var(--bad);font-weight:800;margin-right:3px}
+.wds{display:flex;flex-wrap:wrap;gap:6px}
+.wds span{font-size:14px;background:var(--soft);border-radius:8px;padding:5px 9px;line-height:1.45}
+.wds b{margin-right:5px}
+.toq{display:block;width:100%;margin-top:14px;min-height:42px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+details.sub2{margin:12px 0 0}
+details.sub2>summary{list-style:none;cursor:pointer;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;padding:6px 0}
+details.sub2>summary::-webkit-details-marker{display:none}
+details.sub2>summary:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+details.sub2>summary:after{content:"+";margin-left:auto;font-size:18px;color:var(--sub)}
+details.sub2[open]>summary:after{content:"\2212"}
 </style>
 </head>
 <body>
@@ -248,8 +301,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const HK=[["01", "6", "It is common to think, / \"He is so bossy,\" or \"She is so mean,\" / after observing less-than-desirable behavior in someone.", "생각하는 것은 흔하다 / \"그는 너무 거들먹거려\" 또는 \"그녀는 너무 심술궂어\"라고 / 누군가에게서 바람직하지 않은 행동을 관찰한 후에", "누군가에게서 바람직하지 않은 행동을 관찰한 후에, \"그는 너무 거들먹거려\" 또는 \"그녀는 너무 심술궂어\"라고 생각하는 것은 흔하다.", "<b>after observing ~<\/b>는 <b>분사구문(after+동명사)<\/b>으로 시간을 나타내며, think의 목적어로 두 개의 인용구가 or로 연결되어 있다."], ["02", "1", "The above graph shows the percentages of Americans' preferred type of place to live / by age group, / based on a 2020 survey.", "위 그래프는 미국인들이 선호하는 거주 유형의 비율을 보여준다 / 연령대별로 / 2020년 조사에 근거하여", "위 그래프는 2020년 조사를 바탕으로 연령대별 미국인이 선호하는 거주 유형의 비율을 보여준다.", "<b>based on a 2020 survey<\/b>는 과거분사로 시작하는 <b>분사구문<\/b>으로 '~에 근거하여'라는 뜻이며, shows의 목적어는 the percentages ~ to live이다."], ["03", "2", "When you run into a wall of resistance or indifference from friends and family members, / stop asking, / \"How can I get them to be a fan of my dream?\"", "당신이 친구들과 가족 구성원들로부터 저항이나 무관심의 벽에 부딪힐 때, / 묻기를 멈춰라, / \"내가 어떻게 하면 그들이 내 꿈의 팬이 되게 할 수 있을까?\"라고", "친구들이나 가족 구성원들로부터 저항이나 무관심의 벽에 부딪히면, \"내가 어떻게 하면 그들이 내 꿈의 팬이 되게 할 수 있을까?\"라고 묻는 것을 멈춰라.", "<b>When ~<\/b>은 시간을 나타내는 <b>부사절<\/b>이고, <b>stop asking<\/b>은 stop+동명사로 '~하기를 멈추다'라는 뜻이다."], ["03", "4", "Tell your friend / who doesn't get what you're trying to do, / \"I've explained my dream a few times, but never asked you, what's yours?\"", "말해라 네 친구에게 / 네가 하려는 것을 이해하지 못하는 / \"나는 몇 번 내 꿈을 설명했지만, 너에게는 물어본 적이 없어, 네 것은 무엇이니?\"라고", "네가 하려는 것을 이해하지 못하는 친구에게 \"내 꿈을 몇 번 설명했지만, 정작 네 꿈이 뭔지는 물어본 적이 없네\"라고 말해라.", "<b>who doesn't get ~<\/b>는 your friend를 수식하는 <b>주격 관계대명사절<\/b>이고, that절 안에서 <b>have explained<\/b>와 <b>(have) asked<\/b>가 but으로 <b>병렬<\/b> 연결된 현재완료이다."], ["04", "4", "Students and professionals with years of training and specialized degrees in sport business / may also find themselves being given advice / on how to do their jobs / from friends, family, or even total strangers without any expertise.", "수년간의 훈련과 전공 학위를 가진 학생들과 전문가들은 스포츠 경영학에서 / 또한 자기도 모르게 조언을 받게 될 수도 있다 / 자신의 일을 어떻게 해야 할지에 대한 / 친구, 가족, 혹은 심지어 아무 전문 지식도 없는 완전히 낯선 사람들로부터", "스포츠 경영학에서 수년간 훈련하고 전공 학위를 딴 학생들과 전문가들 또한 아무 전문 지식도 없는 친구, 가족, 심지어 낯선 사람들로부터 자신의 일을 어떻게 해야 할지에 관한 조언을 자기도 모르게 받게 될지도 모른다.", "<b>find themselves being given advice<\/b>는 <b>find+목적어+목적격보어(현재분사의 수동형 being p.p.)<\/b> 구조이며, <b>on how to do their jobs<\/b>는 advice를 수식하는 <b>의문사+to부정사구<\/b>이다."], ["05", "6", "But in the early 1800s, / it would have cost you four hundred times / what you are paying now / for the same amount of light.", "하지만 1800년대 초반에는, / 그것은 당신에게 400배가 들었을 것이다 / 당신이 지금 지불하고 있는 것의 / 같은 양의 빛에 대해", "하지만 1800년대 초반이었다면, 같은 양의 빛에 대해 당신은 지금 지불하는 금액의 400배를 치렀을 것이다.", "<b>would have cost<\/b>는 <b>가정법 과거완료<\/b>로 과거 사실의 반대를 나타내며, <b>what you are paying now<\/b>는 선행사를 포함한 <b>관계대명사 what<\/b>절이다."], ["06", "3", "If you have never been to a game before, / then the whole thing is probably / a complex mess.", "만약 당신이 전에 한 번도 경기에 가본 적이 없다면, / 그러면 모든 것은 아마 ~일 것이다 / 복잡하고 뒤죽박죽인 것", "만약 전에 한 번도 경기를 본 적이 없다면, 그 모든 것은 아마 복잡하고 뒤죽박죽인 것처럼 느껴질 것이다.", "<b>If ~ have never been<\/b>은 <b>현재완료<\/b>를 쓴 조건절이고, <b>then<\/b>이 이끄는 주절이 그 결과를 나타낸다."], ["06", "5", "As you learn more about baseball and develop some understanding of the game, / you learn / where to look / and what objects are important to find.", "당신이 야구에 대해 더 많이 배우고 경기에 대한 어느 정도의 이해를 발달시키면서, / 당신은 배운다 / 어디를 봐야 할지 / 그리고 어떤 대상들을 찾는 것이 중요한지를", "야구에 대해 더 많이 배우고 경기에 대한 이해를 쌓아 가면서, 당신은 어디를 봐야 하는지와 어떤 대상을 찾는 것이 중요한지를 배우게 된다.", "<b>As ~<\/b>는 '~하면서'라는 뜻의 <b>부사절<\/b>이고, learn의 목적어로 <b>where to look<\/b>과 <b>what objects are important to find<\/b>가 and로 <b>병렬<\/b> 연결되어 있다."]];
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const CF={"sn": [{"i": "01", "q": "01", "s": "6", "title": "인용구 목적어 + 분사구문(after -ing)", "eng": "It is common<sup>1<\/sup> to think, / \"He is so bossy,\" or \"She is so mean,\" / after observing<sup>2<\/sup> less-than-desirable<sup>3<\/sup> behavior in someone.", "notes": [["1", "common", "흔한"], ["2", "observe", "관찰하다"], ["3", "less-than-desirable", "별로 바람직하지 않은"]], "lit": "생각하는 것은 흔하다 / \"그는 너무 거들먹거려\" 또는 \"그녀는 너무 심술궂어\"라고 / 누군가에게서 바람직하지 않은 행동을 관찰한 후에", "nat": "누군가에게서 바람직하지 않은 행동을 관찰한 후에, \"그는 너무 거들먹거려\" 또는 \"그녀는 너무 심술궂어\"라고 생각하는 것은 흔하다.", "ana": "<b>after observing ~<\/b>는 <b>분사구문(after+동명사)<\/b>으로 시간을 나타내며, think의 목적어로 두 개의 인용구가 or로 연결되어 있다."}, {"i": "02", "q": "02", "s": "1", "title": "분사구문(based on) + 전치사구", "eng": "The above graph shows the percentages<sup>1<\/sup> of Americans' preferred<sup>2<\/sup> type of place to live / by age group, / based on<sup>3<\/sup> a 2020 survey.", "notes": [["1", "percentage", "비율"], ["2", "preferred", "선호되는"], ["3", "based on", "~에 근거하여"]], "lit": "위 그래프는 미국인들이 선호하는 거주 유형의 비율을 보여준다 / 연령대별로 / 2020년 조사에 근거하여", "nat": "위 그래프는 2020년 조사를 바탕으로 연령대별 미국인이 선호하는 거주 유형의 비율을 보여준다.", "ana": "<b>based on a 2020 survey<\/b>는 과거분사로 시작하는 <b>분사구문<\/b>으로 '~에 근거하여'라는 뜻이며, shows의 목적어는 the percentages ~ to live이다."}, {"i": "03", "q": "03", "s": "2", "title": "부사절 when + 명령문(stop -ing)", "eng": "When you run into<sup>1<\/sup> a wall of resistance<sup>2<\/sup> or indifference<sup>3<\/sup> from friends and family members, / stop asking, / \"How can I get them to be a fan of my dream?\"", "notes": [["1", "run into", "맞닥뜨리다"], ["2", "resistance", "저항"], ["3", "indifference", "무관심"]], "lit": "당신이 친구들과 가족 구성원들로부터 저항이나 무관심의 벽에 부딪힐 때, / 묻기를 멈춰라, / \"내가 어떻게 하면 그들이 내 꿈의 팬이 되게 할 수 있을까?\"라고", "nat": "친구들이나 가족 구성원들로부터 저항이나 무관심의 벽에 부딪히면, \"내가 어떻게 하면 그들이 내 꿈의 팬이 되게 할 수 있을까?\"라고 묻는 것을 멈춰라.", "ana": "<b>When ~<\/b>은 시간을 나타내는 <b>부사절<\/b>이고, <b>stop asking<\/b>은 stop+동명사로 '~하기를 멈추다'라는 뜻이다."}, {"i": "04", "q": "03", "s": "4", "title": "관계대명사 who + 현재완료 병렬", "eng": "Tell your friend / who doesn't get<sup>1<\/sup> what you're trying to do, / \"I've explained<sup>2<\/sup> my dream a few times, but never asked you, what's yours?\"", "notes": [["1", "get", "이해하다"], ["2", "explain", "설명하다"]], "lit": "말해라 네 친구에게 / 네가 하려는 것을 이해하지 못하는 / \"나는 몇 번 내 꿈을 설명했지만, 너에게는 물어본 적이 없어, 네 것은 무엇이니?\"라고", "nat": "네가 하려는 것을 이해하지 못하는 친구에게 \"내 꿈을 몇 번 설명했지만, 정작 네 꿈이 뭔지는 물어본 적이 없네\"라고 말해라.", "ana": "<b>who doesn't get ~<\/b>는 your friend를 수식하는 <b>주격 관계대명사절<\/b>이고, that절 안에서 <b>have explained<\/b>와 <b>(have) asked<\/b>가 but으로 <b>병렬<\/b> 연결된 현재완료이다."}, {"i": "05", "q": "04", "s": "4", "title": "목적격보어 현재분사 수동형(find oneself being p.p.) + 의문사절", "eng": "Students and professionals with years of training and specialized degrees<sup>1<\/sup> in sport business / may also find themselves being given<sup>2<\/sup> advice / on how to do their jobs / from friends, family, or even total strangers<sup>3<\/sup> without any expertise<sup>4<\/sup>.", "notes": [["1", "specialized degree", "전공 학위"], ["2", "be given", "받게 되다"], ["3", "total stranger", "전혀 모르는 사람"], ["4", "expertise", "전문 지식"]], "lit": "수년간의 훈련과 전공 학위를 가진 학생들과 전문가들은 스포츠 경영학에서 / 또한 자기도 모르게 조언을 받게 될 수도 있다 / 자신의 일을 어떻게 해야 할지에 대한 / 친구, 가족, 혹은 심지어 아무 전문 지식도 없는 완전히 낯선 사람들로부터", "nat": "스포츠 경영학에서 수년간 훈련하고 전공 학위를 딴 학생들과 전문가들 또한 아무 전문 지식도 없는 친구, 가족, 심지어 낯선 사람들로부터 자신의 일을 어떻게 해야 할지에 관한 조언을 자기도 모르게 받게 될지도 모른다.", "ana": "<b>find themselves being given advice<\/b>는 <b>find+목적어+목적격보어(현재분사의 수동형 being p.p.)<\/b> 구조이며, <b>on how to do their jobs<\/b>는 advice를 수식하는 <b>의문사+to부정사구<\/b>이다."}, {"i": "06", "q": "05", "s": "6", "title": "가정법 과거완료(would have p.p.) + 관계대명사 what", "eng": "But in the early 1800s, / it would have cost<sup>1<\/sup> you four hundred times<sup>2<\/sup> / what you are paying now / for the same amount of<sup>3<\/sup> light.", "notes": [["1", "cost", "비용이 들다"], ["2", "four hundred times", "400배"], ["3", "the same amount of", "같은 양의"]], "lit": "하지만 1800년대 초반에는, / 그것은 당신에게 400배가 들었을 것이다 / 당신이 지금 지불하고 있는 것의 / 같은 양의 빛에 대해", "nat": "하지만 1800년대 초반이었다면, 같은 양의 빛에 대해 당신은 지금 지불하는 금액의 400배를 치렀을 것이다.", "ana": "<b>would have cost<\/b>는 <b>가정법 과거완료<\/b>로 과거 사실의 반대를 나타내며, <b>what you are paying now<\/b>는 선행사를 포함한 <b>관계대명사 what<\/b>절이다."}, {"i": "07", "q": "06", "s": "3", "title": "조건절(현재완료) + then 주절", "eng": "If you have never been to a game before, / then the whole thing is probably / a complex<sup>1<\/sup> mess<sup>2<\/sup>.", "notes": [["1", "complex", "복잡한"], ["2", "mess", "뒤죽박죽인 것"]], "lit": "만약 당신이 전에 한 번도 경기에 가본 적이 없다면, / 그러면 모든 것은 아마 ~일 것이다 / 복잡하고 뒤죽박죽인 것", "nat": "만약 전에 한 번도 경기를 본 적이 없다면, 그 모든 것은 아마 복잡하고 뒤죽박죽인 것처럼 느껴질 것이다.", "ana": "<b>If ~ have never been<\/b>은 <b>현재완료<\/b>를 쓴 조건절이고, <b>then<\/b>이 이끄는 주절이 그 결과를 나타낸다."}, {"i": "08", "q": "06", "s": "5", "title": "부사절 as + 의문사절 목적어 병렬", "eng": "As you learn more about baseball and develop<sup>1<\/sup> some understanding<sup>2<\/sup> of the game, / you learn / where to look / and what objects<sup>3<\/sup> are important to find.", "notes": [["1", "develop", "발달시키다"], ["2", "understanding", "이해"], ["3", "object", "대상"]], "lit": "당신이 야구에 대해 더 많이 배우고 경기에 대한 어느 정도의 이해를 발달시키면서, / 당신은 배운다 / 어디를 봐야 할지 / 그리고 어떤 대상들을 찾는 것이 중요한지를", "nat": "야구에 대해 더 많이 배우고 경기에 대한 이해를 쌓아 가면서, 당신은 어디를 봐야 하는지와 어떤 대상을 찾는 것이 중요한지를 배우게 된다.", "ana": "<b>As ~<\/b>는 '~하면서'라는 뜻의 <b>부사절<\/b>이고, learn의 목적어로 <b>where to look<\/b>과 <b>what objects are important to find<\/b>가 and로 <b>병렬<\/b> 연결되어 있다."}], "qs": [{"q": "01", "type": "주장", "src": "2017년 9월 20번", "ans": "①", "tr": [["1", "사람들의 행동을 근거로 그들을 판단하는 것은 쉽다."], ["2", "우리는 흔히 말보다 행동에 더 많은 가치를 두라고 배우는데, 거기에는 그럴 만한 이유가 있다."], ["3", "다른 사람들의 행동은 흔히 그들의 말보다 훨씬 더 많은 것을 말해 준다."], ["4", "하지만 누군가가 어떤 까다로운 행동을 보일 때, 여러분은 판단을 나중으로 미루고 싶을 수도 있다."], ["5", "사람들이 항상 자신의 행동으로만 규정되는 것은 아니다."], ["6", "누군가에게서 별로 바람직하지 않은 행동을 관찰한 후에 \"그는 너무 거들먹거려\" 또는 \"그녀는 너무 심술궂어\"라고 생각하는 것은 흔하다."], ["7", "하지만 여러분은 그런 추측을 곧바로 해서는 절대 안 된다."], ["8", "누군가에게 딱지를 붙이고 영원히 마음의 문을 닫아 버리기 전에, 한 번 더 기회를 주어야 한다."], ["9", "여러분은 어떤 사람에게서 훌륭한 동료나 가장 친한 친구를 발견할 수도 있으니, 짧은 관찰 하나로 그 사람을 여러분의 삶에서 없애 버리지 마라."]], "evh": "7·8·9번 문장", "ev": [{"en": true, "h": "But you should never make such assumptions right away. / You should give someone a second chance before you label them and shut them out forever. / You may find a great co-worker or best friend in someone, so don't eliminate a person from your life based on a brief observation."}, {"en": false, "h": "짧은 관찰만으로 성급히 판단하지 말고 기회를 주라는 7~9번의 내용을 종합하면, 이 글의 주장은 '단시간의 관찰로 타인을 성급하게 판단하지 마라'는 것이다."}], "opts": [{"n": "①", "t": "단시간의 관찰로 타인을 성급하게 판단하지 마라.", "a": true, "x": false, "trap": false, "e": "짧은 관찰 하나로 성급한 추측을 하지 말고 기회를 주라는 7~9번의 내용과 정확히 일치한다."}, {"n": "②", "t": "자신의 적성을 찾기 위해 다양한 경험을 쌓아라.", "a": false, "x": true, "trap": false, "e": "적성이나 경험 쌓기에 관한 언급은 본문에 없다."}, {"n": "③", "t": "바람직하지 않은 습관을 고치기 위해 노력하라.", "a": false, "x": true, "trap": true, "e": "습관을 고치라는 내용이 아니라 타인을 판단하는 태도에 관한 글이다."}, {"n": "④", "t": "원만한 인간관계를 위해 칭찬을 아끼지 마라.", "a": false, "x": true, "trap": false, "e": "칭찬(compliment)에 관한 언급은 본문에 없다."}, {"n": "⑤", "t": "말보다는 행동으로 삶의 모범을 보여라.", "a": false, "x": true, "trap": false, "e": "오히려 본문은 '행동만으로 판단하지 말라'는 취지이므로 반대된다."}], "w": [["judge", "판단하다"], ["reserve judgement", "판단을 보류하다"], ["bossy", "거들먹거리는"], ["less-than-desirable", "별로 바람직하지 않은"], ["assumption", "추측, 짐작"], ["label", "딱지를 붙이다"], ["shut out", "차단하다, 마음을 닫다"], ["eliminate", "제거하다, 없애다"], ["brief", "짧은"], ["observation", "관찰"]]}, {"q": "02", "type": "도표 불일치", "src": "2023학년도 수능 25번", "ans": "④", "tr": [["1", "위 그래프는 2020년 조사를 바탕으로 연령대별 미국인이 선호하는 거주 유형의 비율을 보여준다."], ["2", "①세 연령대 각각에서 시골·지방 지역이 가장 선호되는 거주 유형이었다."], ["3", "②18~34세 그룹에서는 대도시·소도시를 선호하는 사람들의 비율이 근교를 선호하는 사람들의 비율보다 더 높았다."], ["4", "③35~54세 그룹에서는 근교를 선호하는 사람들의 비율이 대도시·소도시를 선호하는 사람들의 비율을 넘어섰다."], ["5", "④55세 이상 그룹에서는 세 가지 선호되는 거주 유형 중에서 대도시·소도시를 선택한 사람들의 비율이 가장 낮았다."], ["6", "⑤세 가지 선호되는 거주 유형 각각의 비율은 세 연령대에 걸쳐 모두 20%보다 더 높았다."]], "evh": "도표 · 55세 이상 그룹", "ev": [{"en": true, "h": "Big/Small City 26% · Suburb 22% · Town/Rural Area 52%"}, {"en": false, "h": "55세 이상 그룹에서 가장 낮은 비율은 근교(Suburb) 22%인데, ④번은 대도시·소도시(Big/Small City, 26%)가 가장 낮다고 진술하여 실제 수치와 일치하지 않는다."}], "opts": [{"n": "①", "t": "각 연령대에서 시골·지방 지역이 가장 선호되었다.", "a": false, "x": true, "trap": false, "e": "18-34세(39%), 35-54세(49%), 55세 이상(52%) 모두 세 유형 중 가장 높은 비율이므로 도표와 일치한다."}, {"n": "②", "t": "18-34세 그룹은 대도시·소도시(33%)가 근교(27%)보다 높았다.", "a": false, "x": true, "trap": false, "e": "33%가 27%보다 높으므로 도표와 일치한다."}, {"n": "③", "t": "35-54세 그룹은 근교(27%)가 대도시·소도시(24%)를 넘어섰다.", "a": false, "x": true, "trap": false, "e": "27%가 24%를 넘으므로 도표와 일치한다."}, {"n": "④", "t": "55세 이상 그룹에서 대도시·소도시 선택 비율이 가장 낮았다.", "a": true, "x": false, "trap": false, "e": "실제로 가장 낮은 것은 근교(22%)이며 대도시·소도시는 26%로 가장 낮지 않으므로 도표와 일치하지 않는다."}, {"n": "⑤", "t": "세 유형의 비율은 모두 20%보다 높았다.", "a": false, "x": true, "trap": true, "e": "가장 낮은 값인 22%도 20%보다 높으므로 도표와 일치한다."}], "w": [["preferred", "선호되는"], ["age group", "연령대"], ["suburb", "근교, 교외"], ["rural area", "시골, 지방 지역"], ["percentage", "비율"], ["exceed", "초과하다, 넘다"], ["lowest", "가장 낮은"], ["rounding", "반올림"]]}, {"q": "03", "type": "요지", "src": "2014년 11월 20번", "ans": "⑤", "tr": [["1", "자신의 꿈에 대한 지지를 받기 위해 할 수 있는 최선의 것들 중 하나는 다른 누군가의 꿈을 먼저 지지해 주는 것이다."], ["2", "친구들이나 가족 구성원들로부터 저항이나 무관심의 벽에 부딪히면, \"내가 어떻게 하면 그들이 내 꿈의 팬이 되게 할 수 있을까?\"라고 묻는 것을 멈춰라."], ["3", "대신에, \"어떻게 하면 내가 그들 꿈의 팬이 될 수 있을까?\"라고 물어보라."], ["4", "네가 하려는 것을 이해하지 못하는 친구에게 \"내 꿈을 몇 번 설명했지만, 정작 네 꿈이 뭔지는 물어본 적이 없네\"라고 말해라."], ["5", "만약 당신이 당신의 꿈을 위한 도움을 원한다면, 다른 사람의 꿈을 도움으로써 시작하라."], ["6", "만약 당신이 당신의 희망을 위한 지지를 원한다면, 다른 사람의 희망을 지지해 줌으로써 시작하라."], ["7", "지지해 주는 것은 종종 그것(지지)을 받는 최선의 방법이다."]], "evh": "5·6·7번 문장", "ev": [{"en": true, "h": "If you want help for your dream, start by helping someone else with theirs. / If you want support for your hope, start by giving support to someone else's hope. / Giving support is often the best way to get it."}, {"en": false, "h": "도움을 원하면 먼저 다른 사람을 도우라는 5·6번의 내용과, 지지를 주는 것이 지지를 받는 최선의 방법이라는 7번의 결론을 종합하면, 요지는 '자신의 꿈을 지지받으려면 남의 꿈을 먼저 지지해 주어야 한다'는 것이다."}], "opts": [{"n": "①", "t": "타인의 기대에 따라 자신의 꿈을 결정하는 것은 옳지 않다.", "a": false, "x": true, "trap": false, "e": "타인의 기대에 따라 꿈을 결정하는 것에 관한 내용은 본문에 없다."}, {"n": "②", "t": "끊임없는 노력과 구체적인 계획을 통해 꿈을 실현할 수 있다.", "a": false, "x": true, "trap": false, "e": "노력이나 계획에 관한 내용이 아니라 '지지를 주고받는 법'에 관한 글이다."}, {"n": "③", "t": "자신의 적성을 찾아 그에 맞게 진로를 설계하는 것이 중요하다.", "a": false, "x": true, "trap": false, "e": "적성이나 진로 설계에 관한 언급은 없다."}, {"n": "④", "t": "다른 사람을 돕는 것을 통해 인생의 진정한 행복을 찾을 수 있다.", "a": false, "x": true, "trap": true, "e": "행복(happiness)에 관한 일반적인 내용이 아니라 '지지'에 초점이 맞춰진 글이다."}, {"n": "⑤", "t": "자신의 꿈을 지지받으려면 남의 꿈을 먼저 지지해 주는 것이 좋다.", "a": true, "x": false, "trap": false, "e": "도움과 지지를 원한다면 먼저 다른 사람의 꿈과 희망을 지지해 주라는 5~7번의 내용과 정확히 일치한다."}], "w": [["support", "지지, 지원하다"], ["run into", "맞닥뜨리다"], ["resistance", "저항"], ["indifference", "무관심"], ["get what", "~을 이해하다"], ["start by -ing", "~함으로써 시작하다"], ["hope", "희망"]]}, {"q": "04", "type": "어법", "src": "2023년 9월 29번", "ans": "④", "tr": [["1", "\"Monday Morning Quarterback(이미 일이 벌어지고 나서 비판하는 사람)\"이라는 제목이 존재하는 이유가 있다."], ["2", "주말 경기에 관해 토론하는 팬들이 남긴 소셜 미디어상의 댓글을 읽어 보기만 하라, 그러면 당신은 얼마나 많은 사람들이 경기장에 있는 이들보다 자기가 더 성공적으로 경기하고, 감독하고, 스포츠팀을 관리할 수 있다고 믿고 있는지 곧 알게 된다."], ["3", "이것은 이사회실에도 해당한다."], ["4", "스포츠 경영학에서 수년간 훈련하고 전공 학위를 딴 학생들과 전문가들 또한 아무 전문 지식도 없는 친구, 가족, 심지어 낯선 사람들로부터 자신의 일을 어떻게 해야 할지에 관한 조언을 자기도 모르게 받게 될지도 모른다."], ["5", "스포츠 경영 임원들은 각자 자기 분야에서 수십 년의 지식과 경력을 지니고 있다."], ["6", "하지만, 그들 중 많은 이들이 자신에게 어떻게 사업체를 운영할지 알려 주는 팬들과 지역사회 구성원들의 비판을 마주한다."], ["7", "의사에게 수술 방법을 알려 주거나, 회계사에게 세금을 어떻게 준비할지 알려 주는 사람은 극히 드물지만, 스포츠 조직이 어떻게 운영되어야 하는지에 대해서는 많은 이들이 피드백을 제공한다."]], "evh": "6번 문장", "ev": [{"en": true, "h": "However, many of them face criticism from fans and community members telling ④ themselves how to run their business."}, {"en": false, "h": "telling의 목적어가 가리키는 대상은 조언을 듣는 스포츠 경영 임원들(many of them)이며, 이는 telling의 의미상 주어인 fans and community members와 다른 대상이다. 따라서 재귀대명사 themselves가 아니라 목적격 대명사 them으로 고쳐야 한다."}], "opts": [{"n": "①", "t": "successfully", "a": false, "x": true, "trap": false, "e": "동사구 could play, coach, and manage를 수식하는 비교급 부사이므로 successfully는 어법에 맞다."}, {"n": "②", "t": "being given", "a": false, "x": true, "trap": false, "e": "find themselves의 목적격보어로 쓰인 진행 수동형 분사구이며, themselves(주어)가 조언을 '받는' 대상이므로 being given은 어법에 맞다."}, {"n": "③", "t": "have", "a": false, "x": true, "trap": false, "e": "주어 Executives가 복수이므로 복수 동사 have는 어법에 맞다."}, {"n": "④", "t": "themselves", "a": true, "x": false, "trap": false, "e": "telling의 의미상 주어(fans and community members)와 목적어가 가리키는 대상(many of them, 즉 임원들)이 서로 다르므로, 재귀대명사가 아닌 목적격 대명사 them으로 고쳐야 한다."}, {"n": "⑤", "t": "how", "a": false, "x": true, "trap": true, "e": "전치사 on의 목적어로 쓰인 완전한 절을 이끄는 의문부사이므로 how는 어법에 맞다."}], "w": [["successfully", "성공적으로"], ["specialized degree", "전공 학위"], ["sport business", "스포츠 경영학"], ["be given advice", "조언을 받다"], ["total stranger", "전혀 모르는 사람"], ["expertise", "전문 지식"], ["executive", "경영진, 임원"], ["decades of", "수십 년의"], ["respective field", "각자의 분야"], ["face criticism", "비판에 직면하다"], ["accountant", "회계사"]]}, {"q": "05", "type": "낱말 쓰임", "src": "2021년 3월 30번", "ans": "③", "tr": [["1", "기본적인 무언가의 가격이 크게 떨어질 때, 온 세상이 바뀔 수 있다."], ["2", "조명을 생각해 보라."], ["3", "아마 여러분은 이 문장을 어떤 인공조명 아래에서 읽고 있을 것이다."], ["4", "게다가, 여러분은 아마도 독서를 위해 인공조명을 사용하는 것이 그럴 만한 가치가 있는지에 대해 생각해 보지 않았을 것이다."], ["5", "조명은 너무 싸서 여러분은 아무 생각 없이 그것을 사용한다."], ["6", "하지만 1800년대 초반이었다면, 같은 양의 빛에 대해 당신은 지금 지불하는 금액의 400배를 치렀을 것이다."], ["7", "그 가격이라면, 여러분은 비용을 의식하게 되어 책을 읽으려고 인공조명을 쓰기 전에 숙고했을 것이다."], ["8", "조명 가격의 증가(→하락)가 세상을 밝혔다."], ["9", "그것은 밤을 낮으로 바꾸어 놓았을 뿐만 아니라, 자연광이 들어오지 못하는 큰 건물에서도 우리가 살고 일할 수 있게 해 주었다."], ["10", "만약 인공조명의 비용이 거의 공짜 수준으로 떨어지지 않았더라면 오늘날 우리가 누리는 것 중에 거의 아무것도 가능하지 않을 것이다."]], "evh": "6·8번 문장", "ev": [{"en": true, "h": "But in the early 1800s, it would have cost you four hundred times what you are paying now for the same amount of light. / The ③ increase in the price of light lit up the world."}, {"en": false, "h": "1800년대에는 지금의 400배나 비쌌다는 6번을 보면 조명 가격은 시간이 지나며 크게 '하락'했음을 알 수 있는데, 8번은 이를 '증가(increase)'라고 표현하여 문맥상 낱말 쓰임이 어색하다. increase는 decrease(하락)로 고쳐야 한다."}], "opts": [{"n": "①", "t": "cheap", "a": false, "x": true, "trap": false, "e": "조명이 매우 싸다는 문맥에 맞는 낱말이다."}, {"n": "②", "t": "notice", "a": false, "x": true, "trap": false, "e": "가격이 비쌌다면 비용을 '의식했을 것'이라는 문맥에 맞는 낱말이다."}, {"n": "③", "t": "increase", "a": true, "x": false, "trap": false, "e": "조명 가격이 400배나 비쌌던 과거에서 오늘날처럼 거의 공짜인 상태로 바뀌었다는 문맥이므로, increase(증가)가 아니라 decrease(하락)가 되어야 한다."}, {"n": "④", "t": "natural", "a": false, "x": true, "trap": true, "e": "자연광이 들어오지 못하는 건물이라는 문맥에 맞는 낱말이다."}, {"n": "⑤", "t": "possible", "a": false, "x": true, "trap": false, "e": "조명 비용이 거의 공짜가 되지 않았다면 오늘날 누리는 것이 '가능하지' 않았을 것이라는 문맥에 맞는 낱말이다."}], "w": [["fundamental", "기본적인, 근본적인"], ["artificial light", "인공조명"], ["worth", "가치가 있는"], ["cheap", "(값이) 싼"], ["notice", "의식하다, 알아차리다"], ["think twice", "숙고하다, 망설이다"], ["light up", "밝히다"], ["natural light", "자연광"], ["nearly nothing", "거의 아무것도 ~않다"], ["possible", "가능한"]]}, {"q": "06", "type": "빈칸", "src": "2015년 9월 31번", "ans": "②", "tr": [["1", "시각이 어떻게 작동하는지를 이해하는 것은 중요한데, 왜냐하면 여러분이 어떤 상황을 처음 보기 시작하는 순간부터 여러분은 여러분의 기존 지식 또한 사용하고 있기 때문이다."], ["2", "만약 여러분이 야구 경기장에 있다면, 여러분은 어디를 봐야 할지 어떻게 아는가?"], ["3", "만약 여러분이 그 이전에 경기에 한 번도 가 본 적이 없다면, 그 모든 것은 아마 복잡하고 뒤죽박죽인 것일 것이다."], ["4", "여러분은 다음에 무슨 일이 일어날지 예측할 수 없기 때문에, 여러분은 많은 동작을 놓칠지도 모른다."], ["5", "야구에 대해 더 많이 배우고 경기에 대한 어느 정도의 이해를 발달시키면서, 여러분은 어디를 봐야 할지와 어떤 대상을 찾는 것이 중요한지를 배운다."], ["6", "처음에는 여러분은 투수와 타자에 주목할 수도 있다."], ["7", "그 후에는 더욱, 여러분은 내야수가 전진 수비를 하고 있는지 후진 수비를 하고 있는지 알아챌 수도 있고, 혹은 외야수가 특정 타자에 대비해 어디에 서 있기로 정했는지를 확인할 수도 있다."], ["8", "여러분이 야구에 대해 더 많이 알수록, 그 지식은 여러분이 경기를 보는 방식에 더 많이 영향을 준다."]], "evh": "1·8번 문장", "ev": [{"en": true, "h": "because from the first time you start looking at a situation, you are also making use of your existing knowledge. / The more you know about baseball, the more that knowledge informs how you see a game."}, {"en": false, "h": "상황을 보기 시작할 때부터 기존 지식을 사용한다는 1번의 도입과, 아는 것이 많을수록 그 지식이 경기를 보는 방식에 영향을 준다는 8번의 결론을 종합하면, 빈칸에는 '여러분의 기존 지식'이 들어가야 한다."}], "opts": [{"n": "①", "t": "athletic talent", "a": false, "x": true, "trap": false, "e": "운동 재능에 관한 내용은 본문에 없다."}, {"n": "②", "t": "your existing knowledge", "a": true, "x": false, "trap": false, "e": "상황을 볼 때부터 기존 지식을 사용하며, 아는 것이 많을수록 경기를 보는 방식이 달라진다는 1·8번의 내용과 정확히 일치한다."}, {"n": "③", "t": "advanced technology", "a": false, "x": true, "trap": false, "e": "선진 기술에 관한 언급은 전혀 없다."}, {"n": "④", "t": "the physical environment", "a": false, "x": true, "trap": true, "e": "물리적 환경에 관한 내용이 아니라 '지식'에 관한 내용이다."}, {"n": "⑤", "t": "your sense of hearing", "a": false, "x": true, "trap": false, "e": "청각에 관한 내용은 본문에 없으며, 본문은 시각(vision)에 관한 글이다."}], "w": [["vision", "시각"], ["make use of", "~을 이용하다"], ["existing knowledge", "기존 지식"], ["predict", "예측하다"], ["complex", "복잡한"], ["pitcher", "투수"], ["hitter", "타자"], ["infielder", "내야수"], ["outfielder", "외야수"]]}]};
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크북 '+CF.sn.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -277,18 +330,22 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
-function hkHtml(it){
-  const E=it[2].split(' / '),K=it[3].split(' / ');
-  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
-  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
-  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
-  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
-  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+function esc2(s){return String(s)}
+function chunkSplit(s){return String(s).split(' / ')}
+function scHtml(c){
+  const esc=String;
+  const E=chunkSplit(c.eng),K=chunkSplit(c.lit);
+  let x='<div class="sc"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span><span class="tt">'+esc(c.title)+'</span></div><div class="sc-b">';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+E[j]+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  if(c.notes.length){x+='<div class="nts">'+c.notes.map(n=>'<span class="nt"><sup>'+n[0]+'</sup> <b>'+esc(n[1])+'</b> '+esc(n[2])+'</span>').join('')+'</div>';}
+  x+='<div class="lay nat"><span class="lb">자연스러운 해석</span>'+esc(c.nat)+'</div>';
+  if(c.ana)x+='<div class="lay ana"><span class="lb">분석</span>'+c.ana+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|분석">자연스러운 해석</button></div></div>';
   return x;
 }
 function renderDk(){
   let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-  HK.forEach(it=>{h+=hkHtml(it);});
+  CF.sn.forEach(c=>{h+=scHtml(c);});
   h+='</div></div>';
   app.innerHTML=h;
 }
@@ -442,41 +499,29 @@ function renderSubmit(){
   const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
 }
 /* ---- 해설 ---- */
-function sHtml(s,evn){
-  const ev=evn.indexOf(s.n)>=0;
-  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
-  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
-  const lays=[];
-  if(s.link)lays.push(['이어 읽으면',s.link]);
-  if(s.easy)lays.push(['쉬운 말로',s.easy]);
-  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
-  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
-  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
-  return x+'</div>';
-}
 function qHtml(i,a){
+  const esc=String;
   const d=D[i],ok=isRight(i,a);
-  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
-  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
-  h+='<h4>정답 근거</h4>';
-  h+=`<p class="en">${esc(d.ev_en)}</p>`;
-  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
-  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
-  if(d.ps&&d.ps.length){
-    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
-  }
-  h+='<h4>선택지 하나씩</h4>';
-  d.ch.forEach(c=>{
-    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  const cq=CF.qs.find(x=>x.q===d.no);
+  if(!cq)return '';
+  let h='<details class="qd" id="qd'+i+'" '+(ok?'':'open')+'><summary>'+esc(cq.q)+'번 · '+esc(cq.type)+'<small>'+esc(cq.src)+'</small><span class="res2 '+(ok?'o':'x')+'">'+(ok?'○ 정답':'✕ 오답')+'</span></summary><div class="qx">';
+  h+='<p class="ansline"><b>정답 '+esc(cq.ans)+'</b>'+(ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>')+'</p>';
+  h+='<details class="sub2"><summary>전문 해석</summary><ol class="trs" style="list-style:none">'+cq.tr.map(t=>'<li><span class="n">'+(t[0]==null?'':esc(t[0]))+'</span>'+t[1]+'</li>').join('')+'</ol></details>';
+  h+='<div class="sec">답의 근거 · '+esc(cq.evh)+'</div><div class="evx">';
+  cq.ev.forEach(p=>{h+=p.en?'<p class="en">'+p.h+'</p>':'<p>'+p.h+'</p>';});
+  h+='</div><div class="sec">선택지 하나씩</div>';
+  cq.opts.forEach(o=>{
+    h+='<div class="opx '+(o.a?'a':'')+'"><div class="ot"><span class="mk">'+esc(o.n)+'</span>'+o.t+(o.a?'<span class="bd g">정답</span>':'')+(o.trap?'<span class="bd t">가장 많이 걸리는 오답</span>':'')+'</div>'+(o.e?'<p>'+(o.x?'<span class="xm">✕</span>':'')+o.e+'</p>':'')+'</div>';
   });
-  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  if(cq.w.length){h+='<div class="sec">단어</div><div class="wds">'+cq.w.map(w=>'<span><b>'+esc(w[0])+'</b>'+esc(w[1])+'</span>').join('')+'</div>';}
+  h+='<button class="toq" data-i="'+i+'">빠른 정답으로</button>';
   return h+'</div></details>';
 }
 function renderExp(){
   const rec=S.sub;
   let h=hdr()+band(4)+'<div class="wrap">';
-  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
-  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='<div class="score">'+rec.s+' <small>/ '+N+'</small></div><h2 id="quick">빠른 정답</h2><div class="qc">';
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+='<button class="qchip '+(ok?'o':'x')+'" data-i="'+i+'"><small>'+esc(D[i].no)+'번</small>'+ansText(i)+' '+(ok?'○':'✕')+'</button>';}
   h+='</div><h2>해설</h2>';
   for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
   h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
@@ -515,13 +560,17 @@ function mmInit(){
 }
 /* 위임 이벤트 */
 document.addEventListener('click',e=>{
+  const qchip=e.target.closest('.qchip');
+  if(qchip){const dd=document.getElementById('qd'+qchip.dataset.i);if(dd){dd.open=true;dd.scrollIntoView({block:'start'});}return;}
+  const toq=e.target.closest('.toq');
+  if(toq){const qq=document.getElementById('quick');if(qq)qq.scrollIntoView({block:'start'});return;}
   const tb=e.target.closest('.tab,.hcard,.gohome');
   if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
   const ch=e.target.closest('.ch');
   if(ch){ch.classList.toggle('open');return;}
   const st=e.target.closest('.stg');
   if(st){
-    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const s=st.closest('.s,.sc'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
     const shown=lays.filter(l=>l.classList.contains('on')).length;
     if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
     else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
@@ -531,7 +580,7 @@ document.addEventListener('click',e=>{
   if(al){
     const open=al.dataset.all==='1',body=al.closest('.dkbody');
     body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
-    body.querySelectorAll('.s').forEach(s=>{
+    body.querySelectorAll('.s,.sc').forEach(s=>{
       const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
       lays.forEach(l=>l.classList.toggle('on',open));
       if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
