@@ -200,6 +200,10 @@ details.sub2[open]>summary:after{content:"\2212"}
 .sc .lay.core{border-left:4px solid #2e7d32;background:#f1f8f1}
 .ct{display:none;margin:7px 0 2px;padding:6px 9px;border-left:3px solid #d9a21b;background:#fff8e6;border-radius:6px;font-size:13.5px;line-height:1.55;color:#4d3b05}
 .ch.open .ct{display:block}
+.sc-h{cursor:pointer;position:relative;padding-right:40px;-webkit-tap-highlight-color:transparent}
+.sc-h .chv{position:absolute;right:16px;top:17px;width:9px;height:9px;border-right:2.5px solid var(--sub);border-bottom:2.5px solid var(--sub);transform:rotate(45deg);transition:transform .15s}
+.sc.open .sc-h .chv{transform:rotate(-135deg);top:21px}
+.sc .ch{cursor:default}
 </style>
 </head>
 <body>
@@ -348,13 +352,13 @@ function chunkSplit(s){return String(s).split(' / ')}
 function scHtml(c){
   const esc=String;
   const E=chunkSplit(c.pe||c.eng),K=chunkSplit(c.pk||c.lit);
-  let x='<div class="sc"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span><span class="tt">'+esc(c.title)+'</span></div><div class="sc-b">';
+  let x='<div class="sc"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span><span class="tt">'+esc(c.title)+'</span><span class="chv"></span></div><div class="sc-b">';
   for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+mdWrap(E[j])+'</div><div class="ck">'+mdWrap(K[j]||'')+'</div>'+(c.tags&&c.tags[j]?'<div class="ct">'+c.tags[j]+'</div>':'')+'</div>';
   if(c.notes.length){x+='<div class="nts">'+c.notes.map(n=>'<span class="nt"><sup>'+n[0]+'</sup> <b>'+esc(n[1])+'</b> '+esc(n[2])+'</span>').join('')+'</div>';}
   const names=[];
   if(c.core){x+='<div class="lay core"><span class="lb">핵심</span>'+esc(c.core)+'</div>';names.push('핵심');}
   x+='<div class="lay nat"><span class="lb">자연스러운 해석</span>'+esc(c.nat)+'</div>';names.push('자연스러운 해석');
-  x+='<button class="stg" data-names="'+names.join('|')+'">'+names[0]+'</button></div></div>';
+  x+='</div></div>';
   return x;
 }
 function renderDk(){
@@ -550,8 +554,9 @@ document.addEventListener('click',e=>{
   const tb=e.target.closest('.tab,.hcard,.gohome');
   if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
   const ch=e.target.closest('.ch');
-  if(ch){ch.classList.toggle('open');return;}
-  const st=e.target.closest('.stg');
+  const hd=e.target.closest('.sc-h');
+  if(hd){const sc=hd.closest('.sc'),o=!sc.classList.contains('open');sc.classList.toggle('open',o);sc.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',o));sc.querySelectorAll('.lay').forEach(l=>l.classList.toggle('on',o));return;}
+  const st=null;
   if(st){
     const s=st.closest('.s,.sc'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
     const shown=lays.filter(l=>l.classList.contains('on')).length;
@@ -562,7 +567,7 @@ document.addEventListener('click',e=>{
   const al=e.target.closest('.tbtn');
   if(al){
     const open=al.dataset.all==='1',body=al.closest('.dkbody');
-    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
+    body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));body.querySelectorAll('.sc').forEach(c=>c.classList.toggle('open',open));
     body.querySelectorAll('.s,.sc').forEach(s=>{
       const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
       lays.forEach(l=>l.classList.toggle('on',open));
