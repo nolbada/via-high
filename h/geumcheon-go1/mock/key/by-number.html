@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0f766e">
+<title>고1 26년 10월 모고 번호별 워크북 정답</title><link rel="icon" type="image/svg+xml" href="../../icon.svg"><link rel="apple-touch-icon" href="../../icon-180.png">
+<style>
+*{box-sizing:border-box}
+body{font-family:"Malgun Gothic","맑은 고딕","Noto Sans KR","Noto Sans CJK KR",sans-serif;color:#1c1c1c;background:#fff;margin:0;padding:0 0 90px;font-size:18px;line-height:1.7}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+.back{display:inline-block;margin:14px 0 0;padding:6px 13px;border:1px solid #ccc;border-radius:999px;font-size:14px;line-height:1.5;color:#555;background:#fff;text-decoration:none}
+h1{font-size:26px;margin:24px 0 6px;line-height:1.4}
+.lead{color:#555;font-size:16px;margin:0 0 20px}
+h2.qh{font-size:21px;margin:26px 0 10px;padding:8px 0;border-top:3px solid #222;border-bottom:1px solid #222}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips a{display:inline-block;min-width:58px;text-align:center;padding:9px 12px;border:1.5px solid #0f766e;border-radius:10px;color:#0f766e;font-weight:700;font-size:17px;text-decoration:none;background:#fff}
+.chips a:active{background:#e6f4f1}
+.num{margin:44px 0 0;scroll-margin-top:10px}
+.num h2{font-size:24px;margin:0 0 12px;padding:10px 0 8px;border-top:3px solid #222;border-bottom:1px solid #222}
+details.act{border:1px solid #cfd8d6;border-radius:10px;margin:0 0 10px;background:#fff;overflow:hidden}
+details.act>summary{list-style:none;cursor:pointer;padding:14px 16px;font-weight:700;font-size:19px;display:flex;justify-content:space-between;align-items:center;gap:10px;background:#f4faf9}
+details.act>summary::-webkit-details-marker{display:none}
+details.act>summary::after{content:"+";font-size:24px;line-height:1;color:#0f766e}
+details.act[open]>summary::after{content:"\2212"}
+details.act[open]>summary{border-bottom:1px solid #cfd8d6}
+.body{padding:6px 14px 16px}
+.ld{padding:18px;color:#777;font-size:16px}
+.up{display:inline-block;margin:6px 0 0;font-size:14px;color:#555;border:1px solid #ccc;border-radius:999px;padding:3px 12px;text-decoration:none}
+.ft{margin:44px 0 0;text-align:center;color:#888;font-size:14px}
+@media(max-width:560px){body{font-size:17px}h1{font-size:23px}}
+</style></head><body><div class="wrap">
+<a class="back" href="../../index.html">← 금천고1 정답 목록</a>
+<h1>고1 26년 10월 모고 번호별 워크북</h1>
+<p class="lead">번호마다 한글채우기 · 어법·어휘 · 동사형 · 영어채우기 정답과 해설</p>
+<h2 class="qh" id="quick">빠른정답</h2>
+<div class="chips" id="chips"></div>
+<div id="nums"></div>
+<div class="ft">비타민 영어클리닉 · 금천고1</div>
+</div>
+<a id="homefab" href="#quick" style="position:fixed;right:12px;bottom:12px;z-index:9999;background:#0f766e;color:#fff;font:700 13px/1 sans-serif;padding:11px 14px;border-radius:22px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.3)">↑ 빠른정답</a>
+<script>
+(function(){
+  var NUMS=['21','22','23','24','29','30','31','32','33','34','35','36','37','38','39','40','41-42'];
+  var ACTS=[['hangeul','한글채우기','hangeul-2610.html'],['eobeop','어법·어휘','eobeop-2610.html'],['dongsa','동사형','dongsa-2610.html'],['yeongeo','영어채우기','yeongeo-2610.html']];
+  function lab(n){return n.replace('-','~')+'번'}
+  var ch='',h='';
+  NUMS.forEach(function(n){
+    ch+='<a href="#n'+n+'" id="qc'+n+'">'+lab(n)+'</a>';
+    h+='<section class="num" id="n'+n+'" data-n="'+n+'"><h2>'+lab(n)+'</h2>';
+    ACTS.forEach(function(a){h+='<details class="act" data-n="'+n+'" data-a="'+a[0]+'"><summary>'+a[1]+'</summary><div class="body"><div class="ld">불러오는 중</div></div></details>'});
+    h+='<a class="up" href="#qc'+n+'">↑ 빠른정답</a></section>';
+  });
+  document.getElementById('chips').innerHTML=ch;
+  document.getElementById('nums').innerHTML=h;
+
+  var cache={};
+  function getDoc(file){
+    if(!cache[file])cache[file]=fetch(file).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()}).then(function(t){return new DOMParser().parseFromString(t,'text/html')});
+    return cache[file];
+  }
+  function cssOf(doc){
+    var c='';[].forEach.call(doc.querySelectorAll('style'),function(s){c+=s.textContent});
+    return c.replace(/(^|\})\s*body\s*\{/g,'$1.shell{').replace(/(^|\})\s*html\s*\{/g,'$1.shell0{');
+  }
+  function sectionOf(doc,n){
+    var id='p2610_'+n,el=doc.getElementById(id),box=doc.createElement('div');
+    if(!el)return null;
+    if(el.tagName==='DIV'){var cp=el.cloneNode(true),h3=cp.querySelector('h3');if(h3&&/^\d/.test(h3.textContent))h3.remove();box.appendChild(cp)}
+    else{ /* h2 시작 → 다음 h2 전까지 */
+      var x=el.nextElementSibling;
+      while(x&&x.tagName!=='H2'){box.appendChild(x.cloneNode(true));x=x.nextElementSibling}
+    }
+    [].forEach.call(box.querySelectorAll('a.up,a.pn'),function(a){if(a.classList.contains('up'))a.remove();else{var s=doc.createElement('span');s.innerHTML=a.innerHTML;a.replaceWith(s)}});
+    [].forEach.call(box.querySelectorAll('a[href^="#"]'),function(a){var s=doc.createElement('span');s.className=a.className;s.innerHTML=a.innerHTML;a.replaceWith(s)});
+    return box.innerHTML;
+  }
+  function fill(d){
+    var n=d.dataset.n,a=ACTS.filter(function(x){return x[0]===d.dataset.a})[0],body=d.querySelector('.body');
+    if(d.dataset.done)return;
+    getDoc(a[2]).then(function(doc){
+      var html=sectionOf(doc,n);
+      if(!html){body.innerHTML='<div class="ld">이 번호는 이 활동에 없습니다.</div>';return}
+      var host=document.createElement('div'),root=host.attachShadow({mode:'open'});
+      root.innerHTML='<style>'+cssOf(doc)+'.shell{font-size:18px;line-height:1.9;color:#1c1c1c;font-family:"Malgun Gothic","맑은 고딕","Noto Sans KR","Noto Sans CJK KR",sans-serif}.shell h2:first-child,.shell h3:first-child{margin-top:6px}</style><div class="shell">'+html+'</div>';
+      body.innerHTML='';body.appendChild(host);d.dataset.done='1';
+    }).catch(function(){body.innerHTML='<div class="ld">불러오지 못했습니다. 연결을 확인하고 다시 열어 주세요.</div>'});
+  }
+  document.getElementById('nums').addEventListener('toggle',function(e){
+    var d=e.target;if(!d.classList||!d.classList.contains('act')||!d.open)return;
+    [].forEach.call(d.parentNode.querySelectorAll('details.act'),function(o){if(o!==d)o.open=false});
+    fill(d);
+  },true);
+
+  /* 오른쪽 아래 버튼: 지금 보는 번호의 빠른정답 자리로 */
+  var f=document.getElementById('homefab'),secs=[].slice.call(document.querySelectorAll('.num'));
+  function upd(){var c=null,hh=window.innerHeight*0.4;for(var i=0;i<secs.length;i++){if(secs[i].getBoundingClientRect().top<=hh)c=secs[i];else break}f.setAttribute('href',c?'#qc'+c.dataset.n:'#quick')}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  if(location.hash&&/^#n/.test(location.hash)){var t=document.querySelector(location.hash);if(t)setTimeout(function(){t.scrollIntoView()},0)}
+})();
+</script>
+</body></html>
