@@ -247,7 +247,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','덩어리별 해석 확인'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const HK=[["07", "2", "His father abandoned them / when he was young, / and A. Y. had to go to work at age twelve / to help support his brothers and sisters.", "아버지가 그들을 버렸다 / 그가 어렸을 때 / 그래서 A. Y.는 열두 살에 일하러 나가야 했다 / 형제자매를 부양하는 것을 돕기 위해", "그가 어렸을 때 아버지가 가족을 떠났고, 그래서 A. Y.는 열두 살에 형제자매를 부양하는 것을 돕기 위해 일을 시작해야 했다.", "<b>had to<\/b>는 must의 과거형으로 '~해야 했다'를 뜻한다. <b>help (to) support<\/b>처럼 help는 뒤에 원형부정사와 to부정사를 모두 취할 수 있다."], ["07", "3", "Working in a print shop, / he became interested in art, / and he began to paint landscapes in a fresh new style.", "인쇄소에서 일하면서 / 그는 미술에 관심을 갖게 되었다 / 그리고 참신한 새 화풍으로 풍경화를 그리기 시작했다", "인쇄소에서 일하는 동안 그는 미술에 관심을 갖게 되었고, 참신한 새 화풍으로 풍경을 그리기 시작했다.", "<b>Working in a print shop<\/b>은 접속사와 주어가 생략된 분사구문으로 '~하면서'의 뜻이다. <b>become interested in<\/b>은 '~에 관심을 갖게 되다'로, 감정을 나타내는 과거분사가 형용사처럼 쓰였다."], ["08", "B-2", "An elephant's heart beats just thirty times a minute, / a human's sixty, a cow's between fifty and eighty, / but a mouse's beats six hundred times a minute — ten times a second.", "코끼리의 심장은 1분에 겨우 서른 번 뛴다 / 사람의 것은 예순 번, 소의 것은 쉰에서 여든 번 사이이다 / 그러나 생쥐의 것은 1분에 육백 번, 즉 1초에 열 번 뛴다", "코끼리의 심장은 1분에 겨우 30번, 사람은 60번, 소는 50~80번 뛰지만, 생쥐의 심장은 1분에 600번, 곧 1초에 10번이나 뛴다.", "<b>a human's<\/b>, <b>a cow's<\/b> 뒤에는 heart beats가 반복을 피해 생략되어 있다. 소유격 뒤의 명사·동사 생략을 알아채지 못하면 문장이 끊어져 읽힌다."], ["08", "A-3", "We pass 800 million heartbeats after twenty-five years, / and just keep on going for another fifty years and 1.6 billion heartbeats or so.", "우리는 스물다섯 해가 지나면 8억 번의 심장 박동을 넘긴다 / 그리고 그저 오십 년을 더, 16억 번쯤의 심장 박동을 계속 이어 간다", "인간은 25년이면 8억 번의 심장 박동을 넘기고, 그 뒤로도 50년을 더, 16억 번쯤의 박동을 이어 간다.", "<b>keep on v-ing<\/b>는 '계속 ~하다'이다. and 뒤에 주어 We가 생략되고 동사만 병렬로 이어졌다."], ["09", "2", "Sometimes the problems can be solved right away, / but often the service representative has to look into the matter and call back later.", "때로는 문제가 즉시 해결될 수 있다 / 그러나 흔히 상담 직원이 그 사안을 살펴본 뒤 나중에 다시 전화해야 한다", "문제가 그 자리에서 해결되기도 하지만, 상담 직원이 사안을 확인한 뒤 나중에 다시 전화해야 하는 경우가 많다.", "<b>can be solved<\/b>는 조동사가 있는 수동태이다. has to 뒤에 look into와 call back 두 개의 동사원형이 and로 병렬 연결되어 있다."], ["10", "A-3", "I had made the mistake of not learning any of those languages / before my vacation.", "나는 그 언어들 중 어느 것도 배우지 않는 실수를 저질렀다 / 휴가를 떠나기 전에", "나는 휴가를 떠나기 전에 그 언어들 중 어느 것도 배워 두지 않는 실수를 저질렀다.", "<b>the mistake of v-ing<\/b>는 '~하는 실수'라는 동격 표현이고, 동명사의 부정은 <b>not<\/b>을 동명사 바로 앞에 둔다. <b>had made<\/b>는 이야기 시점보다 앞선 일을 나타내는 과거완료이다."], ["10", "C-4", "I was really glad she was headed the same way / because it would have been hopeless for me to figure it out on my own.", "나는 그녀가 같은 방향으로 간다는 것이 정말 기뻤다 / 왜냐하면 혼자 힘으로 그것을 알아내는 것은 가망이 없었을 것이기 때문이다", "나는 그녀가 같은 방향으로 간다는 사실이 정말 반가웠다. 혼자서 그것을 알아내는 일은 도저히 불가능했을 테니까.", "glad 뒤에는 접속사 that이 생략된 절이 이어져 감정의 이유를 설명한다. <b>would have been<\/b>은 과거 사실의 반대를 가정하는 가정법 과거완료이고, <b>for me<\/b>는 to figure out의 의미상 주어이다."], ["10", "D-1", "She had jumped from train to train and traveled the whole way / just to make sure I made it.", "그녀는 기차에서 기차로 옮겨 타며 그 길 전체를 이동했던 것이었다 / 오직 내가 무사히 도착하는 것을 확실히 하기 위해", "그녀는 오로지 내가 무사히 도착하도록 하려고 기차를 갈아타 가며 그 먼 길을 끝까지 함께 왔던 것이었다.", "<b>had jumped<\/b>와 traveled가 과거완료로 묶여 앞서 일어난 일을 되짚는다. <b>just to make sure<\/b>의 to부정사는 목적을 나타내고, make sure 뒤에는 접속사 that이 생략된 절이 이어진다."]];
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -275,16 +276,19 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
+function hkHtml(it){
+  const E=it[2].split(' / '),K=it[3].split(' / ');
+  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
+  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+  return x;
+}
 function renderDk(){
-  let h=hdr()+band(2)+'<div class="wrap">';
-  for(let i=0;i<N;i++){
-    const d=D[i];
-    h+='<details class="qd" '+(i===0?'open':'')+'><summary>'+esc(d.no)+'번 지문<small>'+esc(d.typ)+'</small></summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-    if(d.ps&&d.ps.length)h+=d.ps.map(sHtmlP).join('');
-    else h+='<ol>'+d.tr.map(t=>'<li>'+t+'</li>').join('')+'</ol>';
-    h+='</div></details>';
-  }
-  h+='</div>';
+  let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
+  HK.forEach(it=>{h+=hkHtml(it);});
+  h+='</div></div>';
   app.innerHTML=h;
 }
 /* ---- 단어 확인 ---- */
