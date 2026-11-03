@@ -247,7 +247,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','덩어리별 해석 확인'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const HK=[["07", "1", "When we were infants, / we were tuned in to the signals from our body / that told us when to eat and when to stop.", "우리가 유아였을 때, / 우리는 우리 몸으로부터 오는 신호에 민감하게 반응했다 / 언제 먹고 언제 멈춰야 할지를 우리에게 말해 주던", "우리가 유아였을 때, 우리는 언제 먹고 언제 멈춰야 할지를 말해 주는 몸의 신호에 민감하게 반응했다.", "<b>When ~<\/b>은 시간의 <b>부사절<\/b>이고, <b>that told us ~<\/b>는 the signals from our body를 수식하는 <b>주격 관계대명사절<\/b>이다."], ["07", "7", "If we are to return to a healthy and balanced relationship with food, / it is essential that we learn to turn our awareness inward and to hear again / what our body is always telling us.", "만약 우리가 음식과의 건강하고 균형 잡힌 관계로 돌아가려면, / 우리가 우리의 인식을 안으로 돌리고 다시 듣는 법을 배우는 것이 필수적이다 / 우리의 몸이 항상 우리에게 말해 주고 있는 것을", "음식과의 건강하고 균형 잡힌 관계로 돌아가려면, 우리의 인식을 안으로 돌려 몸이 항상 우리에게 말해 주는 것을 다시 듣는 법을 배우는 것이 필수적이다.", "<b>be to부정사(are to return)<\/b>는 '~하려면'이라는 의도·예정을 나타내고, <b>it<\/b>은 가주어, <b>that ~<\/b>이 진주어이며 그 안에 <b>what ~<\/b> 의문사절이 목적어로 쓰였다."], ["08", "1", "Inappropriate precision means giving information or figures / to a greater degree of apparent accuracy / than suits the context.", "부적절한 정밀성은 정보나 수치를 제공하는 것을 의미한다 / 겉보기의 정확성이 더 큰 정도로 / 맥락에 맞는 것보다", "부적절한 정밀성이란 맥락에 맞는 정도보다 더 큰 겉보기의 정확성으로 정보나 수치를 제공하는 것을 의미한다.", "<b>means<\/b>의 목적어로 <b>동명사구(giving ~)<\/b>가 쓰였고, <b>than suits the context<\/b>는 <b>비교급<\/b> 구문이다."], ["08", "7", "Even if the whole population had been surveyed, / to have given the result to two decimal points / would have been absurd.", "설령 전체 모집단이 조사되었다 하더라도, / 그 결과를 소수점 두 자리까지 제시하는 것은 / 터무니없었을 것이다", "설령 전체 모집단이 조사되었다 하더라도, 그 결과를 소수점 두 자리까지 제시하는 것은 터무니없었을 것이다.", "<b>Even if ~ had been surveyed<\/b>는 <b>양보의 부사절(가정법 과거완료)<\/b>이고, <b>to have given ~<\/b>은 <b>완료부정사<\/b>로 주절의 시제보다 앞선 일을 나타내며 주절 <b>would have been<\/b>과 함께 가정법을 이룬다."], ["09", "2", "Once parks are in place, / they are no inert stage / — their purposes and meanings are made and remade by planners and by park users.", "일단 공원이 조성되면, / 그것들은 결코 정지된 무대가 아니다 / — 그것들의 목적과 의미는 계획자들과 공원 이용자들에 의해 만들어지고 다시 만들어진다", "일단 공원이 조성되고 나면, 공원은 결코 정지된 무대가 아니라, 계획자와 이용자들에 의해 그 목적과 의미가 계속 만들어지고 다시 만들어진다.", "<b>Once ~<\/b>는 '일단 ~하면'이라는 <b>부사절<\/b>이고, <b>are made and remade<\/b>는 <b>수동태<\/b>가 and로 <b>병렬<\/b> 연결된 구조이다."], ["09", "4", "Indeed, what distinguishes a park from the broader category of public space / is the representation of nature / that parks are meant to embody.", "실제로, 공원을 더 넓은 범주의 공공 공간과 구별하는 것은 / 자연의 표현이다 / 공원이 구현하기로 되어 있는", "실제로, 공원을 더 넓은 범주의 공공 공간과 구별해 주는 것은 공원이 구현하도록 되어 있는 자연의 표현이다.", "<b>what ~<\/b>은 문장의 <b>주어<\/b> 역할을 하는 관계대명사절이고, <b>that parks are meant to embody<\/b>는 the representation of nature를 수식하는 <b>목적격 관계대명사절<\/b>이다."], ["10", "D-4", "He insisted / that William retire for the night / when the rest of the family did.", "그는 고집했다 / 윌리엄이 잠자리에 들어야 한다고 / 가족의 나머지 사람들이 그럴 때", "그는 가족의 다른 사람들이 잠자리에 들 때 윌리엄도 잠자리에 들어야 한다고 고집했다.", "<b>insist that ~<\/b>의 that절에는 당위성을 나타내는 <b>동사원형(should retire에서 should 생략)<\/b>이 쓰였고, <b>when ~<\/b>은 시간의 부사절이다."], ["10", "C-2", "His father grabbed a broomstick and chased his son around the room, / yelling, / \"Young man, if you don't get to bed right now, I'll kick you out of the house!\"", "그의 아버지는 빗자루를 붙잡고 그의 아들을 방 안에서 뒤쫓았다, / 소리치면서, / \"젊은이, 지금 당장 잠자리에 들지 않으면, 내가 너를 집에서 쫓아낼 것이다!\"라고", "아버지는 빗자루를 붙잡고 방 안에서 아들을 뒤쫓으며 \"젊은이, 지금 당장 잠자리에 들지 않으면 집에서 쫓아내겠다!\"라고 소리쳤다.", "<b>grabbed<\/b>와 <b>chased<\/b>는 and로 <b>병렬<\/b> 연결된 동사이고, <b>yelling ~<\/b>은 동시동작을 나타내는 <b>분사구문<\/b>이다."]];
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -275,16 +276,19 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
+function hkHtml(it){
+  const E=it[2].split(' / '),K=it[3].split(' / ');
+  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
+  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+  return x;
+}
 function renderDk(){
-  let h=hdr()+band(2)+'<div class="wrap">';
-  for(let i=0;i<N;i++){
-    const d=D[i];
-    h+='<details class="qd" '+(i===0?'open':'')+'><summary>'+esc(d.no)+'번 지문<small>'+esc(d.typ)+'</small></summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-    if(d.ps&&d.ps.length)h+=d.ps.map(sHtmlP).join('');
-    else h+='<ol>'+d.tr.map(t=>'<li>'+t+'</li>').join('')+'</ol>';
-    h+='</div></details>';
-  }
-  h+='</div>';
+  let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
+  HK.forEach(it=>{h+=hkHtml(it);});
+  h+='</div></div>';
   app.innerHTML=h;
 }
 /* ---- 단어 확인 ---- */

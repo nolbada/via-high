@@ -247,7 +247,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','덩어리별 해석 확인'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const HK=[["01", "1", "In 2003, British Airways made an announcement / that they would no longer be able to operate the London to New York Concorde flight twice a day / because it was starting to prove uneconomical.", "2003년에, 영국 항공은 발표를 했다 / 그들이 더 이상 런던에서 뉴욕까지 가는 콩코드 항공편을 하루에 두 번 운항할 수 없을 것이라고 / 그것이 경제성이 없는 것으로 드러나기 시작했기 때문에", "2003년, 영국 항공은 경제성이 없는 것으로 드러나기 시작했기 때문에 런던-뉴욕 간 콩코드 항공편을 더 이상 하루에 두 번 운항할 수 없을 것이라고 발표했다.", "<b>that ~<\/b>은 made an announcement의 내용을 설명하는 <b>동격의 명사절<\/b>이고, <b>because ~<\/b>는 <b>이유의 부사절<\/b>이다."], ["01", "6", "If you are a salesperson trying to increase the sales of a certain product, / then you must not merely point out the benefits the customer can derive from the said product, / but also point out its uniqueness and what they will miss out on if they don't purchase the product soon.", "만약 당신이 어떤 특정 상품의 판매를 늘리려고 애쓰는 판매원이라면, / 그렇다면 당신은 고객이 그 상품으로부터 얻을 수 있는 이점들을 단지 지적하기만 해서는 안 된다, / 뿐만 아니라 그 상품의 고유성과 그들이 곧 그것을 구매하지 않으면 놓치게 될 것도 지적해야 한다", "만약 당신이 특정 상품의 판매를 늘리려는 판매원이라면, 고객이 그 상품에서 얻을 수 있는 이점만 지적해서는 안 되며, 그 상품의 고유성과 곧 구매하지 않으면 놓치게 될 것까지 함께 지적해야 한다.", "<b>not merely A but also B<\/b>는 '단지 A뿐만 아니라 B도'라는 뜻의 상관접속사이며, <b>the benefits (that) the customer can derive<\/b>는 목적격 관계대명사가 생략된 구조이다."], ["02", "1", "The table above shows the top seven natural gas producing countries worldwide / in 2014 and 2018.", "위 표는 전 세계 상위 7개 천연가스 생산 국가를 보여준다 / 2014년과 2018년에", "위 표는 2014년과 2018년 전 세계 천연가스 생산 상위 7개 국가를 보여준다.", "<b>shows<\/b>의 목적어는 the top seven ~ worldwide이며, <b>in 2014 and 2018<\/b>은 시점을 나타내는 전치사구이다."], ["03", "6", "For example, by seeing disgust on someone's face / when presented with moldy food, / we were able to avoid eating something dangerous.", "예를 들어, 누군가의 얼굴에서 혐오감을 봄으로써 / 곰팡이가 핀 음식을 제공받았을 때 / 우리는 위험한 것을 먹는 것을 피할 수 있었다", "예를 들어, 곰팡이가 핀 음식을 받았을 때 누군가의 얼굴에서 혐오감을 봄으로써, 우리는 위험한 것을 먹는 것을 피할 수 있었다.", "<b>by seeing ~<\/b>은 전치사 by+동명사로 수단을 나타내고, <b>when presented with ~<\/b>는 <b>when (we were) presented with<\/b>가 줄어든 <b>수동 분사구문<\/b>이다."], ["03", "8", "Even anger was an important emotion to our ancestors, / motivating us to seek food when we were hungry, / to fight off predators and to compete for scarce resources.", "심지어 분노조차도 우리 조상들에게 중요한 감정이었다, / 우리가 배고플 때 음식을 찾도록 동기를 부여하면서, / 포식자들을 물리치고 희소 자원을 두고 경쟁하도록", "심지어 분노조차도 우리 조상들에게 중요한 감정이었는데, 배고플 때 먹이를 찾고 포식자를 물리치고 희소 자원을 두고 경쟁하도록 동기를 부여했기 때문이다.", "<b>motivating ~<\/b>은 결과를 나타내는 <b>분사구문<\/b>이고, motivate의 목적격보어로 쓰인 <b>to seek, to fight off, to compete<\/b> 세 개의 to부정사가 <b>병렬<\/b> 연결되어 있다."], ["04", "2", "Recording engineers and musicians have learned to create special effects / that tickle our brains / by exploiting neural circuits / that evolved to discern important features of our auditory environment.", "녹음 기술자들과 음악가들은 특수 효과를 만들어내는 법을 배웠다 / 우리의 뇌를 자극하는 / 신경 회로를 활용함으로써 / 우리의 청각 환경의 중요한 특징들을 식별하도록 진화한", "녹음 기술자들과 음악가들은 우리의 청각 환경에서 중요한 특징을 식별하도록 진화한 신경 회로를 활용해, 우리의 뇌를 자극하는 특수 효과를 만들어내는 법을 배웠다.", "<b>have learned<\/b>는 <b>현재완료<\/b>이며, 문장 안에 <b>that tickle ~<\/b>과 <b>that evolved ~<\/b> 두 개의 <b>주격 관계대명사절<\/b>이 각각 special effects와 neural circuits를 수식한다."], ["05", "3", "In free play, / children learn to make their own decisions, solve their own problems, create and follow rules, and get along with others / as equals rather than as obedient or rebellious subordinates.", "자유 놀이에서, / 아이들은 스스로 결정을 내리고, 스스로 문제를 해결하고, 규칙을 만들고 따르고, 그리고 다른 사람들과 잘 지내는 법을 배운다 / 순종적이거나 반항적인 하급자로서가 아니라 동등한 사람으로서", "자유 놀이에서 아이들은 순종적이거나 반항적인 하급자로서가 아니라 동등한 사람으로서, 스스로 결정을 내리고 문제를 해결하고 규칙을 만들고 따르며 다른 사람들과 잘 지내는 법을 배운다.", "learn to 뒤에 <b>make, solve, create and follow, get along with<\/b> 네 개의 동사구가 <b>병렬<\/b> 연결되어 있고, <b>rather than ~<\/b>은 '~라기보다는'이라는 비교 표현이다."], ["06", "4", "Preschoolers and young school-age children confuse temporal and spatial dimensions: / Starting times are judged by starting points, stopping times by stopping points and durations by distance, / though each of these errors does not necessitate the others.", "취학 전 아동과 어린 학령기 아동은 시간적 차원과 공간적 차원을 혼동한다: / 출발 시간은 출발점으로, 정지 시간은 정지점으로, 그리고 지속 시간은 거리로 판단된다, / 비록 이러한 오류들 각각이 다른 것들을 반드시 수반하지는 않지만", "취학 전 아동과 어린 학령기 아동은 시간적 차원과 공간적 차원을 혼동하는데, 이 오류들이 서로를 반드시 수반하지는 않지만, 출발 시간은 출발점으로, 정지 시간은 정지점으로, 지속 시간은 거리로 판단한다.", "<b>are judged by ~, (are judged) by ~, (are judged) by ~<\/b>는 <b>수동태<\/b>가 <b>병렬<\/b>로 반복된 구조이며, <b>though ~<\/b>는 <b>양보의 부사절<\/b>이다."]];
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -275,16 +276,19 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
+function hkHtml(it){
+  const E=it[2].split(' / '),K=it[3].split(' / ');
+  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
+  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+  return x;
+}
 function renderDk(){
-  let h=hdr()+band(2)+'<div class="wrap">';
-  for(let i=0;i<N;i++){
-    const d=D[i];
-    h+='<details class="qd" '+(i===0?'open':'')+'><summary>'+esc(d.no)+'번 지문<small>'+esc(d.typ)+'</small></summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-    if(d.ps&&d.ps.length)h+=d.ps.map(sHtmlP).join('');
-    else h+='<ol>'+d.tr.map(t=>'<li>'+t+'</li>').join('')+'</ol>';
-    h+='</div></details>';
-  }
-  h+='</div>';
+  let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
+  HK.forEach(it=>{h+=hkHtml(it);});
+  h+='</div></div>';
   app.innerHTML=h;
 }
 /* ---- 단어 확인 ---- */

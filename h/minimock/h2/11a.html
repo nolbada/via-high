@@ -247,7 +247,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','덩어리별 해석 확인'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const HK=[["01", "2", "I understand / that on May 3, 2018 / when you were a guest at our restaurant in the Four Hills Plaza, / you experienced an unfortunate incident / that resulted in a beverage being spilled on your coat.", "저는 알고 있습니다 / 2018년 5월 3일 / 당신이 저희 Four Hills Plaza 레스토랑에 손님으로 계셨을 때 / 당신이 불행한 사고를 겪으셨다는 것을 / 음료가 코트에 쏟아지는 결과를 낳은", "2018년 5월 3일, 저희 Four Hills Plaza 레스토랑에 손님으로 오셨을 때, 음료가 코트에 쏟아지는 불행한 사고를 겪으셨다고 알고 있습니다.", "<b>that on May 3 ~<\/b>는 understand의 목적어가 되는 명사절이며, 그 안에 <b>when절<\/b>이 삽입되어 있다. <b>that resulted in ~<\/b>은 an unfortunate incident를 수식하는 <b>주격 관계대명사절<\/b>이다."], ["01", "5", "I have investigated the situation / and scheduled additional customer service training / for them.", "저는 그 상황을 조사했습니다 / 그리고 추가 고객 서비스 교육 일정을 잡았습니다 / 그들을 위해", "저는 그 상황을 조사했고, 그들을 위한 추가 고객 서비스 교육 일정을 잡았습니다.", "<b>have investigated<\/b>와 <b>scheduled<\/b>가 and로 <b>병렬<\/b> 연결된 <b>현재완료<\/b> 동사이다."], ["03", "2", "One of the mistakes / we often make / when confronting a risk situation / is our tendency to focus on the end result.", "실수 중 하나는 / 우리가 흔히 저지르는 / 위험한 상황에 맞닥뜨렸을 때 / 최종 결과에 초점을 맞추려는 우리의 경향이다", "위험한 상황에 맞닥뜨렸을 때 우리가 흔히 저지르는 실수 중 하나는 최종 결과에 초점을 맞추려는 경향이다.", "<b>we often make<\/b>는 앞의 mistakes를 수식하는 <b>목적격 관계대명사가 생략된<\/b> 절이며, <b>when confronting<\/b>은 <b>접속사를 남긴 분사구문<\/b>이다."], ["03", "4", "They'll go to the edge of a difficult slope, / look all the way down to the bottom, / and determine / that the slope is too steep for them to try.", "그들은 어려운 경사면의 끝으로 갈 것이다 / 맨 아래까지 죽 내려다볼 것이다 / 그리고 결정할 것이다 / 그 경사가 그들이 시도하기에는 너무 가파르다고", "그들은 어려운 경사면의 끝으로 가서 맨 아래까지 죽 내려다보고는, 그 경사가 자신이 시도하기에는 너무 가파르다고 결정해 버린다.", "go, look, determine 세 동사가 <b>병렬<\/b> 연결되어 있고, <b>too ~ for them to try<\/b>는 <b>too ~ to부정사<\/b> 구문으로 '그들이 시도하기에 너무 ~한'이라는 뜻이다."], ["04", "3", "Like that area in the side mirror of your car / where you can't see that truck in the lane next to you, / personal blind spots can easily be overlooked / because you are completely unaware of their presence.", "당신 차의 사이드미러 속 그 영역과 마찬가지로 / 그곳에서 당신은 옆 차선의 그 트럭을 볼 수 없는데 / 개인의 맹점도 쉽게 간과될 수 있다 / 당신이 그것의 존재를 전혀 인지하지 못하기 때문에", "옆 차선의 트럭이 사이드미러의 사각지대에 있어서 보이지 않는 것처럼, 개인의 맹점도 그 존재를 전혀 인지하지 못하기 때문에 쉽게 간과될 수 있다.", "<b>Like ~<\/b>는 '~와 마찬가지로'라는 뜻의 전치사구이며, <b>where<\/b>는 that area를 선행사로 하는 <b>관계부사<\/b>이다. <b>unaware of<\/b>는 '~을 인지하지 못하는'이라는 뜻이다."], ["04", "6", "Just because you don't see them, / doesn't mean / they can't run you over.", "단지 당신이 그것들을 보지 못한다고 해서 / 그것이 의미하지는 않는다 / 그것들이 당신을 치지 못한다는 것을", "당신이 그것을 보지 못한다고 해서 그것이 당신을 치지 못한다는 뜻은 아니다.", "<b>Just because ~, doesn't mean ~<\/b>은 '단지 ~라고 해서 ~인 것은 아니다'라는 뜻으로, because절 전체가 mean의 의미상 주어 역할을 한다."], ["05", "1", "Before the washing machine was invented, / people used washboards to scrub, / or they carried their laundry to riverbanks and streams, / where they beat and rubbed it against rocks.", "세탁기가 발명되기 전 / 사람들은 비벼 빨기 위해 빨래판을 사용했다 / 혹은 그들은 세탁물을 강가나 개울로 가져갔다 / 그곳에서 그들은 그것을 바위에 대고 두드리고 문질렀다", "세탁기가 발명되기 전, 사람들은 빨래판을 이용해 빨래를 비벼 빨거나, 세탁물을 강가나 개울로 가져가 그곳의 바위에 두드리고 문질렀다.", "<b>where<\/b>는 riverbanks and streams를 선행사로 하는 <b>관계부사<\/b>이며, <b>beat and rubbed<\/b>가 and로 <b>병렬<\/b> 연결되어 있다."], ["06", "4", "One of the people had a name / that suggested / they were from a similar ethnic or religious background / to the teenager.", "그 두 사람 중 한 명은 이름을 가지고 있었다 / 암시하는 / 그들이 비슷한 인종적 또는 종교적 배경 출신이라는 것을 / 그 청소년과", "한 사람의 이름은 그 청소년과 비슷한 인종적 또는 종교적 배경을 암시하는 이름이었다.", "<b>that suggested ~<\/b>는 a name을 수식하는 <b>주격 관계대명사절<\/b>이며, that절 안에 다시 <b>they were from ~<\/b>이라는 <b>명사절(suggested의 목적어)<\/b>이 이어진다."]];
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -275,16 +276,19 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
+function hkHtml(it){
+  const E=it[2].split(' / '),K=it[3].split(' / ');
+  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
+  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+  return x;
+}
 function renderDk(){
-  let h=hdr()+band(2)+'<div class="wrap">';
-  for(let i=0;i<N;i++){
-    const d=D[i];
-    h+='<details class="qd" '+(i===0?'open':'')+'><summary>'+esc(d.no)+'번 지문<small>'+esc(d.typ)+'</small></summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-    if(d.ps&&d.ps.length)h+=d.ps.map(sHtmlP).join('');
-    else h+='<ol>'+d.tr.map(t=>'<li>'+t+'</li>').join('')+'</ol>';
-    h+='</div></details>';
-  }
-  h+='</div>';
+  let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
+  HK.forEach(it=>{h+=hkHtml(it);});
+  h+='</div></div>';
   app.innerHTML=h;
 }
 /* ---- 단어 확인 ---- */

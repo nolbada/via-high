@@ -247,7 +247,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','덩어리별 해석 확인'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const HK=[["07", "2", "A 2016 study / from Columbia University in New York City / and Inria, a French technology institute, / found that / 59 percent of the news / from links shared on social media / wasn't read first.", "2016년의 한 연구는 / 뉴욕시의 컬럼비아 대학과 / 프랑스의 기술 연구소인 Inria로부터의 / 발견했다 / 59퍼센트의 뉴스가 / 소셜 미디어에 공유된 링크로부터의 / 먼저 읽히지 않았다는 것을", "2016년 뉴욕시의 컬럼비아 대학과 프랑스의 기술 연구소인 Inria의 한 연구는 소셜 미디어에 공유된 링크로부터의 뉴스 중 59퍼센트가 먼저 읽히지 않았다는 것을 발견했다.", "<b>a French technology institute<\/b>는 <b>Inria<\/b>와 <b>동격<\/b>인 명사구입니다. <b>found that ~<\/b>의 <b>that<\/b>은 <b>명사절 접속사<\/b>이고, that절 안의 <b>shared on social media<\/b>는 <b>links<\/b>를 뒤에서 꾸미는 <b>과거분사구<\/b>입니다."], ["07", "7", "You may discover, / on close inspection, / that an article / you were about to share / is obviously fraudulent, / that it doesn't really say / what the headline promises, / or that you actually disagree with it.", "당신은 발견할지도 모른다 / 가까이 검토해 본 후 / 기사가 / 당신이 막 공유하려던 / 명백히 속이는 것이라는 것을 / 그것이 정말로 말하지 않는다는 것을 / 헤드라인이 약속하는 것을 / 또는 당신이 실제로 그것에 동의하지 않는다는 것을", "당신은 가까이 검토해 본 후, 당신이 막 공유하려던 기사가 명백히 속이는 내용이거나, 그것이 헤드라인이 약속하는 바를 정말로 말하지 않는다는 것, 혹은 당신이 실제로 그것에 동의하지 않는다는 것을 발견할지도 모른다.", "<b>on close inspection<\/b>은 문장 중간에 삽입된 <b>부사구<\/b>입니다. <b>that ~, that ~, or that ~<\/b> 세 개의 <b>명사절<\/b>이 discover의 목적어로 <b>병렬<\/b> 연결되며, <b>you were about to share<\/b>는 <b>an article<\/b>을 꾸미는 목적격 관계대명사절(관계대명사 생략)입니다."], ["08", "4", "For decades, / people have been told / that praise is vital / for happy and healthy children / and that the most important job / in raising a child / is nurturing her self-esteem.", "수십 년간 / 사람들은 들어왔다 / 칭찬이 필수적이라고 / 행복하고 건강한 아이들에게 / 그리고 가장 중요한 일은 / 아이를 양육하는 데 있어 / 그녀의 자존감을 키워주는 것이라고", "수십 년간 사람들은 칭찬이 행복하고 건강한 아이들에게 필수적이며 아이를 양육하는 데 있어 가장 중요한 일은 그녀의 자존감을 키워주는 것이라고 이야기를 들어왔다.", "<b>have been told that ~<\/b>은 <b>현재완료 수동태<\/b>이며, <b>that praise is vital ~<\/b>과 <b>that the most important job ~ is nurturing ~<\/b> 두 개의 <b>명사절<\/b>이 <b>and<\/b>로 병렬 연결되어 told의 내용을 이룹니다. <b>nurturing<\/b>은 be동사 is의 <b>보어로 쓰인 동명사<\/b>입니다."], ["08", "6", "For your children to succeed and be happy, / you need / to convince them / that success comes from effort, / not from some talent / that they're born with or without.", "당신의 아이들이 성공하고 행복하기 위해서 / 당신은 필요가 있다 / 그들을 확신시킬 / 성공이 노력으로부터 온다는 것을 / 어떤 재능으로부터가 아니라 / 그들이 가지거나 가지지 못하고 태어난", "당신의 아이들이 성공하고 행복하기 위해서, 당신은 그들에게 성공이 그들이 가지거나 가지지 못하고 태어난 어떤 재능으로부터가 아니라, 노력으로부터 온다는 것을 확신시켜 줄 필요가 있다.", "<b>For your children<\/b>은 to부정사(to succeed and be happy)의 <b>의미상 주어<\/b>입니다. <b>convince A that ~<\/b>은 'A에게 ~라고 확신시키다'라는 뜻이며, <b>that they're born with or without<\/b>은 <b>some talent<\/b>를 꾸미는 <b>목적격 관계대명사절<\/b>로 with/without의 목적어가 비어 있습니다."], ["09", "G-1", "Applying a single plan / to everything / can be inefficient / and sometimes comical.", "단 하나의 계획을 적용하는 것은 / 모든 것에 / 비효율적일 수 있다 / 그리고 때로는 우스꽝스러울 수 있다", "단 하나의 계획을 모든 것에 적용하는 것은 비효율적이고 때로는 우스꽝스러울 수 있다.", "<b>Applying a single plan to everything<\/b>은 문장의 <b>동명사 주어<\/b>이며, <b>be동사 can be<\/b> 뒤에 <b>inefficient<\/b>와 <b>comical<\/b>이라는 두 형용사가 <b>and<\/b>로 병렬 연결된 보어입니다."], ["09", "A-2", "But if you used the same plan / for taking lecture notes, / you'd move so slowly / that you'd miss / most / of what the instructor said.", "하지만 만약 당신이 똑같은 계획을 사용한다면 / 강의 필기를 위해 / 당신은 너무 느리게 움직여서 / 당신은 놓칠 것이다 / 대부분을 / 강사가 말한 것의", "그러나 만약 여러분이 강의 필기를 위해 똑같은 계획을 사용한다면, 여러분은 너무 속도가 느려서 강사가 말한 것의 대부분을 놓칠 것이다.", "<b>if절<\/b>(조건) 뒤에 <b>so + 부사 + that절<\/b>(너무 ~해서 …하다) 구문이 이어집니다. <b>what the instructor said<\/b>는 miss의 목적어로 쓰인 <b>관계대명사 what<\/b> 명사절입니다."], ["10", "A-2", "Dozens of people / were waiting / in long lines / at checkout counters / to purchase / presents / that would be next-morning treasures / under someone's tree.", "수십 명의 사람들이 / 기다리고 있었다 / 긴 줄에서 / 계산대에서 / 사기 위해 / 선물들을 / 다음날 아침 보물이 될 / 누군가의 트리 아래", "누군가의 크리스마스 트리 아래, 다음날 아침 보물이 될 선물들을 사기 위해 수십 명의 사람들이 계산대 줄에서 길게 줄을 서서 기다리고 있었다.", "<b>to purchase presents<\/b>는 '~을 사기 위해'라는 <b>목적<\/b>의 to부정사구입니다. <b>that would be next-morning treasures<\/b>는 <b>presents<\/b>를 꾸미는 <b>주격 관계대명사절<\/b>입니다."], ["10", "D-3", "She'd have to shut down / her checkout line / and wait / for the manager to come / from another part of the crowded store.", "그녀는 닫아야 할 것이다 / 그녀의 계산대 줄을 / 그리고 기다려야 할 것이다 / 관리자가 오기를 / 붐비는 가게의 다른 곳으로부터", "그녀는 자기 계산대 줄을 닫아야 하고, 붐비는 가게의 다른 곳으로부터 관리자가 오기를 기다려야 했다.", "<b>would have to<\/b>(=she'd have to)가 <b>shut down<\/b>과 <b>wait<\/b> 두 동사원형에 <b>and<\/b>로 병렬 연결됩니다. <b>wait for A to R<\/b>는 'A가 ~하기를 기다리다'라는 뜻입니다."]];
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -275,16 +276,19 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
+function hkHtml(it){
+  const E=it[2].split(' / '),K=it[3].split(' / ');
+  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
+  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+  return x;
+}
 function renderDk(){
-  let h=hdr()+band(2)+'<div class="wrap">';
-  for(let i=0;i<N;i++){
-    const d=D[i];
-    h+='<details class="qd" '+(i===0?'open':'')+'><summary>'+esc(d.no)+'번 지문<small>'+esc(d.typ)+'</small></summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-    if(d.ps&&d.ps.length)h+=d.ps.map(sHtmlP).join('');
-    else h+='<ol>'+d.tr.map(t=>'<li>'+t+'</li>').join('')+'</ol>';
-    h+='</div></details>';
-  }
-  h+='</div>';
+  let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
+  HK.forEach(it=>{h+=hkHtml(it);});
+  h+='</div></div>';
   app.innerHTML=h;
 }
 /* ---- 단어 확인 ---- */
