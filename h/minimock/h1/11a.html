@@ -142,6 +142,59 @@ details.dk>summary::-webkit-details-marker{display:none}
 details.qd>summary::after{content:'\25BE';margin-left:auto;color:var(--sub)}
 details.qd[open]>summary::after{content:'\25B4'}
 .cell.s{padding:8px 12px;border:1.5px solid transparent;margin:0;background:var(--soft)}.cell.s.bad{background:var(--badbg);border-color:var(--bad)}
+
+/* ---- 새 직독직해·해설 화면 ---- */
+.sc{border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden;background:var(--bg)}
+.sc-h{padding:11px 14px 10px;background:#eef2f8;border-bottom:1px solid var(--line)}
+.sc-h .no2{display:inline-block;min-width:26px;height:26px;line-height:26px;border-radius:13px;background:var(--accent);color:#fff;font-weight:800;font-size:13px;text-align:center;padding:0 7px;margin-right:8px}
+.sc-h .at{font-size:13px;color:var(--sub)}
+.sc-h .tt{display:block;margin-top:7px;font-size:15.5px;font-weight:800;color:var(--accent);line-height:1.45}
+.sc-b{padding:10px 12px 12px}
+.sc .ch{margin-bottom:6px}
+.sc .ce{font-size:17px}
+.sc .ce sup,.nt sup{font-size:10px;font-weight:800;color:#b8651f;margin-left:1px}
+.nts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.nt{font-size:13.5px;line-height:1.5;background:#fbf6ee;border:1px solid #f0e2cd;border-radius:8px;padding:5px 9px;color:#4a3a22}
+.nt b{color:#33260f}
+.sc .lay{border-radius:10px}
+.sc .lay.nat{border-left:4px solid var(--accent);background:#f7f9fc}
+.sc .lay.ana{background:#fff8e6;border-color:#f0dcc0;color:#4d3b05}
+.sc .lay.ana b,.why2 b,.opx b,.evx b{background:linear-gradient(transparent 58%,var(--hl) 58%);font-weight:700}
+.sc .lb{margin-bottom:4px}
+.qc{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.qchip{min-width:56px;padding:9px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-family:inherit;font-size:15px;color:var(--ink);font-weight:700}
+.qchip small{display:block;font-size:11px;font-weight:400;color:var(--sub);margin-bottom:1px}
+.qchip.o{border-color:var(--good);background:var(--goodbg)}
+.qchip.x{border-color:var(--bad);background:var(--badbg)}
+.sec{margin:16px 0 6px;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px}
+.sec:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+.trs{list-style:none;margin:0;padding:0;background:var(--soft);border-radius:10px;padding:8px 12px}
+.trs li{font-size:15px;line-height:1.75;padding:2px 0}
+.trs .n{display:inline-block;min-width:20px;font-size:12px;color:var(--sub);font-weight:700}
+.evx{background:var(--goodbg);border:1px solid #bfe0cd;border-radius:10px;padding:10px 12px}
+.evx .en{background:#fff;border:1px solid #d5eadc;font-size:15.5px;margin:0 0 8px}
+.evx p{margin:6px 0;font-size:15.5px;line-height:1.75}
+.evx .evh{font-size:13px;font-weight:800;color:var(--good);margin-bottom:6px}
+.opx{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px;background:var(--bg)}
+.opx.a{border-color:var(--good);background:var(--goodbg)}
+.opx .ot{font-size:15.5px;font-weight:700;line-height:1.55}
+.opx .mk{display:inline-block;min-width:22px;font-weight:800;color:var(--sub);margin-right:4px}
+.opx.a .mk{color:var(--good)}
+.opx .bd{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.opx .bd.g{background:var(--good)}
+.opx .bd.t{background:#b4472f}
+.opx p{margin:5px 0 0;font-size:14.5px;line-height:1.7;color:#333}
+.opx .xm{color:var(--bad);font-weight:800;margin-right:3px}
+.wds{display:flex;flex-wrap:wrap;gap:6px}
+.wds span{font-size:14px;background:var(--soft);border-radius:8px;padding:5px 9px;line-height:1.45}
+.wds b{margin-right:5px}
+.toq{display:block;width:100%;margin-top:14px;min-height:42px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+details.sub2{margin:12px 0 0}
+details.sub2>summary{list-style:none;cursor:pointer;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;padding:6px 0}
+details.sub2>summary::-webkit-details-marker{display:none}
+details.sub2>summary:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+details.sub2>summary:after{content:"+";margin-left:auto;font-size:18px;color:var(--sub)}
+details.sub2[open]>summary:after{content:"\2212"}
 </style>
 </head>
 <body>
@@ -248,8 +301,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const HK=[["01", "2", "This was / to make library services available / to people / for whom evening was the only convenient time to visit.", "이것은 / 도서관 서비스를 이용 가능하게 만들기 위한 것이었다 / 사람들에게 / 저녁이 유일하게 편리한 방문 시간이었던", "이것은 저녁이 유일하게 편리한 방문 시간인 사람들도 도서관 서비스를 이용할 수 있게 하기 위한 것이었다.", "<b>for whom<\/b>은 <b>전치사+관계대명사<\/b>로, people을 선행사로 하여 '저녁이 유일한 시간이었던 사람들'이라는 뜻을 만든다. <b>This was to R<\/b>은 목적을 나타내는 to부정사 용법이다."], ["01", "3", "However, visitor numbers have not shown a strong demand for the later hours, / and library officials determined / that staff time would be more effectively utilized / by adjusting operating hours.", "하지만 방문객 수는 늦은 시간대에 대한 강한 수요를 보이지 않았다 / 그리고 도서관 관계자들은 판단했다 / 직원 시간이 더 효과적으로 활용될 것이라고 / 운영 시간을 조정함으로써", "하지만 방문객 수는 늦은 시간대에 대한 뚜렷한 수요를 보이지 않았고, 도서관 관계자들은 운영 시간을 조정하면 직원의 시간을 더 효율적으로 쓸 수 있다고 판단했다.", "<b>determined that ~<\/b>의 that절은 동사 determined의 목적어이며, that절 안의 <b>would be utilized<\/b>는 <b>미래 수동태<\/b>이다. <b>by adjusting<\/b>은 전치사 by + 동명사로 수단을 나타낸다."], ["03", "5", "It is natural / to assume / that anyone who sees an object / sees everything about it — the shape, color, location, and movement.", "그것은 당연하다 / 가정하는 것은 / 어떤 물체를 보는 사람은 누구든 / 그것에 관한 모든 것을 본다고 — 모양, 색깔, 위치, 그리고 움직임을", "어떤 물체를 보는 사람이라면 누구나 그것의 모양, 색깔, 위치, 움직임까지 모든 것을 본다고 가정하는 것은 당연해 보인다.", "<b>It<\/b>은 가주어이고 <b>to assume that ~<\/b>이 진주어이다. that절 안의 <b>who sees an object<\/b>는 anyone을 수식하는 <b>주격 관계대명사절<\/b>이다."], ["03", "9", "Even today, you might find it surprising / to learn about people / who see an object without seeing where it is, / or see it without seeing whether it is moving.", "오늘날에도, 당신은 그것이 놀랍다고 여길지도 모른다 / 사람들에 대해 알게 되는 것을 / 물체를 보면서도 그것이 어디 있는지는 보지 못하는 / 혹은 그것을 보면서도 그것이 움직이고 있는지는 보지 못하는", "오늘날에도 당신은, 물체를 보면서도 그것이 어디 있는지는 못 보거나 그것이 움직이는지는 못 보는 사람들에 대해 알게 되면 놀랄지도 모른다.", "<b>find it surprising to learn ~<\/b>에서 it은 가목적어, to learn ~이 진목적어이다. <b>who see ~ or see ~<\/b>는 people을 수식하는 관계대명사절이며 동사 see가 or로 <b>병렬<\/b> 연결된다."], ["04", "2", "However, stay in the room for a few minutes, / and the smell will seem / to disappear.", "하지만 방 안에 몇 분 동안 머물러 보라 / 그러면 그 냄새는 ~처럼 보일 것이다 / 사라지는 것", "하지만 방 안에 몇 분만 머물러 있으면, 그 냄새는 사라지는 것처럼 느껴질 것이다.", "<b>명령문 + and<\/b>는 '~해라, 그러면 ~할 것이다'라는 뜻이다. <b>seem to disappear<\/b>는 <b>seem + to부정사<\/b>로 '~인 것처럼 보이다'라는 뜻이다."], ["04", "6", "Perhaps they have a loving partner, / good health, / a satisfying job, / a roof over their heads, / or enough food to eat.", "아마 그들은 사랑하는 배우자를 가지고 있을 것이다 / 건강을 / 만족스러운 직업을 / 머리 위의 지붕을 / 혹은 먹을 충분한 음식을", "아마 그들에게는 사랑하는 동반자, 건강, 만족스러운 직업, 머물 집, 혹은 충분한 먹을거리가 있을 것이다.", "have의 목적어로 다섯 개의 명사(구)가 콤마와 or로 <b>병렬<\/b> 연결되어 있다."], ["05", "5", "These tiny particles are known / to be eaten by various animals / and to get into the food chain.", "이 작은 입자들은 알려져 있다 / 다양한 동물들에게 먹히는 것으로 / 그리고 먹이 사슬 속으로 들어가는 것으로", "이 작은 입자들은 다양한 동물들에게 먹히고 먹이 사슬 속으로 들어가는 것으로 알려져 있다.", "<b>be known to R<\/b>는 '~한다고 알려져 있다'라는 뜻이며, <b>to be eaten<\/b>과 <b>to get<\/b>이 and로 <b>병렬<\/b> 연결된 to부정사이다."], ["06", "3", "If you study Spanish for an hour tonight, / you still haven't learned / the language.", "만약 당신이 오늘 밤 한 시간 동안 스페인어를 공부한다면 / 당신은 여전히 배우지 못한 것이다 / 그 언어를", "오늘 밤 한 시간 동안 스페인어를 공부하더라도, 당신은 여전히 그 언어를 다 배운 것이 아니다.", "If절은 <b>조건<\/b>을 나타내고, 주절의 <b>haven't learned<\/b>는 <b>현재완료 부정<\/b>으로 지금까지도 배우지 못한 상태임을 나타낸다."]];
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const CF={"sn": [{"i": "01", "q": "01", "s": "2", "title": "전치사+관계대명사(for whom)", "eng": "This was / to make library services available / to people / for whom<sup>1<\/sup> evening was the only convenient<sup>2<\/sup> time to visit.", "notes": [["1", "for whom", "~에게 있어(전치사+관계대명사)"], ["2", "convenient", "편리한"]], "lit": "이것은 / 도서관 서비스를 이용 가능하게 만들기 위한 것이었다 / 사람들에게 / 저녁이 유일하게 편리한 방문 시간이었던", "nat": "이것은 저녁이 유일하게 편리한 방문 시간인 사람들도 도서관 서비스를 이용할 수 있게 하기 위한 것이었다.", "ana": "<b>for whom<\/b>은 <b>전치사+관계대명사<\/b>로, people을 선행사로 하여 '저녁이 유일한 시간이었던 사람들'이라는 뜻을 만든다. <b>This was to R<\/b>은 목적을 나타내는 to부정사 용법이다."}, {"i": "02", "q": "01", "s": "3", "title": "that절 목적어 + 미래 수동태", "eng": "However, visitor numbers have not shown a strong demand for the later hours, / and library officials<sup>1<\/sup> determined<sup>2<\/sup> / that staff time would be more effectively utilized<sup>3<\/sup> / by adjusting operating hours.", "notes": [["1", "official", "관계자"], ["2", "determine", "판단하다, 결정하다"], ["3", "utilize", "활용하다"]], "lit": "하지만 방문객 수는 늦은 시간대에 대한 강한 수요를 보이지 않았다 / 그리고 도서관 관계자들은 판단했다 / 직원 시간이 더 효과적으로 활용될 것이라고 / 운영 시간을 조정함으로써", "nat": "하지만 방문객 수는 늦은 시간대에 대한 뚜렷한 수요를 보이지 않았고, 도서관 관계자들은 운영 시간을 조정하면 직원의 시간을 더 효율적으로 쓸 수 있다고 판단했다.", "ana": "<b>determined that ~<\/b>의 that절은 동사 determined의 목적어이며, that절 안의 <b>would be utilized<\/b>는 <b>미래 수동태<\/b>이다. <b>by adjusting<\/b>은 전치사 by + 동명사로 수단을 나타낸다."}, {"i": "03", "q": "03", "s": "5", "title": "가주어 it + 동격 that + 주격 관계대명사", "eng": "It is natural / to assume<sup>1<\/sup> / that anyone<sup>2<\/sup> who sees an object / sees everything about it — the shape, color, location, and movement.", "notes": [["1", "assume", "가정하다"], ["2", "anyone", "누구든"]], "lit": "그것은 당연하다 / 가정하는 것은 / 어떤 물체를 보는 사람은 누구든 / 그것에 관한 모든 것을 본다고 — 모양, 색깔, 위치, 그리고 움직임을", "nat": "어떤 물체를 보는 사람이라면 누구나 그것의 모양, 색깔, 위치, 움직임까지 모든 것을 본다고 가정하는 것은 당연해 보인다.", "ana": "<b>It<\/b>은 가주어이고 <b>to assume that ~<\/b>이 진주어이다. that절 안의 <b>who sees an object<\/b>는 anyone을 수식하는 <b>주격 관계대명사절<\/b>이다."}, {"i": "04", "q": "03", "s": "9", "title": "가목적어 it + 관계대명사 + 병렬 whether절", "eng": "Even today, you might find it surprising<sup>1<\/sup> / to learn about people / who see an object without seeing where it is, / or see it without seeing whether<sup>2<\/sup> it is moving.", "notes": [["1", "surprising", "놀라운"], ["2", "whether", "~인지 아닌지"]], "lit": "오늘날에도, 당신은 그것이 놀랍다고 여길지도 모른다 / 사람들에 대해 알게 되는 것을 / 물체를 보면서도 그것이 어디 있는지는 보지 못하는 / 혹은 그것을 보면서도 그것이 움직이고 있는지는 보지 못하는", "nat": "오늘날에도 당신은, 물체를 보면서도 그것이 어디 있는지는 못 보거나 그것이 움직이는지는 못 보는 사람들에 대해 알게 되면 놀랄지도 모른다.", "ana": "<b>find it surprising to learn ~<\/b>에서 it은 가목적어, to learn ~이 진목적어이다. <b>who see ~ or see ~<\/b>는 people을 수식하는 관계대명사절이며 동사 see가 or로 <b>병렬<\/b> 연결된다."}, {"i": "05", "q": "04", "s": "2", "title": "명령문 + and (조건)", "eng": "However, stay in the room for a few minutes, / and the smell will seem<sup>1<\/sup> / to disappear<sup>2<\/sup>.", "notes": [["1", "seem", "~처럼 보이다"], ["2", "disappear", "사라지다"]], "lit": "하지만 방 안에 몇 분 동안 머물러 보라 / 그러면 그 냄새는 ~처럼 보일 것이다 / 사라지는 것", "nat": "하지만 방 안에 몇 분만 머물러 있으면, 그 냄새는 사라지는 것처럼 느껴질 것이다.", "ana": "<b>명령문 + and<\/b>는 '~해라, 그러면 ~할 것이다'라는 뜻이다. <b>seem to disappear<\/b>는 <b>seem + to부정사<\/b>로 '~인 것처럼 보이다'라는 뜻이다."}, {"i": "06", "q": "04", "s": "6", "title": "명사구 병렬 나열", "eng": "Perhaps they have a loving partner, / good health, / a satisfying<sup>1<\/sup> job, / a roof<sup>2<\/sup> over their heads, / or enough food to eat.", "notes": [["1", "satisfying", "만족스러운"], ["2", "roof", "지붕"]], "lit": "아마 그들은 사랑하는 배우자를 가지고 있을 것이다 / 건강을 / 만족스러운 직업을 / 머리 위의 지붕을 / 혹은 먹을 충분한 음식을", "nat": "아마 그들에게는 사랑하는 동반자, 건강, 만족스러운 직업, 머물 집, 혹은 충분한 먹을거리가 있을 것이다.", "ana": "have의 목적어로 다섯 개의 명사(구)가 콤마와 or로 <b>병렬<\/b> 연결되어 있다."}, {"i": "07", "q": "05", "s": "5", "title": "be known to + 수동 to부정사 병렬", "eng": "These tiny particles are known / to be eaten by various<sup>1<\/sup> animals / and to get into the food chain<sup>2<\/sup>.", "notes": [["1", "various", "다양한"], ["2", "food chain", "먹이 사슬"]], "lit": "이 작은 입자들은 알려져 있다 / 다양한 동물들에게 먹히는 것으로 / 그리고 먹이 사슬 속으로 들어가는 것으로", "nat": "이 작은 입자들은 다양한 동물들에게 먹히고 먹이 사슬 속으로 들어가는 것으로 알려져 있다.", "ana": "<b>be known to R<\/b>는 '~한다고 알려져 있다'라는 뜻이며, <b>to be eaten<\/b>과 <b>to get<\/b>이 and로 <b>병렬<\/b> 연결된 to부정사이다."}, {"i": "08", "q": "06", "s": "3", "title": "if 조건절 + 현재완료 부정", "eng": "If you study Spanish for an hour tonight, / you still haven't learned<sup>1<\/sup> / the language.", "notes": [["1", "learn", "배우지 못했다"]], "lit": "만약 당신이 오늘 밤 한 시간 동안 스페인어를 공부한다면 / 당신은 여전히 배우지 못한 것이다 / 그 언어를", "nat": "오늘 밤 한 시간 동안 스페인어를 공부하더라도, 당신은 여전히 그 언어를 다 배운 것이 아니다.", "ana": "If절은 <b>조건<\/b>을 나타내고, 주절의 <b>haven't learned<\/b>는 <b>현재완료 부정<\/b>으로 지금까지도 배우지 못한 상태임을 나타낸다."}], "qs": [{"q": "01", "type": "목적", "src": "2015년 9월 18번", "ans": "③", "tr": [["1", "2년 전, Green County 도서관은 매주 목요일마다 오후 8시까지 문을 열기로 결정했다."], ["2", "이는 저녁 시간이 유일하게 방문하기 편리한 사람들도 도서관 서비스를 이용할 수 있게 하기 위해서였다."], ["3", "하지만 방문객 수는 늦은 시간대에 대한 뚜렷한 수요를 보이지 않았고, 도서관 관계자들은 운영 시간을 조정하면 직원의 시간을 더 효율적으로 쓸 수 있다고 판단했다."], ["4", "그래서 저는 Green County 도서관의 운영 시간이 2015년 10월 8일부터 바뀐다는 것을 알려드리고자 합니다."], ["5", "목요일 운영 시간은 오전 9시부터 오후 6시까지, 원래대로 돌아갑니다."], ["6", "그 시간 동안에는 평소의 모든 도서관 서비스를 그대로 이용하실 수 있습니다."], ["7", "덧붙여, 이러한 변경은 Green County 도서관이 지역사회를 위한 서비스를 개선하고 늘릴 수 있게 해 줄 것입니다."]], "evh": "4·7번 문장", "ev": [{"en": true, "h": "So I have to inform you that hours of operation at Green County Library will change starting October 8, 2015. / Additionally, the shift will allow Green County Library to improve and increase services to the community."}, {"en": false, "h": "저자는 확대 운영을 원래대로 되돌린다는 사실을 공지하고 있으며(4번), 이 변경이 지역사회 서비스 개선에 도움이 될 것이라고 덧붙이고 있다(7번). 즉 이 글은 '도서관 연장 운영을 중단하고 정상 운영으로 되돌린다'는 사실을 공지하려는 목적의 글이다."}], "opts": [{"n": "①", "t": "도서관 휴관일 변경을 안내하려고", "a": false, "x": true, "trap": false, "e": "휴관일(closed days)에 대한 언급은 본문에 없다. 이 글은 '운영 시간' 변경에 관한 것이지 휴관일과는 무관하다."}, {"n": "②", "t": "독서 프로그램 수강생을 모집하려고", "a": false, "x": true, "trap": false, "e": "독서 프로그램 모집에 관한 내용은 전혀 없다."}, {"n": "③", "t": "도서관 연장 운영의 중단을 공지하려고", "a": true, "x": false, "trap": false, "e": "목요일 연장 운영(8 p.m.까지)을 원래 운영시간(6 p.m.까지)으로 되돌린다는 4·5번의 내용이 바로 '연장 운영 중단' 공지이다."}, {"n": "④", "t": "대출 기간 내 도서 반납을 당부하려고", "a": false, "x": true, "trap": true, "e": "도서 반납(book return)에 관한 언급은 없다."}, {"n": "⑤", "t": "공사로 인한 도서관 이용 제한을 알리려고", "a": false, "x": true, "trap": false, "e": "공사(construction)에 관한 언급은 전혀 없다."}], "w": [["decide to", "~하기로 결정하다"], ["stay open", "계속 문을 열다"], ["available", "이용 가능한"], ["convenient", "편리한"], ["demand", "수요"], ["determine", "판단하다, 결정하다"], ["effectively", "효과적으로"], ["utilize", "활용하다"], ["adjust", "조정하다"], ["operating hours", "운영 시간"], ["inform", "알리다"], ["shift", "변화, 전환"], ["improve", "개선하다"], ["community", "지역사회"]]}, {"q": "02", "type": "안내문 불일치", "src": "2014년 6월 27번", "ans": "④", "tr": [["1", "캘리포니아 오클랜드 박물관"], ["2", "시간: 수요일-목요일 오전 11시-오후 5시 / 금요일 오전 11시-오후 9시 / 토요일-일요일 오전 11시-오후 5시 / 월요일과 화요일 휴관"], ["3", "주차: 입장권이 있으면 시간당 1달러, 없으면 시간당 2.50달러"], ["4", "입장료: 일반 15달러 / 학생증 소지 학생과 65세 이상 노인 10달러 / 8세 이하 어린이 무료 / 10인 이상 성인 단체는 1인당 12달러"], ["5", "기타: 매주 금요일 오후 5시-9시 'Friday Nights' 동안 성인은 반값, 18세 이하는 무료 / 매달 첫째 일요일은 무료 입장"]], "evh": "기타", "ev": [{"en": true, "h": "Admission during Friday Nights, 5 p.m. – 9 p.m. every Friday, is half-off for adults, free for ages 18 and under."}, {"en": false, "h": "④번은 '금요일 밤에는 18세 이하 입장료가 반값'이라고 했지만, 실제로는 성인이 반값이고 18세 이하는 오히려 무료이므로 본문과 일치하지 않는다."}], "opts": [{"n": "①", "t": "월요일과 화요일은 휴관일이다.", "a": false, "x": true, "trap": false, "e": "본문의 'Closed Monday and Tuesday'와 정확히 일치하는 진술이다."}, {"n": "②", "t": "입장권이 있으면 주차 요금은 시간당 1달러이다.", "a": false, "x": true, "trap": false, "e": "'$1/hour with an admission ticket'과 일치한다."}, {"n": "③", "t": "10인 이상의 성인 단체일 경우 1인당 입장료가 12달러이다.", "a": false, "x": true, "trap": false, "e": "'Adult groups of ten or more are $12 per person'과 일치한다."}, {"n": "④", "t": "금요일 오후 5시 이후 18세 이하의 입장료는 반값이다.", "a": true, "x": false, "trap": false, "e": "실제로는 성인이 반값(half-off)이고 18세 이하는 무료(free)이므로, 본문과 일치하지 않는다."}, {"n": "⑤", "t": "매달 첫째 일요일은 입장료가 무료이다.", "a": false, "x": true, "trap": false, "e": "'Admission is free the first Sunday of every month'와 일치한다."}], "w": [["fee", "요금"], ["admission", "입장, 입장료"], ["rate", "요금, 비율"], ["current", "현재의"], ["senior", "고령자, 어르신"], ["half-off", "반값"], ["closed", "휴관인"]]}, {"q": "03", "type": "제목", "src": "2023학년도 수능 24번", "ans": "⑤", "tr": [["1", "뇌의 시각 시스템에서 서로 다른 부분들은 '꼭 알아야 할 만큼만' 정보를 얻는다."], ["2", "손 근육이 물체를 향해 뻗도록 돕는 세포들은 물체의 크기와 위치를 알아야 하지만, 색깔에 대해서는 알 필요가 없다."], ["3", "그것들은 모양에 대해서는 약간 알아야 하지만, 세세하게까지 알 필요는 없다."], ["4", "사람의 얼굴을 알아보도록 돕는 세포들은 모양의 세부 사항에는 매우 민감해야 하지만, 위치에는 주의를 덜 기울여도 된다."], ["5", "어떤 물체를 보는 사람이라면 누구나 그것의 모양, 색깔, 위치, 움직임까지 모든 것을 본다고 가정하는 것은 당연해 보인다."], ["6", "하지만 실제로는 뇌의 한 부분은 모양을 보고, 다른 부분은 색깔을 보고, 또 다른 부분은 위치를 감지하고, 또 다른 부분은 움직임을 지각한다."], ["7", "결과적으로, 뇌의 특정 부위가 손상되면 물체의 어떤 측면은 보이고 다른 측면은 보이지 않는 일이 가능하다."], ["8", "수 세기 전에는, 누군가가 어떤 물체를 보면서 그것이 무슨 색인지는 못 보는 상황을 상상하기 어려워했다."], ["9", "오늘날에도 당신은, 물체를 보면서도 그것이 어디 있는지는 못 보거나 그것이 움직이는지는 못 보는 사람들에 대해 알게 되면 놀랄지도 모른다."]], "evh": "6번 문장", "ev": [{"en": true, "h": "However, one part of your brain sees its shape, another sees color, another detects location, and another perceives movement."}, {"en": false, "h": "뇌의 서로 다른 부분이 모양, 색깔, 위치, 움직임을 각각 따로 담당한다는 6번의 내용이 이 글 전체의 핵심이다. 즉 시각 정보는 하나로 통합되어 처리되는 것이 아니라 분리되고 독립적으로 처리된다는 것이 제목의 핵심이다."}], "opts": [{"n": "①", "t": "Visual Systems Never Betray Our Trust!", "a": false, "x": true, "trap": false, "e": "본문은 '시각 시스템이 신뢰를 저버리지 않는다'는 내용이 아니라, 시각 정보가 부분별로 나뉘어 처리된다는 내용이다."}, {"n": "②", "t": "Secret Missions of Color-Sensitive Brain Cells", "a": false, "x": true, "trap": false, "e": "색을 감지하는 세포만을 다루는 글이 아니라 모양·위치·움직임을 감지하는 세포까지 폭넓게 다룬다."}, {"n": "③", "t": "Blind Spots: What Is Still Unknown About the Brain", "a": false, "x": true, "trap": true, "e": "뇌에 대해 아직 밝혀지지 않은 것을 다루는 글이 아니라, 이미 밝혀진 시각 처리 방식을 설명하는 글이다."}, {"n": "④", "t": "Why Brain Cells Exemplify Nature's Recovery Process", "a": false, "x": true, "trap": false, "e": "회복 과정(recovery process)에 관한 내용은 본문에 없다."}, {"n": "⑤", "t": "Separate and Independent: Brain Cells' Visual Perceptions", "a": true, "x": false, "trap": false, "e": "뇌의 각 부분이 모양·색깔·위치·움직임을 따로따로, 독립적으로 처리한다는 6·7번의 내용을 정확히 담고 있다."}], "w": [["location", "위치"], ["extremely", "극도로, 매우"], ["detect", "감지하다"], ["perceive", "인식하다, 지각하다"], ["localized", "국부적인, 국지적인"], ["aspect", "측면, 양상"], ["betray", "저버리다, 배신하다"], ["blind spot", "맹점, 사각지대"], ["exemplify", "전형적인 예시가 되다"], ["perception", "인식, 지각"]]}, {"q": "04", "type": "요지", "src": "2017년 6월 21번", "ans": "④", "tr": [["1", "갓 구운 빵 냄새가 나는 방에 들어가면, 당신은 그 꽤 기분 좋은 냄새를 금세 느낀다."], ["2", "하지만 그 방 안에 몇 분만 머물러 있으면, 그 냄새는 사라지는 것처럼 느껴질 것이다."], ["3", "사실, 그것을 다시 느끼게 하는 유일한 방법은 방 밖으로 나갔다가 다시 들어오는 것이다."], ["4", "이와 정확히 똑같은 개념이 행복을 포함한 우리 삶의 많은 영역에도 적용된다."], ["5", "누구나 행복해할 만한 무언가를 가지고 있다."], ["6", "아마 그들에게는 사랑하는 동반자, 건강, 만족스러운 직업, 머물 집, 혹은 충분한 먹을거리가 있을 것이다."], ["7", "하지만 시간이 지나면서 그들은 자신이 가진 것에 익숙해지고, 갓 구운 빵 냄새처럼 이 멋진 것들은 그들의 의식에서 사라져 버린다."], ["8", "옛 속담이 말하듯, 우물이 마르기 전까지는 물의 소중함을 알지 못한다."]], "evh": "7·8번 문장", "ev": [{"en": true, "h": "As time passes, however, they get used to what they have and, just like the smell of fresh bread, these wonderful assets disappear from their consciousness. / As the old proverb goes, you never miss the water till the well runs dry."}, {"en": false, "h": "빵 냄새처럼 좋은 것도 시간이 지나면 익숙해져 의식에서 사라진다는 7번의 내용과, 마르기 전까지는 물의 소중함을 모른다는 8번의 속담이 합쳐져 '익숙함이 소중한 것의 가치를 잊게 만든다'는 요지를 완성한다."}], "opts": [{"n": "①", "t": "새로움을 추구하는 삶이 가치 있다.", "a": false, "x": true, "trap": false, "e": "새로움 추구 자체를 예찬하는 내용은 아니다."}, {"n": "②", "t": "작은 행복이 모여서 큰 행복이 된다.", "a": false, "x": true, "trap": false, "e": "작은 행복이 쌓인다는 내용은 본문에 없다."}, {"n": "③", "t": "즐거움은 어느 정도의 고통을 수반한다.", "a": false, "x": true, "trap": false, "e": "고통(pain)에 관한 언급은 전혀 없다."}, {"n": "④", "t": "익숙함이 소중한 것의 가치를 잊게 한다.", "a": true, "x": false, "trap": false, "e": "빵 냄새에 익숙해지면 못 느끼듯, 행복의 요소들에도 익숙해지면 그 가치를 의식하지 못하게 된다는 것이 이 글의 요지이다."}, {"n": "⑤", "t": "결과보다 과정에 집중하는 삶이 행복하다.", "a": false, "x": true, "trap": true, "e": "결과와 과정을 비교하는 내용은 이 글에 없다."}], "w": [["baked", "구운"], ["detect", "알아채다, 감지하다"], ["exact", "정확한"], ["concept", "개념"], ["satisfying", "만족스러운"], ["asset", "소중한 것, 자산"], ["consciousness", "의식, 자각"], ["proverb", "속담, 격언"], ["run dry", "말라 버리다"]]}, {"q": "05", "type": "어법", "src": "2018년 6월 28번", "ans": "③", "tr": [["1", "플라스틱은 분해되는 속도가 매우 느리고 물에 뜨는 경향이 있는데, 이 때문에 그것은 수천 마일에 이르는 바다 해류를 따라 이동할 수 있다."], ["2", "대부분의 플라스틱은 자외선에 노출되면 점점 더 작은 조각으로 분해되어 미세플라스틱을 형성한다."], ["3", "이 미세플라스틱은 그것들을 수거하기 위해 흔히 쓰이는 그물망을 통과할 만큼 충분히 작아지면, 측정하기가 매우 어려워진다."], ["4", "그것이 해양 환경과 먹이망에 미치는 영향은 아직 제대로 밝혀지지 않았다."], ["5", "이 작은 입자들은 다양한 동물들에게 먹히고 먹이 사슬 속으로 들어가는 것으로 알려져 있다."], ["6", "바다 속 대부분의 플라스틱 조각들은 매우 작기 때문에, 바다를 청소할 실질적인 방법은 없다."], ["7", "비교적 적은 양의 플라스틱을 수거하기 위해서라도 사람은 엄청난 양의 물을 걸러내야 할 것이다."]], "evh": "3번 문장", "ev": [{"en": true, "h": "These microplastics are very difficult to measure once they are small enough to pass through the nets typically used to collect ③ themselves."}, {"en": false, "h": "collect의 목적어가 되는 대상은 이 그물망을 사용하는 일반 사람들이 수거하는 대상, 즉 앞의 microplastics(these) 자신을 가리킨다. 문장의 주어(these microplastics)와 동사 collect의 의미상 주어(일반인 they)가 다르므로, 재귀대명사 themselves가 아니라 목적격 대명사 them으로 고쳐야 어법에 맞다."}], "opts": [{"n": "①", "t": "which", "a": false, "x": true, "trap": false, "e": "앞 문장 전체를 선행사로 하는 계속적 용법의 주격 관계대명사로 어법에 맞다."}, {"n": "②", "t": "forming", "a": false, "x": true, "trap": false, "e": "접속사와 주어가 생략된 분사구문으로, 주절의 주어 Most plastics와 능동 관계이므로 forming은 어법에 맞다."}, {"n": "③", "t": "themselves", "a": true, "x": false, "trap": false, "e": "collect의 목적어는 microplastics 자신이 아니라 일반적인 사람들이 수거하는 대상이므로, 재귀대명사가 아니라 목적격 대명사 them으로 고쳐야 한다."}, {"n": "④", "t": "are", "a": false, "x": true, "trap": false, "e": "most of the plastic particles라는 복수 명사가 주어이므로 복수 동사 are는 어법에 맞다."}, {"n": "⑤", "t": "relatively", "a": false, "x": true, "trap": true, "e": "형용사 small을 수식하는 부사이므로 relatively는 어법에 맞다."}], "w": [["degrade", "분해되다"], ["float", "뜨다"], ["break down", "분해되다"], ["ultraviolet light", "자외선"], ["marine", "해양의"], ["particle", "조각, 입자"], ["practical", "실질적인"], ["filter", "여과하다, 걸러내다"]]}, {"q": "06", "type": "낱말 쓰임", "src": "2020년 3월 30번", "ans": "③", "tr": [["1", "우리는 흔히 작은 변화들을 무시하는데, 그것들이 당장은 그다지 중요해 보이지 않기 때문이다."], ["2", "지금 약간의 돈을 모은다고 해도, 당신은 여전히 백만장자가 아니다."], ["3", "오늘 밤 한 시간 동안 스페인어를 공부하더라도, 당신은 여전히 그 언어를 다 배운 것이 아니다."], ["4", "우리는 몇 가지 변화를 만들어 보지만, 그 결과는 좀처럼 빨리 나타나지 않는 것 같아서 우리는 다시 예전의 습관으로 되돌아간다."], ["5", "변화의 느린 속도는 또한 나쁜 습관을 버리기 쉽게(→어렵게) 만든다."], ["6", "오늘 몸에 좋지 않은 식사를 하더라도, 저울의 눈금은 별로 움직이지 않는다."], ["7", "단 한 번의 결정은 무시하기 쉽다."], ["8", "하지만 우리가 나쁜 결정을 계속 따르면서, 매일매일 작은 실수를 반복할 때, 우리의 작은 선택들이 쌓여 나쁜 결과가 되어 버린다."], ["9", "많은 실수들은 결국 문제로 이어진다."]], "evh": "4·8번 문장", "ev": [{"en": true, "h": "We make a few changes, but the results never seem to come quickly and so we slide back into our previous routines. / But when we repeat small errors, day after day, ... our small choices add up to bad results."}, {"en": false, "h": "작은 변화의 결과가 빨리 나타나지 않아 다시 예전 습관으로 돌아간다는 4번의 내용과, 나쁜 결정을 반복하면 결국 나쁜 결과가 쌓인다는 8번의 내용을 보면, 변화의 느린 속도는 나쁜 습관을 버리기 '쉽게'가 아니라 '어렵게(difficult)' 만든다는 것을 알 수 있다."}], "opts": [{"n": "①", "t": "matter", "a": false, "x": true, "trap": false, "e": "지금 당장은 중요해 보이지 않는다는 문맥에서 matter(중요하다)는 자연스럽다."}, {"n": "②", "t": "quickly", "a": false, "x": true, "trap": false, "e": "변화의 결과가 '빨리' 나타나지 않는다는 문맥에서 quickly는 자연스럽다."}, {"n": "③", "t": "easy", "a": true, "x": false, "trap": false, "e": "나쁜 습관을 버리기 어렵게 만든다는 문맥이 되어야 하므로, easy는 difficult로 고쳐야 한다."}, {"n": "④", "t": "repeat", "a": false, "x": true, "trap": true, "e": "나쁜 결정을 계속 반복한다(repeat)는 문맥에서 자연스럽다."}, {"n": "⑤", "t": "problem", "a": false, "x": true, "trap": false, "e": "작은 실수들이 쌓여 결국 문제로 이어진다는 문맥에서 problem은 자연스럽다."}], "w": [["ignore", "무시하다"], ["matter", "중요하다"], ["millionaire", "백만장자"], ["scale", "저울, 눈금"], ["misstep", "실수, 잘못된 조치"], ["transformation", "변화, 탈바꿈"], ["break a habit", "습관을 버리다"], ["previous", "이전의"], ["slide back into", "~으로 다시 빠져들다"], ["add up to", "(결과적으로) ~이 되다"]]}]};
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크북 '+CF.sn.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -277,18 +330,22 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
-function hkHtml(it){
-  const E=it[2].split(' / '),K=it[3].split(' / ');
-  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
-  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
-  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
-  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
-  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+function esc2(s){return String(s)}
+function chunkSplit(s){return String(s).split(' / ')}
+function scHtml(c){
+  const esc=String;
+  const E=chunkSplit(c.eng),K=chunkSplit(c.lit);
+  let x='<div class="sc"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span><span class="tt">'+esc(c.title)+'</span></div><div class="sc-b">';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+E[j]+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  if(c.notes.length){x+='<div class="nts">'+c.notes.map(n=>'<span class="nt"><sup>'+n[0]+'</sup> <b>'+esc(n[1])+'</b> '+esc(n[2])+'</span>').join('')+'</div>';}
+  x+='<div class="lay nat"><span class="lb">자연스러운 해석</span>'+esc(c.nat)+'</div>';
+  if(c.ana)x+='<div class="lay ana"><span class="lb">분석</span>'+c.ana+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|분석">자연스러운 해석</button></div></div>';
   return x;
 }
 function renderDk(){
   let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-  HK.forEach(it=>{h+=hkHtml(it);});
+  CF.sn.forEach(c=>{h+=scHtml(c);});
   h+='</div></div>';
   app.innerHTML=h;
 }
@@ -442,41 +499,29 @@ function renderSubmit(){
   const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
 }
 /* ---- 해설 ---- */
-function sHtml(s,evn){
-  const ev=evn.indexOf(s.n)>=0;
-  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
-  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
-  const lays=[];
-  if(s.link)lays.push(['이어 읽으면',s.link]);
-  if(s.easy)lays.push(['쉬운 말로',s.easy]);
-  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
-  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
-  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
-  return x+'</div>';
-}
 function qHtml(i,a){
+  const esc=String;
   const d=D[i],ok=isRight(i,a);
-  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
-  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
-  h+='<h4>정답 근거</h4>';
-  h+=`<p class="en">${esc(d.ev_en)}</p>`;
-  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
-  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
-  if(d.ps&&d.ps.length){
-    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
-  }
-  h+='<h4>선택지 하나씩</h4>';
-  d.ch.forEach(c=>{
-    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  const cq=CF.qs.find(x=>x.q===d.no);
+  if(!cq)return '';
+  let h='<details class="qd" id="qd'+i+'" '+(ok?'':'open')+'><summary>'+esc(cq.q)+'번 · '+esc(cq.type)+'<small>'+esc(cq.src)+'</small><span class="res2 '+(ok?'o':'x')+'">'+(ok?'○ 정답':'✕ 오답')+'</span></summary><div class="qx">';
+  h+='<p class="ansline"><b>정답 '+esc(cq.ans)+'</b>'+(ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>')+'</p>';
+  h+='<details class="sub2"><summary>전문 해석</summary><ol class="trs" style="list-style:none">'+cq.tr.map(t=>'<li><span class="n">'+(t[0]==null?'':esc(t[0]))+'</span>'+t[1]+'</li>').join('')+'</ol></details>';
+  h+='<div class="sec">답의 근거 · '+esc(cq.evh)+'</div><div class="evx">';
+  cq.ev.forEach(p=>{h+=p.en?'<p class="en">'+p.h+'</p>':'<p>'+p.h+'</p>';});
+  h+='</div><div class="sec">선택지 하나씩</div>';
+  cq.opts.forEach(o=>{
+    h+='<div class="opx '+(o.a?'a':'')+'"><div class="ot"><span class="mk">'+esc(o.n)+'</span>'+o.t+(o.a?'<span class="bd g">정답</span>':'')+(o.trap?'<span class="bd t">가장 많이 걸리는 오답</span>':'')+'</div>'+(o.e?'<p>'+(o.x?'<span class="xm">✕</span>':'')+o.e+'</p>':'')+'</div>';
   });
-  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  if(cq.w.length){h+='<div class="sec">단어</div><div class="wds">'+cq.w.map(w=>'<span><b>'+esc(w[0])+'</b>'+esc(w[1])+'</span>').join('')+'</div>';}
+  h+='<button class="toq" data-i="'+i+'">빠른 정답으로</button>';
   return h+'</div></details>';
 }
 function renderExp(){
   const rec=S.sub;
   let h=hdr()+band(4)+'<div class="wrap">';
-  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
-  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='<div class="score">'+rec.s+' <small>/ '+N+'</small></div><h2 id="quick">빠른 정답</h2><div class="qc">';
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+='<button class="qchip '+(ok?'o':'x')+'" data-i="'+i+'"><small>'+esc(D[i].no)+'번</small>'+ansText(i)+' '+(ok?'○':'✕')+'</button>';}
   h+='</div><h2>해설</h2>';
   for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
   h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
@@ -515,13 +560,17 @@ function mmInit(){
 }
 /* 위임 이벤트 */
 document.addEventListener('click',e=>{
+  const qchip=e.target.closest('.qchip');
+  if(qchip){const dd=document.getElementById('qd'+qchip.dataset.i);if(dd){dd.open=true;dd.scrollIntoView({block:'start'});}return;}
+  const toq=e.target.closest('.toq');
+  if(toq){const qq=document.getElementById('quick');if(qq)qq.scrollIntoView({block:'start'});return;}
   const tb=e.target.closest('.tab,.hcard,.gohome');
   if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
   const ch=e.target.closest('.ch');
   if(ch){ch.classList.toggle('open');return;}
   const st=e.target.closest('.stg');
   if(st){
-    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const s=st.closest('.s,.sc'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
     const shown=lays.filter(l=>l.classList.contains('on')).length;
     if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
     else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
@@ -531,7 +580,7 @@ document.addEventListener('click',e=>{
   if(al){
     const open=al.dataset.all==='1',body=al.closest('.dkbody');
     body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
-    body.querySelectorAll('.s').forEach(s=>{
+    body.querySelectorAll('.s,.sc').forEach(s=>{
       const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
       lays.forEach(l=>l.classList.toggle('on',open));
       if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
