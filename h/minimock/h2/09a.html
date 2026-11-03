@@ -142,6 +142,59 @@ details.dk>summary::-webkit-details-marker{display:none}
 details.qd>summary::after{content:'\25BE';margin-left:auto;color:var(--sub)}
 details.qd[open]>summary::after{content:'\25B4'}
 .cell.s{padding:8px 12px;border:1.5px solid transparent;margin:0;background:var(--soft)}.cell.s.bad{background:var(--badbg);border-color:var(--bad)}
+
+/* ---- 새 직독직해·해설 화면 ---- */
+.sc{border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden;background:var(--bg)}
+.sc-h{padding:11px 14px 10px;background:#eef2f8;border-bottom:1px solid var(--line)}
+.sc-h .no2{display:inline-block;min-width:26px;height:26px;line-height:26px;border-radius:13px;background:var(--accent);color:#fff;font-weight:800;font-size:13px;text-align:center;padding:0 7px;margin-right:8px}
+.sc-h .at{font-size:13px;color:var(--sub)}
+.sc-h .tt{display:block;margin-top:7px;font-size:15.5px;font-weight:800;color:var(--accent);line-height:1.45}
+.sc-b{padding:10px 12px 12px}
+.sc .ch{margin-bottom:6px}
+.sc .ce{font-size:17px}
+.sc .ce sup,.nt sup{font-size:10px;font-weight:800;color:#b8651f;margin-left:1px}
+.nts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.nt{font-size:13.5px;line-height:1.5;background:#fbf6ee;border:1px solid #f0e2cd;border-radius:8px;padding:5px 9px;color:#4a3a22}
+.nt b{color:#33260f}
+.sc .lay{border-radius:10px}
+.sc .lay.nat{border-left:4px solid var(--accent);background:#f7f9fc}
+.sc .lay.ana{background:#fff8e6;border-color:#f0dcc0;color:#4d3b05}
+.sc .lay.ana b,.why2 b,.opx b,.evx b{background:linear-gradient(transparent 58%,var(--hl) 58%);font-weight:700}
+.sc .lb{margin-bottom:4px}
+.qc{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.qchip{min-width:56px;padding:9px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-family:inherit;font-size:15px;color:var(--ink);font-weight:700}
+.qchip small{display:block;font-size:11px;font-weight:400;color:var(--sub);margin-bottom:1px}
+.qchip.o{border-color:var(--good);background:var(--goodbg)}
+.qchip.x{border-color:var(--bad);background:var(--badbg)}
+.sec{margin:16px 0 6px;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px}
+.sec:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+.trs{list-style:none;margin:0;padding:0;background:var(--soft);border-radius:10px;padding:8px 12px}
+.trs li{font-size:15px;line-height:1.75;padding:2px 0}
+.trs .n{display:inline-block;min-width:20px;font-size:12px;color:var(--sub);font-weight:700}
+.evx{background:var(--goodbg);border:1px solid #bfe0cd;border-radius:10px;padding:10px 12px}
+.evx .en{background:#fff;border:1px solid #d5eadc;font-size:15.5px;margin:0 0 8px}
+.evx p{margin:6px 0;font-size:15.5px;line-height:1.75}
+.evx .evh{font-size:13px;font-weight:800;color:var(--good);margin-bottom:6px}
+.opx{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px;background:var(--bg)}
+.opx.a{border-color:var(--good);background:var(--goodbg)}
+.opx .ot{font-size:15.5px;font-weight:700;line-height:1.55}
+.opx .mk{display:inline-block;min-width:22px;font-weight:800;color:var(--sub);margin-right:4px}
+.opx.a .mk{color:var(--good)}
+.opx .bd{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.opx .bd.g{background:var(--good)}
+.opx .bd.t{background:#b4472f}
+.opx p{margin:5px 0 0;font-size:14.5px;line-height:1.7;color:#333}
+.opx .xm{color:var(--bad);font-weight:800;margin-right:3px}
+.wds{display:flex;flex-wrap:wrap;gap:6px}
+.wds span{font-size:14px;background:var(--soft);border-radius:8px;padding:5px 9px;line-height:1.45}
+.wds b{margin-right:5px}
+.toq{display:block;width:100%;margin-top:14px;min-height:42px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+details.sub2{margin:12px 0 0}
+details.sub2>summary{list-style:none;cursor:pointer;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;padding:6px 0}
+details.sub2>summary::-webkit-details-marker{display:none}
+details.sub2>summary:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+details.sub2>summary:after{content:"+";margin-left:auto;font-size:18px;color:var(--sub)}
+details.sub2[open]>summary:after{content:"\2212"}
 </style>
 </head>
 <body>
@@ -248,8 +301,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const HK=[["01", "4", "In recent weeks, / my wife's health / has taken a dramatic turn for the worse, / and it is now apparent / that we must move to an assisted-living facility / where she can receive the help she needs.", "최근 몇 주 동안 / 제 아내의 건강이 / 급격히 악화되었습니다 / 그리고 이제 분명합니다 / 저희가 요양 시설로 이사해야 한다는 것이 / 그녀가 필요한 도움을 받을 수 있는", "최근 몇 주 동안 아내의 건강이 급격히 악화되어, 이제는 그녀가 필요한 도움을 받을 수 있는 생활 보조 시설로 이사해야 한다는 것이 분명해졌습니다.", "<b>has taken a turn for the worse<\/b>는 <b>현재완료<\/b>로 '악화되었다'는 뜻입니다. <b>it is apparent that ~<\/b>는 <b>가주어 it, 진주어 that절<\/b>이며, that절 안의 <b>where<\/b>는 <b>an assisted-living facility<\/b>를 꾸미는 <b>관계부사<\/b>입니다."], ["02", "4", "Numerous biodiversity experiments / have been conducted / since Elton's time / and several mechanisms / have been proposed / to explain the often observed negative relationship / between diversity and invasibility.", "수많은 생물 다양성 실험들이 / 시행되어 왔다 / Elton의 시대 이래로 / 그리고 여러 메커니즘들이 / 제기되어 왔다 / 종종 관측되는 부정적인 관계를 설명하기 위해 / 다양성과 침입성 사이의", "Elton의 시대 이래로 수많은 생물 다양성 실험이 시행되어 왔고, 다양성과 침입성 사이에서 종종 관측되는 부정적인 관계를 설명하기 위해 여러 메커니즘이 제기되어 왔다.", "<b>have been conducted<\/b>와 <b>have been proposed<\/b>가 <b>and<\/b>로 연결된 <b>병렬 현재완료 수동태<\/b>입니다. <b>to explain ~<\/b>는 '~을 설명하기 위해'라는 <b>목적을 나타내는 to부정사<\/b>이고, <b>observed<\/b>는 <b>relationship<\/b>을 꾸미는 <b>과거분사<\/b>입니다."], ["03", "1", "Difficulties arise / when we do not think of people and machines as collaborative systems, / but assign whatever tasks can be automated to the machines / and leave the rest to people.", "어려움은 발생한다 / 우리가 사람과 기계를 협력 시스템으로 생각하지 않고 / 대신 자동화될 수 있는 어떤 일이든 기계에 할당하고 / 나머지를 사람들에게 남길 때", "우리가 사람과 기계를 협력 시스템으로 생각하지 않고, 자동화할 수 있는 일이면 무엇이든 기계에 맡기고 나머지를 사람에게 남길 때 어려움이 발생한다.", "<b>when<\/b>이 이끄는 <b>시간(조건) 부사절<\/b> 안에서 <b>think of ~ as<\/b>를 부정하고 <b>assign ~ and leave ~<\/b>가 <b>병렬<\/b>로 이어집니다. <b>whatever tasks can be automated<\/b>는 '자동화될 수 있는 어떤 일이든'이라는 <b>복합관계형용사 whatever<\/b>가 이끄는 명사절입니다."], ["04", "3", "They argue back and forth / about how much to leave it open: / a crack, halfway, or three-quarters of the way.", "그들은 왔다갔다하며 논쟁한다 / 얼마나 열어 둘지에 대해 / 살짝, 절반, 혹은 4분의 3 정도", "그들은 창문을 얼마나 열어 둘지를 두고 왔다갔다하며 논쟁하는데, 살짝, 절반, 혹은 4분의 3 정도로 열어 두자는 것이다.", "<b>argue back and forth about ~<\/b>는 '~에 대해 왔다갔다하며 논쟁하다'라는 뜻이고, <b>how much to leave it open<\/b>은 <b>의문사 + to부정사<\/b>로 이루어진 <b>명사구<\/b>입니다. 콜론(:) 뒤는 그 정도를 <b>구체적으로 나열<\/b>하는 부분입니다."], ["05", "1", "The ability / to think about why things work / and what may be causing problems / when events do not go as expected / seems like an obvious aspect of the way we think.", "그 능력은 / 왜 일이 돌아가는지 / 그리고 무엇이 문제를 일으키고 있는지 생각하는 / 일이 예상대로 진행되지 않을 때 / 우리가 생각하는 방식의 명백한 한 측면처럼 보인다", "왜 일이 돌아가는지, 그리고 일이 예상대로 진행되지 않을 때 무엇이 문제를 일으키고 있는지 생각하는 능력은 우리가 생각하는 방식의 명백한 한 측면처럼 보인다.", "<b>to think about ~<\/b>는 <b>The ability<\/b>를 꾸미는 <b>형용사적 용법의 to부정사<\/b>이고, 그 안에 <b>why things work<\/b>과 <b>what may be causing problems<\/b>라는 두 개의 <b>명사절(의문사절)<\/b>이 <b>and<\/b>로 병렬 연결됩니다. <b>when events do not go as expected<\/b>는 '일이 예상대로 되지 않을 때'라는 <b>시간 부사절<\/b>입니다."], ["05", "2", "It is interesting / that this ability to think about why things happen / is one of the key abilities / that separates human abilities / from those of just about every other animal on the planet.", "흥미롭다 / 왜 일이 일어나는지 생각하는 이 능력이 / 핵심 능력 중 하나라는 것은 / 인간의 능력을 구별하는 / 지구상의 거의 모든 다른 동물의 그것(능력)으로부터", "왜 일이 일어나는지 생각하는 이 능력이, 인간의 능력을 지구상 거의 모든 다른 동물의 능력과 구별해 주는 핵심 능력 중 하나라는 것은 흥미롭다.", "<b>It is interesting that ~<\/b>는 <b>가주어 it, 진주어 that절<\/b> 구조입니다. that절 안의 <b>that<\/b>은 <b>the key abilities<\/b>를 받는 <b>주격 관계대명사<\/b>이고, <b>those<\/b>는 반복을 피하기 위해 <b>abilities<\/b>를 대신하는 <b>지시대명사<\/b>입니다."], ["06", "4", "You want / to be energized enough to get off the couch / and lose those pounds or find that job or study for that test, / and you want / to be motivated enough to stay engaged / even when the inevitable obstacles or challenges arise.", "당신은 원한다 / 활력을 얻어서 소파에서 일어나 / 그 체중을 감량하거나 그 일자리를 찾거나 그 시험을 위해 공부할 정도로 / 그리고 당신은 원한다 / 동기를 부여받아 계속 몰두할 정도로 / 피할 수 없는 장애물이나 도전이 나타날 때조차도", "당신은 소파에서 일어나 체중을 줄이거나 일자리를 구하거나 시험 공부를 할 만큼 충분히 활력을 얻고 싶고, 피할 수 없는 장애물이나 어려움이 닥칠 때조차 계속 몰두할 만큼 충분히 동기를 부여받고 싶어 한다.", "<b>enough to V<\/b>(~할 만큼 충분히)가 두 번 반복되며 <b>energized enough to ~<\/b>와 <b>motivated enough to ~<\/b>가 <b>and<\/b>로 <b>병렬<\/b> 연결됩니다. <b>even when ~<\/b>는 '~할 때조차도'라는 <b>양보의 부사절<\/b>입니다."]];
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const CF={"sn": [{"i": "01", "q": "01", "s": "4", "title": "현재완료(has taken a turn) + 가주어 it(that절) + 관계부사 where", "eng": "In recent weeks, / my wife's health / has taken a dramatic turn for the worse<sup>1<\/sup>, / and it is now apparent<sup>2<\/sup> / that we must move to an assisted-living facility<sup>3<\/sup> / where she can receive the help she needs.", "notes": [["1", "take a turn for the worse", "급격히 악화되다"], ["2", "apparent", "분명한"], ["3", "assisted-living facility", "생활 보조 시설"]], "lit": "최근 몇 주 동안 / 제 아내의 건강이 / 급격히 악화되었습니다 / 그리고 이제 분명합니다 / 저희가 요양 시설로 이사해야 한다는 것이 / 그녀가 필요한 도움을 받을 수 있는", "nat": "최근 몇 주 동안 아내의 건강이 급격히 악화되어, 이제는 그녀가 필요한 도움을 받을 수 있는 생활 보조 시설로 이사해야 한다는 것이 분명해졌습니다.", "ana": "<b>has taken a turn for the worse<\/b>는 <b>현재완료<\/b>로 '악화되었다'는 뜻입니다. <b>it is apparent that ~<\/b>는 <b>가주어 it, 진주어 that절<\/b>이며, that절 안의 <b>where<\/b>는 <b>an assisted-living facility<\/b>를 꾸미는 <b>관계부사<\/b>입니다."}, {"i": "02", "q": "02", "s": "4", "title": "병렬 현재완료 수동태 + to부정사(목적) + 과거분사 수식", "eng": "Numerous biodiversity experiments<sup>1<\/sup> / have been conducted / since Elton's time / and several mechanisms<sup>2<\/sup> / have been proposed / to explain the often observed negative relationship / between diversity and invasibility<sup>3<\/sup>.", "notes": [["1", "biodiversity experiment", "생물 다양성 실험"], ["2", "mechanism", "메커니즘"], ["3", "invasibility", "침입성"]], "lit": "수많은 생물 다양성 실험들이 / 시행되어 왔다 / Elton의 시대 이래로 / 그리고 여러 메커니즘들이 / 제기되어 왔다 / 종종 관측되는 부정적인 관계를 설명하기 위해 / 다양성과 침입성 사이의", "nat": "Elton의 시대 이래로 수많은 생물 다양성 실험이 시행되어 왔고, 다양성과 침입성 사이에서 종종 관측되는 부정적인 관계를 설명하기 위해 여러 메커니즘이 제기되어 왔다.", "ana": "<b>have been conducted<\/b>와 <b>have been proposed<\/b>가 <b>and<\/b>로 연결된 <b>병렬 현재완료 수동태<\/b>입니다. <b>to explain ~<\/b>는 '~을 설명하기 위해'라는 <b>목적을 나타내는 to부정사<\/b>이고, <b>observed<\/b>는 <b>relationship<\/b>을 꾸미는 <b>과거분사<\/b>입니다."}, {"i": "03", "q": "03", "s": "1", "title": "when 부사절 + 병렬 동사(assign/leave) + 복합관계형용사 whatever", "eng": "Difficulties arise / when we do not think of people and machines as collaborative systems<sup>1<\/sup>, / but assign whatever tasks<sup>2<\/sup> can be automated<sup>3<\/sup> to the machines / and leave the rest to people.", "notes": [["1", "collaborative system", "협력 시스템"], ["2", "whatever", "어떤 일이든"], ["3", "automate", "자동화되다"]], "lit": "어려움은 발생한다 / 우리가 사람과 기계를 협력 시스템으로 생각하지 않고 / 대신 자동화될 수 있는 어떤 일이든 기계에 할당하고 / 나머지를 사람들에게 남길 때", "nat": "우리가 사람과 기계를 협력 시스템으로 생각하지 않고, 자동화할 수 있는 일이면 무엇이든 기계에 맡기고 나머지를 사람에게 남길 때 어려움이 발생한다.", "ana": "<b>when<\/b>이 이끄는 <b>시간(조건) 부사절<\/b> 안에서 <b>think of ~ as<\/b>를 부정하고 <b>assign ~ and leave ~<\/b>가 <b>병렬<\/b>로 이어집니다. <b>whatever tasks can be automated<\/b>는 '자동화될 수 있는 어떤 일이든'이라는 <b>복합관계형용사 whatever<\/b>가 이끄는 명사절입니다."}, {"i": "04", "q": "04", "s": "3", "title": "how much + to부정사(명사구) + 콜론 나열", "eng": "They argue back and forth<sup>1<\/sup> / about how much to leave it open: / a crack, halfway<sup>2<\/sup>, or three-quarters<sup>3<\/sup> of the way.", "notes": [["1", "argue back and forth", "왔다갔다하며 논쟁하다"], ["2", "halfway", "절반"], ["3", "three-quarters", "4분의 3"]], "lit": "그들은 왔다갔다하며 논쟁한다 / 얼마나 열어 둘지에 대해 / 살짝, 절반, 혹은 4분의 3 정도", "nat": "그들은 창문을 얼마나 열어 둘지를 두고 왔다갔다하며 논쟁하는데, 살짝, 절반, 혹은 4분의 3 정도로 열어 두자는 것이다.", "ana": "<b>argue back and forth about ~<\/b>는 '~에 대해 왔다갔다하며 논쟁하다'라는 뜻이고, <b>how much to leave it open<\/b>은 <b>의문사 + to부정사<\/b>로 이루어진 <b>명사구<\/b>입니다. 콜론(:) 뒤는 그 정도를 <b>구체적으로 나열<\/b>하는 부분입니다."}, {"i": "05", "q": "05", "s": "1", "title": "형용사적 to부정사 + 의문사절 병렬 + when 부사절", "eng": "The ability / to think about why things work / and what may be causing problems / when events do not go as expected<sup>1<\/sup> / seems like an obvious aspect<sup>2<\/sup> of the way we think.", "notes": [["1", "as expected", "예상대로"], ["2", "obvious aspect", "명백한 측면"]], "lit": "그 능력은 / 왜 일이 돌아가는지 / 그리고 무엇이 문제를 일으키고 있는지 생각하는 / 일이 예상대로 진행되지 않을 때 / 우리가 생각하는 방식의 명백한 한 측면처럼 보인다", "nat": "왜 일이 돌아가는지, 그리고 일이 예상대로 진행되지 않을 때 무엇이 문제를 일으키고 있는지 생각하는 능력은 우리가 생각하는 방식의 명백한 한 측면처럼 보인다.", "ana": "<b>to think about ~<\/b>는 <b>The ability<\/b>를 꾸미는 <b>형용사적 용법의 to부정사<\/b>이고, 그 안에 <b>why things work<\/b>과 <b>what may be causing problems<\/b>라는 두 개의 <b>명사절(의문사절)<\/b>이 <b>and<\/b>로 병렬 연결됩니다. <b>when events do not go as expected<\/b>는 '일이 예상대로 되지 않을 때'라는 <b>시간 부사절<\/b>입니다."}, {"i": "06", "q": "05", "s": "2", "title": "가주어 it(that절) + 주격 관계대명사 + 지시대명사 those", "eng": "It is interesting / that this ability to think about why things happen / is one of the key abilities / that separates human abilities / from those of just about every<sup>1<\/sup> other animal on the planet.", "notes": [["1", "just about every", "거의 모든"], ["2", "separate A from B", "A를 B와 구별하다"]], "lit": "흥미롭다 / 왜 일이 일어나는지 생각하는 이 능력이 / 핵심 능력 중 하나라는 것은 / 인간의 능력을 구별하는 / 지구상의 거의 모든 다른 동물의 그것(능력)으로부터", "nat": "왜 일이 일어나는지 생각하는 이 능력이, 인간의 능력을 지구상 거의 모든 다른 동물의 능력과 구별해 주는 핵심 능력 중 하나라는 것은 흥미롭다.", "ana": "<b>It is interesting that ~<\/b>는 <b>가주어 it, 진주어 that절<\/b> 구조입니다. that절 안의 <b>that<\/b>은 <b>the key abilities<\/b>를 받는 <b>주격 관계대명사<\/b>이고, <b>those<\/b>는 반복을 피하기 위해 <b>abilities<\/b>를 대신하는 <b>지시대명사<\/b>입니다."}, {"i": "07", "q": "06", "s": "4", "title": "enough to V 병렬 구조 + even when 양보 부사절", "eng": "You want / to be energized<sup>1<\/sup> enough to get off the couch / and lose those pounds or find that job or study for that test, / and you want / to be motivated<sup>2<\/sup> enough to stay engaged / even when the inevitable<sup>3<\/sup> obstacles<sup>4<\/sup> or challenges arise.", "notes": [["1", "energize", "활력을 얻은"], ["2", "motivate", "동기를 부여받은"], ["3", "inevitable", "피할 수 없는"], ["4", "obstacle", "장애물"]], "lit": "당신은 원한다 / 활력을 얻어서 소파에서 일어나 / 그 체중을 감량하거나 그 일자리를 찾거나 그 시험을 위해 공부할 정도로 / 그리고 당신은 원한다 / 동기를 부여받아 계속 몰두할 정도로 / 피할 수 없는 장애물이나 도전이 나타날 때조차도", "nat": "당신은 소파에서 일어나 체중을 줄이거나 일자리를 구하거나 시험 공부를 할 만큼 충분히 활력을 얻고 싶고, 피할 수 없는 장애물이나 어려움이 닥칠 때조차 계속 몰두할 만큼 충분히 동기를 부여받고 싶어 한다.", "ana": "<b>enough to V<\/b>(~할 만큼 충분히)가 두 번 반복되며 <b>energized enough to ~<\/b>와 <b>motivated enough to ~<\/b>가 <b>and<\/b>로 <b>병렬<\/b> 연결됩니다. <b>even when ~<\/b>는 '~할 때조차도'라는 <b>양보의 부사절<\/b>입니다."}], "qs": [{"q": "01", "type": "목적", "src": "2017년 3월 18번", "ans": "⑤", "tr": [["1", "Rider 씨께,"], ["2", "제 아내와 저는 지난 12년 동안 Spruce 아파트에서 살아왔습니다."], ["3", "아시다시피, 저희는 1년 더 머물 계획으로 최근 임대 계약을 갱신했습니다."], ["4", "최근 몇 주 동안 아내의 건강이 급격히 악화되어, 이제는 그녀가 필요한 도움을 받을 수 있는 생활 보조 시설로 이사해야 한다는 것이 분명해졌습니다."], ["5", "오랜 거주자로서, 저는 새 임대 계약에서 저희를 해지해 주실 것을 요청드리고자 이 글을 씁니다."], ["6", "이 아파트 임대료와 생활 보조 시설 비용을 함께 부담하는 것은 저희에게 상당한 부담이 될 것입니다."], ["7", "이 어려운 시기에 저희를 배려해 주시면 대단히 감사하겠습니다."], ["8", "답변을 기다리겠습니다."], ["9", "진심을 담아, Henry Martin 드림"]], "evh": "5번 문장", "ev": [{"en": true, "h": "I am writing to ask that we be released from the new lease."}, {"en": false, "h": "목적 문제는 <b>글쓴이가 요청하는 핵심 문장<\/b>이 근거입니다. 5번의 <b>ask that we be released from the new lease<\/b>가 그대로 이 편지의 목적, 즉 '<b>임대 계약 해지 요청<\/b>'을 보여줍니다."}], "opts": [{"n": "①", "t": "임대 기간 만료를 알려 주려고", "a": false, "x": true, "trap": false, "e": "임대 기간은 오히려 <b>막 갱신(renewed)<\/b>한 상태이므로 만료를 알리는 편지가 아닙니다."}, {"n": "②", "t": "아파트 보수 공사를 독촉하려고", "a": false, "x": true, "trap": false, "e": "보수 공사(repair)에 관한 언급은 어디에도 없습니다."}, {"n": "③", "t": "아파트 임대료 인상을 통보하려고", "a": false, "x": true, "trap": true, "e": "임대료 인상(increase)에 관한 내용은 본문에 없습니다. 세입자가 집주인에게 인상을 통보할 수도 없습니다."}, {"n": "④", "t": "임대 계약 기간의 연장을 부탁하려고", "a": false, "x": true, "trap": false, "e": "오히려 이 편지는 계약을 <b>연장(renew)<\/b>하는 것이 아니라 <b>해지(release)<\/b>해 달라는 요청입니다."}, {"n": "⑤", "t": "아파트 임대 계약의 해지를 요청하려고", "a": true, "x": false, "trap": false, "e": "5번의 <b>ask that we be released from the new lease<\/b>가 정확히 이 목적을 보여줍니다."}], "w": [["renew", "갱신하다"], ["dramatic turn for the worse", "급격한 악화"], ["assisted-living facility", "생활 보조 시설"], ["longtime resident", "오랜 거주자"], ["release", "해방시키다, 해지하다"], ["substantial", "상당한"], ["hardship", "어려움"], ["consideration", "배려, 고려"]]}, {"q": "02", "type": "제목", "src": "2020학년도 수능 24번", "ans": "②", "tr": [["1", "외래종에 의한 자연 군집의 침입은 현재 가장 중요한 전 세계적 규모의 환경 문제 중 하나로 평가된다."], ["2", "생물 다양성의 손실은 생태계 기능에 미치는 영향에 관한 우려를 낳았고, 따라서 생물 다양성과 생태계 기능 둘 사이의 관계를 이해하는 것은 지난 20여 년 동안 생태학 연구에서 주요한 초점이 되어 왔다."], ["3", "Elton의 '생물 다양성-침입성 가설'은 높은 생물 다양성이 군집의 경쟁적인 환경을 확장시켜 외래종이 그 군집을 침입하기 더 어렵게 만든다고 제안한다."], ["4", "Elton의 시대 이래로 수많은 생물 다양성 실험이 시행되어 왔고, 다양성과 침입성 사이에서 종종 관측되는 부정적인 관계를 설명하기 위해 여러 메커니즘이 제기되어 왔다."], ["5", "빈 생태적 지위가 생길 가능성은 감소하지만 침입 성공을 막아 줄 경쟁자가 존재할 가능성은 증가하는 것 외에도, 다양한 군집은 자원을 더 완전하게 사용하며, 따라서 침입자들이 그 군집에 자리잡는 능력을 제한한다고 간주된다."], ["6", "게다가, 종이 더 다양한 군집들은 더 안정적이라고 여겨지는데, 왜냐하면 그들은 종이 빈약한 군집들보다 더 넓은 범위의 생태적 지위를 이용하기 때문이다."]], "evh": "전체", "ev": [{"en": true, "h": "high diversity increases the competitive environment of communities and makes them more difficult to invade / diverse communities are assumed to use resources more completely and, therefore, limit the ability of invaders to establish"}, {"en": false, "h": "제목 문제는 <b>가설과 그 근거<\/b>를 함께 봐야 합니다. 이 글은 생물 다양성이 높을수록 외래종의 침입이 <b>어려워진다<\/b>는 가설을 소개하고, 그 이유(자원 경쟁, 생태적 지위 활용)를 설명합니다. 즉 '<b>다양성이 침입에 저항하는 생태계의 수호자<\/b>' 역할을 한다는 것이 핵심입니다."}], "opts": [{"n": "①", "t": "Carve Out More Empty Ecological Spaces!", "a": false, "x": true, "trap": false, "e": "빈 생태적 지위를 <b>더 만들어 내라<\/b>는 내용이 아니라, 다양성이 높으면 빈 지위가 <b>줄어든다<\/b>는 내용입니다."}, {"n": "②", "t": "Guardian of Ecology: Diversity Resists Invasion", "a": true, "x": false, "trap": false, "e": "다양성이 높을수록 경쟁이 치열해져 침입이 어려워진다는 이 글의 핵심을 '<b>생태계의 수호자<\/b>'라는 비유로 정확히 담고 있습니다."}, {"n": "③", "t": "Grasp All, Lose All: Necessity of Species-poor Ecology", "a": false, "x": true, "trap": true, "e": "종이 빈약한 생태계(species-poor ecology)가 <b>필요하다<\/b>는 내용은 없습니다. 오히려 다양성이 <b>안정성<\/b>을 준다고 말합니다."}, {"n": "④", "t": "Challenges in Testing Biodiversity-Invasibility Hypothesis", "a": false, "x": true, "trap": false, "e": "가설을 <b>검증하는 데 있어서의 어려움<\/b>을 다루는 글이 아니라, 가설의 <b>내용과 근거<\/b>를 설명하는 글입니다."}, {"n": "⑤", "t": "Diversity Dilemma: The More Competitive, the Less Secure", "a": false, "x": true, "trap": false, "e": "본문은 다양성이 높을수록 오히려 <b>더 안정적(more stable)<\/b>이라고 말하므로 정반대입니다."}], "w": [["invasion", "침입"], ["non-indigenous species", "외래종"], ["biodiversity", "생물 다양성"], ["hypothesis", "가설"], ["competitive environment", "경쟁적인 환경"], ["mechanism", "메커니즘"], ["establish", "자리잡다"], ["species-poor", "종이 빈약한"]]}, {"q": "03", "type": "주제", "src": "2021학년도 수능 23번", "ans": "③", "tr": [["1", "우리가 사람과 기계를 협력 시스템으로 생각하지 않고, 자동화할 수 있는 일이면 무엇이든 기계에 맡기고 나머지를 사람에게 남길 때 어려움이 발생한다."], ["2", "이것은 결국 사람들이 인간의 능력과는 다른 방식으로, 즉 기계 같은 방식으로 행동하도록 요구하는 결과를 낳는다."], ["3", "우리는 사람들이 기계를 감시하기를 기대하는데, 이는 오랜 시간 동안 경계 태세를 유지하는 것을 의미하며, 이는 우리가 잘 못하는 일이다."], ["4", "우리는 사람들에게 기계가 요구하는 수준의 고도의 정밀함과 정확도로 반복적인 작업을 하도록 요구하는데, 이 역시 우리가 잘하지 못하는 일이다."], ["5", "이런 식으로 작업의 기계적 요소와 인간적 요소를 나눌 때, 우리는 인간의 강점과 역량을 활용하지 못하고 대신 우리가 유전적으로, 생물학적으로 부적합한 영역에 의존하게 된다."], ["6", "하지만 사람들이 실패하면, 그들은 비난받는다."]], "evh": "1~5번 문장", "ev": [{"en": true, "h": "assign whatever tasks can be automated to the machines and leave the rest to people / We expect people to monitor machines ~ something we are bad at / We require people to do repeated operations with the extreme precision ~ not good at"}, {"en": false, "h": "주제 문제는 <b>문제의 원인<\/b>이 근거입니다. 1~4번이 모두 사람에게 '<b>기계가 잘하는 방식(감시, 정밀 반복 작업)<\/b>'을 떠맡기는 것이 문제라고 지적하므로, 이 글의 주제는 '<b>자동화 시스템에서 인간에게 부적합한 일을 할당하는 문제<\/b>'입니다."}], "opts": [{"n": "①", "t": "difficulties of overcoming human weaknesses to avoid failure", "a": false, "x": true, "trap": false, "e": "인간의 약점을 <b>극복하는 방법<\/b>을 다루는 글이 아니라,애초에 <b>부적합한 일이 할당되는 문제<\/b>를 다룹니다."}, {"n": "②", "t": "benefits of allowing machines and humans to work together", "a": false, "x": true, "trap": true, "e": "본문은 협력의 <b>이점<\/b>이 아니라, 협력 시스템으로 생각하지 <b>않을 때 생기는 문제점<\/b>을 다룹니다."}, {"n": "③", "t": "issues of allocating unfit tasks to humans in automated systems", "a": true, "x": false, "trap": false, "e": "2~4번에서 설명하는 '<b>인간에게 기계식 감시·정밀 작업을 떠맡기는 문제<\/b>'가 정확히 이 주제와 일치합니다."}, {"n": "④", "t": "reasons why humans continue to pursue machine automation", "a": false, "x": true, "trap": false, "e": "인간이 <b>왜 자동화를 추구하는지<\/b> 그 이유를 다루는 글이 아닙니다."}, {"n": "⑤", "t": "influences of human actions on a machine's performance", "a": false, "x": true, "trap": false, "e": "인간의 행동이 <b>기계의 성능에 미치는 영향<\/b>이 아니라, 그 반대로 <b>기계 중심 설계가 인간에게 미치는 영향<\/b>을 다룹니다."}], "w": [["collaborative system", "협력 시스템"], ["automate", "자동화하다"], ["monitor", "감시하다"], ["extreme precision", "고도의 정밀함"], ["component", "요소, 부품"], ["take advantage of", "~을 이용하다"], ["unsuited", "부적합한"], ["blame", "비난하다"]]}, {"q": "04", "type": "순서", "src": "2021년 6월 36번", "ans": "⑤", "tr": [["1", "도서관에서 싸우는 두 남자의 이야기를 생각해 보자."], ["2", "한 명은 창문이 열려 있기를 원하고 다른 한 명은 그것이 닫혀 있기를 원한다."], ["3", "그들은 창문을 얼마나 열어 둘지를 두고 왔다갔다하며 논쟁하는데, 살짝, 절반, 혹은 4분의 3 정도로 열어 두자는 것이다."], ["4", "(C) 어떤 해결책도 둘 다를 만족시키지 못한다. 사서가 투입된다. 그녀는 한 명에게 왜 그가 창문이 열려 있기를 원하는지 묻는다. '신선한 공기를 쐬기 위해서.' 그녀는 다른 사람에게 왜 그것이 닫혀 있기를 원하는지 묻는다. '외풍을 피하기 위해서.'"], ["5", "(B) 잠시 생각한 후 그녀는 옆방에서 창문을 활짝 열고, 외풍 없이 신선한 공기를 들여온다. 이 이야기는 많은 협상들의 전형이다. 당사자들의 문제가 입장들의 충돌로 보이기 때문에, 그들은 자연스럽게 입장에 대해 말하는 경향이 있고 종종 교착 상태(막다른 상황)에 이른다."], ["6", "(A) 만약 사서가 창문이 열려 있거나 닫혀 있기를 원하는 두 남자의 언급된 입장에만 집중했다면, 그녀는 자신이 실행한 해결책을 고안해 낼 수 없었을 것이다. 대신 그녀는 신선한 공기와 외풍이 없다는 그들의 근원적인 이해관계를 살펴보았다."]], "evh": "(C) 첫 문장 · (B) 첫 문장 · (A) 첫 문장", "ev": [{"en": true, "h": "No solution satisfies them both. Enter the librarian. / After thinking a minute, she opens wide a window in the next room ~ / The librarian could not have invented the solution she did if she had focused only on the two men's stated positions"}, {"en": false, "h": "순서 문제는 <b>사건의 흐름과 대명사<\/b>로 이어집니다. 주어진 글에서 두 남자가 창문 여닫힘을 두고 다투는 상황을 제시했으므로, 사서가 등장해 문제를 <b>파악하는<\/b> (C)가 먼저 옵니다. (C)에서 두 사람의 이유(신선한 공기 / 외풍 회피)를 알아냈으므로, 그것을 바탕으로 <b>해결책을 실행<\/b>하는 (B)가 이어집니다. 마지막으로 (A)는 그 해결이 가능했던 이유, 즉 <b>입장이 아니라 근원적 이해관계를 살폈기 때문<\/b>이라고 정리합니다."}], "opts": [{"n": "①", "t": "(A) – (C) – (B)", "a": false, "x": true, "trap": false, "e": "(A)의 <b>the solution she did<\/b>는 이미 실행된 해결책을 가리키므로, 해결책이 나오기 전인 맨 앞에 올 수 없습니다."}, {"n": "②", "t": "(B) – (A) – (C)", "a": false, "x": true, "trap": false, "e": "(B)가 먼저 오면 사서가 <b>왜 그런 해결책을 냈는지<\/b>에 대한 배경(두 사람에게 질문한 것)이 아직 나오지 않은 상태입니다."}, {"n": "③", "t": "(B) – (C) – (A)", "a": false, "x": true, "trap": true, "e": "(B)의 해결책 실행이 (C)의 질문(원인 파악)보다 먼저 나오면 순서가 뒤바뀝니다."}, {"n": "④", "t": "(C) – (A) – (B)", "a": false, "x": true, "trap": false, "e": "(C) 다음 바로 (A)가 오면, (A)가 가리키는 '<b>이미 실행한 해결책<\/b>'이 아직 나오지 않은 상태라 어색합니다."}, {"n": "⑤", "t": "(C) – (B) – (A)", "a": true, "x": false, "trap": false, "e": "질문으로 이유를 <b>파악<\/b>(C) → 그 이유를 바탕으로 <b>해결책 실행<\/b>(B) → 그것이 가능했던 <b>이유 정리<\/b>(A)의 흐름이 자연스럽습니다."}], "w": [["quarrel", "다투다"], ["argue back and forth", "왔다갔다하며 논쟁하다"], ["draft", "외풍"], ["underlying interest", "근원적인 이해관계"], ["stated position", "언급된 입장"], ["impasse", "교착 상태"]]}, {"q": "05", "type": "어법", "src": "2015년 9월 28번", "ans": "⑤", "tr": [["1", "왜 일이 돌아가는지, 그리고 일이 예상대로 진행되지 않을 때 무엇이 문제를 일으키고 있는지 생각하는 능력은 우리가 생각하는 방식의 명백한 한 측면처럼 보인다."], ["2", "왜 일이 일어나는지 생각하는 이 능력이, 인간의 능력을 지구상 거의 모든 다른 동물의 능력과 구별해 주는 핵심 능력 중 하나라는 것은 흥미롭다."], ["3", "왜라고 묻는 것은 사람들이 설명을 만들어 내게 한다."], ["4", "아이작 뉴턴은 그저 사과가 나무에서 떨어지는 것을 본 것이 아니다."], ["5", "그는 그 관찰을 이용해 왜 그것이 떨어졌는지 알아내는 데 도움을 받았다."], ["6", "여러분의 자동차 정비공은 그저 여러분의 차가 작동하지 않는다는 것을 관찰하는 것이 아니다."], ["7", "그는 그것이 왜 작동하지 않는지, 그것이 보통 어떻게 제대로 작동하는지에 대한 지식을 이용해 알아낸다."], ["8", "그리고 다섯 살짜리 아이와 시간을 보내 본 사람이라면 누구나, 이 나이의 아이들이 모든 것이 왜 지금처럼 작동하는지에 대한 설명을 얻어내려고 애씀으로써 여러분의 인내심의 한계를 시험할 수 있다는 것을 안다."]], "evh": "8번 문장", "ev": [{"en": true, "h": "And anyone who has spent time with a five-year-old ⑤ knowing that children this age can test the limits of your patience by trying to get explanations for why everything works as it does."}, {"en": false, "h": "어법 문제는 <b>문장의 동사 자리<\/b>를 확인해야 합니다. <b>anyone who has spent time with a five-year-old<\/b>가 <b>주어<\/b>이므로 그 뒤에는 <b>본동사<\/b>가 와야 합니다. 그런데 ⑤ <b>knowing<\/b>은 동명사/분사 형태이므로, 본동사인 <b>knows<\/b>로 고쳐야 어법상 맞습니다."}], "opts": [{"n": "①", "t": "expected", "a": false, "x": true, "trap": false, "e": "<b>as expected<\/b>는 '예상대로'라는 <b>관용어구(as + p.p.)<\/b>로 어법상 적절합니다."}, {"n": "②", "t": "those", "a": false, "x": true, "trap": false, "e": "<b>human abilities<\/b>(복수)의 반복을 피하기 위한 <b>지시대명사 those<\/b>로, 복수 명사를 대신하므로 적절합니다."}, {"n": "③", "t": "fall", "a": false, "x": true, "trap": false, "e": "<b>see<\/b>는 <b>지각동사<\/b>이고 목적어(an apple)와 목적격 보어가 <b>능동 관계<\/b>이므로 <b>동사원형 fall<\/b>이 적절합니다."}, {"n": "④", "t": "that", "a": false, "x": true, "trap": true, "e": "<b>observe<\/b>의 목적어절을 이끄는 <b>명사절 접속사 that<\/b>로, 뒤에 완전한 문장이 오므로 적절합니다."}, {"n": "⑤", "t": "knowing", "a": true, "x": false, "trap": false, "e": "주어 <b>anyone who ~ five-year-old<\/b> 뒤에는 <b>본동사<\/b>가 필요하므로 knowing이 아니라 <b>knows<\/b>가 되어야 합니다."}], "w": [["ability", "능력"], ["aspect", "측면"], ["separate A from B", "A와 B를 구별하다"], ["observation", "관찰"], ["mechanic", "정비공"], ["figure out", "알아내다"], ["patience", "인내심"], ["test the limits", "한계를 시험하다"]]}, {"q": "06", "type": "요지", "src": "2023년 9월 22번", "ans": "④", "tr": [["1", "긍정적인 상상이 생리적 검사에서 드러날 정도로 우리가 긴장을 푸는 데 도움이 된다는 것은 주목할 만하다."], ["2", "긴장을 풀고 싶다면, 심호흡을 하거나, 마사지를 받거나, 산책을 나갈 수 있다 — 하지만 그저 눈을 감고 즐길 만한 미래의 결과를 상상해 볼 수도 있다."], ["3", "하지만 당신의 목표가 소망을 현실로 만드는 것이라면 어떨까?"], ["4", "당신이 가장 되고 싶지 않은 상태는 긴장이 풀린 상태이다."], ["5", "당신은 소파에서 일어나 체중을 줄이거나 일자리를 구하거나 시험 공부를 할 만큼 충분히 활력을 얻고 싶고, 피할 수 없는 장애물이나 어려움이 닥칠 때조차 계속 몰두할 만큼 충분히 동기를 부여받고 싶어 한다."], ["6", "'꿈꿔라. 소망하라. 하라.'라는 원칙은 사실이 아니며, 이제 우리는 그 이유를 안다: 꿈꾸는 것 자체가, 그것을 실행하는 데 필요한 활력을 약화시키기 때문이다."], ["7", "당신은 스스로를 완전한 행복, 침착함 — 그리고 무기력의 일시적인 상태에 빠지게 한다."]], "evh": "4~6번 문장", "ev": [{"en": true, "h": "The last thing you want to be is relaxed. / you want to be energized enough to ~ / in dreaming it, you undercut the energy you need to do it"}, {"en": false, "h": "요지 문제는 <b>글쓴이의 반전 주장<\/b>이 근거입니다. 4~5번에서 목표를 이루려면 긴장이 아니라 <b>활력과 동기<\/b>가 필요하다고 하고, 6번에서 '<b>꿈꾸는 것 자체가 그 활력을 약화시킨다<\/b>'고 결론짓습니다. 즉 낙관적 상상(공상)이 오히려 목표 실현에 필요한 에너지를 <b>깎아 먹는다<\/b>는 것이 요지입니다."}], "opts": [{"n": "①", "t": "과도한 목표 지향적 태도는 삶의 만족감을 떨어뜨린다.", "a": false, "x": true, "trap": false, "e": "목표 지향적 태도의 <b>과도함<\/b>이나 삶의 만족감에 관한 내용은 본문에 없습니다."}, {"n": "②", "t": "긍정적 자세로 역경을 극복할 때 잠재 능력이 발휘된다.", "a": false, "x": true, "trap": true, "e": "본문은 오히려 긍정적 상상(공상)이 <b>목표 달성에 방해가 될 수 있다<\/b>는 반전을 말합니다."}, {"n": "③", "t": "편안함을 느끼는 상황에서 자기 개선에 대한 동기가 생긴다.", "a": false, "x": true, "trap": false, "e": "본문은 정반대로, <b>편안함(relaxed)<\/b>은 목표 실현에 필요한 상태가 <b>아니라고<\/b> 말합니다."}, {"n": "④", "t": "낙관적인 상상은 소망을 실현하는 데 필요한 동력을 약화시킨다.", "a": true, "x": false, "trap": false, "e": "6번의 <b>in dreaming it, you undercut the energy you need to do it<\/b>이 그대로 이 요지입니다."}, {"n": "⑤", "t": "막연한 목표보다는 명확하고 구체적인 목표가 실현 가능성이 크다.", "a": false, "x": true, "trap": false, "e": "목표의 <b>구체성 여부<\/b>를 비교하는 내용은 본문에 없습니다."}], "w": [["positive fantasy", "긍정적인 상상"], ["unwind", "긴장을 풀다"], ["objective", "목표"], ["energized", "활력을 얻은"], ["motivated", "동기를 부여받은"], ["inevitable", "피할 수 없는"], ["undercut", "약화시키다"], ["temporary", "일시적인"]]}]};
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크북 '+CF.sn.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -277,18 +330,22 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
-function hkHtml(it){
-  const E=it[2].split(' / '),K=it[3].split(' / ');
-  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
-  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
-  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
-  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
-  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+function esc2(s){return String(s)}
+function chunkSplit(s){return String(s).split(' / ')}
+function scHtml(c){
+  const esc=String;
+  const E=chunkSplit(c.eng),K=chunkSplit(c.lit);
+  let x='<div class="sc"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span><span class="tt">'+esc(c.title)+'</span></div><div class="sc-b">';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+E[j]+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  if(c.notes.length){x+='<div class="nts">'+c.notes.map(n=>'<span class="nt"><sup>'+n[0]+'</sup> <b>'+esc(n[1])+'</b> '+esc(n[2])+'</span>').join('')+'</div>';}
+  x+='<div class="lay nat"><span class="lb">자연스러운 해석</span>'+esc(c.nat)+'</div>';
+  if(c.ana)x+='<div class="lay ana"><span class="lb">분석</span>'+c.ana+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|분석">자연스러운 해석</button></div></div>';
   return x;
 }
 function renderDk(){
   let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-  HK.forEach(it=>{h+=hkHtml(it);});
+  CF.sn.forEach(c=>{h+=scHtml(c);});
   h+='</div></div>';
   app.innerHTML=h;
 }
@@ -442,41 +499,29 @@ function renderSubmit(){
   const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
 }
 /* ---- 해설 ---- */
-function sHtml(s,evn){
-  const ev=evn.indexOf(s.n)>=0;
-  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
-  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
-  const lays=[];
-  if(s.link)lays.push(['이어 읽으면',s.link]);
-  if(s.easy)lays.push(['쉬운 말로',s.easy]);
-  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
-  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
-  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
-  return x+'</div>';
-}
 function qHtml(i,a){
+  const esc=String;
   const d=D[i],ok=isRight(i,a);
-  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
-  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
-  h+='<h4>정답 근거</h4>';
-  h+=`<p class="en">${esc(d.ev_en)}</p>`;
-  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
-  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
-  if(d.ps&&d.ps.length){
-    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
-  }
-  h+='<h4>선택지 하나씩</h4>';
-  d.ch.forEach(c=>{
-    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  const cq=CF.qs.find(x=>x.q===d.no);
+  if(!cq)return '';
+  let h='<details class="qd" id="qd'+i+'" '+(ok?'':'open')+'><summary>'+esc(cq.q)+'번 · '+esc(cq.type)+'<small>'+esc(cq.src)+'</small><span class="res2 '+(ok?'o':'x')+'">'+(ok?'○ 정답':'✕ 오답')+'</span></summary><div class="qx">';
+  h+='<p class="ansline"><b>정답 '+esc(cq.ans)+'</b>'+(ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>')+'</p>';
+  h+='<details class="sub2"><summary>전문 해석</summary><ol class="trs" style="list-style:none">'+cq.tr.map(t=>'<li><span class="n">'+(t[0]==null?'':esc(t[0]))+'</span>'+t[1]+'</li>').join('')+'</ol></details>';
+  h+='<div class="sec">답의 근거 · '+esc(cq.evh)+'</div><div class="evx">';
+  cq.ev.forEach(p=>{h+=p.en?'<p class="en">'+p.h+'</p>':'<p>'+p.h+'</p>';});
+  h+='</div><div class="sec">선택지 하나씩</div>';
+  cq.opts.forEach(o=>{
+    h+='<div class="opx '+(o.a?'a':'')+'"><div class="ot"><span class="mk">'+esc(o.n)+'</span>'+o.t+(o.a?'<span class="bd g">정답</span>':'')+(o.trap?'<span class="bd t">가장 많이 걸리는 오답</span>':'')+'</div>'+(o.e?'<p>'+(o.x?'<span class="xm">✕</span>':'')+o.e+'</p>':'')+'</div>';
   });
-  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  if(cq.w.length){h+='<div class="sec">단어</div><div class="wds">'+cq.w.map(w=>'<span><b>'+esc(w[0])+'</b>'+esc(w[1])+'</span>').join('')+'</div>';}
+  h+='<button class="toq" data-i="'+i+'">빠른 정답으로</button>';
   return h+'</div></details>';
 }
 function renderExp(){
   const rec=S.sub;
   let h=hdr()+band(4)+'<div class="wrap">';
-  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
-  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='<div class="score">'+rec.s+' <small>/ '+N+'</small></div><h2 id="quick">빠른 정답</h2><div class="qc">';
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+='<button class="qchip '+(ok?'o':'x')+'" data-i="'+i+'"><small>'+esc(D[i].no)+'번</small>'+ansText(i)+' '+(ok?'○':'✕')+'</button>';}
   h+='</div><h2>해설</h2>';
   for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
   h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
@@ -515,13 +560,17 @@ function mmInit(){
 }
 /* 위임 이벤트 */
 document.addEventListener('click',e=>{
+  const qchip=e.target.closest('.qchip');
+  if(qchip){const dd=document.getElementById('qd'+qchip.dataset.i);if(dd){dd.open=true;dd.scrollIntoView({block:'start'});}return;}
+  const toq=e.target.closest('.toq');
+  if(toq){const qq=document.getElementById('quick');if(qq)qq.scrollIntoView({block:'start'});return;}
   const tb=e.target.closest('.tab,.hcard,.gohome');
   if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
   const ch=e.target.closest('.ch');
   if(ch){ch.classList.toggle('open');return;}
   const st=e.target.closest('.stg');
   if(st){
-    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const s=st.closest('.s,.sc'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
     const shown=lays.filter(l=>l.classList.contains('on')).length;
     if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
     else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
@@ -531,7 +580,7 @@ document.addEventListener('click',e=>{
   if(al){
     const open=al.dataset.all==='1',body=al.closest('.dkbody');
     body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
-    body.querySelectorAll('.s').forEach(s=>{
+    body.querySelectorAll('.s,.sc').forEach(s=>{
       const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
       lays.forEach(l=>l.classList.toggle('on',open));
       if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}

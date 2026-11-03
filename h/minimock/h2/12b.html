@@ -142,6 +142,59 @@ details.dk>summary::-webkit-details-marker{display:none}
 details.qd>summary::after{content:'\25BE';margin-left:auto;color:var(--sub)}
 details.qd[open]>summary::after{content:'\25B4'}
 .cell.s{padding:8px 12px;border:1.5px solid transparent;margin:0;background:var(--soft)}.cell.s.bad{background:var(--badbg);border-color:var(--bad)}
+
+/* ---- 새 직독직해·해설 화면 ---- */
+.sc{border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden;background:var(--bg)}
+.sc-h{padding:11px 14px 10px;background:#eef2f8;border-bottom:1px solid var(--line)}
+.sc-h .no2{display:inline-block;min-width:26px;height:26px;line-height:26px;border-radius:13px;background:var(--accent);color:#fff;font-weight:800;font-size:13px;text-align:center;padding:0 7px;margin-right:8px}
+.sc-h .at{font-size:13px;color:var(--sub)}
+.sc-h .tt{display:block;margin-top:7px;font-size:15.5px;font-weight:800;color:var(--accent);line-height:1.45}
+.sc-b{padding:10px 12px 12px}
+.sc .ch{margin-bottom:6px}
+.sc .ce{font-size:17px}
+.sc .ce sup,.nt sup{font-size:10px;font-weight:800;color:#b8651f;margin-left:1px}
+.nts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.nt{font-size:13.5px;line-height:1.5;background:#fbf6ee;border:1px solid #f0e2cd;border-radius:8px;padding:5px 9px;color:#4a3a22}
+.nt b{color:#33260f}
+.sc .lay{border-radius:10px}
+.sc .lay.nat{border-left:4px solid var(--accent);background:#f7f9fc}
+.sc .lay.ana{background:#fff8e6;border-color:#f0dcc0;color:#4d3b05}
+.sc .lay.ana b,.why2 b,.opx b,.evx b{background:linear-gradient(transparent 58%,var(--hl) 58%);font-weight:700}
+.sc .lb{margin-bottom:4px}
+.qc{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.qchip{min-width:56px;padding:9px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-family:inherit;font-size:15px;color:var(--ink);font-weight:700}
+.qchip small{display:block;font-size:11px;font-weight:400;color:var(--sub);margin-bottom:1px}
+.qchip.o{border-color:var(--good);background:var(--goodbg)}
+.qchip.x{border-color:var(--bad);background:var(--badbg)}
+.sec{margin:16px 0 6px;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px}
+.sec:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+.trs{list-style:none;margin:0;padding:0;background:var(--soft);border-radius:10px;padding:8px 12px}
+.trs li{font-size:15px;line-height:1.75;padding:2px 0}
+.trs .n{display:inline-block;min-width:20px;font-size:12px;color:var(--sub);font-weight:700}
+.evx{background:var(--goodbg);border:1px solid #bfe0cd;border-radius:10px;padding:10px 12px}
+.evx .en{background:#fff;border:1px solid #d5eadc;font-size:15.5px;margin:0 0 8px}
+.evx p{margin:6px 0;font-size:15.5px;line-height:1.75}
+.evx .evh{font-size:13px;font-weight:800;color:var(--good);margin-bottom:6px}
+.opx{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px;background:var(--bg)}
+.opx.a{border-color:var(--good);background:var(--goodbg)}
+.opx .ot{font-size:15.5px;font-weight:700;line-height:1.55}
+.opx .mk{display:inline-block;min-width:22px;font-weight:800;color:var(--sub);margin-right:4px}
+.opx.a .mk{color:var(--good)}
+.opx .bd{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.opx .bd.g{background:var(--good)}
+.opx .bd.t{background:#b4472f}
+.opx p{margin:5px 0 0;font-size:14.5px;line-height:1.7;color:#333}
+.opx .xm{color:var(--bad);font-weight:800;margin-right:3px}
+.wds{display:flex;flex-wrap:wrap;gap:6px}
+.wds span{font-size:14px;background:var(--soft);border-radius:8px;padding:5px 9px;line-height:1.45}
+.wds b{margin-right:5px}
+.toq{display:block;width:100%;margin-top:14px;min-height:42px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+details.sub2{margin:12px 0 0}
+details.sub2>summary{list-style:none;cursor:pointer;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;padding:6px 0}
+details.sub2>summary::-webkit-details-marker{display:none}
+details.sub2>summary:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+details.sub2>summary:after{content:"+";margin-left:auto;font-size:18px;color:var(--sub)}
+details.sub2[open]>summary:after{content:"\2212"}
 </style>
 </head>
 <body>
@@ -248,8 +301,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const HK=[["07", "1", "When we were infants, / we were tuned in to the signals from our body / that told us when to eat and when to stop.", "우리가 유아였을 때, / 우리는 우리 몸으로부터 오는 신호에 민감하게 반응했다 / 언제 먹고 언제 멈춰야 할지를 우리에게 말해 주던", "우리가 유아였을 때, 우리는 언제 먹고 언제 멈춰야 할지를 말해 주는 몸의 신호에 민감하게 반응했다.", "<b>When ~<\/b>은 시간의 <b>부사절<\/b>이고, <b>that told us ~<\/b>는 the signals from our body를 수식하는 <b>주격 관계대명사절<\/b>이다."], ["07", "7", "If we are to return to a healthy and balanced relationship with food, / it is essential that we learn to turn our awareness inward and to hear again / what our body is always telling us.", "만약 우리가 음식과의 건강하고 균형 잡힌 관계로 돌아가려면, / 우리가 우리의 인식을 안으로 돌리고 다시 듣는 법을 배우는 것이 필수적이다 / 우리의 몸이 항상 우리에게 말해 주고 있는 것을", "음식과의 건강하고 균형 잡힌 관계로 돌아가려면, 우리의 인식을 안으로 돌려 몸이 항상 우리에게 말해 주는 것을 다시 듣는 법을 배우는 것이 필수적이다.", "<b>be to부정사(are to return)<\/b>는 '~하려면'이라는 의도·예정을 나타내고, <b>it<\/b>은 가주어, <b>that ~<\/b>이 진주어이며 그 안에 <b>what ~<\/b> 의문사절이 목적어로 쓰였다."], ["08", "1", "Inappropriate precision means giving information or figures / to a greater degree of apparent accuracy / than suits the context.", "부적절한 정밀성은 정보나 수치를 제공하는 것을 의미한다 / 겉보기의 정확성이 더 큰 정도로 / 맥락에 맞는 것보다", "부적절한 정밀성이란 맥락에 맞는 정도보다 더 큰 겉보기의 정확성으로 정보나 수치를 제공하는 것을 의미한다.", "<b>means<\/b>의 목적어로 <b>동명사구(giving ~)<\/b>가 쓰였고, <b>than suits the context<\/b>는 <b>비교급<\/b> 구문이다."], ["08", "7", "Even if the whole population had been surveyed, / to have given the result to two decimal points / would have been absurd.", "설령 전체 모집단이 조사되었다 하더라도, / 그 결과를 소수점 두 자리까지 제시하는 것은 / 터무니없었을 것이다", "설령 전체 모집단이 조사되었다 하더라도, 그 결과를 소수점 두 자리까지 제시하는 것은 터무니없었을 것이다.", "<b>Even if ~ had been surveyed<\/b>는 <b>양보의 부사절(가정법 과거완료)<\/b>이고, <b>to have given ~<\/b>은 <b>완료부정사<\/b>로 주절의 시제보다 앞선 일을 나타내며 주절 <b>would have been<\/b>과 함께 가정법을 이룬다."], ["09", "2", "Once parks are in place, / they are no inert stage / — their purposes and meanings are made and remade by planners and by park users.", "일단 공원이 조성되면, / 그것들은 결코 정지된 무대가 아니다 / — 그것들의 목적과 의미는 계획자들과 공원 이용자들에 의해 만들어지고 다시 만들어진다", "일단 공원이 조성되고 나면, 공원은 결코 정지된 무대가 아니라, 계획자와 이용자들에 의해 그 목적과 의미가 계속 만들어지고 다시 만들어진다.", "<b>Once ~<\/b>는 '일단 ~하면'이라는 <b>부사절<\/b>이고, <b>are made and remade<\/b>는 <b>수동태<\/b>가 and로 <b>병렬<\/b> 연결된 구조이다."], ["09", "4", "Indeed, what distinguishes a park from the broader category of public space / is the representation of nature / that parks are meant to embody.", "실제로, 공원을 더 넓은 범주의 공공 공간과 구별하는 것은 / 자연의 표현이다 / 공원이 구현하기로 되어 있는", "실제로, 공원을 더 넓은 범주의 공공 공간과 구별해 주는 것은 공원이 구현하도록 되어 있는 자연의 표현이다.", "<b>what ~<\/b>은 문장의 <b>주어<\/b> 역할을 하는 관계대명사절이고, <b>that parks are meant to embody<\/b>는 the representation of nature를 수식하는 <b>목적격 관계대명사절<\/b>이다."], ["10", "D-4", "He insisted / that William retire for the night / when the rest of the family did.", "그는 고집했다 / 윌리엄이 잠자리에 들어야 한다고 / 가족의 나머지 사람들이 그럴 때", "그는 가족의 다른 사람들이 잠자리에 들 때 윌리엄도 잠자리에 들어야 한다고 고집했다.", "<b>insist that ~<\/b>의 that절에는 당위성을 나타내는 <b>동사원형(should retire에서 should 생략)<\/b>이 쓰였고, <b>when ~<\/b>은 시간의 부사절이다."], ["10", "C-2", "His father grabbed a broomstick and chased his son around the room, / yelling, / \"Young man, if you don't get to bed right now, I'll kick you out of the house!\"", "그의 아버지는 빗자루를 붙잡고 그의 아들을 방 안에서 뒤쫓았다, / 소리치면서, / \"젊은이, 지금 당장 잠자리에 들지 않으면, 내가 너를 집에서 쫓아낼 것이다!\"라고", "아버지는 빗자루를 붙잡고 방 안에서 아들을 뒤쫓으며 \"젊은이, 지금 당장 잠자리에 들지 않으면 집에서 쫓아내겠다!\"라고 소리쳤다.", "<b>grabbed<\/b>와 <b>chased<\/b>는 and로 <b>병렬<\/b> 연결된 동사이고, <b>yelling ~<\/b>은 동시동작을 나타내는 <b>분사구문<\/b>이다."]];
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const CF={"sn": [{"i": "01", "q": "07", "s": "1", "title": "부사절 when + 주격 관계대명사 that", "eng": "When we were infants<sup>1<\/sup>, / we were tuned in to<sup>2<\/sup> the signals<sup>3<\/sup> from our body / that told us when to eat and when to stop.", "notes": [["1", "infant", "유아"], ["2", "be tuned in to", "민감하게 반응하는"], ["3", "signal", "신호"]], "lit": "우리가 유아였을 때, / 우리는 우리 몸으로부터 오는 신호에 민감하게 반응했다 / 언제 먹고 언제 멈춰야 할지를 우리에게 말해 주던", "nat": "우리가 유아였을 때, 우리는 언제 먹고 언제 멈춰야 할지를 말해 주는 몸의 신호에 민감하게 반응했다.", "ana": "<b>When ~<\/b>은 시간의 <b>부사절<\/b>이고, <b>that told us ~<\/b>는 the signals from our body를 수식하는 <b>주격 관계대명사절<\/b>이다."}, {"i": "02", "q": "07", "s": "7", "title": "be to부정사(예정) + 가주어 it + that절 + 의문사절 목적어", "eng": "If we are to return to a healthy and balanced relationship with food, / it is essential<sup>1<\/sup> that we learn to turn our awareness inward<sup>2<\/sup> and to hear again / what our body is always telling us.", "notes": [["1", "essential", "필수적인"], ["2", "inward", "안으로"]], "lit": "만약 우리가 음식과의 건강하고 균형 잡힌 관계로 돌아가려면, / 우리가 우리의 인식을 안으로 돌리고 다시 듣는 법을 배우는 것이 필수적이다 / 우리의 몸이 항상 우리에게 말해 주고 있는 것을", "nat": "음식과의 건강하고 균형 잡힌 관계로 돌아가려면, 우리의 인식을 안으로 돌려 몸이 항상 우리에게 말해 주는 것을 다시 듣는 법을 배우는 것이 필수적이다.", "ana": "<b>be to부정사(are to return)<\/b>는 '~하려면'이라는 의도·예정을 나타내고, <b>it<\/b>은 가주어, <b>that ~<\/b>이 진주어이며 그 안에 <b>what ~<\/b> 의문사절이 목적어로 쓰였다."}, {"i": "03", "q": "08", "s": "1", "title": "동명사 목적어(giving) + 비교급(than)", "eng": "Inappropriate precision means giving information or figures / to a greater degree of apparent accuracy<sup>1<\/sup> / than suits the context<sup>2<\/sup>.", "notes": [["1", "apparent accuracy", "겉보기의 정확성"], ["2", "suit the context", "맥락에 맞다"]], "lit": "부적절한 정밀성은 정보나 수치를 제공하는 것을 의미한다 / 겉보기의 정확성이 더 큰 정도로 / 맥락에 맞는 것보다", "nat": "부적절한 정밀성이란 맥락에 맞는 정도보다 더 큰 겉보기의 정확성으로 정보나 수치를 제공하는 것을 의미한다.", "ana": "<b>means<\/b>의 목적어로 <b>동명사구(giving ~)<\/b>가 쓰였고, <b>than suits the context<\/b>는 <b>비교급<\/b> 구문이다."}, {"i": "04", "q": "08", "s": "7", "title": "even if 양보 + 완료부정사(to have p.p.) + 가정법 과거완료", "eng": "Even if the whole population had been surveyed<sup>1<\/sup>, / to have given the result to two decimal points<sup>2<\/sup> / would have been absurd<sup>3<\/sup>.", "notes": [["1", "survey", "조사되다"], ["2", "decimal point", "소수점"], ["3", "absurd", "터무니없는"]], "lit": "설령 전체 모집단이 조사되었다 하더라도, / 그 결과를 소수점 두 자리까지 제시하는 것은 / 터무니없었을 것이다", "nat": "설령 전체 모집단이 조사되었다 하더라도, 그 결과를 소수점 두 자리까지 제시하는 것은 터무니없었을 것이다.", "ana": "<b>Even if ~ had been surveyed<\/b>는 <b>양보의 부사절(가정법 과거완료)<\/b>이고, <b>to have given ~<\/b>은 <b>완료부정사<\/b>로 주절의 시제보다 앞선 일을 나타내며 주절 <b>would have been<\/b>과 함께 가정법을 이룬다."}, {"i": "05", "q": "09", "s": "2", "title": "부사절 once + 수동태 병렬(are made and remade)", "eng": "Once parks are in place, / they are no inert stage<sup>1<\/sup> / — their purposes and meanings are made and remade<sup>2<\/sup> by planners and by park users.", "notes": [["1", "inert stage", "정지된 무대"], ["2", "remade", "다시 만들어진"]], "lit": "일단 공원이 조성되면, / 그것들은 결코 정지된 무대가 아니다 / — 그것들의 목적과 의미는 계획자들과 공원 이용자들에 의해 만들어지고 다시 만들어진다", "nat": "일단 공원이 조성되고 나면, 공원은 결코 정지된 무대가 아니라, 계획자와 이용자들에 의해 그 목적과 의미가 계속 만들어지고 다시 만들어진다.", "ana": "<b>Once ~<\/b>는 '일단 ~하면'이라는 <b>부사절<\/b>이고, <b>are made and remade<\/b>는 <b>수동태<\/b>가 and로 <b>병렬<\/b> 연결된 구조이다."}, {"i": "06", "q": "09", "s": "4", "title": "관계대명사 what(주어) + 목적격 관계대명사 that + be meant to", "eng": "Indeed, what distinguishes<sup>1<\/sup> a park from the broader category<sup>2<\/sup> of public space / is the representation of nature / that parks are meant to embody<sup>3<\/sup>.", "notes": [["1", "distinguish", "구별하다"], ["2", "broader category", "더 넓은 범주"], ["3", "embody", "구현하다"]], "lit": "실제로, 공원을 더 넓은 범주의 공공 공간과 구별하는 것은 / 자연의 표현이다 / 공원이 구현하기로 되어 있는", "nat": "실제로, 공원을 더 넓은 범주의 공공 공간과 구별해 주는 것은 공원이 구현하도록 되어 있는 자연의 표현이다.", "ana": "<b>what ~<\/b>은 문장의 <b>주어<\/b> 역할을 하는 관계대명사절이고, <b>that parks are meant to embody<\/b>는 the representation of nature를 수식하는 <b>목적격 관계대명사절<\/b>이다."}, {"i": "07", "q": "10", "s": "D-4", "title": "insist that + 동사원형(should 생략) + 부사절 when", "eng": "He insisted<sup>1<\/sup> / that William retire<sup>2<\/sup> for the night / when the rest of the family did.", "notes": [["1", "insist", "고집했다"], ["2", "retire", "잠자리에 들다"]], "lit": "그는 고집했다 / 윌리엄이 잠자리에 들어야 한다고 / 가족의 나머지 사람들이 그럴 때", "nat": "그는 가족의 다른 사람들이 잠자리에 들 때 윌리엄도 잠자리에 들어야 한다고 고집했다.", "ana": "<b>insist that ~<\/b>의 that절에는 당위성을 나타내는 <b>동사원형(should retire에서 should 생략)<\/b>이 쓰였고, <b>when ~<\/b>은 시간의 부사절이다."}, {"i": "08", "q": "10", "s": "C-2", "title": "동사 병렬(grabbed, chased) + 분사구문(yelling)", "eng": "His father grabbed<sup>1<\/sup> a broomstick<sup>2<\/sup> and chased his son around the room, / yelling, / \"Young man, if you don't get to bed right now, I'll kick you out<sup>3<\/sup> of the house!\"", "notes": [["1", "grab", "붙잡았다"], ["2", "broomstick", "빗자루"], ["3", "kick out", "쫓아내다"]], "lit": "그의 아버지는 빗자루를 붙잡고 그의 아들을 방 안에서 뒤쫓았다, / 소리치면서, / \"젊은이, 지금 당장 잠자리에 들지 않으면, 내가 너를 집에서 쫓아낼 것이다!\"라고", "nat": "아버지는 빗자루를 붙잡고 방 안에서 아들을 뒤쫓으며 \"젊은이, 지금 당장 잠자리에 들지 않으면 집에서 쫓아내겠다!\"라고 소리쳤다.", "ana": "<b>grabbed<\/b>와 <b>chased<\/b>는 and로 <b>병렬<\/b> 연결된 동사이고, <b>yelling ~<\/b>은 동시동작을 나타내는 <b>분사구문<\/b>이다."}], "qs": [{"q": "07", "type": "무관 문장", "src": "2019년 3월 35번", "ans": "④", "tr": [["1", "우리가 유아였을 때, 우리는 언제 먹고 언제 멈춰야 할지를 말해 주는 몸의 신호에 민감하게 반응했다."], ["2", "우리는 우리 몸이 어떤 음식을, 얼마나 많이 필요로 하는지에 대한 본능적인 인식을 가지고 있었다."], ["3", "①우리가 나이가 들면서 이러한 내면의 지혜는 어떻게 먹어야 하는지를 말해 주는 당혹스러울 만큼 많은 외부의 목소리들 속에서 사라졌다."], ["4", "②우리는 부모, 또래, 그리고 과학적 연구로부터 상충하는 메시지를 받았다."], ["5", "③이 메시지들은 우리가 그저 먹거나 딱 적당히 먹지 못하게 만드는 욕구, 충동, 반감의 혼란을 만들어냈다."], ["6", "④그것들은 우리가 사물을 올바른 관점으로 볼 수 있도록 도와주었고, 그리하여 세상에 대한 통찰을 갖게 해 주었다."], ["7", "⑤만약 우리가 음식과의 건강하고 균형 잡힌 관계로 돌아가려면, 우리의 인식을 안으로 돌려 몸이 항상 우리에게 말해 주는 것을 다시 듣는 법을 배우는 것이 필수적이다."]], "evh": "2·3번 문장", "ev": [{"en": true, "h": "We had an instinctive awareness of what foods and how much food our body needed. / As we grew older this inner wisdom became lost in a bewildering host of outer voices that told us how we should eat."}, {"en": false, "h": "몸에 대한 본능적 인식이 있었지만(2번) 나이가 들며 그 지혜를 잃었다는 3번의 내용과 정반대로, ④번은 외부 메시지들이 오히려 '올바른 관점을 갖게 도와주었다'는 긍정적 내용이므로 전체 흐름과 관계가 없다."}], "opts": [{"n": "①", "t": "①", "a": false, "x": true, "trap": false, "e": "나이가 들며 내면의 지혜가 외부 목소리 속에서 사라졌다는 내용으로 글의 흐름과 일치한다."}, {"n": "②", "t": "②", "a": false, "x": true, "trap": false, "e": "부모, 또래, 연구로부터 상충하는 메시지를 받았다는 내용으로 흐름과 일치한다."}, {"n": "③", "t": "③", "a": false, "x": true, "trap": false, "e": "그 메시지들이 혼란을 만들어 제대로 먹지 못하게 했다는 내용으로 흐름과 일치한다."}, {"n": "④", "t": "④", "a": true, "x": false, "trap": false, "e": "이 글은 외부 메시지가 몸의 신호를 잃게 하고 혼란을 만들었다는 부정적 내용인데, ④번은 그것들이 '통찰을 갖게 해 주었다'는 긍정적 내용이므로 전체 흐름과 관계가 없다."}, {"n": "⑤", "t": "⑤", "a": false, "x": true, "trap": true, "e": "건강한 관계로 돌아가려면 몸의 신호를 다시 들어야 한다는 결론으로 흐름과 자연스럽게 이어진다."}], "w": [["instinctive awareness", "본능적인 인식"], ["inner wisdom", "내면의 지혜"], ["bewildering", "당혹스러운"], ["conflicting message", "상충하는 메시지"], ["confusion", "혼란"], ["aversion", "반감, 혐오"], ["insight", "통찰"], ["turn inward", "안으로 향하다"]]}, {"q": "08", "type": "요약문", "src": "2016년 11월 40번", "ans": "①", "tr": [["1", "부적절한 정밀성이란 맥락에 맞는 정도보다 더 큰 겉보기의 정확성으로 정보나 수치를 제공하는 것을 의미한다."], ["2", "예를 들어, 광고주들은 흔히 자신들의 제품에 대해 주장하는 바를 입증하기 위해 설문 조사 결과를 사용한다."], ["3", "때때로 그들은 증거에 신뢰할 수 있게 근거하지 않은 정밀도 수준을 주장한다."], ["4", "그래서, 만약 세탁 세제를 판매하는 한 회사가 영국 성인의 95.45%가 이 세제가 다른 어떤 것보다 더 하얗게 세탁이 된다는 것에 동의한다고 주장한다면, 이 정밀도 수준은 명백히 부적절하다."], ["5", "모든 영국 성인이 조사되었을 가능성은 낮으므로, 그 결과는 전체 모집단이 아니라 표본에만 근거한 것이다."], ["6", "잘해야 그 회사는 조사받은 사람들 중 95% 이상이 자사 세제가 다른 어떤 것보다 더 하얗게 세탁이 된다는 데 동의했다고 주장해야 할 것이다."], ["7", "설령 전체 모집단이 조사되었다 하더라도, 그 결과를 소수점 두 자리까지 제시하는 것은 터무니없었을 것이다."], ["8", "그 효과는 연구에서 높은 수준의 과학적 정밀성을 제시하는 것이다."], ["9", "하지만 흔히, 부적절한 정밀성은 연구의 비과학적 성질을 감추려는 시도이다."]], "evh": "1·9번 문장", "ev": [{"en": true, "h": "Inappropriate precision means giving information or figures to a greater degree of apparent accuracy than suits the context. / Frequently, however, inappropriate precision is an attempt to mask the unscientific nature of a study."}, {"en": false, "h": "부적절한 정밀성은 맥락보다 과도하게 정확해 보이는 정보를 주는 것이라는 1번과, 이것이 연구의 비과학적 성질을 감추려는 시도라는 9번의 결론을 종합하면 (A)에는 '과도한(excessive)', (B)에는 '신뢰성(reliability)'이 들어가야 한다."}], "opts": [{"n": "①", "t": "excessive ····· reliability", "a": true, "x": false, "trap": false, "e": "맥락보다 과도하게 정확해 보이는 정보를 제공하며(1번) 그것이 연구의 신뢰성 부족을 감추려는 시도라는(9번) 내용과 정확히 일치한다."}, {"n": "②", "t": "excessive ····· popularity", "a": false, "x": true, "trap": false, "e": "인기(popularity)의 부족을 감추려 한다는 내용은 본문에 없다."}, {"n": "③", "t": "sufficient ····· investment", "a": false, "x": true, "trap": false, "e": "충분한(sufficient) 정밀성이 아니라 '과도한' 정밀성이 문제이며, 투자(investment)에 관한 언급도 없다."}, {"n": "④", "t": "reasonable ····· integrity", "a": false, "x": true, "trap": true, "e": "본문이 지적하는 것은 '부적절한, 과도한' 정밀성이지 '합리적인(reasonable)' 정밀성이 아니다."}, {"n": "⑤", "t": "reasonable ····· availability", "a": false, "x": true, "trap": false, "e": "마찬가지로 reasonable은 본문과 반대되며, 이용 가능성(availability)에 관한 내용도 없다."}], "w": [["inappropriate precision", "부적절한 정밀성"], ["apparent accuracy", "겉보기의 정확성"], ["claim", "주장하다"], ["reliably", "신뢰할 수 있게"], ["sample", "표본"], ["whole population", "전체 모집단"], ["absurd", "터무니없는"], ["mask", "감추다, 가리다"], ["unscientific nature", "비과학적 성질"]]}, {"q": "09", "type": "문장삽입", "src": "2023학년도 수능 38번", "ans": "⑤", "tr": [["1", "공원은 그 시대의 문화적 관심사에 의해 요구되는 형태를 취한다."], ["2", "일단 공원이 조성되고 나면, 공원은 결코 정지된 무대가 아니라, 계획자와 이용자들에 의해 그 목적과 의미가 계속 만들어지고 다시 만들어진다."], ["3", "하지만 공원이 만들어지는 순간들은 특히 시사하는 바가 큰데, 그것들이 자연과 도시 사회의 관계에 대한 생각을 드러내고 구체화하기 때문이다."], ["4", "실제로, 공원을 더 넓은 범주의 공공 공간과 구별해 주는 것은 공원이 구현하도록 되어 있는 자연의 표현이다."], ["5", "공공 공간에는 공원, 콘크리트 광장, 인도, 심지어 실내 아트리움까지 포함된다."], ["6", "공원은 일반적으로 나무, 잔디, 그리고 다른 식물들을 중심 특징으로 가진다."], ["7", "도시 공원에 들어설 때, 사람들은 흔히 거리, 자동차, 건물들로부터의 뚜렷한 분리를 상상한다."], ["8", "그것에는 이유가 있다: 전통적으로, 공원 설계자들은 공원 경계에 키 큰 나무를 심고, 돌담을 쌓고, 다른 구획 수단을 만듦으로써 그러한 느낌을 만들어내려고 시도했다."], ["9", "이 생각의 배경에는 조경 건축가들이 미적으로 암시적인 공원 공간을 설계하고자 하는 욕구뿐만 아니라, 도시와 자연을 대립하는 공간이자 대립하는 힘으로 그리는 훨씬 더 오래된 서구 사상의 역사가 있다."]], "evh": "⑤ 앞뒤 문맥", "ev": [{"en": true, "h": "When entering a city park, people often imagine a sharp separation from streets, cars, and buildings. → (given) → What's behind this idea is not only landscape architects' desire ~"}, {"en": false, "h": "'뚜렷한 분리를 상상한다'는 문장 바로 뒤에 '그 이유(reason for that)'로 공원 설계자들이 나무·돌담 등으로 그러한 분리감을 의도적으로 만들었다는 주어진 문장이 들어가야, 이어지는 'What's behind this idea(이 생각의 배경)'가 자연스럽게 그 설계 의도를 가리키게 되므로 ⑤가 정답이다."}], "opts": [{"n": "①", "t": "①", "a": false, "x": true, "trap": false, "e": "이 위치 앞에는 아직 '분리감'이라는 개념 자체가 나오지 않았으므로 'a reason for that'이 가리킬 대상이 없다."}, {"n": "②", "t": "②", "a": false, "x": true, "trap": false, "e": "공원과 공공 공간을 구별하는 내용이 이어지는 자리로, 분리감에 대한 '이유'가 들어가기에는 이르다."}, {"n": "③", "t": "③", "a": false, "x": true, "trap": false, "e": "공공 공간의 종류를 나열하는 자리이므로 주어진 문장과 흐름이 맞지 않는다."}, {"n": "④", "t": "④", "a": false, "x": true, "trap": true, "e": "공원의 중심 특징(나무, 잔디 등)을 설명하는 자리로, 아직 '분리감'이 언급되지 않았다."}, {"n": "⑤", "t": "⑤", "a": true, "x": false, "trap": false, "e": "'사람들이 거리·자동차·건물로부터 뚜렷한 분리를 상상한다'는 문장 바로 뒤에 그 '이유'를 설명하는 주어진 문장이 오고, 이어서 'What's behind this idea'가 그 설계 의도를 가리키는 것이 가장 자연스럽다."}], "w": [["park designer", "공원 설계자"], ["boundary", "경계"], ["partition", "칸막이, 구획"], ["inert stage", "활동 없는 단계, 정지된 무대"], ["distinguish A from B", "A를 B와 구별하다"], ["public space", "공공 공간"], ["embody", "구현하다"], ["sharp separation", "뚜렷한 분리"], ["landscape architect", "조경 건축가"], ["antithetical", "대조적인, 대립적인"]]}, {"q": "10", "type": "순서", "src": "2016년 3월 43번", "ans": "④", "tr": [["1", "윌리엄 밀러는 가족이 잠자리에 든 후에도 깨어 있다가, 아침까지 책을 읽었다."], ["2", "양초는 비쌌지만 관솔은 많이 있었고, (a)그가 해야 할 일이라고는 숲에서 그것들을 모으는 것뿐이었다."], ["3", "그래서 윌리엄은 밤에 책을 읽기 위한 불빛으로 벽난로에서 관솔을 태우는 습관을 들이게 되었다."], ["4", "하지만 그의 아버지는 그 습관을 좋아하지 않았고 그것을 막으려 했다."], ["5", "그의 아버지는 아들의 밤늦은 독서가 다음 날의 노동을 위한 (e)그의 기운을 갉아먹을 것이라고 느꼈다."], ["6", "그리고 농장은 아들에게서 얻을 수 있는 모든 노동력을 필요로 했다."], ["7", "그는 가족의 다른 사람들이 잠자리에 들 때 윌리엄도 잠자리에 들어야 한다고 고집했다."], ["8", "그리고 그의 아버지는 자라나는 소년이 밤새 푹 자야 한다고 생각했다."], ["9", "하지만 윌리엄의 \"비밀스러운 생활\"은 한동안 계속되었다."], ["10", "밤마다 그는 할 수 있는 한 오래 책을 읽은 뒤, (b)그의 방식대로 위층으로 돌아가서, 아침 집안일을 할 시간이 될 때까지 잠을 잤다."], ["11", "하지만 어느 날 밤 그가 예상하지 못했던 일이 일어났다."], ["12", "그의 아버지가 잠에서 깨어 아래층에서 불빛을 보았다."], ["13", "집에 불이 났다고 생각하여, (c)그는 자신의 집과 가족을 불길로부터 구하기 위해 서둘러 계단을 뛰어 내려왔다."], ["14", "하지만 집에 불이 난 것이 아니라, 그는 아들 윌리엄이 이웃에게서 빌린 책을 읽으며 벽난로 앞에 평화롭게 누워 있는 것을 보았다."], ["15", "아버지는 빗자루를 붙잡고 방 안에서 아들을 뒤쫓으며 \"젊은이, 지금 당장 잠자리에 들지 않으면 집에서 쫓아내겠다!\"라고 소리쳤다."], ["16", "윌리엄은 적어도 그날 밤만큼은 잠자리에 들었다."], ["17", "(d)그는 그저 그 지역사회의 교사들에게서는 받을 수 없는 교육을 얻으려 애쓰고 있었을 뿐이었다."]], "evh": "D·B·C", "ev": [{"en": true, "h": "But his father didn't like the habit and tried to stop it. ~ / William's \"secret life\" continued for some time, though. ~ His father awoke and saw a glow downstairs. ~ / Instead of a house fire, however, he saw his son William lying peacefully before the fireplace reading a book ~"}, {"en": false, "h": "(A)에서 윌리엄이 관솔불로 밤에 책 읽는 습관을 들인 뒤, 아버지가 그 습관을 못마땅해하며 막으려 하고(D), 그럼에도 몰래 계속되던 습관이 어느 날 밤 아버지에게 발각될 위기를 맞고(B), 결국 불이 아니라 아들이 책을 읽고 있는 모습을 보게 되는(C) 순서로 이어지는 것이 자연스러우므로 (D)-(B)-(C)가 정답이다."}], "opts": [{"n": "①", "t": "(B)-(D)-(C)", "a": false, "x": true, "trap": false, "e": "(B)의 '비밀스러운 생활이 계속되었다'는 내용은 아버지가 그 습관을 막으려 했다는 배경(D)이 먼저 나온 뒤에 와야 자연스럽다."}, {"n": "②", "t": "(C)-(B)-(D)", "a": false, "x": true, "trap": false, "e": "(C)는 아버지가 아들이 책을 읽고 있는 것을 발견하는 결말 부분이므로 가장 마지막에 와야 한다."}, {"n": "③", "t": "(C)-(D)-(B)", "a": false, "x": true, "trap": true, "e": "같은 이유로 (C)가 가장 먼저 올 수 없다."}, {"n": "④", "t": "(D)-(B)-(C)", "a": true, "x": false, "trap": false, "e": "아버지가 습관을 막으려 하고(D), 몰래 계속되던 습관이 어느 날 밤 발각될 위기를 맞고(B), 결국 아들이 책을 읽던 것임을 알게 되는(C) 순서가 논리적으로 자연스럽다."}, {"n": "⑤", "t": "(D)-(C)-(B)", "a": false, "x": true, "trap": false, "e": "(C)의 발각 장면은 (B)에서 아버지가 불빛을 보고 뛰어 내려온 뒤에 일어나는 일이므로, (C)가 (B)보다 먼저 올 수 없다."}], "w": [["stay up", "자지 않고 깨어 있다"], ["pine knot", "관솔(송진이 엉긴 소나무 옹이)"], ["form the habit of", "~하는 습관을 들이다"], ["fireplace", "벽난로"], ["cut into", "~을 갉아먹다, 잠식하다"], ["ounce of work", "조금의 노동"], ["insist", "고집하다, 주장하다"], ["retire for the night", "잠자리에 들다"], ["sleep soundly", "푹 자다"], ["secret life", "비밀스러운 생활"], ["morning chores", "아침 집안일"]]}, {"q": "11", "type": "지칭 추론", "src": "2016년 3월 44번", "ans": "③", "tr": [["1", "윌리엄 밀러는 가족이 잠자리에 든 후에도 깨어 있다가, 아침까지 책을 읽었다."], ["2", "양초는 비쌌지만 관솔은 많이 있었고, (a)그가 해야 할 일이라고는 숲에서 그것들을 모으는 것뿐이었다."], ["3", "그래서 윌리엄은 밤에 책을 읽기 위한 불빛으로 벽난로에서 관솔을 태우는 습관을 들이게 되었다."], ["4", "하지만 그의 아버지는 그 습관을 좋아하지 않았고 그것을 막으려 했다."], ["5", "그의 아버지는 아들의 밤늦은 독서가 다음 날의 노동을 위한 (e)그의 기운을 갉아먹을 것이라고 느꼈다."], ["6", "그리고 농장은 아들에게서 얻을 수 있는 모든 노동력을 필요로 했다."], ["7", "그는 가족의 다른 사람들이 잠자리에 들 때 윌리엄도 잠자리에 들어야 한다고 고집했다."], ["8", "그리고 그의 아버지는 자라나는 소년이 밤새 푹 자야 한다고 생각했다."], ["9", "하지만 윌리엄의 \"비밀스러운 생활\"은 한동안 계속되었다."], ["10", "밤마다 그는 할 수 있는 한 오래 책을 읽은 뒤, (b)그의 방식대로 위층으로 돌아가서, 아침 집안일을 할 시간이 될 때까지 잠을 잤다."], ["11", "하지만 어느 날 밤 그가 예상하지 못했던 일이 일어났다."], ["12", "그의 아버지가 잠에서 깨어 아래층에서 불빛을 보았다."], ["13", "집에 불이 났다고 생각하여, (c)그는 자신의 집과 가족을 불길로부터 구하기 위해 서둘러 계단을 뛰어 내려왔다."], ["14", "하지만 집에 불이 난 것이 아니라, 그는 아들 윌리엄이 이웃에게서 빌린 책을 읽으며 벽난로 앞에 평화롭게 누워 있는 것을 보았다."], ["15", "아버지는 빗자루를 붙잡고 방 안에서 아들을 뒤쫓으며 \"젊은이, 지금 당장 잠자리에 들지 않으면 집에서 쫓아내겠다!\"라고 소리쳤다."], ["16", "윌리엄은 적어도 그날 밤만큼은 잠자리에 들었다."], ["17", "(d)그는 그저 그 지역사회의 교사들에게서는 받을 수 없는 교육을 얻으려 애쓰고 있었을 뿐이었다."]], "evh": "(c)", "ev": [{"en": true, "h": "Thinking the house was on fire, (c) he came rushing down the stairs to save his home and family from going up in flames."}, {"en": false, "h": "(a), (b), (d)는 모두 윌리엄을 가리키지만, (c)는 불이 난 줄 알고 뛰어 내려온 아버지를 가리키므로 나머지 셋과 다르다."}], "opts": [{"n": "①", "t": "(a)", "a": false, "x": true, "trap": false, "e": "'(a)그가 해야 할 일이라고는 숲에서 관솔을 모으는 것뿐이었다'에서 (a)는 앞서 언급된 윌리엄을 가리킨다."}, {"n": "②", "t": "(b)", "a": false, "x": true, "trap": false, "e": "'(b)그의 방식대로 위층으로 돌아갔다'에서 (b)는 밤마다 책을 읽던 윌리엄을 가리킨다."}, {"n": "③", "t": "(c)", "a": true, "x": false, "trap": false, "e": "'집에 불이 났다고 생각하여 (c)그는 서둘러 계단을 뛰어 내려왔다'에서 (c)는 불빛을 보고 놀라 뛰어온 아버지를 가리키므로, 나머지가 모두 윌리엄을 가리키는 것과 다르다."}, {"n": "④", "t": "(d)", "a": false, "x": true, "trap": false, "e": "'(d)그는 그저 교육을 얻으려 애쓰고 있었을 뿐이었다'에서 (d)는 몰래 책을 읽던 윌리엄을 가리킨다."}, {"n": "⑤", "t": "(e)", "a": false, "x": true, "trap": false, "e": "'다음 날의 노동을 위한 (e)그의 기운을 갉아먹을 것'에서 (e)는 노동을 해야 할 아들, 즉 윌리엄을 가리킨다."}], "w": [["glow", "불빛, 빛"], ["in flames", "불길에 휩싸인"], ["lying peacefully", "평화롭게 누워"], ["borrow", "빌리다"], ["grab", "붙잡다"], ["broomstick", "빗자루"], ["chase", "뒤쫓다"], ["kick out", "쫓아내다"], ["education", "교육"], ["community", "지역사회"]]}, {"q": "12", "type": "내용 불일치", "src": "2016년 3월 45번", "ans": "③", "tr": [["1", "윌리엄 밀러는 가족이 잠자리에 든 후에도 깨어 있다가, 아침까지 책을 읽었다."], ["2", "양초는 비쌌지만 관솔은 많이 있었고, (a)그가 해야 할 일이라고는 숲에서 그것들을 모으는 것뿐이었다."], ["3", "그래서 윌리엄은 밤에 책을 읽기 위한 불빛으로 벽난로에서 관솔을 태우는 습관을 들이게 되었다."], ["4", "하지만 그의 아버지는 그 습관을 좋아하지 않았고 그것을 막으려 했다."], ["5", "그의 아버지는 아들의 밤늦은 독서가 다음 날의 노동을 위한 (e)그의 기운을 갉아먹을 것이라고 느꼈다."], ["6", "그리고 농장은 아들에게서 얻을 수 있는 모든 노동력을 필요로 했다."], ["7", "그는 가족의 다른 사람들이 잠자리에 들 때 윌리엄도 잠자리에 들어야 한다고 고집했다."], ["8", "그리고 그의 아버지는 자라나는 소년이 밤새 푹 자야 한다고 생각했다."], ["9", "하지만 윌리엄의 \"비밀스러운 생활\"은 한동안 계속되었다."], ["10", "밤마다 그는 할 수 있는 한 오래 책을 읽은 뒤, (b)그의 방식대로 위층으로 돌아가서, 아침 집안일을 할 시간이 될 때까지 잠을 잤다."], ["11", "하지만 어느 날 밤 그가 예상하지 못했던 일이 일어났다."], ["12", "그의 아버지가 잠에서 깨어 아래층에서 불빛을 보았다."], ["13", "집에 불이 났다고 생각하여, (c)그는 자신의 집과 가족을 불길로부터 구하기 위해 서둘러 계단을 뛰어 내려왔다."], ["14", "하지만 집에 불이 난 것이 아니라, 그는 아들 윌리엄이 이웃에게서 빌린 책을 읽으며 벽난로 앞에 평화롭게 누워 있는 것을 보았다."], ["15", "아버지는 빗자루를 붙잡고 방 안에서 아들을 뒤쫓으며 \"젊은이, 지금 당장 잠자리에 들지 않으면 집에서 쫓아내겠다!\"라고 소리쳤다."], ["16", "윌리엄은 적어도 그날 밤만큼은 잠자리에 들었다."], ["17", "(d)그는 그저 그 지역사회의 교사들에게서는 받을 수 없는 교육을 얻으려 애쓰고 있었을 뿐이었다."]], "evh": "C1번 문장", "ev": [{"en": true, "h": "Instead of a house fire, however, he saw his son William lying peacefully before the fireplace reading a book he'd borrowed from a neighbor."}, {"en": false, "h": "아버지가 발견한 것은 벽난로 앞에서 '자고 있는' 윌리엄이 아니라 '평화롭게 누워 책을 읽고 있는' 윌리엄이므로, ③번은 본문 내용과 다르다."}], "opts": [{"n": "①", "t": "William은 관솔을 태워 그 빛으로 책을 읽었다.", "a": false, "x": true, "trap": false, "e": "'벽난로에서 관솔을 태우는 습관을 들이게 되었다'는 내용과 일치한다."}, {"n": "②", "t": "아버지는 밤에 일어나서 아래층의 불빛을 보았다.", "a": false, "x": true, "trap": false, "e": "'아버지가 잠에서 깨어 아래층에서 불빛을 보았다'는 내용과 일치한다."}, {"n": "③", "t": "William은 벽난로 앞에서 자다가 아버지에게 발각되었다.", "a": true, "x": false, "trap": false, "e": "실제로는 William이 벽난로 앞에서 '자고' 있었던 것이 아니라 책을 읽으며 평화롭게 누워 있었던 것이므로 본문과 다르다."}, {"n": "④", "t": "아버지는 빗자루를 들고 William을 쫓아다녔다.", "a": false, "x": true, "trap": true, "e": "'아버지는 빗자루를 붙잡고 방 안에서 아들을 뒤쫓았다'는 내용과 일치한다."}, {"n": "⑤", "t": "아버지는 William이 밤늦게 책 읽는 것을 싫어했다.", "a": false, "x": true, "trap": false, "e": "'아버지는 그 습관을 좋아하지 않았고 그것을 막으려 했다'는 내용과 일치한다."}], "w": [["ounce of work", "조금의 노동"], ["insist", "고집하다, 주장하다"], ["retire for the night", "잠자리에 들다"], ["sleep soundly", "푹 자다"], ["secret life", "비밀스러운 생활"], ["morning chores", "아침 집안일"], ["glow", "불빛, 빛"], ["in flames", "불길에 휩싸인"], ["lying peacefully", "평화롭게 누워"], ["borrow", "빌리다"], ["grab", "붙잡다"]]}]};
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크북 '+CF.sn.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -277,18 +330,22 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
-function hkHtml(it){
-  const E=it[2].split(' / '),K=it[3].split(' / ');
-  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
-  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
-  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
-  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
-  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+function esc2(s){return String(s)}
+function chunkSplit(s){return String(s).split(' / ')}
+function scHtml(c){
+  const esc=String;
+  const E=chunkSplit(c.eng),K=chunkSplit(c.lit);
+  let x='<div class="sc"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span><span class="tt">'+esc(c.title)+'</span></div><div class="sc-b">';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+E[j]+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  if(c.notes.length){x+='<div class="nts">'+c.notes.map(n=>'<span class="nt"><sup>'+n[0]+'</sup> <b>'+esc(n[1])+'</b> '+esc(n[2])+'</span>').join('')+'</div>';}
+  x+='<div class="lay nat"><span class="lb">자연스러운 해석</span>'+esc(c.nat)+'</div>';
+  if(c.ana)x+='<div class="lay ana"><span class="lb">분석</span>'+c.ana+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|분석">자연스러운 해석</button></div></div>';
   return x;
 }
 function renderDk(){
   let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-  HK.forEach(it=>{h+=hkHtml(it);});
+  CF.sn.forEach(c=>{h+=scHtml(c);});
   h+='</div></div>';
   app.innerHTML=h;
 }
@@ -442,41 +499,29 @@ function renderSubmit(){
   const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
 }
 /* ---- 해설 ---- */
-function sHtml(s,evn){
-  const ev=evn.indexOf(s.n)>=0;
-  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
-  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
-  const lays=[];
-  if(s.link)lays.push(['이어 읽으면',s.link]);
-  if(s.easy)lays.push(['쉬운 말로',s.easy]);
-  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
-  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
-  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
-  return x+'</div>';
-}
 function qHtml(i,a){
+  const esc=String;
   const d=D[i],ok=isRight(i,a);
-  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
-  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
-  h+='<h4>정답 근거</h4>';
-  h+=`<p class="en">${esc(d.ev_en)}</p>`;
-  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
-  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
-  if(d.ps&&d.ps.length){
-    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
-  }
-  h+='<h4>선택지 하나씩</h4>';
-  d.ch.forEach(c=>{
-    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  const cq=CF.qs.find(x=>x.q===d.no);
+  if(!cq)return '';
+  let h='<details class="qd" id="qd'+i+'" '+(ok?'':'open')+'><summary>'+esc(cq.q)+'번 · '+esc(cq.type)+'<small>'+esc(cq.src)+'</small><span class="res2 '+(ok?'o':'x')+'">'+(ok?'○ 정답':'✕ 오답')+'</span></summary><div class="qx">';
+  h+='<p class="ansline"><b>정답 '+esc(cq.ans)+'</b>'+(ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>')+'</p>';
+  h+='<details class="sub2"><summary>전문 해석</summary><ol class="trs" style="list-style:none">'+cq.tr.map(t=>'<li><span class="n">'+(t[0]==null?'':esc(t[0]))+'</span>'+t[1]+'</li>').join('')+'</ol></details>';
+  h+='<div class="sec">답의 근거 · '+esc(cq.evh)+'</div><div class="evx">';
+  cq.ev.forEach(p=>{h+=p.en?'<p class="en">'+p.h+'</p>':'<p>'+p.h+'</p>';});
+  h+='</div><div class="sec">선택지 하나씩</div>';
+  cq.opts.forEach(o=>{
+    h+='<div class="opx '+(o.a?'a':'')+'"><div class="ot"><span class="mk">'+esc(o.n)+'</span>'+o.t+(o.a?'<span class="bd g">정답</span>':'')+(o.trap?'<span class="bd t">가장 많이 걸리는 오답</span>':'')+'</div>'+(o.e?'<p>'+(o.x?'<span class="xm">✕</span>':'')+o.e+'</p>':'')+'</div>';
   });
-  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  if(cq.w.length){h+='<div class="sec">단어</div><div class="wds">'+cq.w.map(w=>'<span><b>'+esc(w[0])+'</b>'+esc(w[1])+'</span>').join('')+'</div>';}
+  h+='<button class="toq" data-i="'+i+'">빠른 정답으로</button>';
   return h+'</div></details>';
 }
 function renderExp(){
   const rec=S.sub;
   let h=hdr()+band(4)+'<div class="wrap">';
-  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
-  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='<div class="score">'+rec.s+' <small>/ '+N+'</small></div><h2 id="quick">빠른 정답</h2><div class="qc">';
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+='<button class="qchip '+(ok?'o':'x')+'" data-i="'+i+'"><small>'+esc(D[i].no)+'번</small>'+ansText(i)+' '+(ok?'○':'✕')+'</button>';}
   h+='</div><h2>해설</h2>';
   for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
   h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
@@ -515,13 +560,17 @@ function mmInit(){
 }
 /* 위임 이벤트 */
 document.addEventListener('click',e=>{
+  const qchip=e.target.closest('.qchip');
+  if(qchip){const dd=document.getElementById('qd'+qchip.dataset.i);if(dd){dd.open=true;dd.scrollIntoView({block:'start'});}return;}
+  const toq=e.target.closest('.toq');
+  if(toq){const qq=document.getElementById('quick');if(qq)qq.scrollIntoView({block:'start'});return;}
   const tb=e.target.closest('.tab,.hcard,.gohome');
   if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
   const ch=e.target.closest('.ch');
   if(ch){ch.classList.toggle('open');return;}
   const st=e.target.closest('.stg');
   if(st){
-    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const s=st.closest('.s,.sc'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
     const shown=lays.filter(l=>l.classList.contains('on')).length;
     if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
     else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
@@ -531,7 +580,7 @@ document.addEventListener('click',e=>{
   if(al){
     const open=al.dataset.all==='1',body=al.closest('.dkbody');
     body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
-    body.querySelectorAll('.s').forEach(s=>{
+    body.querySelectorAll('.s,.sc').forEach(s=>{
       const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
       lays.forEach(l=>l.classList.toggle('on',open));
       if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}

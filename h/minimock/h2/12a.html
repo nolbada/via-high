@@ -142,6 +142,59 @@ details.dk>summary::-webkit-details-marker{display:none}
 details.qd>summary::after{content:'\25BE';margin-left:auto;color:var(--sub)}
 details.qd[open]>summary::after{content:'\25B4'}
 .cell.s{padding:8px 12px;border:1.5px solid transparent;margin:0;background:var(--soft)}.cell.s.bad{background:var(--badbg);border-color:var(--bad)}
+
+/* ---- 새 직독직해·해설 화면 ---- */
+.sc{border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden;background:var(--bg)}
+.sc-h{padding:11px 14px 10px;background:#eef2f8;border-bottom:1px solid var(--line)}
+.sc-h .no2{display:inline-block;min-width:26px;height:26px;line-height:26px;border-radius:13px;background:var(--accent);color:#fff;font-weight:800;font-size:13px;text-align:center;padding:0 7px;margin-right:8px}
+.sc-h .at{font-size:13px;color:var(--sub)}
+.sc-h .tt{display:block;margin-top:7px;font-size:15.5px;font-weight:800;color:var(--accent);line-height:1.45}
+.sc-b{padding:10px 12px 12px}
+.sc .ch{margin-bottom:6px}
+.sc .ce{font-size:17px}
+.sc .ce sup,.nt sup{font-size:10px;font-weight:800;color:#b8651f;margin-left:1px}
+.nts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.nt{font-size:13.5px;line-height:1.5;background:#fbf6ee;border:1px solid #f0e2cd;border-radius:8px;padding:5px 9px;color:#4a3a22}
+.nt b{color:#33260f}
+.sc .lay{border-radius:10px}
+.sc .lay.nat{border-left:4px solid var(--accent);background:#f7f9fc}
+.sc .lay.ana{background:#fff8e6;border-color:#f0dcc0;color:#4d3b05}
+.sc .lay.ana b,.why2 b,.opx b,.evx b{background:linear-gradient(transparent 58%,var(--hl) 58%);font-weight:700}
+.sc .lb{margin-bottom:4px}
+.qc{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.qchip{min-width:56px;padding:9px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-family:inherit;font-size:15px;color:var(--ink);font-weight:700}
+.qchip small{display:block;font-size:11px;font-weight:400;color:var(--sub);margin-bottom:1px}
+.qchip.o{border-color:var(--good);background:var(--goodbg)}
+.qchip.x{border-color:var(--bad);background:var(--badbg)}
+.sec{margin:16px 0 6px;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px}
+.sec:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+.trs{list-style:none;margin:0;padding:0;background:var(--soft);border-radius:10px;padding:8px 12px}
+.trs li{font-size:15px;line-height:1.75;padding:2px 0}
+.trs .n{display:inline-block;min-width:20px;font-size:12px;color:var(--sub);font-weight:700}
+.evx{background:var(--goodbg);border:1px solid #bfe0cd;border-radius:10px;padding:10px 12px}
+.evx .en{background:#fff;border:1px solid #d5eadc;font-size:15.5px;margin:0 0 8px}
+.evx p{margin:6px 0;font-size:15.5px;line-height:1.75}
+.evx .evh{font-size:13px;font-weight:800;color:var(--good);margin-bottom:6px}
+.opx{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px;background:var(--bg)}
+.opx.a{border-color:var(--good);background:var(--goodbg)}
+.opx .ot{font-size:15.5px;font-weight:700;line-height:1.55}
+.opx .mk{display:inline-block;min-width:22px;font-weight:800;color:var(--sub);margin-right:4px}
+.opx.a .mk{color:var(--good)}
+.opx .bd{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.opx .bd.g{background:var(--good)}
+.opx .bd.t{background:#b4472f}
+.opx p{margin:5px 0 0;font-size:14.5px;line-height:1.7;color:#333}
+.opx .xm{color:var(--bad);font-weight:800;margin-right:3px}
+.wds{display:flex;flex-wrap:wrap;gap:6px}
+.wds span{font-size:14px;background:var(--soft);border-radius:8px;padding:5px 9px;line-height:1.45}
+.wds b{margin-right:5px}
+.toq{display:block;width:100%;margin-top:14px;min-height:42px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+details.sub2{margin:12px 0 0}
+details.sub2>summary{list-style:none;cursor:pointer;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;padding:6px 0}
+details.sub2>summary::-webkit-details-marker{display:none}
+details.sub2>summary:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+details.sub2>summary:after{content:"+";margin-left:auto;font-size:18px;color:var(--sub)}
+details.sub2[open]>summary:after{content:"\2212"}
 </style>
 </head>
 <body>
@@ -248,8 +301,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const HK=[["01", "1", "In 2003, British Airways made an announcement / that they would no longer be able to operate the London to New York Concorde flight twice a day / because it was starting to prove uneconomical.", "2003년에, 영국 항공은 발표를 했다 / 그들이 더 이상 런던에서 뉴욕까지 가는 콩코드 항공편을 하루에 두 번 운항할 수 없을 것이라고 / 그것이 경제성이 없는 것으로 드러나기 시작했기 때문에", "2003년, 영국 항공은 경제성이 없는 것으로 드러나기 시작했기 때문에 런던-뉴욕 간 콩코드 항공편을 더 이상 하루에 두 번 운항할 수 없을 것이라고 발표했다.", "<b>that ~<\/b>은 made an announcement의 내용을 설명하는 <b>동격의 명사절<\/b>이고, <b>because ~<\/b>는 <b>이유의 부사절<\/b>이다."], ["01", "6", "If you are a salesperson trying to increase the sales of a certain product, / then you must not merely point out the benefits the customer can derive from the said product, / but also point out its uniqueness and what they will miss out on if they don't purchase the product soon.", "만약 당신이 어떤 특정 상품의 판매를 늘리려고 애쓰는 판매원이라면, / 그렇다면 당신은 고객이 그 상품으로부터 얻을 수 있는 이점들을 단지 지적하기만 해서는 안 된다, / 뿐만 아니라 그 상품의 고유성과 그들이 곧 그것을 구매하지 않으면 놓치게 될 것도 지적해야 한다", "만약 당신이 특정 상품의 판매를 늘리려는 판매원이라면, 고객이 그 상품에서 얻을 수 있는 이점만 지적해서는 안 되며, 그 상품의 고유성과 곧 구매하지 않으면 놓치게 될 것까지 함께 지적해야 한다.", "<b>not merely A but also B<\/b>는 '단지 A뿐만 아니라 B도'라는 뜻의 상관접속사이며, <b>the benefits (that) the customer can derive<\/b>는 목적격 관계대명사가 생략된 구조이다."], ["02", "1", "The table above shows the top seven natural gas producing countries worldwide / in 2014 and 2018.", "위 표는 전 세계 상위 7개 천연가스 생산 국가를 보여준다 / 2014년과 2018년에", "위 표는 2014년과 2018년 전 세계 천연가스 생산 상위 7개 국가를 보여준다.", "<b>shows<\/b>의 목적어는 the top seven ~ worldwide이며, <b>in 2014 and 2018<\/b>은 시점을 나타내는 전치사구이다."], ["03", "6", "For example, by seeing disgust on someone's face / when presented with moldy food, / we were able to avoid eating something dangerous.", "예를 들어, 누군가의 얼굴에서 혐오감을 봄으로써 / 곰팡이가 핀 음식을 제공받았을 때 / 우리는 위험한 것을 먹는 것을 피할 수 있었다", "예를 들어, 곰팡이가 핀 음식을 받았을 때 누군가의 얼굴에서 혐오감을 봄으로써, 우리는 위험한 것을 먹는 것을 피할 수 있었다.", "<b>by seeing ~<\/b>은 전치사 by+동명사로 수단을 나타내고, <b>when presented with ~<\/b>는 <b>when (we were) presented with<\/b>가 줄어든 <b>수동 분사구문<\/b>이다."], ["03", "8", "Even anger was an important emotion to our ancestors, / motivating us to seek food when we were hungry, / to fight off predators and to compete for scarce resources.", "심지어 분노조차도 우리 조상들에게 중요한 감정이었다, / 우리가 배고플 때 음식을 찾도록 동기를 부여하면서, / 포식자들을 물리치고 희소 자원을 두고 경쟁하도록", "심지어 분노조차도 우리 조상들에게 중요한 감정이었는데, 배고플 때 먹이를 찾고 포식자를 물리치고 희소 자원을 두고 경쟁하도록 동기를 부여했기 때문이다.", "<b>motivating ~<\/b>은 결과를 나타내는 <b>분사구문<\/b>이고, motivate의 목적격보어로 쓰인 <b>to seek, to fight off, to compete<\/b> 세 개의 to부정사가 <b>병렬<\/b> 연결되어 있다."], ["04", "2", "Recording engineers and musicians have learned to create special effects / that tickle our brains / by exploiting neural circuits / that evolved to discern important features of our auditory environment.", "녹음 기술자들과 음악가들은 특수 효과를 만들어내는 법을 배웠다 / 우리의 뇌를 자극하는 / 신경 회로를 활용함으로써 / 우리의 청각 환경의 중요한 특징들을 식별하도록 진화한", "녹음 기술자들과 음악가들은 우리의 청각 환경에서 중요한 특징을 식별하도록 진화한 신경 회로를 활용해, 우리의 뇌를 자극하는 특수 효과를 만들어내는 법을 배웠다.", "<b>have learned<\/b>는 <b>현재완료<\/b>이며, 문장 안에 <b>that tickle ~<\/b>과 <b>that evolved ~<\/b> 두 개의 <b>주격 관계대명사절<\/b>이 각각 special effects와 neural circuits를 수식한다."], ["05", "3", "In free play, / children learn to make their own decisions, solve their own problems, create and follow rules, and get along with others / as equals rather than as obedient or rebellious subordinates.", "자유 놀이에서, / 아이들은 스스로 결정을 내리고, 스스로 문제를 해결하고, 규칙을 만들고 따르고, 그리고 다른 사람들과 잘 지내는 법을 배운다 / 순종적이거나 반항적인 하급자로서가 아니라 동등한 사람으로서", "자유 놀이에서 아이들은 순종적이거나 반항적인 하급자로서가 아니라 동등한 사람으로서, 스스로 결정을 내리고 문제를 해결하고 규칙을 만들고 따르며 다른 사람들과 잘 지내는 법을 배운다.", "learn to 뒤에 <b>make, solve, create and follow, get along with<\/b> 네 개의 동사구가 <b>병렬<\/b> 연결되어 있고, <b>rather than ~<\/b>은 '~라기보다는'이라는 비교 표현이다."], ["06", "4", "Preschoolers and young school-age children confuse temporal and spatial dimensions: / Starting times are judged by starting points, stopping times by stopping points and durations by distance, / though each of these errors does not necessitate the others.", "취학 전 아동과 어린 학령기 아동은 시간적 차원과 공간적 차원을 혼동한다: / 출발 시간은 출발점으로, 정지 시간은 정지점으로, 그리고 지속 시간은 거리로 판단된다, / 비록 이러한 오류들 각각이 다른 것들을 반드시 수반하지는 않지만", "취학 전 아동과 어린 학령기 아동은 시간적 차원과 공간적 차원을 혼동하는데, 이 오류들이 서로를 반드시 수반하지는 않지만, 출발 시간은 출발점으로, 정지 시간은 정지점으로, 지속 시간은 거리로 판단한다.", "<b>are judged by ~, (are judged) by ~, (are judged) by ~<\/b>는 <b>수동태<\/b>가 <b>병렬<\/b>로 반복된 구조이며, <b>though ~<\/b>는 <b>양보의 부사절<\/b>이다."]];
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const CF={"sn": [{"i": "01", "q": "01", "s": "1", "title": "동격의 that절(목적어) + 이유의 부사절(because)", "eng": "In 2003, British Airways made an announcement<sup>1<\/sup> / that they would no longer be able to operate the London to New York Concorde flight twice a day / because it was starting to prove uneconomical<sup>2<\/sup>.", "notes": [["1", "make an announcement", "발표를 했다"], ["2", "uneconomical", "경제성이 없는"]], "lit": "2003년에, 영국 항공은 발표를 했다 / 그들이 더 이상 런던에서 뉴욕까지 가는 콩코드 항공편을 하루에 두 번 운항할 수 없을 것이라고 / 그것이 경제성이 없는 것으로 드러나기 시작했기 때문에", "nat": "2003년, 영국 항공은 경제성이 없는 것으로 드러나기 시작했기 때문에 런던-뉴욕 간 콩코드 항공편을 더 이상 하루에 두 번 운항할 수 없을 것이라고 발표했다.", "ana": "<b>that ~<\/b>은 made an announcement의 내용을 설명하는 <b>동격의 명사절<\/b>이고, <b>because ~<\/b>는 <b>이유의 부사절<\/b>이다."}, {"i": "02", "q": "01", "s": "6", "title": "not merely A but also B 상관접속사 + 목적격 관계대명사 생략", "eng": "If you are a salesperson<sup>1<\/sup> trying to increase the sales of a certain product, / then you must not merely point out the benefits the customer can derive<sup>2<\/sup> from the said product, / but also point out its uniqueness and what they will miss out on<sup>3<\/sup> if they don't purchase the product soon.", "notes": [["1", "salesperson", "판매원"], ["2", "derive", "얻다"], ["3", "miss out on", "놓치다"]], "lit": "만약 당신이 어떤 특정 상품의 판매를 늘리려고 애쓰는 판매원이라면, / 그렇다면 당신은 고객이 그 상품으로부터 얻을 수 있는 이점들을 단지 지적하기만 해서는 안 된다, / 뿐만 아니라 그 상품의 고유성과 그들이 곧 그것을 구매하지 않으면 놓치게 될 것도 지적해야 한다", "nat": "만약 당신이 특정 상품의 판매를 늘리려는 판매원이라면, 고객이 그 상품에서 얻을 수 있는 이점만 지적해서는 안 되며, 그 상품의 고유성과 곧 구매하지 않으면 놓치게 될 것까지 함께 지적해야 한다.", "ana": "<b>not merely A but also B<\/b>는 '단지 A뿐만 아니라 B도'라는 뜻의 상관접속사이며, <b>the benefits (that) the customer can derive<\/b>는 목적격 관계대명사가 생략된 구조이다."}, {"i": "03", "q": "02", "s": "1", "title": "현재시제 shows + 전치사구", "eng": "The table above shows the top seven natural gas producing countries<sup>1<\/sup> worldwide<sup>2<\/sup> / in 2014 and 2018.", "notes": [["1", "producing country", "생산 국가"], ["2", "worldwide", "전 세계적으로"]], "lit": "위 표는 전 세계 상위 7개 천연가스 생산 국가를 보여준다 / 2014년과 2018년에", "nat": "위 표는 2014년과 2018년 전 세계 천연가스 생산 상위 7개 국가를 보여준다.", "ana": "<b>shows<\/b>의 목적어는 the top seven ~ worldwide이며, <b>in 2014 and 2018<\/b>은 시점을 나타내는 전치사구이다."}, {"i": "04", "q": "03", "s": "6", "title": "전치사+동명사(by -ing) + 수동 분사구문(when presented with)", "eng": "For example, by seeing disgust<sup>1<\/sup> on someone's face / when presented with moldy food<sup>2<\/sup>, / we were able to avoid<sup>3<\/sup> eating something dangerous.", "notes": [["1", "disgust", "혐오감"], ["2", "moldy food", "곰팡이가 핀 음식"], ["3", "avoid", "피하다"]], "lit": "예를 들어, 누군가의 얼굴에서 혐오감을 봄으로써 / 곰팡이가 핀 음식을 제공받았을 때 / 우리는 위험한 것을 먹는 것을 피할 수 있었다", "nat": "예를 들어, 곰팡이가 핀 음식을 받았을 때 누군가의 얼굴에서 혐오감을 봄으로써, 우리는 위험한 것을 먹는 것을 피할 수 있었다.", "ana": "<b>by seeing ~<\/b>은 전치사 by+동명사로 수단을 나타내고, <b>when presented with ~<\/b>는 <b>when (we were) presented with<\/b>가 줄어든 <b>수동 분사구문<\/b>이다."}, {"i": "05", "q": "03", "s": "8", "title": "분사구문(motivating) + to부정사 병렬", "eng": "Even anger was an important emotion to our ancestors, / motivating<sup>1<\/sup> us to seek food when we were hungry, / to fight off<sup>2<\/sup> predators and to compete for<sup>3<\/sup> scarce resources.", "notes": [["1", "motivate", "동기를 부여하는"], ["2", "fight off", "물리치다"], ["3", "compete for", "~을 두고 경쟁하다"]], "lit": "심지어 분노조차도 우리 조상들에게 중요한 감정이었다, / 우리가 배고플 때 음식을 찾도록 동기를 부여하면서, / 포식자들을 물리치고 희소 자원을 두고 경쟁하도록", "nat": "심지어 분노조차도 우리 조상들에게 중요한 감정이었는데, 배고플 때 먹이를 찾고 포식자를 물리치고 희소 자원을 두고 경쟁하도록 동기를 부여했기 때문이다.", "ana": "<b>motivating ~<\/b>은 결과를 나타내는 <b>분사구문<\/b>이고, motivate의 목적격보어로 쓰인 <b>to seek, to fight off, to compete<\/b> 세 개의 to부정사가 <b>병렬<\/b> 연결되어 있다."}, {"i": "06", "q": "04", "s": "2", "title": "현재완료(have learned) + 관계대명사 that 이중 수식", "eng": "Recording engineers and musicians have learned to create special effects / that tickle our brains / by exploiting<sup>1<\/sup> neural circuits<sup>2<\/sup> / that evolved to discern<sup>3<\/sup> important features of our auditory environment<sup>4<\/sup>.", "notes": [["1", "exploit", "활용하는"], ["2", "neural circuit", "신경 회로"], ["3", "discern", "식별하다"], ["4", "auditory environment", "청각 환경"]], "lit": "녹음 기술자들과 음악가들은 특수 효과를 만들어내는 법을 배웠다 / 우리의 뇌를 자극하는 / 신경 회로를 활용함으로써 / 우리의 청각 환경의 중요한 특징들을 식별하도록 진화한", "nat": "녹음 기술자들과 음악가들은 우리의 청각 환경에서 중요한 특징을 식별하도록 진화한 신경 회로를 활용해, 우리의 뇌를 자극하는 특수 효과를 만들어내는 법을 배웠다.", "ana": "<b>have learned<\/b>는 <b>현재완료<\/b>이며, 문장 안에 <b>that tickle ~<\/b>과 <b>that evolved ~<\/b> 두 개의 <b>주격 관계대명사절<\/b>이 각각 special effects와 neural circuits를 수식한다."}, {"i": "07", "q": "05", "s": "3", "title": "동사구 4개 병렬 + rather than 비교", "eng": "In free play, / children learn to make their own decisions, solve their own problems, create and follow rules, and get along with others / as equals rather than as obedient<sup>1<\/sup> or rebellious<sup>2<\/sup> subordinates<sup>3<\/sup>.", "notes": [["1", "obedient", "순종적인"], ["2", "rebellious", "반항적인"], ["3", "subordinate", "하급자"]], "lit": "자유 놀이에서, / 아이들은 스스로 결정을 내리고, 스스로 문제를 해결하고, 규칙을 만들고 따르고, 그리고 다른 사람들과 잘 지내는 법을 배운다 / 순종적이거나 반항적인 하급자로서가 아니라 동등한 사람으로서", "nat": "자유 놀이에서 아이들은 순종적이거나 반항적인 하급자로서가 아니라 동등한 사람으로서, 스스로 결정을 내리고 문제를 해결하고 규칙을 만들고 따르며 다른 사람들과 잘 지내는 법을 배운다.", "ana": "learn to 뒤에 <b>make, solve, create and follow, get along with<\/b> 네 개의 동사구가 <b>병렬<\/b> 연결되어 있고, <b>rather than ~<\/b>은 '~라기보다는'이라는 비교 표현이다."}, {"i": "08", "q": "06", "s": "4", "title": "수동태 병렬(be judged by) + 양보의 부사절(though)", "eng": "Preschoolers and young school-age children confuse temporal<sup>1<\/sup> and spatial dimensions<sup>2<\/sup>: / Starting times are judged by starting points, stopping times by stopping points and durations by distance, / though each of these errors does not necessitate<sup>3<\/sup> the others.", "notes": [["1", "temporal", "시간의"], ["2", "spatial dimension", "공간적 차원"], ["3", "necessitate", "필요로 하다"]], "lit": "취학 전 아동과 어린 학령기 아동은 시간적 차원과 공간적 차원을 혼동한다: / 출발 시간은 출발점으로, 정지 시간은 정지점으로, 그리고 지속 시간은 거리로 판단된다, / 비록 이러한 오류들 각각이 다른 것들을 반드시 수반하지는 않지만", "nat": "취학 전 아동과 어린 학령기 아동은 시간적 차원과 공간적 차원을 혼동하는데, 이 오류들이 서로를 반드시 수반하지는 않지만, 출발 시간은 출발점으로, 정지 시간은 정지점으로, 지속 시간은 거리로 판단한다.", "ana": "<b>are judged by ~, (are judged) by ~, (are judged) by ~<\/b>는 <b>수동태<\/b>가 <b>병렬<\/b>로 반복된 구조이며, <b>though ~<\/b>는 <b>양보의 부사절<\/b>이다."}], "qs": [{"q": "01", "type": "주장", "src": "2021년 11월 20번", "ans": "③", "tr": [["1", "2003년, 영국 항공은 경제성이 없는 것으로 드러나기 시작했기 때문에 런던-뉴욕 간 콩코드 항공편을 더 이상 하루에 두 번 운항할 수 없을 것이라고 발표했다."], ["2", "그런데 다음 날 바로 노선의 항공편 판매량이 증가했다."], ["3", "그 노선이나 항공사가 제공하는 서비스에 있어 달라진 것은 아무것도 없었다."], ["4", "단지 그것이 부족한 자원이 되었기 때문에, 그것에 대한 수요가 증가했다."], ["5", "만약 여러분이 사람들을 설득하는 데 관심이 있다면, 희소성의 원리가 효과적으로 사용될 수 있다."], ["6", "만약 여러분이 특정 상품의 판매를 늘리려고 애쓰는 판매원이라면, 여러분은 단지 고객이 그 상품으로부터 얻을 수 있는 혜택을 지적하는 것뿐 아니라, 그 상품의 고유함과 만약 그들이 상품을 곧 구매하지 않으면 놓치게 될 것도 강조해야 한다."], ["7", "판매에 있어서 여러분은 무언가가 한정적일수록 그것이 더 가치 있게 된다는 것을 명심해야 한다."]], "evh": "6·7번 문장", "ev": [{"en": true, "h": "If you are a salesperson trying to increase the sales of a certain product, then you must not merely point out the benefits the customer can derive from the said product, but also point out its uniqueness and what they will miss out on if they don't purchase the product soon. / In selling, you should keep in mind that the more limited something is, the more desirable it becomes."}, {"en": false, "h": "상품의 이점뿐 아니라 고유함과 희소성까지 강조해야 한다는 6번의 내용과, 한정적일수록 더 가치 있어진다는 7번의 결론을 종합하면, 이 글의 주장은 '효과적인 판매를 위해서는 상품의 희소성을 강조해야 한다'는 것이다."}], "opts": [{"n": "①", "t": "상품 판매 시 실현 가능한 판매 목표를 설정해야 한다.", "a": false, "x": true, "trap": false, "e": "판매 목표 설정에 관한 내용은 본문에 없다."}, {"n": "②", "t": "판매를 촉진하기 위해서는 가격 경쟁력을 갖추어야 한다.", "a": false, "x": true, "trap": false, "e": "가격 경쟁력(price)에 관한 언급은 전혀 없다."}, {"n": "③", "t": "효과적인 판매를 위해서는 상품의 희소성을 강조해야 한다.", "a": true, "x": false, "trap": false, "e": "상품의 고유함과 놓치게 될 것을 강조하라는 6번과, 한정적일수록 가치 있어진다는 7번의 내용과 정확히 일치한다."}, {"n": "④", "t": "고객의 신뢰를 얻기 위해서는 일관된 태도를 유지해야 한다.", "a": false, "x": true, "trap": true, "e": "신뢰나 일관된 태도에 관한 내용은 본문에 없다."}, {"n": "⑤", "t": "고객의 특성에 맞춰 다양한 판매 전략을 수립하고 적용해야 한다.", "a": false, "x": true, "trap": false, "e": "고객 특성별 전략 수립에 관한 내용은 본문에 없다."}], "w": [["uneconomical", "경제성이 없는, 비경제적인"], ["scarce resource", "희소 자원"], ["demand", "수요"], ["principle of scarcity", "희소성의 원리"], ["persuade", "설득하다"], ["point out", "지적하다, 가리키다"], ["uniqueness", "유일함, 고유성"], ["miss out on", "~을 놓치다"], ["keep in mind", "명심하다"], ["desirable", "가치 있는, 바람직한"]]}, {"q": "02", "type": "도표 불일치", "src": "2021년 6월 25번", "ans": "④", "tr": [["1", "위 표는 2014년과 2018년 전 세계 천연가스 생산 상위 7개 국가를 보여준다."], ["2", "①미국, 러시아, 이란은 2014년과 2018년 모두 상위 3개 천연가스 생산 국가였다."], ["3", "②2014년과 2018년 각각, 러시아와 이란 간의 천연가스 생산량 차이는 4000억 세제곱미터보다 더 컸다."], ["4", "③캐나다에서 생산된 천연가스 양은 증가했지만, 캐나다는 2014년보다 2018년에 더 낮은 순위를 기록했다."], ["5", "④2014년과 2018년 사이 중국의 천연가스 생산량의 증가는 카타르의 그것(천연가스 생산량의 증가)의 3배 이상이었다."], ["6", "⑤2014년 상위 7개 천연가스 생산 국가에 포함되지 않았던 호주는 2018년에 7위를 기록했다."]], "evh": "표 · 증가폭 비교", "ev": [{"en": false, "h": "China: 132→176(증가폭 44) · Qatar: 160→181(증가폭 21)"}, {"en": false, "h": "중국의 증가폭은 44억 세제곱미터, 카타르의 증가폭은 21억 세제곱미터로, 중국의 증가폭이 카타르의 3배(63)에 미치지 못하므로 ④번은 표와 일치하지 않는다."}], "opts": [{"n": "①", "t": "미국, 러시아, 이란은 두 해 모두 상위 3개국이었다.", "a": false, "x": true, "trap": false, "e": "2014년과 2018년 모두 순위 1~3위가 미국·러시아·이란이므로 표와 일치한다."}, {"n": "②", "t": "두 해 모두 러시아와 이란의 생산량 차이가 4000억 세제곱미터보다 컸다.", "a": false, "x": true, "trap": false, "e": "2014년(610-172=438), 2018년(725-248=477) 모두 400억을 넘으므로 표와 일치한다."}, {"n": "③", "t": "캐나다는 생산량이 늘었지만 순위는 더 낮아졌다.", "a": false, "x": true, "trap": false, "e": "캐나다는 161→172로 양은 늘었지만 순위는 4위→6위로 낮아졌으므로 표와 일치한다."}, {"n": "④", "t": "중국의 증가폭이 카타르의 3배 이상이었다.", "a": true, "x": false, "trap": false, "e": "중국의 증가폭(44)은 카타르의 증가폭(21)의 3배(63)에 못 미치므로 표와 일치하지 않는다."}, {"n": "⑤", "t": "호주는 2014년에 없다가 2018년 7위로 등장했다.", "a": false, "x": true, "trap": true, "e": "호주는 2014년 목록에 없고 2018년 7위(131)로 새로 등장했으므로 표와 일치한다."}], "w": [["producing country", "생산 국가"], ["respectively", "각각"], ["gap", "차이, 격차"], ["ranked lower", "더 낮은 순위를 기록했다"], ["even though", "비록 ~이지만"], ["more than three times", "3배 이상"], ["include", "포함하다"]]}, {"q": "03", "type": "주제", "src": "2015년 3월 20번", "ans": "③", "tr": [["1", "감정은 대체로 나쁜 평판을 얻는다."], ["2", "감정은 흔히 규제되거나 관리되어야 할 무언가로 여겨진다."], ["3", "사람들은 심지어 감정이 통제를 벗어나면 해롭다고 생각하기도 한다."], ["4", "하지만, 모든 감정에는 존재 이유가 있다."], ["5", "그것들은 우리의 진화의 역사에서 중요한 역할을 했고 우리가 살아남도록 도왔다."], ["6", "예를 들어, 곰팡이가 핀 음식을 받았을 때 누군가의 얼굴에서 혐오감을 봄으로써, 우리는 위험한 것을 먹는 것을 피할 수 있었다."], ["7", "행복을 전달함으로써, 우리는 이로운 사회적 상호작용을 발달시킬 수 있었다."], ["8", "심지어 분노조차도 우리 조상들에게 중요한 감정이었는데, 배고플 때 먹이를 찾고 포식자를 물리치고 희소 자원을 두고 경쟁하도록 동기를 부여했기 때문이다."]], "evh": "4·5·8번 문장", "ev": [{"en": true, "h": "However, all emotions have a point. They played an important part in our evolutionary history and helped us survive. / Even anger was an important emotion to our ancestors, motivating us to seek food when we were hungry, to fight off predators and to compete for scarce resources."}, {"en": false, "h": "모든 감정이 진화의 역사에서 생존에 중요한 역할을 했다는 4·5번의 내용과, 분노조차도 생존에 필요한 감정이었다는 8번의 구체적 예시를 종합하면, 이 글의 주제는 '감정이 인간의 생존에 기여한 바'이다."}], "opts": [{"n": "①", "t": "reasons we need to hide our emotions", "a": false, "x": true, "trap": false, "e": "감정을 숨겨야 하는 이유에 관한 내용은 본문에 없다."}, {"n": "②", "t": "difficulties of reading others' emotions", "a": false, "x": true, "trap": false, "e": "타인의 감정을 읽는 어려움에 관한 내용은 본문에 없다."}, {"n": "③", "t": "contributions of emotions to human survival", "a": true, "x": false, "trap": false, "e": "감정이 진화의 역사에서 생존에 중요한 역할을 했다는 4·5·8번의 내용과 정확히 일치한다."}, {"n": "④", "t": "ways of expressing emotions in different cultures", "a": false, "x": true, "trap": true, "e": "문화별 감정 표현 방식에 관한 내용은 본문에 없다."}, {"n": "⑤", "t": "differences between emotional and physical responses", "a": false, "x": true, "trap": false, "e": "감정 반응과 신체 반응의 차이에 관한 내용은 본문에 없다."}], "w": [["get a bad reputation", "나쁜 평판을 얻다"], ["regulate", "규제하다, 조절하다"], ["out of control", "통제 불능의"], ["evolutionary history", "진화의 역사"], ["disgust", "혐오감"], ["moldy food", "곰팡이가 핀 음식"], ["beneficial", "이로운"], ["predator", "포식자"]]}, {"q": "04", "type": "어법", "src": "2019년 11월 29번", "ans": "④", "tr": [["1", "요즘 개인용 음악 재생기가 흔하고 사람들이 헤드폰을 통해 음악을 많이 듣고 있음을 특히 고려하면, 우리 중 많은 사람들이 녹음된 음악에 끌리는 데는 이유가 있다."], ["2", "녹음 기술자들과 음악가들은 우리의 청각 환경에서 중요한 특징을 식별하도록 진화한 신경 회로를 활용해, 우리의 뇌를 자극하는 특수 효과를 만들어내는 법을 배웠다."], ["3", "이 특수 효과들은 3차원 미술, 영화, 혹은 시각적 착시와 원리상 유사한데, 이것들 중 어느 것도 우리의 뇌가 그것들을 지각하기 위한 특별한 기제를 진화시킬 만큼 충분히 오랫동안 존재하지 않았다."], ["4", "오히려, 3차원 미술, 영화, 그리고 시각적 착시는 다른 일들을 이루기 위해 갖추어진 지각 체계를 이용한다."], ["5", "그것들이 이 신경 회로를 새로운 방식으로 사용하기 때문에, 우리는 그것들을 특히 흥미롭다고(→흥미를 느낀다고) 느낀다."], ["6", "현대 녹음이 만들어지는 방식도 마찬가지이다."]], "evh": "5번 문장", "ev": [{"en": true, "h": "Because they use these neural circuits in novel ways, we find them especially ④ interested."}, {"en": false, "h": "find의 목적어 them(특수 효과들)은 감정을 '느끼는' 주체가 아니라 감정을 '유발하는' 대상이므로, 감정을 느끼는 대상에 쓰는 과거분사 interested가 아니라 감정을 유발하는 대상에 쓰는 현재분사 interesting으로 고쳐야 한다."}], "opts": [{"n": "①", "t": "to discern", "a": false, "x": true, "trap": false, "e": "'식별하도록 진화한'이라는 목적을 나타내는 to부정사이므로 to discern은 어법에 맞다."}, {"n": "②", "t": "which", "a": false, "x": true, "trap": false, "e": "3-D art, motion pictures, or visual illusions를 선행사로 하는 계속적 용법의 관계대명사이므로 which는 어법에 맞다."}, {"n": "③", "t": "are", "a": false, "x": true, "trap": true, "e": "주어 perceptual systems가 복수이므로 복수 동사 are는 어법에 맞다."}, {"n": "④", "t": "interested", "a": true, "x": false, "trap": false, "e": "목적어 them(특수 효과들)이 감정을 유발하는 대상이므로, 감정을 느끼는 대상에 쓰는 interested가 아니라 감정을 유발하는 대상에 쓰는 현재분사 interesting으로 고쳐야 한다."}, {"n": "⑤", "t": "that", "a": false, "x": true, "trap": false, "e": "the way를 선행사로 하는 관계부사(로도 볼 수 있는 관계대명사)이므로 that은 어법에 맞다."}], "w": [["attracted to", "~에 끌리는"], ["recording engineer", "녹음 기술자"], ["exploit", "활용하다, 이용하다"], ["neural circuit", "신경 회로"], ["discern", "식별하다, 분간하다"], ["auditory environment", "청각 환경"], ["perceive", "지각하다, 인식하다"], ["leverage", "이용하다, 활용하다"], ["perceptual system", "지각 체계"], ["in place", "갖추어진, 자리 잡은"]]}, {"q": "05", "type": "빈칸", "src": "2023년 3월 31번", "ans": "④", "tr": [["1", "자유 놀이는 아이들에게 그들이 무력하지 않다는 것을 가르치는 자연의 수단이다."], ["2", "어른들에게서 벗어난 놀이에서, 아이들은 실제로 통제력을 가지며 그것을 주장하는 것을 연습할 수 있다."], ["3", "자유 놀이에서 아이들은 순종적이거나 반항적인 하급자로서가 아니라 동등한 사람으로서, 스스로 결정을 내리고 문제를 해결하고 규칙을 만들고 따르며 다른 사람들과 잘 지내는 법을 배운다."], ["4", "활동적인 야외 놀이에서, 아이들은 의도적으로 스스로에게 적당한 양의 두려움을 접하게 하며 그렇게 함으로써 자신의 몸뿐 아니라 두려움도 통제하는 법을 배운다."], ["5", "사회적 놀이에서 아이들은 다른 사람들과 협상하는 법, 다른 사람들을 기쁘게 하는 법, 그리고 갈등에서 생겨날 수 있는 분노를 다스리고 극복하는 법을 배운다."], ["6", "이러한 교훈들 중 어느 것도 언어적 수단을 통해서는 가르쳐질 수 없다; 그것들은 오직 자유 놀이가 제공하는 경험을 통해서만 배워질 수 있다."]], "evh": "2·3번 문장", "ev": [{"en": true, "h": "In play, away from adults, children really do have control and can practice asserting it. / In free play, children learn to make their own decisions, solve their own problems, create and follow rules, and get along with others as equals rather than as obedient or rebellious subordinates."}, {"en": false, "h": "놀이에서 아이들이 실제로 통제력을 가진다는 2번과, 순종적이거나 반항적인 하급자가 아니라 동등한 사람으로서 스스로 결정하는 법을 배운다는 3번의 내용을 종합하면, 빈칸에는 아이들이 '무력하지 않다'는 것을 배운다는 내용이 들어가야 한다."}], "opts": [{"n": "①", "t": "noisy", "a": false, "x": true, "trap": false, "e": "시끄러움(noisy)에 관한 내용은 본문에 없다."}, {"n": "②", "t": "sociable", "a": false, "x": true, "trap": false, "e": "사교성에 관한 내용이 아니라 통제력과 주체성에 관한 내용이다."}, {"n": "③", "t": "complicated", "a": false, "x": true, "trap": false, "e": "복잡함에 관한 내용은 본문과 무관하다."}, {"n": "④", "t": "helpless", "a": true, "x": false, "trap": false, "e": "아이들이 스스로 결정하고 문제를 해결하며 통제력을 갖는다는 2·3번의 내용과 정확히 일치한다."}, {"n": "⑤", "t": "selective", "a": false, "x": true, "trap": true, "e": "까다로움, 선택적임에 관한 내용은 본문에 없다."}], "w": [["free play", "자유 놀이"], ["assert", "주장하다, (권리 등을) 내세우다"], ["obedient", "순종적인"], ["rebellious", "반항적인"], ["subordinate", "하급자, 부하"], ["deliberately", "의도적으로"], ["negotiate", "협상하다"], ["overcome", "극복하다"]]}, {"q": "06", "type": "빈칸", "src": "2020학년도 수능 32번", "ans": "①", "tr": [["1", "스위스의 심리학자 Jean Piaget는 한 쌍의 사건에 걸린 시간을 비교하거나 추정하는 능력을 통해 아이들의 시간 개념을 자주 분석했다."], ["2", "한 전형적인 실험에서, 두 대의 장난감 자동차가 평행한 트랙 위에서 동시에 달리는 모습이 제시되었는데, 한 대는 더 빨리 달려 트랙 아래쪽으로 더 멀리 가서 멈췄다."], ["3", "그런 다음 아이들은 그 자동차들이 같은 시간 동안 달렸는지 판단하고 자신의 판단을 정당화하도록 요청받았다."], ["4", "취학 전 아동과 어린 학령기 아동은 시간적 차원과 공간적 차원을 혼동하는데, 이 오류들이 서로를 반드시 수반하지는 않지만, 출발 시간은 출발점으로, 정지 시간은 정지점으로, 지속 시간은 거리로 판단한다."], ["5", "그러므로, 어떤 아이는 그 자동차들이 함께 출발하고 함께 멈췄다고(정답) 주장하면서도, 더 멀리서 멈춘 자동차가 더 오래 달렸다고(오답) 주장할 수도 있다."]], "evh": "4·5번 문장", "ev": [{"en": true, "h": "Starting times are judged by starting points, stopping times by stopping points and durations by distance ~ / a child may claim that the cars started and stopped running together (correct) and that the car which stopped further ahead, ran for more time (incorrect)."}, {"en": false, "h": "아이들이 지속 시간을 거리로 판단한다는 4번과, 실제로는 같은 시간에 출발하고 멈췄지만 더 멀리 간 자동차가 더 오래 달렸다고 오판한다는 5번의 내용을 종합하면, 빈칸에는 한 자동차가 더 빨리 달려 더 멀리서 멈췄다는 상황 설명이 들어가야 한다."}], "opts": [{"n": "①", "t": "one running faster and stopping further down the track", "a": true, "x": false, "trap": false, "e": "한 자동차가 더 빨리 달려 더 멀리서 멈췄다는 상황이 있어야, 아이들이 거리만 보고 그 자동차가 더 오래 달렸다고 착각하는 4·5번의 오류가 성립한다."}, {"n": "②", "t": "both stopping at the same point further than expected", "a": false, "x": true, "trap": false, "e": "두 자동차가 같은 지점에서 멈췄다면 거리에 따른 착각(더 멀리 간 것이 더 오래 달렸다는 오판)이 발생할 수 없다."}, {"n": "③", "t": "one keeping the same speed as the other to the end", "a": false, "x": true, "trap": false, "e": "속도가 같다면 같은 지점에서 멈추므로 거리에 따른 오판이 생길 수 없다."}, {"n": "④", "t": "both alternating their speed but arriving at the same end", "a": false, "x": true, "trap": true, "e": "같은 지점에 도착한다면 거리로 인한 착각이 발생하지 않는다."}, {"n": "⑤", "t": "both slowing their speed and reaching the identical spot", "a": false, "x": true, "trap": false, "e": "두 자동차가 동일한 지점에 도달한다면 거리에 따른 착각이 일어날 수 없다."}], "w": [["psychologist", "심리학자"], ["conception of time", "시간 개념"], ["synchronously", "같은 시간에, 동시에"], ["parallel track", "평행한 트랙"], ["justify", "정당화하다"], ["preschooler", "취학 전 아동"], ["temporal", "시간의"], ["spatial dimension", "공간적 차원"], ["necessitate", "필요로 하다"]]}]};
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크북 '+CF.sn.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -277,18 +330,22 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
-function hkHtml(it){
-  const E=it[2].split(' / '),K=it[3].split(' / ');
-  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
-  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
-  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
-  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
-  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+function esc2(s){return String(s)}
+function chunkSplit(s){return String(s).split(' / ')}
+function scHtml(c){
+  const esc=String;
+  const E=chunkSplit(c.eng),K=chunkSplit(c.lit);
+  let x='<div class="sc"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span><span class="tt">'+esc(c.title)+'</span></div><div class="sc-b">';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+E[j]+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  if(c.notes.length){x+='<div class="nts">'+c.notes.map(n=>'<span class="nt"><sup>'+n[0]+'</sup> <b>'+esc(n[1])+'</b> '+esc(n[2])+'</span>').join('')+'</div>';}
+  x+='<div class="lay nat"><span class="lb">자연스러운 해석</span>'+esc(c.nat)+'</div>';
+  if(c.ana)x+='<div class="lay ana"><span class="lb">분석</span>'+c.ana+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|분석">자연스러운 해석</button></div></div>';
   return x;
 }
 function renderDk(){
   let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-  HK.forEach(it=>{h+=hkHtml(it);});
+  CF.sn.forEach(c=>{h+=scHtml(c);});
   h+='</div></div>';
   app.innerHTML=h;
 }
@@ -442,41 +499,29 @@ function renderSubmit(){
   const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
 }
 /* ---- 해설 ---- */
-function sHtml(s,evn){
-  const ev=evn.indexOf(s.n)>=0;
-  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
-  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
-  const lays=[];
-  if(s.link)lays.push(['이어 읽으면',s.link]);
-  if(s.easy)lays.push(['쉬운 말로',s.easy]);
-  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
-  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
-  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
-  return x+'</div>';
-}
 function qHtml(i,a){
+  const esc=String;
   const d=D[i],ok=isRight(i,a);
-  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
-  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
-  h+='<h4>정답 근거</h4>';
-  h+=`<p class="en">${esc(d.ev_en)}</p>`;
-  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
-  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
-  if(d.ps&&d.ps.length){
-    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
-  }
-  h+='<h4>선택지 하나씩</h4>';
-  d.ch.forEach(c=>{
-    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  const cq=CF.qs.find(x=>x.q===d.no);
+  if(!cq)return '';
+  let h='<details class="qd" id="qd'+i+'" '+(ok?'':'open')+'><summary>'+esc(cq.q)+'번 · '+esc(cq.type)+'<small>'+esc(cq.src)+'</small><span class="res2 '+(ok?'o':'x')+'">'+(ok?'○ 정답':'✕ 오답')+'</span></summary><div class="qx">';
+  h+='<p class="ansline"><b>정답 '+esc(cq.ans)+'</b>'+(ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>')+'</p>';
+  h+='<details class="sub2"><summary>전문 해석</summary><ol class="trs" style="list-style:none">'+cq.tr.map(t=>'<li><span class="n">'+(t[0]==null?'':esc(t[0]))+'</span>'+t[1]+'</li>').join('')+'</ol></details>';
+  h+='<div class="sec">답의 근거 · '+esc(cq.evh)+'</div><div class="evx">';
+  cq.ev.forEach(p=>{h+=p.en?'<p class="en">'+p.h+'</p>':'<p>'+p.h+'</p>';});
+  h+='</div><div class="sec">선택지 하나씩</div>';
+  cq.opts.forEach(o=>{
+    h+='<div class="opx '+(o.a?'a':'')+'"><div class="ot"><span class="mk">'+esc(o.n)+'</span>'+o.t+(o.a?'<span class="bd g">정답</span>':'')+(o.trap?'<span class="bd t">가장 많이 걸리는 오답</span>':'')+'</div>'+(o.e?'<p>'+(o.x?'<span class="xm">✕</span>':'')+o.e+'</p>':'')+'</div>';
   });
-  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  if(cq.w.length){h+='<div class="sec">단어</div><div class="wds">'+cq.w.map(w=>'<span><b>'+esc(w[0])+'</b>'+esc(w[1])+'</span>').join('')+'</div>';}
+  h+='<button class="toq" data-i="'+i+'">빠른 정답으로</button>';
   return h+'</div></details>';
 }
 function renderExp(){
   const rec=S.sub;
   let h=hdr()+band(4)+'<div class="wrap">';
-  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
-  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='<div class="score">'+rec.s+' <small>/ '+N+'</small></div><h2 id="quick">빠른 정답</h2><div class="qc">';
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+='<button class="qchip '+(ok?'o':'x')+'" data-i="'+i+'"><small>'+esc(D[i].no)+'번</small>'+ansText(i)+' '+(ok?'○':'✕')+'</button>';}
   h+='</div><h2>해설</h2>';
   for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
   h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
@@ -515,13 +560,17 @@ function mmInit(){
 }
 /* 위임 이벤트 */
 document.addEventListener('click',e=>{
+  const qchip=e.target.closest('.qchip');
+  if(qchip){const dd=document.getElementById('qd'+qchip.dataset.i);if(dd){dd.open=true;dd.scrollIntoView({block:'start'});}return;}
+  const toq=e.target.closest('.toq');
+  if(toq){const qq=document.getElementById('quick');if(qq)qq.scrollIntoView({block:'start'});return;}
   const tb=e.target.closest('.tab,.hcard,.gohome');
   if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
   const ch=e.target.closest('.ch');
   if(ch){ch.classList.toggle('open');return;}
   const st=e.target.closest('.stg');
   if(st){
-    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const s=st.closest('.s,.sc'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
     const shown=lays.filter(l=>l.classList.contains('on')).length;
     if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
     else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
@@ -531,7 +580,7 @@ document.addEventListener('click',e=>{
   if(al){
     const open=al.dataset.all==='1',body=al.closest('.dkbody');
     body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
-    body.querySelectorAll('.s').forEach(s=>{
+    body.querySelectorAll('.s,.sc').forEach(s=>{
       const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
       lays.forEach(l=>l.classList.toggle('on',open));
       if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
