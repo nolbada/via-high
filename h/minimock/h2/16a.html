@@ -247,7 +247,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','덩어리별 해석 확인'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const HK=[["01", "1", "If an executive wants to examine a company policy, / he or she first puts aside whatever has been done historically, / and focuses instead on what the policy should be.", "만약 경영자가 회사 정책을 검토하고 싶다면, / 그 사람은 먼저 과거에 행해져 온 것은 무엇이든 제쳐 두고, / 대신 그 정책이 어떻게 되어야 하는지에 집중한다.", "만약 경영자가 회사 정책을 검토하고 싶다면, 그는 먼저 과거에 해왔던 것은 제쳐 두고 그 정책이 어떻게 되어야 하는지에 집중한다.", "puts aside와 focuses가 and로 병렬 연결되며, whatever와 what이 이끄는 명사절이 각각 목적어로 쓰였다."], ["01", "2", "Follow the same approach / as you examine how you should look, speak and act / to best achieve your objectives.", "같은 접근법을 따르라 / 당신이 어떻게 보이고, 말하고, 행동해야 하는지를 검토할 때 / 목표를 가장 잘 달성하기 위해.", "당신의 목표를 가장 잘 달성하기 위해 당신이 어떻게 보이고 말하고 행동해야 하는지 검토할 때도 같은 접근법을 따르라.", "look, speak, act 세 동사가 병렬로 이어지고, to best achieve는 목적을 나타내는 to부정사이다."], ["02", "1", "While the total number of visitors to Changgyeonggung Palace decreased from 2018 to 2019, / the total number of visitors to Deoksugung Palace increased during the same period.", "창경궁 방문객 총수는 2018년에서 2019년으로 감소한 반면, / 덕수궁 방문객 총수는 같은 기간 동안 증가했다.", "창경궁 방문객 총수는 2018년에서 2019년 사이 감소한 반면, 덕수궁 방문객 총수는 같은 기간 증가했다.", "While이 이끄는 대조의 부사절과 주절이 반대되는 내용(감소↔증가)으로 대비를 이룬다."], ["03", "1", "But they are leaders of companies / that appear to have only one purpose: / the single-minded pursuit of short-term profit and \"shareholder value.\"", "그러나 그들은 회사의 지도자들이다 / 오직 하나의 목적만 있는 것처럼 보이는 / 단기 이익과 '주주 가치'의 한결같은 추구라는.", "그러나 그들은 단기 이익과 '주주 가치'를 한결같이 추구하는 것이 유일한 목적인 것처럼 보이는 회사의 지도자들이다.", "that appear to have~는 companies를 수식하는 관계대명사절이고, 콜론(:) 뒤에서 one purpose의 내용을 구체적으로 설명한다."], ["04", "1", "Vihjalmur Stefansson, an arctic explorer, / found / that the Inuit were careful to save fatty meat and organs for human consumption / while giving muscle meat to the dogs.", "북극 탐험가인 비얄무르 스테판손은, / 알아냈다 / 이누이트족이 기름진 고기와 내장을 인간 섭취를 위해 남겨두는 데 신경 썼다는 것을 / 개들에게 근육 살코기를 주는 동안.", "북극 탐험가인 비얄무르 스테판손은 이누이트족이 개들에게 근육 살코기를 주는 반면 기름진 고기와 내장은 사람이 먹도록 신경 써서 남겨두었다는 것을 알아냈다.", "Vihjalmur Stefansson과 an arctic explorer는 동격이며, found의 목적어로 that절이 오고, while giving은 접속사를 남긴 분사구문이다."], ["05", "1", "People living in high altitudes are able to breathe normally / because their bodies have become used to the shortage of oxygen.", "고지대에 사는 사람들은 정상적으로 호흡할 수 있다 / 그들의 몸이 산소 부족에 익숙해졌기 때문에.", "고지대에 사는 사람들은 몸이 산소 부족에 익숙해졌기 때문에 정상적으로 호흡할 수 있다.", "living in high altitudes는 People을 수식하는 현재분사구이고, have become used to는 '~에 익숙해지다'의 현재완료 표현이다."], ["06", "1", "Some of the stars are already long dead / yet we still see them / because of their traveling light.", "몇몇 별들은 이미 오래전에 죽었다 / 그러나 우리는 여전히 그것들을 본다 / 그것들의 이동하는 빛 때문에.", "몇몇 별들은 이미 오래전에 죽었지만, 우리는 그것들이 보낸 빛이 이동해 오고 있기 때문에 여전히 그것들을 본다.", "yet은 역접의 등위접속사이고, because of는 이유를 나타내는 전치사구이다."], ["06", "2", "If we had a really awesome telescope pointed at the earth, / we would see the dinosaurs walking around.", "만약 우리가 지구를 향한 정말 굉장한 망원경을 가지고 있다면, / 우리는 공룡들이 돌아다니는 것을 볼 것이다.", "만약 지구를 향한 정말 굉장한 망원경이 있다면, 우리는 공룡들이 돌아다니는 모습을 볼 수 있을 것이다.", "If + 과거동사(had), 주절에 would + 동사원형이 쓰인 가정법 과거이며, pointed at the earth는 telescope를 수식하는 과거분사구이다."]];
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -275,16 +276,19 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
+function hkHtml(it){
+  const E=it[2].split(' / '),K=it[3].split(' / ');
+  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
+  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+  return x;
+}
 function renderDk(){
-  let h=hdr()+band(2)+'<div class="wrap">';
-  for(let i=0;i<N;i++){
-    const d=D[i];
-    h+='<details class="qd" '+(i===0?'open':'')+'><summary>'+esc(d.no)+'번 지문<small>'+esc(d.typ)+'</small></summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-    if(d.ps&&d.ps.length)h+=d.ps.map(sHtmlP).join('');
-    else h+='<ol>'+d.tr.map(t=>'<li>'+t+'</li>').join('')+'</ol>';
-    h+='</div></details>';
-  }
-  h+='</div>';
+  let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
+  HK.forEach(it=>{h+=hkHtml(it);});
+  h+='</div></div>';
   app.innerHTML=h;
 }
 /* ---- 단어 확인 ---- */

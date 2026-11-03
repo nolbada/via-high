@@ -247,7 +247,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','덩어리별 해석 확인'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const HK=[["01", "5", "Mornings are especially ideal / for when you need to be productive on creative tasks, such as writing, / because you have fewer distractions / and your mind is free of the stresses / that accumulate over the course of a workday.", "아침은 특히 이상적이다 / 글쓰기처럼 창의적인 일에서 생산적이어야 할 때 / 방해 요소가 적기 때문이다 / 그리고 당신의 마음은 스트레스로부터 자유롭기 때문이다 / 업무 하루 동안 쌓이는.", "아침은 방해 요소가 적고 하루 업무 중에 쌓이는 스트레스에서 자유롭기 때문에, 글쓰기처럼 창의적인 일에서 생산적이어야 할 때 특히 이상적이다.", "<b>because ~<\/b>는 이유를 나타내는 부사절이고, that accumulate ~는 the stresses를 수식하는 <b>주격 관계대명사절<\/b>이다."], ["02", "3", "Actually, she'd just hoped for two simple things / — not to lose the ability to read during the talk / and to get through it / without making a fool of herself.", "사실 그녀가 바란 것은 단 두 가지뿐이었다 / — 연설 중에 읽는 능력을 잃지 않는 것 / 그리고 그것을 끝까지 해내는 것 / 웃음거리가 되지 않고.", "사실 그녀가 바란 것은 연설 중에 읽는 능력을 잃지 않는 것과 웃음거리가 되지 않고 끝까지 해내는 것, 이 두 가지뿐이었다.", "<b>not to V and to V<\/b> 구조로 두 개의 to부정사가 <b>등위 병렬<\/b> 연결되어 있으며, without -ing는 '~하지 않고'라는 뜻의 <b>전치사구<\/b>이다."], ["02", "7", "Tom clapped and cheered / and looked like he could barely keep himself / from running up to hug and congratulate her.", "Tom은 박수를 치고 환호했다 / 그리고 그는 자신을 거의 억누르지 못하는 것처럼 보였다 / 달려가서 그녀를 안고 축하하는 것으로부터.", "Tom은 박수를 치고 환호하며, 달려가서 그녀를 안고 축하해 주고 싶은 마음을 거의 참지 못하는 것처럼 보였다.", "<b>keep oneself from -ing<\/b>는 '~하는 것을 참다'라는 뜻의 표현이며, to hug and congratulate가 <b>and로 병렬<\/b> 연결되어 running up을 수식한다."], ["03", "6", "For 《Wheatfield — A Confrontation》, / Denes and her volunteers removed trash from four acres of land, / then planted amber waves of grain / atop the area.", "《Wheatfield—A Confrontation》을 위해, / Denes와 자원봉사자들은 4에이커의 땅에서 쓰레기를 치웠다, / 그런 다음 황금빛 물결치는 곡물을 심었다 / 그 지역 위에.", "《Wheatfield—A Confrontation》을 위해, Denes와 자원봉사자들은 4에이커의 땅에서 쓰레기를 치운 다음 그 지역 위에 황금빛 물결치는 곡물을 심었다.", "<b>removed와 planted<\/b> 두 동사가 연속으로 이어지는 <b>시간 순서를 나타내는 병렬구조<\/b>이다."], ["04", "5", "He was trying to warn hikers against taking the right trail / because there is a bear in the area / through which it passes.", "그는 등산객들에게 오른쪽 길로 가지 말라고 경고하려 했다 / 그 지역에 곰이 있기 때문에 / 그 길이 지나가는(지역).", "그는 등산객들에게 오른쪽 길로 가지 말라고 경고하려 했는데, 그 길이 지나가는 지역에 곰이 있었기 때문이다.", "<b>because ~<\/b>는 이유를 나타내는 부사절이고, through which는 '전치사+관계대명사' 형태로 the area를 수식하는 <b>관계사절<\/b>이다."], ["05", "4", "If they practice abstracting in writing class, / if they work on abstracting in painting or drawing class, / and if, in all cases, they call it abstracting, / they begin to understand how to think beyond disciplinary boundaries.", "만약 학생들이 글쓰기 수업에서 추상화를 연습하고, / 그림이나 회화 수업에서도 추상화를 연습하며, / 그리고 모든 경우에 그것을 '추상화하기'라고 부른다면, / 그들은 학문의 경계를 넘어 생각하는 법을 이해하기 시작한다.", "학생들이 글쓰기 수업에서도, 그림이나 회화 수업에서도 추상화를 연습하고 모든 경우에 그것을 '추상화하기'라고 부른다면, 그들은 학문의 경계를 넘어 생각하는 법을 이해하기 시작한다.", "<b>if절 세 개<\/b>가 and로 <b>병렬<\/b> 연결되어 하나의 조건을 이루는 구조이다."], ["06", "2", "Even though the design, activities, and membership of social media might change over time, / the content of what people posted / usually remains intact.", "소셜 미디어의 디자인, 활동, 회원 구성이 시간이 지나며 바뀌더라도, / 사람들이 게시한 내용은 / 대체로 그대로 남아 있다.", "소셜 미디어의 디자인, 활동, 회원 구성이 시간이 지나며 바뀌더라도, 사람들이 게시한 내용은 대체로 그대로 남아 있다.", "<b>Even though ~<\/b>는 양보를 나타내는 부사절이고, what people posted는 <b>선행사를 포함하는 관계대명사절<\/b>로 전치사 of의 목적어로 쓰였다."], ["06", "5", "Whenever you want, / you can go back / to reexamine those events from the past.", "당신이 원할 때마다, / 당신은 되돌아갈 수 있다 / 과거의 그 사건들을 다시 살펴보기 위해.", "원할 때면 언제든, 당신은 과거의 그 사건들로 되돌아가 다시 살펴볼 수 있다.", "<b>Whenever ~<\/b>는 '~할 때마다'라는 뜻의 복합관계부사절이고, to reexamine ~는 '~하기 위해'라는 <b>목적을 나타내는 to부정사<\/b>이다."]];
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -275,16 +276,19 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
+function hkHtml(it){
+  const E=it[2].split(' / '),K=it[3].split(' / ');
+  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
+  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+  return x;
+}
 function renderDk(){
-  let h=hdr()+band(2)+'<div class="wrap">';
-  for(let i=0;i<N;i++){
-    const d=D[i];
-    h+='<details class="qd" '+(i===0?'open':'')+'><summary>'+esc(d.no)+'번 지문<small>'+esc(d.typ)+'</small></summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-    if(d.ps&&d.ps.length)h+=d.ps.map(sHtmlP).join('');
-    else h+='<ol>'+d.tr.map(t=>'<li>'+t+'</li>').join('')+'</ol>';
-    h+='</div></details>';
-  }
-  h+='</div>';
+  let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
+  HK.forEach(it=>{h+=hkHtml(it);});
+  h+='</div></div>';
   app.innerHTML=h;
 }
 /* ---- 단어 확인 ---- */
