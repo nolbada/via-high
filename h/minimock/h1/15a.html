@@ -247,7 +247,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','덩어리별 해석 확인'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const HK=[["01", "2", "As you know, / Sandy Brown, our after-school swimming coach for six years, / retired from coaching last month.", "아시다시피, / Sandy Brown은 6년간 우리의 방과 후 수영 코치였는데, / 지난달 코칭에서 은퇴했다.", "아시다시피, 6년간 우리 학교 방과 후 수영 코치였던 Sandy Brown 선생님이 지난달 코칭에서 은퇴하셨습니다.", "<b>As you know<\/b>는 문장 앞에 삽입된 부사절이고, Sandy Brown과 our after-school swimming coach for six years는 콤마로 연결된 <b>동격구(appositive)<\/b>이다."], ["02", "2", "After he was orphaned, / Anton Romberg took care of him and taught him to play the bassoon, / but Fürstenau was more interested in the flute.", "그가 고아가 된 후, / Anton Romberg는 그를 돌보고 그에게 바순 연주하는 법을 가르쳤다, / 하지만 Fürstenau는 플루트에 더 관심이 있었다.", "그는 고아가 된 후 Anton Romberg의 보살핌을 받으며 바순을 배웠지만, 플루트에 더 관심이 있었다.", "<b>After ~<\/b>는 시간을 나타내는 부사절이고, took care of와 taught는 Anton Romberg를 주어로 하는 <b>병렬 동사<\/b>이며, but은 앞뒤 내용을 <b>대조<\/b>시키는 등위접속사이다."], ["02", "3", "At the age of 15, / he was already a skilled flutist / and played in a military band.", "15세의 나이에, / 그는 이미 능숙한 플루트 연주자였다 / 그리고 군악대에서 연주했다.", "15세에 그는 이미 능숙한 플루트 연주자였고 군악대에서 연주했다.", "<b>At the age of ~<\/b>는 시간을 나타내는 전치사구이고, was와 played는 he를 주어로 하는 <b>병렬 동사<\/b>이다."], ["03", "2", "Trying to be instructive, / the father told his son / that in about 1886 Karl Benz invented the automobile.", "교육적이려고 애쓰면서, / 그 아버지는 그의 아들에게 말했다 / 1886년경에 Karl Benz가 자동차를 발명했다고.", "교육적이려 애쓰면서, 아버지는 아들에게 1886년경 Karl Benz가 자동차를 발명했다고 말했다.", "<b>Trying to be instructive<\/b>는 이유·상황을 나타내는 <b>분사구문<\/b>이고, that절은 told의 <b>직접목적어 명사절<\/b>이다."], ["04", "1", "Storyteller Syd Lieberman suggests / that it is the story in history / that provides the nail to hang facts on.", "스토리텔러 Syd Lieberman은 시사한다 / 바로 역사 속의 이야기가 / 사실을 걸어 둘 못을 제공하는 것이라고.", "스토리텔러 Syd Lieberman은 사실들을 걸어 둘 못을 제공하는 것이 바로 역사 속 이야기라고 말한다.", "<b>it is ~ that …<\/b>은 the story in history를 강조하는 <b>강조구문<\/b>이며, to hang facts on은 the nail을 수식하는 <b>to부정사구<\/b>이다."], ["04", "3", "According to a report, / a high school in Boulder, Colorado, / is currently experimenting with a study of presentation of historical material.", "한 보고서에 따르면, / 콜로라도주 Boulder에 있는 한 고등학교가, / 역사적 자료 제시에 관한 연구를 현재 시도하고 있다.", "한 보고서에 따르면, 콜로라도주 Boulder의 한 고등학교가 역사적 자료를 제시하는 방법에 관한 연구를 현재 시도하고 있다.", "<b>According to ~<\/b>는 '~에 따르면'이라는 뜻의 전치사구이고, Boulder, Colorado는 a high school을 부연하는 <b>동격어구<\/b>이다."], ["05", "2", "This is a method / that has been used for a long time and is possibly the longest method of food searching, / tracing back to thousands of years ago.", "이것은 하나의 방법이다 / 오랫동안 사용되어 왔고 아마도 식량 탐색의 가장 오래된 방법인, / 수천 년 전까지 거슬러 올라가는.", "이것은 오랫동안 사용되어 왔으며 아마도 식량 탐색의 가장 오래된 방법으로, 수천 년 전까지 거슬러 올라간다.", "<b>that절<\/b>은 a method를 수식하는 <b>주격 관계대명사절<\/b>이며, has been used와 is는 <b>병렬 동사<\/b>이고, tracing back ~은 <b>분사구문<\/b>이다."], ["06", "7", "People who lie / get into trouble / when someone threatens to uncover their lie.", "거짓말하는 사람들은 / 곤경에 처한다 / 누군가가 그들의 거짓말을 밝히겠다고 위협할 때.", "거짓말하는 사람들은 누군가가 그들의 거짓말을 밝히겠다고 위협할 때 곤경에 처한다.", "<b>who lie<\/b>는 People을 수식하는 <b>주격 관계대명사절<\/b>이고, when절은 시간을 나타내는 부사절이며, threaten to는 '~하겠다고 위협하다'라는 뜻이다."]];
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -275,16 +276,19 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
+function hkHtml(it){
+  const E=it[2].split(' / '),K=it[3].split(' / ');
+  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
+  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+  return x;
+}
 function renderDk(){
-  let h=hdr()+band(2)+'<div class="wrap">';
-  for(let i=0;i<N;i++){
-    const d=D[i];
-    h+='<details class="qd" '+(i===0?'open':'')+'><summary>'+esc(d.no)+'번 지문<small>'+esc(d.typ)+'</small></summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-    if(d.ps&&d.ps.length)h+=d.ps.map(sHtmlP).join('');
-    else h+='<ol>'+d.tr.map(t=>'<li>'+t+'</li>').join('')+'</ol>';
-    h+='</div></details>';
-  }
-  h+='</div>';
+  let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
+  HK.forEach(it=>{h+=hkHtml(it);});
+  h+='</div></div>';
   app.innerHTML=h;
 }
 /* ---- 단어 확인 ---- */

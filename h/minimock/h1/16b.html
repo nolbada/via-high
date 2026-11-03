@@ -247,7 +247,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','덩어리별 해석 확인'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const HK=[["07", "1", "Short press to return to the 'home' menu, / long press to send SOS location.", "짧게 누르면 '홈' 메뉴로 돌아가고, / 길게 누르면 SOS 위치를 전송한다.", "짧게 누르면 '홈' 메뉴로 돌아가고, 길게 누르면 SOS 위치가 전송된다.", "주어와 If가 생략된 명령문 형태(Short press = (If you) short press)가 콤마로 병렬 연결되어 있다."], ["08", "1", "But dogs use other senses, too, / and the brains of both humans and dogs / tend to intensify one sense at a time.", "그러나 개들은 다른 감각도 사용한다, / 그리고 인간과 개 모두의 뇌는 / 한 번에 한 감각을 강화하는 경향이 있다.", "하지만 개들도 다른 감각을 사용하며, 인간과 개의 뇌 모두 한 번에 한 가지 감각만 강화하는 경향이 있다.", "But으로 앞 내용을 반박하며, both A and B(both humans and dogs) 구문과 tend to부정사가 쓰였다."], ["09", "1", "The kinds of things each tribe used to make tools, clothing, toys, shelter, and food / depended upon what they found around them.", "각 부족이 도구, 옷, 장난감, 주거지, 음식을 만드는 데 사용한 것들의 종류는 / 그들이 주변에서 발견한 것에 따라 달랐다.", "각 부족이 도구, 옷, 장난감, 주거지, 음식을 만드는 데 사용한 재료의 종류는 그들이 주변에서 발견한 것에 따라 달랐다.", "The kinds of things 뒤에 목적격 관계대명사가 생략되어 있고, depended upon의 목적어로 명사절 what they found가 쓰였다."], ["10", "A-3", "He decided to host a music concert on campus / to raise money for his education.", "그는 캠퍼스에서 음악 연주회를 열기로 결심했다 / 자신의 학비를 마련하기 위해.", "그는 학비를 마련하기 위해 캠퍼스에서 음악 연주회를 열기로 결심했다.", "decided to host는 명사적 용법, to raise money는 목적을 나타내는 부사적 용법의 to부정사이다."], ["10", "B-4", "Paderewski did not know / where to turn for help.", "파데레프스키는 몰랐다 / 어디에 도움을 청해야 할지.", "파데레프스키는 어디에 도움을 요청해야 할지 몰랐다.", "know의 목적어로 '의문사+to부정사(where to turn)' 구문이 쓰여 간접의문문을 축약한다."], ["10", "B-2", "He was a great leader, / but unfortunately when World War I began, / Poland was ravaged.", "그는 훌륭한 지도자였다, / 그러나 불행히도 제1차 세계대전이 시작되었을 때, / 폴란드는 황폐해졌다.", "그는 훌륭한 지도자였지만, 불행히도 제1차 세계대전이 시작되자 폴란드는 황폐해졌다.", "역접 접속사 but과 시간 부사절 when이 이어지며, 마지막 절은 수동태(was ravaged)이다."], ["10", "D-4", "Disappointed, / he went to Paderewski / and explained his difficulty.", "실망하여, / 그는 파데레프스키에게 갔다 / 그리고 자신의 어려움을 설명했다.", "실망한 그는 파데레프스키에게 가서 자신의 어려움을 설명했다.", "문장 맨 앞 Disappointed는 분사구문으로, Being disappointed의 Being이 생략된 형태이다."], ["10", "C-6", "You may not remember this, / but many years ago, / you helped a student make it through college.", "당신은 이것을 기억하지 못할 수도 있다, / 그러나 오래 전에, / 당신은 한 학생이 대학을 마치도록 도왔다.", "당신은 이것을 기억하지 못할 수도 있지만, 오래 전에 당신은 한 학생이 대학을 무사히 마치도록 도와주었다.", "many years ago가 삽입된 부사구이며, help+목적어+동사원형(helped a student make) 구조가 쓰였다."]];
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -275,16 +276,19 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
+function hkHtml(it){
+  const E=it[2].split(' / '),K=it[3].split(' / ');
+  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
+  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+  return x;
+}
 function renderDk(){
-  let h=hdr()+band(2)+'<div class="wrap">';
-  for(let i=0;i<N;i++){
-    const d=D[i];
-    h+='<details class="qd" '+(i===0?'open':'')+'><summary>'+esc(d.no)+'번 지문<small>'+esc(d.typ)+'</small></summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-    if(d.ps&&d.ps.length)h+=d.ps.map(sHtmlP).join('');
-    else h+='<ol>'+d.tr.map(t=>'<li>'+t+'</li>').join('')+'</ol>';
-    h+='</div></details>';
-  }
-  h+='</div>';
+  let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
+  HK.forEach(it=>{h+=hkHtml(it);});
+  h+='</div></div>';
   app.innerHTML=h;
 }
 /* ---- 단어 확인 ---- */

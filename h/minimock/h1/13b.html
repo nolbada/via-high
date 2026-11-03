@@ -247,7 +247,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','덩어리별 해석 확인'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const HK=[["07", "4", "For example, / a businessman's optimistic forecast can be blown away / by a cruel recession or by aggressive competition / in ways he could not have foreseen.", "예를 들어, / 한 사업가의 낙관적인 전망은 날아가 버릴 수 있다 / 가혹한 경기 침체에 의해서나 공격적인 경쟁에 의해서 / 그가 예측할 수 없었던 방식으로", "예를 들어, 한 사업가의 낙관적인 전망은 그가 예측할 수 없었던 방식으로 가혹한 경기 침체나 공격적인 경쟁에 의해 날아가 버릴 수 있다.", "<b>by A or by B<\/b>는 <b>병렬구조<\/b>이며, <b>in ways (that) he could not have foreseen<\/b>은 목적격 관계대명사가 생략된 <b>관계사절<\/b>이다."], ["08", "1", "It is not always easy / to eat well / when you have a newborn baby.", "항상 쉬운 것은 아니다 / 잘 먹는 것이 / 갓난아기가 있을 때는", "갓난아기가 있을 때 잘 챙겨 먹는 것이 항상 쉬운 일은 아니다.", "<b>It<\/b>은 <b>가주어<\/b>이고 진주어는 to부정사구 to eat well이며, <b>when ~<\/b>은 시간을 나타내는 <b>부사절<\/b>이다."], ["08", "9", "This type of food is okay sometimes, / but not every day.", "이런 종류의 음식은 가끔은 괜찮다, / 하지만 매일은 아니다", "이런 종류의 음식은 가끔은 괜찮지만, 매일은 안 된다.", "<b>but 뒤<\/b>에서 반복되는 어구(this type of food is not okay)가 <b>생략<\/b>되고 not every day만 남은 구조이다."], ["10", "1", "Acoustic concerns in school libraries / are much more important and complex today / than they were in the past.", "학교 도서관에서의 소리 문제는 / 오늘날 훨씬 더 중요하고 복잡하다 / 과거에 그랬던 것보다", "학교 도서관에서의 소리 문제는 과거에 그랬던 것보다 오늘날 훨씬 더 중요하고 복잡하다.", "<b>much more ~ than<\/b>은 <b>비교급 강조 표현<\/b>이며, than 뒤의 they were는 they were important and complex에서 반복 어구가 생략된 형태이다."], ["11", "4", "People aren't like inanimate features of a building / that you just have to be around / to get used to.", "사람은 건물의 무생물적 요소와 같지 않다 / 당신이 그저 곁에 있기만 하면 되는 / 익숙해지기 위해", "사람은 그저 곁에 있으면서 익숙해지기만 하면 되는 건물의 무생물적인 요소와는 다르다.", "<b>that ~<\/b>는 inanimate features를 수식하는 <b>목적격 관계대명사절<\/b>이고, <b>to get used to<\/b>는 목적을 나타내는 <b>to부정사<\/b>이다."], ["11", "7", "Most people's self-esteem isn't going to be affected that much / if they don't like balconies, / but your confidence can suffer / if you can't socialize effectively.", "대부분의 사람들의 자존감은 그렇게 크게 영향받지 않을 것이다 / 그들이 발코니를 좋아하지 않더라도, / 하지만 당신의 자신감은 손상될 수 있다 / 당신이 효과적으로 사람들과 어울리지 못한다면", "대부분의 사람들의 자존감은 그들이 발코니를 좋아하지 않는다고 해서 그렇게 크게 영향받지 않겠지만, 효과적으로 사람들과 어울리지 못하면 당신의 자신감은 손상될 수 있다.", "두 개의 <b>if 조건절<\/b>이 각각 앞뒤 절을 수식하며, 두 개의 주절이 <b>but<\/b>으로 <b>병렬<\/b> 연결되어 있다."], ["12", "2", "The social situations you need to expose yourself to / may not be available / when you want them, / or they may not go well enough / for you to sense that things are under control.", "당신이 노출되어야 할 사회적 상황은 / 이용 가능하지 않을 수도 있다 / 당신이 원할 때, / 혹은 그것들이 충분히 잘 진행되지 않을 수도 있다 / 당신이 상황이 통제되고 있다고 느낄 만큼", "당신이 노출되어야 할 사회적 상황은 당신이 원할 때 이용 가능하지 않을 수도 있고, 혹은 상황이 통제되고 있다고 느낄 만큼 충분히 잘 진행되지 않을 수도 있다.", "목적격 관계대명사가 생략된 <b>The social situations (that) you need ~<\/b> 구조이며, <b>enough for you to sense ~<\/b>는 '…가 ~할 만큼 충분히'라는 뜻의 <b>enough for A to R<\/b> 구문이다."], ["12", "7", "The process of applying them is just messier, / and knowing that / before you start / is helpful.", "그것들을 적용하는 과정은 그저 더 지저분할 뿐이다, / 그리고 그것을 아는 것이 / 시작하기 전에 / 도움이 된다", "그것을 적용하는 과정이 그저 더 지저분할 뿐이며, 시작하기 전에 그것을 아는 것이 도움이 된다.", "<b>동명사구<\/b> knowing that before you start가 두 번째 절의 주어이며, and로 연결된 두 절(is messier / is helpful)이 <b>병렬<\/b> 구조를 이룬다."]];
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -275,16 +276,19 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
+function hkHtml(it){
+  const E=it[2].split(' / '),K=it[3].split(' / ');
+  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
+  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+  return x;
+}
 function renderDk(){
-  let h=hdr()+band(2)+'<div class="wrap">';
-  for(let i=0;i<N;i++){
-    const d=D[i];
-    h+='<details class="qd" '+(i===0?'open':'')+'><summary>'+esc(d.no)+'번 지문<small>'+esc(d.typ)+'</small></summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-    if(d.ps&&d.ps.length)h+=d.ps.map(sHtmlP).join('');
-    else h+='<ol>'+d.tr.map(t=>'<li>'+t+'</li>').join('')+'</ol>';
-    h+='</div></details>';
-  }
-  h+='</div>';
+  let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
+  HK.forEach(it=>{h+=hkHtml(it);});
+  h+='</div></div>';
   app.innerHTML=h;
 }
 /* ---- 단어 확인 ---- */

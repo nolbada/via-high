@@ -247,7 +247,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','덩어리별 해석 확인'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const HK=[["07", "5", "The engineer gives a bill to the man, / and the man argues / that he should pay only a small fee / as the job took the engineer only a few moments.", "그 기술자는 청구서를 그 남자에게 건넨다 / 그리고 그 남자는 주장한다 / 자신이 적은 요금만 지불해야 한다고 / 그 일이 기술자에게 단지 몇 분밖에 걸리지 않았기 때문에", "기술자는 남자에게 청구서를 건네고, 남자는 그 일이 기술자에게 단 몇 분밖에 걸리지 않았으니 적은 요금만 내면 된다고 주장한다.", "<b>argues that ~<\/b>의 that절이 argues의 목적어이며, <b>as<\/b>는 이유를 나타내는 접속사로 '~때문에'라는 뜻이다."], ["08", "1", "Since a great deal of day-to-day academic work is boring and repetitive, / you need to be well motivated / to keep doing it.", "일상적인 학업의 상당 부분이 지루하고 반복적이기 때문에 / 당신은 충분히 동기부여가 되어 있어야 한다 / 그것을 계속하기 위해서는", "일상적인 학업의 상당 부분은 지루하고 반복적이기 때문에, 그것을 계속하려면 충분한 동기부여가 필요하다.", "<b>Since<\/b>는 이유를 나타내는 접속사이며, <b>need to be motivated<\/b>는 need+to부정사, <b>keep doing<\/b>은 <b>keep+동명사<\/b>로 '계속 ~하다'라는 뜻이다."], ["08", "7", "Without such passion, / they would have achieved / nothing.", "그런 열정이 없었다면 / 그들은 이루지 못했을 것이다 / 아무것도", "그런 열정이 없었다면, 그들은 아무것도 이루지 못했을 것이다.", "<b>Without ~, 주어+would have p.p.<\/b>는 <b>가정법 과거완료<\/b>로 '(과거에) ~이 없었다면 ~했을 것이다'라는 의미이다."], ["09", "B-1", "But they wear their hair the same way, / buy the same brand of shoes, / eat the same breakfast, / and stick to routines / for no reason other than the ease of a comfortable, predictable life.", "하지만 그들은 머리를 똑같은 방식으로 하고 / 같은 브랜드의 신발을 사고 / 같은 아침 식사를 하고 / 그리고 판에 박힌 일상을 고수한다 / 편안하고 예측 가능한 삶의 편리함 외에는 다른 이유 없이", "하지만 그들은 머리 모양도, 신발 브랜드도, 아침 식사도 늘 똑같이 하며, 편안하고 예측 가능한 삶이 주는 편리함 말고는 다른 이유 없이 판에 박힌 일상을 고수한다.", "네 개의 동사구(wear, buy, eat, stick to)가 콤마와 and로 <b>병렬<\/b> 연결되어 있고, <b>for no reason other than ~<\/b>은 '~외에는 다른 이유 없이'라는 뜻이다."], ["10", "2", "This may seem like a funny talent for a plant to have, / but it all becomes clear / when you realize / the effect it has on nearby plants.", "이것은 식물에게 우스운 재주처럼 보일지도 모른다 / 하지만 그것은 모두 명확해진다 / 당신이 깨달을 때 / 그것이 근처 식물들에게 미치는 영향을", "이것은 식물이 지니기엔 우스운 재주처럼 보일 수도 있지만, 그것이 주변 식물에 미치는 영향을 깨닫는 순간 모든 것이 명확해진다.", "<b>for a plant to have<\/b>는 to부정사의 <b>의미상 주어(for+명사)<\/b>이다. <b>the effect it has on ~<\/b>은 effect 뒤에 <b>목적격 관계대명사가 생략<\/b>된 구조이다."], ["10", "4", "Common blackberry is unaffected by damaging effects of this metal / and has evolved two different ways / of using manganese / to its advantage.", "커먼 블랙베리는 이 금속의 해로운 영향을 받지 않는다 / 그리고 두 가지 다른 방법을 발달시켜 왔다 / 망가니즈를 사용하는 / 자신에게 유리하게", "커먼 블랙베리는 이 금속의 해로운 영향을 받지 않으며, 망가니즈를 자신에게 유리하게 활용하는 두 가지 방법을 발달시켜 왔다.", "두 개의 동사구(is unaffected, has evolved)가 and로 <b>병렬<\/b> 연결되어 있고, <b>of using manganese<\/b>는 ways를 수식하는 <b>전치사+동명사<\/b>이다."], ["11", "1", "It's reasonable to assume / that every adult alive today has, at some point in their life, / expressed or heard from someone else / a variation of the following: \"Where did all the time go?\"", "그것은 타당하다 가정하는 것은 / 오늘날 살아있는 모든 성인이, 삶의 어느 시점에서 / 다른 누군가로부터 말하거나 들어본 적이 있다는 것을 / 다음의 변형된 표현을 — \"그 모든 시간은 다 어디로 갔지?\"", "오늘날 살아있는 모든 성인이 삶의 어느 시점에 '그 많던 시간이 다 어디로 갔지?'와 비슷한 말을 다른 누군가에게 하거나 들어봤을 것이라고 가정하는 것은 타당하다.", "It은 가주어, to assume that ~이 진주어이다. that절 안의 <b>has ~ expressed or heard<\/b>는 <b>현재완료<\/b>이며 expressed와 heard가 or로 병렬 연결된다."], ["11", "15", "Adults and children may live in the same world, / but reality for a child is vastly different / — full of wonders and curiosities and miraculous little events / that most adults ignore.", "어른과 아이는 같은 세상에 살고 있을지도 모른다 / 하지만 아이에게 현실은 매우 다르다 / — 경이로움과 호기심, 그리고 사소한 기적 같은 일들로 가득 차 있다 / 대부분의 어른들이 무시하는", "어른과 아이는 같은 세상에 살고 있을지 몰라도, 아이에게 현실은 크게 다르다 — 대부분의 어른들이 무시해 버리는 경이로움과 호기심, 사소한 기적 같은 일들로 가득 차 있는 것이다.", "<b>that most adults ignore<\/b>는 앞의 wonders and curiosities and miraculous little events를 수식하는 <b>목적격 관계대명사절<\/b>이다."]];
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -275,16 +276,19 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
+function hkHtml(it){
+  const E=it[2].split(' / '),K=it[3].split(' / ');
+  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
+  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+  return x;
+}
 function renderDk(){
-  let h=hdr()+band(2)+'<div class="wrap">';
-  for(let i=0;i<N;i++){
-    const d=D[i];
-    h+='<details class="qd" '+(i===0?'open':'')+'><summary>'+esc(d.no)+'번 지문<small>'+esc(d.typ)+'</small></summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-    if(d.ps&&d.ps.length)h+=d.ps.map(sHtmlP).join('');
-    else h+='<ol>'+d.tr.map(t=>'<li>'+t+'</li>').join('')+'</ol>';
-    h+='</div></details>';
-  }
-  h+='</div>';
+  let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
+  HK.forEach(it=>{h+=hkHtml(it);});
+  h+='</div></div>';
   app.innerHTML=h;
 }
 /* ---- 단어 확인 ---- */
