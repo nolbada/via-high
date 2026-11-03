@@ -6,7 +6,8 @@ var PARTS={
   /* 금천고1 능률(민) 공통영어2: 지문 id는 z1~zN (과마다 따로). 4과·3과 각 4지문 */
   L4:{1:['z1'],2:['z2'],3:['z3'],4:['z4']},
   L3:{1:['z1'],2:['z2'],3:['z3'],4:['z4']},
-  names:{L4:{1:'본문 1',2:'본문 2',3:'본문 3',4:'본문 4'},L3:{1:'본문 1',2:'본문 2',3:'본문 3',4:'본문 4'}}
+  mock:{1:['2610-21','2610-22','2610-23','2610-24']},
+  names:{mock:{1:'26년 10월 21~24번'},L4:{1:'본문 1',2:'본문 2',3:'본문 3',4:'본문 4'},L3:{1:'본문 1',2:'본문 2',3:'본문 3',4:'본문 4'}}
 };
 var PART=(function(){var m=/[?&]part=(1[0-5]|[1-9])\b/.exec(location.search);return m?+m[1]:0})();
 /* 패시지 id가 이 덩어리에 속하는지. kind: 'L4' 또는 'mock' */
@@ -37,8 +38,8 @@ function partKey(kind){return PART?kind+'p'+PART:kind}
 (function(){
   if(/[?&](wrong|mix)=1\b/.test(location.search))return;
   var sg=location.pathname.split('/'),hi=sg.indexOf('h'),SC=(hi>=0&&sg[hi+1])||'x';
-  var m=/\/(L3|L4)\/([a-z-]+)\.html$/.exec(location.pathname);if(!m||!PART)return;
-  var A={'vocab':'voc','find':'find','eobeop-test':'eobeop','sunseo-ko':'ko','sunseo-abc':'abc','sunseo-mun':'mun','awkward-test':'awk','blank':'blank'}[m[2]];if(!A)return;
+  var m=/\/(L3|L4|mock)\/([a-z-]+)\.html$/.exec(location.pathname);if(!m||!PART)return;
+  var A={'vocab':'voc','find':'find','eobeop-test':'eobeop','sunseo-ko':'ko','sunseo-abc':'abc','sunseo-mun':'mun','awkward-test':'awk','blank':'blank','nd-voc':'voc','nd-find':'find','nd-eob':'eobeop','nd-awk':'awk','nd-und':'und'}[m[2]];if(!A)return;
   var K=m[1]+'p'+PART+':'+A,CUR=location.pathname+location.search;
   try{localStorage.setItem('vhbm:'+SC,JSON.stringify({u:CUR,k:K,t:Date.now()}))}catch(e){}
   function isDone(k){try{var e=PG.get()[k];return !!(e&&(e.n||e.t))}catch(x){return false}}
