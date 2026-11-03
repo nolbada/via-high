@@ -142,6 +142,59 @@ details.dk>summary::-webkit-details-marker{display:none}
 details.qd>summary::after{content:'\25BE';margin-left:auto;color:var(--sub)}
 details.qd[open]>summary::after{content:'\25B4'}
 .cell.s{padding:8px 12px;border:1.5px solid transparent;margin:0;background:var(--soft)}.cell.s.bad{background:var(--badbg);border-color:var(--bad)}
+
+/* ---- 새 직독직해·해설 화면 ---- */
+.sc{border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden;background:var(--bg)}
+.sc-h{padding:11px 14px 10px;background:#eef2f8;border-bottom:1px solid var(--line)}
+.sc-h .no2{display:inline-block;min-width:26px;height:26px;line-height:26px;border-radius:13px;background:var(--accent);color:#fff;font-weight:800;font-size:13px;text-align:center;padding:0 7px;margin-right:8px}
+.sc-h .at{font-size:13px;color:var(--sub)}
+.sc-h .tt{display:block;margin-top:7px;font-size:15.5px;font-weight:800;color:var(--accent);line-height:1.45}
+.sc-b{padding:10px 12px 12px}
+.sc .ch{margin-bottom:6px}
+.sc .ce{font-size:17px}
+.sc .ce sup,.nt sup{font-size:10px;font-weight:800;color:#b8651f;margin-left:1px}
+.nts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.nt{font-size:13.5px;line-height:1.5;background:#fbf6ee;border:1px solid #f0e2cd;border-radius:8px;padding:5px 9px;color:#4a3a22}
+.nt b{color:#33260f}
+.sc .lay{border-radius:10px}
+.sc .lay.nat{border-left:4px solid var(--accent);background:#f7f9fc}
+.sc .lay.ana{background:#fff8e6;border-color:#f0dcc0;color:#4d3b05}
+.sc .lay.ana b,.why2 b,.opx b,.evx b{background:linear-gradient(transparent 58%,var(--hl) 58%);font-weight:700}
+.sc .lb{margin-bottom:4px}
+.qc{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.qchip{min-width:56px;padding:9px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-family:inherit;font-size:15px;color:var(--ink);font-weight:700}
+.qchip small{display:block;font-size:11px;font-weight:400;color:var(--sub);margin-bottom:1px}
+.qchip.o{border-color:var(--good);background:var(--goodbg)}
+.qchip.x{border-color:var(--bad);background:var(--badbg)}
+.sec{margin:16px 0 6px;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px}
+.sec:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+.trs{list-style:none;margin:0;padding:0;background:var(--soft);border-radius:10px;padding:8px 12px}
+.trs li{font-size:15px;line-height:1.75;padding:2px 0}
+.trs .n{display:inline-block;min-width:20px;font-size:12px;color:var(--sub);font-weight:700}
+.evx{background:var(--goodbg);border:1px solid #bfe0cd;border-radius:10px;padding:10px 12px}
+.evx .en{background:#fff;border:1px solid #d5eadc;font-size:15.5px;margin:0 0 8px}
+.evx p{margin:6px 0;font-size:15.5px;line-height:1.75}
+.evx .evh{font-size:13px;font-weight:800;color:var(--good);margin-bottom:6px}
+.opx{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px;background:var(--bg)}
+.opx.a{border-color:var(--good);background:var(--goodbg)}
+.opx .ot{font-size:15.5px;font-weight:700;line-height:1.55}
+.opx .mk{display:inline-block;min-width:22px;font-weight:800;color:var(--sub);margin-right:4px}
+.opx.a .mk{color:var(--good)}
+.opx .bd{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.opx .bd.g{background:var(--good)}
+.opx .bd.t{background:#b4472f}
+.opx p{margin:5px 0 0;font-size:14.5px;line-height:1.7;color:#333}
+.opx .xm{color:var(--bad);font-weight:800;margin-right:3px}
+.wds{display:flex;flex-wrap:wrap;gap:6px}
+.wds span{font-size:14px;background:var(--soft);border-radius:8px;padding:5px 9px;line-height:1.45}
+.wds b{margin-right:5px}
+.toq{display:block;width:100%;margin-top:14px;min-height:42px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+details.sub2{margin:12px 0 0}
+details.sub2>summary{list-style:none;cursor:pointer;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;padding:6px 0}
+details.sub2>summary::-webkit-details-marker{display:none}
+details.sub2>summary:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+details.sub2>summary:after{content:"+";margin-left:auto;font-size:18px;color:var(--sub)}
+details.sub2[open]>summary:after{content:"\2212"}
 </style>
 </head>
 <body>
@@ -248,8 +301,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const HK=[["07", "2", "Product problems, overpromises, the lack of customer support, differential pricing — all of the issues / that customers actually experienced / from a marketing organization / suddenly popped out of the box.", "제품 문제들, 과장된 약속들, 고객 지원의 부족, 가격 차등 — 모든 문제들은 / 고객들이 실제로 겪었던 / 마케팅 조직으로부터 / 갑자기 상자 밖으로 튀어나왔다", "제품 문제, 과장된 약속, 고객 지원 부족, 가격 차등 등 고객이 마케팅 조직으로부터 실제로 겪었던 모든 문제들이 갑자기 상자 밖으로 튀어나왔다.", "대시(—) 앞의 명사들을 <b>all of the issues<\/b>가 다시 받으며, <b>that customers ~ experienced<\/b>는 목적격 관계대명사절로 issues를 수식합니다. 문장의 <b>본동사는 popped<\/b>입니다."], ["07", "5", "Just as important, / the Internet opened up / a forum / for customers to compare / products, experiences, and values / with other customers / easily and quickly.", "그만큼 중요하게도 / 인터넷은 열었다 / 공론의 장을 / 고객들이 비교할 수 있는 / 제품, 경험, 가치를 / 다른 고객들과 / 쉽고 빠르게", "그만큼 중요한 것으로, 인터넷은 고객들이 제품, 경험, 가치를 다른 고객들과 쉽고 빠르게 비교할 수 있는 공론의 장을 열었다.", "<b>for customers to compare<\/b>는 <b>to부정사의 의미상 주어(for customers)<\/b>가 쓰인 구조로, a forum을 꾸며 줍니다. <b>products, experiences, and values<\/b>는 compare의 목적어로 <b>병렬<\/b> 연결되어 있습니다."], ["08", "2", "Industrial architecture, / the argument went, / was ugly and inhuman; / past styles had more to do / with pretension / than what people needed / in their homes.", "산업 건축은 / 그 주장에 따르면 / 추하고 비인간적이었다 / 과거 양식들은 더 관련이 있었다 / 허세와 / 사람들이 필요로 했던 것보다 / 그들의 집에서", "그 주장에 따르면, 산업 건축은 추하고 비인간적이었으며, 과거 양식들은 사람들이 집에서 필요로 했던 것보다 허세와 더 관련이 있었다.", "<b>the argument went<\/b>는 문장 중간에 끼어든 <b>삽입절<\/b>로 '그 주장에 따르면'이라는 뜻입니다. <b>what people needed in their homes<\/b>는 <b>선행사를 포함하는 관계대명사 what<\/b>이 이끄는 명사절로 have more to do with A than B 구문의 B 자리에 쓰였습니다."], ["08", "4", "They developed / their craft skills / over generations, / demonstrating / mastery / of both tools and materials.", "그들은 발전시켰다 / 그들의 기술을 / 여러 세대에 걸쳐 / 보여 주면서 / 숙달된 기술을 / 도구와 재료 양쪽 모두의", "그들은 여러 세대에 걸쳐 자신들의 기술을 연마했고, 도구와 재료 양쪽 모두에 숙달된 기술을 보여 주었다.", "<b>demonstrating<\/b>은 '~하면서'라는 <b>동시동작을 나타내는 분사구문<\/b>이며, <b>both tools and materials<\/b>는 'both A and B(A와 B 둘 다)' 구문으로 mastery of의 목적어를 이룹니다."], ["09", "3", "After hatching, / chickens peck / busily / for their own food / much faster / than crows, / which rely on / the parent bird / to bring them food / in the nest.", "부화한 후 / 닭은 쪼아 먹는다 / 분주하게 / 자신의 먹이를 / 훨씬 더 빠르게 / 까마귀보다 / 까마귀는 의존한다 / 어미 새에게 / 먹이를 가져다주는 것을 / 둥지 안에서", "부화 후, 닭은 둥지 안에서 어미 새가 먹이를 가져다주는 것에 의존하는 까마귀보다 훨씬 더 빠르게 자신의 먹이를 스스로 쪼아 먹는다.", "<b>much faster than<\/b>은 비교급을 강조하는 <b>much + 비교급<\/b> 구문입니다. <b>which rely on ~<\/b>은 <b>crows를 부가 설명하는 계속적 용법의 관계대명사절<\/b>이며, <b>to bring<\/b>은 rely on의 결과를 나타내는 <b>to부정사<\/b>입니다."], ["09", "4", "However, / as adults, / chickens have / very limited hunting skills / whereas crows are much more flexible / in hunting for food.", "하지만 / 다 자랐을 때 / 닭은 가지고 있다 / 매우 제한된 사냥 기술을 / 반면에 까마귀는 훨씬 더 유연하다 / 먹이를 사냥하는 데 있어서", "하지만 다 자란 뒤에는, 닭은 매우 제한된 사냥 기술을 가지는 반면 까마귀는 먹이를 사냥하는 데 있어서 훨씬 더 유연하다.", "<b>whereas<\/b>는 '~인 반면에'라는 뜻으로 <b>대조되는 두 절을 연결하는 접속사<\/b>입니다. <b>much more flexible<\/b>에서 much는 비교급 more flexible을 강조합니다."], ["10", "C6", "The slave searched / for herbs / to cure / the lion's wound / and took care / of the lion.", "그 노예는 찾았다 / 약초를 / 치료할 / 사자의 상처를 / 그리고 돌보아 주었다 / 그 사자를", "그 노예는 사자의 상처를 치료할 약초를 찾아서 그 사자를 돌봐 주었다.", "<b>to cure<\/b>는 herbs를 수식하는 <b>형용사적 용법의 to부정사<\/b>이며, <b>searched for<\/b>와 <b>took care of<\/b>가 <b>and로 병렬<\/b> 연결된 두 개의 동사(구)입니다."], ["10", "D4", "Seeing this, / everyone was surprised.", "이것을 보고 / 모두가 놀랐다", "이 광경을 보고, 모두가 놀랐다.", "<b>Seeing this<\/b>는 '~하면서/~하고'라는 <b>연속 동작·이유를 나타내는 분사구문<\/b>으로, 의미상 주어는 주절의 주어 everyone과 같습니다."]];
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const CF={"sn": [{"i": "01", "q": "07", "s": "2", "title": "대시 동격 + 목적격 관계대명사절", "eng": "Product problems, overpromises<sup>1<\/sup>, the lack of customer support, differential pricing<sup>2<\/sup> — all of the issues / that customers actually experienced / from a marketing organization / suddenly popped out of the box<sup>3<\/sup>.", "notes": [["1", "overpromise", "과장된 약속"], ["2", "differential pricing", "가격 차등"], ["3", "pop out of the box", "상자 밖으로 튀어나오다"]], "lit": "제품 문제들, 과장된 약속들, 고객 지원의 부족, 가격 차등 — 모든 문제들은 / 고객들이 실제로 겪었던 / 마케팅 조직으로부터 / 갑자기 상자 밖으로 튀어나왔다", "nat": "제품 문제, 과장된 약속, 고객 지원 부족, 가격 차등 등 고객이 마케팅 조직으로부터 실제로 겪었던 모든 문제들이 갑자기 상자 밖으로 튀어나왔다.", "ana": "대시(—) 앞의 명사들을 <b>all of the issues<\/b>가 다시 받으며, <b>that customers ~ experienced<\/b>는 목적격 관계대명사절로 issues를 수식합니다. 문장의 <b>본동사는 popped<\/b>입니다."}, {"i": "02", "q": "07", "s": "5", "title": "to부정사의 의미상 주어(for + 목적격) + 목적어 병렬", "eng": "Just as important, / the Internet opened up / a forum<sup>1<\/sup> / for customers to compare<sup>2<\/sup> / products, experiences, and values / with other customers / easily and quickly.", "notes": [["1", "forum", "공론의 장"], ["2", "compare", "비교하다"]], "lit": "그만큼 중요하게도 / 인터넷은 열었다 / 공론의 장을 / 고객들이 비교할 수 있는 / 제품, 경험, 가치를 / 다른 고객들과 / 쉽고 빠르게", "nat": "그만큼 중요한 것으로, 인터넷은 고객들이 제품, 경험, 가치를 다른 고객들과 쉽고 빠르게 비교할 수 있는 공론의 장을 열었다.", "ana": "<b>for customers to compare<\/b>는 <b>to부정사의 의미상 주어(for customers)<\/b>가 쓰인 구조로, a forum을 꾸며 줍니다. <b>products, experiences, and values<\/b>는 compare의 목적어로 <b>병렬<\/b> 연결되어 있습니다."}, {"i": "03", "q": "08", "s": "2", "title": "삽입절(the argument went) + 관계대명사 what", "eng": "Industrial architecture, / the argument<sup>1<\/sup> went, / was ugly and inhuman<sup>2<\/sup>; / past styles had more to do / with pretension<sup>3<\/sup> / than what people needed / in their homes.", "notes": [["1", "argument", "주장"], ["2", "inhuman", "비인간적인"], ["3", "pretension", "허세"]], "lit": "산업 건축은 / 그 주장에 따르면 / 추하고 비인간적이었다 / 과거 양식들은 더 관련이 있었다 / 허세와 / 사람들이 필요로 했던 것보다 / 그들의 집에서", "nat": "그 주장에 따르면, 산업 건축은 추하고 비인간적이었으며, 과거 양식들은 사람들이 집에서 필요로 했던 것보다 허세와 더 관련이 있었다.", "ana": "<b>the argument went<\/b>는 문장 중간에 끼어든 <b>삽입절<\/b>로 '그 주장에 따르면'이라는 뜻입니다. <b>what people needed in their homes<\/b>는 <b>선행사를 포함하는 관계대명사 what<\/b>이 이끄는 명사절로 have more to do with A than B 구문의 B 자리에 쓰였습니다."}, {"i": "04", "q": "08", "s": "4", "title": "분사구문(동시동작) + both A and B", "eng": "They developed / their craft skills<sup>1<\/sup> / over generations, / demonstrating<sup>2<\/sup> / mastery<sup>3<\/sup> / of both tools and materials.", "notes": [["1", "craft skill", "기술, 공예 기술"], ["2", "demonstrate", "보여 주다"], ["3", "mastery", "숙달"]], "lit": "그들은 발전시켰다 / 그들의 기술을 / 여러 세대에 걸쳐 / 보여 주면서 / 숙달된 기술을 / 도구와 재료 양쪽 모두의", "nat": "그들은 여러 세대에 걸쳐 자신들의 기술을 연마했고, 도구와 재료 양쪽 모두에 숙달된 기술을 보여 주었다.", "ana": "<b>demonstrating<\/b>은 '~하면서'라는 <b>동시동작을 나타내는 분사구문<\/b>이며, <b>both tools and materials<\/b>는 'both A and B(A와 B 둘 다)' 구문으로 mastery of의 목적어를 이룹니다."}, {"i": "05", "q": "09", "s": "3", "title": "much+비교급 강조 + 계속적 용법 관계대명사", "eng": "After hatching<sup>1<\/sup>, / chickens peck<sup>2<\/sup> / busily / for their own food / much faster / than crows, / which rely on<sup>3<\/sup> / the parent bird / to bring them food / in the nest.", "notes": [["1", "hatch", "부화하다"], ["2", "peck", "쪼아 먹다"], ["3", "rely on", "의존하다"]], "lit": "부화한 후 / 닭은 쪼아 먹는다 / 분주하게 / 자신의 먹이를 / 훨씬 더 빠르게 / 까마귀보다 / 까마귀는 의존한다 / 어미 새에게 / 먹이를 가져다주는 것을 / 둥지 안에서", "nat": "부화 후, 닭은 둥지 안에서 어미 새가 먹이를 가져다주는 것에 의존하는 까마귀보다 훨씬 더 빠르게 자신의 먹이를 스스로 쪼아 먹는다.", "ana": "<b>much faster than<\/b>은 비교급을 강조하는 <b>much + 비교급<\/b> 구문입니다. <b>which rely on ~<\/b>은 <b>crows를 부가 설명하는 계속적 용법의 관계대명사절<\/b>이며, <b>to bring<\/b>은 rely on의 결과를 나타내는 <b>to부정사<\/b>입니다."}, {"i": "06", "q": "09", "s": "4", "title": "대조 접속사 whereas + much+비교급", "eng": "However, / as adults, / chickens have / very limited<sup>1<\/sup> hunting skills / whereas crows are much more flexible<sup>2<\/sup> / in hunting for food.", "notes": [["1", "limited", "제한된"], ["2", "flexible", "유연한"]], "lit": "하지만 / 다 자랐을 때 / 닭은 가지고 있다 / 매우 제한된 사냥 기술을 / 반면에 까마귀는 훨씬 더 유연하다 / 먹이를 사냥하는 데 있어서", "nat": "하지만 다 자란 뒤에는, 닭은 매우 제한된 사냥 기술을 가지는 반면 까마귀는 먹이를 사냥하는 데 있어서 훨씬 더 유연하다.", "ana": "<b>whereas<\/b>는 '~인 반면에'라는 뜻으로 <b>대조되는 두 절을 연결하는 접속사<\/b>입니다. <b>much more flexible<\/b>에서 much는 비교급 more flexible을 강조합니다."}, {"i": "07", "q": "10", "s": "C6", "title": "to부정사의 형용사적 용법 + 동사구 병렬", "eng": "The slave searched / for herbs<sup>1<\/sup> / to cure<sup>2<\/sup> / the lion's wound<sup>3<\/sup> / and took care / of the lion.", "notes": [["1", "herb", "약초"], ["2", "cure", "치료하다"], ["3", "wound", "상처"]], "lit": "그 노예는 찾았다 / 약초를 / 치료할 / 사자의 상처를 / 그리고 돌보아 주었다 / 그 사자를", "nat": "그 노예는 사자의 상처를 치료할 약초를 찾아서 그 사자를 돌봐 주었다.", "ana": "<b>to cure<\/b>는 herbs를 수식하는 <b>형용사적 용법의 to부정사<\/b>이며, <b>searched for<\/b>와 <b>took care of<\/b>가 <b>and로 병렬<\/b> 연결된 두 개의 동사(구)입니다."}, {"i": "08", "q": "10", "s": "D4", "title": "분사구문(이유·연속 동작)", "eng": "Seeing<sup>1<\/sup> this, / everyone was surprised<sup>2<\/sup>.", "notes": [["1", "see", "보다"], ["2", "surprised", "놀란"]], "lit": "이것을 보고 / 모두가 놀랐다", "nat": "이 광경을 보고, 모두가 놀랐다.", "ana": "<b>Seeing this<\/b>는 '~하면서/~하고'라는 <b>연속 동작·이유를 나타내는 분사구문<\/b>으로, 의미상 주어는 주절의 주어 everyone과 같습니다."}], "qs": [{"q": "07", "type": "밑줄 의미", "src": "2020년 11월 21번", "ans": "①", "tr": [["1", "인터넷과 함께, 모든 것이 바뀌었다."], ["2", "제품 문제, 과장된 약속, 고객 지원 부족, 가격 차등 등 고객이 마케팅 조직으로부터 실제로 겪었던 모든 문제들이 갑자기 상자 밖으로 튀어나왔다."], ["3", "더 이상 통제된 소통이나 심지어 사업 시스템조차 존재하지 않았다."], ["4", "소비자들은 한 회사와 그 제품, 경쟁사, 유통 체계, 그리고 무엇보다도 제품과 서비스에 대해 이야기할 때의 진실성에 대해 알고 싶은 것은 무엇이든 웹을 통해 대체로 알 수 있었다."], ["5", "그만큼 중요한 것으로, 인터넷은 고객들이 제품, 경험, 가치를 다른 고객들과 쉽고 빠르게 비교할 수 있는 공론의 장을 열었다."], ["6", "이제 고객은 마케터에게 대응하고, 공개 포럼을 통해 즉각적으로 그렇게 할 수 있는 방법을 가지게 되었다."]], "evh": "3·4번 문장", "ev": [{"en": true, "h": "No longer were there any controlled communications or even business systems. / Consumers could generally learn through the Web whatever they wanted to know about a company ~ its truthfulness."}, {"en": false, "h": "밑줄 함의 문제는 밑줄 바로 뒤 문장들이 근거입니다. 인터넷 이후로 <b>통제된 소통이 사라지고<\/b>, 소비자가 회사의 진실성까지 웹에서 <b>알 수 있게 되었다<\/b>는 것은, 예전에는 감춰졌던 문제들이 <b>더 이상 비밀로 유지될 수 없게 되었다(could not be kept secret anymore)<\/b>는 의미입니다."}], "opts": [{"n": "①", "t": "could not be kept secret anymore", "a": true, "x": false, "trap": false, "e": "통제된 소통이 사라지고 소비자가 진실성까지 알 수 있게 되었다는 3·4번의 내용과 정확히 일치합니다."}, {"n": "②", "t": "might disappear from public attention", "a": false, "x": true, "trap": false, "e": "오히려 문제들이 <b>드러나는<\/b> 상황이지, 대중의 관심에서 사라진다는 내용이 아닙니다."}, {"n": "③", "t": "were no longer available to marketers", "a": false, "x": true, "trap": false, "e": "마케터에게 이용 불가하다는 내용이 아니라, <b>소비자에게 정보가 공개된다<\/b>는 내용입니다."}, {"n": "④", "t": "became too complicated to understand", "a": false, "x": true, "trap": false, "e": "복잡해져서 이해하기 어려워졌다는 내용은 본문에 없습니다."}, {"n": "⑤", "t": "began to improve companies' reputations", "a": false, "x": true, "trap": true, "e": "오히려 문제가 드러나는 상황이므로 회사 평판 개선과는 거리가 멉니다."}], "w": [["overpromise", "과장된 약속"], ["differential pricing", "가격 차등"], ["controlled communications", "통제된 소통"], ["distribution", "유통"], ["truthfulness", "진실성"], ["forum", "공론의 장"], ["talk back", "대응하다"], ["instantly", "즉각적으로"], ["marketer", "마케터"]]}, {"q": "08", "type": "글의 순서", "src": "2022년 3월 36번", "ans": "③", "tr": [["1", "19세기 말 무렵, 새로운 건축학적 사고방식이 등장했다."], ["2", "그 주장에 따르면, 산업 건축은 추하고 비인간적이었으며, 과거 양식들은 사람들이 집에서 필요로 했던 것보다 허세와 더 관련이 있었다."], ["3", "(B) 이러한 접근 방식 대신, 평범한 시골 건축업자들이 과거에 일했던 방식을 살펴보는 것은 어떨까? 그들은 여러 세대에 걸쳐 자신들의 기술을 연마했고, 도구와 재료 양쪽 모두에 숙달된 기술을 보여 주었다."], ["4", "(C) 그 재료들은 지역에서 나는 것이었고, 단순하게 사용되었다 — 이런 방식으로 지어진 집들은 실내에 소박한 나무 바닥과 회반죽을 칠한 벽을 갖추고 있었다."], ["5", "(A) 그러나 그것들(그렇게 지어진 집들)은 사람들의 필요를 완벽하게 충족시켰고, 가장 잘 지어졌을 때는 장인의 기술과 그 집이 지역에 뿌리내리고 있다는 점에서 비롯된 아름다움을 지니고 있었다."]], "evh": "(B) 첫 문장 · (C) 첫 문장 · (A) 첫 문장", "ev": [{"en": true, "h": "(B) Instead of these approaches, why not look at the way ordinary country builders worked in the past? / (C) Those materials were local ~ / (A) But they supplied people's needs perfectly ~"}, {"en": false, "h": "순서 문제는 지시어가 가리키는 대상을 따라가야 합니다. 주어진 글은 산업 건축을 비판하며 끝나므로, '이러한 접근 방식 <b>대신(Instead of these approaches)<\/b>' 과거 시골 건축업자를 보자고 제안하는 <b>(B)<\/b>가 먼저 옵니다. (B) 끝의 <b>tools and materials<\/b> 중 재료를 이어받아 '<b>그 재료들(Those materials)<\/b>'을 설명하는 <b>(C)<\/b>가 다음이고, 마지막으로 그렇게 지어진 집들을 <b>그러나(But)<\/b>로 긍정적으로 평가하는 <b>(A)<\/b>가 이어집니다."}], "opts": [{"n": "①", "t": "(A) – (C) – (B)", "a": false, "x": true, "trap": false, "e": "(A)의 <b>they<\/b>가 아직 나오지 않은 대상(그렇게 지어진 집들)을 가리키므로 맨 앞에 올 수 없습니다."}, {"n": "②", "t": "(B) – (A) – (C)", "a": false, "x": true, "trap": true, "e": "(A)의 <b>they<\/b>가 (C)의 재료 설명 없이 등장해 무엇을 가리키는지 알 수 없습니다."}, {"n": "③", "t": "(B) – (C) – (A)", "a": true, "x": false, "trap": false, "e": "과거 건축업자를 보자는 제안(B) → 그들이 쓴 재료 설명(C) → 그렇게 지어진 집을 긍정 평가(A)의 흐름이 지시어와 정확히 맞습니다."}, {"n": "④", "t": "(C) – (A) – (B)", "a": false, "x": true, "trap": false, "e": "(C)의 <b>Those materials<\/b>가 가리킬 대상이 아직 나오지 않았으므로 (C)가 맨 앞에 올 수 없습니다."}, {"n": "⑤", "t": "(C) – (B) – (A)", "a": false, "x": true, "trap": false, "e": "같은 이유로 (C)가 맨 앞에 올 수 없습니다."}], "w": [["architectural", "건축학적인"], ["attitude", "사고방식"], ["inhuman", "비인간적인"], ["pretension", "허세"], ["ordinary", "평범한"], ["craft skill", "기술"], ["demonstrate", "보여 주다"], ["mastery", "숙달"], ["simplicity", "단순함"], ["whitewashed", "회반죽을 칠한"], ["craftsman", "장인"], ["rootedness", "뿌리내림"]]}, {"q": "09", "type": "요약문 완성", "src": "2018년 3월 40번", "ans": "①", "tr": [["1", "까마귀는 매우 영리한 조류이다."], ["2", "까마귀는 닭과 같은 다른 새들에 비해 훨씬 더 복잡한 문제를 해결할 수 있다."], ["3", "부화 후, 닭은 둥지 안에서 어미 새가 먹이를 가져다주는 것에 의존하는 까마귀보다 훨씬 더 빠르게 자신의 먹이를 스스로 쪼아 먹는다."], ["4", "하지만 다 자란 뒤에는, 닭은 매우 제한된 사냥 기술을 가지는 반면 까마귀는 먹이를 사냥하는 데 있어서 훨씬 더 유연하다."], ["5", "까마귀는 또한 결국 더 크고 더 복잡한 뇌를 갖게 된다."], ["6", "부화와 둥지로부터의 독립 사이의 더 긴 기간이 까마귀가 지능을 발달시키는 것을 가능하게 한다."]], "evh": "2·6번 문장", "ev": [{"en": true, "h": "They are capable of solving many more complex problems ~. / Their extended period between hatching and flight from the nest enables them to develop intelligence."}, {"en": false, "h": "요약문 문제는 두 핵심 정보를 하나씩 빈칸에 대응시켜야 합니다. 2번에서 까마귀가 <b>더 복잡한 문제 해결(지능)<\/b>에서 뛰어나다고 했으므로 (A)는 <b>intelligent<\/b>이고, 6번에서 둥지를 떠나기까지의 <b>기간이 더 길다(더 오래 의존한다)<\/b>고 했으므로 (B)는 <b>dependency<\/b>입니다."}], "opts": [{"n": "①", "t": "intelligent … dependency", "a": true, "x": false, "trap": false, "e": "까마귀가 <b>더 지능적<\/b>이고 <b>더 긴 의존 기간<\/b>을 가진다는 2·6번의 내용과 정확히 일치합니다."}, {"n": "②", "t": "passive … dependency", "a": false, "x": true, "trap": false, "e": "까마귀는 오히려 사냥에 <b>유연하고 능동적<\/b>이므로 passive(수동적인)는 본문과 맞지 않습니다."}, {"n": "③", "t": "selfish … competition", "a": false, "x": true, "trap": false, "e": "이기심이나 경쟁에 관한 언급은 본문에 없습니다."}, {"n": "④", "t": "intelligent … competition", "a": false, "x": true, "trap": true, "e": "(A)는 맞지만 (B)의 competition(경쟁)은 근거가 없습니다."}, {"n": "⑤", "t": "passive … hunting", "a": false, "x": true, "trap": false, "e": "(A), (B) 모두 본문 내용과 맞지 않습니다."}], "w": [["remarkably", "몹시"], ["clever", "영리한"], ["capable of", "~할 수 있는"], ["hatch", "부화하다"], ["peck", "쪼아 먹다"], ["rely on", "의존하다"], ["limited", "제한된"], ["flexible", "유연한"], ["extended", "길어진"], ["enable", "가능하게 하다"], ["intelligence", "지능"], ["dependency", "의존"]]}, {"q": "10", "type": "장문 · 글의 순서", "src": "2017년 3월 43번", "ans": "②", "tr": [["1", "(A) 옛날에 한 마을에 부자가 살고 있었다. 그는 일을 시키는 많은 노예와 하인들을 두고 있었다. 그 부자는 그들에게 매우 불친절하고 잔인했다. 어느 날 노예들 중 한 명이 음식을 요리하다가 실수를 저질렀다. (a)그는 음식을 너무 오래 익혔다. 부자가 그 음식을 보았을 때, 그는 화가 나서 그 노예를 벌주었다. 그는 그 노예를 작은 방에 가두고 밖에서 문을 잠갔다."], ["2", "(C) 어찌어찌해서 그 노예는 그 방에서 탈출해 도망쳤다. (c)그는 숲으로 갔다. 그곳에서 그는 사자 한 마리를 보았다. 사자를 무서워하며 도망치는 대신, 그는 사자에게 가까이 다가갔다. 그는 사자가 다쳐서 다리 한쪽에서 피가 나고 있는 것을 보았다. 그 노예는 사자의 상처를 치료할 약초를 찾아서 사자를 돌봐 주었다."], ["3", "(B) 며칠 후 사자는 회복되었다. 그 노예와 사자는 매우 친한 친구가 되었다. 며칠이 지났지만, 어느 날 그 노예는 부자의 경비병들 중 한 명에게 붙잡혔다. 경비병은 (b)그를 부자에게 데려갔고, 부자는 그를 엄하게 벌하기로 결심했다. 부자는 경비병들에게 그를 사자 우리에 넣으라고 명령했다."], ["4", "(D) 온 마을 사람들이 그 소식을 듣고 구경하러 왔다. 그 노예가 사자 우리에 갇히자마자, 사자는 (d)그에게 다가와 그의 손을 핥기 시작하고 그를 껴안았다. 그것은 그 노예가 숲에서 도와주었던 바로 그 사자였다. 이 광경을 보고, 모두가 놀랐다. 부자는 그 노예가 훌륭한 사람이어서 사자가 그를 죽이지 않았다고 생각했다. (e)그는 그 노예를 풀어 주었고, 그를 자기 친구로 삼았으며 자신의 모든 하인과 노예들을 더 잘 대우하기 시작했다."]], "evh": "(C) 첫 문장 · (B) 첫 문장 · (D) 첫 문장", "ev": [{"en": true, "h": "(C) Somehow the slave escaped from that room and ran away. / (B) After a few days the lion recovered. ~ / (D) The whole village got the news about it and came to see."}, {"en": false, "h": "순서 문제는 (A)의 마지막 상황과 자연스럽게 이어지는 사건을 찾아야 합니다. (A)는 노예가 작은 <b>방에 갇히는<\/b> 장면으로 끝나므로, '<b>그 방에서 탈출했다(escaped from that room)<\/b>'는 (C)가 바로 이어집니다. (C)에서 노예가 다친 사자를 치료해 주는데, (B)의 첫 문장 '<b>며칠 후 사자는 회복되었다<\/b>'가 그 결과를 이어받습니다. (B)의 끝에서 노예가 <b>사자 우리에 갇히는<\/b> 사건이 벌어지므로, 온 마을이 그 소식을 듣고 구경하러 왔다는 (D)가 마지막입니다."}], "opts": [{"n": "①", "t": "(B) – (D) – (C)", "a": false, "x": true, "trap": false, "e": "(B)는 사자가 이미 노예와 친해진 뒤의 이야기인데, 아직 사자를 만나지도 않은 상태에서 (B)가 먼저 올 수 없습니다."}, {"n": "②", "t": "(C) – (B) – (D)", "a": true, "x": false, "trap": false, "e": "방에서 탈출해 사자를 돌봄(C) → 사자가 회복되었으나 붙잡혀 사자 우리에 갇힘(B) → 온 마을이 구경하러 옴(D)의 순서가 사건의 흐름과 지시어에 정확히 맞습니다."}, {"n": "③", "t": "(C) – (D) – (B)", "a": false, "x": true, "trap": true, "e": "(D)의 '사자 우리에 갇히자마자'는 (B) 끝에서 노예가 사자 우리에 갇힌 사건 다음에 와야 하므로 (D)가 (B)보다 먼저 올 수 없습니다."}, {"n": "④", "t": "(D) – (B) – (C)", "a": false, "x": true, "trap": false, "e": "(D)가 가리키는 사자 우리 사건이 아직 나오지 않았으므로 맨 앞에 올 수 없습니다."}, {"n": "⑤", "t": "(D) – (C) – (B)", "a": false, "x": true, "trap": false, "e": "같은 이유로 (D)가 맨 앞에 올 수 없습니다."}], "w": [["village", "마을"], ["slave", "노예"], ["cruel", "잔인한"], ["punish", "벌주다"], ["lock", "잠그다"], ["escape", "탈출하다"], ["injured", "다친"], ["bleeding", "피가 나는"], ["herb", "약초"], ["cure", "치료하다"], ["wound", "상처"], ["recover", "회복하다"], ["guard", "경비병"], ["severely", "엄하게"], ["cage", "우리"], ["free", "풀어 주다"]]}, {"q": "11", "type": "장문 · 지칭 추론", "src": "2017년 3월 44번", "ans": "⑤", "tr": [["1", "(A)~(D) 전문 해석은 바로 위 10번 카드에 있습니다. 여기서는 (a)~(e)가 각각 누구를 가리키는지만 확인합니다."], ["2", "(a) He overcooked the food — 음식을 태운 사람 → 노예(the slave)"], ["3", "(b) The guard took him to the rich man — 경비병에게 붙잡혀 끌려간 사람 → 노예(the slave)"], ["4", "(c) He went to a forest — 숲으로 도망친 사람 → 노예(the slave)"], ["5", "(d) the lion came near him — 사자가 다가간 대상 → 노예(the slave)"], ["6", "(e) He freed the slave — 노예를 풀어 준 사람 → 부자(the rich man)"]], "evh": "(D) 다섯째·여섯째 문장", "ev": [{"en": true, "h": "The rich man thought that the slave was such a great person that the lion didn't kill him. (e) He freed the slave, made him his friend ~"}, {"en": false, "h": "지칭 문제는 밑줄 <b>바로 앞에 나온 주어<\/b>가 우선 단서입니다. (e) 바로 앞 문장의 주어가 <b>the rich man<\/b>이고, 노예를 풀어 주고 친구로 삼는 행동의 주체도 이 <b>부자<\/b>이므로 (e)만 다른 넷과 다릅니다. (a)~(d)는 모두 음식을 태우고, 붙잡혀 끌려가고, 숲으로 도망치고, 사자가 다가간 대상인 <b>노예<\/b> 자신을 가리킵니다."}], "opts": [{"n": "①", "t": "(a) He overcooked the food", "a": false, "x": true, "trap": false, "e": "음식을 태운 사람은 <b>노예<\/b>입니다."}, {"n": "②", "t": "(b) The guard took him to the rich man", "a": false, "x": true, "trap": false, "e": "경비병에게 붙잡혀 끌려간 사람도 <b>노예<\/b>입니다."}, {"n": "③", "t": "(c) He went to a forest", "a": false, "x": true, "trap": false, "e": "숲으로 도망친 사람 역시 <b>노예<\/b>입니다."}, {"n": "④", "t": "(d) the lion came near him", "a": false, "x": true, "trap": true, "e": "사자가 다가간 대상도 <b>노예<\/b>입니다."}, {"n": "⑤", "t": "(e) He freed the slave", "a": true, "x": false, "trap": false, "e": "바로 앞 문장의 주어인 <b>부자<\/b>가 노예를 풀어 주고 있으므로 나머지 넷과 다릅니다."}], "w": [["overcook", "너무 오래 익히다"], ["guard", "경비병"], ["severely", "엄하게"], ["escape", "탈출하다"], ["injured", "다친"], ["approach", "다가가다"], ["lick", "핥다"], ["hug", "껴안다"], ["free", "풀어 주다"]]}, {"q": "12", "type": "장문 · 내용 불일치", "src": "2017년 3월 45번", "ans": "③", "tr": [["1", "① 부자는 노예가 요리한 음식을 보고 화가 났다."], ["2", "② 노예는 부자의 경비병에게 잡혔다."], ["3", "③ 노예는 사자를 보자 재빨리 달아났다."], ["4", "④ 사자의 다리에서 피가 나고 있었다."], ["5", "⑤ 노예는 사자 우리에 갇혔다."]], "evh": "(C) 넷째 문장", "ev": [{"en": true, "h": "Instead of becoming afraid of the lion and running away, he went close to the lion."}, {"en": false, "h": "내용 불일치 문제는 선지의 핵심 동작이 본문과 반대인지 확인해야 합니다. 본문은 노예가 사자를 보고 <b>무서워하며 도망치는 대신(instead of becoming afraid ~ running away) 가까이 다가갔다<\/b>고 했으므로, '<b>사자를 보자 재빨리 달아났다<\/b>'는 선지 ③은 본문과 정반대입니다."}], "opts": [{"n": "①", "t": "부자는 노예가 요리한 음식을 보고 화가 났다.", "a": false, "x": true, "trap": false, "e": "(A)의 <b>he became angry<\/b>와 일치합니다."}, {"n": "②", "t": "노예는 부자의 경비병에게 잡혔다.", "a": false, "x": true, "trap": false, "e": "(B)의 <b>the slave was caught by one of the guards<\/b>와 일치합니다."}, {"n": "③", "t": "노예는 사자를 보자 재빨리 달아났다.", "a": true, "x": false, "trap": false, "e": "(C)에서 노예는 사자를 보고 <b>무서워하며 도망치는 대신 가까이 다가갔다<\/b>고 했으므로 본문과 반대입니다."}, {"n": "④", "t": "사자의 다리에서 피가 나고 있었다.", "a": false, "x": true, "trap": false, "e": "(C)의 <b>one of his legs was bleeding<\/b>와 일치합니다."}, {"n": "⑤", "t": "노예는 사자 우리에 갇혔다.", "a": false, "x": true, "trap": true, "e": "(B)의 <b>put him in the lion's cage<\/b>와 일치합니다."}], "w": [["unkind", "불친절한"], ["punish", "벌주다"], ["escape", "탈출하다"], ["injured", "다친"], ["bleeding", "피가 나는"], ["cure", "치료하다"], ["wound", "상처"], ["cage", "우리"], ["guard", "경비병"]]}]};
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크북 '+CF.sn.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -277,18 +330,22 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
-function hkHtml(it){
-  const E=it[2].split(' / '),K=it[3].split(' / ');
-  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
-  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
-  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
-  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
-  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+function esc2(s){return String(s)}
+function chunkSplit(s){return String(s).split(' / ')}
+function scHtml(c){
+  const esc=String;
+  const E=chunkSplit(c.eng),K=chunkSplit(c.lit);
+  let x='<div class="sc"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span><span class="tt">'+esc(c.title)+'</span></div><div class="sc-b">';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+E[j]+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  if(c.notes.length){x+='<div class="nts">'+c.notes.map(n=>'<span class="nt"><sup>'+n[0]+'</sup> <b>'+esc(n[1])+'</b> '+esc(n[2])+'</span>').join('')+'</div>';}
+  x+='<div class="lay nat"><span class="lb">자연스러운 해석</span>'+esc(c.nat)+'</div>';
+  if(c.ana)x+='<div class="lay ana"><span class="lb">분석</span>'+c.ana+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|분석">자연스러운 해석</button></div></div>';
   return x;
 }
 function renderDk(){
   let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-  HK.forEach(it=>{h+=hkHtml(it);});
+  CF.sn.forEach(c=>{h+=scHtml(c);});
   h+='</div></div>';
   app.innerHTML=h;
 }
@@ -442,41 +499,29 @@ function renderSubmit(){
   const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
 }
 /* ---- 해설 ---- */
-function sHtml(s,evn){
-  const ev=evn.indexOf(s.n)>=0;
-  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
-  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
-  const lays=[];
-  if(s.link)lays.push(['이어 읽으면',s.link]);
-  if(s.easy)lays.push(['쉬운 말로',s.easy]);
-  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
-  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
-  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
-  return x+'</div>';
-}
 function qHtml(i,a){
+  const esc=String;
   const d=D[i],ok=isRight(i,a);
-  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
-  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
-  h+='<h4>정답 근거</h4>';
-  h+=`<p class="en">${esc(d.ev_en)}</p>`;
-  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
-  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
-  if(d.ps&&d.ps.length){
-    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
-  }
-  h+='<h4>선택지 하나씩</h4>';
-  d.ch.forEach(c=>{
-    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  const cq=CF.qs.find(x=>x.q===d.no);
+  if(!cq)return '';
+  let h='<details class="qd" id="qd'+i+'" '+(ok?'':'open')+'><summary>'+esc(cq.q)+'번 · '+esc(cq.type)+'<small>'+esc(cq.src)+'</small><span class="res2 '+(ok?'o':'x')+'">'+(ok?'○ 정답':'✕ 오답')+'</span></summary><div class="qx">';
+  h+='<p class="ansline"><b>정답 '+esc(cq.ans)+'</b>'+(ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>')+'</p>';
+  h+='<details class="sub2"><summary>전문 해석</summary><ol class="trs" style="list-style:none">'+cq.tr.map(t=>'<li><span class="n">'+(t[0]==null?'':esc(t[0]))+'</span>'+t[1]+'</li>').join('')+'</ol></details>';
+  h+='<div class="sec">답의 근거 · '+esc(cq.evh)+'</div><div class="evx">';
+  cq.ev.forEach(p=>{h+=p.en?'<p class="en">'+p.h+'</p>':'<p>'+p.h+'</p>';});
+  h+='</div><div class="sec">선택지 하나씩</div>';
+  cq.opts.forEach(o=>{
+    h+='<div class="opx '+(o.a?'a':'')+'"><div class="ot"><span class="mk">'+esc(o.n)+'</span>'+o.t+(o.a?'<span class="bd g">정답</span>':'')+(o.trap?'<span class="bd t">가장 많이 걸리는 오답</span>':'')+'</div>'+(o.e?'<p>'+(o.x?'<span class="xm">✕</span>':'')+o.e+'</p>':'')+'</div>';
   });
-  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  if(cq.w.length){h+='<div class="sec">단어</div><div class="wds">'+cq.w.map(w=>'<span><b>'+esc(w[0])+'</b>'+esc(w[1])+'</span>').join('')+'</div>';}
+  h+='<button class="toq" data-i="'+i+'">빠른 정답으로</button>';
   return h+'</div></details>';
 }
 function renderExp(){
   const rec=S.sub;
   let h=hdr()+band(4)+'<div class="wrap">';
-  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
-  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='<div class="score">'+rec.s+' <small>/ '+N+'</small></div><h2 id="quick">빠른 정답</h2><div class="qc">';
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+='<button class="qchip '+(ok?'o':'x')+'" data-i="'+i+'"><small>'+esc(D[i].no)+'번</small>'+ansText(i)+' '+(ok?'○':'✕')+'</button>';}
   h+='</div><h2>해설</h2>';
   for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
   h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
@@ -515,13 +560,17 @@ function mmInit(){
 }
 /* 위임 이벤트 */
 document.addEventListener('click',e=>{
+  const qchip=e.target.closest('.qchip');
+  if(qchip){const dd=document.getElementById('qd'+qchip.dataset.i);if(dd){dd.open=true;dd.scrollIntoView({block:'start'});}return;}
+  const toq=e.target.closest('.toq');
+  if(toq){const qq=document.getElementById('quick');if(qq)qq.scrollIntoView({block:'start'});return;}
   const tb=e.target.closest('.tab,.hcard,.gohome');
   if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
   const ch=e.target.closest('.ch');
   if(ch){ch.classList.toggle('open');return;}
   const st=e.target.closest('.stg');
   if(st){
-    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const s=st.closest('.s,.sc'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
     const shown=lays.filter(l=>l.classList.contains('on')).length;
     if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
     else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
@@ -531,7 +580,7 @@ document.addEventListener('click',e=>{
   if(al){
     const open=al.dataset.all==='1',body=al.closest('.dkbody');
     body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
-    body.querySelectorAll('.s').forEach(s=>{
+    body.querySelectorAll('.s,.sc').forEach(s=>{
       const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
       lays.forEach(l=>l.classList.toggle('on',open));
       if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}

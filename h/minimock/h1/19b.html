@@ -142,6 +142,59 @@ details.dk>summary::-webkit-details-marker{display:none}
 details.qd>summary::after{content:'\25BE';margin-left:auto;color:var(--sub)}
 details.qd[open]>summary::after{content:'\25B4'}
 .cell.s{padding:8px 12px;border:1.5px solid transparent;margin:0;background:var(--soft)}.cell.s.bad{background:var(--badbg);border-color:var(--bad)}
+
+/* ---- 새 직독직해·해설 화면 ---- */
+.sc{border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden;background:var(--bg)}
+.sc-h{padding:11px 14px 10px;background:#eef2f8;border-bottom:1px solid var(--line)}
+.sc-h .no2{display:inline-block;min-width:26px;height:26px;line-height:26px;border-radius:13px;background:var(--accent);color:#fff;font-weight:800;font-size:13px;text-align:center;padding:0 7px;margin-right:8px}
+.sc-h .at{font-size:13px;color:var(--sub)}
+.sc-h .tt{display:block;margin-top:7px;font-size:15.5px;font-weight:800;color:var(--accent);line-height:1.45}
+.sc-b{padding:10px 12px 12px}
+.sc .ch{margin-bottom:6px}
+.sc .ce{font-size:17px}
+.sc .ce sup,.nt sup{font-size:10px;font-weight:800;color:#b8651f;margin-left:1px}
+.nts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.nt{font-size:13.5px;line-height:1.5;background:#fbf6ee;border:1px solid #f0e2cd;border-radius:8px;padding:5px 9px;color:#4a3a22}
+.nt b{color:#33260f}
+.sc .lay{border-radius:10px}
+.sc .lay.nat{border-left:4px solid var(--accent);background:#f7f9fc}
+.sc .lay.ana{background:#fff8e6;border-color:#f0dcc0;color:#4d3b05}
+.sc .lay.ana b,.why2 b,.opx b,.evx b{background:linear-gradient(transparent 58%,var(--hl) 58%);font-weight:700}
+.sc .lb{margin-bottom:4px}
+.qc{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.qchip{min-width:56px;padding:9px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-family:inherit;font-size:15px;color:var(--ink);font-weight:700}
+.qchip small{display:block;font-size:11px;font-weight:400;color:var(--sub);margin-bottom:1px}
+.qchip.o{border-color:var(--good);background:var(--goodbg)}
+.qchip.x{border-color:var(--bad);background:var(--badbg)}
+.sec{margin:16px 0 6px;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px}
+.sec:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+.trs{list-style:none;margin:0;padding:0;background:var(--soft);border-radius:10px;padding:8px 12px}
+.trs li{font-size:15px;line-height:1.75;padding:2px 0}
+.trs .n{display:inline-block;min-width:20px;font-size:12px;color:var(--sub);font-weight:700}
+.evx{background:var(--goodbg);border:1px solid #bfe0cd;border-radius:10px;padding:10px 12px}
+.evx .en{background:#fff;border:1px solid #d5eadc;font-size:15.5px;margin:0 0 8px}
+.evx p{margin:6px 0;font-size:15.5px;line-height:1.75}
+.evx .evh{font-size:13px;font-weight:800;color:var(--good);margin-bottom:6px}
+.opx{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px;background:var(--bg)}
+.opx.a{border-color:var(--good);background:var(--goodbg)}
+.opx .ot{font-size:15.5px;font-weight:700;line-height:1.55}
+.opx .mk{display:inline-block;min-width:22px;font-weight:800;color:var(--sub);margin-right:4px}
+.opx.a .mk{color:var(--good)}
+.opx .bd{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.opx .bd.g{background:var(--good)}
+.opx .bd.t{background:#b4472f}
+.opx p{margin:5px 0 0;font-size:14.5px;line-height:1.7;color:#333}
+.opx .xm{color:var(--bad);font-weight:800;margin-right:3px}
+.wds{display:flex;flex-wrap:wrap;gap:6px}
+.wds span{font-size:14px;background:var(--soft);border-radius:8px;padding:5px 9px;line-height:1.45}
+.wds b{margin-right:5px}
+.toq{display:block;width:100%;margin-top:14px;min-height:42px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+details.sub2{margin:12px 0 0}
+details.sub2>summary{list-style:none;cursor:pointer;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;padding:6px 0}
+details.sub2>summary::-webkit-details-marker{display:none}
+details.sub2>summary:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+details.sub2>summary:after{content:"+";margin-left:auto;font-size:18px;color:var(--sub)}
+details.sub2[open]>summary:after{content:"\2212"}
 </style>
 </head>
 <body>
@@ -248,8 +301,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const HK=[["07", "4", "A summer vacation will be recalled for its highlights, / and the less exciting parts will fade away with time, / eventually to be forgotten forever.", "여름휴가는 가장 흥미로운 부분들로 기억될 것이다 / 그리고 덜 흥미로운 부분들은 시간이 지나면서 서서히 사라질 것이다 / 결국 영원히 잊혀지고 말 것이다", "여름휴가는 가장 흥미로운 부분들로 기억되고, 덜 흥미진진한 부분들은 시간이 지나면서 서서히 사라져서 결국 영원히 잊혀지고 만다.", "<b>will be recalled<\/b>는 수동태이고, <b>eventually to be forgotten forever<\/b>는 결과를 나타내는 to부정사구이다."], ["08", "5", "As you read it over, / the material is familiar / because you remember it from before, / and this familiarity might lead you to think, \"Okay, I know that.\"", "당신이 그것을 다시 읽어볼 때 / 그 자료는 친숙하게 느껴진다 / 왜냐하면 당신이 그것을 이전부터 기억하고 있기 때문에 / 그리고 이 친숙함은 당신이 이렇게 생각하도록 이끌지도 모른다, '그래, 나 그거 알아'", "그것을 다시 읽어보면, 이전부터 기억하고 있기 때문에 그 자료가 친숙하게 느껴지고, 이 친숙함은 당신이 '그래, 나 그거 알아'라고 생각하게 만들지도 모른다.", "<b>As절(~할 때)<\/b>과 <b>because절(이유)<\/b>이 이어지며, <b>lead A to V<\/b>는 'A가 ~하도록 이끌다'라는 뜻이다."], ["09", "2", "For example, hot melted rock material, called magma, / cools when it reaches the Earth's surface, / or even if it's trapped below the surface.", "예를 들어, 마그마라고 불리는 뜨겁게 용해된 암석 물질은 / 그것이 지구의 표면에 도달할 때 식는다 / 또는 그것이 표면 아래에 갇혀 있을 때조차도", "예를 들어, 마그마라고 불리는 뜨겁게 용해된 암석 물질은 지구 표면에 도달할 때, 또는 표면 아래에 갇혀 있을 때조차도 식는다.", "<b>called magma<\/b>는 rock material을 보충 설명하는 과거분사 삽입구이며, <b>when절<\/b>과 <b>even if절<\/b>이 or로 병렬 연결되어 있다."], ["10", "1", "In 2006, 81% of surveyed American shoppers said / that they considered online customer ratings and reviews important / when planning a purchase.", "2006년에, 조사된 미국 소비자들의 81퍼센트가 말했다 / 그들이 온라인 소비자 평가와 후기를 중요하게 여긴다고 / 구매를 계획할 때", "2006년에 조사에 응한 미국 소비자의 81퍼센트는 구매를 계획할 때 온라인 소비자 평가와 후기를 중요하게 여긴다고 답했다.", "said의 목적어로 <b>that절<\/b>이 오고, <b>when planning<\/b>은 when they were planning에서 주어와 be동사가 생략된 분사구문이다."], ["11", "6", "But is it possible / that just a single word from a requester / could drastically increase the likelihood that you'd say, \"Yes, go ahead\"?", "하지만 가능할까 / 요청하는 사람이 하는 단 하나의 단어가 / 당신이 '네, 먼저 가세요'라고 말할 가능성을 대폭 증가시킬 수 있다는 것이", "하지만 요청하는 사람이 던진 단 하나의 단어가 당신이 '네, 먼저 가세요'라고 말할 가능성을 대폭 높일 수 있다는 것이 가능할까?", "<b>가주어 it ~ that절(진주어)<\/b> 구문이며, that절 안에는 <b>동격의 that<\/b>이 이끄는 the likelihood that you'd say ~가 다시 쓰였다."], ["11", "10", "Faced with this direct request to cut ahead in the line, / 60 percent of the people were willing to agree / to allow the stranger to go ahead of them.", "줄에서 앞으로 끼어들겠다는 이 직접적인 요청에 직면하여 / 60퍼센트의 사람들이 기꺼이 동의했다 / 그 낯선 사람이 그들보다 먼저 가도록 허용하는 것에", "줄에서 새치기하겠다는 이 직접적인 요청을 받자, 60퍼센트의 사람들이 그 낯선 사람이 자신들보다 먼저 가도록 기꺼이 허락했다.", "<b>Faced with ~<\/b>는 수동의 의미를 가진 분사구문(Being faced with의 생략)이며, agree to allow에서 allow는 <b>allow A to V<\/b> 구조를 이룬다."], ["12", "9", "In one study, / Langer arranged for a stranger to approach someone waiting in line to use a photocopier / and simply ask, \"Excuse me, I have five pages. May I use the copy machine?\"", "한 연구에서 / 랭어는 한 낯선 사람이 복사기를 사용하려고 줄 서서 기다리는 누군가에게 다가가도록 준비했다 / 그리고 단순히 이렇게 물어보게 했다, '실례합니다, 저는 다섯 장이 있는데요. 제가 복사기를 사용해도 될까요?'", "한 연구에서 랭어는 낯선 사람이 복사기를 사용하려고 줄 서서 기다리는 사람에게 다가가, '실례합니다, 저는 다섯 장이 있는데요. 복사기를 사용해도 될까요?'라고 단순하게 묻도록 준비했다.", "<b>arrange for A to V<\/b>는 'A가 ~하도록 준비하다'라는 뜻이며, waiting in line은 someone을 수식하는 현재분사구이다."], ["12", "12", "After all, / providing a solid reason for the request / justifies asking to jump ahead.", "결국 / 요청에 대한 확실한 이유를 제공하는 것은 / 앞으로 끼어드는 것을 요청하는 것을 정당화한다", "결국, 요청에 대한 확실한 이유를 대는 것은 앞에 끼어들도록 요청하는 것을 정당화해 준다.", "동명사구 <b>providing ~<\/b>이 문장의 주어이고, justifies의 목적어로 또 다른 동명사 <b>asking<\/b>이 쓰였다."]];
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const CF={"sn": [{"i": "01", "q": "07", "s": "4", "title": "수동태(will be recalled) + to부정사 결과 용법", "eng": "A summer vacation will be recalled for its highlights<sup>1<\/sup>, / and the less exciting parts will fade away<sup>2<\/sup> with time, / eventually<sup>3<\/sup> to be forgotten forever.", "notes": [["1", "highlight", "가장 흥미로운 부분"], ["2", "fade away", "서서히 사라지다"], ["3", "eventually", "결국"]], "lit": "여름휴가는 가장 흥미로운 부분들로 기억될 것이다 / 그리고 덜 흥미로운 부분들은 시간이 지나면서 서서히 사라질 것이다 / 결국 영원히 잊혀지고 말 것이다", "nat": "여름휴가는 가장 흥미로운 부분들로 기억되고, 덜 흥미진진한 부분들은 시간이 지나면서 서서히 사라져서 결국 영원히 잊혀지고 만다.", "ana": "<b>will be recalled<\/b>는 수동태이고, <b>eventually to be forgotten forever<\/b>는 결과를 나타내는 to부정사구이다."}, {"i": "02", "q": "08", "s": "5", "title": "As절(~할 때) + because절(이유) + lead A to V", "eng": "As you read it over<sup>1<\/sup>, / the material is familiar<sup>2<\/sup> / because you remember it from before, / and this familiarity might lead you to think<sup>3<\/sup>, \"Okay, I know that.\"", "notes": [["1", "read over", "다시 읽다"], ["2", "familiar", "친숙한"], ["3", "lead A to V", "A가 ~하게 만들다"]], "lit": "당신이 그것을 다시 읽어볼 때 / 그 자료는 친숙하게 느껴진다 / 왜냐하면 당신이 그것을 이전부터 기억하고 있기 때문에 / 그리고 이 친숙함은 당신이 이렇게 생각하도록 이끌지도 모른다, '그래, 나 그거 알아'", "nat": "그것을 다시 읽어보면, 이전부터 기억하고 있기 때문에 그 자료가 친숙하게 느껴지고, 이 친숙함은 당신이 '그래, 나 그거 알아'라고 생각하게 만들지도 모른다.", "ana": "<b>As절(~할 때)<\/b>과 <b>because절(이유)<\/b>이 이어지며, <b>lead A to V<\/b>는 'A가 ~하도록 이끌다'라는 뜻이다."}, {"i": "03", "q": "09", "s": "2", "title": "과거분사 삽입구(called magma) + when절·even if절 병렬", "eng": "For example, hot melted rock material<sup>1<\/sup>, called magma<sup>2<\/sup>, / cools when it reaches the Earth's surface, / or even if it's trapped<sup>3<\/sup> below the surface.", "notes": [["1", "melted rock", "용해된 암석"], ["2", "magma", "마그마"], ["3", "trapped", "갇힌"]], "lit": "예를 들어, 마그마라고 불리는 뜨겁게 용해된 암석 물질은 / 그것이 지구의 표면에 도달할 때 식는다 / 또는 그것이 표면 아래에 갇혀 있을 때조차도", "nat": "예를 들어, 마그마라고 불리는 뜨겁게 용해된 암석 물질은 지구 표면에 도달할 때, 또는 표면 아래에 갇혀 있을 때조차도 식는다.", "ana": "<b>called magma<\/b>는 rock material을 보충 설명하는 과거분사 삽입구이며, <b>when절<\/b>과 <b>even if절<\/b>이 or로 병렬 연결되어 있다."}, {"i": "04", "q": "10", "s": "1", "title": "that절(said의 목적어) + 분사구문(when planning)", "eng": "In 2006, 81% of surveyed<sup>1<\/sup> American shoppers said / that they considered online customer ratings<sup>2<\/sup> and reviews<sup>3<\/sup> important / when planning a purchase<sup>4<\/sup>.", "notes": [["1", "surveyed", "조사된"], ["2", "rating", "평가"], ["3", "review", "후기"], ["4", "purchase", "구매"]], "lit": "2006년에, 조사된 미국 소비자들의 81퍼센트가 말했다 / 그들이 온라인 소비자 평가와 후기를 중요하게 여긴다고 / 구매를 계획할 때", "nat": "2006년에 조사에 응한 미국 소비자의 81퍼센트는 구매를 계획할 때 온라인 소비자 평가와 후기를 중요하게 여긴다고 답했다.", "ana": "said의 목적어로 <b>that절<\/b>이 오고, <b>when planning<\/b>은 when they were planning에서 주어와 be동사가 생략된 분사구문이다."}, {"i": "05", "q": "11", "s": "6", "title": "가주어 it ~ that절(진주어) + 동격의 that", "eng": "But is it possible / that just a single word from a requester<sup>1<\/sup> / could drastically<sup>2<\/sup> increase the likelihood<sup>3<\/sup> that you'd say, \"Yes, go ahead\"?", "notes": [["1", "requester", "요청하는 사람"], ["2", "drastically", "대폭"], ["3", "likelihood", "가능성"]], "lit": "하지만 가능할까 / 요청하는 사람이 하는 단 하나의 단어가 / 당신이 '네, 먼저 가세요'라고 말할 가능성을 대폭 증가시킬 수 있다는 것이", "nat": "하지만 요청하는 사람이 던진 단 하나의 단어가 당신이 '네, 먼저 가세요'라고 말할 가능성을 대폭 높일 수 있다는 것이 가능할까?", "ana": "<b>가주어 it ~ that절(진주어)<\/b> 구문이며, that절 안에는 <b>동격의 that<\/b>이 이끄는 the likelihood that you'd say ~가 다시 쓰였다."}, {"i": "06", "q": "11", "s": "10", "title": "분사구문(Faced with) + allow A to V", "eng": "Faced with<sup>1<\/sup> this direct request to cut ahead in the line, / 60 percent of the people were willing to<sup>2<\/sup> agree / to allow<sup>3<\/sup> the stranger to go ahead of them.", "notes": [["1", "faced with", "~에 직면하여"], ["2", "be willing to", "기꺼이 ~하는"], ["3", "allow A to V", "A가 ~하게 허용하다"]], "lit": "줄에서 앞으로 끼어들겠다는 이 직접적인 요청에 직면하여 / 60퍼센트의 사람들이 기꺼이 동의했다 / 그 낯선 사람이 그들보다 먼저 가도록 허용하는 것에", "nat": "줄에서 새치기하겠다는 이 직접적인 요청을 받자, 60퍼센트의 사람들이 그 낯선 사람이 자신들보다 먼저 가도록 기꺼이 허락했다.", "ana": "<b>Faced with ~<\/b>는 수동의 의미를 가진 분사구문(Being faced with의 생략)이며, agree to allow에서 allow는 <b>allow A to V<\/b> 구조를 이룬다."}, {"i": "07", "q": "12", "s": "9", "title": "arrange for A to V + 현재분사구(waiting in line)", "eng": "In one study, / Langer arranged for<sup>1<\/sup> a stranger to approach<sup>2<\/sup> someone waiting in line to use a photocopier<sup>3<\/sup> / and simply ask, \"Excuse me, I have five pages. May I use the copy machine?\"", "notes": [["1", "arrange for A to V", "A가 ~하도록 준비하다"], ["2", "approach", "다가가다"], ["3", "photocopier", "복사기"]], "lit": "한 연구에서 / 랭어는 한 낯선 사람이 복사기를 사용하려고 줄 서서 기다리는 누군가에게 다가가도록 준비했다 / 그리고 단순히 이렇게 물어보게 했다, '실례합니다, 저는 다섯 장이 있는데요. 제가 복사기를 사용해도 될까요?'", "nat": "한 연구에서 랭어는 낯선 사람이 복사기를 사용하려고 줄 서서 기다리는 사람에게 다가가, '실례합니다, 저는 다섯 장이 있는데요. 복사기를 사용해도 될까요?'라고 단순하게 묻도록 준비했다.", "ana": "<b>arrange for A to V<\/b>는 'A가 ~하도록 준비하다'라는 뜻이며, waiting in line은 someone을 수식하는 현재분사구이다."}, {"i": "08", "q": "12", "s": "12", "title": "동명사 주어(providing) + 동명사 목적어(asking)", "eng": "After all, / providing a solid reason<sup>1<\/sup> for the request / justifies<sup>2<\/sup> asking to jump ahead<sup>3<\/sup>.", "notes": [["1", "solid reason", "확실한 이유"], ["2", "justify", "정당화하다"], ["3", "jump ahead", "앞으로 끼어들다"]], "lit": "결국 / 요청에 대한 확실한 이유를 제공하는 것은 / 앞으로 끼어드는 것을 요청하는 것을 정당화한다", "nat": "결국, 요청에 대한 확실한 이유를 대는 것은 앞에 끼어들도록 요청하는 것을 정당화해 준다.", "ana": "동명사구 <b>providing ~<\/b>이 문장의 주어이고, justifies의 목적어로 또 다른 동명사 <b>asking<\/b>이 쓰였다."}], "qs": [{"q": "07", "type": "빈칸", "src": "2017년 9월 34번", "ans": "③", "tr": [["1", "과거의 정서적 경험에 대해서는 극도로 생생한 기억을 가지고 있으면서 과거의 일상적인 사건들에 대해서는 희미한 기억만 가지고 있다는 것은 우리가 ___함을 의미한다."], ["2", "우리는 과거를 정서적으로 흥미진진한 사건들이 집약된 하나의 시간선으로 바라보는 경향이 있다."], ["3", "우리는 어떤 일화의 자극적인 측면은 기억하고 지루한 부분은 잊어버린다."], ["4", "여름휴가는 가장 흥미로운 부분들로 기억되고, 덜 흥미진진한 부분들은 시간이 지나면서 서서히 사라져서 결국 영원히 잊혀지고 만다."], ["5", "그 결과, 다음 여름휴가가 우리에게 어떤 기분을 느끼게 할지 추정할 때, 우리는 긍정적인 면을 과대평가한다."], ["6", "과거에 대한 부정확한 그림이 미래에 대한 우리의 부정확한 예측의 한 가지 이유인 것처럼 보인다."]], "evh": "1·2·3번 문장", "ev": [{"en": true, "h": "Having extremely vivid memories of past emotional experiences and only weak memories of past everyday events means we ___. We tend to view the past as a concentrated time line of emotionally exciting events. We remember the arousing aspects of an episode and forget the boring bits."}, {"en": false, "h": "정서적 사건만 생생히 기억하고 일상은 잊는다는 1번 문장의 주어와, 흥미로운 사건 중심으로 과거를 왜곡해서 본다는 2·3번의 내용을 종합하면, 빈칸에는 '과거에 대해 편향된 인식을 유지한다'는 ③이 가장 적절하다."}], "opts": [{"n": "①", "t": "focus primarily on the future", "a": false, "x": true, "trap": false, "e": "미래에 초점을 둔다는 내용이 아니라 과거를 왜곡해서 기억하는 것에 관한 글이다."}, {"n": "②", "t": "remember every detail of our lives", "a": false, "x": true, "trap": true, "e": "오히려 지루한 부분은 잊어버린다고 했으므로 정반대다."}, {"n": "③", "t": "maintain a biased perception of the past", "a": true, "x": false, "trap": false, "e": "흥미로운 사건 위주로 과거를 기억한다는 2·3번의 내용과 정확히 일치한다."}, {"n": "④", "t": "have trouble overcoming our emotional problems", "a": false, "x": true, "trap": false, "e": "정서적 문제 극복의 어려움에 관한 내용이 아니다."}, {"n": "⑤", "t": "share negative emotional experiences with others", "a": false, "x": true, "trap": false, "e": "부정적 경험을 타인과 공유하는 것에 관한 내용은 없다."}], "w": [["extremely", "극도로"], ["vivid", "생생한"], ["emotional experience", "정서적 경험"], ["biased", "편향된"], ["perception", "인식"], ["concentrated", "집약된"], ["arousing", "자극적인"], ["episode", "일화, 사건"], ["highlight", "가장 흥미로운 부분"], ["fade away", "서서히 사라지다"], ["overestimate", "과대평가하다"], ["imprecise", "부정확한"], ["inaccurate", "부정확한"], ["forecast", "예측"]]}, {"q": "08", "type": "빈칸", "src": "2020년 6월 34번", "ans": "②", "tr": [["1", "학생들이 자료를 알지 못할 때조차도 그것을 안다고 생각하는 주된 이유 중 하나는 그들이 친숙함을 이해로 착각한다는 것이다."], ["2", "그 작동 방식은 다음과 같다."], ["3", "당신은 어쩌면 표시해 가며 그 장을 한 번 읽는다."], ["4", "그런 다음 나중에, 어쩌면 표시된 자료에 집중하며 그 장을 다시 읽는다."], ["5", "그것을 다시 읽어보면, 이전부터 기억하고 있기 때문에 그 자료가 친숙하게 느껴지고, 이 친숙함은 당신이 '그래, 나 그거 알아'라고 생각하게 만들지도 모른다."], ["6", "문제는 이 친숙하다는 느낌이 반드시 그 자료를 아는 것과 동등한 것은 아니며, 시험에서 답을 생각해 내야 할 때 아무런 도움이 되지 않을 수도 있다는 것이다."], ["7", "실제로, 친숙함은 흔히 객관식 시험에서 오류로 이어질 수 있는데, 친숙해 보이는 선택지를 고를 수 있지만 나중에 그것이 읽었던 것일 뿐 ___라는 것을 알게 되기 때문이다."]], "evh": "6·7번 문장", "ev": [{"en": true, "h": "The problem is that this feeling of familiarity is not necessarily equivalent to knowing the material. In fact, familiarity can often lead to errors on multiple-choice exams because you might pick a choice that looks familiar, only to find later that it was something you had read, but ___."}, {"en": false, "h": "친숙함이 곧 이해는 아니라는 6번과, 친숙해 보이는 선택지를 골랐다가 나중에 그것이 단지 읽었던 내용일 뿐임을 알게 된다는 7번을 종합하면, 빈칸에는 '그것이 그 질문에 대한 최선의 답은 아니었다'는 ②가 가장 적절하다."}], "opts": [{"n": "①", "t": "you couldn't recall the parts you had highlighted", "a": false, "x": true, "trap": false, "e": "표시했던 부분을 기억하지 못했다는 내용이 아니라, 친숙한 선택지가 정답이 아니었다는 내용이 이어져야 한다."}, {"n": "②", "t": "it wasn't really the best answer to the question", "a": true, "x": false, "trap": false, "e": "친숙함이 이해와 동등하지 않다는 6번의 내용과 정확히 일치한다."}, {"n": "③", "t": "that familiarity was based on your understanding", "a": false, "x": true, "trap": true, "e": "오히려 친숙함이 이해에 근거한 것이 아니라는 것이 글의 요지이므로 정반대다."}, {"n": "④", "t": "repetition enabled you to pick the correct answer", "a": false, "x": true, "trap": false, "e": "반복이 정답을 고르게 해 주었다는 내용은 글의 요지와 반대된다."}, {"n": "⑤", "t": "it indicated that familiarity was naturally built up", "a": false, "x": true, "trap": false, "e": "친숙함이 자연스럽게 형성되었다는 것을 보여준다는 내용이 아니다."}], "w": [["material", "자료"], ["mistake A for B", "A를 B로 착각하다"], ["familiarity", "친숙함"], ["highlight", "눈에 띄게 표시하다"], ["focus on", "집중하다"], ["familiar", "친숙한"], ["lead A to V", "A가 ~하게 만들다"], ["equivalent", "동등한"], ["come up with", "생각해 내다"], ["multiple-choice exam", "객관식 시험"], ["pick", "고르다"]]}, {"q": "09", "type": "순서", "src": "2023년 3월 37번", "ans": "②", "tr": [["1", "자연 과정은 여러 방식으로 광물을 형성한다."], ["2", "예를 들어, 마그마라고 불리는 뜨겁게 용해된 암석 물질은 지구 표면에 도달할 때, 또는 표면 아래에 갇혀 있을 때조차도 식는다."], ["3", "마그마가 식으면서, 그 원자들은 열에너지를 잃고, 서로 더 가까이 이동하며, 화합물로 결합하기 시작한다."], ["4", "(B) 이 과정 동안, 서로 다른 화합물의 원자들은 질서 있고 반복적인 패턴으로 배열된다. 마그마에 존재하는 원소의 종류와 양이 어떤 광물이 형성될지를 부분적으로 결정한다."], ["5", "(A) 또한, 형성되는 결정의 크기는 마그마가 얼마나 빨리 식는지에 부분적으로 달려 있다. 마그마가 천천히 식을 때, 형성되는 결정은 육안으로 볼 수 있을 만큼 일반적으로 크다."], ["6", "(C) 이는 원자들이 함께 이동해 더 큰 결정을 형성할 충분한 시간을 갖기 때문이다. 마그마가 빠르게 식으면, 형성되는 결정은 작을 것이다. 이런 경우에는, 개별 광물 결정을 쉽게 볼 수 없다."]], "evh": "(B)의 During this process ~ / (A)의 Also, the size of the crystals ~ / (C)의 This is because ~", "ev": [{"en": true, "h": "During this process, atoms of the different compounds arrange themselves into orderly, repeating patterns. / Also, the size of the crystals that form depends partly on how rapidly the magma cools. / This is because the atoms have enough time to move together and form into larger crystals."}, {"en": false, "h": "화합물 형성 이후 원자 배열을 설명하는 (B)에 이어, Also로 결정 크기가 냉각 속도에 좌우된다고 덧붙이는 (A)가 오고, 느리게 식을 때 결정이 큰 이유를 설명하는 (C)가 마지막에 와야 자연스럽다."}], "opts": [{"n": "①", "t": "(A)-(C)-(B)", "a": false, "x": true, "trap": false, "e": "(A)의 Also가 화합물의 배열을 먼저 설명하는 내용을 전제로 하므로 (A)가 가장 먼저 올 수 없다."}, {"n": "②", "t": "(B)-(A)-(C)", "a": true, "x": false, "trap": false, "e": "화합물 배열을 설명하는 (B), 결정 크기가 냉각 속도에 좌우된다고 덧붙이는 (A), 그 이유를 설명하는 (C) 순서가 자연스럽다."}, {"n": "③", "t": "(B)-(C)-(A)", "a": false, "x": true, "trap": true, "e": "(C)의 This is because는 바로 앞에서 냉각 속도와 결정 크기의 관계가 언급되어야 자연스러우므로 (A) 뒤에 와야 한다."}, {"n": "④", "t": "(C)-(A)-(B)", "a": false, "x": true, "trap": false, "e": "(C)의 This is because가 가리킬 내용이 아직 나오지 않았으므로 가장 먼저 올 수 없다."}, {"n": "⑤", "t": "(C)-(B)-(A)", "a": false, "x": true, "trap": false, "e": "같은 이유로 (C)가 가장 먼저 올 수 없다."}], "w": [["natural process", "자연 과정"], ["mineral", "광물"], ["melted rock", "용해된 암석"], ["magma", "마그마"], ["trap", "가두다"], ["atom", "원자"], ["combine", "결합하다"], ["compound", "화합물"], ["arrange", "배열되다"], ["orderly", "질서 있는"], ["repeating pattern", "반복적인 패턴"], ["element", "원소"], ["depend on", "~에 달려 있다"], ["rapidly", "빠르게"], ["crystal", "결정(체)"], ["unaided eye", "육안"], ["individual", "개별적인"]]}, {"q": "10", "type": "무관 문장", "src": "2018년 3월 39번", "ans": "④", "tr": [["1", "2006년에 조사에 응한 미국 소비자의 81퍼센트는 구매를 계획할 때 온라인 소비자 평가와 후기를 중요하게 여긴다고 답했다."], ["2", "온라인 댓글은, 긍정적이든 부정적이든, 직접적인 대인 간의 교류만큼 강력하지는 않지만, 그것은 사업에 매우 중요할 수 있다."], ["3", "① 많은 사람들이 온라인 추천에 의존한다."], ["4", "② 그리고 젊은 사람들은 그것에 크게 의존하며, 어떤 영화를 보거나 어떤 음반을 구매할지 결정할 때 인터넷의 영향을 받을 가능성이 매우 높다."], ["5", "③ 이런 개인들은 흔히 폭넓은 소셜 네트워크를 가지고 있으며, 수십 명의 다른 사람들과 정기적으로 소통하는데, 이는 수천 명에게까지 도달할 잠재력이 있다."], ["6", "④ 전문가들은 젊은 사람들이 불필요한 것에 돈을 낭비하는 것을 멈추고 저축을 시작해야 한다고 제안한다."], ["7", "⑤ 6세에서 24세 사이의 젊은 사람들이 미국 전체 소비 지출의 약 50퍼센트에 영향을 미친다고 보고되었다."]], "evh": "2·3·5번 문장", "ev": [{"en": true, "h": "Though an online comment is not as powerful as a direct interpersonal exchange, it can be very important for a business. These individuals often have wide-reaching social networks and communicate regularly with dozens of others."}, {"en": false, "h": "온라인 후기가 사업에 중요하다는 2번과, 젊은 사람들이 폭넓은 네트워크로 후기를 퍼뜨린다는 3·5번은 모두 '온라인 후기의 영향력'이라는 하나의 흐름으로 이어지지만, ④는 돈을 아끼라는 조언으로 이 흐름과 무관하다."}], "opts": [{"n": "①", "t": "Many people depend on online recommendations.", "a": false, "x": true, "trap": false, "e": "온라인 추천의 영향력이라는 글의 흐름과 일치한다."}, {"n": "②", "t": "And young people rely heavily on them ~.", "a": false, "x": true, "trap": false, "e": "젊은 층이 온라인 후기에 크게 의존한다는 흐름과 일치한다."}, {"n": "③", "t": "These individuals often have wide-reaching social networks ~.", "a": false, "x": true, "trap": true, "e": "폭넓은 네트워크로 후기가 퍼진다는 흐름과 일치한다."}, {"n": "④", "t": "Experts suggest that young people stop wasting ~ start saving it.", "a": true, "x": false, "trap": false, "e": "온라인 후기의 영향력이라는 흐름과 달리 절약을 조언하는 내용이라 전체 흐름과 관계없다."}, {"n": "⑤", "t": "It has been reported that young people ~ 50% of all spending.", "a": false, "x": true, "trap": false, "e": "젊은 층의 소비 영향력을 뒷받침하는 수치로 흐름과 일치한다."}], "w": [["surveyed", "조사된"], ["rating", "평가"], ["review", "후기"], ["interpersonal exchange", "대인 간의 교류"], ["depend on", "의존하다"], ["recommendation", "추천"], ["rely on", "의존하다"], ["be influenced by", "영향을 받다"], ["wide-reaching", "광범위한"], ["social network", "소셜 네트워크"], ["communicate regularly", "정기적으로 소통하다"], ["dozens of", "수십 명의"], ["potential", "가능성, 잠재력"], ["expert", "전문가"], ["waste", "낭비하다"], ["unnecessary", "불필요한"], ["spending", "소비, 지출"]]}, {"q": "11", "type": "제목", "src": "2013년 11월 41번", "ans": "③", "tr": [["1", "줄을 서서 기다리는 것에 대해 생각해 보자."], ["2", "은행이든, 슈퍼마켓이든, 놀이공원이든, 줄을 서서 기다리는 것은 아마 당신이 생각하는 재미있는 일은 아닐 것이다."], ["3", "가능한 한 빨리 줄을 통과하려는 거의 보편적인 동기를 생각해 보라."], ["4", "어떤 상황에서 당신은 다른 사람이 줄에서 당신 앞에 끼어들도록 기꺼이 허락하겠는가?"], ["5", "요청이 이루어지는 방식의 작은 변화는 흔히 깜짝 놀랄 만큼 큰 결과로 이어질 수 있다."], ["6", "하지만 요청하는 사람이 던진 단 하나의 단어가 당신이 '네, 먼저 가세요'라고 말할 가능성을 대폭 높일 수 있다는 것이 가능할까?"], ["7", "그렇다 — 그리고 그 단 하나의 단어는 바로 '왜냐하면'이다."], ["8", "행동주의 과학자 엘런 랭어와 그녀의 동료들은 이 단어의 ___(12)___을 시험해 보기로 결정했다."], ["9", "한 연구에서 랭어는 낯선 사람이 복사기를 사용하려고 줄 서서 기다리는 사람에게 다가가, '실례합니다, 저는 다섯 장이 있는데요. 복사기를 사용해도 될까요?'라고 단순하게 묻도록 준비했다."], ["10", "줄에서 새치기하겠다는 이 직접적인 요청을 받자, 60퍼센트의 사람들이 그 낯선 사람이 자신들보다 먼저 가도록 기꺼이 허락했다."], ["11", "하지만 그 낯선 사람이 이유를 들어 요청했을 때('제가 복사기를 사용해도 될까요, 제가 좀 급해서요?'), 94퍼센트의 사람들이 그러라고 답했다."], ["12", "결국, 요청에 대한 확실한 이유를 대는 것은 앞에 끼어들도록 요청하는 것을 정당화해 준다."]], "evh": "7·11·12번 문장", "ev": [{"en": true, "h": "Yes — and the single word is because. In one study, ~ providing a solid reason for the request justifies asking to jump ahead."}, {"en": false, "h": "단 하나의 단어 because가 승낙 가능성을 대폭 높인다는 7번과, 이유를 대는 것이 새치기 요청을 정당화한다는 11·12번을 종합하면, 제목은 '요청한 것을 얻어내는 마법의 단어'인 ③이 가장 적절하다."}], "opts": [{"n": "①", "t": "Mistakes: Part of Communication", "a": false, "x": true, "trap": false, "e": "의사소통의 실수에 관한 내용이 아니다."}, {"n": "②", "t": "Be Consistently Honest with Yourself", "a": false, "x": true, "trap": false, "e": "자기 자신에게 정직하라는 내용이 아니다."}, {"n": "③", "t": "Magic Word to Get What You Request", "a": true, "x": false, "trap": false, "e": "단어 하나로 요청 승낙률이 크게 오른다는 전체 내용과 정확히 일치한다."}, {"n": "④", "t": "Strengthen Your Relationship with Others", "a": false, "x": true, "trap": true, "e": "관계 강화에 관한 내용이 아니라 요청을 수락받는 방법에 관한 글이다."}, {"n": "⑤", "t": "Unintended Fortune Through Small Favors", "a": false, "x": true, "trap": false, "e": "의도하지 않은 행운에 관한 내용이 아니라 의도적으로 이유를 제시하는 전략에 관한 글이다."}], "w": [["wait in line", "줄을 서서 기다리다"], ["amusement park", "놀이공원"], ["universal", "보편적인"], ["motivation", "동기"], ["circumstance", "상황"], ["cut in front of", "~앞에 끼어들다"], ["startlingly", "깜짝 놀랄 만큼"], ["drastically", "대폭"], ["likelihood", "가능성"], ["requester", "요청하는 사람"], ["behavioral scientist", "행동주의 과학자"], ["approach", "다가가다"], ["stranger", "낯선 사람"], ["be willing to", "기꺼이 ~하다"], ["solid", "확실한, 견고한"], ["justify", "정당화하다"]]}, {"q": "12", "type": "빈칸", "src": "2013년 11월 42번", "ans": "①", "tr": [["1", "줄을 서서 기다리는 것에 대해 생각해 보자."], ["2", "은행이든, 슈퍼마켓이든, 놀이공원이든, 줄을 서서 기다리는 것은 아마 당신이 생각하는 재미있는 일은 아닐 것이다."], ["3", "가능한 한 빨리 줄을 통과하려는 거의 보편적인 동기를 생각해 보라."], ["4", "어떤 상황에서 당신은 다른 사람이 줄에서 당신 앞에 끼어들도록 기꺼이 허락하겠는가?"], ["5", "요청이 이루어지는 방식의 작은 변화는 흔히 깜짝 놀랄 만큼 큰 결과로 이어질 수 있다."], ["6", "하지만 요청하는 사람이 던진 단 하나의 단어가 당신이 '네, 먼저 가세요'라고 말할 가능성을 대폭 높일 수 있다는 것이 가능할까?"], ["7", "그렇다 — 그리고 그 단 하나의 단어는 바로 '왜냐하면'이다."], ["8", "행동주의 과학자 엘런 랭어와 그녀의 동료들은 이 단어의 ___을 시험해 보기로 결정했다."], ["9", "한 연구에서 랭어는 낯선 사람이 복사기를 사용하려고 줄 서서 기다리는 사람에게 다가가, '실례합니다, 저는 다섯 장이 있는데요. 복사기를 사용해도 될까요?'라고 단순하게 묻도록 준비했다."], ["10", "줄에서 새치기하겠다는 이 직접적인 요청을 받자, 60퍼센트의 사람들이 그 낯선 사람이 자신들보다 먼저 가도록 기꺼이 허락했다."], ["11", "하지만 그 낯선 사람이 이유를 들어 요청했을 때('제가 복사기를 사용해도 될까요, 제가 좀 급해서요?'), 94퍼센트의 사람들이 그러라고 답했다."], ["12", "결국, 요청에 대한 확실한 이유를 대는 것은 앞에 끼어들도록 요청하는 것을 정당화해 준다."]], "evh": "8·9~11번 문장", "ev": [{"en": true, "h": "Behavioral scientist Ellen Langer and her colleagues decided to put the ___ of this word to the test. In one study, ~ 60 percent ~ 94 percent of the people said yes."}, {"en": false, "h": "because라는 단어 하나가 요청 승낙률을 60%에서 94%로 끌어올렸다는 이후 실험 내용(9~11번)을 통해, 이 단어가 지닌 '설득력'을 시험했다는 것이 빈칸에 가장 적절하다."}], "opts": [{"n": "①", "t": "persuasive power", "a": true, "x": false, "trap": false, "e": "이 단어 하나가 승낙률을 60%에서 94%로 끌어올렸다는 이후 실험 내용과 정확히 일치한다."}, {"n": "②", "t": "damaging effects", "a": false, "x": true, "trap": false, "e": "해로운 영향에 관한 내용이 아니다."}, {"n": "③", "t": "actual frequency", "a": false, "x": true, "trap": true, "e": "단어의 실제 사용 빈도를 시험한 것이 아니다."}, {"n": "④", "t": "precise meaning", "a": false, "x": true, "trap": false, "e": "단어의 정확한 의미를 시험한 것이 아니라 그 효과를 시험한 것이다."}, {"n": "⑤", "t": "diverse usage", "a": false, "x": true, "trap": false, "e": "단어의 다양한 쓰임에 관한 실험이 아니다."}], "w": [["behavioral scientist", "행동주의 과학자"], ["colleague", "동료"], ["put ~ to the test", "~을 시험해 보다"], ["arrange for A to V", "A가 ~하도록 준비하다"], ["photocopier", "복사기"], ["direct request", "직접적인 요청"], ["go ahead of", "~보다 먼저 가다"], ["reason", "이유"], ["justify", "정당화하다"]]}]};
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크북 '+CF.sn.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -277,18 +330,22 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
-function hkHtml(it){
-  const E=it[2].split(' / '),K=it[3].split(' / ');
-  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
-  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
-  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
-  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
-  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+function esc2(s){return String(s)}
+function chunkSplit(s){return String(s).split(' / ')}
+function scHtml(c){
+  const esc=String;
+  const E=chunkSplit(c.eng),K=chunkSplit(c.lit);
+  let x='<div class="sc"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span><span class="tt">'+esc(c.title)+'</span></div><div class="sc-b">';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+E[j]+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  if(c.notes.length){x+='<div class="nts">'+c.notes.map(n=>'<span class="nt"><sup>'+n[0]+'</sup> <b>'+esc(n[1])+'</b> '+esc(n[2])+'</span>').join('')+'</div>';}
+  x+='<div class="lay nat"><span class="lb">자연스러운 해석</span>'+esc(c.nat)+'</div>';
+  if(c.ana)x+='<div class="lay ana"><span class="lb">분석</span>'+c.ana+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|분석">자연스러운 해석</button></div></div>';
   return x;
 }
 function renderDk(){
   let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-  HK.forEach(it=>{h+=hkHtml(it);});
+  CF.sn.forEach(c=>{h+=scHtml(c);});
   h+='</div></div>';
   app.innerHTML=h;
 }
@@ -442,41 +499,29 @@ function renderSubmit(){
   const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
 }
 /* ---- 해설 ---- */
-function sHtml(s,evn){
-  const ev=evn.indexOf(s.n)>=0;
-  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
-  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
-  const lays=[];
-  if(s.link)lays.push(['이어 읽으면',s.link]);
-  if(s.easy)lays.push(['쉬운 말로',s.easy]);
-  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
-  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
-  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
-  return x+'</div>';
-}
 function qHtml(i,a){
+  const esc=String;
   const d=D[i],ok=isRight(i,a);
-  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
-  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
-  h+='<h4>정답 근거</h4>';
-  h+=`<p class="en">${esc(d.ev_en)}</p>`;
-  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
-  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
-  if(d.ps&&d.ps.length){
-    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
-  }
-  h+='<h4>선택지 하나씩</h4>';
-  d.ch.forEach(c=>{
-    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  const cq=CF.qs.find(x=>x.q===d.no);
+  if(!cq)return '';
+  let h='<details class="qd" id="qd'+i+'" '+(ok?'':'open')+'><summary>'+esc(cq.q)+'번 · '+esc(cq.type)+'<small>'+esc(cq.src)+'</small><span class="res2 '+(ok?'o':'x')+'">'+(ok?'○ 정답':'✕ 오답')+'</span></summary><div class="qx">';
+  h+='<p class="ansline"><b>정답 '+esc(cq.ans)+'</b>'+(ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>')+'</p>';
+  h+='<details class="sub2"><summary>전문 해석</summary><ol class="trs" style="list-style:none">'+cq.tr.map(t=>'<li><span class="n">'+(t[0]==null?'':esc(t[0]))+'</span>'+t[1]+'</li>').join('')+'</ol></details>';
+  h+='<div class="sec">답의 근거 · '+esc(cq.evh)+'</div><div class="evx">';
+  cq.ev.forEach(p=>{h+=p.en?'<p class="en">'+p.h+'</p>':'<p>'+p.h+'</p>';});
+  h+='</div><div class="sec">선택지 하나씩</div>';
+  cq.opts.forEach(o=>{
+    h+='<div class="opx '+(o.a?'a':'')+'"><div class="ot"><span class="mk">'+esc(o.n)+'</span>'+o.t+(o.a?'<span class="bd g">정답</span>':'')+(o.trap?'<span class="bd t">가장 많이 걸리는 오답</span>':'')+'</div>'+(o.e?'<p>'+(o.x?'<span class="xm">✕</span>':'')+o.e+'</p>':'')+'</div>';
   });
-  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  if(cq.w.length){h+='<div class="sec">단어</div><div class="wds">'+cq.w.map(w=>'<span><b>'+esc(w[0])+'</b>'+esc(w[1])+'</span>').join('')+'</div>';}
+  h+='<button class="toq" data-i="'+i+'">빠른 정답으로</button>';
   return h+'</div></details>';
 }
 function renderExp(){
   const rec=S.sub;
   let h=hdr()+band(4)+'<div class="wrap">';
-  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
-  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='<div class="score">'+rec.s+' <small>/ '+N+'</small></div><h2 id="quick">빠른 정답</h2><div class="qc">';
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+='<button class="qchip '+(ok?'o':'x')+'" data-i="'+i+'"><small>'+esc(D[i].no)+'번</small>'+ansText(i)+' '+(ok?'○':'✕')+'</button>';}
   h+='</div><h2>해설</h2>';
   for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
   h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
@@ -515,13 +560,17 @@ function mmInit(){
 }
 /* 위임 이벤트 */
 document.addEventListener('click',e=>{
+  const qchip=e.target.closest('.qchip');
+  if(qchip){const dd=document.getElementById('qd'+qchip.dataset.i);if(dd){dd.open=true;dd.scrollIntoView({block:'start'});}return;}
+  const toq=e.target.closest('.toq');
+  if(toq){const qq=document.getElementById('quick');if(qq)qq.scrollIntoView({block:'start'});return;}
   const tb=e.target.closest('.tab,.hcard,.gohome');
   if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
   const ch=e.target.closest('.ch');
   if(ch){ch.classList.toggle('open');return;}
   const st=e.target.closest('.stg');
   if(st){
-    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const s=st.closest('.s,.sc'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
     const shown=lays.filter(l=>l.classList.contains('on')).length;
     if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
     else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
@@ -531,7 +580,7 @@ document.addEventListener('click',e=>{
   if(al){
     const open=al.dataset.all==='1',body=al.closest('.dkbody');
     body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
-    body.querySelectorAll('.s').forEach(s=>{
+    body.querySelectorAll('.s,.sc').forEach(s=>{
       const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
       lays.forEach(l=>l.classList.toggle('on',open));
       if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
