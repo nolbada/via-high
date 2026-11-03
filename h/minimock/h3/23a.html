@@ -119,6 +119,28 @@ details.dk>summary::-webkit-details-marker{display:none}
 .lay{display:none;margin:6px 0;padding:8px 10px;border-radius:8px;border:1px solid var(--line);font-size:14px;line-height:1.7}
 .lay.on{display:block}
 .stg{width:100%;min-height:42px;margin-top:6px;border:1px solid var(--accent);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+
+.tabs .tab{padding:7px 2px 6px;line-height:1.15;font-size:14px}
+.tab .t2{display:block;font-size:10.5px;font-weight:400;margin-top:2px}
+.tab .n{display:inline-block;width:17px;height:17px;line-height:17px;border-radius:50%;background:var(--soft);color:var(--sub);font-size:11px;font-weight:700;margin-right:3px;text-align:center}
+.tab.on .n{background:var(--accent);color:#fff}
+.tab[disabled] .t2{color:var(--bad)}
+.band{display:flex;align-items:center;gap:12px;margin:14px 0 4px;padding:12px 14px;border-radius:12px;background:#eef2f8}
+.band .bn{flex:none;width:34px;height:34px;line-height:34px;border-radius:50%;background:var(--accent);color:#fff;text-align:center;font-weight:800;font-size:17px}
+.band b{display:block;font-size:17px;line-height:1.3}
+.band small{display:block;color:var(--sub);font-size:13px;margin-top:2px}
+.hcards{padding:14px 0 30px;display:flex;flex-direction:column;gap:12px}
+.hcard{display:flex;align-items:center;gap:14px;width:100%;min-height:84px;padding:14px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);font-family:inherit;text-align:left;color:var(--ink)}
+.hcard .bn{flex:none;width:44px;height:44px;line-height:44px;border-radius:50%;background:var(--accent);color:#fff;text-align:center;font-weight:800;font-size:20px}
+.hcard .tx{flex:1;min-width:0}
+.hcard .tx b{display:block;font-size:18px;line-height:1.3}
+.hcard .tx small{display:block;color:var(--sub);font-size:13.5px;margin-top:3px}
+.hcard .chip{flex:none;font-size:12.5px;font-weight:700;border-radius:999px;padding:4px 10px;background:var(--soft);color:var(--sub)}
+.hcard .chip.ok{background:var(--goodbg);color:var(--good)}
+.hcard .chip.warn{background:var(--badbg);color:var(--bad)}
+.hcard[disabled]{opacity:.55}
+details.qd>summary::after{content:'\25BE';margin-left:auto;color:var(--sub)}
+details.qd[open]>summary::after{content:'\25B4'}
 </style>
 </head>
 <body>
@@ -191,7 +213,7 @@ function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localSt
 
 const $=s=>document.querySelector(s);
 const app=$('#app');
-let view='word',quiz=null,armed=null;
+let view='home',quiz=null,armed=null;
 function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
 function shuffle(arr,seed){const a=arr.slice();let s=hash(seed)||1;for(let i=a.length-1;i>0;i--){s=Math.imul(s^(s>>>15),2246822519)>>>0;const j=s%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
@@ -199,7 +221,10 @@ const WS=WORDS.sets[0];
 
 function hdr(){
   const on=id=>(view===id)?'on':'';
-  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><a class="link" href="index.html">목록</a></div><div class="tabs"><button class="tab ${on('word')}" data-v="word">단어</button><button class="tab ${on('submit')}" data-v="submit">답 제출</button><button class="tab ${on('exp')}" data-v="exp" ${S.sub?'':'disabled'}>해설</button></div></div></header>`;
+  const tabs=[['word','1','유반의어','답 맞춰보기'],['dk','2','직독직해','해석 맞춰보기'],['submit','3','답안지','정답 입력'],['exp','4','해설',S.sub?'정답·근거':'제출하면 열림']];
+  return `<header><div class="wrap"><div class="row1"><h1>${esc(TITLE)}</h1><span><button class="link gohome" data-v="home">메뉴</button><a class="link" href="index.html">목록</a></span></div><div class="tabs">`+
+    tabs.map(t=>`<button class="tab ${on(t[0])}" data-v="${t[0]}" ${(t[0]==='exp'&&!S.sub)?'disabled':''}><span class="t1"><span class="n">${t[1]}</span>${t[2]}</span><span class="t2">${t[3]}</span></button>`).join('')+
+    `</div></div></header>`;
 }
 function noteList(){
   const out=[],ck=S.checks[WS.id]||{};
@@ -211,7 +236,9 @@ function noteList(){
   return out;
 }
 function render(){
-  if(view==='word')renderWord();
+  if(view==='home')renderHome();
+  else if(view==='dk')renderDk();
+  else if(view==='word')renderWord();
   else if(view==='note')renderNote();
   else if(view==='quiz')renderQuiz();
   else if(view==='result')renderResult();
@@ -219,10 +246,51 @@ function render(){
   else if(view==='exp')renderExp();
   window.scrollTo(0,0);
 }
+
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','덩어리별 해석 확인'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
+function renderHome(){
+  const nm=noteList().length,sub=S.sub;
+  const cards=[
+    ['word',1,BANDS[1][0],BANDS[1][1],S.locked[WS.id]?['ok','확인 끝']:(nm?['warn','표시 '+nm]:null),false],
+    ['dk',2,BANDS[2][0],BANDS[2][1],null,false],
+    ['submit',3,BANDS[3][0],BANDS[3][1],sub?['ok','제출 '+sub.s+' / '+N]:['','미제출'],false],
+    ['exp',4,BANDS[4][0],BANDS[4][1],sub?['ok','열림']:['','제출하면 열림'],!sub]
+  ];
+  let h='<header><div class="wrap"><div class="row1"><h1>'+esc(TITLE)+'</h1><a class="link" href="index.html">목록</a></div></div></header><div class="wrap hcards">';
+  cards.forEach(c=>{
+    h+='<button class="hcard" data-v="'+c[0]+'" '+(c[5]?'disabled':'')+'><span class="bn">'+c[1]+'</span><span class="tx"><b>'+c[2]+'</b><small>'+c[3]+'</small></span>'+(c[4]?'<span class="chip '+c[4][0]+'">'+c[4][1]+'</span>':'')+'</button>';
+  });
+  h+='</div>';
+  app.innerHTML=h;
+}
+function sHtmlP(s){
+  let x='<div class="s"><div class="sn"><span class="lb">문장 '+s.n+'</span></div>';
+  s.ch.forEach(c=>{x+='<div class="ch"><div class="ce">'+String(c.e).replace(/<\/?b>/g,'')+'</div><div class="ck">'+c.k+'</div></div>';});
+  const lays=[];
+  if(s.link)lays.push(['이어 읽으면',s.link]);
+  if(s.easy)lays.push(['쉬운 말로',s.easy]);
+  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
+  lays.forEach(l=>{x+='<div class="lay"><span class="lb">'+l[0]+'</span>'+l[1]+'</div>';});
+  if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
+  return x+'</div>';
+}
+function renderDk(){
+  let h=hdr()+band(2)+'<div class="wrap">';
+  for(let i=0;i<N;i++){
+    const d=D[i];
+    h+='<details class="qd" '+(i===0?'open':'')+'><summary>'+esc(d.no)+'번 지문<small>'+esc(d.typ)+'</small></summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
+    if(d.ps&&d.ps.length)h+=d.ps.map(sHtmlP).join('');
+    else h+='<ol>'+d.tr.map(t=>'<li>'+t+'</li>').join('')+'</ol>';
+    h+='</div></details>';
+  }
+  h+='</div>';
+  app.innerHTML=h;
+}
 /* ---- 단어 확인 ---- */
 function renderWord(){
   const ck=S.checks[WS.id]||{},locked=!!S.locked[WS.id],n=noteList().length;
-  let h=hdr()+`<div class="wrap ${locked?'locked':''}">`;
+  let h=hdr()+band(1)+`<div class="wrap ${locked?'locked':''}">`;
   WS.words.forEach((w,i)=>{
     const c=ck[i]||{};
     h+=`<div class="row"><div class="top"><span class="no">${i+1}</span><span class="word">${esc(w.w)}</span><span class="src">${esc(w.src)}번</span></div><div class="cells">`;
@@ -342,7 +410,7 @@ function renderResult(){
 function renderSubmit(){
   const done=!!S.sub;
   while(S.q.length<N)S.q.push(0);
-  let h=hdr()+'<div class="wrap">';
+  let h=hdr()+band(3)+'<div class="wrap">';
   for(let i=0;i<N;i++){
     const sel=done?S.sub.a[i]:S.q[i];
     h+=`<div class="qrow"><div class="qno">${esc(D[i].no)}</div><div class="opts">`;
@@ -351,7 +419,7 @@ function renderSubmit(){
   }
   h+='</div><div class="bar"><div class="wrap">';
   if(done)h+='<button class="btn pri" id="toexp">해설 보기</button>';
-  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>제출</button>`;
+  else h+=`<button class="btn pri" id="sub" ${S.q.every(v=>v>0)?'':'disabled'}>답안지 제출</button>`;
   h+='</div></div>';
   app.innerHTML=h;
   app.querySelectorAll('.opt2').forEach(b=>b.onclick=()=>{
@@ -401,7 +469,7 @@ function qHtml(i,a){
 }
 function renderExp(){
   const rec=S.sub;
-  let h=hdr()+'<div class="wrap">';
+  let h=hdr()+band(4)+'<div class="wrap">';
   h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
   for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
   h+='</div><h2>해설</h2>';
@@ -411,7 +479,7 @@ function renderExp(){
 }
 /* 위임 이벤트 */
 document.addEventListener('click',e=>{
-  const tb=e.target.closest('.tab');
+  const tb=e.target.closest('.tab,.hcard,.gohome');
   if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
   const ch=e.target.closest('.ch');
   if(ch){ch.classList.toggle('open');return;}
