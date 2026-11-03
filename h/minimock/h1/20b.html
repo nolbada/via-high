@@ -142,6 +142,59 @@ details.dk>summary::-webkit-details-marker{display:none}
 details.qd>summary::after{content:'\25BE';margin-left:auto;color:var(--sub)}
 details.qd[open]>summary::after{content:'\25B4'}
 .cell.s{padding:8px 12px;border:1.5px solid transparent;margin:0;background:var(--soft)}.cell.s.bad{background:var(--badbg);border-color:var(--bad)}
+
+/* ---- 새 직독직해·해설 화면 ---- */
+.sc{border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden;background:var(--bg)}
+.sc-h{padding:11px 14px 10px;background:#eef2f8;border-bottom:1px solid var(--line)}
+.sc-h .no2{display:inline-block;min-width:26px;height:26px;line-height:26px;border-radius:13px;background:var(--accent);color:#fff;font-weight:800;font-size:13px;text-align:center;padding:0 7px;margin-right:8px}
+.sc-h .at{font-size:13px;color:var(--sub)}
+.sc-h .tt{display:block;margin-top:7px;font-size:15.5px;font-weight:800;color:var(--accent);line-height:1.45}
+.sc-b{padding:10px 12px 12px}
+.sc .ch{margin-bottom:6px}
+.sc .ce{font-size:17px}
+.sc .ce sup,.nt sup{font-size:10px;font-weight:800;color:#b8651f;margin-left:1px}
+.nts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.nt{font-size:13.5px;line-height:1.5;background:#fbf6ee;border:1px solid #f0e2cd;border-radius:8px;padding:5px 9px;color:#4a3a22}
+.nt b{color:#33260f}
+.sc .lay{border-radius:10px}
+.sc .lay.nat{border-left:4px solid var(--accent);background:#f7f9fc}
+.sc .lay.ana{background:#fff8e6;border-color:#f0dcc0;color:#4d3b05}
+.sc .lay.ana b,.why2 b,.opx b,.evx b{background:linear-gradient(transparent 58%,var(--hl) 58%);font-weight:700}
+.sc .lb{margin-bottom:4px}
+.qc{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.qchip{min-width:56px;padding:9px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-family:inherit;font-size:15px;color:var(--ink);font-weight:700}
+.qchip small{display:block;font-size:11px;font-weight:400;color:var(--sub);margin-bottom:1px}
+.qchip.o{border-color:var(--good);background:var(--goodbg)}
+.qchip.x{border-color:var(--bad);background:var(--badbg)}
+.sec{margin:16px 0 6px;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px}
+.sec:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+.trs{list-style:none;margin:0;padding:0;background:var(--soft);border-radius:10px;padding:8px 12px}
+.trs li{font-size:15px;line-height:1.75;padding:2px 0}
+.trs .n{display:inline-block;min-width:20px;font-size:12px;color:var(--sub);font-weight:700}
+.evx{background:var(--goodbg);border:1px solid #bfe0cd;border-radius:10px;padding:10px 12px}
+.evx .en{background:#fff;border:1px solid #d5eadc;font-size:15.5px;margin:0 0 8px}
+.evx p{margin:6px 0;font-size:15.5px;line-height:1.75}
+.evx .evh{font-size:13px;font-weight:800;color:var(--good);margin-bottom:6px}
+.opx{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px;background:var(--bg)}
+.opx.a{border-color:var(--good);background:var(--goodbg)}
+.opx .ot{font-size:15.5px;font-weight:700;line-height:1.55}
+.opx .mk{display:inline-block;min-width:22px;font-weight:800;color:var(--sub);margin-right:4px}
+.opx.a .mk{color:var(--good)}
+.opx .bd{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.opx .bd.g{background:var(--good)}
+.opx .bd.t{background:#b4472f}
+.opx p{margin:5px 0 0;font-size:14.5px;line-height:1.7;color:#333}
+.opx .xm{color:var(--bad);font-weight:800;margin-right:3px}
+.wds{display:flex;flex-wrap:wrap;gap:6px}
+.wds span{font-size:14px;background:var(--soft);border-radius:8px;padding:5px 9px;line-height:1.45}
+.wds b{margin-right:5px}
+.toq{display:block;width:100%;margin-top:14px;min-height:42px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+details.sub2{margin:12px 0 0}
+details.sub2>summary{list-style:none;cursor:pointer;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;padding:6px 0}
+details.sub2>summary::-webkit-details-marker{display:none}
+details.sub2>summary:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+details.sub2>summary:after{content:"+";margin-left:auto;font-size:18px;color:var(--sub)}
+details.sub2[open]>summary:after{content:"\2212"}
 </style>
 </head>
 <body>
@@ -248,8 +301,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const HK=[["07", "2", "They monitor audience feedback, / the verbal and nonverbal signals an audience gives a speaker.", "그들은 청중의 피드백을 주시한다 / 즉 청중이 화자에게 보내는 언어적·비언어적 신호를", "화자는 청중의 피드백, 즉 청중이 화자에게 보내는 언어적·비언어적 신호를 주시한다.", "<b>the verbal and nonverbal signals<\/b>는 audience feedback을 다시 풀어 설명하는 동격어구이고, signals 뒤에는 목적격 관계대명사가 생략되어 an audience gives a speaker가 signals를 수식한다."], ["08", "5", "In order to learn language, / an infant must make sense of the contexts / in which language occurs; / problems must be solved.", "언어를 배우기 위해서 / 유아는 맥락을 이해해야 한다 / 언어가 발생하는 / 즉 문제가 해결되어야 한다", "언어를 배우려면 유아는 언어가 쓰이는 맥락을 이해해야 하며, 다시 말해 문제가 해결되어야 한다.", "<b>in which<\/b>는 '전치사+관계대명사'로 the contexts를 수식하며 in the contexts language occurs로 풀어 읽을 수 있다. 뒤의 <b>must be solved<\/b>는 조동사가 있는 수동태이다."], ["08", "6", "We have all been solving problems of this kind since childhood, / usually without awareness of what we are doing.", "우리는 모두 어린 시절부터 이런 종류의 문제를 계속 해결해 오고 있다 / 대개는 자신이 무엇을 하고 있는지 인식하지 못한 채로", "우리는 모두 어린 시절부터 이런 종류의 문제를 계속 풀어 왔는데, 대개는 자신이 무엇을 하고 있는지도 모른 채 그렇게 해 왔다.", "<b>have been solving<\/b>은 과거부터 지금까지 계속되는 일을 나타내는 현재완료진행형이고, <b>what we are doing<\/b>은 전치사 of의 목적어가 되는 명사절이다."], ["09", "1", "There is often a lot of uncertainty in the realm of science, / which the general public finds uncomfortable.", "과학의 영역에는 종종 많은 불확실성이 존재한다 / 그리고 일반 대중은 그것을 불편하게 여긴다", "과학의 영역에는 불확실성이 많은데, 일반 대중은 바로 이 점을 불편해한다.", "<b>which<\/b>는 앞 절 전체를 받는 계속적 용법의 관계대명사이면서 finds의 목적어이다. <b>find + 목적어 + 형용사<\/b> 구조에서 목적어가 which로 앞에 나간 형태이다."], ["09", "7", "Scientifically speaking, / there are no \"good\" and \"bad\" foods; / rather, food quality exists on a continuum, / meaning that some foods are better than others when it comes to general health and well-being.", "과학적으로 말하면 / '좋은' 음식과 '나쁜' 음식은 없다 / 오히려 음식의 질은 연속선 위에 존재한다 / 그리고 이는 전반적인 건강과 안녕에 관해서라면 어떤 음식이 다른 음식보다 더 낫다는 것을 의미한다", "과학적으로 말하면 '좋은' 음식과 '나쁜' 음식이 따로 있는 것이 아니라, 음식의 질은 연속선 위에 놓여 있어서 전반적인 건강과 안녕의 측면에서 어떤 음식이 다른 음식보다 더 나은 정도의 차이가 있을 뿐이다.", "<b>Scientifically speaking<\/b>은 '~하게 말하자면'을 뜻하는 독립분사구문이고, <b>meaning that ~<\/b>은 앞 절 전체의 내용을 부연 설명하는 분사구문이다."], ["10", "A-2", "One of the thieves, Jeff, would distract people out on the street / while his friend would sneak into their homes / and steal clothes from their bedrooms.", "도둑 중 한 명인 Jeff는 거리에 나온 사람들의 주의를 흩뜨리곤 했다 / 그러는 동안 그의 친구는 그들의 집에 몰래 들어가서 / 그들의 침실에서 옷을 훔치곤 했다", "도둑 중 한 명인 Jeff가 거리에 나온 사람들의 주의를 끄는 사이, 그의 친구는 사람들의 집에 몰래 들어가 침실에서 옷을 훔치곤 했다.", "<b>Jeff<\/b>는 One of the thieves와 동격이며, 주어의 핵은 One이므로 동사는 단수로 받는다. <b>would<\/b>는 과거의 반복된 습관을 나타내고, sneak과 steal이 and로 병렬 연결되어 would를 함께 쓴다."], ["10", "C-4", "I gave these sentences / because your client's partner stole something that could easily be replaced — people's clothes; / but your client stole something that can never be repaid — people's time.", "나는 이런 선고를 내렸다 / 당신 의뢰인의 동료는 쉽게 대체될 수 있는 것, 즉 사람들의 옷을 훔쳤기 때문이다 / 그러나 당신의 의뢰인은 결코 되갚을 수 없는 것, 즉 사람들의 시간을 훔쳤다", "내가 이런 선고를 내린 것은, 당신 의뢰인의 동료는 쉽게 대체할 수 있는 것, 곧 사람들의 옷을 훔쳤지만, 당신의 의뢰인은 결코 되돌려 줄 수 없는 것, 곧 사람들의 시간을 훔쳤기 때문이오.", "두 개의 <b>something that ~<\/b>이 각각 주격 관계대명사절의 수식을 받으며 서로 대조를 이룬다. <b>could be replaced<\/b>와 <b>can be repaid<\/b>는 모두 조동사가 있는 수동태이다."], ["10", "D-4", "Jeff smiled, / thinking the judge was going to let him go / since he hadn't stolen anything.", "Jeff는 미소를 지었다 / 판사가 자신을 풀어 줄 것이라고 생각하면서 / 자신은 아무것도 훔치지 않았기 때문에", "Jeff는 자신이 아무것도 훔치지 않았으니 판사가 자신을 풀어 주려는 것이라고 생각하며 미소를 지었다.", "<b>thinking ~<\/b>은 동시 동작을 나타내는 분사구문이고 그 뒤에 접속사 that이 생략된 목적어절이 이어진다. <b>let + 목적어 + 동사원형<\/b>은 사역동사 구문이며, <b>hadn't stolen<\/b>은 thinking 시점보다 앞선 일을 나타내는 과거완료이다."]];
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const CF={"sn": [{"i": "01", "q": "07", "s": "2", "title": "동격어구 + 목적격 관계대명사 생략", "eng": "They monitor<sup>1<\/sup> audience feedback, / the verbal<sup>2<\/sup> and nonverbal<sup>3<\/sup> signals<sup>4<\/sup> an audience gives a speaker.", "notes": [["1", "monitor", "주시하다"], ["2", "verbal", "언어적인"], ["3", "nonverbal", "비언어적인"], ["4", "signal", "신호"]], "lit": "그들은 청중의 피드백을 주시한다 / 즉 청중이 화자에게 보내는 언어적·비언어적 신호를", "nat": "화자는 청중의 피드백, 즉 청중이 화자에게 보내는 언어적·비언어적 신호를 주시한다.", "ana": "<b>the verbal and nonverbal signals<\/b>는 audience feedback을 다시 풀어 설명하는 동격어구이고, signals 뒤에는 목적격 관계대명사가 생략되어 an audience gives a speaker가 signals를 수식한다."}, {"i": "02", "q": "08", "s": "5", "title": "전치사+관계대명사(in which) + 조동사 수동태", "eng": "In order to learn language, / an infant<sup>1<\/sup> must make sense of<sup>2<\/sup> the contexts<sup>3<\/sup> / in which language occurs<sup>4<\/sup>; / problems must be solved.", "notes": [["1", "infant", "유아"], ["2", "make sense of", "~을 이해하다"], ["3", "context", "맥락, 상황"], ["4", "occur", "발생하다"]], "lit": "언어를 배우기 위해서 / 유아는 맥락을 이해해야 한다 / 언어가 발생하는 / 즉 문제가 해결되어야 한다", "nat": "언어를 배우려면 유아는 언어가 쓰이는 맥락을 이해해야 하며, 다시 말해 문제가 해결되어야 한다.", "ana": "<b>in which<\/b>는 '전치사+관계대명사'로 the contexts를 수식하며 in the contexts language occurs로 풀어 읽을 수 있다. 뒤의 <b>must be solved<\/b>는 조동사가 있는 수동태이다."}, {"i": "03", "q": "08", "s": "6", "title": "현재완료진행 + 관계대명사 what", "eng": "We have all been solving problems of this kind<sup>1<\/sup> since childhood<sup>2<\/sup>, / usually without awareness<sup>3<\/sup> of what we are doing.", "notes": [["1", "of this kind", "이런 종류의"], ["2", "childhood", "어린 시절"], ["3", "awareness", "인식, 자각"]], "lit": "우리는 모두 어린 시절부터 이런 종류의 문제를 계속 해결해 오고 있다 / 대개는 자신이 무엇을 하고 있는지 인식하지 못한 채로", "nat": "우리는 모두 어린 시절부터 이런 종류의 문제를 계속 풀어 왔는데, 대개는 자신이 무엇을 하고 있는지도 모른 채 그렇게 해 왔다.", "ana": "<b>have been solving<\/b>은 과거부터 지금까지 계속되는 일을 나타내는 현재완료진행형이고, <b>what we are doing<\/b>은 전치사 of의 목적어가 되는 명사절이다."}, {"i": "04", "q": "09", "s": "1", "title": "계속적 용법 관계대명사 + find + 목적어 + 형용사", "eng": "There is often a lot of uncertainty<sup>1<\/sup> in the realm<sup>2<\/sup> of science, / which the general public<sup>3<\/sup> finds uncomfortable<sup>4<\/sup>.", "notes": [["1", "uncertainty", "불확실성"], ["2", "realm", "영역"], ["3", "general public", "일반 대중"], ["4", "uncomfortable", "불편한"]], "lit": "과학의 영역에는 종종 많은 불확실성이 존재한다 / 그리고 일반 대중은 그것을 불편하게 여긴다", "nat": "과학의 영역에는 불확실성이 많은데, 일반 대중은 바로 이 점을 불편해한다.", "ana": "<b>which<\/b>는 앞 절 전체를 받는 계속적 용법의 관계대명사이면서 finds의 목적어이다. <b>find + 목적어 + 형용사<\/b> 구조에서 목적어가 which로 앞에 나간 형태이다."}, {"i": "05", "q": "09", "s": "7", "title": "독립분사구문(Scientifically speaking) + 부연 분사구문(meaning that)", "eng": "Scientifically speaking, / there are no \"good\" and \"bad\" foods; / rather, food quality exists on a continuum<sup>1<\/sup>, / meaning that some foods are better than others when it comes to<sup>2<\/sup> general health and well-being<sup>3<\/sup>.", "notes": [["1", "continuum", "연속(체)"], ["2", "when it comes to", "~에 관해서라면"], ["3", "well-being", "안녕, 행복"]], "lit": "과학적으로 말하면 / '좋은' 음식과 '나쁜' 음식은 없다 / 오히려 음식의 질은 연속선 위에 존재한다 / 그리고 이는 전반적인 건강과 안녕에 관해서라면 어떤 음식이 다른 음식보다 더 낫다는 것을 의미한다", "nat": "과학적으로 말하면 '좋은' 음식과 '나쁜' 음식이 따로 있는 것이 아니라, 음식의 질은 연속선 위에 놓여 있어서 전반적인 건강과 안녕의 측면에서 어떤 음식이 다른 음식보다 더 나은 정도의 차이가 있을 뿐이다.", "ana": "<b>Scientifically speaking<\/b>은 '~하게 말하자면'을 뜻하는 독립분사구문이고, <b>meaning that ~<\/b>은 앞 절 전체의 내용을 부연 설명하는 분사구문이다."}, {"i": "06", "q": "10", "s": "A-2", "title": "동격 + while 대조 + would(과거의 습관) 병렬", "eng": "One of the thieves<sup>1<\/sup>, Jeff, would distract<sup>2<\/sup> people out on the street / while his friend would sneak into<sup>3<\/sup> their homes / and steal clothes from their bedrooms.", "notes": [["1", "thief", "도둑"], ["2", "distract", "주의를 흩뜨리다"], ["3", "sneak into", "~에 몰래 들어가다"]], "lit": "도둑 중 한 명인 Jeff는 거리에 나온 사람들의 주의를 흩뜨리곤 했다 / 그러는 동안 그의 친구는 그들의 집에 몰래 들어가서 / 그들의 침실에서 옷을 훔치곤 했다", "nat": "도둑 중 한 명인 Jeff가 거리에 나온 사람들의 주의를 끄는 사이, 그의 친구는 사람들의 집에 몰래 들어가 침실에서 옷을 훔치곤 했다.", "ana": "<b>Jeff<\/b>는 One of the thieves와 동격이며, 주어의 핵은 One이므로 동사는 단수로 받는다. <b>would<\/b>는 과거의 반복된 습관을 나타내고, sneak과 steal이 and로 병렬 연결되어 would를 함께 쓴다."}, {"i": "07", "q": "10", "s": "C-4", "title": "두 개의 something that 관계대명사절 대조 + 조동사 수동태", "eng": "I gave these sentences<sup>1<\/sup> / because your client<sup>2<\/sup>'s partner stole something that could easily be replaced<sup>3<\/sup> — people's clothes; / but your client stole something that can never be repaid<sup>4<\/sup> — people's time.", "notes": [["1", "sentence", "선고, 형벌"], ["2", "client", "의뢰인"], ["3", "replace", "대체하다"], ["4", "repay", "되갚다"]], "lit": "나는 이런 선고를 내렸다 / 당신 의뢰인의 동료는 쉽게 대체될 수 있는 것, 즉 사람들의 옷을 훔쳤기 때문이다 / 그러나 당신의 의뢰인은 결코 되갚을 수 없는 것, 즉 사람들의 시간을 훔쳤다", "nat": "내가 이런 선고를 내린 것은, 당신 의뢰인의 동료는 쉽게 대체할 수 있는 것, 곧 사람들의 옷을 훔쳤지만, 당신의 의뢰인은 결코 되돌려 줄 수 없는 것, 곧 사람들의 시간을 훔쳤기 때문이오.", "ana": "두 개의 <b>something that ~<\/b>이 각각 주격 관계대명사절의 수식을 받으며 서로 대조를 이룬다. <b>could be replaced<\/b>와 <b>can be repaid<\/b>는 모두 조동사가 있는 수동태이다."}, {"i": "08", "q": "10", "s": "D-4", "title": "분사구문(thinking) + 사역동사 let + 과거완료", "eng": "Jeff smiled, / thinking the judge was going to let him go<sup>1<\/sup> / since he hadn't stolen<sup>2<\/sup> anything.", "notes": [["1", "let go", "놓아주다"], ["2", "steal", "훔치다"]], "lit": "Jeff는 미소를 지었다 / 판사가 자신을 풀어 줄 것이라고 생각하면서 / 자신은 아무것도 훔치지 않았기 때문에", "nat": "Jeff는 자신이 아무것도 훔치지 않았으니 판사가 자신을 풀어 주려는 것이라고 생각하며 미소를 지었다.", "ana": "<b>thinking ~<\/b>은 동시 동작을 나타내는 분사구문이고 그 뒤에 접속사 that이 생략된 목적어절이 이어진다. <b>let + 목적어 + 동사원형<\/b>은 사역동사 구문이며, <b>hadn't stolen<\/b>은 thinking 시점보다 앞선 일을 나타내는 과거완료이다."}], "qs": [{"q": "07", "type": "무관 문장", "src": "2019년 3월 35번", "ans": "④", "tr": [["1", "대중 연설은 청중 중심적인데, 화자가 연설 동안 청중의 말을 '듣기' 때문이다."], ["2", "화자는 청중의 피드백, 즉 청중이 화자에게 보내는 언어적·비언어적 신호를 주시한다."], ["3", "청중의 피드백은 흔히 듣는 사람들이 이해하고 있는지, 관심이 있는지, 화자의 생각을 받아들일 준비가 되어 있는지를 보여 준다."], ["4", "이 피드백은 여러 면에서 화자를 돕는다."], ["5", "그것은 화자가 언제 속도를 늦출지, 무언가를 더 신중히 설명할지, 혹은 연설이 끝날 때 질의응답 시간에 그 문제로 다시 돌아오겠다고 청중에게 말할지를 알게 해 준다."], ["6", "화자가 무대 위의 불안을 줄이기 위해 자신의 원고를 암기하는 것이 중요하다."], ["7", "청중의 피드백은 화자가 청중과 존중이 담긴 유대를 형성하도록 돕는다."]], "evh": "6번 문장", "ev": [{"en": true, "h": "It is important for the speaker to memorize his or her script to reduce on-stage anxiety."}, {"en": false, "h": "이 글은 처음부터 끝까지 '청중의 피드백이 화자를 어떻게 돕는가'를 말한다. 6번 문장만 원고 암기와 무대 불안이라는 화자 개인의 준비 문제를 다루므로 흐름에서 벗어난다."}], "opts": [{"n": "①", "t": "청중 피드백은 이해·관심·수용 여부를 보여 준다.", "a": false, "x": true, "trap": false, "e": "피드백이 무엇을 알려 주는지 설명하며 도입을 이어받는 문장이다."}, {"n": "②", "t": "이 피드백은 여러 면에서 화자를 돕는다.", "a": false, "x": true, "trap": false, "e": "뒤에 이어질 구체적 예시를 예고하는 연결 문장이다."}, {"n": "③", "t": "속도 조절·추가 설명·질의응답 안내를 돕는다.", "a": false, "x": true, "trap": false, "e": "②의 '여러 면에서'를 구체적으로 풀어 준다."}, {"n": "④", "t": "무대 불안을 줄이려면 원고를 암기해야 한다.", "a": true, "x": false, "trap": false, "e": "청중 피드백이 아니라 화자의 개인 연습법을 말하므로 글의 흐름과 무관하다."}, {"n": "⑤", "t": "피드백은 청중과의 존중이 담긴 유대 형성을 돕는다.", "a": false, "x": true, "trap": true, "e": "assists the speaker라는 표현이 반복되며 글을 마무리한다."}], "w": [["audience", "청중"], ["monitor", "주시하다"], ["verbal", "언어적인"], ["nonverbal", "비언어적인"], ["indicate", "나타내다"], ["assist", "돕다"], ["memorize", "암기하다"], ["script", "원고"], ["on-stage", "무대 위의"], ["anxiety", "불안"], ["respectful", "존중하는"]]}, {"q": "08", "type": "문장 삽입", "src": "2020년 6월 39번", "ans": "③", "tr": [["1", "우리의 뇌는 끊임없이 문제를 해결하고 있다."], ["2", "우리가 무언가를 배우거나 기억하거나 이해할 때마다 우리는 문제를 하나 푸는 것이다."], ["3", "어떤 심리학자들은 모든 유아의 언어 학습을 문제 해결로 규정하면서, '실험을 통한 학습'이나 '가설 검증' 같은 과학적 절차를 아이들에게까지 확장해 적용했다."], ["4", "[주어진 문장] 어른들은 아이들에게 새로운 단어의 뜻을 거의 설명해 주지 않으며, 문법 규칙이 어떻게 작동하는지는 말할 것도 없다."], ["5", "대신에 그들은 대화 속에서 그 단어나 규칙을 그냥 사용하고, 무슨 일이 벌어지고 있는지 알아내는 일은 아이들에게 맡긴다."], ["6", "언어를 배우려면 유아는 언어가 쓰이는 맥락을 이해해야 하며, 다시 말해 문제가 해결되어야 한다."], ["7", "우리는 모두 어린 시절부터 이런 종류의 문제를 계속 풀어 왔는데, 대개는 자신이 무엇을 하고 있는지도 모른 채 그렇게 해 왔다."]], "evh": "4번 문장", "ev": [{"en": true, "h": "( ③ ) Instead they use the words or the rules in conversation and leave it to children to figure out what is going on."}, {"en": false, "h": "③ 뒤 문장이 Instead(대신에)와 they로 시작한다. '대신에'가 성립하려면 앞에 '어른들이 설명해 주지 않는다'는 부정 진술이 있어야 하고, they가 가리킬 대상도 Grown-ups여야 한다. 따라서 주어진 문장은 ③에 들어간다."}], "opts": [{"n": "①", "t": "", "a": false, "x": true, "trap": false, "e": "①의 앞뒤는 '뇌가 문제를 푼다 → 배울 때마다 문제를 푼다'로 자연스럽게 이어져 끼어들 자리가 없다."}, {"n": "②", "t": "", "a": false, "x": true, "trap": false, "e": "②의 뒤 문장은 심리학자들의 견해를 새로 꺼내는 부분이라 어른의 설명 방식과 직접 이어지지 않는다."}, {"n": "③", "t": "", "a": true, "x": false, "trap": false, "e": "뒤 문장의 Instead와 they가 주어진 문장의 '설명해 주지 않는다'와 Grown-ups를 각각 받는다."}, {"n": "④", "t": "", "a": false, "x": true, "trap": true, "e": "④ 자리에 넣으면 앞의 Instead they use ~가 받을 부정 진술이 사라져 연결이 끊긴다."}, {"n": "⑤", "t": "", "a": false, "x": true, "trap": false, "e": "⑤ 앞은 이미 결론으로 넘어가는 부분이라 새로운 설명이 끼어들 수 없다."}], "w": [["grown-up", "어른"], ["rarely", "거의 ~하지 않다"], ["let alone", "~은 말할 것도 없이"], ["constantly", "끊임없이"], ["make sense of", "~을 이해하다"], ["psychologist", "심리학자"], ["infant", "유아"], ["procedure", "절차"], ["hypothesis-testing", "가설 검증"], ["figure out", "알아내다"], ["awareness", "인식"]]}, {"q": "09", "type": "요약문", "src": "2021년 11월 40번", "ans": "②", "tr": [["1", "과학의 영역에는 불확실성이 많은데, 일반 대중은 바로 이 점을 불편해한다."], ["2", "그들은 '정보에 근거한 추측'을 원하지 않는다. 그들은 삶을 더 편하게 만들어 주는 확실한 답을 원하지만, 과학은 그런 요구를 충족시킬 준비가 되어 있지 않은 경우가 많다."], ["3", "특히 인체는 엄청나게 복잡해서, 어떤 과학적 답변은 결코 흑백논리로 제시될 수 없다."], ["4", "이 모든 것이 언론이 과학 연구를 대중에게 전할 때 지나치게 단순화하는 경향을 보이는 이유이다."], ["5", "언론이 보기에 자신들은 그저 '사람들이 원하는 것을 주고 있을' 뿐이며, 더 정확하지만 복잡해서 아주 소수만 읽거나 이해할 정보를 제공하는 것과는 반대되는 선택을 하는 것이다."], ["6", "이것의 완벽한 예가 어떤 음식이 '좋고' 어떤 음식이 '나쁜지'에 대해 사람들이 명확한 답을 원한다는 점이다."], ["7", "과학적으로 말하면 '좋은' 음식과 '나쁜' 음식이 따로 있는 것이 아니라, 음식의 질은 연속선 위에 놓여 있어서 전반적인 건강과 안녕의 측면에서 어떤 음식이 다른 음식보다 더 나은 정도의 차이가 있을 뿐이다."], ["8", "[요약문] 전반적인 건강에 관하여, 과학은 그 본질상 확실성에 대한 대중의 요구를 (A)충족시키지 못하며, 이는 언론이 대중에게 덜 (B)복잡한 답을 주는 결과로 이어진다."]], "evh": "4번 문장", "ev": [{"en": true, "h": "All this is why the media tends to oversimplify scientific research when presenting it to the public."}, {"en": false, "h": "대중은 확실성을 원하지만 과학은 그 요구를 채워 주지 못하고(1~3번), 그래서 언론이 연구를 지나치게 단순화한다(4번). 즉 (A)는 satisfy, (B)는 complicated이다."}], "opts": [{"n": "①", "t": "satisfy … simple", "a": false, "x": true, "trap": false, "e": "(A)는 맞지만 언론이 주는 답은 '덜 단순한' 것이 아니라 '덜 복잡한' 것이다. less simple은 오히려 더 복잡하다는 뜻이 된다."}, {"n": "②", "t": "satisfy … complicated", "a": true, "x": false, "trap": false, "e": "과학이 확실성 요구를 충족시키지 못하고(does not satisfy), 그 결과 언론이 덜 복잡한(단순화된) 답을 준다는 흐름과 정확히 맞는다."}, {"n": "③", "t": "ignore … difficult", "a": false, "x": true, "trap": false, "e": "과학이 대중의 요구를 '무시하는' 것이 아니라 충족시킬 능력이 없는(unequipped) 것이다."}, {"n": "④", "t": "ignore … simple", "a": false, "x": true, "trap": false, "e": "(A)도 (B)도 지문과 어긋난다. 언론이 주는 답은 덜 단순한 것이 아니라 더 단순한 것이다."}, {"n": "⑤", "t": "reject … complicated", "a": false, "x": true, "trap": true, "e": "(B)는 맞지만 reject(거부하다)는 과학이 의도적으로 요구를 물리친다는 뜻이라 unequipped와 다르다."}], "w": [["uncertainty", "불확실성"], ["realm", "영역"], ["general public", "일반 대중"], ["certainty", "확실한 것"], ["unequipped", "갖추어지지 않은"], ["oversimplify", "지나치게 단순화하다"], ["as opposed to", "~와는 반대로"], ["definitive", "명확한"], ["continuum", "연속(체)"], ["well-being", "안녕"], ["by nature", "본질적으로"]]}, {"q": "10", "type": "장문 · 순서", "src": "2015년 11월 43번", "ans": "④", "tr": [["1", "(A) 옛날에 함께 일하는 두 도둑이 있었다. 도둑 중 한 명인 Jeff가 거리에 나온 사람들의 주의를 끄는 사이, 그의 친구는 사람들의 집에 몰래 들어가 침실에서 옷을 훔치곤 했다! 양말, 셔츠, 바지, 심지어 속옷까지! 어느 날 그들은 둘 다 붙잡혀 판사 앞에 끌려갔다. \"너희 중 누가 훔쳤느냐?\" 판사가 물었다. \"음, 제가 했습니다.\" Jeff의 친구가 말했다. 판사는 고개를 젓고는 Jeff를 가리켰다. \"그러면 너는 사람들의 주의를 흩뜨렸느냐?\""], ["2", "(D) Jeff는 그 질문에 고개를 끄덕였다. 판사는 잠시 생각하더니 그에게 말했다. \"그래, 어떻게 한 것이냐? 말해 보아라.\" Jeff는 자신이 아무것도 훔치지 않았으니 판사가 자신을 풀어 주려는 것이라고 생각하며 미소를 지었다. \"음, 재판장님, 저는 사람들에게 날씨를 묻고, 스포츠 경기 점수를 이야기하고, 그들의 주의를 붙들 수 있는 말이라면 무엇이든 했습니다. 그동안 저기 저 사람이 그들의 물건을 가져갔지요. 보시다시피, 재판장님, 저는 실제로 아무것도 훔치지 않았습니다.\""], ["3", "(B) \"그저 사람들의 주의만 흩뜨렸다고?\" 판사가 말했다. \"그들의 시간을 낭비시켜서?\" \"그렇습니다.\" 판사는 헛기침을 했다. \"좋다, 그렇다면 선고를 내리겠다. 옷을 훔친 자는 그것을 돌려주고, 가져간 옷에 더해 각 사람에게 옷 한 벌을 더 주어야 한다.\" 선고가 내려지자 Jeff의 친구는 고개를 끄덕였다. 판사는 말을 이었다. \"다른 한 사람은 앞으로 10년간 감옥에 가야 한다.\""], ["4", "(C) \"뭐라고요!\" Jeff를 변호하던 변호사가 소리쳤다. \"하지만 재판장님! 이해할 수 없습니다! 어째서 제 의뢰인에게 그렇게 가혹한 선고를 내리십니까? 결국 Jeff는 사람들의 시간을 낭비시켰을 뿐입니다! 그는 범죄를 저지른 적조차 없습니다!\" 판사가 대답했다. \"그의 죄가 더 무겁다! 내가 이런 선고를 내린 것은, 당신 의뢰인의 동료는 쉽게 대체할 수 있는 것, 곧 사람들의 옷을 훔쳤지만, 당신의 의뢰인은 결코 되돌려 줄 수 없는 것, 곧 사람들의 시간을 훔쳤기 때문이오.\""]], "evh": "A-끝", "ev": [{"en": true, "h": "\"And you distracted the people?\" → Jeff nodded in response to the question."}, {"en": false, "h": "(A)의 마지막이 Jeff에게 던진 질문이고, (D)의 첫 문장이 'the question에 고개를 끄덕였다'로 그 질문을 그대로 받는다. (D) 끝에서 Jeff가 '주의만 끌었다'고 말하자 (B)에서 판사가 그 말을 되받아 선고를 내리고, (C)에서 변호사가 그 선고에 항의한다."}], "opts": [{"n": "①", "t": "(B) – (D) – (C)", "a": false, "x": true, "trap": false, "e": "(B)의 첫 대사는 Jeff의 진술을 되받는 말이므로 (D)보다 앞설 수 없다."}, {"n": "②", "t": "(C) – (B) – (D)", "a": false, "x": true, "trap": false, "e": "(C)는 선고에 대한 항의이므로 선고가 나오는 (B)보다 뒤여야 한다."}, {"n": "③", "t": "(C) – (D) – (B)", "a": false, "x": true, "trap": false, "e": "(C)를 맨 앞에 두면 항의할 선고 자체가 아직 없다."}, {"n": "④", "t": "(D) – (B) – (C)", "a": true, "x": false, "trap": false, "e": "질문에 대한 끄덕임(D) → 그 대답을 되받은 선고(B) → 선고에 대한 항의와 판사의 해명(C) 순서가 자연스럽다."}, {"n": "⑤", "t": "(D) – (C) – (B)", "a": false, "x": true, "trap": true, "e": "(C)의 harsh sentence는 (B)에서 이미 선고가 내려진 뒤라야 성립한다."}], "w": [["thief", "도둑"], ["distract", "주의를 흩뜨리다"], ["sneak into", "~에 몰래 들어가다"], ["judge", "판사"], ["nod", "고개를 끄덕이다"], ["sentence", "선고, 형벌"], ["clear one's throat", "헛기침을 하다"], ["harsh", "가혹한"], ["client", "의뢰인"], ["commit a crime", "범죄를 저지르다"], ["repay", "되갚다"]]}, {"q": "11", "type": "장문 · 지칭", "src": "2015년 11월 44번", "ans": "②", "tr": [["1", "(a) his friend — Jeff의 친구, 즉 (a)는 Jeff를 가리킨다."], ["2", "(b) his throat — 헛기침을 한 사람은 판사이므로 (b)는 판사를 가리킨다."], ["3", "(c) He never even committed a crime! — 변호사가 자신의 의뢰인 Jeff를 두고 한 말이다."], ["4", "(d) said to him — 판사가 말을 건넨 상대이므로 Jeff이다."], ["5", "(e) since he hadn't stolen anything — 아무것도 훔치지 않았다고 생각한 사람은 Jeff이다."]], "evh": "B-3번 문장", "ev": [{"en": true, "h": "The judge cleared (b) his throat."}, {"en": false, "h": "(a)·(c)·(d)·(e)는 모두 Jeff를 가리키지만, (b)는 바로 앞의 The judge를 가리킨다."}], "opts": [{"n": "①", "t": "(a)", "a": false, "x": true, "trap": false, "e": "his friend는 'Jeff의 친구'라는 뜻이므로 his는 Jeff이다."}, {"n": "②", "t": "(b)", "a": true, "x": false, "trap": false, "e": "The judge cleared his throat에서 his는 문장의 주어인 판사를 가리킨다."}, {"n": "③", "t": "(c)", "a": false, "x": true, "trap": true, "e": "변호사가 변호하고 있는 대상, 곧 Jeff를 가리킨다."}, {"n": "④", "t": "(d)", "a": false, "x": true, "trap": false, "e": "판사가 말을 건넨 상대는 방금 고개를 끄덕인 Jeff이다."}, {"n": "⑤", "t": "(e)", "a": false, "x": true, "trap": false, "e": "자신은 아무것도 훔치지 않았다고 여긴 사람은 Jeff이다."}], "w": [["clear one's throat", "헛기침을 하다"], ["represent", "변호하다, 대변하다"], ["client", "의뢰인"], ["commit a crime", "범죄를 저지르다"], ["nod", "고개를 끄덕이다"], ["in response to", "~에 대한 응답으로"], ["let go", "놓아주다"]]}, {"q": "12", "type": "장문 · 일치", "src": "2015년 11월 45번", "ans": "⑤", "tr": [["1", "Jeff는 거리에 나온 사람들의 주의를 끄는 역할을 맡았다."], ["2", "판사는 '다른 한 사람은 앞으로 10년간 감옥에 가야 한다'고 선고했고, 그 다른 한 사람이 바로 Jeff이다."], ["3", "판사는 Jeff의 죄가 더 무겁다(His crime was greater)고 분명히 말했다."], ["4", "Jeff는 자신이 아무것도 훔치지 않았으므로 판사가 자신을 풀어 줄 것이라고 생각했다."], ["5", "Jeff는 마지막에 '저는 실제로 아무것도 훔치지 않았습니다'라고 말했다."]], "evh": "D-6번 문장", "ev": [{"en": true, "h": "\"You see, Your Honor, I never actually stole anything myself.\""}, {"en": false, "h": "Jeff는 자신이 물건을 훔쳤다고 말한 적이 없다. 오히려 '나는 실제로 아무것도 훔치지 않았다'고 말했으므로 ⑤가 글의 내용과 다르다."}], "opts": [{"n": "①", "t": "Jeff는 길에 나온 사람들의 주의를 흩뜨렸다.", "a": false, "x": true, "trap": false, "e": "(A)에서 Jeff가 사람들의 주의를 흩뜨리는 역할이었다고 나온다."}, {"n": "②", "t": "Jeff는 10년간 감옥살이를 해야 한다는 선고를 받았다.", "a": false, "x": true, "trap": false, "e": "(B) 마지막에서 '다른 한 사람은 10년간 감옥에 가야 한다'고 선고했고 그 대상이 Jeff이다."}, {"n": "③", "t": "판사는 Jeff의 죄가 더 무겁다고 말했다.", "a": false, "x": true, "trap": false, "e": "(C)에서 판사가 His crime was greater라고 직접 말한다."}, {"n": "④", "t": "Jeff는 판사가 자신을 풀어줄 것이라고 생각했다.", "a": false, "x": true, "trap": true, "e": "(D)에서 Jeff는 판사가 자신을 let him go 할 것이라 생각하며 미소 지었다."}, {"n": "⑤", "t": "Jeff는 자신이 사람들의 물건을 훔쳤다고 판사에게 말했다.", "a": true, "x": false, "trap": false, "e": "Jeff는 끝까지 '나는 실제로 아무것도 훔치지 않았다'고 말했으므로 글의 내용과 일치하지 않는다."}], "w": [["distract", "주의를 흩뜨리다"], ["prison", "감옥"], ["crime", "범죄"], ["greater", "더 큰"], ["let go", "놓아주다"], ["actually", "실제로"], ["steal", "훔치다"], ["waste", "낭비하다"], ["hold one's attention", "~의 주의를 붙들다"]]}]};
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크북 '+CF.sn.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -277,18 +330,22 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
-function hkHtml(it){
-  const E=it[2].split(' / '),K=it[3].split(' / ');
-  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
-  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
-  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
-  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
-  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+function esc2(s){return String(s)}
+function chunkSplit(s){return String(s).split(' / ')}
+function scHtml(c){
+  const esc=String;
+  const E=chunkSplit(c.eng),K=chunkSplit(c.lit);
+  let x='<div class="sc"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span><span class="tt">'+esc(c.title)+'</span></div><div class="sc-b">';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+E[j]+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  if(c.notes.length){x+='<div class="nts">'+c.notes.map(n=>'<span class="nt"><sup>'+n[0]+'</sup> <b>'+esc(n[1])+'</b> '+esc(n[2])+'</span>').join('')+'</div>';}
+  x+='<div class="lay nat"><span class="lb">자연스러운 해석</span>'+esc(c.nat)+'</div>';
+  if(c.ana)x+='<div class="lay ana"><span class="lb">분석</span>'+c.ana+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|분석">자연스러운 해석</button></div></div>';
   return x;
 }
 function renderDk(){
   let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-  HK.forEach(it=>{h+=hkHtml(it);});
+  CF.sn.forEach(c=>{h+=scHtml(c);});
   h+='</div></div>';
   app.innerHTML=h;
 }
@@ -442,41 +499,29 @@ function renderSubmit(){
   const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
 }
 /* ---- 해설 ---- */
-function sHtml(s,evn){
-  const ev=evn.indexOf(s.n)>=0;
-  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
-  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
-  const lays=[];
-  if(s.link)lays.push(['이어 읽으면',s.link]);
-  if(s.easy)lays.push(['쉬운 말로',s.easy]);
-  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
-  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
-  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
-  return x+'</div>';
-}
 function qHtml(i,a){
+  const esc=String;
   const d=D[i],ok=isRight(i,a);
-  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
-  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
-  h+='<h4>정답 근거</h4>';
-  h+=`<p class="en">${esc(d.ev_en)}</p>`;
-  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
-  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
-  if(d.ps&&d.ps.length){
-    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
-  }
-  h+='<h4>선택지 하나씩</h4>';
-  d.ch.forEach(c=>{
-    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  const cq=CF.qs.find(x=>x.q===d.no);
+  if(!cq)return '';
+  let h='<details class="qd" id="qd'+i+'" '+(ok?'':'open')+'><summary>'+esc(cq.q)+'번 · '+esc(cq.type)+'<small>'+esc(cq.src)+'</small><span class="res2 '+(ok?'o':'x')+'">'+(ok?'○ 정답':'✕ 오답')+'</span></summary><div class="qx">';
+  h+='<p class="ansline"><b>정답 '+esc(cq.ans)+'</b>'+(ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>')+'</p>';
+  h+='<details class="sub2"><summary>전문 해석</summary><ol class="trs" style="list-style:none">'+cq.tr.map(t=>'<li><span class="n">'+(t[0]==null?'':esc(t[0]))+'</span>'+t[1]+'</li>').join('')+'</ol></details>';
+  h+='<div class="sec">답의 근거 · '+esc(cq.evh)+'</div><div class="evx">';
+  cq.ev.forEach(p=>{h+=p.en?'<p class="en">'+p.h+'</p>':'<p>'+p.h+'</p>';});
+  h+='</div><div class="sec">선택지 하나씩</div>';
+  cq.opts.forEach(o=>{
+    h+='<div class="opx '+(o.a?'a':'')+'"><div class="ot"><span class="mk">'+esc(o.n)+'</span>'+o.t+(o.a?'<span class="bd g">정답</span>':'')+(o.trap?'<span class="bd t">가장 많이 걸리는 오답</span>':'')+'</div>'+(o.e?'<p>'+(o.x?'<span class="xm">✕</span>':'')+o.e+'</p>':'')+'</div>';
   });
-  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  if(cq.w.length){h+='<div class="sec">단어</div><div class="wds">'+cq.w.map(w=>'<span><b>'+esc(w[0])+'</b>'+esc(w[1])+'</span>').join('')+'</div>';}
+  h+='<button class="toq" data-i="'+i+'">빠른 정답으로</button>';
   return h+'</div></details>';
 }
 function renderExp(){
   const rec=S.sub;
   let h=hdr()+band(4)+'<div class="wrap">';
-  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
-  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='<div class="score">'+rec.s+' <small>/ '+N+'</small></div><h2 id="quick">빠른 정답</h2><div class="qc">';
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+='<button class="qchip '+(ok?'o':'x')+'" data-i="'+i+'"><small>'+esc(D[i].no)+'번</small>'+ansText(i)+' '+(ok?'○':'✕')+'</button>';}
   h+='</div><h2>해설</h2>';
   for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
   h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
@@ -515,13 +560,17 @@ function mmInit(){
 }
 /* 위임 이벤트 */
 document.addEventListener('click',e=>{
+  const qchip=e.target.closest('.qchip');
+  if(qchip){const dd=document.getElementById('qd'+qchip.dataset.i);if(dd){dd.open=true;dd.scrollIntoView({block:'start'});}return;}
+  const toq=e.target.closest('.toq');
+  if(toq){const qq=document.getElementById('quick');if(qq)qq.scrollIntoView({block:'start'});return;}
   const tb=e.target.closest('.tab,.hcard,.gohome');
   if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
   const ch=e.target.closest('.ch');
   if(ch){ch.classList.toggle('open');return;}
   const st=e.target.closest('.stg');
   if(st){
-    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const s=st.closest('.s,.sc'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
     const shown=lays.filter(l=>l.classList.contains('on')).length;
     if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
     else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
@@ -531,7 +580,7 @@ document.addEventListener('click',e=>{
   if(al){
     const open=al.dataset.all==='1',body=al.closest('.dkbody');
     body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
-    body.querySelectorAll('.s').forEach(s=>{
+    body.querySelectorAll('.s,.sc').forEach(s=>{
       const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
       lays.forEach(l=>l.classList.toggle('on',open));
       if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
