@@ -19,7 +19,7 @@ document.getElementById('how').style.display='none';
 var ACTN=T==='eob'?'eobeop':T;
 if(WN.MODE){document.getElementById('h1').insertAdjacentHTML('afterend',WN.MIX?WN.mixInfo():'<div class="how" style="border-color:#b45309"><b>오답 다시 풀기</b> · 오답 노트에 담은 문제만 보여요. <a href="../wrong.html">오답 노트 ›</a></div>')}
 var all=[];
-ids.forEach(function(pid){var d=ND[pid];if(!d||!d[T])return;d[T].forEach(function(it,i){all.push({id:pid+'#'+i,pid:pid,it:it,lab:pid==='2610-41'?'26년 10월 41~42번':pid.replace(/^(\d\d)(\d\d)-(\d+)$/,'$1년 $2월 $3번')})})});
+ids.forEach(function(e){var sp=String(e).split(':'),pid=sp[0],d=ND[pid];if(!d||!d[T])return;var L=d[T],a=0,b=L.length;if(sp.length>2){a=Math.floor(L.length*(+sp[1])/10);b=Math.floor(L.length*(+sp[2])/10)}for(var i=a;i<b;i++)all.push({id:pid+'#'+i,pid:pid,it:L[i],lab:pid==='2610-41'?'26년 10월 41~42번':pid.replace(/^(\d\d)(\d\d)-(\d+)$/,'$1년 $2월 $3번')})});
 if(WN.MODE){var _wi=WN.ids('mock',P,ACTN);all=all.filter(function(x){return _wi.indexOf(x.id)>=0})}
 if(!all.length){H.innerHTML=WN.MODE?'<div class="card sum"><h3>오답 노트에 담긴 문제가 없어요</h3><a class="nx sub" style="text-decoration:none;text-align:center" href="../wrong.html">오답 노트 ›</a></div>':'<div class="card sum"><h3>이 범위에는 이 유형 문제가 없어요</h3></div>';return}
 var SK='nd:'+K+WN.SUF,S;try{S=JSON.parse(localStorage.getItem(SK)||'null')}catch(e){}
