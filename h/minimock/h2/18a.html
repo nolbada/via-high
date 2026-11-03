@@ -141,6 +141,60 @@ details.dk>summary::-webkit-details-marker{display:none}
 .hcard[disabled]{opacity:.55}
 details.qd>summary::after{content:'\25BE';margin-left:auto;color:var(--sub)}
 details.qd[open]>summary::after{content:'\25B4'}
+.cell.s{padding:8px 12px;border:1.5px solid transparent;margin:0;background:var(--soft)}.cell.s.bad{background:var(--badbg);border-color:var(--bad)}
+
+/* ---- 새 직독직해·해설 화면 ---- */
+.sc{border:1px solid var(--line);border-radius:14px;margin:14px 0;overflow:hidden;background:var(--bg)}
+.sc-h{padding:11px 14px 10px;background:#eef2f8;border-bottom:1px solid var(--line)}
+.sc-h .no2{display:inline-block;min-width:26px;height:26px;line-height:26px;border-radius:13px;background:var(--accent);color:#fff;font-weight:800;font-size:13px;text-align:center;padding:0 7px;margin-right:8px}
+.sc-h .at{font-size:13px;color:var(--sub)}
+.sc-h .tt{display:block;margin-top:7px;font-size:15.5px;font-weight:800;color:var(--accent);line-height:1.45}
+.sc-b{padding:10px 12px 12px}
+.sc .ch{margin-bottom:6px}
+.sc .ce{font-size:17px}
+.sc .ce sup,.nt sup{font-size:10px;font-weight:800;color:#b8651f;margin-left:1px}
+.nts{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+.nt{font-size:13.5px;line-height:1.5;background:#fbf6ee;border:1px solid #f0e2cd;border-radius:8px;padding:5px 9px;color:#4a3a22}
+.nt b{color:#33260f}
+.sc .lay{border-radius:10px}
+.sc .lay.nat{border-left:4px solid var(--accent);background:#f7f9fc}
+.sc .lay.ana{background:#fff8e6;border-color:#f0dcc0;color:#4d3b05}
+.sc .lay.ana b,.why2 b,.opx b,.evx b{background:linear-gradient(transparent 58%,var(--hl) 58%);font-weight:700}
+.sc .lb{margin-bottom:4px}
+.qc{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.qchip{min-width:56px;padding:9px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);font-family:inherit;font-size:15px;color:var(--ink);font-weight:700}
+.qchip small{display:block;font-size:11px;font-weight:400;color:var(--sub);margin-bottom:1px}
+.qchip.o{border-color:var(--good);background:var(--goodbg)}
+.qchip.x{border-color:var(--bad);background:var(--badbg)}
+.sec{margin:16px 0 6px;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px}
+.sec:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+.trs{list-style:none;margin:0;padding:0;background:var(--soft);border-radius:10px;padding:8px 12px}
+.trs li{font-size:15px;line-height:1.75;padding:2px 0}
+.trs .n{display:inline-block;min-width:20px;font-size:12px;color:var(--sub);font-weight:700}
+.evx{background:var(--goodbg);border:1px solid #bfe0cd;border-radius:10px;padding:10px 12px}
+.evx .en{background:#fff;border:1px solid #d5eadc;font-size:15.5px;margin:0 0 8px}
+.evx p{margin:6px 0;font-size:15.5px;line-height:1.75}
+.evx .evh{font-size:13px;font-weight:800;color:var(--good);margin-bottom:6px}
+.opx{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px;background:var(--bg)}
+.opx.a{border-color:var(--good);background:var(--goodbg)}
+.opx .ot{font-size:15.5px;font-weight:700;line-height:1.55}
+.opx .mk{display:inline-block;min-width:22px;font-weight:800;color:var(--sub);margin-right:4px}
+.opx.a .mk{color:var(--good)}
+.opx .bd{display:inline-block;font-size:11.5px;font-weight:800;color:#fff;border-radius:4px;padding:1px 7px;margin-left:6px;vertical-align:1px}
+.opx .bd.g{background:var(--good)}
+.opx .bd.t{background:#b4472f}
+.opx p{margin:5px 0 0;font-size:14.5px;line-height:1.7;color:#333}
+.opx .xm{color:var(--bad);font-weight:800;margin-right:3px}
+.wds{display:flex;flex-wrap:wrap;gap:6px}
+.wds span{font-size:14px;background:var(--soft);border-radius:8px;padding:5px 9px;line-height:1.45}
+.wds b{margin-right:5px}
+.toq{display:block;width:100%;margin-top:14px;min-height:42px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--accent);font-family:inherit;font-weight:700;font-size:14px}
+details.sub2{margin:12px 0 0}
+details.sub2>summary{list-style:none;cursor:pointer;font-size:15px;font-weight:800;color:var(--accent);display:flex;align-items:center;gap:8px;padding:6px 0}
+details.sub2>summary::-webkit-details-marker{display:none}
+details.sub2>summary:before{content:"";width:4px;height:16px;border-radius:2px;background:var(--accent)}
+details.sub2>summary:after{content:"+";margin-left:auto;font-size:18px;color:var(--sub)}
+details.sub2[open]>summary:after{content:"\2212"}
 </style>
 </head>
 <body>
@@ -247,8 +301,8 @@ function render(){
   window.scrollTo(0,0);
 }
 
-const HK=[["01", "4", "One reason / may be / that they see learning / as something you do in school, / just something you do for a period of life / instead of as a way of life.", "한 가지 이유는 / ~일 수도 있다 / 그들이 배움을 여기는 것 / 학교에서 하는 어떤 것으로 / 그저 인생의 한 시기 동안 하는 어떤 것으로 / 삶의 방식으로서가 아니라", "한 가지 이유는 그들이 배움을 삶의 방식이 아니라 학교에서 하는 것, 즉 인생의 한 시기 동안만 하는 것으로 여기기 때문일 수 있다.", "<b>see A as B<\/b>는 'A를 B로 여기다'라는 뜻이며, <b>instead of as a way of life<\/b>는 앞의 <b>for a period of life<\/b>와 <b>대조<\/b>되는 표현으로 '삶의 방식으로서가 아니라'라는 뜻입니다."], ["02", "5", "What would happen / if a new pathogen came along / that infected most of the beeches and killed them?", "무슨 일이 벌어질까 / 만약 새로운 병원균이 나타난다면 / 그것이 대부분의 너도밤나무를 감염시키고 죽이는", "만약 새로운 병원균이 나타나 대부분의 너도밤나무를 감염시키고 죽인다면 무슨 일이 벌어질까?", "<b>if절(조건)<\/b> 안에 <b>that<\/b>이 이끄는 <b>주격 관계대명사절<\/b>이 a new pathogen을 수식하며, 그 안의 <b>infected<\/b>와 <b>killed<\/b>가 <b>and로 병렬<\/b> 연결되어 있습니다."], ["03", "4", "Only after some time and struggle / does the student begin / to develop / the insights and intuitions / that enable him / to see / the centrality and relevance of this mode of thinking.", "어느 정도의 시간과 노력이 지난 뒤에야 / 학생은 시작한다 / 계발하기 / 통찰력과 직관력을 / 그를 가능하게 하는 / 보는 것을 / 이러한 사고방식의 중요성과 타당성을", "어느 정도의 시간과 노력 후에야 학생은 이러한 사고방식의 중요성과 타당성을 알아볼 수 있게 해 주는 통찰력과 직관력을 계발하기 시작한다.", "부정어구 <b>Only after ~<\/b>가 문두에 나와 주어와 동사가 <b>도치(does the student begin)<\/b>되었습니다. <b>that enable him to see ~<\/b>는 the insights and intuitions를 수식하는 <b>주격 관계대명사절<\/b>입니다."], ["03", "6", "For instance, / only after a good deal of observation / do the sparks in the bubble chamber / become recognizable / as the specific movements / of identifiable particles.", "예를 들어 / 상당량의 관찰 후에야 / 거품 상자의 불꽃은 / 식별 가능하게 된다 / 구체적인 움직임으로 / 식별 가능한 입자의", "예를 들어, 상당량의 관찰 후에야 비로소 거품 상자의 불꽃이 식별 가능한 입자의 구체적인 움직임으로 인식될 수 있다.", "여기서도 <b>only after ~<\/b>가 문두에 나와 <b>do the sparks ~ become<\/b>으로 <b>도치<\/b>가 일어났습니다. <b>become recognizable as<\/b>는 '~로 식별 가능해지다'라는 뜻입니다."], ["04", "2", "Airways have / fixed widths and defined altitudes, / which separate / traffic / moving in opposite directions.", "항로는 가진다 / 고정된 폭과 정해진 고도를 / 그것들은 분리한다 / 통행을 / 반대 방향으로 이동하는", "항로들은 고정된 폭과 정해진 고도를 지니고, 그것들이 반대 방향으로 이동하는 통행을 분리시킨다.", "<b>which<\/b>는 앞 절 전체(또는 widths and altitudes)를 선행사로 하는 <b>계속적 용법의 주격 관계대명사<\/b>이며, <b>moving in opposite directions<\/b>는 traffic을 수식하는 <b>현재분사구<\/b>입니다."], ["04", "4", "Air travel usually covers / long distances, / with short periods of intense pilot activity / at takeoff and landing / and long periods of lower pilot activity / while in the air, / the portion of the flight / known as the \"long haul.\"", "항공 운항은 보통 이동한다 / 장거리를 / 짧은 시간의 고강도 조종사 활동과 함께 / 이착륙 시 / 그리고 긴 시간의 낮은 조종사 활동과 함께 / 공중에 있는 동안 / 그 비행 부분은 / '장거리 비행'이라고 알려져 있다", "항공 운항은 보통 장거리를 이동하는데, 이착륙 시 짧은 시간의 고강도 조종사 활동과, 공중에 있는 동안 긴 시간의 낮은 조종사 활동을 동반하며, 그 비행 부분은 '장거리 비행'이라고 알려져 있다.", "<b>with + 명사(구)<\/b>는 '~을 동반한 채'라는 <b>부대상황<\/b>을 나타내며, <b>known as \"long haul\"<\/b>은 the portion of the flight를 보충 설명하는 <b>과거분사구(동격)<\/b>입니다."], ["05", "6", "This is called / \"adaptation,\" / a deceptively simple phenomenon / that shows / that your brain is learning / to anticipate the next event.", "이것은 불린다 / '적응'이라고 / 속기 쉬울 만큼 단순한 현상으로 / 그것은 보여 준다 / 당신의 뇌가 배우고 있다는 것을 / 다음 사건을 예상하는 것을", "이것은 '적응'이라고 불리는데, 이는 당신의 뇌가 다음 사건을 예상하는 것을 배우고 있다는 것을 보여 주는, 속기 쉬울 만큼 단순한 현상이다.", "<b>a deceptively simple phenomenon<\/b>은 앞 절 전체를 보충 설명하는 <b>동격어구<\/b>이며, 그 뒤의 <b>that shows<\/b>는 phenomenon을 수식하는 관계대명사절, 그 안의 <b>that your brain ~<\/b>은 shows의 목적어로 쓰인 <b>명사절<\/b>입니다."], ["06", "1", "In the early 2000s, / British psychologist Richard Wiseman / performed / a series of experiments / with people / who viewed themselves / as either 'lucky' or 'unlucky'.", "2000년대 초 / 영국의 심리학자 Richard Wiseman은 / 실시했다 / 일련의 실험을 / 사람들을 대상으로 / 자신을 여기는 / '운이 좋은' 혹은 '운이 없는'으로", "2000년대 초, 영국의 심리학자 Richard Wiseman은 자신을 '운이 좋은' 혹은 '운이 없는' 사람으로 여기는 사람들을 대상으로 일련의 실험을 실시했다.", "<b>who viewed themselves as ~<\/b>는 people을 수식하는 <b>주격 관계대명사절<\/b>이며, <b>either A or B(A 또는 B)<\/b> 구문이 'lucky'와 'unlucky'를 연결합니다."]];
-const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크지 '+HK.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
+const CF={"sn": [{"i": "01", "q": "01", "s": "4", "title": "see A as B(A를 B로 여기다) + instead of 비교 표현", "eng": "One reason / may be / that they see learning / as something you do in school, / just something you do for a period of life<sup>1<\/sup> / instead of as a way of life<sup>2<\/sup>.", "notes": [["1", "a period of life", "인생의 한 시기"], ["2", "a way of life", "삶의 방식"], ["3", "see A as B", "A를 B로 여기다"]], "lit": "한 가지 이유는 / ~일 수도 있다 / 그들이 배움을 여기는 것 / 학교에서 하는 어떤 것으로 / 그저 인생의 한 시기 동안 하는 어떤 것으로 / 삶의 방식으로서가 아니라", "nat": "한 가지 이유는 그들이 배움을 삶의 방식이 아니라 학교에서 하는 것, 즉 인생의 한 시기 동안만 하는 것으로 여기기 때문일 수 있다.", "ana": "<b>see A as B<\/b>는 'A를 B로 여기다'라는 뜻이며, <b>instead of as a way of life<\/b>는 앞의 <b>for a period of life<\/b>와 <b>대조<\/b>되는 표현으로 '삶의 방식으로서가 아니라'라는 뜻입니다."}, {"i": "02", "q": "02", "s": "5", "title": "조건절 if + 관계대명사절(선행사 a new pathogen)", "eng": "What would happen / if a new pathogen<sup>1<\/sup> came along / that infected<sup>2<\/sup> most of the beeches<sup>3<\/sup> and killed them?", "notes": [["1", "pathogen", "병원균"], ["2", "infect", "감염시키다"], ["3", "beech", "너도밤나무"]], "lit": "무슨 일이 벌어질까 / 만약 새로운 병원균이 나타난다면 / 그것이 대부분의 너도밤나무를 감염시키고 죽이는", "nat": "만약 새로운 병원균이 나타나 대부분의 너도밤나무를 감염시키고 죽인다면 무슨 일이 벌어질까?", "ana": "<b>if절(조건)<\/b> 안에 <b>that<\/b>이 이끄는 <b>주격 관계대명사절<\/b>이 a new pathogen을 수식하며, 그 안의 <b>infected<\/b>와 <b>killed<\/b>가 <b>and로 병렬<\/b> 연결되어 있습니다."}, {"i": "03", "q": "03", "s": "4", "title": "Only after ~ 도치(조동사 does) + 관계대명사절", "eng": "Only after some time and struggle<sup>1<\/sup> / does the student begin / to develop / the insights<sup>2<\/sup> and intuitions<sup>3<\/sup> / that enable him / to see / the centrality<sup>4<\/sup> and relevance<sup>5<\/sup> of this mode of thinking.", "notes": [["1", "struggle", "노력, 애씀"], ["2", "insight", "통찰력"], ["3", "intuition", "직관력"], ["4", "centrality", "중요성"], ["5", "relevance", "타당성"]], "lit": "어느 정도의 시간과 노력이 지난 뒤에야 / 학생은 시작한다 / 계발하기 / 통찰력과 직관력을 / 그를 가능하게 하는 / 보는 것을 / 이러한 사고방식의 중요성과 타당성을", "nat": "어느 정도의 시간과 노력 후에야 학생은 이러한 사고방식의 중요성과 타당성을 알아볼 수 있게 해 주는 통찰력과 직관력을 계발하기 시작한다.", "ana": "부정어구 <b>Only after ~<\/b>가 문두에 나와 주어와 동사가 <b>도치(does the student begin)<\/b>되었습니다. <b>that enable him to see ~<\/b>는 the insights and intuitions를 수식하는 <b>주격 관계대명사절<\/b>입니다."}, {"i": "04", "q": "03", "s": "6", "title": "Only after ~ 도치(조동사 do) + 전치사+명사 병렬", "eng": "For instance, / only after a good deal of observation<sup>1<\/sup> / do the sparks in the bubble chamber<sup>2<\/sup> / become recognizable / as the specific movements / of identifiable<sup>3<\/sup> particles<sup>4<\/sup>.", "notes": [["1", "observation", "관찰"], ["2", "bubble chamber", "거품 상자"], ["3", "identifiable", "식별 가능한"], ["4", "particle", "입자"]], "lit": "예를 들어 / 상당량의 관찰 후에야 / 거품 상자의 불꽃은 / 식별 가능하게 된다 / 구체적인 움직임으로 / 식별 가능한 입자의", "nat": "예를 들어, 상당량의 관찰 후에야 비로소 거품 상자의 불꽃이 식별 가능한 입자의 구체적인 움직임으로 인식될 수 있다.", "ana": "여기서도 <b>only after ~<\/b>가 문두에 나와 <b>do the sparks ~ become<\/b>으로 <b>도치<\/b>가 일어났습니다. <b>become recognizable as<\/b>는 '~로 식별 가능해지다'라는 뜻입니다."}, {"i": "05", "q": "04", "s": "2", "title": "계속적 용법의 관계대명사 which(주어가 복수인 선행사)", "eng": "Airways have / fixed widths and defined altitudes<sup>1<\/sup>, / which separate<sup>2<\/sup> / traffic / moving in opposite directions<sup>3<\/sup>.", "notes": [["1", "altitude", "고도"], ["2", "separate", "분리하다"], ["3", "opposite direction", "반대 방향"]], "lit": "항로는 가진다 / 고정된 폭과 정해진 고도를 / 그것들은 분리한다 / 통행을 / 반대 방향으로 이동하는", "nat": "항로들은 고정된 폭과 정해진 고도를 지니고, 그것들이 반대 방향으로 이동하는 통행을 분리시킨다.", "ana": "<b>which<\/b>는 앞 절 전체(또는 widths and altitudes)를 선행사로 하는 <b>계속적 용법의 주격 관계대명사<\/b>이며, <b>moving in opposite directions<\/b>는 traffic을 수식하는 <b>현재분사구<\/b>입니다."}, {"i": "06", "q": "04", "s": "4", "title": "부대상황 with + 과거분사 known as(동격)", "eng": "Air travel usually covers / long distances, / with short periods of intense<sup>1<\/sup> pilot activity / at takeoff<sup>2<\/sup> and landing<sup>3<\/sup> / and long periods of lower pilot activity / while in the air, / the portion<sup>4<\/sup> of the flight / known as the \"long haul<sup>5<\/sup>.\"", "notes": [["1", "intense", "고강도의"], ["2", "takeoff", "이륙"], ["3", "landing", "착륙"], ["4", "portion", "부분"], ["5", "long haul", "장거리 비행"]], "lit": "항공 운항은 보통 이동한다 / 장거리를 / 짧은 시간의 고강도 조종사 활동과 함께 / 이착륙 시 / 그리고 긴 시간의 낮은 조종사 활동과 함께 / 공중에 있는 동안 / 그 비행 부분은 / '장거리 비행'이라고 알려져 있다", "nat": "항공 운항은 보통 장거리를 이동하는데, 이착륙 시 짧은 시간의 고강도 조종사 활동과, 공중에 있는 동안 긴 시간의 낮은 조종사 활동을 동반하며, 그 비행 부분은 '장거리 비행'이라고 알려져 있다.", "ana": "<b>with + 명사(구)<\/b>는 '~을 동반한 채'라는 <b>부대상황<\/b>을 나타내며, <b>known as \"long haul\"<\/b>은 the portion of the flight를 보충 설명하는 <b>과거분사구(동격)<\/b>입니다."}, {"i": "07", "q": "05", "s": "6", "title": "동격의 콤마 + 관계대명사 that가 이끄는 명사절 병렬", "eng": "This is called / \"adaptation<sup>1<\/sup>,\" / a deceptively<sup>2<\/sup> simple phenomenon<sup>3<\/sup> / that shows / that your brain is learning / to anticipate<sup>4<\/sup> the next event.", "notes": [["1", "adaptation", "적응"], ["2", "deceptively", "속기 쉬울 만큼"], ["3", "phenomenon", "현상"], ["4", "anticipate", "예상하다"]], "lit": "이것은 불린다 / '적응'이라고 / 속기 쉬울 만큼 단순한 현상으로 / 그것은 보여 준다 / 당신의 뇌가 배우고 있다는 것을 / 다음 사건을 예상하는 것을", "nat": "이것은 '적응'이라고 불리는데, 이는 당신의 뇌가 다음 사건을 예상하는 것을 배우고 있다는 것을 보여 주는, 속기 쉬울 만큼 단순한 현상이다.", "ana": "<b>a deceptively simple phenomenon<\/b>은 앞 절 전체를 보충 설명하는 <b>동격어구<\/b>이며, 그 뒤의 <b>that shows<\/b>는 phenomenon을 수식하는 관계대명사절, 그 안의 <b>that your brain ~<\/b>은 shows의 목적어로 쓰인 <b>명사절<\/b>입니다."}, {"i": "08", "q": "06", "s": "1", "title": "관계대명사절 + 삽입된 병렬 부연설명(전치사구)", "eng": "In the early 2000s, / British psychologist<sup>1<\/sup> Richard Wiseman / performed / a series of<sup>2<\/sup> experiments<sup>3<\/sup> / with people / who viewed themselves / as either 'lucky' or 'unlucky'.", "notes": [["1", "psychologist", "심리학자"], ["2", "a series of", "일련의"], ["3", "experiment", "실험"]], "lit": "2000년대 초 / 영국의 심리학자 Richard Wiseman은 / 실시했다 / 일련의 실험을 / 사람들을 대상으로 / 자신을 여기는 / '운이 좋은' 혹은 '운이 없는'으로", "nat": "2000년대 초, 영국의 심리학자 Richard Wiseman은 자신을 '운이 좋은' 혹은 '운이 없는' 사람으로 여기는 사람들을 대상으로 일련의 실험을 실시했다.", "ana": "<b>who viewed themselves as ~<\/b>는 people을 수식하는 <b>주격 관계대명사절<\/b>이며, <b>either A or B(A 또는 B)<\/b> 구문이 'lucky'와 'unlucky'를 연결합니다."}], "qs": [{"q": "01", "type": "주장", "src": "2016년 9월 22번", "ans": "①", "tr": [["1", "너무 많은 사람들이 목적지병에 시달린다."], ["2", "그들은 어느 정도 수준에 이르러, 학위를 받고, 꿈꾸던 집을 사고, 그러고는 그저 힘들이지 않고 살아간다."], ["3", "연구들은 고등학교 졸업자의 50퍼센트가 책 한 권을 완독하지 않는다는 것을 보여 준다."], ["4", "한 가지 이유는 그들이 배움을 삶의 방식이 아니라 학교에서 하는 것, 즉 인생의 한 시기 동안만 하는 것으로 여기기 때문일 수 있다."], ["5", "우리는 모두 학교에 있을 때 배웠다."], ["6", "우리의 선생님, 코치, 부모님이 우리를 가르치셨다."], ["7", "우리는 학령기일 때 배우는 것으로 기대되었다."], ["8", "그러나 어떤 사람들은 일단 특정 수준의 교육을 마치면 \"나는 학교를 다 끝냈어. 나는 좋은 직장을 얻었어\"라고 생각하는 경향이 있다."], ["9", "승자는 결코 배움을 멈추지 않는다."], ["10", "당신이 아홉 살이든 아흔 살이든, 당신은 끊임없이 배우고, 기술을 향상시키고, 당신이 하는 일에서 더 나아져야 한다."]], "evh": "9·10번 문장", "ev": [{"en": true, "h": "Winners never stop learning. / Whether you're nine or ninety years old, you should constantly be learning, improving your skills, and getting better at what you do."}, {"en": false, "h": "주장 문제는 결론부의 당위 표현이 핵심입니다. 9번에서 '승자는 결코 배움을 멈추지 않는다'고 했고, 10번에서 나이에 상관없이 '끊임없이 배워야 한다'고 마무리하므로, 학창 시절 이후에도 배움을 멈추지 말아야 한다는 것이 이 글의 주장입니다."}], "opts": [{"n": "①", "t": "학창 시절 이후에도 배움을 멈추지 말아야 한다.", "a": true, "x": false, "trap": false, "e": "9·10번의 '<b>승자는 배움을 멈추지 않는다<\/b>'와 '<b>끊임없이 배워야 한다<\/b>'는 내용을 그대로 담고 있습니다."}, {"n": "②", "t": "삶의 단계별 목표를 구체적으로 설정해야 한다.", "a": false, "x": true, "trap": false, "e": "단계별 목표 설정에 관한 내용은 본문에 없습니다."}, {"n": "③", "t": "연령에 맞는 학습 방법을 활용해야 한다.", "a": false, "x": true, "trap": false, "e": "오히려 나이와 무관하게 배우라는 내용이지, 연령별 학습법을 말하는 것이 아닙니다."}, {"n": "④", "t": "깊이 생각하며 책을 읽는 습관을 들여야 한다.", "a": false, "x": true, "trap": true, "e": "책을 완독하지 않는다는 것은 3번의 통계일 뿐, 이 글의 주장 자체는 아닙니다."}, {"n": "⑤", "t": "학교는 평생 교육 프로그램 개발에 힘써야 한다.", "a": false, "x": true, "trap": false, "e": "학교의 역할이 아니라 개인의 학습 태도를 다루는 글입니다."}], "w": [["destination disease", "목적지병"], ["coast", "힘들이지 않고 살아가다"], ["degree", "학위"], ["graduate", "졸업자"], ["a way of life", "삶의 방식"], ["tend to", "~하는 경향이 있다"], ["winner", "승자"], ["constantly", "끊임없이"], ["improve", "향상시키다"]]}, {"q": "02", "type": "밑줄 의미", "src": "2023년 9월 21번", "ans": "③", "tr": [["1", "나는 균류가 자신의 더 큰 상대보다 조금 더 '앞서 생각한다'고 생각한다."], ["2", "나무들 사이에서는 각 종이 다른 종들과 싸운다."], ["3", "중부 유럽 태생의 너도밤나무가 그곳 대부분의 숲에서 승리를 거둘 수 있다고 가정해 보자."], ["4", "이것이 정말로 이점일까?"], ["5", "만약 새로운 병원균이 나타나 대부분의 너도밤나무를 감염시키고 죽인다면 무슨 일이 벌어질까?"], ["6", "그런 경우, 계속 자라나서 새로운 세대의 어린 너도밤나무들이 싹을 틔우고 자라나는 데 필요한 그늘을 제공해 줄 다른 종들 — 참나무, 단풍나무, 혹은 전나무 — 이 일정 수만큼 주위에 있는 것이 더 유리하지 않을까?"], ["7", "다양성은 오래된 숲에 안전을 제공한다."], ["8", "균류들 또한 안정적인 조건에 매우 의존적이기 때문에, 그것들은 땅속에서 다른 종들을 지원하고 한 나무 종이 우세해지지 않도록 그것들을 완전한 붕괴로부터 보호한다."]], "evh": "6·8번 문장", "ev": [{"en": true, "h": "~ wouldn't it be more advantageous if there were a certain number of other species around ~ / Because fungi are also very dependent on stable conditions, they support other species underground and protect them from complete collapse to ensure that one species of tree doesn't manage to dominate."}, {"en": false, "h": "밑줄 함의 문제는 글 전체의 논지가 근거입니다. 6번에서 다양한 종이 있는 것이 숲에 <b>더 유리하다<\/b>고 했고, 8번에서 균류가 다른 종을 지원하며 <b>한 종이 지배하지 않도록 보호한다<\/b>고 했으므로, 균류가 '앞서 생각한다'는 것은 <b>다양성이 숲의 안정으로 이어진다는 것을 알고 있다(aware that diversity leads to the stability of forests)<\/b>는 의미입니다."}], "opts": [{"n": "①", "t": "responsible for the invasion of foreign species", "a": false, "x": true, "trap": false, "e": "외래종 침입에 관한 내용은 본문에 없습니다."}, {"n": "②", "t": "eager to support the dominance of one species", "a": false, "x": true, "trap": true, "e": "오히려 균류는 <b>한 종의 우세를 막는<\/b> 역할을 하므로 정반대입니다."}, {"n": "③", "t": "aware that diversity leads to the stability of forests", "a": true, "x": false, "trap": false, "e": "6·8번의 '<b>다양한 종이 유리하다<\/b>', '<b>한 종의 지배를 막는다<\/b>'는 내용과 정확히 일치합니다."}, {"n": "④", "t": "indifferent to helping forests regenerate after collapse", "a": false, "x": true, "trap": false, "e": "오히려 균류는 붕괴를 <b>막는 데 적극적<\/b>이므로 무관심하다는 것과 반대입니다."}, {"n": "⑤", "t": "careful that their territories are not occupied by other species", "a": false, "x": true, "trap": false, "e": "영토 점령에 관한 내용은 본문에 없습니다."}], "w": [["fungi", "균류"], ["species", "종"], ["assume", "가정하다"], ["native", "태생의"], ["victorious", "승리를 거둔"], ["pathogen", "병원균"], ["infect", "감염시키다"], ["diversity", "다양성"], ["dependent", "의존하는"], ["stable", "안정적인"], ["collapse", "붕괴"], ["dominate", "지배하다"]]}, {"q": "03", "type": "주제", "src": "2015학년도 수능 20번", "ans": "③", "tr": [["1", "많은 학문 분야는 단순한 추상적 공부보다 실제로 행함으로써 더 잘 학습된다."], ["2", "이는 겉보기에 더 실용적인 분야뿐만 아니라 가장 추상적인 분야에서도 흔히 그렇다."], ["3", "예를 들어, 철학 분야 내에서 논리학은 예시의 활용과 실제 문제 해결을 통해 배워야 한다."], ["4", "어느 정도의 시간과 노력 후에야 학생은 이러한 사고방식의 중요성과 타당성을 알아볼 수 있게 해 주는 통찰력과 직관력을 계발하기 시작한다."], ["5", "이러한 행함에 의한 학습은 많은 과학 분야에서 필수적이다."], ["6", "예를 들어, 상당량의 관찰 후에야 비로소 거품 상자의 불꽃이 식별 가능한 입자의 구체적인 움직임으로 인식될 수 있다."]], "evh": "1·5번 문장", "ev": [{"en": true, "h": "Many disciplines are better learned by entering into the doing than by mere abstract study. / This learning by doing is essential in many of the sciences."}, {"en": false, "h": "주제 문제는 처음(1번)과 중반(5번)에서 반복되는 핵심어가 근거입니다. '<b>행함으로써 배우는 것(learning by doing)<\/b>'이 추상적 공부보다 낫고 과학에서도 필수적이라는 내용이 반복되므로, 이 글의 주제는 <b>행함으로써 배우는 것의 중요성<\/b>입니다."}], "opts": [{"n": "①", "t": "history of science education", "a": false, "x": true, "trap": false, "e": "과학 교육의 역사와는 무관합니다."}, {"n": "②", "t": "limitations of learning strategies", "a": false, "x": true, "trap": false, "e": "학습 전략의 한계가 아니라 오히려 장점을 말합니다."}, {"n": "③", "t": "importance of learning by doing", "a": true, "x": false, "trap": false, "e": "1·5번에서 반복되는 '<b>행함으로써 배우는 것<\/b>'의 중요성이 이 글의 핵심입니다."}, {"n": "④", "t": "effects of intuition on scientific discoveries", "a": false, "x": true, "trap": true, "e": "직관력은 행함으로써 배운 <b>결과물<\/b>이지 이 글의 주제가 아닙니다."}, {"n": "⑤", "t": "difference between philosophy and science", "a": false, "x": true, "trap": false, "e": "오히려 철학과 과학의 <b>공통점<\/b>(둘 다 행함으로 배움)을 말하는 글입니다."}], "w": [["discipline", "학문 분야"], ["abstract", "추상적인"], ["practical", "실용적인"], ["philosophical", "철학적인"], ["struggle", "노력, 애씀"], ["insight", "통찰력"], ["intuition", "직관력"], ["essential", "필수적인"], ["observation", "관찰"], ["recognizable", "식별 가능한"], ["identifiable", "식별 가능한"], ["particle", "입자"]]}, {"q": "04", "type": "어법", "src": "2020년 3월 29번", "ans": "⑤", "tr": [["1", "민간 항공기들은 비록 물리적인 구조물은 아니지만 보통 도로들과 비슷한 항로를 다닌다."], ["2", "항로들은 고정된 폭과 정해진 고도를 지니고, 그것들이 반대 방향으로 이동하는 통행을 분리시킨다."], ["3", "항공기들의 수직 분리는 일부 비행기들이 다른 과정들이 아래에서 일어나는 동안 공항 위를 지나갈 수 있게 한다."], ["4", "항공 운항은 보통 장거리를 이동하는데, 이륙과 착륙 시 짧은 시간의 고강도 조종사 활동과, 장거리 비행이라고 알려진 비행 부분인, 공중에 있는 동안 긴 시간의 낮은 조종사 활동을 함께 한다."], ["5", "비행의 장거리 비행 부분 동안, 조종사들은 근처 비행기들을 탐색하는 것보다 항공기 상태를 평가하는 데 더 많은 시간을 쓴다."], ["6", "이것은 항공기들 간의 충돌이 대체로 공항들의 인근 지역에서 발생하는 반면, 항공기 오작동으로 인한 추락은 장거리 비행 동안 발생하는 경향이 있기 때문이다."]], "evh": "6(밑줄 ⑤)", "ev": [{"en": true, "h": "This is because collisions between aircraft usually occur in the surrounding area of airports, while crashes (due to aircraft malfunction) ⑤ tends to occur during long-haul flight."}, {"en": false, "h": "어법 문제는 밑줄 부분의 <b>진짜 주어<\/b>를 찾아야 합니다. while절의 핵심 주어는 <b>crashes(복수)<\/b>이고 due to aircraft malfunction은 수식어구일 뿐이므로, 동사도 복수형인 <b>tend<\/b>가 되어야 합니다."}], "opts": [{"n": "①", "t": "which", "a": false, "x": true, "trap": false, "e": "선행사(fixed widths and defined altitudes)를 받는 <b>계속적 용법의 주격 관계대명사<\/b>로 적절합니다."}, {"n": "②", "t": "to pass", "a": false, "x": true, "trap": false, "e": "동사 <b>allows<\/b>의 5형식 <b>목적격 보어(to부정사)<\/b> 자리로 적절합니다."}, {"n": "③", "t": "known", "a": false, "x": true, "trap": false, "e": "the portion of the flight를 수식하는 <b>수동 관계의 과거분사<\/b>로 적절합니다."}, {"n": "④", "t": "searching", "a": false, "x": true, "trap": true, "e": "<b>spend + 시간 + V-ing than V-ing<\/b> 비교 구문에서 앞의 assessing과 형태를 맞춘 <b>동명사<\/b>로 적절합니다."}, {"n": "⑤", "t": "tends", "a": true, "x": false, "trap": false, "e": "주어 <b>crashes(복수)<\/b>와 수 일치가 되지 않으므로 <b>tend<\/b>로 고쳐야 합니다."}], "w": [["commercial", "상업의, 민간의"], ["airway", "항로"], ["altitude", "고도"], ["vertical separation", "수직 분리"], ["aircraft", "항공기"], ["portion", "부분"], ["long haul", "장거리 비행"], ["assess", "평가하다"], ["collision", "충돌"], ["surrounding", "인근의"], ["malfunction", "오작동"]]}, {"q": "05", "type": "빈칸 추론", "src": "2022년 11월 31번", "ans": "②", "tr": [["1", "오류 신호 없이는 어떤 학습도 가능하지 않다."], ["2", "유기체는 사건이 자신의 기대를 어길 때만 학습한다."], ["3", "다시 말해, 놀라움은 학습의 근본적인 동력 중 하나이다."], ["4", "동일한 음인 AAAAA를 듣는 것을 상상해 보라."], ["5", "각 음은 당신 뇌의 청각 영역에서 반응을 끌어내는데, 음이 반복되면서 그 반응은 점진적으로 감소한다."], ["6", "이것은 '적응'이라고 불리는데, 이는 당신의 뇌가 다음 사건을 예상하는 것을 배우고 있다는 것을 보여 주는, 속기 쉬울 만큼 단순한 현상이다."], ["7", "갑자기, 음이 바뀐다: AAAAA#."], ["8", "당신의 1차 청각 피질은 즉각적으로 강한 놀람 반응을 보이는데, 적응이 사라질 뿐만 아니라 추가적인 뉴런들이 예상하지 못한 소리에 반응하여 활발하게 발화하기 시작한다."], ["9", "그리고 적응을 유발하는 것은 단순한 반복이 아니라, 중요한 것은 그 음이 예측 가능한지이다."], ["10", "예를 들어, 만약 당신이 ABABA와 같은 교대로 나오는 음의 세트를 듣는다면, 당신의 뇌는 이 교대에 익숙해지고, 당신의 청각 영역 내 활동은 다시 감소한다."], ["11", "그러나 이번에는, ABABB와 같은 예상하지 못한 반복이 놀람 반응을 일으키는 것이다."]], "evh": "9번 문장", "ev": [{"en": true, "h": "And it is not just repetition that leads to adaptation: what matters is whether the notes are ___."}, {"en": false, "h": "빈칸 문제는 뒤이은 예시(10·11번)가 근거입니다. 예측 가능한 패턴(ABABA)에서는 반응이 감소하지만, 예측을 벗어난 반복(ABABB)에서는 다시 놀람 반응이 나타나므로, 핵심은 소리가 <b>예측 가능한지(predictable)<\/b> 여부입니다."}], "opts": [{"n": "①", "t": "audible", "a": false, "x": true, "trap": false, "e": "'들을 수 있는'은 당연한 조건이라 핵심이 될 수 없습니다."}, {"n": "②", "t": "predictable", "a": true, "x": false, "trap": false, "e": "예측 가능한 패턴에서는 반응이 감소하고, 예측을 벗어나면 놀람 반응이 나타난다는 10·11번의 내용과 정확히 일치합니다."}, {"n": "③", "t": "objective", "a": false, "x": true, "trap": false, "e": "'객관적인'은 본문과 무관합니다."}, {"n": "④", "t": "countable", "a": false, "x": true, "trap": true, "e": "숫자 패턴처럼 보여 혼동되지만, 셀 수 있는지가 아니라 <b>예측 가능한지<\/b>가 핵심입니다."}, {"n": "⑤", "t": "recorded", "a": false, "x": true, "trap": false, "e": "'기록되는'은 본문과 무관합니다."}], "w": [["error signal", "오류 신호"], ["organism", "유기체"], ["violate", "어기다"], ["expectation", "기대"], ["fundamental", "근본적인"], ["auditory", "청각의"], ["progressively", "점진적으로"], ["adaptation", "적응"], ["anticipate", "예상하다"], ["vigorously", "활발하게"], ["unexpected", "예상하지 못한"], ["trigger", "일으키다"]]}, {"q": "06", "type": "빈칸 추론", "src": "2018년 6월 33번", "ans": "③", "tr": [["1", "2000년대 초, 영국의 심리학자 Richard Wiseman은 자신을 '운이 좋은'(성공적이고 행복했으며, 그들의 삶에서 일어나는 사건들이 자신에게 유리하게 작용하는 것처럼 보이는) 사람 혹은 '운이 없는'(삶이 그저 잘못되어 가는 것처럼 보이는) 사람으로 여기는 사람들을 대상으로 일련의 실험을 실시했다."], ["2", "그가 알아낸 것은 '운이 좋은' 사람들이 기회를 포착하는 데 능숙하다는 것이었다."], ["3", "한 실험에서, 그는 두 집단 모두에게 신문에 실린 사진의 수를 세라고 말했다."], ["4", "'운이 없는' 사람들은 과제를 힘겹게 헤쳐 나갔지만, '운이 좋은' 사람들은 대개 둘째 쪽에 \"그만 세시오 — 이 신문에는 43장의 사진이 있습니다\"라는 공고가 실려 있는 것을 알아차렸다."], ["5", "나중 쪽에서, '운이 없는' 사람들 역시 이미지를 세느라 너무 바빠서 \"그만 세고, 실험자에게 이것을 보았다고 말하면 250달러를 받습니다\"라고 적힌 쪽지를 알아차리지 못했다."], ["6", "Wiseman의 결론은, 도전에 직면했을 때, '운이 없는' 사람들이 덜 유연하다는 것이었다."], ["7", "그들은 하나의 구체적인 목표에 집중했고, 다른 선택지들이 그들을 스쳐 지나가고 있다는 것을 알아차리지 못했다."]], "evh": "6·7번 문장", "ev": [{"en": true, "h": "Wiseman's conclusion was that, when faced with a challenge, 'unlucky' people were less flexible. They focused on a specific goal, and failed to notice that ___."}, {"en": false, "h": "빈칸 문제는 결론 문장(6·7번)이 근거입니다. '운이 없는' 사람들은 <b>하나의 목표에만 매몰되어 유연성이 떨어진다<\/b>고 했으므로, 빈칸에는 그들이 알아차리지 못한 것, 즉 <b>다른 선택지들이 스쳐 지나가고 있었다는 것(other options were passing them by)<\/b>이 들어가야 합니다."}], "opts": [{"n": "①", "t": "instructions should be followed at all costs", "a": false, "x": true, "trap": false, "e": "지시 준수에 관한 내용은 본문에 없습니다."}, {"n": "②", "t": "their mission was impossible to complete", "a": false, "x": true, "trap": false, "e": "임무 완수 불가에 관한 내용은 없습니다."}, {"n": "③", "t": "other options were passing them by", "a": true, "x": false, "trap": false, "e": "하나의 목표에만 집중해 다른 선택지를 놓쳤다는 6·7번의 결론과 정확히 일치합니다."}, {"n": "④", "t": "counting was such a demanding task", "a": false, "x": true, "trap": true, "e": "과제 내용(숫자 세기)에 낚이기 쉽지만, 핵심은 과제의 난이도가 아니라 <b>유연성 부족<\/b>입니다."}, {"n": "⑤", "t": "efforts would pay off in the long run", "a": false, "x": true, "trap": false, "e": "오히려 '운이 없는' 사람은 기회를 <b>놓쳤다<\/b>는 내용이므로 정반대입니다."}], "w": [["psychologist", "심리학자"], ["favor", "유리하게 하다"], ["spot", "포착하다"], ["opportunity", "기회"], ["diligently", "부지런히"], ["announcement", "공고"], ["faced with", "~에 직면한"], ["challenge", "도전"], ["flexible", "유연한"], ["pass by", "스쳐 지나가다"], ["pay off", "성과를 내다"]]}]};
+const BANDS={1:['유·반의어 답 맞춰보기','단어 '+WS.words.length+'개 · 책에 쓴 답과 확인'],2:['직독직해 해석 맞춰보기','워크북 '+CF.sn.length+'문장 · 내 해석과 맞춰보기'],3:['모의고사 답안지','문항별 정답 입력'],4:['정답 · 해설','번호별 정답 근거와 해설']};
 function band(k){return '<div class="wrap"><div class="band"><span class="bn">'+k+'</span><div><b>'+BANDS[k][0]+'</b><small>'+BANDS[k][1]+'</small></div></div></div>';}
 function renderHome(){
   const nm=noteList().length,sub=S.sub;
@@ -276,18 +330,22 @@ function sHtmlP(s){
   if(lays.length)x+='<button class="stg" data-names="'+lays.map(l=>l[0]).join('|')+'">'+lays[0][0]+'</button>';
   return x+'</div>';
 }
-function hkHtml(it){
-  const E=it[2].split(' / '),K=it[3].split(' / ');
-  let x='<div class="s"><div class="sn"><span class="lb">'+(+it[0])+'번 문항 · 문장 '+esc(it[1])+'</span></div>';
-  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+esc(E[j])+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
-  x+='<div class="lay"><span class="lb">자연스러운 해석</span>'+esc(it[4])+'</div>';
-  x+='<div class="lay"><span class="lb">문법 분석</span>'+it[5]+'</div>';
-  x+='<button class="stg" data-names="자연스러운 해석|문법 분석">자연스러운 해석</button></div>';
+function esc2(s){return String(s)}
+function chunkSplit(s){return String(s).split(' / ')}
+function scHtml(c){
+  const esc=String;
+  const E=chunkSplit(c.eng),K=chunkSplit(c.lit);
+  let x='<div class="sc"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span><span class="tt">'+esc(c.title)+'</span></div><div class="sc-b">';
+  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+E[j]+'</div><div class="ck">'+esc(K[j]||'')+'</div></div>';
+  if(c.notes.length){x+='<div class="nts">'+c.notes.map(n=>'<span class="nt"><sup>'+n[0]+'</sup> <b>'+esc(n[1])+'</b> '+esc(n[2])+'</span>').join('')+'</div>';}
+  x+='<div class="lay nat"><span class="lb">자연스러운 해석</span>'+esc(c.nat)+'</div>';
+  if(c.ana)x+='<div class="lay ana"><span class="lb">분석</span>'+c.ana+'</div>';
+  x+='<button class="stg" data-names="자연스러운 해석|분석">자연스러운 해석</button></div></div>';
   return x;
 }
 function renderDk(){
   let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
-  HK.forEach(it=>{h+=hkHtml(it);});
+  CF.sn.forEach(c=>{h+=scHtml(c);});
   h+='</div></div>';
   app.innerHTML=h;
 }
@@ -441,41 +499,29 @@ function renderSubmit(){
   const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
 }
 /* ---- 해설 ---- */
-function sHtml(s,evn){
-  const ev=evn.indexOf(s.n)>=0;
-  let x=`<div class="s${ev?' ev':''}"><div class="sn"><span class="lb">문장 ${s.n}</span>${ev?'<span class="lb ev">정답 근거</span>':''}</div>`;
-  s.ch.forEach(c=>{x+=`<div class="ch"><div class="ce">${c.e}</div><div class="ck">${c.k}</div></div>`;});
-  const lays=[];
-  if(s.link)lays.push(['이어 읽으면',s.link]);
-  if(s.easy)lays.push(['쉬운 말로',s.easy]);
-  if(s.gist)lays.push(['결국 이 얘기',s.gist]);
-  lays.forEach(l=>{x+=`<div class="lay"><span class="lb">${l[0]}</span>${l[1]}</div>`;});
-  if(lays.length)x+=`<button class="stg" data-names="${lays.map(l=>l[0]).join('|')}">${lays[0][0]}</button>`;
-  return x+'</div>';
-}
 function qHtml(i,a){
+  const esc=String;
   const d=D[i],ok=isRight(i,a);
-  let h=`<details class="qd" ${ok?'':'open'}><summary>${esc(d.no)}번 · ${esc(d.typ)}<small>${esc(d.src)}</small><span class="res2 ${ok?'o':'x'}">${ok?'○ 정답':'✕ 오답'}</span></summary><div class="qx">`;
-  h+=`<p class="ansline"><b>정답 ${ansText(i)}</b>${ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>'}</p>`;
-  h+='<h4>정답 근거</h4>';
-  h+=`<p class="en">${esc(d.ev_en)}</p>`;
-  h+='<ul class="kolist">'+d.ev_ko.map(p=>`<li><span class="n">${p[0]}번</span>${p[1]}</li>`).join('')+'</ul>';
-  h+='<div class="why">'+d.why.map(s=>`<p>${s}</p>`).join('')+'</div>';
-  if(d.ps&&d.ps.length){
-    h+=`<details class="dk"><summary>지문 직독직해</summary><div class="dkbody"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>`+d.ps.map(s=>sHtml(s,d.evn)).join('')+`</div></details>`;
-  }
-  h+='<h4>선택지 하나씩</h4>';
-  d.ch.forEach(c=>{
-    h+=`<div class="c ${c.ok?'ok':''}"><div class="ct"><span class="tg">${c.ok?'정답':'오답'}</span>${esc(c.n)} ${esc(c.t)}${c.g?` <span class="r">(${esc(c.g)})</span>`:''}</div>`+c.e.map(s=>`<p>${s}</p>`).join('')+'</div>';
+  const cq=CF.qs.find(x=>x.q===d.no);
+  if(!cq)return '';
+  let h='<details class="qd" id="qd'+i+'" '+(ok?'':'open')+'><summary>'+esc(cq.q)+'번 · '+esc(cq.type)+'<small>'+esc(cq.src)+'</small><span class="res2 '+(ok?'o':'x')+'">'+(ok?'○ 정답':'✕ 오답')+'</span></summary><div class="qx">';
+  h+='<p class="ansline"><b>정답 '+esc(cq.ans)+'</b>'+(ok?'':' &nbsp;<span style="color:var(--bad)">내 답 '+CIRC[a-1]+'</span>')+'</p>';
+  h+='<details class="sub2"><summary>전문 해석</summary><ol class="trs" style="list-style:none">'+cq.tr.map(t=>'<li><span class="n">'+(t[0]==null?'':esc(t[0]))+'</span>'+t[1]+'</li>').join('')+'</ol></details>';
+  h+='<div class="sec">답의 근거 · '+esc(cq.evh)+'</div><div class="evx">';
+  cq.ev.forEach(p=>{h+=p.en?'<p class="en">'+p.h+'</p>':'<p>'+p.h+'</p>';});
+  h+='</div><div class="sec">선택지 하나씩</div>';
+  cq.opts.forEach(o=>{
+    h+='<div class="opx '+(o.a?'a':'')+'"><div class="ot"><span class="mk">'+esc(o.n)+'</span>'+o.t+(o.a?'<span class="bd g">정답</span>':'')+(o.trap?'<span class="bd t">가장 많이 걸리는 오답</span>':'')+'</div>'+(o.e?'<p>'+(o.x?'<span class="xm">✕</span>':'')+o.e+'</p>':'')+'</div>';
   });
-  if(!(d.ps&&d.ps.length))h+='<h4>지문 해석</h4><ol>'+d.tr.map(t=>`<li>${t}</li>`).join('')+'</ol>';
+  if(cq.w.length){h+='<div class="sec">단어</div><div class="wds">'+cq.w.map(w=>'<span><b>'+esc(w[0])+'</b>'+esc(w[1])+'</span>').join('')+'</div>';}
+  h+='<button class="toq" data-i="'+i+'">빠른 정답으로</button>';
   return h+'</div></details>';
 }
 function renderExp(){
   const rec=S.sub;
   let h=hdr()+band(4)+'<div class="wrap">';
-  h+=`<div class="score">${rec.s} <small>/ ${N}</small></div><h2>빠른 정답</h2><div class="quick">`;
-  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+=`<div>${esc(D[i].no)}) 정답: <b>${ansText(i)}</b> ${ok?'<b class="o">○</b>':'<b class="x">✕</b> <span class="sub">(내 답 '+CIRC[rec.a[i]-1]+')</span>'}</div>`;}
+  h+='<div class="score">'+rec.s+' <small>/ '+N+'</small></div><h2 id="quick">빠른 정답</h2><div class="qc">';
+  for(let i=0;i<N;i++){const ok=isRight(i,rec.a[i]);h+='<button class="qchip '+(ok?'o':'x')+'" data-i="'+i+'"><small>'+esc(D[i].no)+'번</small>'+ansText(i)+' '+(ok?'○':'✕')+'</button>';}
   h+='</div><h2>해설</h2>';
   for(let i=0;i<N;i++)h+=qHtml(i,rec.a[i]);
   h+='</div><div class="bar"><div class="wrap"><a class="btn" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="index.html">목록</a>'+(NEXT?'<a class="btn pri" style="text-decoration:none;display:flex;align-items:center;justify-content:center" href="'+NEXT+'">다음 세트</a>':'')+'</div></div>';
@@ -514,13 +560,17 @@ function mmInit(){
 }
 /* 위임 이벤트 */
 document.addEventListener('click',e=>{
+  const qchip=e.target.closest('.qchip');
+  if(qchip){const dd=document.getElementById('qd'+qchip.dataset.i);if(dd){dd.open=true;dd.scrollIntoView({block:'start'});}return;}
+  const toq=e.target.closest('.toq');
+  if(toq){const qq=document.getElementById('quick');if(qq)qq.scrollIntoView({block:'start'});return;}
   const tb=e.target.closest('.tab,.hcard,.gohome');
   if(tb&&!tb.disabled){view=tb.dataset.v;armed=null;render();return;}
   const ch=e.target.closest('.ch');
   if(ch){ch.classList.toggle('open');return;}
   const st=e.target.closest('.stg');
   if(st){
-    const s=st.closest('.s'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
+    const s=st.closest('.s,.sc'),lays=[...s.querySelectorAll('.lay')],names=st.dataset.names.split('|');
     const shown=lays.filter(l=>l.classList.contains('on')).length;
     if(shown<lays.length){lays[shown].classList.add('on');st.textContent=shown+1<lays.length?names[shown+1]:'접기';}
     else{lays.forEach(l=>l.classList.remove('on'));st.textContent=names[0];}
@@ -530,7 +580,7 @@ document.addEventListener('click',e=>{
   if(al){
     const open=al.dataset.all==='1',body=al.closest('.dkbody');
     body.querySelectorAll('.ch').forEach(c=>c.classList.toggle('open',open));
-    body.querySelectorAll('.s').forEach(s=>{
+    body.querySelectorAll('.s,.sc').forEach(s=>{
       const lays=s.querySelectorAll('.lay'),b=s.querySelector('.stg');
       lays.forEach(l=>l.classList.toggle('on',open));
       if(b){const names=b.dataset.names.split('|');b.textContent=open?'접기':names[0];}
