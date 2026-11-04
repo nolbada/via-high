@@ -12,7 +12,7 @@ var PART=(function(){var m=/[?&]part=(1[0-5]|[1-9])\b/.exec(location.search);ret
 /* 패시지 id가 이 덩어리에 속하는지. kind: 'L4' 또는 'mock' */
 function inPart(kind,pid,part){part=part||PART;if(!part)return true;
   if(kind==='L4'||kind==='L2')return PARTS[kind][part].indexOf(pid)>=0;
-  return PARTS.mock[part].some(function(e){return String(e).split(':')[0]===String(pid)})}
+  var mine=null;PARTS.mock[part].forEach(function(e){var s=String(e).split(':');if(s[0]===String(pid))mine=s});if(!mine)return false;if(mine.length<3||+part>=11)return true;var bw=-1,best=0;for(var p=1;p<=10;p++)(PARTS.mock[p]||[]).forEach(function(e){var s=String(e).split(':');if(s[0]===String(pid)){var w=s.length<3?10:+s[2]-(+s[1]);if(w>bw){bw=w;best=p}}});return best===+part}
 function partKey(kind){return PART?kind+'p'+PART:kind}
 
 /* 걸린 시간: 활동을 끝내 PG.mark 가 불리면 "걸린 시간"을 잠깐 띄운다. (화면을 보고 있고 최근 1분 안에 만진 시간만 센다) */
