@@ -48,7 +48,7 @@ function show(){
   var t=it.t.replace(/\[\[(\d)\|([^\]]+)\]\]/g,function(m,n,w){return '<button class="sp2" type="button" data-i="'+n+'"><sup>'+'①②③④⑤'[n-1]+'</sup>'+esc(w)+'</button>'});
   h+='<div class="ctx" style="font-size:16.5px">'+t+'</div><div class="ask">문맥상 어색한 곳은?</div><div id="spx"></div>';
  }
- h+='<div id="fb"></div><div id="wnm"></div></div>';H.innerHTML=h;
+ h+='<div id="fb"></div><div id="wnm"></div></div>';H.innerHTML=h;window.scrollTo(0,0);
  function wnItem(){return{kind:'mock',part:P,act:ACTN,qid:x.id,label:x.lab+' · '+TY[T].n}}
  function wnMan(){var m=document.getElementById('wnm');if(!m)return;m.innerHTML='';var b=WN.manual(wnItem());if(b)m.appendChild(b)}
  wnMan();
@@ -60,7 +60,7 @@ function show(){
   var fb=document.getElementById('fb');
   fb.innerHTML=((T==='und'||T==='voc'||T==='eob')&&it.tr?'<div class="trb"><b>'+(T==='und'?'밑줄 해석':'문장 해석')+'</b>'+esc(it.tr)+'</div>':'')+'<div class="why"><b class="'+(ok?'r':'w')+'">'+(ok?'정답!':'아쉬워요')+'</b> '+txt+'</div>'+(T==='eob'&&it.g?'<div class="trb"><b>쉬운 문법 설명</b>'+esc(it.g).replace(/\n/g,'<br>')+'</div>':'')+(T==='voc'&&it.alt?'<div class="trb"><b>바꿔 쓸 수 있는 말</b>'+esc(it.alt)+'</div>':'')+(ex||(it.e?'<div class="ez"><b>쉽게 말해</b>'+esc(it.e)+'</div>':''))+'<button class="nx" id="nx" type="button">'+(pos+1<queue.length?'다음 ›':'이 돌기 마치기 ›')+'</button>';
   document.getElementById('nx').onclick=function(){pos++;show()};
-  document.getElementById('nx').focus();
+  try{document.getElementById('nx').focus({preventScroll:true})}catch(e){}
  }
  var bs=H.querySelectorAll('.ch,.sp2');
  [].forEach.call(bs,function(b){b.onclick=function(){
