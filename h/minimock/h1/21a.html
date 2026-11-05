@@ -523,7 +523,7 @@ function renderSubmit(){
   const sb=$('#sub');if(sb)sb.onclick=()=>{
     let s=0;for(let i=0;i<N;i++)if(isRight(i,S.q[i]))s++;
     S.sub={t:Date.now(),a:S.q.slice(),s:s};save();
-    recSend({type:'submit',a:S.sub.a,s:s,n:N});
+    recSend({type:'submit',a:S.sub.a,s:s,n:N});try{var _m=String(FILE).match(/^(\d\d)([ab])$/);if(_m&&window.WN)WN.hw('미니모고 '+(GCODE==='h2'?'고2':'고1'),(+_m[1])*2-(_m[2]==='a'?1:0),s+'/'+N);}catch(e){}
     view='exp';render();
   };
   const te=$('#toexp');if(te)te.onclick=()=>{view='exp';render();};
@@ -584,7 +584,7 @@ function mmInit(){
     b.onclick=function(){
       if(S.mmD)return;
       S.mmD=1;save();upd();
-      WN.hw(lv,day,'확인완료');
+      WN.hw(lv,day,S.sub?S.sub.s+'/'+N+' ✓':'확인완료');
     };
   }catch(e){}
 }
