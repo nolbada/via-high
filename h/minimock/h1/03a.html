@@ -255,12 +255,17 @@ details.sub2[open]>summary:after{content:"\2212"}
       },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
     b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
   }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
   W.WN={add:function(items){
     if(!items||!items.length)return Promise.resolve(false);
     var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
   },hw:function(level,day,score){
     var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
-  },gate:gate,flush:flush,name:name};
+  },del:DEL,gate:gate,flush:flush,name:name};
   flush();
 })(window);
 
@@ -402,7 +407,9 @@ function renderWord(){
     c[p]=c[p]?0:1;save();
     if(c[p]){const ww=WS.words[i],x=p==='m'?[ww.w,ww.m]:p==='s'?ww.s:ww.a;if(x&&x[0]&&x[1])WN.add([{w:x[0],m:x[1],src:'미니모고',how:'별표',ask:true}]);}
     b.classList.toggle('bad',!!c[p]);
-    if(c[p]){let t=document.getElementById('wnt');if(!t){t=document.createElement('div');t.id='wnt';t.style.cssText='position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:#222;color:#fff;font-size:14px;font-weight:700;padding:9px 16px;border-radius:20px;z-index:9;pointer-events:none;transition:opacity .25s';document.body.appendChild(t);}t.textContent='오답노트장에 담았어요';t.style.opacity='1';clearTimeout(t._h);t._h=setTimeout(()=>{t.style.opacity='0'},1400);}
+    const tw=(m)=>{let t=document.getElementById('wnt');if(!t){t=document.createElement('div');t.id='wnt';t.style.cssText='position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:#222;color:#fff;font-size:14px;font-weight:700;padding:9px 16px;border-radius:20px;z-index:9;pointer-events:none;transition:opacity .25s';document.body.appendChild(t);}t.textContent=m;t.style.opacity='1';clearTimeout(t._h);t._h=setTimeout(()=>{t.style.opacity='0'},1600);};
+    if(c[p])tw('오답노트장에 담았어요');
+    else{const ww=WS.words[i],x=p==='m'?[ww.w,ww.m]:p==='s'?ww.s:ww.a;if(x&&x[0])WN.del(x[0],'미니모고').then(r=>{if(r&&r.removed===false&&r.reason==='late'){c[p]=1;save();b.classList.add('bad');tw('이미 쌓인 단어라 뺄 수 없어요')}else if(r&&r.removed)tw('오답노트장에서 뺐어요')});}
   });
   const lk=$('#lock');if(lk)lk.onclick=()=>{
     if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
