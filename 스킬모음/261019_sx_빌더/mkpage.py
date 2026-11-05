@@ -1,5 +1,5 @@
 import json,sys
-HEAD='''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1d4ed8"><title>{title}</title>
+HEAD='''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><script src="../../common/base.js?v=261105a"></script><meta name="theme-color" content="#1d4ed8"><title>{title}</title>
 <link rel="icon" type="image/svg+xml" href="{icon}icon.svg"><link rel="apple-touch-icon" href="{icon}icon-180.png">
 <link rel="stylesheet" href="../../common/sx.css?v={ver}">
 </head><body><div class="wrap"><div class="top"><a class="back" href="../index.html">← 목록</a></div>
