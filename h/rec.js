@@ -171,11 +171,50 @@
       host.insertBefore(box,host.firstChild);
       D.getElementById('rec-x').onclick=function(){
         if(!W.confirm('이름이 풀립니다. 학원 기기에서 다 풀고 나갈 때만 누르세요. 저장하고 나갈까요?'))return;
-        var b=this,id=g(UK);b.disabled=true;b.textContent='저장하는 중...';
-        (id?push(id,false):Promise.resolve()).then(function(){wipe();d(NK);d(UK);location.reload()},function(){b.disabled=false;b.textContent='저장이 안 됐어요. 다시 눌러 주세요'});
+        var b=this,id=g(UK);
+        if(!id){wipe();d(NK);d(UK);location.reload();return}
+        var ch=pending().ch,ks=[],big=0;
+        keys().forEach(function(k){var v=g(k);if(v===null)return;if(v.length>MAXV){big++;return}ks.push(k)});
+        if(big&&!W.confirm('너무 커서 저장되지 않는 기록이 '+big+'개 있어요. 그래도 나갈까요?\n(나가면 이 기록은 사라져요)'))return;
+        /* 기록은 이 기기의 보관함에 먼저 담고, 바로 이름 화면으로 넘어간다. 서버 저장은 뒤에서 확인될 때까지 자동 재시도 */
+        var item={id:id,ch:ch,keys:ks,t:Date.now()},q=outq();q.push(item);
+        s(OK_,JSON.stringify(q));
+        var okw=false;try{okw=outq().some(function(y){return y.t===item.t})}catch(e){}
+        if(!okw){W.alert('이 기기에 임시 보관을 하지 못했어요. 나가지 말고 선생님께 알려 주세요.');return}
+        b.disabled=true;b.textContent='나가는 중...';
+        wipe();d(NK);d(UK);location.reload();
       };
     }
   }
+  /* 나가기 보관함: 서버에 올라간 것이 확인될 때까지 이 기기에 남겨 두고 자동으로 다시 보낸다 */
+  var OK_='rec_out',fl=false;
+  function outq(){try{var a=JSON.parse(g(OK_)||'[]');return Array.isArray(a)?a:[]}catch(e){return[]}}
+  function tpost(body){
+    var ac=W.AbortController?new AbortController():null,t=ac?setTimeout(function(){ac.abort()},25000):0;
+    return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(body),signal:ac?ac.signal:undefined})
+      .then(function(r){clearTimeout(t);return r.json()},function(e){clearTimeout(t);throw e});
+  }
+  function flushOut(){
+    if(fl)return;
+    var q=outq().filter(function(x){return !x.dead});if(!q.length)return;
+    fl=true;var x=q[0];
+    tpost({act:'put',id:x.id,data:x.ch||{}}).then(function(r){
+      if(!r||!r.ok){var e=new Error('out');e.code=r&&r.err;throw e}
+      return tpost({act:'put',id:x.id,data:{}});
+    }).then(function(r){
+      if(!r||!r.ok)throw new Error('out');
+      var rem=r.data||{},miss=0;
+      (x.keys||[]).forEach(function(k){var e=rem[k];if(!e||unwrap(e.v)===null)miss++});
+      if(miss)throw new Error('miss');
+      s(OK_,JSON.stringify(outq().filter(function(y){return y.t!==x.t})));
+      fl=false;flushOut();
+    }).catch(function(e){
+      fl=false;
+      if(e&&e.code==='noname'){s(OK_,JSON.stringify(outq().map(function(y){if(y.t===x.t)y.dead=1;return y})))}
+    });
+  }
+  W.addEventListener('online',flushOut);
+  setInterval(flushOut,45000);
   W.REC={id:ident,sync:function(){var id=ident();return id?sync(id,true):Promise.resolve(false)}};
   /* 첫 화면이 아닌 곳: 이름이 없으면 문제 화면을 열지 않고 첫 화면으로 안내 */
   function lockOther(){
@@ -184,7 +223,7 @@
     var o=overlay(),home=P.replace(/(\/h\/[a-z]+-(?:go1|go2)\/).*$/,'$1');
     o.innerHTML='<div style="max-width:520px;margin:0 auto;padding:36px 20px;font-size:17px;line-height:1.6"><b style="display:block;margin-bottom:14px">이름을 먼저 등록해야 문제를 풀 수 있어요</b><a href="'+home+'" style="display:block;text-align:center;font-weight:700;padding:14px;border-radius:10px;background:var(--pri,#1d4ed8);color:#fff;text-decoration:none">처음 화면에서 이름 등록</a></div>';
   }
-  function ready(){if(W.__recReady)return;W.__recReady=1;start();mountCard();lockOther()}
+  function ready(){if(W.__recReady)return;W.__recReady=1;flushOut();start();mountCard();lockOther()}
   if(D.readyState==='complete')ready();else W.addEventListener('load',ready);
 })();
 
