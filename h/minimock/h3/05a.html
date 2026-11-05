@@ -215,6 +215,15 @@ details.sub2[open]>summary:after{content:"\2212"}
 .sc-h .chv{position:absolute;right:16px;top:17px;width:9px;height:9px;border-right:2.5px solid var(--sub);border-bottom:2.5px solid var(--sub);transform:rotate(45deg);transition:transform .15s}
 .sc.open .sc-h .chv{transform:rotate(-135deg);top:21px}
 .sc .ch{cursor:default}
+
+/* 직독직해 v2: 전체 펼침, 뼈대 빨강 / 살 회색 */
+.sc .sc-h{cursor:default;padding:9px 14px}.sc .sc-h .chv{display:none}
+.sc .ch{background:#fafbfe;border:1px solid #e8ecf5;border-bottom:1px solid #e8ecf5;padding:10px 12px}
+.sc .ce{font-size:18px;line-height:1.5;font-weight:800;color:#c62828}
+.sc .ce .md,.sc .ck .md{color:#8b95a6;font-weight:500}
+.sc .ce .cr,.sc .ck .cr{color:#c62828;font-weight:800}
+.sc .ck{display:block;word-break:keep-all;font-size:15.5px;font-weight:700;margin-top:6px;padding-top:6px;border-top:1px dashed #d9e0ec;color:#c62828}
+.cks{margin:0 0 6px}.cchip{display:inline-block;font-size:12.5px;font-weight:700;color:#1f6f5f;background:#e5f4f0;border:1px solid #bfe3da;border-radius:999px;padding:4px 10px;text-decoration:none;margin:2px 4px 2px 0}
 </style>
 </head>
 <body>
@@ -365,21 +374,20 @@ if(ch==='\x02'){flush();o+=')';d--;if(d===0)o+='</span>';i++;continue;}
 buf+=ch;i++;}
 flush();return o;}
 function chunkSplit(s){return String(s).split(' / ')}
+const CMAP={"01-2": [["083", "관계대명사 계속적 용법"], ["078", "관계대명사"]], "01-8": [["078", "관계대명사"], ["074", "수동태"]], "02-4": [["060", "가주어 It + to부정사"], ["037-H1", "병렬 구조"]], "04-2": [["039", "명사절 접속사 that"]], "05-7": [["043", "이유 · 양보 접속사"], ["093", "접속사 as"]], "06-1": [["094", "간접의문문"], ["074", "수동태"]], "06-6": [["086", "관계부사"], ["074", "수동태"]]};
 function scHtml(c){
   const esc=String;
   const E=chunkSplit(c.pe||c.eng),K=chunkSplit(c.pk||c.lit);
-  let x='<div class="sc"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span><span class="tt">'+esc(c.title)+'</span><span class="chv"></span></div><div class="sc-b">';
-  if(c.steps&&c.steps.length){x+='<div class="lay th"><div class="hd">이 문장 읽는 순서</div><ol>'+c.steps.map(p=>'<li>'+p.t+(p.sub||[]).map(u=>'<div class="sub">'+u+'</div>').join('')+'</li>').join('')+'</ol></div>';}
-  for(let j=0;j<E.length;j++)x+='<div class="ch"><div class="ce">'+mdWrap(E[j])+'</div><div class="ck">'+mdWrap(K[j]||'')+'</div></div>';
-  if(c.notes.length){x+='<div class="nts">'+c.notes.map(n=>'<span class="nt"><sup>'+n[0]+'</sup> <b>'+esc(n[1])+'</b> '+esc(n[2])+'</span>').join('')+'</div>';}
-  x+='<div class="lay nat"><span class="lb">자연스러운 해석</span>'+esc(c.nat)+'</div>';
-  const sm=c.sum||c.core;
-  if(sm){x+='<div class="lay sum"><span class="lb">한 줄 정리</span>'+esc(sm)+'</div>';}
+  const cc=(CMAP[c.q+'-'+c.s]||[]);
+  const back=encodeURIComponent(location.origin+location.pathname);
+  let x='<div class="sc open"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span></div><div class="sc-b">';
+  if(cc.length){x+='<div class="cks">'+cc.map(k=>'<a class="cchip" href="https://nolbada.github.io/via-mid/m/grammarcock/?c='+k[0]+'&back='+back+'">개념톡 · '+k[1]+' →</a>').join('')+'</div>';}
+  for(let j=0;j<E.length;j++)x+='<div class="ch open"><div class="ce">'+mdWrap(E[j])+'</div><div class="ck">'+mdWrap(K[j]||'')+'</div></div>';
   x+='</div></div>';
   return x;
 }
 function renderDk(){
-  let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px"><div class="tool"><button class="tbtn" data-all="1">전체 보이기</button><button class="tbtn" data-all="0">전체 가리기</button></div>';
+  let h=hdr()+band(2)+'<div class="wrap"><div class="dkbody" style="padding:8px 0 12px">';
   CF.sn.forEach(c=>{h+=scHtml(c);});
   h+='</div></div>';
   app.innerHTML=h;
