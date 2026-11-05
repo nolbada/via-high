@@ -393,7 +393,7 @@ function renderWord(){
   });
   h+=`</div><div class="bar"><div class="wrap">`;
   h+=locked?`<button class="btn" disabled>확인 끝</button>`:`<button class="btn ${armed==='lock'?'arm':''}" id="lock">${armed==='lock'?'한 번 더 누르면 확인 끝':'확인 끝'}</button>`;
-  h+=`<button class="btn pri" id="gonote">단어 오답노트 ${n}</button></div></div>`;
+  h+=`<a class="btn pri" id="gonote" href="https://nolbada.github.io/via/wn/" style="display:flex;align-items:center;justify-content:center;text-decoration:none">오답노트장 가기</a></div></div>`;
   app.innerHTML=h;
   app.querySelectorAll('.cell').forEach(b=>b.onclick=()=>{
     const i=+b.dataset.i,p=b.dataset.p;
@@ -402,7 +402,7 @@ function renderWord(){
     c[p]=c[p]?0:1;save();
     if(c[p]){const ww=WS.words[i],x=p==='m'?[ww.w,ww.m]:p==='s'?ww.s:ww.a;if(x&&x[0]&&x[1])WN.add([{w:x[0],m:x[1],src:'미니모고',how:'별표',ask:true}]);}
     b.classList.toggle('bad',!!c[p]);
-    $('#gonote').textContent='단어 오답노트 '+noteList().length;
+    if(c[p]){let t=document.getElementById('wnt');if(!t){t=document.createElement('div');t.id='wnt';t.style.cssText='position:fixed;left:50%;bottom:84px;transform:translateX(-50%);background:#222;color:#fff;font-size:14px;font-weight:700;padding:9px 16px;border-radius:20px;z-index:9;pointer-events:none;transition:opacity .25s';document.body.appendChild(t);}t.textContent='오답노트장에 담았어요';t.style.opacity='1';clearTimeout(t._h);t._h=setTimeout(()=>{t.style.opacity='0'},1400);}
   });
   const lk=$('#lock');if(lk)lk.onclick=()=>{
     if(armed==='lock'){S.locked[WS.id]=1;armed=null;save();
@@ -410,7 +410,6 @@ function renderWord(){
     else armed='lock';
     render();
   };
-  $('#gonote').onclick=()=>{view='note';armed=null;render();};
 }
 function renderNote(){
   const list=noteList();
