@@ -8,12 +8,12 @@
 h1{font-size:18px;margin:10px 2px 4px}
 .hd{word-break:keep-all;font-size:17px;font-weight:800;line-height:1.5;margin:8px 0 10px}
 .hd b{color:var(--red)}
-.chip{display:inline-block;font-size:12.5px;font-weight:700;color:#1f6f5f;background:#e5f4f0;border:1px solid #bfe3da;border-radius:999px;padding:4px 10px;text-decoration:none;margin:2px 4px 2px 0}
+.chip{display:inline-block;margin-bottom:6px!important;font-size:12.5px;font-weight:700;color:#1f6f5f;background:#e5f4f0;border:1px solid #bfe3da;border-radius:999px;padding:4px 10px;text-decoration:none;margin:2px 4px 2px 0}
 .seg{display:flex;gap:8px;margin:12px 0 8px}.seg button{flex:1;font:inherit;font-size:14px;font-weight:800;border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:10px 0;color:var(--sub)}.seg button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
 .row{padding:10px 12px;border-radius:12px;background:#fafbfe;border:1px solid #e8ecf5;margin-top:8px}
 .en{font-size:18px;font-weight:800;color:var(--red);line-height:1.5}.en .fl{color:#8b95a6;font-weight:600}
 .row.sk .en{color:#8b95a6;font-weight:600}
-.ko{font-size:15px;color:#2c3a52;margin-top:6px;padding-top:6px;border-top:1px dashed #d9e0ec;display:none}.ko .fl{color:#8b95a6}
+.ko{font-size:15.5px;color:#2c3a52;margin-top:6px;padding-top:6px;border-top:1px dashed #d9e0ec}.ko .fl{color:#8b95a6}
 .row.open .ko{display:block}
 .hint{font-size:12.5px;color:var(--sub);margin:2px 2px 0}
 .core{margin-top:12px;background:#fff8e1;border:1px solid #efe0a0;border-radius:14px;padding:12px 14px}.core small{font-size:12px;font-weight:800;color:#8a6d00}.core div{word-break:keep-all;font-size:16.5px;font-weight:800;margin-top:2px}
@@ -21,18 +21,10 @@ h1{font-size:18px;margin:10px 2px 4px}
 <span class="tag">샘플 · 미니모의고사 1회 01번</span>
 <h1>직독직해 해석 맞춰보기</h1>
 <div class="card">
-<div class="hd">맨 앞 <b>It</b>은 가짜 주어예요. 진짜 주어는 뒤에 나오는 <b>to serve ~</b>예요.</div>
-<a class="chip" href="https://nolbada.github.io/via-mid/m/grammarcock/?c=060&back=https%3A%2F%2Fnolbada.github.io%2Fvia-high%2Fh%2Fminimock%2Fh1%2Fsample-01.html">그래머콕 · 가주어 It 보기 →</a>
-<div class="seg"><button id="b1" class="on">전체 보기</button><button id="b2">뼈대만 보기</button></div>
+<a class="chip" href="https://nolbada.github.io/via-mid/m/grammarcock/?c=060&back=https%3A%2F%2Fnolbada.github.io%2Fvia-high%2Fh%2Fminimock%2Fh1%2Fsample-01.html">개념톡 · 가주어 It 보기 →</a>
 <div id="rows"></div>
-<div class="hint">조각을 누르면 한글 해석이 열려요.</div>
-<div class="core"><small>핵심콕</small><div id="core"></div></div>
 </div></div>
 <script>
-var D={"rows": [{"ef": "It brings me <span class=\"fl\">(great)</span> satisfaction", "eb": "It brings me satisfaction", "kf": "그것은 제게 <span class=\"fl\">(큰)</span> 보람을 줍니다", "kb": "그것은 제게 보람을 줍니다", "allfl": false}, {"ef": "to serve <span class=\"fl\">(as a board member of the Redstone Music and Arts Center)</span>", "eb": "to serve", "kf": "<span class=\"fl\">(Redstone 음악예술센터의 이사로)</span> 일하는 것이", "kb": "일하는 것이", "allfl": false}, {"ef": "and I&#x27;m honored", "eb": "and I&#x27;m honored", "kf": "그리고 저는 영광입니다", "kb": "그리고 저는 영광입니다", "allfl": false}, {"ef": "<span class=\"fl\">(that the board has seen fit)</span>", "eb": "", "kf": "<span class=\"fl\">(이사회가 적절하다고 여겨 주신 것이)</span>", "kb": "", "allfl": true}, {"ef": "<span class=\"fl\">(to recommend me for vice president)</span>.", "eb": "", "kf": "<span class=\"fl\">(저를 부회장으로 추천하는 것을)</span>", "kb": "", "allfl": true}], "core": "일하는 것이 나에게 보람을 주고, 나는 영광이다.", "nat": "Redstone 음악예술센터의 이사로 일하게 되어 저는 큰 보람을 느끼고 있고, 이사회가 저를 부회장으로 추천해 주신 것도 영광입니다."},bone=false,rows=document.getElementById('rows');
-function draw(){var h='';D.rows.forEach(function(r,i){if(bone&&r.allfl)return;var sk=!bone&&r.allfl;h+='<div class="row'+(sk?' sk':'')+'" data-i="'+i+'"><div class="en">'+(bone?r.eb:r.ef)+'</div><div class="ko">'+(bone?r.kb:r.kf)+'</div></div>'});rows.innerHTML=h;
-rows.querySelectorAll('.row').forEach(function(x){x.onclick=function(){x.classList.toggle('open')}})}
-document.getElementById('b1').onclick=function(){bone=false;this.className='on';document.getElementById('b2').className='';draw()};
-document.getElementById('b2').onclick=function(){bone=true;this.className='on';document.getElementById('b1').className='';draw()};
-document.getElementById('core').textContent=D.core;draw();
+var D={"rows": [{"ef": "It brings me <span class=\"fl\">(great)</span> satisfaction", "eb": "It brings me satisfaction", "kf": "그것은 제게 <span class=\"fl\">(큰)</span> 보람을 줍니다", "kb": "그것은 제게 보람을 줍니다", "allfl": false}, {"ef": "to serve <span class=\"fl\">(as a board member of the Redstone Music and Arts Center)</span>", "eb": "to serve", "kf": "<span class=\"fl\">(Redstone 음악예술센터의 이사로)</span> 일하는 것이", "kb": "일하는 것이", "allfl": false}, {"ef": "and I&#x27;m honored", "eb": "and I&#x27;m honored", "kf": "그리고 저는 영광입니다", "kb": "그리고 저는 영광입니다", "allfl": false}, {"ef": "<span class=\"fl\">(that the board has seen fit)</span>", "eb": "", "kf": "<span class=\"fl\">(이사회가 적절하다고 여겨 주신 것이)</span>", "kb": "", "allfl": true}, {"ef": "<span class=\"fl\">(to recommend me for vice president)</span>.", "eb": "", "kf": "<span class=\"fl\">(저를 부회장으로 추천하는 것을)</span>", "kb": "", "allfl": true}], "core": "일하는 것이 나에게 보람을 주고, 나는 영광이다.", "nat": "Redstone 음악예술센터의 이사로 일하게 되어 저는 큰 보람을 느끼고 있고, 이사회가 저를 부회장으로 추천해 주신 것도 영광입니다."},rows=document.getElementById("rows");
+var h="";D.rows.forEach(function(r){h+='<div class="row'+(r.allfl?' sk':'')+'"><div class="en">'+r.ef+'</div><div class="ko">'+r.kf+'</div></div>'});rows.innerHTML=h;
 </script></body></html>
