@@ -224,6 +224,10 @@ details.sub2[open]>summary:after{content:"\2212"}
 .sc .ce .cr,.sc .ck .cr{color:#c62828;font-weight:800}
 .sc .ck{display:block;word-break:keep-all;font-size:15.5px;font-weight:700;margin-top:6px;padding-top:6px;border-top:1px dashed #d9e0ec;color:#c62828}
 .cks{margin:0 0 6px}.cchip{display:inline-block;font-size:12.5px;font-weight:700;color:#1f6f5f;background:#e5f4f0;border:1px solid #bfe3da;border-radius:999px;padding:4px 10px;text-decoration:none;margin:2px 4px 2px 0}
+
+.sc .sc-b{background:#fff}
+.sc .fin{margin-top:8px;padding:10px 12px;border-radius:10px;background:#f1f8f1;border:1px solid #d3e8d3;border-left:4px solid #2e7d32;font-size:15px;line-height:1.65;word-break:keep-all}
+.sc .fin b{display:block;font-size:12px;font-weight:800;color:#2e7d32;margin-bottom:2px}
 </style>
 </head>
 <body>
@@ -383,6 +387,9 @@ function scHtml(c){
   let x='<div class="sc open"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span></div><div class="sc-b">';
   if(cc.length){x+='<div class="cks">'+cc.map(k=>'<a class="cchip" href="https://nolbada.github.io/via-mid/m/grammarcock/?c='+k[0]+'&back='+back+'">개념톡 · '+k[1]+' →</a>').join('')+'</div>';}
   for(let j=0;j<E.length;j++)x+='<div class="ch open"><div class="ce">'+mdWrap(E[j])+'</div><div class="ck">'+mdWrap(K[j]||'')+'</div></div>';
+  x+='<div class="fin"><b>자연스러운 해석</b>'+esc(c.nat)+'</div>';
+  const sm=c.sum||c.core;
+  if(sm)x+='<div class="fin"><b>한 줄 정리</b>'+esc(sm)+'</div>';
   x+='</div></div>';
   return x;
 }
