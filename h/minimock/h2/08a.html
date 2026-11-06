@@ -814,7 +814,7 @@ function mmInit(){
     var lv='미니모고 '+(GCODE==='h2'?'고2':'고1'),m=String(FILE).match(/^(\d\d)([ab])$/),day=m?(+m[1])*2-(m[2]==='a'?1:0):0;
     if(!day||!window.WN)return;
     var seen=S.seen||(S.seen={});
-    if(!S.mmP&&!S.mmD){S.mmP=1;save();WN.hw(lv,day,'진행중');}
+    if(S.sub&&!S.mmS){S.mmS=1;S.mmP=1;save();WN.hw(lv,day,S.sub.s+'/'+N+(S.mmD?' ✓':''));}else if(!S.sub&&!S.mmP&&!S.mmD){S.mmP=1;save();WN.hw(lv,day,'진행중');}
     var ds=document.querySelectorAll('details.qd'),w=document.querySelector('.bar .wrap');
     if(!w||!ds.length)return;
     var b=document.createElement('button');b.className='btn pri';b.id='mmdone';
