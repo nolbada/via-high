@@ -497,6 +497,8 @@ const KEY='via_mm_'+GCODE+'_'+FILE+'_'+WN.name();
 let S={checks:{},locked:{},res:{},sub:null,q:[]};
 try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* 저장된 점수 일괄 재전송 */
+(function(){try{var nm=WN.name();if(!nm)return;var Ls=localStorage,ks=[],i;for(i=0;i<Ls.length;i++){var k=Ls.key(i);if(k&&k.indexOf('via_mm_h')===0)ks.push(k)}ks.forEach(function(k){try{var m=k.match(/^via_mm_(h[12])_(\d\d)([ab])_(.*)$/);if(!m||m[4]!==nm)return;var o=k===KEY?S:JSON.parse(Ls.getItem(k));if(!o||!o.sub||o.mmS||typeof o.sub.s!=='number')return;o.mmS=1;o.mmP=1;if(k===KEY)save();else Ls.setItem(k,JSON.stringify(o));WN.hw('미니모고 '+(m[1]==='h2'?'고2':'고1'),(+m[2])*2-(m[3]==='a'?1:0),o.sub.s+'/'+((o.sub.a&&o.sub.a.length)||6))}catch(e){}})}catch(e){}})();
 /* REC 연결 지점: 지금은 기기 안에 대기열로만 쌓음 */
 function recSend(ev){try{ev.t=Date.now();ev.set=SETID;const q=JSON.parse(localStorage.getItem('via_minimock_rec_queue')||'[]');q.push(ev);localStorage.setItem('via_minimock_rec_queue',JSON.stringify(q));}catch(e){}}
 
