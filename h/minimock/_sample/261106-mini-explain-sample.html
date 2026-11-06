@@ -457,7 +457,7 @@ function scHtml(c){
   const E=chunkSplit(c.pe||c.eng),K=chunkSplit(c.pk||c.lit);
   const cc=(CMAP[c.q+'-'+c.s]||[]);
   const back=encodeURIComponent(location.origin+location.pathname);
-  let x='<div class="sc open"><div class="sc-h"><span class="no2">'+esc(c.q)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span></div><div class="sc-b">';
+  let x='<div class="sc open"><div class="sc-h"><span class="no2">'+(+c.i)+'</span><span class="at">'+esc(c.q)+'번 문제 · '+esc(c.s)+'번 문장</span></div><div class="sc-b">';
   if(cc.length){x+='<div class="cks">'+cc.map(k=>'<a class="cchip" href="https://nolbada.github.io/via-mid/m/grammarcock/?c='+k[0]+'&back='+back+'">개념톡 · '+k[1]+' →</a>').join('')+'</div>';}
   for(let j=0;j<E.length;j++)x+='<div class="ch open"><div class="ce">'+mdWrap(E[j])+'</div><div class="ck">'+mdWrap(K[j]||'')+'</div></div>';
   x+='<div class="fin n1"><b>자연스러운 해석</b>'+esc(c.nat)+'</div>';
