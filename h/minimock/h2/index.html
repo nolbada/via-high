@@ -48,7 +48,7 @@ function render(){
     h+='<div class="rd"><div class="rn">'+r+'회</div>';
     ['a','b'].forEach(function(x,k){
       var f=(r<10?'0':'')+r+x,i=info(f);
-      h+='<a class="set '+(i.done?'done':'')+'" href="'+f+'.html">'+(k?'07–12번':'01–06번')+'<small>'+i.txt+'</small></a>';
+      h+='<a class="set '+(i.done?'done':'')+'" href="'+f+'.html'+(/[?&]t=1(&|$)/.test(location.search)?'?t=1':'')+'">'+(k?'07–12번':'01–06번')+'<small>'+i.txt+'</small></a>';
     });
     h+='</div>';
   }
