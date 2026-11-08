@@ -25,16 +25,32 @@ a.set.done small{color:var(--good);font-weight:700}
 .bar{position:sticky;margin-top:auto;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
 .btn{display:block;width:100%;max-width:652px;margin:0 auto;min-height:50px;border-radius:10px;border:1.5px solid var(--accent);background:var(--bg);color:var(--accent);font-size:15px;font-weight:700;font-family:inherit}
 .btn.arm{background:var(--bad);border-color:var(--bad);color:#fff}
+details.hd{margin:12px 0 4px;border:1px solid var(--line);border-radius:10px;background:var(--soft)}
+details.hd>summary{list-style:none;cursor:pointer;padding:13px 14px;font-weight:800;font-size:16px;display:flex;justify-content:space-between;align-items:center}
+details.hd>summary::-webkit-details-marker{display:none}
+details.hd>summary small{font-weight:400;font-size:13px;color:var(--sub)}
+.hr{display:grid;grid-template-columns:70px 1fr auto;gap:8px;padding:9px 14px;border-top:1px solid var(--line);font-size:14px}
+.hr b{color:var(--accent)}
 </style>
 </head>
 <body>
 <header><div class="wrap"><h1>고2 미니모의고사</h1></div></header>
+<div class="wrap" id="hist"></div>
 <div class="wrap" id="list"></div>
 <div class="bar"><button class="btn" id="reset">처음부터 다시 (다음 학생)</button></div>
 <script>
 var GCODE="h2";
 var PFX='via_mm_'+GCODE+'_';
-function st(f){try{var r=localStorage.getItem(PFX+f);if(r)return JSON.parse(r);}catch(e){}return null;}
+function nm(){var q=location.search;if(/[?&]t=1(&|$)/.test(q))return'신유정'+((/[?&]c=([AB])(&|$)/.exec(q)||[])[1]||'');try{return(localStorage.getItem('wn_name')||localStorage.getItem('recm_name')||localStorage.getItem('rec_name')||'').replace(/\s+/g,'')}catch(e){return''}}
+function st(f){try{var r=localStorage.getItem(PFX+f+'_'+nm())||localStorage.getItem(PFX+f);if(r)return JSON.parse(r);}catch(e){}return null;}
+function hist(){
+  var rows=[],sum=0,tot=0;
+  for(var r=1;r<=24;r++)['a','b'].forEach(function(x){var f=(r<10?'0':'')+r+x,o=st(f);if(o&&o.sub&&typeof o.sub.s==='number'){var t=(o.sub.a&&o.sub.a.length)||6;sum+=o.sub.s;tot+=t;rows.push({r:r,k:x==='a'?'01–06번':'07–12번',s:o.sub.s,t:t,at:o.sub.t||0})}});
+  rows.sort(function(a,b){return b.at-a.at});
+  var W=['일','월','화','수','목','금','토'];
+  var b=rows.length?rows.map(function(q){var d=q.at?new Date(q.at):null;return'<div class="hr"><span>'+(d?(d.getMonth()+1)+'/'+d.getDate()+'('+W[d.getDay()]+')':'')+'</span><span>'+q.r+'회 '+q.k+'</span><b>'+q.s+' / '+q.t+'</b></div>'}).join(''):'<div class="hr"><span>아직 기록이 없습니다</span></div>';
+  document.getElementById('hist').innerHTML='<details class="hd"><summary>점수 기록<small>'+(rows.length?rows.length+'세트 · 평균 '+(Math.round(sum/rows.length*10)/10)+' / '+Math.round(tot/rows.length):'')+'</small></summary>'+b+'</details>';
+}
 function info(f){
   var s=st(f);if(!s)return {done:false,txt:''};
   var parts=[];
@@ -52,7 +68,7 @@ function render(){
     });
     h+='</div>';
   }
-  document.getElementById('list').innerHTML=h;
+  document.getElementById('list').innerHTML=h;hist();
 }
 var armed=false,btn=document.getElementById('reset');
 btn.onclick=function(){
