@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>24년 10월 24번 요약문 연습 </title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "jusung-go2", "src": "jusung-go2/mock/sx-data.js", "pidx": 26, "lesson": "24년 10월 24번", "title": "", "label": "", "page": "yoyak-2410-24"}, "scenes": [{"tag": "본문 1번", "ns": [1], "line": "제조사가 [[masterfully|노련하게]] 현재 기기에 대한 의심의 씨앗을 [[sow|뿌린다]].", "en": ["Manufacturers masterfully sow seeds of doubt about the adequacy of our current devices."], "kos": ["생산자들은 노련하게 우리의 현재 기기들의 적절성에 대한 의심의 씨앗을 뿌린다."]}, {"tag": "본문 2번", "ns": [2], "line": "갑자기 1년 전 휴대폰이 박물관 전시품처럼 낡아 보인다.", "en": ["Suddenly, the phone that was your lifeline a year ago is now a museum piece, unable to keep pace with your digital demands."], "kos": ["갑자기, 1년 전의 당신의 목숨줄이었던 휴대폰이 지금은 당신의 디지털 수요를 따라가지 못하는, 시대에 뒤떨어진 것이 되었다."]}, {"tag": "본문 3번", "ns": [3], "line": "[[genuine|진짜]] 필요도 없는데 업그레이드 욕구가 시작된다.", "en": ["And thus, the itch to upgrade begins, often before there’s a genuine need."], "kos": ["그래서 종종 진짜 필요가 있기 이전에 업그레이드에 대한 욕구가 시작된다."]}, {"tag": "본문 4~5번", "ns": [4, 5], "line": "이 순환은 디지털 기기에만 [[confined|갇히지]] 않고 전자 제품 전체로 [[spills|번져나간다]].", "en": ["This cycle isn’t just confined to our digital companions.", "It spills over into almost every aspect of consumer electronics, from the self-driving car to the smart fridge."], "kos": ["이러한 순환은 단지 우리의 디지털 용품에 국한되지 않는다.", "이것은 자율 주행 자동차부터 스마트 냉장고에 이르기까지 소비자 전자 기기들의 거의 모든 영역까지 번져나간다."]}, {"tag": "본문 6번", "ns": [6], "line": "모든 제품이 다음 세대를 향해 [[unstoppable|멈출 수 없이]] 행진한다.", "en": ["Every product seems to be on an unstoppable march towards the next version, the next generation that promises to revolutionize your life."], "kos": ["모든 제품은 다음 버전, 즉, 당신의 삶에 변혁을 일으키겠다는 약속을 하는 다음 세대를 향한 멈출 수 없는 행진을 하는 것으로 보인다."]}, {"tag": "본문 7번", "ns": [7], "line": "욕구를 만드는 순환의 [[efficacy|효과]]가 놀랍다.", "en": ["What’s fascinating, or perhaps disturbing, is the utter efficacy of this cycle in shaping our desires."], "kos": ["흥미로운 점, 또는 어쩌면 당황스러운 점은 우리의 욕구를 형성하는 이 순환의 절대적인 효과이다."]}, {"tag": "본문 8~9번", "ns": [8, 9], "line": "원해서가 아니라 [[need|필요하다고]] 믿게 되고, 원함과 필요의 구분이 [[blurs|흐려진다]].", "en": ["It’s not so much that we want the newest device; we’re led to believe we need it.", "The distinction between want and need blurs, shifting our financial priorities in favor of staying current with trends."], "kos": ["우리가 가장 최신 기기를 원하는 것이라기보다는, 우리가 그것을 필요로 한다고 믿도록 유도된 것이다.", "최신 트렌드를 유지하는 것을 선호하는 쪽으로 우리의 재정적인 우선순위를 바꾸면서, 원하는 것과 필요한 것 사이의 구분이 흐릿해진다."]}], "story": [{"a": "masterfully", "form": "masterfully", "n": 1, "sq": 1, "sum": "Makers [[skillfully]] plant doubt", "hook": "제조사가 솜씨 좋게 의심을 심는다는 첫 문장의 masterfully(노련하게) → 요약문에서는 skillfully(솜씨 좋게)로 바꿨어요.", "b": "skillfully", "k": "노련하게 → 솜씨 좋게", "en": "Manufacturers masterfully sow seeds of doubt about the adequacy of our current devices.", "ko": "생산자들은 노련하게 우리의 현재 기기들의 적절성에 대한 의심의 씨앗을 뿌린다."}, {"a": "sow", "form": "sow", "n": 1, "sq": 1, "sum": "skillfully [[plant]] doubt", "hook": "의심의 씨앗을 뿌린다는 표현의 sow(씨를 뿌리다) → 요약문에서는 plant(심다)로 바꿨어요.", "b": "plant", "k": "뿌리다 → 심다", "en": "Manufacturers masterfully sow seeds of doubt about the adequacy of our current devices.", "ko": "생산자들은 노련하게 우리의 현재 기기들의 적절성에 대한 의심의 씨앗을 뿌린다."}, {"a": "genuine", "form": "genuine", "n": 3, "sq": 1, "sum": "even before there is a [[true]] need", "hook": "진짜 필요가 생기기 전이라는 문장의 genuine(진짜의) → 요약문에서는 true(진정한)로 바꿨어요.", "b": "true", "k": "진짜의 → 진정한", "en": "And thus, the itch to upgrade begins, often before there’s a genuine need.", "ko": "그래서 종종 진짜 필요가 있기 이전에 업그레이드에 대한 욕구가 시작된다."}, {"a": "confine", "form": "confined", "n": 4, "sq": 2, "sum": "is not [[limited]] to phones", "hook": "디지털 기기에만 국한되지 않는다는 문장의 confined(가두다) → 요약문에서는 limited(한정된)로 바꿨어요.", "b": "limit", "k": "가두다 → 한정하다", "en": "This cycle isn’t just confined to our digital companions.", "ko": "이러한 순환은 단지 우리의 디지털 용품에 국한되지 않는다."}, {"a": "spill", "form": "spills", "n": 5, "sq": 2, "sum": "it [[spreads]] to almost all consumer electronics", "hook": "순환이 전자 제품 전체로 번져나간다는 문장의 spills over(넘쳐흐르다) → 요약문에서는 spreads(퍼지다)로 바꿨어요.", "b": "spread", "k": "넘쳐흐르다 → 퍼지다", "en": "It spills over into almost every aspect of consumer electronics, from the self-driving car to the smart fridge.", "ko": "이것은 자율 주행 자동차부터 스마트 냉장고에 이르기까지 소비자 전자 기기들의 거의 모든 영역까지 번져나간다."}, {"a": "unstoppable", "form": "unstoppable", "n": 6, "sq": 2, "sum": "on a [[relentless]] march", "hook": "다음 세대를 향한 멈출 수 없는 행진이라는 문장의 unstoppable(멈출 수 없는) → 요약문에서는 relentless(끈질긴)로 바꿨어요.", "b": "relentless", "k": "멈출 수 없는 → 끈질긴", "en": "Every product seems to be on an unstoppable march towards the next version, the next generation that promises to revolutionize your life.", "ko": "모든 제품은 다음 버전, 즉, 당신의 삶에 변혁을 일으키겠다는 약속을 하는 다음 세대를 향한 멈출 수 없는 행진을 하는 것으로 보인다."}, {"a": "efficacy", "form": "efficacy", "n": 7, "sq": 3, "sum": "This cycle is very [[powerful]] at shaping our desires", "hook": "순환의 효과가 절대적이라는 문장의 efficacy(효과) → 요약문에서는 powerful(강력한)로 바꿨어요.", "b": "powerful", "k": "효과 → 강력함", "en": "What’s fascinating, or perhaps disturbing, is the utter efficacy of this cycle in shaping our desires.", "ko": "흥미로운 점, 또는 어쩌면 당황스러운 점은 우리의 욕구를 형성하는 이 순환의 절대적인 효과이다."}, {"a": "need", "form": "need", "n": 8, "sq": 3, "sum": "we [[require]] the newest device", "hook": "필요하다고 믿도록 유도된다는 문장의 need(필요로 하다) → 요약문에서는 require(요구하다)로 바꿨어요.", "b": "require", "k": "필요로 하다 → 요구하다", "en": "It’s not so much that we want the newest device; we’re led to believe we need it.", "ko": "우리가 가장 최신 기기를 원하는 것이라기보다는, 우리가 그것을 필요로 한다고 믿도록 유도된 것이다."}, {"a": "blur", "form": "blurs", "n": 9, "sq": 3, "sum": "becomes [[unclear]]", "hook": "원함과 필요의 구분이 흐려진다는 문장의 blurs(흐릿해지다) → 요약문에서는 becomes unclear(불분명해지다)로 바꿨어요.", "b": "unclear", "k": "흐릿해지다 → 불분명해지다", "en": "The distinction between want and need blurs, shifting our financial priorities in favor of staying current with trends.", "ko": "최신 트렌드를 유지하는 것을 선호하는 쪽으로 우리의 재정적인 우선순위를 바꾸면서, 원하는 것과 필요한 것 사이의 구분이 흐릿해진다."}], "passage": [{"n": 1, "en": "Manufacturers masterfully sow seeds of doubt about the adequacy of our current devices.", "ko": "생산자들은 노련하게 우리의 현재 기기들의 적절성에 대한 의심의 씨앗을 뿌린다."}, {"n": 2, "en": "Suddenly, the phone that was your lifeline a year ago is now a museum piece, unable to keep pace with your digital demands.", "ko": "갑자기, 1년 전의 당신의 목숨줄이었던 휴대폰이 지금은 당신의 디지털 수요를 따라가지 못하는, 시대에 뒤떨어진 것이 되었다."}, {"n": 3, "en": "And thus, the itch to upgrade begins, often before there’s a genuine need.", "ko": "그래서 종종 진짜 필요가 있기 이전에 업그레이드에 대한 욕구가 시작된다."}, {"n": 4, "en": "This cycle isn’t just confined to our digital companions.", "ko": "이러한 순환은 단지 우리의 디지털 용품에 국한되지 않는다."}, {"n": 5, "en": "It spills over into almost every aspect of consumer electronics, from the self-driving car to the smart fridge.", "ko": "이것은 자율 주행 자동차부터 스마트 냉장고에 이르기까지 소비자 전자 기기들의 거의 모든 영역까지 번져나간다."}, {"n": 6, "en": "Every product seems to be on an unstoppable march towards the next version, the next generation that promises to revolutionize your life.", "ko": "모든 제품은 다음 버전, 즉, 당신의 삶에 변혁을 일으키겠다는 약속을 하는 다음 세대를 향한 멈출 수 없는 행진을 하는 것으로 보인다."}, {"n": 7, "en": "What’s fascinating, or perhaps disturbing, is the utter efficacy of this cycle in shaping our desires.", "ko": "흥미로운 점, 또는 어쩌면 당황스러운 점은 우리의 욕구를 형성하는 이 순환의 절대적인 효과이다."}, {"n": 8, "en": "It’s not so much that we want the newest device; we’re led to believe we need it.", "ko": "우리가 가장 최신 기기를 원하는 것이라기보다는, 우리가 그것을 필요로 한다고 믿도록 유도된 것이다."}, {"n": 9, "en": "The distinction between want and need blurs, shifting our financial priorities in favor of staying current with trends.", "ko": "최신 트렌드를 유지하는 것을 선호하는 쪽으로 우리의 재정적인 우선순위를 바꾸면서, 원하는 것과 필요한 것 사이의 구분이 흐릿해진다."}, {"n": 10, "en": "For all the logical arguments against this ceaseless upgrading, the temptation remains compelling.", "ko": "이런 끊임없는 업그레이드에 반대하는 논리적인 주장들에도 불구하고, 유혹은 여전히 강력하다."}], "questions": [{"id": 1, "summary": "Makers skillfully plant doubt about our current devices, so a phone from a year ago suddenly feels (A), and the urge to upgrade starts even before there is a (B) need.", "ko": "생산자들이 현재 기기에 대한 의심을 솜씨 좋게 심어서, 1년 전 휴대폰이 갑자기 <b>(A) 구식</b>으로 느껴지고, 업그레이드하고 싶은 욕구는 <b>(B) 진짜</b> 필요가 생기기도 전에 시작된다.", "opts": [["outdated", "true"], ["outdated", "false"], ["modern", "true"], ["modern", "urgent"], ["fast", "false"]], "optko": ["구식인 – 진짜의", "구식인 – 거짓의", "최신의 – 진짜의", "최신의 – 급한", "빠른 – 거짓의"], "ans": 0, "wrong": [null, "false(거짓의)가 틀려요. 본문은 업그레이드 욕구가 진짜 필요(genuine need)가 생기기 전에 시작된다고 해요.", "modern(최신의)이 틀려요. 1년 전 휴대폰이 박물관 전시품처럼 느껴진다고 했으니 구식이에요.", "modern(최신의)이 틀려요. 1년 전 휴대폰이 박물관 전시품(museum piece)처럼 느껴져서 구식이에요. 본문에 급한(urgent) 필요 얘기도 없어요.", "둘 다 틀려요. 휴대폰이 빠르게 느껴지는 게 아니라 디지털 수요를 따라가지 못해요(unable to keep pace). 필요가 거짓이라는 말도 없어요."], "evid": [{"n": 2, "hl": ["a museum piece"]}, {"n": 3, "hl": ["often before there’s a genuine need"]}], "swaps": [["masterfully", "skillfully", "노련하게 → 솜씨 좋게"], ["sow", "plant", "뿌리다 → 심다"], ["genuine", "true", "진짜의 → 진정한"], ["a museum piece", "outdated", "박물관 전시품 → 구식인"]], "swapnote": "masterfully(노련하게)는 skillfully(솜씨 좋게)로, sow(씨를 뿌리다)는 plant(심다)로, genuine(진짜의)은 true(진정한)로 바뀌었어요. museum piece(박물관 전시품)는 한마디로 outdated(구식인)예요.", "use": [{"w": "outdated", "ex": "This old map is outdated.", "ko": "이 오래된 지도는 구식이다.", "wk": "구식인", "hk": "구식이다"}, {"w": "true", "ex": "She is a true friend.", "ko": "그녀는 진정한 친구이다.", "wk": "진정한, 진짜의", "hk": "진정한"}], "flow": "본문 1번에서 제조사가 의심의 씨앗을 뿌리고 → 2번에서 Suddenly(갑자기) 1년 전 휴대폰이 구식이 되고 → 3번에서 And thus(그래서) 필요도 없이 업그레이드 욕구가 시작된다고 이어요.", "jd": [["Makers skillfully plant doubt", "생산자들은 솜씨 좋게 의심을 심어서"], ["about our current devices,", "우리의 현재 기기에 대한,"], ["so a phone from a year ago suddenly feels [[outdated]],", "1년 전 휴대폰이 갑자기 [[구식으로]] 느껴지고,"], ["and the urge to upgrade starts", "업그레이드하고 싶은 욕구가 시작된다"], ["even before there is a [[true]] need.", "[[진짜]] 필요가 생기기도 전에."]], "fc": [["본문 1번", "제조사가 의심의 씨앗을 뿌린다", "현재 기기가 충분한지 {{doubt|의심}}하게 만들어요."], ["본문 2번", "1년 전 폰이 갑자기 구식", "{{museum piece|박물관 전시품}}처럼 느껴져요."], ["본문 3번", "필요도 없는데 업그레이드 욕구", "{{genuine|진짜의}} 필요가 생기기 전에 시작돼요."], ["정답 포인트", "{{museum piece|박물관 전시품}} = {{outdated|구식인}}, {{genuine|진짜의}} = {{true|진정한}}", "{{masterfully|노련하게}}는 {{skillfully|솜씨 좋게}}로 바뀌어요."]], "evid_full": [{"en": "Suddenly, the phone that was your lifeline a year ago is now a museum piece, unable to keep pace with your digital demands.", "ko": "갑자기, 1년 전의 당신의 목숨줄이었던 휴대폰이 지금은 당신의 디지털 수요를 따라가지 못하는, 시대에 뒤떨어진 것이 되었다.", "hl": ["a museum piece"], "hlko": ["시대에 뒤떨어진 것"], "n": 2}, {"en": "And thus, the itch to upgrade begins, often before there’s a genuine need.", "ko": "그래서 종종 진짜 필요가 있기 이전에 업그레이드에 대한 욕구가 시작된다.", "hl": ["often before there’s a genuine need"], "hlko": ["진짜 필요가 있기 이전에"], "n": 3}]}, {"id": 2, "summary": "The cycle is not limited to phones; it (A) to almost all consumer electronics, and every product seems to move toward its next version on a (B) march.", "ko": "이 순환은 휴대폰에만 한정되지 않고 거의 모든 소비자 전자 제품으로 <b>(A) 퍼지며</b>, 모든 제품이 다음 버전을 향해 <b>(B) 끈질긴</b> 행진을 하는 것 같다.", "opts": [["spreads", "optional"], ["stops", "relentless"], ["stops", "optional"], ["spreads", "relentless"], ["shrinks", "brief"]], "optko": ["퍼지다 – 선택적인", "멈추다 – 끈질긴", "멈추다 – 선택적인", "퍼지다 – 끈질긴", "줄어들다 – 짧은"], "ans": 3, "wrong": ["optional(선택적인)이 틀려요. 본문은 멈출 수 없는(unstoppable) 행진이라고 해요. 마음대로 고를 수 있는 게 아니에요.", "stops(멈추다)가 틀려요. 순환은 멈추는 게 아니라 거의 모든 영역으로 번져나가요(spills over).", "둘 다 틀려요. 순환은 멈추지 않고 번져 가며, 행진도 선택이 아니라 멈출 수 없어요.", null, "둘 다 틀려요. 순환은 줄어드는(shrink) 게 아니라 번져 가고, 행진도 짧은(brief) 게 아니라 멈출 수 없어요."], "evid": [{"n": 5, "hl": ["spills over into almost every aspect"]}, {"n": 6, "hl": ["an unstoppable march towards the next version"]}], "swaps": [["confine", "limit", "가두다 → 한정하다"], ["spill", "spread", "넘쳐흐르다 → 퍼지다"], ["unstoppable", "relentless", "멈출 수 없는 → 끈질긴"]], "swapnote": "confine(가두다)은 limit(한정하다)로, spill over(넘쳐흐르다)는 spread(퍼지다)로, unstoppable(멈출 수 없는)은 relentless(끈질긴)로 바뀌었어요. 물이 넘쳐 번지는 모습을 떠올려요.", "use": [{"w": "spread", "ex": "The news will spread fast.", "ko": "그 소식은 빠르게 퍼질 것이다.", "wk": "퍼지다", "hk": "퍼질"}, {"w": "relentless", "ex": "The relentless rain lasted all week.", "ko": "끈질긴 비가 일주일 내내 이어졌다.", "wk": "끈질긴, 멈추지 않는", "hk": "끈질긴"}], "flow": "본문 4번에서 이 순환이 디지털 기기에만 그치지 않는다고 하고 → 5번에서 자율 주행차, 스마트 냉장고까지 번진다고 → 6번에서 모든 제품이 다음 세대를 향해 멈출 수 없이 간다고 이어요.", "jd": [["The cycle is not limited to phones;", "이 순환은 휴대폰에만 한정되지 않는다;"], ["it [[spreads]] to almost all consumer electronics,", "그것은 거의 모든 소비자 전자 제품으로 [[퍼진다]],"], ["and every product seems to move", "그리고 모든 제품이 움직이는 것 같다"], ["toward its next version on a [[relentless]] march.", "다음 버전을 향해 [[끈질긴]] 행진으로."]], "fc": [["본문 4번", "디지털 기기에만 그치지 않는다", "{{confine|가두다}}의 반대로 읽어요."], ["본문 5번", "전자 제품 전체로 번진다", "자율 주행차에서 스마트 냉장고까지예요."], ["본문 6번", "다음 세대를 향한 행진", "{{unstoppable|멈출 수 없는}} 행진이에요."], ["정답 포인트", "{{spill|넘쳐흐르다}} = {{spread|퍼지다}}, {{unstoppable|멈출 수 없는}} = {{relentless|끈질긴}}", "{{confine|가두다}}는 {{limit|한정하다}}로 바뀌어요."]], "evid_full": [{"en": "It spills over into almost every aspect of consumer electronics, from the self-driving car to the smart fridge.", "ko": "이것은 자율 주행 자동차부터 스마트 냉장고에 이르기까지 소비자 전자 기기들의 거의 모든 영역까지 번져나간다.", "hl": ["spills over into almost every aspect"], "hlko": ["거의 모든 영역까지 번져나간다"], "n": 5}, {"en": "Every product seems to be on an unstoppable march towards the next version, the next generation that promises to revolutionize your life.", "ko": "모든 제품은 다음 버전, 즉, 당신의 삶에 변혁을 일으키겠다는 약속을 하는 다음 세대를 향한 멈출 수 없는 행진을 하는 것으로 보인다.", "hl": ["an unstoppable march towards the next version"], "hlko": ["멈출 수 없는 행진을"], "n": 6}]}, {"id": 3, "summary": "This cycle is very (A) at shaping our desires: we are led to believe we (B) the newest device, so the line between wants and needs becomes unclear.", "ko": "이 순환은 우리의 욕구를 만드는 데 매우 <b>(A) 강력해서</b>, 우리가 최신 기기를 <b>(B) 필요로 한다</b>고 믿게 되고, 원함과 필요의 경계가 흐려진다.", "opts": [["powerful", "dislike"], ["weak", "require"], ["weak", "avoid"], ["useless", "forget"], ["powerful", "require"]], "optko": ["강력한 – 싫어하다", "약한 – 필요로 하다", "약한 – 피하다", "쓸모없는 – 잊다", "강력한 – 필요로 하다"], "ans": 4, "wrong": ["dislike(싫어하다)가 틀려요. 우리는 최신 기기를 싫어하는 게 아니라 필요하다고 믿게 돼요(led to believe we need it).", "weak(약한)가 틀려요. 본문은 이 순환의 효과가 절대적(utter efficacy)이라고 해요.", "둘 다 틀려요. 순환의 효과는 약한 게 아니라 아주 강하고, 우리는 기기를 피하는 게 아니라 필요하다고 믿어요.", "둘 다 틀려요. 효과가 쓸모없는(useless) 게 아니라 아주 강하고, 기기를 잊는(forget) 게 아니라 필요하다고 믿어요.", null], "evid": [{"n": 7, "hl": ["the utter efficacy of this cycle in shaping our desires"]}, {"n": 8, "hl": ["we’re led to believe we need it"]}, {"n": 9, "hl": ["The distinction between want and need blurs"]}], "swaps": [["efficacy", "powerful", "효과 → 강력함"], ["need", "require", "필요로 하다 → 요구하다"], ["blur", "unclear", "흐릿해지다 → 불분명해지다"]], "swapnote": "efficacy(효과)는 powerful(강력한)로, need(필요로 하다)는 require(요구하다)로, blur(흐릿해지다)는 become unclear(불분명해지다)로 바뀌었어요.", "use": [{"w": "powerful", "ex": "A powerful engine can pull a heavy train.", "ko": "강력한 엔진은 무거운 기차를 끌 수 있다.", "wk": "강력한", "hk": "강력한"}, {"w": "require", "ex": "This job requires patience.", "ko": "이 일은 인내심을 필요로 한다.", "wk": "필요로 하다", "hk": "필요로 한다"}], "flow": "본문 7번에서 이 순환의 절대적 효과가 놀랍다고 말하고 → 8번에서 원해서가 아니라 필요하다고 믿게 된다고 → 9번에서 그래서 원함과 필요의 구분이 흐려진다고 이어요.", "jd": [["This cycle is very [[powerful]] at shaping our desires:", "이 순환은 우리의 욕구를 만드는 데 매우 [[강력하다]]:"], ["we are led to believe", "우리는 믿게 된다"], ["we [[require]] the newest device,", "우리가 최신 기기를 [[필요로 한다고]],"], ["so the line between wants and needs becomes unclear.", "그래서 원함과 필요의 경계가 불분명해진다."]], "fc": [["본문 7번", "순환의 효과가 놀랍다", "욕구를 만드는 {{efficacy|효과}}가 절대적이에요."], ["본문 8번", "원하는 게 아니라 필요하다고 믿는다", "{{led to believe|믿도록 유도되다}}가 핵심이에요."], ["본문 9~10번", "원함과 필요가 흐려진다", "그래도 업그레이드의 {{temptation|유혹}}은 여전해요."], ["정답 포인트", "{{efficacy|효과}} = {{powerful|강력한}}, {{need|필요로 하다}} = {{require|요구하다}}", "{{blur|흐릿해지다}}는 {{unclear|불분명한}}으로 풀어 읽어요."]], "evid_full": [{"en": "What’s fascinating, or perhaps disturbing, is the utter efficacy of this cycle in shaping our desires.", "ko": "흥미로운 점, 또는 어쩌면 당황스러운 점은 우리의 욕구를 형성하는 이 순환의 절대적인 효과이다.", "hl": ["the utter efficacy of this cycle in shaping our desires"], "hlko": ["우리의 욕구를 형성하는 이 순환의 절대적인 효과"], "n": 7}, {"en": "It’s not so much that we want the newest device; we’re led to believe we need it.", "ko": "우리가 가장 최신 기기를 원하는 것이라기보다는, 우리가 그것을 필요로 한다고 믿도록 유도된 것이다.", "hl": ["we’re led to believe we need it"], "hlko": ["그것을 필요로 한다고 믿도록 유도된"], "n": 8}, {"en": "The distinction between want and need blurs, shifting our financial priorities in favor of staying current with trends.", "ko": "최신 트렌드를 유지하는 것을 선호하는 쪽으로 우리의 재정적인 우선순위를 바꾸면서, 원하는 것과 필요한 것 사이의 구분이 흐릿해진다.", "hl": ["The distinction between want and need blurs"], "hlko": ["구분이 흐릿해진다"], "n": 9}]}], "gloss": {"ability": ["ability", "능력"], "abundant": ["abundant", "풍부한"], "abuses": ["abuse", "남용, 잘못된 행위"], "accepted": ["accept", "받아들여진, 정립된"], "accepting": ["accept", "받아들이다"], "accommodate": ["accommodate", "수용하다"], "accordingly": ["accordingly", "그에 맞게, 그에 따라"], "active": ["active", "적극적인"], "activist": ["activist", "운동가"], "activities": ["activity", "활동"], "actually": ["actually", "실제로"], "adopted": ["adopt", "채택하다"], "advantage": ["advantage", "이점, 유리한 점"], "advocate": ["advocate", "지지하다"], "africa": ["Africa", "아프리카"], "africa's": ["Africa", "아프리카의"], "against": ["against", "~에 맞서, ~에 대고"], "agreement": ["agreement", "합의, 동의"], "allowing": ["allow", "허용하다, 받아들이다"], "animal": ["animal", "동물"], "animal's": ["animal", "동물의"], "animal’s": ["animal", "동물의"], "animals": ["animal", "동물"], "another": ["another", "또 다른"], "anyone": ["anyone", "누구든지"], "apart": ["apart", "따로 떨어져"], "apartheid": ["apartheid", "아파르트헤이트(남아프리카의 인종 차별 체제)"], "appeared": ["appear", "나타나다"], "argue": ["argue", "주장하다"], "aspect": ["aspect", "측면, 영역"], "associate": ["associate", "연관시키다"], "attempt": ["attempt", "시도"], "attempting": ["attempt", "시도하다"], "attempts": ["attempt", "시도"], "avoid": ["avoid", "피하다"], "avoids": ["avoid", "피하다"], "background": ["background", "배경"], "balance": ["balance", "균형"], "balanced": ["balance", "균형 잡힌"], "ball": ["ball", "공"], "ball's": ["ball", "공의"], "became": ["become", "~이 되었다"], "become": ["become", "~이 되다"], "becomes": ["become", "~이 되다"], "begins": ["begin", "시작되다"], "behaviors": ["behavior", "행동"], "believe": ["believe", "믿다"], "belong": ["belong", "속하다"], "better": ["good", "더 나은"], "binary": ["binary", "쌍성의(둘이 짝을 이룬)"], "birds": ["bird", "새"], "blocked": ["block", "막힌"], "blurs": ["blur", "흐릿해지다"], "bodies": ["body", "몸"], "bodily": ["bodily", "몸의"], "body": ["body", "몸"], "body’s": ["body", "몸의"], "books": ["book", "책"], "border": ["border", "경계"], "borderline": ["borderline", "경계선상의"], "born": ["bear", "태어나다"], "bound": ["bound", "~할 수밖에 없는"], "boundaries": ["boundary", "경계"], "bowling": ["bowling", "볼링"], "breed": ["breed", "번식하다"], "breeding": ["breed", "번식(하기)"], "brief": ["brief", "짧은"], "brings": ["bring", "가져오다"], "broad": ["broad", "넓은"], "brood": ["brood", "한 배에서 난 새끼 무리"], "calculate": ["calculate", "계산하다"], "campaign": ["campaign", "운동하다, 캠페인을 벌이다"], "campaigner": ["campaigner", "활동가"], "cancer": ["cancer", "암"], "capable": ["capable", "~할 수 있는"], "car": ["car", "자동차"], "cases": ["case", "사례"], "center": ["center", "중심"], "certain": ["certain", "특정한"], "challenges": ["challenge", "어려움, 도전"], "challenging": ["challenge", "도전하다"], "chance": ["chance", "기회"], "changes": ["change", "변화"], "checking": ["check", "견주어 보다, 확인하다"], "chooses": ["choose", "선택하다"], "circling": ["circle", "빙빙 돌다"], "claim": ["claim", "주장하다"], "clear": ["clear", "분명한"], "coin": ["coin", "동전"], "collect": ["collect", "모으다"], "comfortable": ["comfortable", "편안한"], "common": ["common", "공통의"], "compare": ["compare", "비교하다"], "compensatory": ["compensatory", "보상하는"], "complain": ["complain", "불평하다"], "completely": ["completely", "완전히"], "complicated": ["complicated", "복잡한"], "component": ["component", "구성 요소"], "compute": ["compute", "계산하다"], "concept": ["concept", "개념"], "conditioned": ["condition", "조건이 붙은, 길들여진"], "confident": ["confident", "자신 있는"], "conflict": ["conflict", "갈등"], "confuse": ["confuse", "혼동하다"], "connect": ["connect", "연결하다"], "connected": ["connect", "연결된"], "consequently": ["consequently", "결과적으로"], "consistent": ["consistent", "일관성 있는"], "constantly": ["constantly", "끊임없이"], "constitution": ["constitution", "헌법"], "consumer": ["consumer", "소비자"], "continued": ["continue", "계속하다"], "conversely": ["conversely", "반대로"], "correspondingly": ["correspondingly", "그에 맞게, 상응하여"], "counts": ["count", "해당하다, ~로 치다"], "country’s": ["country", "나라의"], "create": ["create", "만들어 내다"], "cubes": ["cube", "정육면체, 큐브"], "current": ["current", "현재의"], "cushion": ["cushion", "완화하다, 충격을 줄이다"], "cycle": ["cycle", "순환, 주기"], "danger": ["danger", "위험"], "days": ["day", "날, 일"], "death": ["death", "죽음"], "defined": ["define", "정의하다"], "defining": ["defining", "결정짓는, 핵심이 되는"], "delightful": ["delightful", "아주 즐거운"], "demands": ["demand", "요구, 수요"], "democracy": ["democracy", "민주주의"], "denies": ["deny", "부정하다"], "desert": ["desert", "사막"], "desires": ["desire", "욕구"], "destined": ["destined", "~할 운명인"], "determination": ["determination", "결정, 판정"], "determine": ["determine", "구하다, 결정하다"], "developed": ["develop", "발전하다"], "device": ["device", "기기"], "devices": ["device", "기기"], "died": ["die", "죽다"], "differences": ["difference", "차이"], "different": ["different", "다른"], "digital": ["digital", "디지털의"], "directly": ["directly", "직접적으로"], "discovering": ["discover", "발견하다"], "dislike": ["dislike", "싫어하다"], "distance": ["distance", "거리"], "distant": ["distant", "먼"], "distinct": ["distinct", "별개의"], "distinction": ["distinction", "구분"], "distinguish": ["distinguish", "구분하다"], "disturbing": ["disturbing", "당황스러운, 불안하게 하는"], "divide": ["divide", "나누다"], "doubt": ["doubt", "의심"], "draw": ["draw", "(선을) 긋다, 그리다"], "drafting": ["draft", "(문서를) 작성하기"], "drug": ["drug", "약"], "eager": ["eager", "간절히 바라는"], "easier": ["easy", "더 쉬운"], "easily": ["easily", "쉽게"], "edge": ["edge", "가장자리"], "effective": ["effective", "효과적인"], "efficacy": ["efficacy", "효과, 효능"], "efforts": ["effort", "노력"], "elected": ["elect", "선출하다"], "electronics": ["electronics", "전자 제품"], "else": ["else", "그 밖의"], "elsewhere": ["elsewhere", "다른 곳에서"], "enough": ["enough", "충분히"], "ended": ["end", "끝나다"], "equations": ["equation", "방정식"], "equator": ["equator", "적도"], "equilibrium": ["equilibrium", "평형, 균형 상태"], "escape": ["escape", "벗어나다"], "essential": ["essential", "필수적인, 본질적인"], "establish": ["establish", "세우다, 정하다"], "estimation": ["estimation", "추정"], "exceptional": ["exceptional", "예외적인"], "exclude": ["exclude", "제외하다"], "existing": ["exist", "존재하는"], "expansive": ["expansive", "광범위한, 넓은"], "expensive": ["expensive", "비싼"], "experience": ["experience", "경험"], "experiences": ["experience", "경험"], "exposing": ["expose", "폭로하다"], "extreme": ["extreme", "극단적인"], "faced": ["face", "마주하다"], "fail": ["fail", "실패하다"], "fall": ["fall", "내려가다, 떨어지다"], "false": ["false", "거짓의"], "families": ["family", "가족, 새끼 무리"], "family": ["family", "가족"], "faraway": ["faraway", "아주 먼"], "fascinating": ["fascinating", "흥미로운"], "favor": ["favor", "~을 선호하는 쪽"], "fear": ["fear", "두려움"], "feelings": ["feeling", "느낌"], "feels": ["feel", "느끼다"], "few": ["few", "몇몇의"], "figure": ["figure", "알아내다"], "financial": ["financial", "재정적인"], "find": ["find", "찾다, 알아내다"], "finding": ["find", "알아내다"], "flexible": ["flexible", "유연한"], "flying": ["fly", "나는"], "forget": ["forget", "잊다"], "formed": ["form", "만들다, 형성하다"], "forms": ["form", "형태"], "forum": ["forum", "토론의 장"], "fought": ["fight", "싸우다"], "found": ["find", "찾다, 알아내다"], "fridge": ["fridge", "냉장고"], "functions": ["function", "기능"], "funny": ["funny", "웃기는"], "gain": ["gain", "늘리다, 얻다"], "gathering": ["gather", "모으기"], "generation": ["generation", "세대"], "genuine": ["genuine", "진짜의"], "germiston": ["Germiston", "저미스턴(남아프리카의 도시)"], "government’s": ["government", "정부의"], "grams": ["gram", "그램(g)"], "group": ["group", "모음, 무리"], "grow": ["grow", "커지다"], "guesses": ["guess", "짐작"], "guessing": ["guess", "짐작하다"], "habit": ["habit", "습관"], "happens": ["happen", "일어나다"], "harder": ["hard", "더 어려운"], "harmful": ["harmful", "해로운"], "harsh": ["harsh", "강경한, 가혹한"], "healthy": ["healthy", "건강한"], "heavily": ["heavily", "상당히, 크게"], "helen": ["Helen", "헬렌(사람 이름)"], "helpful": ["helpful", "도움이 되는"], "helps": ["help", "돕다"], "hidden": ["hidden", "숨겨진"], "hide": ["hide", "숨기다"], "hides": ["hide", "숨기다"], "highlighting": ["highlight", "돋보이게 하다"], "highs": ["high", "높은 상태, 최고점"], "homeostasis": ["homeostasis", "항상성(몸의 균형)"], "however": ["however", "그러나"], "human": ["human", "인간의"], "idea": ["idea", "개념, 생각"], "ignored": ["ignore", "무시되는"], "ignores": ["ignore", "무시하다"], "ignoring": ["ignore", "무시하다"], "imagine": ["imagine", "상상하다"], "immigrant": ["immigrant", "이민자"], "incapable": ["incapable", "~할 수 없는"], "include": ["include", "포함하다"], "increase": ["increase", "키우다, 늘리다"], "independently": ["independently", "독립적으로"], "indicates": ["indicate", "나타내다"], "indirectly": ["indirectly", "간접적으로"], "influenced": ["influence", "영향을 주다"], "initiate": ["initiate", "시작하다"], "inner": ["inner", "내부의"], "instance": ["instance", "사례"], "internal": ["internal", "내부의"], "involves": ["involve", "포함하다"], "itch": ["itch", "(~하고 싶은) 욕구"], "it’s": ["it is", "그것은 ~이다"], "jewish": ["Jewish", "유대인의"], "joined": ["join", "가입하다"], "judge": ["judge", "판사"], "keep": ["keep", "유지하다"], "keeps": ["keep", "계속하다"], "kepler’s": ["Kepler", "케플러의"], "known": ["know", "알려진, 이미 아는"], "lacks": ["lack", "부족하다, 없다"], "larger": ["large", "더 큰"], "law": ["law", "법칙, 법"], "laws": ["law", "법"], "leads": ["lead", "이끌다"], "led": ["lead", "이끌다, 유도하다"], "left": ["leave", "떠났다"], "length": ["length", "길이"], "lies": ["lie", "놓여 있다"], "life": ["life", "생명, 삶"], "lifeline": ["lifeline", "생명줄"], "liked": ["like", "좋아했다"], "liking": ["liking", "좋아함"], "limit": ["limit", "한계, 한정하다"], "limited": ["limit", "한정된"], "line": ["line", "선, 경계"], "logically": ["logically", "논리적으로"], "loosely": ["loosely", "느슨하게"], "loud": ["loud", "시끄러운"], "lows": ["low", "낮은 상태, 최저점"], "ludwig": ["Ludwig", "루트비히(사람 이름)"], "magnitudes": ["magnitude", "크기, 규모"], "mainly": ["mainly", "주로"], "maintain": ["maintain", "유지하다"], "makers": ["maker", "만드는 회사, 제조사"], "makes": ["make", "만들다"], "making": ["make", "만들다"], "march": ["march", "행진"], "mass": ["mass", "질량"], "measure": ["measure", "재다, 측정하다"], "measured": ["measure", "측정하다"], "measurement": ["measurement", "측정"], "measuring": ["measure", "재다, 측정하다"], "mechanisms": ["mechanism", "장치, 기제"], "members": ["member", "구성원"], "merge": ["merge", "합치다"], "metal": ["metal", "금속"], "method": ["method", "방법, 방식"], "mice": ["mouse", "쥐"], "middle": ["middle", "가운데"], "migrant": ["migrant", "이주민"], "mild": ["mild", "부드러운, 온화한"], "miserable": ["miserable", "비참한"], "moderate": ["moderate", "온건한"], "modern": ["modern", "최신의, 현대의"], "months": ["month", "달, 개월"], "morphine": ["morphine", "모르핀(통증을 덜어 주는 약)"], "mostly": ["mostly", "주로"], "move": ["move", "움직이다"], "moves": ["move", "움직이다"], "multi-racial": ["multi-racial", "다인종의"], "museum": ["museum", "박물관"], "native": ["native", "원주민의, 토박이의"], "neatly": ["neatly", "깔끔하게"], "need": ["need", "필요(로 하다)"], "needs": ["need", "필요(한 것)"], "neutral": ["neutral", "중립적인"], "never": ["never", "결코 ~않는"], "newest": ["new", "가장 새로운"], "noise": ["noise", "소리, 소음"], "nomadic": ["nomadic", "유목하는"], "non-reading": ["non-reading", "읽기가 아닌 것"], "nonreading": ["nonreading", "읽기가 아닌 것"], "not-reading": ["not-reading", "읽기가 아닌 것"], "nothing": ["nothing", "아무것도 없는 것"], "number": ["number", "수, 여러"], "onto": ["onto", "~ 위로"], "opportunity": ["opportunity", "기회"], "opposite": ["opposite", "반대의"], "optional": ["optional", "선택적인"], "order": ["order", "순서"], "ordinary": ["ordinary", "평범한"], "organs": ["organ", "기관"], "outcome": ["outcome", "결과"], "outdated": ["outdated", "구식인"], "owing": ["owing", "~ 때문에 (owing to)"], "pace": ["pace", "속도"], "pain": ["pain", "고통"], "pain-relieving": ["pain-relieving", "통증을 덜어 주는"], "parents": ["parent", "부모"], "parliament": ["parliament", "의회"], "party": ["party", "정당"], "peak": ["peak", "최고조"], "people": ["people", "사람들"], "perhaps": ["perhaps", "어쩌면"], "period": ["period", "주기, 기간"], "phone": ["phone", "휴대폰"], "phones": ["phone", "휴대폰"], "phrase": ["phrase", "어구, 표현"], "physically": ["physically", "신체적으로"], "piece": ["piece", "조각, 물건"], "place": ["place", "장소"], "places": ["place", "장소"], "plant": ["plant", "심다"], "pleasure": ["pleasure", "쾌락"], "point": ["point", "지점"], "points": ["point", "지점"], "political": ["political", "정치적인"], "position": ["position", "입장"], "potential": ["potential", "잠재적인"], "powerful": ["powerful", "강력한"], "praised": ["praise", "칭찬하다"], "prefer": ["prefer", "더 좋아하다"], "preference": ["preference", "선호"], "priorities": ["priority", "우선순위"], "prize": ["prize", "상"], "product": ["product", "제품"], "productive": ["productive", "생산적인"], "progressive": ["progressive", "진보적인"], "promises": ["promise", "약속하다"], "prompted": ["prompt", "일으키다, 유발하다"], "properties": ["property", "특성"], "proves": ["prove", "증명하다"], "put": ["put", "넣다, 놓다"], "qualifies": ["qualify", "자격을 주다, 인정받다"], "quantities": ["quantity", "수치, 양"], "quit": ["quit", "그만두다"], "racist": ["racist", "인종 차별적인"], "rain": ["rain", "비"], "raise": ["raise", "기르다"], "raised": ["raise", "기르다"], "randomly": ["randomly", "제멋대로, 무작위로"], "range": ["range", "범위, 종류"], "rarely": ["rarely", "거의 ~않게"], "rather": ["rather", "오히려"], "reading": ["read", "읽기"], "received": ["receive", "받다"], "recorded": ["record", "기록되는"], "reduce": ["reduce", "줄이다"], "reform-minded": ["reform-minded", "개혁을 바라는"], "regions": ["region", "지역"], "reject": ["reject", "거부하다"], "related": ["relate", "관련된"], "relentless": ["relentless", "끈질긴"], "relentlessly": ["relentlessly", "끈질기게"], "reliant": ["reliant", "의존하는"], "relieve": ["relieve", "덜어 주다"], "reluctant": ["reluctant", "꺼리는"], "reluctantly": ["reluctantly", "마지못해"], "remained": ["remain", "~로 남다"], "repeat": ["repeat", "반복하다"], "replace": ["replace", "바꾸다, 대체하다"], "reproductive": ["reproductive", "번식의, 생식의"], "republic": ["republic", "공화국"], "require": ["require", "필요로 하다, 요구하다"], "requires": ["require", "필요로 하다"], "researchers": ["researcher", "연구자"], "reset": ["reset", "다시 맞추다"], "resemblances": ["resemblance", "닮은 점"], "rest": ["rest", "바탕을 두다"], "retired": ["retire", "은퇴하다"], "retirement": ["retirement", "은퇴"], "returning": ["return", "돌아가다"], "revolutionize": ["revolutionize", "혁신하다, 크게 바꾸다"], "reward": ["reward", "보상"], "rights": ["right", "권리"], "rises": ["rise", "오르다"], "roughly": ["roughly", "대략적으로"], "royal": ["royal", "왕족의"], "rule": ["rule", "규칙"], "ruler": ["ruler", "통치자"], "rules": ["rule", "규칙"], "saline": ["saline", "식염수"], "save": ["save", "아끼다"], "scale": ["scale", "저울"], "scarcest": ["scarce", "가장 부족한"], "scientists": ["scientist", "과학자"], "seabirds": ["seabird", "바닷새"], "season": ["season", "계절, 시기"], "secretly": ["secretly", "몰래"], "seeing": ["see", "보다"], "seeks": ["seek", "추구하다"], "seem": ["seem", "~인 것 같다"], "seems": ["seem", "~인 것 같다"], "self-driving": ["self-driving", "자율 주행의"], "set": ["set", "묶음, 모음"], "several": ["several", "여러"], "shaping": ["shape", "형성하다"], "shift": ["shift", "변화"], "shifting": ["shift", "바꾸다"], "shortage": ["shortage", "부족"], "showed": ["show", "보여 주다"], "shrinks": ["shrink", "줄어들다"], "sides": ["side", "면, 쪽"], "silent": ["silent", "조용한"], "similarities": ["similarity", "유사성, 닮은 점"], "simple": ["simple", "단순한"], "simpler": ["simple", "더 단순한"], "simply": ["simply", "단순히"], "single": ["single", "하나의"], "skillfully": ["skillfully", "솜씨 좋게"], "skip": ["skip", "건너뛰다"], "smaller": ["small", "더 작은"], "smart": ["smart", "스마트한, 똑똑한"], "social": ["social", "사회적인"], "soften": ["soften", "부드럽게 하다, 누그러뜨리다"], "soldier": ["soldier", "군인"], "something": ["something", "무언가"], "songbirds": ["songbird", "명금(노래하는 작은 새)"], "south": ["south", "남쪽의"], "special": ["special", "특별한"], "species": ["species", "종"], "spectrum": ["spectrum", "스펙트럼, 연속적인 범위"], "spend": ["spend", "(시간을) 보내다"], "spills": ["spill", "넘쳐흐르다"], "split": ["split", "나누다, 쪼개다"], "spreads": ["spread", "퍼지다"], "stance": ["stance", "입장"], "star": ["star", "별"], "star's": ["star", "별의"], "stars": ["star", "별"], "start": ["start", "시작하다"], "starts": ["start", "시작되다"], "state": ["state", "상태"], "staying": ["stay", "머무르다, 유지하다"], "stimulus": ["stimulus", "자극"], "stops": ["stop", "멈추다"], "storm": ["storm", "폭풍"], "stretch": ["stretch", "넓히다, 늘이다"], "strive": ["strive", "애쓰다"], "stronger": ["strong", "더 강한"], "sudden": ["sudden", "갑작스러운"], "suddenly": ["suddenly", "갑자기"], "suggests": ["suggest", "시사하다"], "supply": ["supply", "공급"], "survive": ["survive", "살아남다"], "surviving": ["survive", "살아남기"], "suzman": ["Suzman", "수즈먼(사람 이름)"], "system": ["system", "체제, 기관"], "systems": ["system", "장치, 체제"], "taught": ["teach", "가르치다"], "tell": ["tell", "구별하다, 말하다"], "term’s": ["term", "용어의"], "theories": ["theory", "이론"], "thus": ["thus", "그러므로"], "tied": ["tie", "묶인"], "tirelessly": ["tirelessly", "지칠 줄 모르고"], "together": ["together", "함께"], "took": ["take", "취하다"], "total": ["total", "총"], "trait": ["trait", "특성"], "train": ["train", "훈련시키다"], "trends": ["trend", "유행"], "tries": ["try", "시도"], "triggered": ["trigger", "촉발하다"], "true": ["true", "진정한, 진짜의"], "try": ["try", "시도"], "trying": ["try", "시도하다"], "turn": ["turn", "돌리다"], "turns": ["turn", "~이 되다, 돌리다"], "typical": ["typical", "전형적인"], "unable": ["unable", "~하지 못하는"], "unclear": ["unclear", "불분명한"], "understand": ["understand", "이해하다"], "understanding": ["understanding", "이해"], "unhappy": ["unhappy", "불행한"], "union": ["union", "연방, 연합"], "united": ["united", "통합된, 연합한"], "unlikely": ["unlikely", "~할 것 같지 않은"], "unmediated": ["unmediated", "중재되지 않은, 곧바로인"], "unpleasant": ["unpleasant", "불쾌한"], "unstoppable": ["unstoppable", "멈출 수 없는"], "unusual": ["unusual", "특이한"], "unwelcome": ["unwelcome", "달갑지 않은"], "upgrade": ["upgrade", "업그레이드(새것으로 바꾸기)"], "urge": ["urge", "욕구"], "urgent": ["urgent", "급한"], "useful": ["useful", "유용한"], "useless": ["useless", "쓸모없는"], "usually": ["usually", "대개"], "utter": ["utter", "절대적인, 완전한"], "value": ["value", "값"], "values": ["value", "값"], "various": ["various", "다양한"], "version": ["version", "버전"], "vital": ["vital", "꼭 필요한, 아주 중요한"], "voice": ["voice", "목소리, 대변자"], "want": ["want", "원하다"], "wanted": ["want", "원했다"], "wants": ["want", "원하는 것"], "warm": ["warm", "따뜻한"], "warm-region": ["warm-region", "따뜻한 지역의"], "weak": ["weak", "약한"], "weigh": ["weigh", "무게를 재다"], "weighing": ["weigh", "무게가 나가는"], "weight": ["weight", "몸무게, 무게"], "we’re": ["we are", "우리는 ~이다"], "whereas": ["whereas", "반면에"], "wide": ["wide", "넓은"], "wishing": ["wish", "바라는"], "within": ["within", "~ 안에"], "without": ["without", "~ 없이"], "wittgenstein": ["Wittgenstein", "비트겐슈타인(철학자 이름)"], "words": ["word", "말, 단어"], "work": ["work", "작용하다, 일하다"], "working": ["work", "일하는"], "worth": ["worth", "~할 가치가 있는"], "year": ["year", "해, 년"], "years": ["year", "해, 년"], "young": ["young", "새끼"], "out": ["out", "밖으로, (find out) 알아내다"], "such": ["such", "~ 같은"], "things": ["thing", "상황, 것들"], "get": ["get", "~해지다"], "know": ["know", "알다"], "other": ["other", "다른"], "first": ["first", "먼저"], "say": ["say", "말하다"], "says": ["say", "말하다"], "between": ["between", "~ 사이에"], "use": ["use", "사용하다"], "third": ["third", "제3의"], "into": ["into", "~ 안으로"], "before": ["before", "~ 전에"], "like": ["like", "~와 같은"], "same": ["same", "같은"], "even": ["even", "~조차, 훨씬"], "because": ["because", "~ 때문에"], "back": ["back", "다시 제자리로"], "being": ["be", "~인 상태"], "fact": ["fact", "사실"], "about": ["about", "~에 대한"], "ago": ["ago", "~ 전에"], "fast": ["fast", "빠른"], "now": ["now", "지금"], "often": ["often", "종종"], "there’s": ["there is", "~이 있다"], "almost": ["almost", "거의"], "every": ["every", "모든"], "toward": ["toward", "~을 향해"], "towards": ["towards", "~을 향해"], "next": ["next", "다음의"], "over": ["over", "넘어"], "what’s": ["what is", "~하는 것은"], "new": ["new", "새로운"], "after": ["after", "~ 후에"], "until": ["until", "~까지"], "end": ["end", "끝"], "way": ["way", "방법"], "food": ["food", "먹이, 음식"], "time": ["time", "시간"], "given": ["give", "주어진"], "example": ["example", "예"], "show": ["show", "보여 주다"], "used": ["use", "사용되는"], "near": ["near", "~ 근처에"], "day": ["day", "낮, 하루"], "goes": ["go", "진행되다"], "well": ["well", "잘"], "times": ["time", "때"], "doing": ["do", "하다"], "take": ["take", "취하다"], "full": ["full", "충분한"], "ways": ["way", "방식"], "seen": ["see", "보이는"], "everything": ["everything", "모든 것"], "think": ["think", "생각하다"], "having": ["have", "가지다"], "since": ["since", "~ 때문에"], "ends": ["end", "끝나다"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="jusung-go2";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH;
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);render();
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){return (DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}})}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../index.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">밑줄 단어를 누르면 뜻이 나와요. 번호를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+words(o[0])+'<span class="dash">–</span>'+words(o[1])+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'</li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>

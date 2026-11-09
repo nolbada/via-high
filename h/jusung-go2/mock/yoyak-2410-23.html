@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>24년 10월 23번 요약문 연습 </title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "jusung-go2", "src": "jusung-go2/mock/sx-data.js", "pidx": 25, "lesson": "24년 10월 23번", "title": "", "label": "", "page": "yoyak-2410-23"}, "scenes": [{"tag": "본문 1~2번", "ns": [1, 2], "line": "고통과 쾌락은 뇌의 같은 곳에서 처리되고, 몸은 균형을 끊임없이 [[strive|애쓰며 추구한다]].", "en": ["Based on discoveries in neuroscience, pain and pleasure are formed and processed in the same area of the brain.", "Our bodies constantly strive for homeostasis, which is defined as the balance of bodily functions."], "kos": ["뇌 과학의 발견들에 따르면, 고통과 쾌락은 뇌의 같은 영역에서 형성되고 처리된다.", "우리 몸은 끊임없이 항상성을 추구하는데, 그것은 몸의 기능들의 균형이라고 정의된다."]}, {"tag": "본문 3번", "ns": [3], "line": "보상 기제가 큰 높낮이를 [[cushion|완화해]] 주어야 살 수 있다.", "en": ["Without the body’s effective compensatory mechanisms, which may cushion potential highs and lows, we would not be capable of surviving."], "kos": ["잠재적인 변동을 완화시킬 수 있는 몸의 효과적인 보상 기제가 없다면 우리는 생존할 수 없을 것이다."]}, {"tag": "본문 4번", "ns": [4], "line": "쾌락과 고통은 동전의 양면, 서로 [[balance|균형]]을 맞춘다.", "en": ["Pleasure and pain are like two sides of the same coin; they seem to work together and are heavily reliant on one another and keep balance."], "kos": ["쾌락과 고통은 동일한 동전의 두 면과 같아서 그들은 함께 작동하는 것 같으며 서로 상당히 의존하고 있고 균형을 유지한다."]}, {"tag": "본문 5번", "ns": [5], "line": "저울에서 한쪽이 오르면 다른 쪽은 [[correspondingly|그에 맞게]] 내려간다.", "en": ["If you imagine pleasure and pain as the two opposite points on a scale, you can easily understand that as one of the two points rises, the other must correspondingly fall."], "kos": ["만약에 여러분이 쾌락과 고통을 저울 위의 두 반대 지점으로 상상한다면, 여러분은 두 지점 중 한 지점이 올라가면 다른 한 지점이 상응하여 틀림없이 내려갈 것임을 쉽게 이해할 수 있을 것이다."]}, {"tag": "본문 6~8번", "ns": [6, 7, 8], "line": "No pain, no gain. 그런데 고통을 피하려 할수록 더 [[miserable|비참해진다]].", "en": ["We’ve all heard the expression, “No pain, no gain.”", "Well, according to psychiatrist Dr. Anna Lembke, there may be some truth to these words.", "She says that our attempts to escape being miserable are in fact making us even more miserable."], "kos": ["우리는 ‘고통 없이는, 얻는 것도 없다.’라는 표현을 모두 들어본 적이 있다.", "자, 정신과 의사인 Dr. Anna Lembke에 따르면, 이 말에는 어느 정도의 진실이 있을 수 있다.", "그녀는 우리가 비참함에서 벗어나려는 우리의 시도가 사실 우리를 훨씬 더 비참하게 만들고 있다고 말한다."]}, {"tag": "본문 9번", "ns": [9], "line": "고통은 균형 유지에 [[essential|필수적]]이고, 그것을 [[allowing|받아들이면]] 저울이 제자리로 돌아온다.", "en": ["This is because pain is actually an essential component of our ability to maintain a neutral state, and allowing it will in turn reset our internal scale back to balance."], "kos": ["이는 고통이 실제로 중립적인 상태를 유지하기 위한 우리 능력의 필수적인 구성 요소이기 때문이고, 그것을 허용하는 것은 결과적으로 우리의 내부 저울을 균형 상태로 다시 맞출 것이다."]}], "story": [{"a": "strive", "form": "strive", "n": 2, "sq": 1, "sum": "The body constantly [[seeks]] balance", "hook": "몸이 균형을 위해 끊임없이 애쓴다는 문장의 strive(애쓰다) → 요약문에서는 seek(추구하다)로 바꿨어요.", "b": "seek", "k": "애쓰다 → 추구하다", "en": "Our bodies constantly strive for homeostasis, which is defined as the balance of bodily functions.", "ko": "우리 몸은 끊임없이 항상성을 추구하는데, 그것은 몸의 기능들의 균형이라고 정의된다."}, {"a": "cushion", "form": "cushion", "n": 3, "sq": 1, "sum": "its helpful systems [[soften]] extreme highs and lows", "hook": "보상 기제가 높낮이를 완화해 준다는 문장의 cushion(완화하다) → 요약문에서는 soften(누그러뜨리다)으로 바꿨어요.", "b": "soften", "k": "완화하다 → 누그러뜨리다", "en": "Without the body’s effective compensatory mechanisms, which may cushion potential highs and lows, we would not be capable of surviving.", "ko": "잠재적인 변동을 완화시킬 수 있는 몸의 효과적인 보상 기제가 없다면 우리는 생존할 수 없을 것이다."}, {"a": "balance", "form": "balance", "n": 4, "sq": 2, "sum": "keep each other in [[equilibrium]]", "hook": "쾌락과 고통이 서로 균형을 유지한다는 문장의 balance(균형) → 요약문에서는 equilibrium(평형 상태)으로 바꿨어요.", "b": "equilibrium", "k": "균형 → 평형 상태", "en": "Pleasure and pain are like two sides of the same coin; they seem to work together and are heavily reliant on one another and keep balance.", "ko": "쾌락과 고통은 동일한 동전의 두 면과 같아서 그들은 함께 작동하는 것 같으며 서로 상당히 의존하고 있고 균형을 유지한다."}, {"a": "correspondingly", "form": "correspondingly", "n": 5, "sq": 2, "sum": "the other must [[accordingly]] fall", "hook": "한쪽이 오르면 다른 쪽이 그에 맞게 내려간다는 문장의 correspondingly(그에 맞게) → 요약문에서는 accordingly(그에 따라)로 바꿨어요.", "b": "accordingly", "k": "그에 맞게 → 그에 따라", "en": "If you imagine pleasure and pain as the two opposite points on a scale, you can easily understand that as one of the two points rises, the other must correspondingly fall.", "ko": "만약에 여러분이 쾌락과 고통을 저울 위의 두 반대 지점으로 상상한다면, 여러분은 두 지점 중 한 지점이 올라가면 다른 한 지점이 상응하여 틀림없이 내려갈 것임을 쉽게 이해할 수 있을 것이다."}, {"a": "miserable", "form": "miserable", "n": 8, "sq": 3, "sum": "makes us even more [[unhappy]]", "hook": "피하려 할수록 더 비참해진다는 문장의 miserable(비참한) → 요약문에서는 unhappy(불행한)로 바꿨어요.", "b": "unhappy", "k": "비참한 → 불행한", "en": "She says that our attempts to escape being miserable are in fact making us even more miserable.", "ko": "그녀는 우리가 비참함에서 벗어나려는 우리의 시도가 사실 우리를 훨씬 더 비참하게 만들고 있다고 말한다."}, {"a": "essential", "form": "essential", "n": 9, "sq": 3, "sum": "because pain is [[vital]] to staying balanced", "hook": "고통이 균형 유지에 꼭 필요하다는 문장의 essential(필수적인) → 요약문에서는 vital(아주 중요한)로 바꿨어요.", "b": "vital", "k": "필수적인 → 아주 중요한", "en": "This is because pain is actually an essential component of our ability to maintain a neutral state, and allowing it will in turn reset our internal scale back to balance.", "ko": "이는 고통이 실제로 중립적인 상태를 유지하기 위한 우리 능력의 필수적인 구성 요소이기 때문이고, 그것을 허용하는 것은 결과적으로 우리의 내부 저울을 균형 상태로 다시 맞출 것이다."}, {"a": "allow", "form": "allowing", "n": 9, "sq": 3, "sum": "[[accepting]] it brings our inner scale back to balance", "hook": "고통을 받아들이면 저울이 균형으로 돌아온다는 문장의 allowing(허용하다) → 요약문에서는 accepting(받아들이다)으로 바꿨어요.", "b": "accept", "k": "허용하다 → 받아들이다", "en": "This is because pain is actually an essential component of our ability to maintain a neutral state, and allowing it will in turn reset our internal scale back to balance.", "ko": "이는 고통이 실제로 중립적인 상태를 유지하기 위한 우리 능력의 필수적인 구성 요소이기 때문이고, 그것을 허용하는 것은 결과적으로 우리의 내부 저울을 균형 상태로 다시 맞출 것이다."}], "passage": [{"n": 1, "en": "Based on discoveries in neuroscience, pain and pleasure are formed and processed in the same area of the brain.", "ko": "뇌 과학의 발견들에 따르면, 고통과 쾌락은 뇌의 같은 영역에서 형성되고 처리된다."}, {"n": 2, "en": "Our bodies constantly strive for homeostasis, which is defined as the balance of bodily functions.", "ko": "우리 몸은 끊임없이 항상성을 추구하는데, 그것은 몸의 기능들의 균형이라고 정의된다."}, {"n": 3, "en": "Without the body’s effective compensatory mechanisms, which may cushion potential highs and lows, we would not be capable of surviving.", "ko": "잠재적인 변동을 완화시킬 수 있는 몸의 효과적인 보상 기제가 없다면 우리는 생존할 수 없을 것이다."}, {"n": 4, "en": "Pleasure and pain are like two sides of the same coin; they seem to work together and are heavily reliant on one another and keep balance.", "ko": "쾌락과 고통은 동일한 동전의 두 면과 같아서 그들은 함께 작동하는 것 같으며 서로 상당히 의존하고 있고 균형을 유지한다."}, {"n": 5, "en": "If you imagine pleasure and pain as the two opposite points on a scale, you can easily understand that as one of the two points rises, the other must correspondingly fall.", "ko": "만약에 여러분이 쾌락과 고통을 저울 위의 두 반대 지점으로 상상한다면, 여러분은 두 지점 중 한 지점이 올라가면 다른 한 지점이 상응하여 틀림없이 내려갈 것임을 쉽게 이해할 수 있을 것이다."}, {"n": 6, "en": "We’ve all heard the expression, “No pain, no gain.”", "ko": "우리는 ‘고통 없이는, 얻는 것도 없다.’라는 표현을 모두 들어본 적이 있다."}, {"n": 7, "en": "Well, according to psychiatrist Dr. Anna Lembke, there may be some truth to these words.", "ko": "자, 정신과 의사인 Dr. Anna Lembke에 따르면, 이 말에는 어느 정도의 진실이 있을 수 있다."}, {"n": 8, "en": "She says that our attempts to escape being miserable are in fact making us even more miserable.", "ko": "그녀는 우리가 비참함에서 벗어나려는 우리의 시도가 사실 우리를 훨씬 더 비참하게 만들고 있다고 말한다."}, {"n": 9, "en": "This is because pain is actually an essential component of our ability to maintain a neutral state, and allowing it will in turn reset our internal scale back to balance.", "ko": "이는 고통이 실제로 중립적인 상태를 유지하기 위한 우리 능력의 필수적인 구성 요소이기 때문이고, 그것을 허용하는 것은 결과적으로 우리의 내부 저울을 균형 상태로 다시 맞출 것이다."}], "questions": [{"id": 1, "summary": "The body constantly (A) balance, and its helpful systems (B) extreme highs and lows so that we can survive.", "ko": "몸은 끊임없이 균형을 <b>(A) 추구하고</b>, 몸의 도움 되는 장치들은 극단적인 높낮이를 <b>(B) 누그러뜨려</b> 우리가 살아남게 한다.", "opts": [["seeks", "increase"], ["avoids", "soften"], ["avoids", "increase"], ["ignores", "create"], ["seeks", "soften"]], "optko": ["추구하다 – 키우다", "피하다 – 누그러뜨리다", "피하다 – 키우다", "무시하다 – 만들어 내다", "추구하다 – 누그러뜨리다"], "ans": 4, "wrong": ["increase(키우다)가 틀려요. 보상 기제는 높낮이를 키우는 게 아니라 완화해요(cushion).", "avoids(피하다)가 틀려요. 몸은 균형을 피하는 게 아니라 끊임없이 추구해요(strive for).", "둘 다 틀려요. 균형을 피하지 않고 추구하며, 높낮이도 키우는 게 아니라 완화해요.", "둘 다 틀려요. 몸은 균형을 무시(ignore)하지 않고 추구하며, 극단적인 높낮이를 만들어 내는(create) 게 아니라 완화해요.", null], "evid": [{"n": 2, "hl": ["constantly strive for homeostasis"]}, {"n": 3, "hl": ["cushion potential highs and lows"]}], "swaps": [["strive", "seek", "애쓰다 → 추구하다"], ["cushion", "soften", "완화하다 → 누그러뜨리다"]], "swapnote": "strive for(~을 위해 애쓰다)는 seek(추구하다)로, cushion(완화하다)은 soften(누그러뜨리다)으로 바뀌었어요. 쿠션이 충격을 부드럽게 하는 모습을 떠올려요.", "use": [{"w": "seek", "ex": "Many people seek peace and quiet.", "ko": "많은 사람들이 평화와 고요함을 추구한다.", "wk": "추구하다, 찾다", "hk": "추구한다"}, {"w": "soften", "ex": "Warm light can soften a room.", "ko": "따뜻한 조명은 방을 부드럽게 만들 수 있다.", "wk": "부드럽게 하다", "hk": "부드럽게"}], "flow": "본문 1번에서 고통과 쾌락이 뇌의 같은 곳에서 처리된다고 시작하고 → 2번에서 몸은 끊임없이 균형을 추구한다고 → 3번에서 보상 기제가 높낮이를 완화해 주지 않으면 살 수 없다고 이어요.", "jd": [["The body constantly [[seeks]] balance,", "몸은 끊임없이 균형을 [[추구하고]],"], ["and its helpful systems", "몸의 도움 되는 장치들은"], ["[[soften]] extreme highs and lows", "극단적인 높낮이를 [[누그러뜨려]]"], ["so that we can survive.", "우리가 살아남게 한다."]], "fc": [["본문 1번", "고통과 쾌락은 같은 곳에서", "{{brain|뇌}}의 같은 영역에서 처리돼요."], ["본문 2번", "몸은 균형을 계속 추구", "{{homeostasis|항상성}} = 몸의 기능들의 균형이에요."], ["본문 3번", "보상 기제가 높낮이를 완화", "보상 기제가 없으면 {{survive|살아남다}}할 수 없어요."], ["정답 포인트", "{{strive|애쓰다}} = {{seek|추구하다}}, {{cushion|완화하다}} = {{soften|누그러뜨리다}}", "본문 동사가 쉬운 동사로 바뀌어 나와요."]], "evid_full": [{"en": "Our bodies constantly strive for homeostasis, which is defined as the balance of bodily functions.", "ko": "우리 몸은 끊임없이 항상성을 추구하는데, 그것은 몸의 기능들의 균형이라고 정의된다.", "hl": ["constantly strive for homeostasis"], "hlko": ["끊임없이 항상성을 추구하는데"], "n": 2}, {"en": "Without the body’s effective compensatory mechanisms, which may cushion potential highs and lows, we would not be capable of surviving.", "ko": "잠재적인 변동을 완화시킬 수 있는 몸의 효과적인 보상 기제가 없다면 우리는 생존할 수 없을 것이다.", "hl": ["cushion potential highs and lows"], "hlko": ["변동을 완화시킬 수"], "n": 3}]}, {"id": 2, "summary": "Pleasure and pain are like two sides of one coin and keep each other in (A); when one point rises, the other must (B) fall.", "ko": "쾌락과 고통은 한 동전의 양면과 같아서 서로를 <b>(A) 평형</b> 상태로 유지시키며, 한 지점이 올라가면 다른 지점은 <b>(B) 그에 맞게</b> 내려가야 한다.", "opts": [["equilibrium", "never"], ["equilibrium", "accordingly"], ["conflict", "accordingly"], ["conflict", "never"], ["danger", "randomly"]], "optko": ["평형 – 결코 ~않게", "평형 – 그에 맞게", "갈등 – 그에 맞게", "갈등 – 결코 ~않게", "위험 – 제멋대로"], "ans": 1, "wrong": ["never(결코 ~않는)가 틀려요. 저울에서 한쪽이 오르면 다른 쪽은 반드시 내려가요(must correspondingly fall).", null, "conflict(갈등)가 틀려요. 둘은 싸우는 사이가 아니라 서로 의존하며 균형을 유지해요(keep balance).", "둘 다 틀려요. 둘은 갈등하지 않고 균형을 유지하며, 한쪽이 오르면 다른 쪽은 꼭 내려가요.", "둘 다 틀려요. 둘은 위험(danger)한 관계가 아니라 균형 관계이고, 내려가는 것도 제멋대로(randomly)가 아니라 그에 맞게예요."], "evid": [{"n": 4, "hl": ["keep balance"]}, {"n": 5, "hl": ["the other must correspondingly fall"]}], "swaps": [["balance", "equilibrium", "균형 → 평형 상태"], ["correspondingly", "accordingly", "그에 맞게 → 그에 따라"]], "swapnote": "balance(균형)는 equilibrium(평형 상태)으로, correspondingly(그에 맞게)는 accordingly(그에 따라)로 바뀌었어요. 저울의 양쪽이 수평을 이루는 모습을 떠올려요.", "use": [{"w": "equilibrium", "ex": "The scale is in equilibrium when both sides weigh the same.", "ko": "양쪽 무게가 같으면 저울은 평형 상태에 있다.", "wk": "평형, 균형 상태", "hk": "평형 상태"}, {"w": "accordingly", "ex": "The rules changed, so we acted accordingly.", "ko": "규칙이 바뀌어서 우리는 그에 맞게 행동했다.", "wk": "그에 맞게", "hk": "그에 맞게"}], "flow": "본문 4번에서 쾌락과 고통이 동전의 양면처럼 균형을 유지한다고 하고 → 5번에서 If you imagine(상상한다면) 저울의 두 지점으로 비유해 한쪽이 올라가면 다른 쪽이 내려간다고 풀어요.", "jd": [["Pleasure and pain are like two sides of one coin", "쾌락과 고통은 한 동전의 양면과 같고"], ["and keep each other in [[equilibrium]];", "서로를 [[평형]] 상태로 유지시킨다;"], ["when one point rises,", "한 지점이 올라가면,"], ["the other must [[accordingly]] fall.", "다른 지점은 [[그에 맞게]] 내려가야 한다."]], "fc": [["본문 4번", "쾌락과 고통은 동전의 양면", "서로 기대어 {{balance|균형}}을 유지해요."], ["본문 5번", "저울의 두 지점 비유", "한쪽이 {{rise|오르다}}하면 다른 쪽은 내려가요."], ["정답 포인트", "{{balance|균형}} = {{equilibrium|평형 상태}}, {{correspondingly|그에 맞게}} = {{accordingly|그에 따라}}", "저울이 수평을 이루는 모습으로 기억해요."]], "evid_full": [{"en": "Pleasure and pain are like two sides of the same coin; they seem to work together and are heavily reliant on one another and keep balance.", "ko": "쾌락과 고통은 동일한 동전의 두 면과 같아서 그들은 함께 작동하는 것 같으며 서로 상당히 의존하고 있고 균형을 유지한다.", "hl": ["keep balance"], "hlko": ["균형을 유지한다"], "n": 4}, {"en": "If you imagine pleasure and pain as the two opposite points on a scale, you can easily understand that as one of the two points rises, the other must correspondingly fall.", "ko": "만약에 여러분이 쾌락과 고통을 저울 위의 두 반대 지점으로 상상한다면, 여러분은 두 지점 중 한 지점이 올라가면 다른 한 지점이 상응하여 틀림없이 내려갈 것임을 쉽게 이해할 수 있을 것이다.", "hl": ["the other must correspondingly fall"], "hlko": ["다른 한 지점이 상응하여 틀림없이 내려갈"], "n": 5}]}, {"id": 3, "summary": "Trying to escape pain makes us even more (A), because pain is (B) to staying balanced, and accepting it brings our inner scale back to balance.", "ko": "고통에서 벗어나려 하면 우리는 훨씬 더 <b>(A) 불행해지는데</b>, 고통은 균형을 지키는 데 <b>(B) 꼭 필요하고</b> 그것을 받아들이면 내부 저울이 균형으로 돌아오기 때문이다.", "opts": [["unhappy", "useless"], ["comfortable", "vital"], ["unhappy", "vital"], ["comfortable", "harmful"], ["confident", "optional"]], "optko": ["불행한 – 쓸모없는", "편안한 – 꼭 필요한", "불행한 – 꼭 필요한", "편안한 – 해로운", "자신 있는 – 선택적인"], "ans": 2, "wrong": ["useless(쓸모없는)가 틀려요. 본문은 고통이 균형을 지키는 데 꼭 필요한 요소(essential component)라고 해요.", "comfortable(편안한)이 틀려요. 고통을 피하려 하면 오히려 훨씬 더 비참해져요(even more miserable).", null, "둘 다 틀려요. 고통을 피하면 편안해지는 게 아니라 더 괴로워지고, 고통은 해롭기보다 꼭 필요해요.", "둘 다 틀려요. 더 자신 있어지는(confident) 게 아니라 더 비참해지고, 고통은 선택(optional)이 아니라 꼭 필요한 요소예요."], "evid": [{"n": 8, "hl": ["even more miserable"]}, {"n": 9, "hl": ["an essential component", "reset our internal scale back to balance"]}], "swaps": [["miserable", "unhappy", "비참한 → 불행한"], ["essential", "vital", "필수적인 → 아주 중요한"], ["allow", "accept", "허용하다 → 받아들이다"]], "swapnote": "miserable(비참한)은 unhappy(불행한)로, essential(필수적인)은 vital(아주 중요한)로, allow(허용하다)는 accept(받아들이다)로 바뀌었어요.", "use": [{"w": "unhappy", "ex": "He felt unhappy after he lost the game.", "ko": "그는 경기에 진 뒤 불행하다고 느꼈다.", "wk": "불행한", "hk": "불행하다"}, {"w": "vital", "ex": "Water is vital for all living things.", "ko": "물은 모든 생물에게 꼭 필요하다.", "wk": "꼭 필요한", "hk": "꼭 필요하다"}], "flow": "본문 7~8번에서 Lembke 박사가 고통을 피하려는 시도가 오히려 더 비참하게 만든다고 말하고 → 9번에서 This is because(이는 ~ 때문이다)로 이유를 밝혀요. 고통은 꼭 필요하고, 받아들이면 저울이 균형으로 돌아와요.", "jd": [["Trying to escape pain", "고통에서 벗어나려 하면"], ["makes us even more [[unhappy]],", "우리는 훨씬 더 [[불행해지는데]],"], ["because pain is [[vital]] to staying balanced,", "고통은 균형을 지키는 데 [[꼭 필요하기]] 때문이고,"], ["and accepting it brings our inner scale back to balance.", "그것을 받아들이면 내부 저울이 균형으로 돌아온다."]], "fc": [["본문 6~7번", "속담과 전문가의 말", "No pain, no gain에 일리가 있다고 해요."], ["본문 8번", "피하려 할수록 더 비참", "{{escape|벗어나다}}하려는 시도가 반대 결과를 낳아요."], ["본문 9번", "고통은 꼭 필요한 요소", "{{allow|허용하다}}하면 내부 저울이 균형으로 돌아와요."], ["정답 포인트", "{{miserable|비참한}} = {{unhappy|불행한}}, {{essential|필수적인}} = {{vital|아주 중요한}}", "형용사도 쉬운 말로 바뀌어 나와요."]], "evid_full": [{"en": "She says that our attempts to escape being miserable are in fact making us even more miserable.", "ko": "그녀는 우리가 비참함에서 벗어나려는 우리의 시도가 사실 우리를 훨씬 더 비참하게 만들고 있다고 말한다.", "hl": ["even more miserable"], "hlko": ["훨씬 더 비참하게"], "n": 8}, {"en": "This is because pain is actually an essential component of our ability to maintain a neutral state, and allowing it will in turn reset our internal scale back to balance.", "ko": "이는 고통이 실제로 중립적인 상태를 유지하기 위한 우리 능력의 필수적인 구성 요소이기 때문이고, 그것을 허용하는 것은 결과적으로 우리의 내부 저울을 균형 상태로 다시 맞출 것이다.", "hl": ["an essential component", "reset our internal scale back to balance"], "hlko": ["필수적인 구성 요소", "내부 저울을 균형 상태로 다시 맞출"], "n": 9}]}], "gloss": {"ability": ["ability", "능력"], "abundant": ["abundant", "풍부한"], "abuses": ["abuse", "남용, 잘못된 행위"], "accepted": ["accept", "받아들여진, 정립된"], "accepting": ["accept", "받아들이다"], "accommodate": ["accommodate", "수용하다"], "accordingly": ["accordingly", "그에 맞게, 그에 따라"], "active": ["active", "적극적인"], "activist": ["activist", "운동가"], "activities": ["activity", "활동"], "actually": ["actually", "실제로"], "adopted": ["adopt", "채택하다"], "advantage": ["advantage", "이점, 유리한 점"], "advocate": ["advocate", "지지하다"], "africa": ["Africa", "아프리카"], "africa's": ["Africa", "아프리카의"], "against": ["against", "~에 맞서, ~에 대고"], "agreement": ["agreement", "합의, 동의"], "allowing": ["allow", "허용하다, 받아들이다"], "animal": ["animal", "동물"], "animal's": ["animal", "동물의"], "animal’s": ["animal", "동물의"], "animals": ["animal", "동물"], "another": ["another", "또 다른"], "anyone": ["anyone", "누구든지"], "apart": ["apart", "따로 떨어져"], "apartheid": ["apartheid", "아파르트헤이트(남아프리카의 인종 차별 체제)"], "appeared": ["appear", "나타나다"], "argue": ["argue", "주장하다"], "aspect": ["aspect", "측면, 영역"], "associate": ["associate", "연관시키다"], "attempt": ["attempt", "시도"], "attempting": ["attempt", "시도하다"], "attempts": ["attempt", "시도"], "avoid": ["avoid", "피하다"], "avoids": ["avoid", "피하다"], "background": ["background", "배경"], "balance": ["balance", "균형"], "balanced": ["balance", "균형 잡힌"], "ball": ["ball", "공"], "ball's": ["ball", "공의"], "became": ["become", "~이 되었다"], "become": ["become", "~이 되다"], "becomes": ["become", "~이 되다"], "begins": ["begin", "시작되다"], "behaviors": ["behavior", "행동"], "believe": ["believe", "믿다"], "belong": ["belong", "속하다"], "better": ["good", "더 나은"], "binary": ["binary", "쌍성의(둘이 짝을 이룬)"], "birds": ["bird", "새"], "blocked": ["block", "막힌"], "blurs": ["blur", "흐릿해지다"], "bodies": ["body", "몸"], "bodily": ["bodily", "몸의"], "body": ["body", "몸"], "body’s": ["body", "몸의"], "books": ["book", "책"], "border": ["border", "경계"], "borderline": ["borderline", "경계선상의"], "born": ["bear", "태어나다"], "bound": ["bound", "~할 수밖에 없는"], "boundaries": ["boundary", "경계"], "bowling": ["bowling", "볼링"], "breed": ["breed", "번식하다"], "breeding": ["breed", "번식(하기)"], "brief": ["brief", "짧은"], "brings": ["bring", "가져오다"], "broad": ["broad", "넓은"], "brood": ["brood", "한 배에서 난 새끼 무리"], "calculate": ["calculate", "계산하다"], "campaign": ["campaign", "운동하다, 캠페인을 벌이다"], "campaigner": ["campaigner", "활동가"], "cancer": ["cancer", "암"], "capable": ["capable", "~할 수 있는"], "car": ["car", "자동차"], "cases": ["case", "사례"], "center": ["center", "중심"], "certain": ["certain", "특정한"], "challenges": ["challenge", "어려움, 도전"], "challenging": ["challenge", "도전하다"], "chance": ["chance", "기회"], "changes": ["change", "변화"], "checking": ["check", "견주어 보다, 확인하다"], "chooses": ["choose", "선택하다"], "circling": ["circle", "빙빙 돌다"], "claim": ["claim", "주장하다"], "clear": ["clear", "분명한"], "coin": ["coin", "동전"], "collect": ["collect", "모으다"], "comfortable": ["comfortable", "편안한"], "common": ["common", "공통의"], "compare": ["compare", "비교하다"], "compensatory": ["compensatory", "보상하는"], "complain": ["complain", "불평하다"], "completely": ["completely", "완전히"], "complicated": ["complicated", "복잡한"], "component": ["component", "구성 요소"], "compute": ["compute", "계산하다"], "concept": ["concept", "개념"], "conditioned": ["condition", "조건이 붙은, 길들여진"], "confident": ["confident", "자신 있는"], "conflict": ["conflict", "갈등"], "confuse": ["confuse", "혼동하다"], "connect": ["connect", "연결하다"], "connected": ["connect", "연결된"], "consequently": ["consequently", "결과적으로"], "consistent": ["consistent", "일관성 있는"], "constantly": ["constantly", "끊임없이"], "constitution": ["constitution", "헌법"], "consumer": ["consumer", "소비자"], "continued": ["continue", "계속하다"], "conversely": ["conversely", "반대로"], "correspondingly": ["correspondingly", "그에 맞게, 상응하여"], "counts": ["count", "해당하다, ~로 치다"], "country’s": ["country", "나라의"], "create": ["create", "만들어 내다"], "cubes": ["cube", "정육면체, 큐브"], "current": ["current", "현재의"], "cushion": ["cushion", "완화하다, 충격을 줄이다"], "cycle": ["cycle", "순환, 주기"], "danger": ["danger", "위험"], "days": ["day", "날, 일"], "death": ["death", "죽음"], "defined": ["define", "정의하다"], "defining": ["defining", "결정짓는, 핵심이 되는"], "delightful": ["delightful", "아주 즐거운"], "demands": ["demand", "요구, 수요"], "democracy": ["democracy", "민주주의"], "denies": ["deny", "부정하다"], "desert": ["desert", "사막"], "desires": ["desire", "욕구"], "destined": ["destined", "~할 운명인"], "determination": ["determination", "결정, 판정"], "determine": ["determine", "구하다, 결정하다"], "developed": ["develop", "발전하다"], "device": ["device", "기기"], "devices": ["device", "기기"], "died": ["die", "죽다"], "differences": ["difference", "차이"], "different": ["different", "다른"], "digital": ["digital", "디지털의"], "directly": ["directly", "직접적으로"], "discovering": ["discover", "발견하다"], "dislike": ["dislike", "싫어하다"], "distance": ["distance", "거리"], "distant": ["distant", "먼"], "distinct": ["distinct", "별개의"], "distinction": ["distinction", "구분"], "distinguish": ["distinguish", "구분하다"], "disturbing": ["disturbing", "당황스러운, 불안하게 하는"], "divide": ["divide", "나누다"], "doubt": ["doubt", "의심"], "draw": ["draw", "(선을) 긋다, 그리다"], "drafting": ["draft", "(문서를) 작성하기"], "drug": ["drug", "약"], "eager": ["eager", "간절히 바라는"], "easier": ["easy", "더 쉬운"], "easily": ["easily", "쉽게"], "edge": ["edge", "가장자리"], "effective": ["effective", "효과적인"], "efficacy": ["efficacy", "효과, 효능"], "efforts": ["effort", "노력"], "elected": ["elect", "선출하다"], "electronics": ["electronics", "전자 제품"], "else": ["else", "그 밖의"], "elsewhere": ["elsewhere", "다른 곳에서"], "enough": ["enough", "충분히"], "ended": ["end", "끝나다"], "equations": ["equation", "방정식"], "equator": ["equator", "적도"], "equilibrium": ["equilibrium", "평형, 균형 상태"], "escape": ["escape", "벗어나다"], "essential": ["essential", "필수적인, 본질적인"], "establish": ["establish", "세우다, 정하다"], "estimation": ["estimation", "추정"], "exceptional": ["exceptional", "예외적인"], "exclude": ["exclude", "제외하다"], "existing": ["exist", "존재하는"], "expansive": ["expansive", "광범위한, 넓은"], "expensive": ["expensive", "비싼"], "experience": ["experience", "경험"], "experiences": ["experience", "경험"], "exposing": ["expose", "폭로하다"], "extreme": ["extreme", "극단적인"], "faced": ["face", "마주하다"], "fail": ["fail", "실패하다"], "fall": ["fall", "내려가다, 떨어지다"], "false": ["false", "거짓의"], "families": ["family", "가족, 새끼 무리"], "family": ["family", "가족"], "faraway": ["faraway", "아주 먼"], "fascinating": ["fascinating", "흥미로운"], "favor": ["favor", "~을 선호하는 쪽"], "fear": ["fear", "두려움"], "feelings": ["feeling", "느낌"], "feels": ["feel", "느끼다"], "few": ["few", "몇몇의"], "figure": ["figure", "알아내다"], "financial": ["financial", "재정적인"], "find": ["find", "찾다, 알아내다"], "finding": ["find", "알아내다"], "flexible": ["flexible", "유연한"], "flying": ["fly", "나는"], "forget": ["forget", "잊다"], "formed": ["form", "만들다, 형성하다"], "forms": ["form", "형태"], "forum": ["forum", "토론의 장"], "fought": ["fight", "싸우다"], "found": ["find", "찾다, 알아내다"], "fridge": ["fridge", "냉장고"], "functions": ["function", "기능"], "funny": ["funny", "웃기는"], "gain": ["gain", "늘리다, 얻다"], "gathering": ["gather", "모으기"], "generation": ["generation", "세대"], "genuine": ["genuine", "진짜의"], "germiston": ["Germiston", "저미스턴(남아프리카의 도시)"], "government’s": ["government", "정부의"], "grams": ["gram", "그램(g)"], "group": ["group", "모음, 무리"], "grow": ["grow", "커지다"], "guesses": ["guess", "짐작"], "guessing": ["guess", "짐작하다"], "habit": ["habit", "습관"], "happens": ["happen", "일어나다"], "harder": ["hard", "더 어려운"], "harmful": ["harmful", "해로운"], "harsh": ["harsh", "강경한, 가혹한"], "healthy": ["healthy", "건강한"], "heavily": ["heavily", "상당히, 크게"], "helen": ["Helen", "헬렌(사람 이름)"], "helpful": ["helpful", "도움이 되는"], "helps": ["help", "돕다"], "hidden": ["hidden", "숨겨진"], "hide": ["hide", "숨기다"], "hides": ["hide", "숨기다"], "highlighting": ["highlight", "돋보이게 하다"], "highs": ["high", "높은 상태, 최고점"], "homeostasis": ["homeostasis", "항상성(몸의 균형)"], "however": ["however", "그러나"], "human": ["human", "인간의"], "idea": ["idea", "개념, 생각"], "ignored": ["ignore", "무시되는"], "ignores": ["ignore", "무시하다"], "ignoring": ["ignore", "무시하다"], "imagine": ["imagine", "상상하다"], "immigrant": ["immigrant", "이민자"], "incapable": ["incapable", "~할 수 없는"], "include": ["include", "포함하다"], "increase": ["increase", "키우다, 늘리다"], "independently": ["independently", "독립적으로"], "indicates": ["indicate", "나타내다"], "indirectly": ["indirectly", "간접적으로"], "influenced": ["influence", "영향을 주다"], "initiate": ["initiate", "시작하다"], "inner": ["inner", "내부의"], "instance": ["instance", "사례"], "internal": ["internal", "내부의"], "involves": ["involve", "포함하다"], "itch": ["itch", "(~하고 싶은) 욕구"], "it’s": ["it is", "그것은 ~이다"], "jewish": ["Jewish", "유대인의"], "joined": ["join", "가입하다"], "judge": ["judge", "판사"], "keep": ["keep", "유지하다"], "keeps": ["keep", "계속하다"], "kepler’s": ["Kepler", "케플러의"], "known": ["know", "알려진, 이미 아는"], "lacks": ["lack", "부족하다, 없다"], "larger": ["large", "더 큰"], "law": ["law", "법칙, 법"], "laws": ["law", "법"], "leads": ["lead", "이끌다"], "led": ["lead", "이끌다, 유도하다"], "left": ["leave", "떠났다"], "length": ["length", "길이"], "lies": ["lie", "놓여 있다"], "life": ["life", "생명, 삶"], "lifeline": ["lifeline", "생명줄"], "liked": ["like", "좋아했다"], "liking": ["liking", "좋아함"], "limit": ["limit", "한계, 한정하다"], "limited": ["limit", "한정된"], "line": ["line", "선, 경계"], "logically": ["logically", "논리적으로"], "loosely": ["loosely", "느슨하게"], "loud": ["loud", "시끄러운"], "lows": ["low", "낮은 상태, 최저점"], "ludwig": ["Ludwig", "루트비히(사람 이름)"], "magnitudes": ["magnitude", "크기, 규모"], "mainly": ["mainly", "주로"], "maintain": ["maintain", "유지하다"], "makers": ["maker", "만드는 회사, 제조사"], "makes": ["make", "만들다"], "making": ["make", "만들다"], "march": ["march", "행진"], "mass": ["mass", "질량"], "measure": ["measure", "재다, 측정하다"], "measured": ["measure", "측정하다"], "measurement": ["measurement", "측정"], "measuring": ["measure", "재다, 측정하다"], "mechanisms": ["mechanism", "장치, 기제"], "members": ["member", "구성원"], "merge": ["merge", "합치다"], "metal": ["metal", "금속"], "method": ["method", "방법, 방식"], "mice": ["mouse", "쥐"], "middle": ["middle", "가운데"], "migrant": ["migrant", "이주민"], "mild": ["mild", "부드러운, 온화한"], "miserable": ["miserable", "비참한"], "moderate": ["moderate", "온건한"], "modern": ["modern", "최신의, 현대의"], "months": ["month", "달, 개월"], "morphine": ["morphine", "모르핀(통증을 덜어 주는 약)"], "mostly": ["mostly", "주로"], "move": ["move", "움직이다"], "moves": ["move", "움직이다"], "multi-racial": ["multi-racial", "다인종의"], "museum": ["museum", "박물관"], "native": ["native", "원주민의, 토박이의"], "neatly": ["neatly", "깔끔하게"], "need": ["need", "필요(로 하다)"], "needs": ["need", "필요(한 것)"], "neutral": ["neutral", "중립적인"], "never": ["never", "결코 ~않는"], "newest": ["new", "가장 새로운"], "noise": ["noise", "소리, 소음"], "nomadic": ["nomadic", "유목하는"], "non-reading": ["non-reading", "읽기가 아닌 것"], "nonreading": ["nonreading", "읽기가 아닌 것"], "not-reading": ["not-reading", "읽기가 아닌 것"], "nothing": ["nothing", "아무것도 없는 것"], "number": ["number", "수, 여러"], "onto": ["onto", "~ 위로"], "opportunity": ["opportunity", "기회"], "opposite": ["opposite", "반대의"], "optional": ["optional", "선택적인"], "order": ["order", "순서"], "ordinary": ["ordinary", "평범한"], "organs": ["organ", "기관"], "outcome": ["outcome", "결과"], "outdated": ["outdated", "구식인"], "owing": ["owing", "~ 때문에 (owing to)"], "pace": ["pace", "속도"], "pain": ["pain", "고통"], "pain-relieving": ["pain-relieving", "통증을 덜어 주는"], "parents": ["parent", "부모"], "parliament": ["parliament", "의회"], "party": ["party", "정당"], "peak": ["peak", "최고조"], "people": ["people", "사람들"], "perhaps": ["perhaps", "어쩌면"], "period": ["period", "주기, 기간"], "phone": ["phone", "휴대폰"], "phones": ["phone", "휴대폰"], "phrase": ["phrase", "어구, 표현"], "physically": ["physically", "신체적으로"], "piece": ["piece", "조각, 물건"], "place": ["place", "장소"], "places": ["place", "장소"], "plant": ["plant", "심다"], "pleasure": ["pleasure", "쾌락"], "point": ["point", "지점"], "points": ["point", "지점"], "political": ["political", "정치적인"], "position": ["position", "입장"], "potential": ["potential", "잠재적인"], "powerful": ["powerful", "강력한"], "praised": ["praise", "칭찬하다"], "prefer": ["prefer", "더 좋아하다"], "preference": ["preference", "선호"], "priorities": ["priority", "우선순위"], "prize": ["prize", "상"], "product": ["product", "제품"], "productive": ["productive", "생산적인"], "progressive": ["progressive", "진보적인"], "promises": ["promise", "약속하다"], "prompted": ["prompt", "일으키다, 유발하다"], "properties": ["property", "특성"], "proves": ["prove", "증명하다"], "put": ["put", "넣다, 놓다"], "qualifies": ["qualify", "자격을 주다, 인정받다"], "quantities": ["quantity", "수치, 양"], "quit": ["quit", "그만두다"], "racist": ["racist", "인종 차별적인"], "rain": ["rain", "비"], "raise": ["raise", "기르다"], "raised": ["raise", "기르다"], "randomly": ["randomly", "제멋대로, 무작위로"], "range": ["range", "범위, 종류"], "rarely": ["rarely", "거의 ~않게"], "rather": ["rather", "오히려"], "reading": ["read", "읽기"], "received": ["receive", "받다"], "recorded": ["record", "기록되는"], "reduce": ["reduce", "줄이다"], "reform-minded": ["reform-minded", "개혁을 바라는"], "regions": ["region", "지역"], "reject": ["reject", "거부하다"], "related": ["relate", "관련된"], "relentless": ["relentless", "끈질긴"], "relentlessly": ["relentlessly", "끈질기게"], "reliant": ["reliant", "의존하는"], "relieve": ["relieve", "덜어 주다"], "reluctant": ["reluctant", "꺼리는"], "reluctantly": ["reluctantly", "마지못해"], "remained": ["remain", "~로 남다"], "repeat": ["repeat", "반복하다"], "replace": ["replace", "바꾸다, 대체하다"], "reproductive": ["reproductive", "번식의, 생식의"], "republic": ["republic", "공화국"], "require": ["require", "필요로 하다, 요구하다"], "requires": ["require", "필요로 하다"], "researchers": ["researcher", "연구자"], "reset": ["reset", "다시 맞추다"], "resemblances": ["resemblance", "닮은 점"], "rest": ["rest", "바탕을 두다"], "retired": ["retire", "은퇴하다"], "retirement": ["retirement", "은퇴"], "returning": ["return", "돌아가다"], "revolutionize": ["revolutionize", "혁신하다, 크게 바꾸다"], "reward": ["reward", "보상"], "rights": ["right", "권리"], "rises": ["rise", "오르다"], "roughly": ["roughly", "대략적으로"], "royal": ["royal", "왕족의"], "rule": ["rule", "규칙"], "ruler": ["ruler", "통치자"], "rules": ["rule", "규칙"], "saline": ["saline", "식염수"], "save": ["save", "아끼다"], "scale": ["scale", "저울"], "scarcest": ["scarce", "가장 부족한"], "scientists": ["scientist", "과학자"], "seabirds": ["seabird", "바닷새"], "season": ["season", "계절, 시기"], "secretly": ["secretly", "몰래"], "seeing": ["see", "보다"], "seeks": ["seek", "추구하다"], "seem": ["seem", "~인 것 같다"], "seems": ["seem", "~인 것 같다"], "self-driving": ["self-driving", "자율 주행의"], "set": ["set", "묶음, 모음"], "several": ["several", "여러"], "shaping": ["shape", "형성하다"], "shift": ["shift", "변화"], "shifting": ["shift", "바꾸다"], "shortage": ["shortage", "부족"], "showed": ["show", "보여 주다"], "shrinks": ["shrink", "줄어들다"], "sides": ["side", "면, 쪽"], "silent": ["silent", "조용한"], "similarities": ["similarity", "유사성, 닮은 점"], "simple": ["simple", "단순한"], "simpler": ["simple", "더 단순한"], "simply": ["simply", "단순히"], "single": ["single", "하나의"], "skillfully": ["skillfully", "솜씨 좋게"], "skip": ["skip", "건너뛰다"], "smaller": ["small", "더 작은"], "smart": ["smart", "스마트한, 똑똑한"], "social": ["social", "사회적인"], "soften": ["soften", "부드럽게 하다, 누그러뜨리다"], "soldier": ["soldier", "군인"], "something": ["something", "무언가"], "songbirds": ["songbird", "명금(노래하는 작은 새)"], "south": ["south", "남쪽의"], "special": ["special", "특별한"], "species": ["species", "종"], "spectrum": ["spectrum", "스펙트럼, 연속적인 범위"], "spend": ["spend", "(시간을) 보내다"], "spills": ["spill", "넘쳐흐르다"], "split": ["split", "나누다, 쪼개다"], "spreads": ["spread", "퍼지다"], "stance": ["stance", "입장"], "star": ["star", "별"], "star's": ["star", "별의"], "stars": ["star", "별"], "start": ["start", "시작하다"], "starts": ["start", "시작되다"], "state": ["state", "상태"], "staying": ["stay", "머무르다, 유지하다"], "stimulus": ["stimulus", "자극"], "stops": ["stop", "멈추다"], "storm": ["storm", "폭풍"], "stretch": ["stretch", "넓히다, 늘이다"], "strive": ["strive", "애쓰다"], "stronger": ["strong", "더 강한"], "sudden": ["sudden", "갑작스러운"], "suddenly": ["suddenly", "갑자기"], "suggests": ["suggest", "시사하다"], "supply": ["supply", "공급"], "survive": ["survive", "살아남다"], "surviving": ["survive", "살아남기"], "suzman": ["Suzman", "수즈먼(사람 이름)"], "system": ["system", "체제, 기관"], "systems": ["system", "장치, 체제"], "taught": ["teach", "가르치다"], "tell": ["tell", "구별하다, 말하다"], "term’s": ["term", "용어의"], "theories": ["theory", "이론"], "thus": ["thus", "그러므로"], "tied": ["tie", "묶인"], "tirelessly": ["tirelessly", "지칠 줄 모르고"], "together": ["together", "함께"], "took": ["take", "취하다"], "total": ["total", "총"], "trait": ["trait", "특성"], "train": ["train", "훈련시키다"], "trends": ["trend", "유행"], "tries": ["try", "시도"], "triggered": ["trigger", "촉발하다"], "true": ["true", "진정한, 진짜의"], "try": ["try", "시도"], "trying": ["try", "시도하다"], "turn": ["turn", "돌리다"], "turns": ["turn", "~이 되다, 돌리다"], "typical": ["typical", "전형적인"], "unable": ["unable", "~하지 못하는"], "unclear": ["unclear", "불분명한"], "understand": ["understand", "이해하다"], "understanding": ["understanding", "이해"], "unhappy": ["unhappy", "불행한"], "union": ["union", "연방, 연합"], "united": ["united", "통합된, 연합한"], "unlikely": ["unlikely", "~할 것 같지 않은"], "unmediated": ["unmediated", "중재되지 않은, 곧바로인"], "unpleasant": ["unpleasant", "불쾌한"], "unstoppable": ["unstoppable", "멈출 수 없는"], "unusual": ["unusual", "특이한"], "unwelcome": ["unwelcome", "달갑지 않은"], "upgrade": ["upgrade", "업그레이드(새것으로 바꾸기)"], "urge": ["urge", "욕구"], "urgent": ["urgent", "급한"], "useful": ["useful", "유용한"], "useless": ["useless", "쓸모없는"], "usually": ["usually", "대개"], "utter": ["utter", "절대적인, 완전한"], "value": ["value", "값"], "values": ["value", "값"], "various": ["various", "다양한"], "version": ["version", "버전"], "vital": ["vital", "꼭 필요한, 아주 중요한"], "voice": ["voice", "목소리, 대변자"], "want": ["want", "원하다"], "wanted": ["want", "원했다"], "wants": ["want", "원하는 것"], "warm": ["warm", "따뜻한"], "warm-region": ["warm-region", "따뜻한 지역의"], "weak": ["weak", "약한"], "weigh": ["weigh", "무게를 재다"], "weighing": ["weigh", "무게가 나가는"], "weight": ["weight", "몸무게, 무게"], "we’re": ["we are", "우리는 ~이다"], "whereas": ["whereas", "반면에"], "wide": ["wide", "넓은"], "wishing": ["wish", "바라는"], "within": ["within", "~ 안에"], "without": ["without", "~ 없이"], "wittgenstein": ["Wittgenstein", "비트겐슈타인(철학자 이름)"], "words": ["word", "말, 단어"], "work": ["work", "작용하다, 일하다"], "working": ["work", "일하는"], "worth": ["worth", "~할 가치가 있는"], "year": ["year", "해, 년"], "years": ["year", "해, 년"], "young": ["young", "새끼"], "out": ["out", "밖으로, (find out) 알아내다"], "such": ["such", "~ 같은"], "things": ["thing", "상황, 것들"], "get": ["get", "~해지다"], "know": ["know", "알다"], "other": ["other", "다른"], "first": ["first", "먼저"], "say": ["say", "말하다"], "says": ["say", "말하다"], "between": ["between", "~ 사이에"], "use": ["use", "사용하다"], "third": ["third", "제3의"], "into": ["into", "~ 안으로"], "before": ["before", "~ 전에"], "like": ["like", "~와 같은"], "same": ["same", "같은"], "even": ["even", "~조차, 훨씬"], "because": ["because", "~ 때문에"], "back": ["back", "다시 제자리로"], "being": ["be", "~인 상태"], "fact": ["fact", "사실"], "about": ["about", "~에 대한"], "ago": ["ago", "~ 전에"], "fast": ["fast", "빠른"], "now": ["now", "지금"], "often": ["often", "종종"], "there’s": ["there is", "~이 있다"], "almost": ["almost", "거의"], "every": ["every", "모든"], "toward": ["toward", "~을 향해"], "towards": ["towards", "~을 향해"], "next": ["next", "다음의"], "over": ["over", "넘어"], "what’s": ["what is", "~하는 것은"], "new": ["new", "새로운"], "after": ["after", "~ 후에"], "until": ["until", "~까지"], "end": ["end", "끝"], "way": ["way", "방법"], "food": ["food", "먹이, 음식"], "time": ["time", "시간"], "given": ["give", "주어진"], "example": ["example", "예"], "show": ["show", "보여 주다"], "used": ["use", "사용되는"], "near": ["near", "~ 근처에"], "day": ["day", "낮, 하루"], "goes": ["go", "진행되다"], "well": ["well", "잘"], "times": ["time", "때"], "doing": ["do", "하다"], "take": ["take", "취하다"], "full": ["full", "충분한"], "ways": ["way", "방식"], "seen": ["see", "보이는"], "everything": ["everything", "모든 것"], "think": ["think", "생각하다"], "having": ["have", "가지다"], "since": ["since", "~ 때문에"], "ends": ["end", "끝나다"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="jusung-go2";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH;
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);render();
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){return (DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}})}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../index.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">밑줄 단어를 누르면 뜻이 나와요. 번호를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+words(o[0])+'<span class="dash">–</span>'+words(o[1])+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'</li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>
