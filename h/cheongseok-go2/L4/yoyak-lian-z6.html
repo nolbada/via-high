@@ -141,6 +141,7 @@ details li{font-size:15px;margin:4px 0;list-style:none}
 .wl .lw{font-weight:800;font-size:18px;min-width:96px}
 .wl .lm{color:var(--sub);font-size:15.5px;flex:1}
 .wl .rmw{border:1px solid var(--line);background:#fff;color:var(--sub);border-radius:8px;padding:4px 10px;font-size:13px}
+.qn{font-size:12px;font-weight:800;color:#fff;background:var(--sub);border-radius:6px;padding:2px 6px;margin-right:6px;flex:none}
 .wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
 .fl{display:flex;gap:8px;margin:8px 0}
 .fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
@@ -357,7 +358,13 @@ function pushSw(id){
   PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
   try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
 }
-function swList(){return (DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}})}
+function swList(){
+  var L=(DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}}),seen={};
+  L.forEach(function(s){seen[s.a.toLowerCase()]=1});
+  /* 모든 문제의 '이 단어, 이렇게 바뀌었어요' 단어도 빠짐없이 바꿔 말하기 연습에 넣는다 */
+  Qs.forEach(function(q,qi){(q.swaps||[]).forEach(function(w){var k=String(w[0]).toLowerCase();if(seen[k])return;seen[k]=1;L.push({a:w[0],form:w[0],b:w[1],k:w[2],id:'sw:'+k,n:0,sq:qi+1,sum:'',hook:'',en:'',ko:''})})});
+  return L.map(function(s,i){return {s:s,i:i}}).sort(function(x,y){return (x.s.sq-y.s.sq)||(x.i-y.i)}).map(function(x){return x.s});
+}
 function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
 function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
 var swOpen={},swD={};
@@ -470,7 +477,7 @@ function vSw(){
   h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
   L.forEach(function(s){
     var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
-    h+='<div class="swr"><div class="swq"><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    h+='<div class="swr"><div class="swq"><span class="qn">'+s.sq+'번</span><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
     if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
     h+='</div>';
   });
