@@ -14,7 +14,7 @@ def reorder(q,TARGET):
     q['ans']=t
 def main(path):
     ns=load(path); META=ns['META']
-    d=json.loads(open(VH+META['src'],encoding='utf-8').read().split('=',1)[1].rsplit(';',1)[0])
+    d=json.loads(open(META['src'] if META['src'].startswith('/') else VH+META['src'],encoding='utf-8').read().split('=',1)[1].rsplit(';',1)[0])
     P=d['passages'][META['pidx']]; EN,KO=P['en'],P['ko']
     Q,G,JD,FC,STORY,SCENES,HLKO,UM,TARGET=[ns[k] for k in ('Q','G','JD','FC','STORY','SCENES','HLKO','UM','TARGET')]
     assert sorted(TARGET)==[q['id'] for q in Q],'TARGET ids'
@@ -54,9 +54,9 @@ def main(path):
     T=T.replace("var SCH='geumcheon-go1';","var SCH="+json.dumps(META['sch'])+";")
     T=T.replace('<title>4과 요약문 연습 ❶ · 금천고1</title>','<title>%s 요약문 연습 %s</title>'%(META['lesson'],META['label']))
     T=re.sub(r"<span class=\"tag\">금천고1</span><h1>4과 AI Neural Implants</h1><p class=\"sub\">요약문 완성 ❶ · 5문제</p>",
-      lambda m:"<a class=\"tag\" href=\"../index.html\" style=\"text-decoration:none\">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class=\"sub\">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p>",T)
+      lambda m:"<a class=\"tag\" href=\"../yoyak.html\" style=\"text-decoration:none\">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class=\"sub\">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p>",T)
     out=T.replace('__DATA__',json.dumps(full,ensure_ascii=False))
     os.makedirs('out',exist_ok=True)
-    open('out/%s__%s__%s.html'%(META['sch'],META['src'].split('/')[1],META['page']),'w',encoding='utf-8').write(out)
+    open('out/%s__%s__%s.html'%(META['sch'],META.get('dir') or META['src'].split('/')[1],META['page']),'w',encoding='utf-8').write(out)
     print('OK',base,len(Q),'questions',len(out))
 if __name__=='__main__': main(sys.argv[1])
