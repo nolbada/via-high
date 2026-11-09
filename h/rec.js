@@ -218,7 +218,7 @@
   W.REC={id:ident,sync:function(){var id=ident();return id?sync(id,true):Promise.resolve(false)}};
   /* 첫 화면이 아닌 곳: 이름이 없으면 문제 화면을 열지 않고 첫 화면으로 안내 */
   function lockOther(){
-    if(KIND==='gimal'||g(NK)||exempt())return;
+    if(KIND==='gimal'||g(NK)||exempt()||W.REC_NOGATE)return;
     if(/-(go1|go2)\/(index\.html|tth\.html)?$/.test(P))return;
     var o=overlay(),home=P.replace(/(\/h\/[a-z]+-(?:go1|go2)\/).*$/,'$1');
     o.innerHTML='<div style="max-width:520px;margin:0 auto;padding:36px 20px;font-size:17px;line-height:1.6"><b style="display:block;margin-bottom:14px">이름을 먼저 등록해야 문제를 풀 수 있어요</b><a href="'+home+'" style="display:block;text-align:center;font-weight:700;padding:14px;border-radius:10px;background:var(--pri,#1d4ed8);color:#fff;text-decoration:none">처음 화면에서 이름 등록</a></div>';
