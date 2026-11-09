@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>4과 요약문 연습 ❹</title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "cheongseok-go1", "src": "cheongseok-go1/L4/sx-data.js", "pidx": 3, "lesson": "4과", "title": "자연이 준 환경 해결책", "label": "❹", "page": "yoyak-lian-z4"}, "scenes": [{"tag": "본문 1~2번", "ns": [1, 2], "line": "산업이 흙에 [[pollution|오염]]을 일으킨다. 오염된 흙을 파서 옮기는 건 [[expensive|비용이 많이 든다]].", "en": ["Mining and other industries are causing soil pollution across the globe.", "Although polluted soil can be dug up and transported to a landfill, this process is expensive."], "kos": ["광산업과 다른 산업들이 전 세계적으로 토양 오염을 일으키고 있다.", "비록 오염된 흙이 파져서 매립지로 옮겨질 수는 있지만, 이 과정은 비용이 많이 든다."]}, {"tag": "본문 5번", "ns": [5], "line": "해결책은 버드나무! 뿌리가 [[extensive|넓게]] 퍼져 있다.", "en": ["These amazing trees have extensive and well-developed root systems."], "kos": ["이 놀라운 나무들은 광범위하고 잘 발달된 뿌리 체계를 가지고 있다."]}, {"tag": "본문 6~7번", "ns": [6, 7], "line": "뿌리가 해로운 물질을 [[extract|뽑아내고]], 나쁜 흙에서도 [[quickly|빨리]] 자란다.", "en": ["As a result, they naturally extract a wide range of harmful materials from the soil.", "They can also grow quickly, even in soil with a high acidity level or a lot of heavy metals in it."], "kos": ["결과적으로, 그들은 토양으로부터 광범위한 해로운 물질들을 자연적으로 추출한다.", "그들은 심지어 산도가 높거나 안에 중금속을 많이 품은 토양에서도 빠르게 자랄 수 있다."]}, {"tag": "본문 9~10번", "ns": [9, 10], "line": "어떤 버드나무는 해로운 물질을 더 잘 [[absorb|흡수한다]]. 가장 좋은 나무를 찾도록 더 [[explored|탐구해야]] 한다.", "en": ["Scientists have found that some species of willow trees are able to absorb harmful materials better than others.", "Therefore, this promising area should be further explored to find out which trees are the most effective."], "kos": ["과학자들은 몇몇 종류의 버드나무가 다른 것(종류)들에 비해 해로운 물질을 더 잘 흡수할 수 있다는 것을 알아냈다.", "그러므로, 어떤 (종류의) 나무들이 가장 효과적인지를 찾아내기 위해 이 촉망받는 분야는 더 깊게 탐구되어야 한다."]}], "story": [{"a": "pollution", "form": "pollution", "n": 1, "sq": 1, "sum": "are [[contaminating]] the soil", "hook": "산업이 전 세계 흙을 망친다는 첫 문장의 pollution(오염) → 요약문에서는 contaminating(오염시키는)으로 바꿨어요.", "b": "contaminate", "k": "오염 → 오염시키다", "en": "Mining and other industries are causing soil pollution across the globe.", "ko": "광산업과 다른 산업들이 전 세계적으로 토양 오염을 일으키고 있다."}, {"a": "expensive", "form": "expensive", "n": 2, "sq": 1, "sum": "is [[costly]] and does not truly solve", "hook": "흙을 파서 매립지로 옮기면 돈이 많이 든다는 문장의 expensive(비싼) → 요약문에서는 costly(비용이 많이 드는)로 바뀌었어요.", "b": "costly", "k": "비싼 → 비용이 많이 드는", "en": "Although polluted soil can be dug up and transported to a landfill, this process is expensive.", "ko": "비록 오염된 흙이 파져서 매립지로 옮겨질 수는 있지만, 이 과정은 비용이 많이 든다."}, {"a": "extensive", "form": "extensive", "n": 5, "sq": 2, "sum": "have [[broad]] and well-developed root systems", "hook": "버드나무 뿌리가 쫙 퍼져 있다는 문장의 extensive(광범위한) → 요약문에서는 broad(넓은)로 바꿨어요.", "b": "broad", "k": "광범위한 → 넓은", "en": "These amazing trees have extensive and well-developed root systems.", "ko": "이 놀라운 나무들은 광범위하고 잘 발달된 뿌리 체계를 가지고 있다."}, {"a": "extract", "form": "extract", "n": 6, "sq": 3, "sum": "naturally [[remove]] harmful materials", "hook": "뿌리가 흙 속 해로운 물질을 쏙 뽑아낸다는 문장의 extract(뽑아내다) → 요약문에서는 remove(제거하다)로 바꿨어요.", "b": "remove", "k": "뽑아내다 → 제거하다", "en": "As a result, they naturally extract a wide range of harmful materials from the soil.", "ko": "결과적으로, 그들은 토양으로부터 광범위한 해로운 물질들을 자연적으로 추출한다."}, {"a": "quickly", "form": "quickly", "n": 7, "sq": 3, "sum": "grow [[rapidly]] even in very acidic soil", "hook": "나쁜 흙에서도 쑥쑥 자란다는 문장의 quickly(빠르게) → 요약문에서는 rapidly(신속히)로 바꿨어요.", "b": "rapidly", "k": "빠르게 → 신속히, 빠르게", "en": "They can also grow quickly, even in soil with a high acidity level or a lot of heavy metals in it.", "ko": "그들은 심지어 산도가 높거나 안에 중금속을 많이 품은 토양에서도 빠르게 자랄 수 있다."}, {"a": "absorb", "form": "absorb", "n": 9, "sq": 4, "sum": "can [[collect]] harmful materials better than others", "hook": "어떤 버드나무가 해로운 물질을 더 잘 빨아들인다는 문장의 absorb(흡수하다) → 요약문에서는 collect(모으다)로 바꿨어요.", "b": "collect", "k": "흡수하다 → 모으다", "en": "Scientists have found that some species of willow trees are able to absorb harmful materials better than others.", "ko": "과학자들은 몇몇 종류의 버드나무가 다른 것(종류)들에 비해 해로운 물질을 더 잘 흡수할 수 있다는 것을 알아냈다."}, {"a": "explore", "form": "explored", "n": 10, "sq": 4, "sum": "further [[investigated]]", "hook": "어떤 나무가 최고인지 더 깊이 알아봐야 한다는 문장의 explored(탐구되다) → 요약문에서는 investigated(조사되다)로 바꿨어요.", "b": "investigate", "k": "탐구하다 → 조사하다", "en": "Therefore, this promising area should be further explored to find out which trees are the most effective.", "ko": "그러므로, 어떤 (종류의) 나무들이 가장 효과적인지를 찾아내기 위해 이 촉망받는 분야는 더 깊게 탐구되어야 한다."}], "passage": [{"n": 1, "en": "Mining and other industries are causing soil pollution across the globe.", "ko": "광산업과 다른 산업들이 전 세계적으로 토양 오염을 일으키고 있다."}, {"n": 2, "en": "Although polluted soil can be dug up and transported to a landfill, this process is expensive.", "ko": "비록 오염된 흙이 파져서 매립지로 옮겨질 수는 있지만, 이 과정은 비용이 많이 든다."}, {"n": 3, "en": "Moreover, it only moves the problem to another area and does not really solve it.", "ko": "게다가, 이것은 단지 문제를 다른 곳으로 옮기는 것이며 그것(문제)을 실제로 해결하지 않는다."}, {"n": 4, "en": "Fortunately, there is an eco-friendly and cost-effective way to restore polluted soil — planting willow trees.", "ko": "다행히도, 오염된 흙을 복구하는 친환경적이고 비용 대비 효과적인 방법이 있는데, 바로 버드나무를 심는 것이다."}, {"n": 5, "en": "These amazing trees have extensive and well-developed root systems.", "ko": "이 놀라운 나무들은 광범위하고 잘 발달된 뿌리 체계를 가지고 있다."}, {"n": 6, "en": "As a result, they naturally extract a wide range of harmful materials from the soil.", "ko": "결과적으로, 그들은 토양으로부터 광범위한 해로운 물질들을 자연적으로 추출한다."}, {"n": 7, "en": "They can also grow quickly, even in soil with a high acidity level or a lot of heavy metals in it.", "ko": "그들은 심지어 산도가 높거나 안에 중금속을 많이 품은 토양에서도 빠르게 자랄 수 있다."}, {"n": 8, "en": "Research on the effectiveness of using willow trees for this purpose is in development.", "ko": "이러한 목적으로 버드나무를 활용하는 것의 효율성에 대한 연구가 진행되고 있다."}, {"n": 9, "en": "Scientists have found that some species of willow trees are able to absorb harmful materials better than others.", "ko": "과학자들은 몇몇 종류의 버드나무가 다른 것(종류)들에 비해 해로운 물질을 더 잘 흡수할 수 있다는 것을 알아냈다."}, {"n": 10, "en": "Therefore, this promising area should be further explored to find out which trees are the most effective.", "ko": "그러므로, 어떤 (종류의) 나무들이 가장 효과적인지를 찾아내기 위해 이 촉망받는 분야는 더 깊게 탐구되어야 한다."}, {"n": 11, "en": "In time, we may be able to clean up our land with willow trees.", "ko": "조만간, 우리는 버드나무로 우리의 땅을 깨끗하게 할 수 있을지도 모른다."}], "questions": [{"id": 1, "summary": "Industries around the world are (A) the soil, and moving polluted soil to a landfill is (B) and does not truly solve the problem.", "ko": "전 세계의 산업들이 흙을 <b>(A) 오염시키고</b> 있고, 오염된 흙을 매립지로 옮기는 것은 <b>(B) 비용이 많이 들며</b> 문제를 진짜로 해결하지도 못한다.", "opts": [["contaminating", "cheap"], ["cleaning", "costly"], ["cleaning", "cheap"], ["contaminating", "costly"], ["protecting", "simple"]], "optko": ["오염시키다 – 값싼", "깨끗이 하다 – 비용이 많이 드는", "깨끗이 하다 – 값싼", "오염시키다 – 비용이 많이 드는", "보호하다 – 간단한"], "ans": 3, "wrong": ["cheap(값싼)이 틀려요. 본문은 흙을 파서 옮기는 과정이 비용이 많이 든다(expensive)고 해요.", "cleaning(깨끗이 하다)이 틀려요. 산업이 하는 일은 흙을 깨끗이 하는 게 아니라 오염(pollution)을 일으키는 거예요.", "둘 다 틀려요. 산업은 흙을 깨끗이 하지 않고 오염시키며, 옮기는 과정은 값싼 게 아니라 비싸요.", null, "둘 다 틀려요. 산업이 흙을 보호한다는 말도, 과정이 간단하다(simple)는 말도 본문에 없어요."], "evid": [{"n": 1, "hl": ["causing soil pollution"]}, {"n": 2, "hl": ["this process is expensive"]}], "swaps": [["pollution", "contaminate", "오염 → 오염시키다"], ["expensive", "costly", "비싼 → 비용이 많이 드는"], ["really", "truly", "정말로 → 진짜로"]], "swapnote": "pollution(오염)은 contaminate(오염시키다)로, expensive(비싼)는 costly(비용이 많이 드는)로 바뀌어 나와요. 품사가 바뀌어도 뜻은 같아요.", "use": [{"w": "contaminate", "ex": "Factory waste can contaminate rivers.", "ko": "공장 폐기물은 강을 오염시킬 수 있다.", "wk": "오염시키다", "hk": "오염시킬"}, {"w": "costly", "ex": "Fixing the old bridge was costly.", "ko": "그 낡은 다리를 고치는 것은 비용이 많이 들었다.", "wk": "비용이 많이 드는", "hk": "비용이 많이 들었다"}], "flow": "본문 1번에서 광산업 같은 산업이 전 세계 흙을 오염시킨다고 하고, 2~3번에서 오염된 흙을 파서 옮기면 돈이 많이 들고 문제가 진짜로 풀리지도 않는다고 해요.", "jd": [["Industries around the world are [[contaminating]] the soil,", "전 세계의 산업들이 흙을 [[오염시키고]] 있고,"], ["and moving polluted soil to a landfill", "그리고 오염된 흙을 매립지로 옮기는 것은"], ["is [[costly]]", "[[비용이 많이 들며]]"], ["and does not truly solve the problem.", "문제를 진짜로 해결하지도 못한다."]], "fc": [["본문 1번", "산업이 전 세계 흙을 오염시킨다", "광산업 같은 산업이 원인이에요."], ["본문 2~3번", "흙을 파서 옮기면? 돈만 많이 든다", "문제를 다른 곳으로 옮길 뿐, 해결은 못 해요."], ["정답 포인트", "{{pollution|오염}} → {{contaminate|오염시키다}}, {{expensive|비싼}} = {{costly|비용이 많이 드는}}", "본문 단어가 뜻이 같은 말로 바뀌어 나와요."]], "evid_full": [{"en": "Mining and other industries are causing soil pollution across the globe.", "ko": "광산업과 다른 산업들이 전 세계적으로 토양 오염을 일으키고 있다.", "hl": ["causing soil pollution"], "hlko": ["토양 오염을 일으키고 있다"], "n": 1}, {"en": "Although polluted soil can be dug up and transported to a landfill, this process is expensive.", "ko": "비록 오염된 흙이 파져서 매립지로 옮겨질 수는 있지만, 이 과정은 비용이 많이 든다.", "hl": ["this process is expensive"], "hlko": ["비용이 많이 든다"], "n": 2}]}, {"id": 2, "summary": "Planting willow trees is a (A) and economical way to restore polluted soil, since the trees have (B) and well-developed root systems.", "ko": "버드나무를 심는 것은 오염된 흙을 복구하는 <b>(A) 지속 가능하고</b> 경제적인 방법인데, 그 나무들이 <b>(B) 넓고</b> 잘 발달된 뿌리 체계를 가지고 있기 때문이다.", "opts": [["sustainable", "narrow"], ["sustainable", "broad"], ["harmful", "broad"], ["temporary", "shallow"], ["risky", "weak"]], "optko": ["지속 가능한 – 좁은", "지속 가능한 – 넓은", "해로운 – 넓은", "일시적인 – 얕은", "위험한 – 약한"], "ans": 1, "wrong": ["narrow(좁은)가 틀려요. 본문은 뿌리 체계가 광범위하다(extensive)고 해요.", null, "harmful(해로운)이 틀려요. 버드나무는 해로운 방법이 아니라 친환경적인(eco-friendly) 방법이에요.", "둘 다 틀려요. 일시적이라는 말도, 뿌리가 얕다(shallow)는 말도 본문에 없어요.", "둘 다 틀려요. 위험하다는 말도, 뿌리가 약하다(weak)는 말도 본문에 없어요."], "evid": [{"n": 4, "hl": ["eco-friendly and cost-effective way", "planting willow trees"]}, {"n": 5, "hl": ["extensive and well-developed root systems"]}], "swaps": [["eco-friendly", "sustainable", "친환경적인 → 지속 가능한"], ["cost-effective", "economical", "비용 대비 효과적인 → 경제적인"], ["extensive", "broad", "광범위한 → 넓은"]], "swapnote": "eco-friendly(친환경적인)는 sustainable(지속 가능한)로, extensive(광범위한)는 broad(넓은)나 wide(넓은)로 바뀌어 나와요.", "use": [{"w": "sustainable", "ex": "Solar power is a sustainable source of energy.", "ko": "태양광은 지속 가능한 에너지원이다.", "wk": "지속 가능한", "hk": "지속 가능한"}, {"w": "broad", "ex": "The river is broad near the sea.", "ko": "그 강은 바다 근처에서 폭이 넓다.", "wk": "넓은", "hk": "폭이 넓다"}], "flow": "본문 4번에서 '다행히도!' 하며 해결책이 나와요. 바로 버드나무를 심는 것! 5번에서 그 이유로, 뿌리가 넓고 잘 발달했다고 알려 줘요.", "jd": [["Planting willow trees is a [[sustainable]] and economical way", "버드나무를 심는 것은 [[지속 가능하고]] 경제적인 방법이다"], ["to restore polluted soil,", "오염된 흙을 복구하는,"], ["since the trees have [[broad]] and well-developed root systems.", "그 나무들이 [[넓고]] 잘 발달된 뿌리 체계를 가지고 있기 때문이다."]], "fc": [["본문 4번", "다행히도! 해결책은 버드나무", "오염된 흙을 복구하는 방법이에요."], ["본문 5번", "뿌리가 넓고 잘 발달했다", "그래서 흙 속 깊이 퍼져요."], ["정답 포인트", "{{eco-friendly|친환경적인}} = {{sustainable|지속 가능한}}, {{extensive|광범위한}} = {{broad|넓은}}", "{{cost-effective|비용 대비 효과적인}}은 {{economical|경제적인}}으로 바뀌었어요."]], "evid_full": [{"en": "Fortunately, there is an eco-friendly and cost-effective way to restore polluted soil — planting willow trees.", "ko": "다행히도, 오염된 흙을 복구하는 친환경적이고 비용 대비 효과적인 방법이 있는데, 바로 버드나무를 심는 것이다.", "hl": ["eco-friendly and cost-effective way", "planting willow trees"], "hlko": ["친환경적이고 비용 대비 효과적인 방법", "버드나무를 심는 것"], "n": 4}, {"en": "These amazing trees have extensive and well-developed root systems.", "ko": "이 놀라운 나무들은 광범위하고 잘 발달된 뿌리 체계를 가지고 있다.", "hl": ["extensive and well-developed root systems"], "hlko": ["광범위하고 잘 발달된 뿌리 체계"], "n": 5}]}, {"id": 3, "summary": "Willow trees naturally (A) harmful materials from the soil, and they can grow (B) even in very acidic soil.", "ko": "버드나무는 흙에서 해로운 물질을 자연적으로 <b>(A) 제거하고</b>, 매우 산성인 흙에서도 <b>(B) 빠르게</b> 자랄 수 있다.", "opts": [["remove", "slowly"], ["produce", "rapidly"], ["spread", "slowly"], ["add", "rarely"], ["remove", "rapidly"]], "optko": ["제거하다 – 느리게", "만들어 내다 – 빠르게", "퍼뜨리다 – 느리게", "더하다 – 드물게", "제거하다 – 빠르게"], "ans": 4, "wrong": ["slowly(느리게)가 틀려요. 본문은 나쁜 흙에서도 빠르게(quickly) 자란다고 해요.", "produce(만들어 내다)가 틀려요. 나무는 해로운 물질을 만들어 내는 게 아니라 흙에서 뽑아내요(extract).", "둘 다 틀려요. 해로운 물질을 퍼뜨린다는 말도, 느리게 자란다는 말도 본문에 없어요.", "둘 다 틀려요. 해로운 물질을 더한다는 말도, 드물게 자란다는 말도 본문에 없어요.", null], "evid": [{"n": 6, "hl": ["extract a wide range of harmful materials"]}, {"n": 7, "hl": ["grow quickly"]}], "swaps": [["extract", "remove", "뽑아내다 → 제거하다"], ["quickly", "rapidly", "빠르게 → 신속히, 빠르게"], ["high acidity level", "very acidic", "높은 산도 → 매우 산성인"]], "swapnote": "extract(뽑아내다)는 remove(제거하다)나 take out(꺼내다)으로, quickly(빠르게)는 rapidly(신속히)로 바뀌어 나와요.", "use": [{"w": "remove", "ex": "He used a cloth to remove the dust.", "ko": "그는 천으로 먼지를 제거했다.", "wk": "제거하다", "hk": "제거했다"}, {"w": "rapidly", "ex": "The city is growing rapidly.", "ko": "그 도시는 빠르게 성장하고 있다.", "wk": "빠르게", "hk": "빠르게"}], "flow": "본문 6번은 버드나무가 하는 일이에요. 뿌리가 넓으니까(As a result) 흙 속 해로운 물질을 뽑아내요. 7번에서는 산성이 강하고 중금속이 많은 흙에서도 빨리 자란다고 덧붙여요.", "jd": [["Willow trees naturally [[remove]] harmful materials from the soil,", "버드나무는 흙에서 해로운 물질을 자연적으로 [[제거하고]],"], ["and they can grow [[rapidly]]", "그것들은 [[빠르게]] 자랄 수 있다"], ["even in very acidic soil.", "매우 산성인 흙에서도."]], "fc": [["본문 6번", "뿌리로 해로운 물질을 뽑아낸다", "넓은 뿌리 덕분이에요."], ["본문 7번", "나쁜 흙에서도 빨리 자란다", "산성이 강하거나 중금속이 많아도 괜찮아요."], ["정답 포인트", "{{extract|뽑아내다}} = {{remove|제거하다}}, {{quickly|빠르게}} = {{rapidly|신속히}}", "{{slowly|느리게}}는 본문과 반대예요."]], "evid_full": [{"en": "As a result, they naturally extract a wide range of harmful materials from the soil.", "ko": "결과적으로, 그들은 토양으로부터 광범위한 해로운 물질들을 자연적으로 추출한다.", "hl": ["extract a wide range of harmful materials"], "hlko": ["광범위한 해로운 물질들을 자연적으로 추출한다"], "n": 6}, {"en": "They can also grow quickly, even in soil with a high acidity level or a lot of heavy metals in it.", "ko": "그들은 심지어 산도가 높거나 안에 중금속을 많이 품은 토양에서도 빠르게 자랄 수 있다.", "hl": ["grow quickly"], "hlko": ["빠르게 자랄 수 있다"], "n": 7}]}, {"id": 4, "summary": "Scientists have found that some willow species can (A) harmful materials better than others, so this promising field should be further (B) to find the most effective trees.", "ko": "과학자들은 몇몇 버드나무 종이 다른 종보다 해로운 물질을 더 잘 <b>(A) 모을</b> 수 있다는 것을 알아냈고, 그래서 가장 효과적인 나무를 찾기 위해 이 유망한 분야는 더 <b>(B) 조사되어야</b> 한다.", "opts": [["collect", "investigated"], ["collect", "ignored"], ["release", "investigated"], ["release", "ignored"], ["produce", "completed"]], "optko": ["모으다 – 조사된", "모으다 – 무시된", "내보내다 – 조사된", "내보내다 – 무시된", "만들어 내다 – 완료된"], "ans": 0, "wrong": [null, "ignored(무시된)가 틀려요. 이 분야는 무시되는 게 아니라 더 탐구되어야(explored) 해요.", "release(내보내다)가 틀려요. 어떤 나무는 해로운 물질을 내보내는 게 아니라 더 잘 흡수해요(absorb).", "둘 다 틀려요. 해로운 물질을 내보낸다는 말도, 분야가 무시된다는 말도 본문과 반대예요.", "둘 다 틀려요. 만들어 낸다는 말도 없고, 연구는 완료된 게 아니라 아직 진행 중(in development)이에요."], "evid": [{"n": 9, "hl": ["absorb harmful materials better than others"]}, {"n": 10, "hl": ["further explored"]}], "swaps": [["absorb", "collect", "흡수하다 → 모으다"], ["explore", "investigate", "탐구하다 → 조사하다"], ["species", "kinds", "종 → 종류"]], "swapnote": "absorb(흡수하다)는 collect(모으다)나 take in(빨아들이다)으로, explore(탐구하다)는 investigate(조사하다)나 study(연구하다)로 바뀌어 나와요.", "use": [{"w": "collect", "ex": "Bees collect nectar from flowers.", "ko": "벌은 꽃에서 꿀을 모은다.", "wk": "모으다", "hk": "모은다"}, {"w": "investigate", "ex": "Police will investigate the cause of the fire.", "ko": "경찰은 화재의 원인을 조사할 것이다.", "wk": "조사하다", "hk": "조사할"}], "flow": "본문 8~9번에서 연구가 아직 진행 중이고 어떤 버드나무는 해로운 물질을 더 잘 흡수한다는 걸 알아냈어요. 그래서(Therefore) 10번에서 어떤 나무가 가장 좋은지 더 탐구해야 한다고 이어져요.", "jd": [["Scientists have found", "과학자들은 알아냈다"], ["that some willow species can [[collect]] harmful materials better than others,", "몇몇 버드나무 종이 다른 종보다 해로운 물질을 더 잘 [[모을]] 수 있다는 것을,"], ["so this promising field should be further [[investigated]]", "그래서 이 유망한 분야는 더 [[조사되어야]] 한다"], ["to find the most effective trees.", "가장 효과적인 나무를 찾기 위해."]], "fc": [["본문 8~9번", "연구 진행 중, 잘 흡수하는 종이 있다", "어떤 버드나무는 다른 나무보다 더 잘 흡수해요."], ["본문 10번", "그러므로 더 탐구해야 한다", "어떤 나무가 가장 효과적인지 찾기 위해서예요."], ["정답 포인트", "{{absorb|흡수하다}} = {{collect|모으다}}, {{explore|탐구하다}} = {{investigate|조사하다}}", "{{ignore|무시하다}}는 본문과 반대예요."]], "evid_full": [{"en": "Scientists have found that some species of willow trees are able to absorb harmful materials better than others.", "ko": "과학자들은 몇몇 종류의 버드나무가 다른 것(종류)들에 비해 해로운 물질을 더 잘 흡수할 수 있다는 것을 알아냈다.", "hl": ["absorb harmful materials better than others"], "hlko": ["해로운 물질을 더 잘 흡수할 수 있다"], "n": 9}, {"en": "Therefore, this promising area should be further explored to find out which trees are the most effective.", "ko": "그러므로, 어떤 (종류의) 나무들이 가장 효과적인지를 찾아내기 위해 이 촉망받는 분야는 더 깊게 탐구되어야 한다.", "hl": ["further explored"], "hlko": ["더 깊게 탐구되어야 한다"], "n": 10}]}], "gloss": {"mining": ["mining", "광산업, 채굴"], "other": ["other", "다른"], "industries": ["industry", "산업"], "are": ["be", "~이다, ~하고 있다"], "causing": ["cause", "일으키다"], "cause": ["cause", "원인, 일으키다"], "soil": ["soil", "흙, 토양"], "pollution": ["pollution", "오염"], "across": ["across", "~ 전체에 걸쳐"], "globe": ["globe", "지구, 세계"], "around": ["around", "~ 곳곳의"], "world": ["world", "세계"], "although": ["although", "비록 ~이지만"], "polluted": ["polluted", "오염된"], "can": ["can", "~할 수 있다"], "be": ["be", "~이다, ~되다"], "dug": ["dig", "파다 (dug up = 파내다)"], "up": ["up", "위로 (dig up = 파내다)"], "transported": ["transport", "옮기다, 운송하다"], "landfill": ["landfill", "매립지"], "this": ["this", "이"], "process": ["process", "과정"], "expensive": ["expensive", "비용이 많이 드는, 비싼"], "moreover": ["moreover", "게다가"], "only": ["only", "단지"], "moves": ["move", "옮기다"], "moving": ["move", "옮기다"], "problem": ["problem", "문제"], "another": ["another", "다른"], "area": ["area", "지역, 분야"], "does": ["do", "하다"], "not": ["not", "~않다"], "really": ["really", "정말로"], "truly": ["truly", "진짜로"], "solve": ["solve", "해결하다"], "it": ["it", "그것"], "to": ["to", "~로"], "and": ["and", "그리고"], "contaminating": ["contaminate", "오염시키다"], "contaminate": ["contaminate", "오염시키다"], "costly": ["costly", "비용이 많이 드는"], "cheap": ["cheap", "값싼"], "cleaning": ["clean", "깨끗이 하다"], "protecting": ["protect", "보호하다"], "simple": ["simple", "간단한"], "fortunately": ["fortunately", "다행히도"], "there": ["there", "거기 (there is = ~이 있다)"], "is": ["be", "~이다"], "eco-friendly": ["eco-friendly", "친환경적인"], "cost-effective": ["cost-effective", "비용 대비 효과적인"], "way": ["way", "방법"], "restore": ["restore", "복구하다, 회복시키다"], "planting": ["plant", "심다"], "willow": ["willow", "버드나무"], "trees": ["tree", "나무"], "tree": ["tree", "나무"], "these": ["these", "이"], "amazing": ["amazing", "놀라운"], "have": ["have", "가지고 있다"], "extensive": ["extensive", "광범위한, 넓은"], "well-developed": ["well-developed", "잘 발달된"], "root": ["root", "뿌리"], "systems": ["system", "체계"], "sustainable": ["sustainable", "지속 가능한 (환경을 해치지 않고 오래 쓸 수 있는)"], "economical": ["economical", "경제적인, 돈이 덜 드는"], "broad": ["broad", "넓은"], "narrow": ["narrow", "좁은"], "harmful": ["harmful", "해로운"], "temporary": ["temporary", "일시적인"], "shallow": ["shallow", "얕은"], "risky": ["risky", "위험한"], "weak": ["weak", "약한"], "planted": ["plant", "심다"], "since": ["since", "~이기 때문에"], "the": ["the", "그"], "a": ["a", "하나의"], "as": ["as", "~로서 (as a result = 결과적으로)"], "result": ["result", "결과"], "they": ["they", "그것들"], "naturally": ["naturally", "자연적으로"], "extract": ["extract", "뽑아내다, 추출하다"], "wide": ["wide", "넓은 (a wide range of = 광범위한)"], "range": ["range", "범위"], "materials": ["material", "물질"], "from": ["from", "~로부터"], "also": ["also", "또한"], "grow": ["grow", "자라다"], "quickly": ["quickly", "빠르게"], "even": ["even", "심지어"], "in": ["in", "~에서"], "with": ["with", "~을 가진"], "high": ["high", "높은"], "acidity": ["acidity", "산도"], "level": ["level", "수준"], "lot": ["lot", "많음 (a lot of = 많은)"], "heavy": ["heavy", "무거운"], "metals": ["metal", "금속"], "very": ["very", "매우"], "acidic": ["acidic", "산성의"], "remove": ["remove", "제거하다"], "rapidly": ["rapidly", "빠르게"], "slowly": ["slowly", "느리게"], "produce": ["produce", "만들어 내다"], "spread": ["spread", "퍼뜨리다"], "add": ["add", "더하다"], "rarely": ["rarely", "드물게"], "research": ["research", "연구"], "effectiveness": ["effectiveness", "효율성, 효과"], "using": ["use", "이용하다"], "purpose": ["purpose", "목적"], "development": ["development", "진행, 개발"], "scientists": ["scientist", "과학자"], "found": ["find", "알아내다, 찾다"], "some": ["some", "몇몇의"], "species": ["species", "종(생물의 종류)"], "able": ["able", "~할 수 있는"], "absorb": ["absorb", "흡수하다"], "better": ["well", "더 잘"], "than": ["than", "~보다"], "others": ["other", "다른 것들"], "therefore": ["therefore", "그러므로"], "promising": ["promising", "유망한, 촉망받는"], "should": ["should", "~해야 한다"], "further": ["further", "더, 한층 더"], "explored": ["explore", "탐구하다"], "explore": ["explore", "탐구하다"], "find": ["find", "찾아내다"], "out": ["out", "밖으로 (find out = 알아내다)"], "which": ["which", "어느 (것)"], "most": ["most", "가장"], "effective": ["effective", "효과적인"], "time": ["time", "시간 (in time = 조만간)"], "we": ["we", "우리"], "may": ["may", "~할지도 모른다"], "clean": ["clean", "깨끗이 하다"], "our": ["our", "우리의"], "land": ["land", "땅"], "collect": ["collect", "모으다"], "release": ["release", "내보내다"], "investigated": ["investigate", "조사하다"], "investigate": ["investigate", "조사하다"], "ignored": ["ignore", "무시하다"], "completed": ["complete", "완료하다"], "field": ["field", "분야"], "so": ["so", "그래서"], "that": ["that", "~라는 것"], "has": ["have", "가지고 있다"], "harm": ["harm", "해를 끼치다"], "industry": ["industry", "산업"], "facing": ["face", "직면하다"], "cost": ["cost", "비용"], "pollute": ["pollute", "오염시키다"], "kinds": ["kind", "종류"], "factory": ["factory", "공장"], "waste": ["waste", "폐기물"], "rivers": ["river", "강"], "fixing": ["fix", "고치다"], "old": ["old", "오래된"], "bridge": ["bridge", "다리"], "was": ["be", "~였다"], "solar": ["solar", "태양의"], "power": ["power", "힘, 에너지"], "source": ["source", "원천"], "energy": ["energy", "에너지"], "near": ["near", "가까이"], "sea": ["sea", "바다"], "he": ["he", "그"], "used": ["use", "사용하다"], "cloth": ["cloth", "천"], "dust": ["dust", "먼지"], "city": ["city", "도시"], "growing": ["grow", "성장하다"], "bees": ["bee", "벌"], "nectar": ["nectar", "꿀"], "flowers": ["flower", "꽃"], "police": ["police", "경찰"], "will": ["will", "~할 것이다"], "fire": ["fire", "화재"], "river": ["river", "강"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="cheongseok-go1";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH;
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);render();
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){return (DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}})}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../index.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">밑줄 단어를 누르면 뜻이 나와요. 번호를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+words(o[0])+'<span class="dash">–</span>'+words(o[1])+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'</li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>

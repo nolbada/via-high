@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>3과 요약문 연습 ❸</title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "jusung-go1", "src": "jusung-go1/L3/sx-data.js", "pidx": 2, "lesson": "3과", "title": "문화유산을 지킨 모뉴먼츠 맨", "label": "❸", "page": "yoyak-lian-z3"}, "scenes": [{"tag": "본문 1번", "ns": [1], "line": "가장 큰 도난 물품 더미가 알타우제 소금 광산에 [[hidden|숨겨져]] 있었다.", "en": ["One of the largest collections of stolen items was hidden in the salt mines of Altaussee, Austria."], "kos": ["도난당한 물품의 가장 큰 더미 중 하나는 오스트리아의 알타우제 소금 광산에 숨겨져 있었다."]}, {"tag": "본문 2~3번", "ns": [2, 3], "line": "위치를 알아낸 모뉴먼츠 맨이 광산으로 [[rushed|급히 달려갔다]]. 너무 늦기 전에 모든 걸 [[recover|되찾으려고]]!", "en": ["Upon discovering its location, some of the Monuments Men rushed to the mines.", "They hoped to recover everything before it was too late."], "kos": ["그것의 위치를 알아내자마자, 모뉴먼츠 맨 중 일부가 광산으로 급히 움직였다.", "그들은 너무 늦기 전에 모든 것을 되찾기를 희망했다."]}, {"tag": "본문 4~5번", "ns": [4, 5], "line": "그 사이 나치 지도자는 대형 [[explosives|폭발물]]로 모든 걸 [[destroy|파괴하려]] 했다. 큰일 날 뻔!", "en": ["Meanwhile, the Nazi leader who was in charge of the area tried to destroy everything by setting off large explosives inside the mines.", "This could have been disastrous."], "kos": ["한편, 그 지역을 담당하던 나치 지도자는 광산 내부에 대형 폭발물을 터뜨려 모든 것을 파괴하려고 했다.", "이는 처참할 수 있었다."]}, {"tag": "본문 6~7번", "ns": [6, 7], "line": "다행히 광부들이 큰 폭발물을 몰래 [[removed|치우고]] 입구에 작은 폭발물만 놓았다.", "en": ["Luckily, some local miners found the explosives in the mines and came up with a plan to protect their livelihood.", "They secretly removed the large explosives and put smaller ones at the entrances."], "kos": ["다행히도, 지역의 일부 광부들이 광산에서 폭발물을 발견했고 자신들의 생계를 보호할 계획을 생각해 냈다.", "그들은 몰래 대형 폭발물을 제거했고 입구에 더 작은 폭발물을 놓았다."]}, {"tag": "본문 8~9번", "ns": [8, 9], "line": "나치 지도자는 속아 넘어갔고, 작은 폭발은 입구를 [[sealed|막았을]] 뿐 작품은 [[unharmed|멀쩡했다]].", "en": ["Once they went off, the Nazi leader believed that everything was destroyed.", "However, while the small explosions sealed off the entrances, they left the rest of the mines and the works of art unharmed."], "kos": ["그것들이 터지자, 나치 지도자는 모든 것이 파괴되었다고 여겼다.", "그러나 작은 폭발들이 입구를 봉쇄시키긴 했지만, 그것들은 광산의 나머지 부분과 예술 작품들을 손상되지 않은 채로 남아 있게 했다."]}, {"tag": "본문 10~11번", "ns": [10, 11], "line": "안을 본 모뉴먼츠 맨은 [[amazed|놀랐다]]. 수천 점의 [[priceless|값을 매길 수 없는]] 물건이 있었다.", "en": ["When the Monuments Men arrived and squeezed their way into the mines, they must have been amazed to see what was inside.", "There were thousands of priceless objects, including paintings, statues, books, furniture, and more."], "kos": ["모뉴먼츠 맨이 도착해 광산 안으로 비집고 들어갔을 때, 그들은 내부에 있던 것을 보고 놀랐음에 틀림없다.", "그곳에는 그림, 조각상, 책, 가구 등을 포함해 수천 점의 귀중한 물건들이 있었다."]}], "story": [{"a": "hide", "form": "hidden", "n": 1, "sq": 1, "sum": "were [[concealed]] in salt mines in Austria", "hook": "도난 물품이 소금 광산에 숨겨져 있었다는 첫 문장의 hidden(숨겨진) → 요약문에서는 concealed(감춰진)로 바꿨어요.", "b": "conceal", "k": "숨기다 → 숨기다, 감추다", "en": "One of the largest collections of stolen items was hidden in the salt mines of Altaussee, Austria.", "ko": "도난당한 물품의 가장 큰 더미 중 하나는 오스트리아의 알타우제 소금 광산에 숨겨져 있었다."}, {"a": "rush", "form": "rushed", "n": 2, "sq": 1, "sum": "they [[hurried]] there", "hook": "위치를 알자마자 광산으로 달려갔다는 문장의 rushed(급히 움직였다) → 요약문에서는 hurried(서둘렀다)로 바꿨어요.", "b": "hurry", "k": "급히 가다 → 서두르다", "en": "Upon discovering its location, some of the Monuments Men rushed to the mines.", "ko": "그것의 위치를 알아내자마자, 모뉴먼츠 맨 중 일부가 광산으로 급히 움직였다."}, {"a": "recover", "form": "recover", "n": 3, "sq": 1, "sum": "hoping to [[retrieve]] everything", "hook": "너무 늦기 전에 모든 걸 되찾고 싶다는 문장의 recover(되찾다) → 요약문에서는 retrieve(되찾아 오다)로 바꿨어요.", "b": "retrieve", "k": "되찾다 → 되찾아 오다", "en": "They hoped to recover everything before it was too late.", "ko": "그들은 너무 늦기 전에 모든 것을 되찾기를 희망했다."}, {"a": "destroy", "form": "destroy", "n": 4, "sq": 2, "sum": "tried to [[ruin]] everything", "hook": "나치 지도자가 모든 걸 없애려 했다는 문장의 destroy(파괴하다) → 요약문에서는 ruin(망가뜨리다)으로 바꿨어요.", "b": "ruin", "k": "파괴하다 → 망가뜨리다", "en": "Meanwhile, the Nazi leader who was in charge of the area tried to destroy everything by setting off large explosives inside the mines.", "ko": "한편, 그 지역을 담당하던 나치 지도자는 광산 내부에 대형 폭발물을 터뜨려 모든 것을 파괴하려고 했다."}, {"a": "explosive", "form": "explosives", "n": 4, "sq": 2, "sum": "setting off large [[bombs]]", "hook": "광산 안에서 터뜨리려던 큰 폭발물, explosives(폭발물) → 요약문에서는 bombs(폭탄)로 바꿨어요.", "b": "bomb", "k": "폭발물 → 폭탄", "en": "Meanwhile, the Nazi leader who was in charge of the area tried to destroy everything by setting off large explosives inside the mines.", "ko": "한편, 그 지역을 담당하던 나치 지도자는 광산 내부에 대형 폭발물을 터뜨려 모든 것을 파괴하려고 했다."}, {"a": "remove", "form": "removed", "n": 7, "sq": 3, "sum": "secretly [[eliminated]] the large explosives", "hook": "광부들이 큰 폭발물을 몰래 치웠다는 문장의 removed(제거했다) → 요약문에서는 eliminated(없앴다)로 바꿨어요.", "b": "eliminate", "k": "제거하다 → 없애다, 제거하다", "en": "They secretly removed the large explosives and put smaller ones at the entrances.", "ko": "그들은 몰래 대형 폭발물을 제거했고 입구에 더 작은 폭발물을 놓았다."}, {"a": "seal", "form": "sealed", "n": 9, "sq": 3, "sum": "the small blasts only [[blocked]] the entrances", "hook": "작은 폭발이 입구만 막았다는 문장의 sealed off(봉쇄했다) → 요약문에서는 blocked(막았다)로 바꿨어요.", "b": "block", "k": "봉쇄하다 → 막다", "en": "However, while the small explosions sealed off the entrances, they left the rest of the mines and the works of art unharmed.", "ko": "그러나 작은 폭발들이 입구를 봉쇄시키긴 했지만, 그것들은 광산의 나머지 부분과 예술 작품들을 손상되지 않은 채로 남아 있게 했다."}, {"a": "unharmed", "form": "unharmed", "n": 9, "sq": 3, "sum": "left the artworks [[undamaged]]", "hook": "입구는 막혔어도 작품은 멀쩡했다는 문장의 unharmed(다치지 않은) → 요약문에서는 undamaged(손상되지 않은)로 바꿨어요.", "b": "undamaged", "k": "다치지 않은 → 손상되지 않은", "en": "However, while the small explosions sealed off the entrances, they left the rest of the mines and the works of art unharmed.", "ko": "그러나 작은 폭발들이 입구를 봉쇄시키긴 했지만, 그것들은 광산의 나머지 부분과 예술 작품들을 손상되지 않은 채로 남아 있게 했다."}, {"a": "amaze", "form": "amazed", "n": 10, "sq": 4, "sum": "they must have been [[astonished]]", "hook": "광산 안을 본 모뉴먼츠 맨이 놀랐음에 틀림없다는 문장의 amazed(놀란) → 요약문에서는 astonished(깜짝 놀란)로 바꿨어요.", "b": "astonish", "k": "놀라게 하다 → 깜짝 놀라게 하다", "en": "When the Monuments Men arrived and squeezed their way into the mines, they must have been amazed to see what was inside.", "ko": "모뉴먼츠 맨이 도착해 광산 안으로 비집고 들어갔을 때, 그들은 내부에 있던 것을 보고 놀랐음에 틀림없다."}, {"a": "priceless", "form": "priceless", "n": 11, "sq": 4, "sum": "thousands of [[invaluable]] objects", "hook": "그 안에 있던 값을 매길 수 없는 물건들, priceless(값을 매길 수 없는) → 요약문에서는 invaluable(매우 귀중한)로 바꿨어요.", "b": "invaluable", "k": "값을 매길 수 없는 → 매우 귀중한", "en": "There were thousands of priceless objects, including paintings, statues, books, furniture, and more.", "ko": "그곳에는 그림, 조각상, 책, 가구 등을 포함해 수천 점의 귀중한 물건들이 있었다."}], "passage": [{"n": 1, "en": "One of the largest collections of stolen items was hidden in the salt mines of Altaussee, Austria.", "ko": "도난당한 물품의 가장 큰 더미 중 하나는 오스트리아의 알타우제 소금 광산에 숨겨져 있었다."}, {"n": 2, "en": "Upon discovering its location, some of the Monuments Men rushed to the mines.", "ko": "그것의 위치를 알아내자마자, 모뉴먼츠 맨 중 일부가 광산으로 급히 움직였다."}, {"n": 3, "en": "They hoped to recover everything before it was too late.", "ko": "그들은 너무 늦기 전에 모든 것을 되찾기를 희망했다."}, {"n": 4, "en": "Meanwhile, the Nazi leader who was in charge of the area tried to destroy everything by setting off large explosives inside the mines.", "ko": "한편, 그 지역을 담당하던 나치 지도자는 광산 내부에 대형 폭발물을 터뜨려 모든 것을 파괴하려고 했다."}, {"n": 5, "en": "This could have been disastrous.", "ko": "이는 처참할 수 있었다."}, {"n": 6, "en": "Luckily, some local miners found the explosives in the mines and came up with a plan to protect their livelihood.", "ko": "다행히도, 지역의 일부 광부들이 광산에서 폭발물을 발견했고 자신들의 생계를 보호할 계획을 생각해 냈다."}, {"n": 7, "en": "They secretly removed the large explosives and put smaller ones at the entrances.", "ko": "그들은 몰래 대형 폭발물을 제거했고 입구에 더 작은 폭발물을 놓았다."}, {"n": 8, "en": "Once they went off, the Nazi leader believed that everything was destroyed.", "ko": "그것들이 터지자, 나치 지도자는 모든 것이 파괴되었다고 여겼다."}, {"n": 9, "en": "However, while the small explosions sealed off the entrances, they left the rest of the mines and the works of art unharmed.", "ko": "그러나 작은 폭발들이 입구를 봉쇄시키긴 했지만, 그것들은 광산의 나머지 부분과 예술 작품들을 손상되지 않은 채로 남아 있게 했다."}, {"n": 10, "en": "When the Monuments Men arrived and squeezed their way into the mines, they must have been amazed to see what was inside.", "ko": "모뉴먼츠 맨이 도착해 광산 안으로 비집고 들어갔을 때, 그들은 내부에 있던 것을 보고 놀랐음에 틀림없다."}, {"n": 11, "en": "There were thousands of priceless objects, including paintings, statues, books, furniture, and more.", "ko": "그곳에는 그림, 조각상, 책, 가구 등을 포함해 수천 점의 귀중한 물건들이 있었다."}], "questions": [{"id": 1, "summary": "Many stolen items were (A) in salt mines in Austria, and when some Monuments Men learned where they were, they hurried there hoping to (B) everything before it was too late.", "ko": "많은 도난 물품이 오스트리아의 소금 광산에 <b>(A) 숨겨져</b> 있었고, 일부 모뉴먼츠 맨이 그 위치를 알게 되자 너무 늦기 전에 모든 것을 <b>(B) 되찾기</b> 바라며 서둘러 그곳으로 갔다.", "opts": [["concealed", "sell"], ["displayed", "retrieve"], ["concealed", "retrieve"], ["displayed", "sell"], ["revealed", "destroy"]], "optko": ["숨기다 – 팔다", "전시하다 – 되찾다", "숨기다 – 되찾다", "전시하다 – 팔다", "드러내다 – 파괴하다"], "ans": 2, "wrong": ["sell(팔다)이 틀려요. 모뉴먼츠 맨은 물건을 팔려는 게 아니라 되찾으려고(recover) 했어요.", "displayed(전시하다)가 틀려요. 물건들은 전시된 게 아니라 광산에 숨겨져(hidden) 있었어요.", null, "둘 다 틀려요. 물건들은 전시된 게 아니고, 모뉴먼츠 맨이 팔려고 간 것도 아니에요.", "둘 다 틀려요. 물건들은 드러나(reveal) 있던 게 아니라 숨겨져 있었고, 모뉴먼츠 맨은 파괴(destroy)가 아니라 되찾으려 했어요."], "evid": [{"n": 1, "hl": ["hidden in the salt mines"]}, {"n": 2, "hl": ["rushed to the mines"]}, {"n": 3, "hl": ["recover everything"]}], "swaps": [["hide", "conceal", "숨기다 → 숨기다, 감추다"], ["rush", "hurry", "급히 가다 → 서두르다"], ["recover", "retrieve", "되찾다 → 되찾아 오다"], ["discovering its location", "learned where they were", "그 위치를 알아내다 → 그것들이 어디 있는지 알게 되다"]], "swapnote": "hide(숨기다)는 시험에서 conceal(감추다)로, recover(되찾다)는 retrieve(되찾아 오다)로 바뀌어 나와요. 본문 단어만 찾지 말고 뜻이 같은 말을 찾으세요.", "use": [{"w": "conceal", "ex": "She tried to conceal her surprise.", "ko": "그녀는 놀란 마음을 감추려고 했다.", "wk": "숨기다, 감추다", "hk": "감추려고"}, {"w": "retrieve", "ex": "He went back to retrieve his bag.", "ko": "그는 가방을 되찾으러 돌아갔다.", "wk": "되찾아 오다", "hk": "되찾으러"}], "flow": "본문 1번에서 도난당한 물품이 소금 광산에 숨겨져 있다는 사실이 나오고, 2~3번에서 모뉴먼츠 맨이 너무 늦기 전에 되찾으려고 광산으로 급히 달려가요.", "jd": [["Many stolen items were [[concealed]]", "많은 도난 물품이 [[숨겨져]] 있었다"], ["in salt mines in Austria,", "오스트리아의 소금 광산에,"], ["and when some Monuments Men learned where they were,", "그리고 일부 모뉴먼츠 맨이 그것들이 어디 있는지 알게 되었을 때,"], ["they hurried there", "그들은 그곳으로 서둘러 갔다"], ["hoping to [[retrieve]] everything", "모든 것을 [[되찾기를]] 바라며"], ["before it was too late.", "너무 늦기 전에."]], "fc": [["본문 1번", "도난 물품이 소금 광산에 숨겨져 있었다", "오스트리아 알타우제 광산이에요."], ["본문 2~3번", "모뉴먼츠 맨이 광산으로 급히 달려갔다", "너무 늦기 전에 모든 것을 되찾으려고요."], ["정답 포인트", "{{hidden|숨겨진}} = {{concealed|감춰진}}, {{recover|되찾다}} = {{retrieve|되찾아 오다}}", "본문 단어가 뜻이 같은 말로 바뀌어 나와요."]], "evid_full": [{"en": "One of the largest collections of stolen items was hidden in the salt mines of Altaussee, Austria.", "ko": "도난당한 물품의 가장 큰 더미 중 하나는 오스트리아의 알타우제 소금 광산에 숨겨져 있었다.", "hl": ["hidden in the salt mines"], "hlko": ["소금 광산에 숨겨져 있었다"], "n": 1}, {"en": "Upon discovering its location, some of the Monuments Men rushed to the mines.", "ko": "그것의 위치를 알아내자마자, 모뉴먼츠 맨 중 일부가 광산으로 급히 움직였다.", "hl": ["rushed to the mines"], "hlko": ["광산으로 급히 움직였다"], "n": 2}, {"en": "They hoped to recover everything before it was too late.", "ko": "그들은 너무 늦기 전에 모든 것을 되찾기를 희망했다.", "hl": ["recover everything"], "hlko": ["모든 것을 되찾기를"], "n": 3}]}, {"id": 2, "summary": "A Nazi leader in charge of the area tried to (A) everything by setting off large (B) inside the mines.", "ko": "그 지역을 담당하던 나치 지도자는 광산 내부에 대형 <b>(B) 폭탄</b>을 터뜨려 모든 것을 <b>(A) 망가뜨리려고</b> 했다.", "opts": [["ruin", "bombs"], ["ruin", "fires"], ["protect", "bombs"], ["protect", "fires"], ["steal", "machines"]], "optko": ["망가뜨리다 – 폭탄", "망가뜨리다 – 불", "보호하다 – 폭탄", "보호하다 – 불", "훔치다 – 기계"], "ans": 0, "wrong": [null, "fires(불)가 틀려요. 본문은 불을 지르는 게 아니라 큰 폭발물(explosives)을 터뜨린다고 해요.", "protect(보호하다)가 틀려요. 나치 지도자는 보호가 아니라 모든 것을 파괴(destroy)하려고 했어요.", "둘 다 틀려요. 보호하려던 것도 아니고, 터뜨린 건 불이 아니라 폭발물이에요.", "둘 다 틀려요. 이미 도난당한 물품을 또 훔치려던 게 아니고, 기계 이야기는 본문에 없어요."], "evid": [{"n": 4, "hl": ["destroy everything", "setting off large explosives"]}], "swaps": [["destroy", "ruin", "파괴하다 → 망가뜨리다"], ["explosive", "bomb", "폭발물 → 폭탄"], ["the Nazi leader who was in charge of the area", "A Nazi leader in charge of the area", "그 지역을 담당하던 나치 지도자"]], "swapnote": "destroy(파괴하다)는 ruin(망가뜨리다)이나 wreck(부수다)로, explosives(폭발물)는 bombs(폭탄)로 바뀌어 나올 수 있어요.", "use": [{"w": "ruin", "ex": "The heavy rain ruined our picnic.", "ko": "폭우가 우리의 소풍을 망쳤다.", "wk": "망치다, 망가뜨리다", "hk": "망쳤다"}, {"w": "bomb", "ex": "The bomb was found near the bridge.", "ko": "그 폭탄은 다리 근처에서 발견되었다.", "wk": "폭탄", "hk": "폭탄"}], "flow": "본문 4번의 Meanwhile(한편)이 장면 전환 신호예요. 모뉴먼츠 맨이 달려가는 동안, 나치 지도자는 큰 폭발물로 모든 것을 없애려 했고, 5번에서 '처참할 수 있었다'며 위기감을 줘요.", "jd": [["A Nazi leader in charge of the area", "그 지역을 담당하던 나치 지도자는"], ["tried to [[ruin]] everything", "모든 것을 [[망가뜨리려고]] 시도했다"], ["by setting off large [[bombs]]", "대형 [[폭탄]]을 터뜨려서"], ["inside the mines.", "광산 내부에서."]], "fc": [["본문 4번", "Meanwhile! 그 사이 나치 지도자는...", "모뉴먼츠 맨이 달려가는 동안 벌어진 일이에요."], ["위기", "큰 폭발물로 모든 것을 파괴하려 했다", "5번에서 '처참할 수 있었다'며 긴장감을 줘요."], ["정답 포인트", "{{destroy|파괴하다}} = {{ruin|망가뜨리다}}, {{explosives|폭발물}} = {{bombs|폭탄}}", "폭발물이지 불이 아니에요."]], "evid_full": [{"en": "Meanwhile, the Nazi leader who was in charge of the area tried to destroy everything by setting off large explosives inside the mines.", "ko": "한편, 그 지역을 담당하던 나치 지도자는 광산 내부에 대형 폭발물을 터뜨려 모든 것을 파괴하려고 했다.", "hl": ["destroy everything", "setting off large explosives"], "hlko": ["모든 것을 파괴하려고", "대형 폭발물을 터뜨려"], "n": 4}]}, {"id": 3, "summary": "Local miners secretly (A) the large explosives and put smaller ones at the entrances, so the small blasts only (B) the entrances and left the artworks undamaged.", "ko": "지역 광부들은 몰래 대형 폭발물을 <b>(A) 제거하고</b> 입구에 더 작은 폭발물을 놓아, 작은 폭발들이 입구를 <b>(B) 막기만</b> 했을 뿐 예술 작품들은 손상되지 않았다.", "opts": [["eliminated", "opened"], ["hid", "blocked"], ["hid", "opened"], ["eliminated", "blocked"], ["ignored", "blocked"]], "optko": ["제거하다 – 열다", "숨기다 – 막다", "숨기다 – 열다", "제거하다 – 막다", "무시하다 – 막다"], "ans": 3, "wrong": ["opened(열다)가 틀려요. 작은 폭발은 입구를 연 게 아니라 막아(sealed off) 버렸어요.", "hid(숨기다)가 틀려요. 광부들은 폭발물을 숨긴 게 아니라 치워서 없앴어요(removed).", "둘 다 틀려요. 폭발물은 숨긴 게 아니고, 입구도 열린 게 아니라 막혔어요.", null, "ignored(무시하다)가 틀려요. 광부들은 폭발물을 무시하지 않고 발견해서 계획을 세웠어요."], "evid": [{"n": 7, "hl": ["removed the large explosives"]}, {"n": 9, "hl": ["sealed off the entrances", "unharmed"]}], "swaps": [["remove", "eliminate", "제거하다 → 없애다, 제거하다"], ["seal", "block", "봉쇄하다 → 막다"], ["unharmed", "undamaged", "다치지 않은 → 손상되지 않은"], ["secretly", "secretly", "몰래 → 몰래"]], "swapnote": "remove(제거하다)는 eliminate(없애다)로, sealed off(봉쇄했다)는 blocked(막았다)로, unharmed(손상되지 않은)는 undamaged로 바뀌어 나와요.", "use": [{"w": "eliminate", "ex": "Doctors work hard to eliminate the disease.", "ko": "의사들은 그 질병을 없애려고 열심히 노력한다.", "wk": "제거하다, 없애다", "hk": "없애려고"}, {"w": "block", "ex": "A fallen tree blocked the road.", "ko": "쓰러진 나무가 도로를 막았다.", "wk": "막다", "hk": "막았다"}], "flow": "본문 6~7번에서 광부들이 큰 폭발물을 몰래 치우고 입구에 작은 것만 놓아요. 8번에서 나치 지도자는 속아 넘어가고, 9번의 However(그러나)로 입구만 막히고 작품은 멀쩡했다는 반전이 나와요.", "jd": [["Local miners secretly [[eliminated]]", "지역 광부들은 몰래 [[제거했다]]"], ["the large explosives", "대형 폭발물을"], ["and put smaller ones at the entrances,", "그리고 입구에 더 작은 것들을 놓았다,"], ["so the small blasts only [[blocked]] the entrances", "그래서 작은 폭발들은 입구를 [[막기만 했고]]"], ["and left the artworks undamaged.", "예술 작품들은 손상되지 않은 채로 남겨 두었다."]], "fc": [["본문 6~7번", "광부들이 큰 폭발물을 몰래 치웠다", "입구에는 작은 폭발물만 놓았어요."], ["본문 8번", "나치 지도자는 모든 게 파괴됐다고 믿었다", "작전 성공! 속아 넘어갔어요."], ["본문 9번", "However! 입구만 막히고 작품은 멀쩡", "{{sealed off|막아 버리다}}, {{unharmed|다치지 않은}}"], ["정답 포인트", "{{remove|제거하다}} = {{eliminate|없애다}}, {{seal off|봉쇄하다}} = {{block|막다}}", "입구가 열린 게 아니라 막혔어요."]], "evid_full": [{"en": "They secretly removed the large explosives and put smaller ones at the entrances.", "ko": "그들은 몰래 대형 폭발물을 제거했고 입구에 더 작은 폭발물을 놓았다.", "hl": ["removed the large explosives"], "hlko": ["대형 폭발물을 제거했고"], "n": 7}, {"en": "However, while the small explosions sealed off the entrances, they left the rest of the mines and the works of art unharmed.", "ko": "그러나 작은 폭발들이 입구를 봉쇄시키긴 했지만, 그것들은 광산의 나머지 부분과 예술 작품들을 손상되지 않은 채로 남아 있게 했다.", "hl": ["sealed off the entrances", "unharmed"], "hlko": ["입구를 봉쇄시키긴", "손상되지 않은 채로"], "n": 9}]}, {"id": 4, "summary": "When the Monuments Men squeezed into the mines, they must have been (A) to find thousands of (B) objects, including paintings and statues.", "ko": "모뉴먼츠 맨은 광산 안으로 비집고 들어갔을 때 그림과 조각상을 포함한 수천 점의 <b>(B) 매우 귀중한</b> 물건들을 보고 <b>(A) 깜짝 놀랐음</b>에 틀림없다.", "opts": [["astonished", "worthless"], ["astonished", "invaluable"], ["disappointed", "invaluable"], ["disappointed", "worthless"], ["worried", "ordinary"]], "optko": ["깜짝 놀란 – 가치 없는", "깜짝 놀란 – 매우 귀중한", "실망한 – 매우 귀중한", "실망한 – 가치 없는", "걱정하는 – 평범한"], "ans": 1, "wrong": ["worthless(가치 없는)가 틀려요. 안에 있던 건 가치 없는 물건이 아니라 값을 매길 수 없는(priceless) 귀중한 물건이에요.", null, "disappointed(실망한)가 틀려요. 모뉴먼츠 맨은 실망한 게 아니라 놀랐어요(amazed).", "둘 다 틀려요. 실망하지 않았고, 물건도 가치 없는 게 아니에요.", "둘 다 틀려요. 걱정했다는 말도, 평범한 물건이라는 말도 본문에 없어요."], "evid": [{"n": 10, "hl": ["must have been amazed"]}, {"n": 11, "hl": ["priceless objects"]}], "swaps": [["amaze", "astonish", "놀라게 하다 → 깜짝 놀라게 하다"], ["priceless", "invaluable", "값을 매길 수 없는 → 매우 귀중한"], ["squeezed their way into", "squeezed into", "비집고 들어가다"]], "swapnote": "priceless(값을 매길 수 없는)는 invaluable(매우 귀중한)로 바뀌어 나올 수 있어요. 둘 다 '값이 없는'이 아니라 '너무 귀해서 값을 못 매기는'이라는 점을 조심하세요.", "use": [{"w": "astonish", "ex": "The magic show astonished everyone.", "ko": "그 마술 쇼는 모두를 깜짝 놀라게 했다.", "wk": "깜짝 놀라게 하다", "hk": "깜짝 놀라게 했다"}, {"w": "invaluable", "ex": "Her advice was invaluable to me.", "ko": "그녀의 조언은 나에게 매우 귀중했다.", "wk": "매우 귀중한", "hk": "매우 귀중했다"}], "flow": "본문 10번에서 모뉴먼츠 맨이 광산 안으로 비집고 들어가 놀라고, 11번에서 그 안에 있던 그림·조각상·책·가구 같은 값을 매길 수 없는 물건들이 소개돼요.", "jd": [["When the Monuments Men squeezed into the mines,", "모뉴먼츠 맨이 광산 안으로 비집고 들어갔을 때,"], ["they must have been [[astonished]]", "그들은 [[깜짝 놀랐음]]에 틀림없다"], ["to find thousands of [[invaluable]] objects,", "수천 점의 [[매우 귀중한]] 물건들을 발견하고,"], ["including paintings and statues.", "그림과 조각상을 포함하여."]], "fc": [["본문 10번", "모뉴먼츠 맨이 광산 안으로 비집고 들어갔다", "안을 보고 놀랐음에 틀림없어요."], ["본문 11번", "수천 점의 귀중한 물건들", "그림, 조각상, 책, 가구 등이 있었어요."], ["정답 포인트", "{{amazed|놀란}} = {{astonished|깜짝 놀란}}, {{priceless|값을 매길 수 없는}} = {{invaluable|매우 귀중한}}", "priceless는 '값이 없다'가 아니라 '너무 귀하다'예요."]], "evid_full": [{"en": "When the Monuments Men arrived and squeezed their way into the mines, they must have been amazed to see what was inside.", "ko": "모뉴먼츠 맨이 도착해 광산 안으로 비집고 들어갔을 때, 그들은 내부에 있던 것을 보고 놀랐음에 틀림없다.", "hl": ["must have been amazed"], "hlko": ["놀랐음에 틀림없다"], "n": 10}, {"en": "There were thousands of priceless objects, including paintings, statues, books, furniture, and more.", "ko": "그곳에는 그림, 조각상, 책, 가구 등을 포함해 수천 점의 귀중한 물건들이 있었다.", "hl": ["priceless objects"], "hlko": ["귀중한 물건들"], "n": 11}]}], "gloss": {"many": ["many", "많은"], "stolen": ["steal", "훔치다 (stolen = 도난당한)"], "steal": ["steal", "훔치다"], "items": ["item", "물품, 물건"], "were": ["be", "~였다"], "salt": ["salt", "소금"], "mines": ["mine", "광산"], "mine": ["mine", "광산"], "austria": ["Austria", "오스트리아"], "monuments": ["Monuments Men", "모뉴먼츠 맨(문화재를 지키던 연합군 특수부대)"], "learned": ["learn", "알게 되다"], "hurried": ["hurry", "서두르다"], "hoping": ["hope", "희망하다"], "everything": ["everything", "모든 것"], "before": ["before", "~하기 전에"], "late": ["late", "늦은"], "concealed": ["conceal", "숨기다, 감추다"], "conceal": ["conceal", "숨기다, 감추다"], "retrieve": ["retrieve", "되찾아 오다"], "sell": ["sell", "팔다"], "displayed": ["display", "전시하다"], "revealed": ["reveal", "드러내다"], "destroy": ["destroy", "파괴하다"], "nazi": ["Nazi", "나치"], "leader": ["leader", "지도자"], "charge": ["charge", "담당, 책임 (in charge of = ~을 담당하는)"], "area": ["area", "지역"], "tried": ["try", "시도하다"], "setting": ["set", "(setting off = 터뜨리다)"], "large": ["large", "큰, 대형의"], "inside": ["inside", "~ 안에"], "ruin": ["ruin", "망가뜨리다"], "bombs": ["bomb", "폭탄"], "bomb": ["bomb", "폭탄"], "fires": ["fire", "불"], "protect": ["protect", "보호하다"], "machines": ["machine", "기계"], "explosives": ["explosive", "폭발물"], "local": ["local", "지역의, 현지의"], "miners": ["miner", "광부"], "secretly": ["secretly", "몰래"], "eliminated": ["eliminate", "제거하다, 없애다"], "eliminate": ["eliminate", "제거하다, 없애다"], "put": ["put", "놓다"], "smaller": ["small", "더 작은 (small = 작은)"], "small": ["small", "작은"], "ones": ["one", "것 (smaller ones = 더 작은 것들)"], "entrances": ["entrance", "입구"], "entrance": ["entrance", "입구"], "blasts": ["blast", "폭발"], "only": ["only", "오직, ~하기만"], "blocked": ["block", "막다"], "block": ["block", "막다"], "opened": ["open", "열다"], "left": ["leave", "남겨 두다"], "artworks": ["artwork", "예술 작품"], "undamaged": ["undamaged", "손상되지 않은"], "hid": ["hide", "숨기다"], "ignored": ["ignore", "무시하다"], "squeezed": ["squeeze", "비집고 들어가다"], "must": ["must", "~임에 틀림없다"], "find": ["find", "발견하다"], "thousands": ["thousand", "수천"], "objects": ["object", "물건, 물체"], "including": ["include", "~을 포함하여"], "paintings": ["painting", "그림"], "statues": ["statue", "조각상"], "astonished": ["astonish", "깜짝 놀라게 하다 (astonished = 깜짝 놀란)"], "astonish": ["astonish", "깜짝 놀라게 하다"], "invaluable": ["invaluable", "매우 귀중한"], "worthless": ["worthless", "가치 없는"], "disappointed": ["disappoint", "실망시키다 (disappointed = 실망한)"], "worried": ["worry", "걱정하다 (worried = 걱정하는)"], "ordinary": ["ordinary", "평범한"], "ruined": ["ruin", "망치다"], "found": ["find", "발견하다"], "one": ["one", "하나"], "largest": ["large", "큰 (largest = 가장 큰)"], "collections": ["collection", "더미, 모음"], "hidden": ["hide", "숨기다 (hidden = 숨겨진)"], "altaussee": ["Altaussee", "알타우제(오스트리아의 지명)"], "discovering": ["discover", "알아내다, 발견하다"], "location": ["location", "위치"], "rushed": ["rush", "급히 움직이다"], "hoped": ["hope", "희망하다"], "recover": ["recover", "되찾다"], "meanwhile": ["meanwhile", "한편, 그 사이에"], "explosions": ["explosion", "폭발"], "disastrous": ["disastrous", "처참한"], "luckily": ["luckily", "다행히도"], "removed": ["remove", "제거하다"], "livelihood": ["livelihood", "생계"], "sealed": ["seal", "봉쇄하다 (sealed off = 막아 버렸다)"], "unharmed": ["unharmed", "다치거나 손상되지 않은"], "priceless": ["priceless", "값을 매길 수 없을 만큼 귀중한"], "furniture": ["furniture", "가구"], "books": ["book", "책"], "amazed": ["amaze", "놀라게 하다 (amazed = 놀란)"], "arrived": ["arrive", "도착하다"], "destroyed": ["destroy", "파괴하다"], "believed": ["believe", "믿다, 여기다"], "works": ["work", "작품"], "rest": ["rest", "나머지"], "while": ["while", "~하는 동안, ~이긴 하지만"], "went": ["go", "가다 (went off = 터지다)"], "once": ["once", "~하자마자"], "planned": ["plan", "계획하다"], "came": ["come", "오다 (came up with = 생각해 내다)"], "plan": ["plan", "계획"], "disaster": ["disaster", "재난, 재앙"], "world": ["world", "세계"], "doctors": ["doctor", "의사"], "disease": ["disease", "질병"], "heavy": ["heavy", "심한, 무거운"], "rain": ["rain", "비"], "picnic": ["picnic", "소풍"], "bridge": ["bridge", "다리"], "tree": ["tree", "나무"], "road": ["road", "도로"], "magic": ["magic", "마술"], "show": ["show", "쇼, 공연"], "advice": ["advice", "조언"], "bag": ["bag", "가방"], "surprise": ["surprise", "놀란 마음, 놀라움"], "fallen": ["fall", "쓰러지다 (fallen = 쓰러진)"], "everyone": ["everyone", "모든 사람"], "hard": ["hard", "열심히"], "men": ["man", "사람들, 남자들 (Monuments Men = 모뉴먼츠 맨)"], "upon": ["upon", "~하자마자"], "off": ["off", "(set off = 터뜨리다, seal off = 막다)"], "however": ["however", "그러나"], "art": ["art", "예술"], "into": ["into", "~ 안으로"], "way": ["way", "길 (squeezed their way = 비집고 들어가다)"], "see": ["see", "보다"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="jusung-go1";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH;
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);render();
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){return (DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}})}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../index.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">밑줄 단어를 누르면 뜻이 나와요. 번호를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+words(o[0])+'<span class="dash">–</span>'+words(o[1])+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'</li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>4과 요약문 연습 ❷</title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "geumcheon-go2", "src": "geumcheon-go2/L4/sx-data.js", "pidx": 1, "lesson": "4과", "title": "수리할 권리와 수리 카페", "label": "❷", "page": "yoyak-lian-z2"}, "scenes": [{"tag": "본문 1~2번", "ns": [1, 2], "line": "전자 쓰레기가 뭘까? 쓰고 버린 전자 기기와 전기 제품을 말한다.", "en": ["What exactly is e-waste?", "The term refers to discarded electronic devices and electrical appliances."], "kos": ["전자 쓰레기란 정확히 무엇인가?", "이 용어는 버려진 전자 장치와 전기 기기를 나타낸다."]}, {"tag": "본문 3번", "ns": [3], "line": "납 같은 [[toxic|유독한]] 물질이 들어 있어 건강과 환경에 심각한 [[hazard|위험 요소]]다.", "en": ["Due to toxic materials contained in these products, such as lead, e-waste is a serious health and environmental hazard."], "kos": ["이 제품들에 포함된 납과 같은 유독성 물질 때문에 전자 쓰레기는 심각한 건강 및 환경 위험 요소이다."]}, {"tag": "본문 4번", "ns": [4], "line": "설상가상으로 매년 쏟아지는 양이 [[increasing|늘어나는]] 속도가 [[alarming|걱정스러울]] 정도다.", "en": ["To make matters worse, the amount of e-waste produced each year is increasing at an alarming rate."], "kos": ["설상가상으로, 매년 생산되는 전자 쓰레기의 양은 걱정스러운 속도로 증가하고 있다."]}, {"tag": "본문 5~6번", "ns": [5, 6], "line": "전문가들은 2030년이면 그 [[amount|양]]이 두 배가 될 거라고 [[predict|예측]]한다.", "en": ["In 2021, a total of 57.4 million metric tons of e-waste was generated worldwide, which was a 37% increase from 2014, the year when data about e-waste was first collected.", "Experts predict that by 2030, the amount of e-waste generated annually will have doubled in just 16 years."], "kos": ["2021년에 전 세계적으로 총 5,740만 메트릭톤의 전자 쓰레기가 발생했는데, 이는 전자 쓰레기에 대한 자료가 처음으로 수집된 해인 2014년에 비해 37% 증가한 것이다.", "전문가들은 2030년에는 매년 발생하는 전자 쓰레기의 양이 단 16년 만에 두 배가 될 것으로 예측한다."]}, {"tag": "본문 7번", "ns": [7], "line": "그래서 문제를 [[address|다루려는]] [[efforts|노력]]이 이어지고, 대부분 수리하기 쉬운 제품 만들기에 집중한다.", "en": ["For this reason, efforts are being made to address this problem, most of which are focused on making products easier to repair."], "kos": ["이러한 이유로 이 문제를 다루기 위해 노력이 이루어지고 있는데, 이 중 대부분은 제품들을 수리하기 더 쉽게 만드는 것에 중점을 두고 있다."]}], "story": [{"a": "hazard", "form": "hazard", "n": 3, "sq": 1, "sum": "a serious [[threat]] to people's health", "hook": "전자 쓰레기가 건강과 환경을 해친다는 문장의 hazard(위험 요소) → 요약문에서는 threat(위협)로 바뀌었어요.", "b": "threat", "k": "위험 요소 → 위협", "en": "Due to toxic materials contained in these products, such as lead, e-waste is a serious health and environmental hazard.", "ko": "이 제품들에 포함된 납과 같은 유독성 물질 때문에 전자 쓰레기는 심각한 건강 및 환경 위험 요소이다."}, {"a": "toxic", "form": "toxic", "n": 3, "sq": 1, "sum": "they contain [[poisonous]] substances", "hook": "납 같은 독 성분이 들어 있다는 문장의 toxic(유독성의) → 요약문에서는 poisonous(독이 있는)로 바뀌었어요.", "b": "poisonous", "k": "유독성의 → 독이 있는", "en": "Due to toxic materials contained in these products, such as lead, e-waste is a serious health and environmental hazard.", "ko": "이 제품들에 포함된 납과 같은 유독성 물질 때문에 전자 쓰레기는 심각한 건강 및 환경 위험 요소이다."}, {"a": "increase", "form": "increasing", "n": 4, "sq": 2, "sum": "is [[escalating]] at a disturbing rate", "hook": "매년 쓰레기 양이 계속 늘어난다는 문장의 increasing(증가하는) → 요약문에서는 escalating(급증하는)으로 바뀌었어요.", "b": "escalate", "k": "증가하다 → 급증하다", "en": "To make matters worse, the amount of e-waste produced each year is increasing at an alarming rate.", "ko": "설상가상으로, 매년 생산되는 전자 쓰레기의 양은 걱정스러운 속도로 증가하고 있다."}, {"a": "alarming", "form": "alarming", "n": 4, "sq": 2, "sum": "is escalating at a [[disturbing]] rate", "hook": "늘어나는 속도가 걱정될 정도라는 문장의 alarming(걱정스러운) → 요약문에서는 disturbing(불안하게 하는)으로 바뀌었어요.", "b": "disturbing", "k": "걱정스러운 → 불안하게 하는, 걱정스러운", "en": "To make matters worse, the amount of e-waste produced each year is increasing at an alarming rate.", "ko": "설상가상으로, 매년 생산되는 전자 쓰레기의 양은 걱정스러운 속도로 증가하고 있다."}, {"a": "predict", "form": "predict", "n": 6, "sq": 3, "sum": "Experts [[forecast]] that", "hook": "전문가들이 앞날을 내다본다는 문장의 predict(예측하다) → 요약문에서는 forecast(예보하다)로 바뀌었어요.", "b": "forecast", "k": "예측하다 → 예보하다, 예측하다", "en": "Experts predict that by 2030, the amount of e-waste generated annually will have doubled in just 16 years.", "ko": "전문가들은 2030년에는 매년 발생하는 전자 쓰레기의 양이 단 16년 만에 두 배가 될 것으로 예측한다."}, {"a": "amount", "form": "amount", "n": 6, "sq": 3, "sum": "the yearly [[volume]] of e-waste", "hook": "2030년에 두 배가 된다는 그 '양'! 문장의 amount → 요약문에서는 volume(양, 부피)으로 바뀌었어요.", "b": "volume", "k": "양 → 양, 부피", "en": "Experts predict that by 2030, the amount of e-waste generated annually will have doubled in just 16 years.", "ko": "전문가들은 2030년에는 매년 발생하는 전자 쓰레기의 양이 단 16년 만에 두 배가 될 것으로 예측한다."}, {"a": "address", "form": "address", "n": 7, "sq": 4, "sum": "To [[tackle]] the problem", "hook": "이 문제를 해결하려고 나선다는 문장의 address(다루다) → 요약문에서는 tackle(맞붙어 해결하다)로 바뀌었어요.", "b": "tackle", "k": "(문제를) 다루다 → 해결하려고 맞붙다", "en": "For this reason, efforts are being made to address this problem, most of which are focused on making products easier to repair.", "ko": "이러한 이유로 이 문제를 다루기 위해 노력이 이루어지고 있는데, 이 중 대부분은 제품들을 수리하기 더 쉽게 만드는 것에 중점을 두고 있다."}, {"a": "effort", "form": "efforts", "n": 7, "sq": 4, "sum": "most [[initiatives]] concentrate", "hook": "수리하기 쉬운 제품을 만들려는 움직임이 나오는 문장의 efforts(노력) → 요약문에서는 initiatives(계획, 노력)로 바뀌었어요.", "b": "initiative", "k": "노력 → 계획, 노력", "en": "For this reason, efforts are being made to address this problem, most of which are focused on making products easier to repair.", "ko": "이러한 이유로 이 문제를 다루기 위해 노력이 이루어지고 있는데, 이 중 대부분은 제품들을 수리하기 더 쉽게 만드는 것에 중점을 두고 있다."}], "passage": [{"n": 1, "en": "What exactly is e-waste?", "ko": "전자 쓰레기란 정확히 무엇인가?"}, {"n": 2, "en": "The term refers to discarded electronic devices and electrical appliances.", "ko": "이 용어는 버려진 전자 장치와 전기 기기를 나타낸다."}, {"n": 3, "en": "Due to toxic materials contained in these products, such as lead, e-waste is a serious health and environmental hazard.", "ko": "이 제품들에 포함된 납과 같은 유독성 물질 때문에 전자 쓰레기는 심각한 건강 및 환경 위험 요소이다."}, {"n": 4, "en": "To make matters worse, the amount of e-waste produced each year is increasing at an alarming rate.", "ko": "설상가상으로, 매년 생산되는 전자 쓰레기의 양은 걱정스러운 속도로 증가하고 있다."}, {"n": 5, "en": "In 2021, a total of 57.4 million metric tons of e-waste was generated worldwide, which was a 37% increase from 2014, the year when data about e-waste was first collected.", "ko": "2021년에 전 세계적으로 총 5,740만 메트릭톤의 전자 쓰레기가 발생했는데, 이는 전자 쓰레기에 대한 자료가 처음으로 수집된 해인 2014년에 비해 37% 증가한 것이다."}, {"n": 6, "en": "Experts predict that by 2030, the amount of e-waste generated annually will have doubled in just 16 years.", "ko": "전문가들은 2030년에는 매년 발생하는 전자 쓰레기의 양이 단 16년 만에 두 배가 될 것으로 예측한다."}, {"n": 7, "en": "For this reason, efforts are being made to address this problem, most of which are focused on making products easier to repair.", "ko": "이러한 이유로 이 문제를 다루기 위해 노력이 이루어지고 있는데, 이 중 대부분은 제품들을 수리하기 더 쉽게 만드는 것에 중점을 두고 있다."}, {"n": 8, "en": "Let’s take a look at some practical approaches from around the world.", "ko": "전 세계의 현실성 있는 접근법을 몇 가지 살펴보자."}], "questions": [{"id": 1, "summary": "Discarded electronic devices, known as e-waste, are a serious (A) to people's health and the environment because they contain (B) substances.", "ko": "전자 쓰레기라고 알려진 버려진 전자 장치는 <b>(B) 유독한</b> 물질을 포함하고 있어서 사람들의 건강과 환경에 심각한 <b>(A) 위협</b>이다.", "opts": [["threat", "precious"], ["resource", "poisonous"], ["threat", "poisonous"], ["resource", "precious"], ["nuisance", "harmless"]], "optko": ["위협 – 귀중한", "자원 – 유독한", "위협 – 유독한", "자원 – 귀중한", "골칫거리 – 무해한"], "ans": 2, "wrong": ["precious(귀중한)가 틀려요. 본문은 납 같은 유독한(toxic) 물질이 들어 있다고 해요.", "resource(자원)가 틀려요. 본문은 전자 쓰레기가 건강과 환경에 해로운 위험 요소(hazard)라고 해요.", null, "둘 다 틀려요. 전자 쓰레기는 귀중한 자원이 아니라 유독한 물질이 든 위험 요소예요.", "harmless(무해한)가 틀려요. 납 같은 유독성 물질 때문에 오히려 심각한 위험이에요."], "evid": [{"n": 2, "hl": ["discarded electronic devices"]}, {"n": 3, "hl": ["toxic materials", "hazard"]}], "swaps": [["hazard", "threat", "위험 요소 → 위협"], ["toxic", "poisonous", "유독성의 → 독이 있는"], ["materials", "substances", "물질 → 물질, 성분"]], "swapnote": "hazard(위험 요소)는 threat(위협), risk(위험)로, toxic(유독성의)은 poisonous(독이 있는), harmful(해로운)로 바뀌어 나와요.", "use": [{"w": "threat", "ex": "Pollution is a serious threat to wildlife.", "ko": "오염은 야생 동물에게 심각한 위협이다.", "wk": "위협", "hk": "위협"}, {"w": "poisonous", "ex": "Some mushrooms are poisonous, so do not eat them.", "ko": "어떤 버섯은 독이 있으니 먹지 마라.", "wk": "독이 있는", "hk": "독이 있으니"}], "flow": "본문 1~2번에서 전자 쓰레기가 버려진 전자 기기라고 뜻을 밝히고 → 3번에서 납 같은 유독 물질 때문에 건강과 환경을 해치는 위험 요소라고 해요.", "jd": [["Discarded electronic devices, known as e-waste,", "전자 쓰레기라고 알려진 버려진 전자 장치는,"], ["are a serious [[threat]] to people's health and the environment", "사람들의 건강과 환경에 심각한 [[위협]]이다"], ["because they contain [[poisonous]] substances.", "그것들이 [[유독한]] 물질을 포함하고 있기 때문에."]], "fc": [["본문 2번", "전자 쓰레기 = 버려진 전자 기기", "이 글에서 e-waste는 쓰고 버린 전자 제품과 전기 제품을 말해요."], ["본문 3번", "납 같은 유독 물질이 들어 있다", "그래서 건강과 환경 모두에 심각한 위험 요소예요."], ["정답 포인트", "{{hazard|위험 요소}} = {{threat|위협}}, {{toxic|유독성의}} = {{poisonous|독이 있는}}", "본문 단어가 뜻이 같은 말로 바뀌어 나와요."]], "evid_full": [{"en": "The term refers to discarded electronic devices and electrical appliances.", "ko": "이 용어는 버려진 전자 장치와 전기 기기를 나타낸다.", "hl": ["discarded electronic devices"], "hlko": ["버려진 전자 장치"], "n": 2}, {"en": "Due to toxic materials contained in these products, such as lead, e-waste is a serious health and environmental hazard.", "ko": "이 제품들에 포함된 납과 같은 유독성 물질 때문에 전자 쓰레기는 심각한 건강 및 환경 위험 요소이다.", "hl": ["toxic materials", "hazard"], "hlko": ["유독성 물질", "위험 요소"], "n": 3}]}, {"id": 2, "summary": "The amount of e-waste produced each year is (A) at a (B) rate, reaching 57.4 million metric tons worldwide in 2021.", "ko": "매년 생산되는 전자 쓰레기의 양은 <b>(B) 걱정스러운</b> 속도로 <b>(A) 급증하여</b> 2021년 전 세계에서 5,740만 메트릭톤에 이르렀다.", "opts": [["escalating", "gradual"], ["dwindling", "disturbing"], ["dwindling", "gradual"], ["fluctuating", "steady"], ["escalating", "disturbing"]], "optko": ["급증하는 – 완만한", "줄어드는 – 걱정스러운", "줄어드는 – 완만한", "오르내리는 – 꾸준한", "급증하는 – 걱정스러운"], "ans": 4, "wrong": ["gradual(완만한)이 틀려요. 본문은 걱정스러울 만큼(alarming) 빠르게 늘고 있다고 해요.", "dwindling(줄어드는)이 틀려요. 전자 쓰레기는 줄어드는 게 아니라 늘고(increasing) 있어요.", "둘 다 틀려요. 줄어들지도 않고 완만하지도 않아요. 빠르게 늘고 있어요.", "둘 다 틀려요. 오르내리거나(fluctuating) 꾸준한(steady) 게 아니라 걱정스러운 속도로 계속 늘어요.", null], "evid": [{"n": 4, "hl": ["increasing at an alarming rate"]}, {"n": 5, "hl": ["57.4 million metric tons"]}], "swaps": [["increase", "escalate", "증가하다 → 급증하다"], ["alarming", "disturbing", "걱정스러운 → 불안하게 하는, 걱정스러운"]], "swapnote": "increase(증가하다)는 rise(오르다), escalate(급증하다), grow(자라다, 늘다)로, alarming(걱정스러운)은 disturbing(불안하게 하는)으로 바뀌어 나와요.", "use": [{"w": "escalate", "ex": "The conflict may escalate if no one steps in.", "ko": "아무도 나서지 않으면 갈등이 커질 수 있다.", "wk": "급증하다, 커지다", "hk": "커질"}, {"w": "disturbing", "ex": "The news about the flood was disturbing.", "ko": "홍수 소식은 걱정스러웠다.", "wk": "불안하게 하는, 걱정스러운", "hk": "걱정스러웠다"}], "flow": "본문 4번의 To make matters worse(설상가상) 뒤에서 전자 쓰레기가 걱정스러운 속도로 늘고 있다고 해요 → 5번에서 2021년 5,740만 톤, 2014년보다 37% 증가라는 숫자로 보여 줘요.", "jd": [["The amount of e-waste produced each year", "매년 생산되는 전자 쓰레기의 양은"], ["is [[escalating]] at a [[disturbing]] rate,", "[[걱정스러운]] 속도로 [[급증하고]] 있으며,"], ["reaching 57.4 million metric tons worldwide in 2021.", "2021년 전 세계에서 5,740만 메트릭톤에 이르렀다."]], "fc": [["본문 4번", "설상가상! 전자 쓰레기가 빠르게 는다", "{{To make matters worse|설상가상으로}} 뒤에 나쁜 소식이 이어져요."], ["본문 5번", "2021년 5,740만 톤, 2014년보다 37% 증가", "숫자로 증가 속도를 보여 줘요."], ["정답 포인트", "{{increase|증가하다}} = {{escalate|급증하다}}, {{alarming|걱정스러운}} = {{disturbing|불안하게 하는}}", "'완만한'이나 '줄어드는'은 본문과 반대예요."]], "evid_full": [{"en": "To make matters worse, the amount of e-waste produced each year is increasing at an alarming rate.", "ko": "설상가상으로, 매년 생산되는 전자 쓰레기의 양은 걱정스러운 속도로 증가하고 있다.", "hl": ["increasing at an alarming rate"], "hlko": ["걱정스러운 속도로 증가하고"], "n": 4}, {"en": "In 2021, a total of 57.4 million metric tons of e-waste was generated worldwide, which was a 37% increase from 2014, the year when data about e-waste was first collected.", "ko": "2021년에 전 세계적으로 총 5,740만 메트릭톤의 전자 쓰레기가 발생했는데, 이는 전자 쓰레기에 대한 자료가 처음으로 수집된 해인 2014년에 비해 37% 증가한 것이다.", "hl": ["57.4 million metric tons"], "hlko": ["5,740만 메트릭톤"], "n": 5}]}, {"id": 3, "summary": "Experts (A) that the yearly (B) of e-waste will have doubled by 2030, in just 16 years.", "ko": "전문가들은 매년의 전자 쓰레기 <b>(B) 양</b>이 2030년까지 단 16년 만에 두 배가 될 것이라고 <b>(A) 예측한다</b>.", "opts": [["forecast", "price"], ["forecast", "volume"], ["deny", "volume"], ["deny", "price"], ["doubt", "quality"]], "optko": ["예측하다 – 가격", "예측하다 – 양", "부인하다 – 양", "부인하다 – 가격", "의심하다 – 품질"], "ans": 1, "wrong": ["price(가격)가 틀려요. 두 배가 된다고 한 건 가격이 아니라 전자 쓰레기의 양(amount)이에요.", null, "deny(부인하다)가 틀려요. 전문가들은 그렇게 될 거라고 예측해요.", "둘 다 틀려요. 전문가들은 부인하지 않고, 두 배가 되는 것도 가격이 아니라 양이에요.", "둘 다 틀려요. 전문가들이 의심하는 게 아니고, 품질 이야기는 본문에 없어요."], "evid": [{"n": 6, "hl": ["Experts predict", "the amount of e-waste generated annually", "will have doubled in just 16 years"]}], "swaps": [["predict", "forecast", "예측하다 → 예보하다, 예측하다"], ["amount", "volume", "양 → 양, 부피"], ["annually", "yearly", "매년 → 해마다"]], "swapnote": "predict(예측하다)는 forecast(예보하다), anticipate(예상하다), project(전망하다)로, amount(양)는 volume(양, 부피)으로 바뀌어 나와요.", "use": [{"w": "forecast", "ex": "Weather experts forecast heavy rain tomorrow.", "ko": "기상 전문가들은 내일 폭우를 예측한다.", "wk": "예측하다, 예보하다", "hk": "예측한다"}, {"w": "volume", "ex": "The volume of traffic grows during rush hour.", "ko": "출퇴근 시간에는 교통량이 늘어난다.", "wk": "양, 부피", "hk": "교통량"}], "flow": "본문 6번은 미래 이야기예요. 전문가들이 예측하기를, 2030년이면 해마다 나오는 전자 쓰레기 양이 단 16년 만에 두 배가 된대요.", "jd": [["Experts [[forecast]] that", "전문가들은 [[예측한다]]"], ["the yearly [[volume]] of e-waste", "매년의 전자 쓰레기 [[양]]이"], ["will have doubled by 2030,", "2030년까지 두 배가 될 것이라고,"], ["in just 16 years.", "단 16년 만에."]], "fc": [["본문 6번", "미래 예측 이야기", "누가 말하는지 보세요. 전문가들이에요."], ["내용", "2030년이면 양이 두 배", "단 16년 만에 매년 나오는 양이 두 배가 돼요."], ["정답 포인트", "{{predict|예측하다}} = {{forecast|예보하다}}, {{amount|양}} = {{volume|양, 부피}}", "'가격'이나 '품질'은 본문에 없어요."]], "evid_full": [{"en": "Experts predict that by 2030, the amount of e-waste generated annually will have doubled in just 16 years.", "ko": "전문가들은 2030년에는 매년 발생하는 전자 쓰레기의 양이 단 16년 만에 두 배가 될 것으로 예측한다.", "hl": ["Experts predict", "the amount of e-waste generated annually", "will have doubled in just 16 years"], "hlko": ["전문가들은", "매년 발생하는 전자 쓰레기의 양", "두 배가 될 것으로 예측한다"], "n": 6}]}, {"id": 4, "summary": "To (A) the problem, most (B) concentrate on making products easier to repair.", "ko": "그 문제를 <b>(A) 다루기</b> 위해, 대부분의 <b>(B) 노력</b>은 제품을 수리하기 더 쉽게 만드는 데 집중한다.", "opts": [["tackle", "penalties"], ["ignore", "initiatives"], ["ignore", "penalties"], ["tackle", "initiatives"], ["worsen", "regulations"]], "optko": ["다루다 – 처벌", "무시하다 – 노력, 계획", "무시하다 – 처벌", "다루다 – 노력, 계획", "악화시키다 – 규제"], "ans": 3, "wrong": ["penalties(처벌)가 틀려요. 본문은 처벌이 아니라 수리하기 쉬운 제품을 만들려는 노력(efforts)이에요.", "ignore(무시하다)가 틀려요. 본문은 이 문제를 다루려는(address) 노력이라고 해요.", "둘 다 틀려요. 문제를 무시하는 게 아니고, 처벌 이야기도 본문에 없어요.", null, "worsen(악화시키다)이 틀려요. 노력의 목적은 문제를 더 나쁘게 하는 게 아니라 해결하는 거예요."], "evid": [{"n": 7, "hl": ["efforts are being made to address this problem", "focused on making products easier to repair"]}], "swaps": [["address", "tackle", "(문제를) 다루다 → 해결하려고 맞붙다"], ["effort", "initiative", "노력 → 계획, 노력"], ["focused", "concentrate", "집중된 → 집중하다"]], "swapnote": "address(문제를 다루다)는 tackle(맞붙어 해결하다), deal with(처리하다)로, efforts(노력)는 initiatives(새로운 시도, 계획)로 바뀌어 나와요.", "use": [{"w": "tackle", "ex": "The city plans to tackle the traffic problem.", "ko": "시는 교통 문제를 해결할 계획이다.", "wk": "(문제를) 해결하려고 맞붙다", "hk": "해결할"}, {"w": "initiative", "ex": "The school started a new recycling initiative.", "ko": "학교는 새로운 재활용 활동을 시작했다.", "wk": "새로운 계획, 시도", "hk": "활동"}], "flow": "본문 7번의 For this reason(이러한 이유로)은 앞의 걱정거리 때문이라는 뜻이에요. 그래서 문제를 해결하려는 노력이 생겼고, 대부분 제품을 수리하기 쉽게 만드는 데 집중해요.", "jd": [["To [[tackle]] the problem,", "그 문제를 [[다루기]] 위해,"], ["most [[initiatives]] concentrate", "대부분의 [[노력]]은 집중한다"], ["on making products easier to repair.", "제품을 수리하기 더 쉽게 만드는 데."]], "fc": [["본문 7번", "For this reason = 그래서", "앞의 걱정거리 때문에 대책이 나왔다는 뜻이에요."], ["내용", "문제를 해결하려는 노력들", "대부분 제품을 수리하기 쉽게 만드는 데 집중해요."], ["정답 포인트", "{{address|(문제를) 다루다}} = {{tackle|해결하려고 맞붙다}}, {{efforts|노력}} = {{initiatives|계획, 노력}}", "'처벌'이나 '무시'는 본문과 반대예요."]], "evid_full": [{"en": "For this reason, efforts are being made to address this problem, most of which are focused on making products easier to repair.", "ko": "이러한 이유로 이 문제를 다루기 위해 노력이 이루어지고 있는데, 이 중 대부분은 제품들을 수리하기 더 쉽게 만드는 것에 중점을 두고 있다.", "hl": ["efforts are being made to address this problem", "focused on making products easier to repair"], "hlko": ["이 문제를 다루기 위해 노력이 이루어지고 있는데", "제품들을 수리하기 더 쉽게 만드는 것에 중점을 두고"], "n": 7}]}], "gloss": {"discarded": ["discard", "버려진 (discard = 버리다)"], "electronic": ["electronic", "전자의"], "devices": ["device", "기기, 장치"], "known": ["know", "알려진 (known as = ~로 알려진)"], "serious": ["serious", "심각한"], "threat": ["threat", "위협"], "people's": ["people", "사람들의"], "health": ["health", "건강"], "environment": ["environment", "환경"], "environmental": ["environmental", "환경의"], "because": ["because", "~ 때문에"], "contain": ["contain", "포함하다"], "contained": ["contain", "포함하다 (contained in = ~에 들어 있는)"], "poisonous": ["poisonous", "독이 있는"], "substances": ["substance", "물질"], "precious": ["precious", "귀중한"], "resource": ["resource", "자원"], "nuisance": ["nuisance", "골칫거리"], "harmless": ["harmless", "해가 없는"], "term": ["term", "용어"], "refers": ["refer", "가리키다 (refer to = ~를 나타내다)"], "electrical": ["electrical", "전기의"], "appliances": ["appliance", "(가전) 기기"], "due": ["due to", "~ 때문에"], "toxic": ["toxic", "유독성의"], "materials": ["material", "물질, 재료"], "products": ["product", "제품"], "such": ["such as", "~와 같은"], "lead": ["lead", "납 (금속)"], "hazard": ["hazard", "위험 요소"], "amount": ["amount", "양"], "produced": ["produce", "생산하다"], "year": ["year", "해, 년"], "years": ["year", "해, 년"], "escalating": ["escalate", "급증하다"], "disturbing": ["disturb", "불안하게 하는, 걱정스러운"], "rate": ["rate", "속도, 비율"], "reaching": ["reach", "(~에) 이르다"], "million": ["million", "백만"], "metric": ["metric", "미터법의 (metric ton = 1,000kg)"], "tons": ["ton", "톤"], "worldwide": ["worldwide", "전 세계에서"], "gradual": ["gradual", "완만한, 서서히 일어나는"], "dwindling": ["dwindle", "줄어들다"], "fluctuating": ["fluctuate", "오르내리다"], "steady": ["steady", "꾸준한"], "increasing": ["increase", "증가하다"], "alarming": ["alarming", "걱정스러운, 놀라운"], "matters": ["matter", "상황, 문제 (make matters worse = 설상가상)"], "worse": ["bad", "더 나쁜"], "make": ["make", "만들다"], "total": ["total", "총, 전체의"], "generated": ["generate", "발생시키다"], "increase": ["increase", "증가"], "data": ["data", "자료"], "collected": ["collect", "수집하다"], "first": ["first", "처음으로"], "experts": ["expert", "전문가"], "predict": ["predict", "예측하다"], "annually": ["annually", "매년"], "yearly": ["yearly", "해마다의"], "doubled": ["double", "두 배가 되다"], "forecast": ["forecast", "예측하다, 예보하다"], "volume": ["volume", "양, 부피"], "price": ["price", "가격"], "quality": ["quality", "품질"], "deny": ["deny", "부인하다"], "doubt": ["doubt", "의심하다"], "tackle": ["tackle", "(문제를) 다루다, 해결하려고 맞붙다"], "initiatives": ["initiative", "새로운 시도, 계획, 노력"], "penalties": ["penalty", "처벌"], "ignore": ["ignore", "무시하다"], "worsen": ["worsen", "악화시키다"], "regulations": ["regulation", "규제"], "problem": ["problem", "문제"], "concentrate": ["concentrate", "집중하다"], "making": ["make", "만들다"], "easier": ["easy", "더 쉬운"], "repair": ["repair", "수리하다"], "efforts": ["effort", "노력"], "made": ["make", "만들다 (efforts are being made = 노력이 이루어지고 있다)"], "address": ["address", "(문제를) 다루다"], "focused": ["focus", "집중하다 (focused on = ~에 중점을 둔)"], "reason": ["reason", "이유"], "most": ["most", "대부분"], "being": ["be", "~되고 있는"], "e-waste": ["e-waste", "전자 쓰레기"], "wildlife": ["wildlife", "야생 동물"], "pollution": ["pollution", "오염"], "mushrooms": ["mushroom", "버섯"], "exactly": ["exactly", "정확히"], "refer": ["refer", "가리키다"], "about": ["about", "~에 대해"], "just": ["just", "단지, 겨우"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="geumcheon-go2";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH;
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);render();
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){return (DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}})}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../index.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">밑줄 단어를 누르면 뜻이 나와요. 번호를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+words(o[0])+'<span class="dash">–</span>'+words(o[1])+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'</li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>

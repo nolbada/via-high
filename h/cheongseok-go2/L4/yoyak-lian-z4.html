@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>4과 요약문 연습 ❹</title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "cheongseok-go2", "src": "cheongseok-go2/L4/sx-data.js", "pidx": 3, "lesson": "4과", "title": "수리할 권리와 수리 카페", "label": "❹", "page": "yoyak-lian-z4"}, "scenes": [{"tag": "본문 1~2번", "ns": [1, 2], "line": "첫째, 제품 정보를 모두가 [[available|이용할 수 있게]] 하고, 둘째, 부품과 도구를 [[obtain|구할]] 수 있게 하라.", "en": ["First, companies must make information about their products available to everyone.", "Second, third parties, including individuals, should be able to obtain the parts and tools required to make repairs."], "kos": ["첫 번째로, 회사들은 그들의 제품에 대한 정보를 모두가 이용할 수 있게 해야 한다.", "두 번째로, 개인을 포함한 제삼자가 수리를 하기 위해 필요한 부품들과 도구들을 구할 수 있어야 한다."]}, {"tag": "본문 3~4번", "ns": [3, 4], "line": "셋째, 소프트웨어 설치를 막는 행위는 법으로 [[prohibited|금지]]. 마지막으로, 수리를 [[easy|쉽게]] 설계하라.", "en": ["Third, the practice of preventing consumers from installing custom software on their own devices should be prohibited by law.", "Finally, it demands that manufacturers design devices in a way that makes repairs as easy as possible."], "kos": ["세 번째로, 소비자들이 맞춤형 소프트웨어를 자신의 장치에 설치하지 못하게 하는 행위는 법으로 금지되어야 한다.", "마지막으로, 그것은 제조사들에게 수리를 최대한 쉽게 만드는 방식으로 장치를 설계할 것을 요구한다."]}, {"tag": "본문 5~7번", "ns": [5, 6, 7], "line": "목표가 이뤄지면 전자 쓰레기가 줄고, 미국 40여 개 주에 이어 유럽에서도 [[influence|영향력]]이 커지고 있다.", "en": ["Advocates of the movement say that if all these goals are accomplished, far less e-waste will be generated.", "Thanks to their efforts, more than 40 states in the U.S. have begun working on right-to-repair legislation.", "This movement is gaining a growing influence in Europe as well, with more and more countries joining the cause."], "kos": ["이 운동의 지지자들은 만약 이 모든 목표가 이루어진다면, 훨씬 적은 전자 쓰레기가 발생할 것이라고 말한다.", "그들의 노력 덕분에 미국 40개 이상의 주에서 수리할 권리 법률 제정을 위해 노력하기 시작했다.", "이 운동은 점점 더 많은 국가들이 그 대의에 동참하면서 유럽에서도 영향력이 커지고 있다."]}], "story": [{"a": "available", "form": "available", "n": 1, "sq": 1, "sum": "make information about their products [[accessible]] to the public", "hook": "제품 정보를 모두가 이용할 수 있게 하라는 문장의 available(이용할 수 있는) → 요약문에서는 accessible(접근 가능한)로 바뀌었어요.", "b": "accessible", "k": "이용할 수 있는 → 접근 가능한", "en": "First, companies must make information about their products available to everyone.", "ko": "첫 번째로, 회사들은 그들의 제품에 대한 정보를 모두가 이용할 수 있게 해야 한다."}, {"a": "obtain", "form": "obtain", "n": 2, "sq": 1, "sum": "should be able to [[acquire]] the parts and tools", "hook": "수리용 부품과 도구를 구하라는 문장의 obtain(구하다) → 요약문에서는 acquire(얻다)로 바뀌었어요.", "b": "acquire", "k": "구하다 → 얻다, 입수하다", "en": "Second, third parties, including individuals, should be able to obtain the parts and tools required to make repairs.", "ko": "두 번째로, 개인을 포함한 제삼자가 수리를 하기 위해 필요한 부품들과 도구들을 구할 수 있어야 한다."}, {"a": "prohibited", "form": "prohibited", "n": 3, "sq": 2, "sum": "companies should be [[banned]] from stopping consumers", "hook": "설치를 막는 행위를 법으로 막자는 문장의 prohibited(금지된) → 요약문에서는 banned(금지된)로 바뀌었어요.", "b": "banned", "k": "금지된 → 금지된", "en": "Third, the practice of preventing consumers from installing custom software on their own devices should be prohibited by law.", "ko": "세 번째로, 소비자들이 맞춤형 소프트웨어를 자신의 장치에 설치하지 못하게 하는 행위는 법으로 금지되어야 한다."}, {"a": "easy", "form": "easy", "n": 4, "sq": 2, "sum": "repairs are as [[straightforward]] as possible", "hook": "수리를 최대한 쉽게 하라는 마지막 요구의 easy(쉬운) → 요약문에서는 straightforward(간단한)로 바뀌었어요.", "b": "straightforward", "k": "쉬운 → 간단한, 명료한", "en": "Finally, it demands that manufacturers design devices in a way that makes repairs as easy as possible.", "ko": "마지막으로, 그것은 제조사들에게 수리를 최대한 쉽게 만드는 방식으로 장치를 설계할 것을 요구한다."}, {"a": "influence", "form": "influence", "n": 7, "sq": 3, "sum": "the movement's [[impact]] is growing", "hook": "유럽에서도 힘이 커진다는 마지막 문장의 influence(영향력) → 요약문에서는 impact(영향)로 바뀌었어요.", "b": "impact", "k": "영향력 → 영향, 파급력", "en": "This movement is gaining a growing influence in Europe as well, with more and more countries joining the cause.", "ko": "이 운동은 점점 더 많은 국가들이 그 대의에 동참하면서 유럽에서도 영향력이 커지고 있다."}], "passage": [{"n": 1, "en": "First, companies must make information about their products available to everyone.", "ko": "첫 번째로, 회사들은 그들의 제품에 대한 정보를 모두가 이용할 수 있게 해야 한다."}, {"n": 2, "en": "Second, third parties, including individuals, should be able to obtain the parts and tools required to make repairs.", "ko": "두 번째로, 개인을 포함한 제삼자가 수리를 하기 위해 필요한 부품들과 도구들을 구할 수 있어야 한다."}, {"n": 3, "en": "Third, the practice of preventing consumers from installing custom software on their own devices should be prohibited by law.", "ko": "세 번째로, 소비자들이 맞춤형 소프트웨어를 자신의 장치에 설치하지 못하게 하는 행위는 법으로 금지되어야 한다."}, {"n": 4, "en": "Finally, it demands that manufacturers design devices in a way that makes repairs as easy as possible.", "ko": "마지막으로, 그것은 제조사들에게 수리를 최대한 쉽게 만드는 방식으로 장치를 설계할 것을 요구한다."}, {"n": 5, "en": "Advocates of the movement say that if all these goals are accomplished, far less e-waste will be generated.", "ko": "이 운동의 지지자들은 만약 이 모든 목표가 이루어진다면, 훨씬 적은 전자 쓰레기가 발생할 것이라고 말한다."}, {"n": 6, "en": "Thanks to their efforts, more than 40 states in the U.S. have begun working on right-to-repair legislation.", "ko": "그들의 노력 덕분에 미국 40개 이상의 주에서 수리할 권리 법률 제정을 위해 노력하기 시작했다."}, {"n": 7, "en": "This movement is gaining a growing influence in Europe as well, with more and more countries joining the cause.", "ko": "이 운동은 점점 더 많은 국가들이 그 대의에 동참하면서 유럽에서도 영향력이 커지고 있다."}], "questions": [{"id": 1, "summary": "First, companies must make information about their products (A) to the public, and third parties, including individuals, should be able to (B) the parts and tools needed for repairs.", "ko": "첫째, 회사들은 제품에 대한 정보를 대중에게 <b>(A) 접근 가능하게</b> 만들어야 하고, 개인을 포함한 제삼자가 수리에 필요한 부품과 도구를 <b>(B) 얻을</b> 수 있어야 한다.", "opts": [["accessible", "destroy"], ["accessible", "acquire"], ["confidential", "acquire"], ["confidential", "restrict"], ["affordable", "replace"]], "optko": ["접근 가능한 – 파괴하다", "접근 가능한 – 얻다", "기밀의 – 얻다", "기밀의 – 제한하다", "가격이 알맞은 – 교체하다"], "ans": 1, "wrong": ["destroy(파괴하다)가 틀려요. 제삼자는 부품과 도구를 없애는 게 아니라 구할(obtain) 수 있어야 해요.", null, "confidential(기밀의)이 틀려요. 정보는 숨기는 게 아니라 모두가 이용할 수 있게(available) 해야 해요.", "둘 다 틀려요. 정보는 기밀이 아니라 공개해야 하고, 부품과 도구도 제한(restrict)이 아니라 구할 수 있게 해야 해요.", "둘 다 틀려요. affordable(가격이 알맞은)과 replace(교체하다)는 본문에 없어요. 본문은 정보 공개와 부품·도구 구하기예요."], "evid": [{"n": 1, "hl": ["make information about their products available to everyone"]}, {"n": 2, "hl": ["obtain the parts and tools"]}], "swaps": [["available", "accessible", "이용할 수 있는 → 접근 가능한"], ["obtain", "acquire", "구하다 → 얻다, 입수하다"], ["required", "needed", "필요한 → 필요한"], ["everyone", "the public", "모두 → 대중"]], "swapnote": "available(이용할 수 있는)은 accessible(접근 가능한)로, obtain(구하다)은 acquire(얻다)로 바뀌어 나와요. 본문 단어만 찾지 말고 뜻이 같은 말을 찾으세요.", "use": [{"w": "accessible", "ex": "The library is accessible to all students.", "ko": "그 도서관은 모든 학생이 이용할 수 있다.", "wk": "접근 가능한, 이용할 수 있는", "hk": "이용할 수 있다"}, {"w": "acquire", "ex": "He acquired a new skill by practicing every day.", "ko": "그는 매일 연습해서 새로운 기술을 얻었다.", "wk": "얻다, 입수하다", "hk": "얻었다"}], "flow": "본문 1번(첫 번째 요구)은 회사가 제품 정보를 모두에게 공개하는 것, 2번(두 번째 요구)은 개인도 수리용 부품과 도구를 구할 수 있어야 한다는 거예요.", "jd": [["First, companies must make information about their products [[accessible]]", "첫째, 회사들은 제품에 대한 정보를 [[접근 가능하게]] 만들어야 한다"], ["to the public,", "대중에게,"], ["and third parties, including individuals,", "그리고 개인을 포함한 제삼자가"], ["should be able to [[acquire]]", "[[얻을]] 수 있어야 한다"], ["the parts and tools needed for repairs.", "수리에 필요한 부품과 도구를."]], "fc": [["본문 1번", "첫 번째 요구: 제품 정보를 모두에게", "회사가 제품 정보를 공개하라는 거예요."], ["본문 2번", "두 번째 요구: 부품과 도구를 구하게", "개인도 수리에 필요한 부품과 도구를 구할 수 있어야 해요."], ["정답 포인트", "{{available|이용할 수 있는}} = {{accessible|접근 가능한}}, {{obtain|구하다}} = {{acquire|얻다}}", "본문 단어가 뜻이 같은 말로 바뀌어 나와요."]], "evid_full": [{"en": "First, companies must make information about their products available to everyone.", "ko": "첫 번째로, 회사들은 그들의 제품에 대한 정보를 모두가 이용할 수 있게 해야 한다.", "hl": ["make information about their products available to everyone"], "hlko": ["제품에 대한 정보를 모두가 이용할 수 있게"], "n": 1}, {"en": "Second, third parties, including individuals, should be able to obtain the parts and tools required to make repairs.", "ko": "두 번째로, 개인을 포함한 제삼자가 수리를 하기 위해 필요한 부품들과 도구들을 구할 수 있어야 한다.", "hl": ["obtain the parts and tools"], "hlko": ["부품들과 도구들을 구할 수 있어야"], "n": 2}]}, {"id": 2, "summary": "By law, companies should be (A) from stopping consumers from installing custom software on their own devices, and manufacturers should design devices so that repairs are as (B) as possible.", "ko": "법적으로 회사들은 소비자들이 자신의 장치에 맞춤형 소프트웨어를 설치하지 못하게 막는 것이 <b>(A) 금지되어야</b> 하고, 제조사들은 수리가 최대한 <b>(B) 간단하도록</b> 장치를 설계해야 한다.", "opts": [["banned", "complicated"], ["encouraged", "straightforward"], ["encouraged", "complicated"], ["banned", "straightforward"], ["permitted", "expensive"]], "optko": ["금지된 – 복잡한", "권장된 – 간단한", "권장된 – 복잡한", "금지된 – 간단한", "허용된 – 비싼"], "ans": 3, "wrong": ["complicated(복잡한)가 틀려요. 제조사는 수리를 최대한 쉽게(easy) 만들어야 해요.", "encouraged(권장된)가 틀려요. 소비자가 소프트웨어를 설치하지 못하게 막는 행위는 권장이 아니라 법으로 금지(prohibited)돼야 해요.", "둘 다 틀려요. 막는 행위는 권장이 아니라 금지돼야 하고, 수리는 복잡한 게 아니라 쉬워야 해요.", null, "둘 다 틀려요. permitted(허용된)는 금지와 정반대이고, expensive(비싼)는 본문에 없어요."], "evid": [{"n": 3, "hl": ["preventing consumers from installing custom software", "prohibited by law"]}, {"n": 4, "hl": ["makes repairs as easy as possible"]}], "swaps": [["prohibited", "banned", "금지된 → 금지된"], ["easy", "straightforward", "쉬운 → 간단한, 명료한"], ["preventing", "stopping", "막는 → 막는"], ["install", "installing", "설치하다 → 설치하는"]], "swapnote": "prohibited(금지된)는 banned(금지된)나 forbidden(금지된)으로, easy(쉬운)는 simple(간단한)이나 straightforward(간단한)로 바뀌어 나와요.", "use": [{"w": "ban", "ex": "The school banned phones in the classroom.", "ko": "그 학교는 교실에서 휴대폰을 금지했다.", "wk": "금지하다", "hk": "금지했다"}, {"w": "straightforward", "ex": "The instructions were straightforward, so everyone understood them.", "ko": "설명서가 간단해서 모두가 이해했다.", "wk": "간단한, 알기 쉬운", "hk": "간단해서"}], "flow": "본문 3번(세 번째 요구)은 소비자가 자기 장치에 소프트웨어를 설치하는 걸 막는 행위를 법으로 금지하자는 거고, 4번(마지막 요구)은 제조사가 수리하기 쉽게 설계하라는 거예요.", "jd": [["By law, companies should be [[banned]]", "법적으로 회사들은 [[금지되어야]] 한다"], ["from stopping consumers from installing custom software", "소비자들이 맞춤형 소프트웨어를 설치하지 못하게 막는 것이"], ["on their own devices,", "자신의 장치에,"], ["and manufacturers should design devices", "그리고 제조사들은 장치를 설계해야 한다"], ["so that repairs are as [[straightforward]] as possible.", "수리가 최대한 [[간단하도록]]."]], "fc": [["본문 3번", "세 번째 요구: 설치를 막지 마라", "소비자가 자기 장치에 소프트웨어를 깔지 못하게 막는 행위는 법으로 금지!"], ["본문 4번", "마지막 요구: 수리하기 쉽게 설계", "제조사는 수리를 최대한 쉽게 만들어야 해요."], ["정답 포인트", "{{prohibited|금지된}} = {{banned|금지된}}, {{easy|쉬운}} = {{straightforward|간단한}}", "금지와 쉬움, 두 칸 모두 방향이 맞아야 해요."]], "evid_full": [{"en": "Third, the practice of preventing consumers from installing custom software on their own devices should be prohibited by law.", "ko": "세 번째로, 소비자들이 맞춤형 소프트웨어를 자신의 장치에 설치하지 못하게 하는 행위는 법으로 금지되어야 한다.", "hl": ["preventing consumers from installing custom software", "prohibited by law"], "hlko": ["소비자들이 맞춤형 소프트웨어를 자신의 장치에 설치하지 못하게 하는", "법으로 금지되어야"], "n": 3}, {"en": "Finally, it demands that manufacturers design devices in a way that makes repairs as easy as possible.", "ko": "마지막으로, 그것은 제조사들에게 수리를 최대한 쉽게 만드는 방식으로 장치를 설계할 것을 요구한다.", "hl": ["makes repairs as easy as possible"], "hlko": ["수리를 최대한 쉽게 만드는"], "n": 4}]}, {"id": 3, "summary": "Supporters believe that achieving these goals will greatly (A) e-waste, and the movement's (B) is growing in Europe as well as in the U.S.", "ko": "지지자들은 이 목표들을 달성하면 전자 쓰레기가 크게 <b>(A) 줄어들 것</b>이라고 믿고, 이 운동의 <b>(B) 영향력</b>은 미국뿐 아니라 유럽에서도 커지고 있다.", "opts": [["diminish", "impact"], ["diminish", "opposition"], ["increase", "impact"], ["increase", "opposition"], ["eliminate", "impact"]], "optko": ["줄이다 – 영향력", "줄이다 – 반대", "늘리다 – 영향력", "늘리다 – 반대", "없애다 – 영향력"], "ans": 0, "wrong": [null, "opposition(반대)이 틀려요. 본문은 이 운동의 영향력(influence)이 커지고 있다고 해요.", "increase(늘리다)가 틀려요. 목표가 이뤄지면 전자 쓰레기는 훨씬 적게(far less) 나와요.", "둘 다 틀려요. 전자 쓰레기는 늘어나는 게 아니라 줄고, 커지는 건 반대가 아니라 영향력이에요.", "eliminate(없애다)가 틀려요. 본문은 완전히 없앤다가 아니라 훨씬 적게(far less) 나온다고 해요."], "evid": [{"n": 5, "hl": ["far less e-waste will be generated"]}, {"n": 6, "hl": ["more than 40 states in the U.S."]}, {"n": 7, "hl": ["growing influence in Europe"]}], "swaps": [["influence", "impact", "영향력 → 영향, 파급력"], ["less", "diminish", "훨씬 적게 나오다 → 줄이다"], ["advocates", "supporters", "지지자들 → 지지자들"], ["accomplished", "achieving", "이루어진 → 달성하는"]], "swapnote": "influence(영향력)는 impact(영향)로 바뀌고, 'far less e-waste will be generated(전자 쓰레기가 훨씬 적게 나온다)'는 'diminish e-waste(전자 쓰레기를 줄이다)'로 바뀌어 나와요.", "use": [{"w": "diminish", "ex": "Regular exercise can diminish stress.", "ko": "규칙적인 운동은 스트레스를 줄여 줄 수 있다.", "wk": "줄이다, 감소시키다", "hk": "줄여"}, {"w": "impact", "ex": "The new law had a big impact on small shops.", "ko": "그 새 법은 작은 가게들에 큰 영향을 주었다.", "wk": "영향", "hk": "영향을"}], "flow": "본문 5번에서 목표가 이뤄지면 전자 쓰레기가 훨씬 적게 나온다고 하고, 6번에서 미국 40개 넘는 주가 움직이고, 7번에서 유럽에서도 영향력이 커진다고 이어져요.", "jd": [["Supporters believe", "지지자들은 믿는다"], ["that achieving these goals", "이 목표들을 달성하면"], ["will greatly [[diminish]] e-waste,", "전자 쓰레기를 크게 [[줄일 것이라고]],"], ["and the movement's [[impact]] is growing", "그리고 이 운동의 [[영향력]]이 커지고 있다고"], ["in Europe as well as in the U.S.", "미국뿐 아니라 유럽에서도."]], "fc": [["본문 5번", "목표가 이뤄지면 전자 쓰레기가 훨씬 줄어든다", "지지자들의 주장이에요."], ["본문 6~7번", "미국 40개 넘는 주와 유럽으로 번진다", "점점 더 많은 나라가 동참해요."], ["정답 포인트", "{{far less e-waste|훨씬 적은 전자 쓰레기}} → {{diminish|줄이다}}, {{influence|영향력}} = {{impact|영향}}", "커지는 건 반대가 아니라 영향력이에요."]], "evid_full": [{"en": "Advocates of the movement say that if all these goals are accomplished, far less e-waste will be generated.", "ko": "이 운동의 지지자들은 만약 이 모든 목표가 이루어진다면, 훨씬 적은 전자 쓰레기가 발생할 것이라고 말한다.", "hl": ["far less e-waste will be generated"], "hlko": ["훨씬 적은 전자 쓰레기가 발생할"], "n": 5}, {"en": "Thanks to their efforts, more than 40 states in the U.S. have begun working on right-to-repair legislation.", "ko": "그들의 노력 덕분에 미국 40개 이상의 주에서 수리할 권리 법률 제정을 위해 노력하기 시작했다.", "hl": ["more than 40 states in the U.S."], "hlko": ["미국 40개 이상의 주"], "n": 6}, {"en": "This movement is gaining a growing influence in Europe as well, with more and more countries joining the cause.", "ko": "이 운동은 점점 더 많은 국가들이 그 대의에 동참하면서 유럽에서도 영향력이 커지고 있다.", "hl": ["growing influence in Europe"], "hlko": ["유럽에서도 영향력이 커지고"], "n": 7}]}], "gloss": {"first": ["first", "첫째, 첫 번째로"], "companies": ["company", "회사들"], "must": ["must", "~해야 한다"], "make": ["make", "~하게 만들다"], "information": ["information", "정보"], "products": ["product", "제품"], "public": ["public", "대중"], "accessible": ["accessible", "접근 가능한, 이용할 수 있는"], "available": ["available", "이용할 수 있는"], "everyone": ["everyone", "모두"], "third": ["third", "세 번째의, 제삼의"], "parties": ["party", "(어떤 일의) 당사자, 쪽"], "including": ["include", "포함하다"], "individuals": ["individual", "개인"], "able": ["able", "~할 수 있는"], "acquire": ["acquire", "얻다, 입수하다"], "obtain": ["obtain", "구하다, 얻다"], "parts": ["part", "부품"], "tools": ["tool", "도구"], "needed": ["need", "필요하다 (needed = 필요한)"], "required": ["require", "필요로 하다 (required = 필요한)"], "repairs": ["repair", "수리"], "repair": ["repair", "수리하다, 수리"], "destroy": ["destroy", "파괴하다"], "confidential": ["confidential", "기밀의, 비밀의"], "restrict": ["restrict", "제한하다"], "affordable": ["affordable", "가격이 알맞은"], "replace": ["replace", "교체하다, 대체하다"], "should": ["should", "~해야 한다"], "practice": ["practice", "관행, 행위"], "preventing": ["prevent", "막다, 못하게 하다"], "stopping": ["stop", "막다"], "consumers": ["consumer", "소비자"], "installing": ["install", "설치하다"], "custom": ["custom", "맞춤형의"], "software": ["software", "소프트웨어"], "own": ["own", "자기 자신의"], "devices": ["device", "장치, 기기"], "prohibited": ["prohibit", "금지하다 (prohibited = 금지된)"], "law": ["law", "법"], "banned": ["ban", "금지하다 (banned = 금지된)"], "ban": ["ban", "금지하다"], "finally": ["finally", "마지막으로"], "demands": ["demand", "요구하다"], "manufacturers": ["manufacturer", "제조사"], "design": ["design", "설계하다"], "way": ["way", "방식"], "easy": ["easy", "쉬운"], "possible": ["possible", "가능한"], "straightforward": ["straightforward", "간단한, 알기 쉬운"], "complicated": ["complicated", "복잡한"], "encouraged": ["encourage", "권장하다 (encouraged = 권장된)"], "permitted": ["permit", "허용하다 (permitted = 허용된)"], "expensive": ["expensive", "비싼"], "phones": ["phone", "휴대폰"], "school": ["school", "학교"], "classroom": ["classroom", "교실"], "instructions": ["instruction", "설명서, 지시"], "understood": ["understand", "이해하다"], "advocates": ["advocate", "지지자"], "supporters": ["supporter", "지지자"], "movement": ["movement", "(사회) 운동"], "movement's": ["movement", "(사회) 운동"], "goals": ["goal", "목표"], "accomplished": ["accomplish", "이루다 (accomplished = 이루어진)"], "achieving": ["achieve", "달성하다"], "less": ["less", "더 적은"], "e-waste": ["e-waste", "전자 쓰레기"], "generated": ["generate", "만들어 내다, 발생시키다"], "greatly": ["greatly", "크게"], "believe": ["believe", "믿다"], "diminish": ["diminish", "줄이다, 감소시키다"], "reduce": ["reduce", "줄이다"], "increase": ["increase", "늘리다"], "eliminate": ["eliminate", "없애다"], "impact": ["impact", "영향"], "opposition": ["opposition", "반대"], "influence": ["influence", "영향력"], "growing": ["grow", "커지다 (growing = 커지는)"], "europe": ["Europe", "유럽"], "states": ["state", "(미국의) 주"], "efforts": ["effort", "노력"], "thanks": ["thanks to", "~ 덕분에"], "legislation": ["legislation", "법률 제정, 법률"], "working": ["work", "노력하다, 일하다"], "begun": ["begin", "시작하다"], "gaining": ["gain", "얻다"], "countries": ["country", "나라, 국가"], "joining": ["join", "동참하다, 함께하다"], "cause": ["cause", "대의, 목적"], "library": ["library", "도서관"], "students": ["student", "학생"], "skill": ["skill", "기술"], "practicing": ["practice", "연습하다"], "acquired": ["acquire", "얻다"], "exercise": ["exercise", "운동"], "regular": ["regular", "규칙적인"], "stress": ["stress", "스트레스"], "shops": ["shop", "가게"], "small": ["small", "작은"], "phone": ["phone", "휴대폰"], "right-to-repair": ["right-to-repair", "수리할 권리"], "u.s.": ["U.S.", "미국"], "help": ["help", "돕다"], "about": ["about", "~에 대한"], "second": ["second", "두 번째로"], "makes": ["make", "~하게 만들다"], "well": ["well", "잘 (as well as = ~뿐 아니라)"], "say": ["say", "말하다"], "far": ["far", "훨씬"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="cheongseok-go2";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH;
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);render();
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){return (DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}})}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../index.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">밑줄 단어를 누르면 뜻이 나와요. 번호를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+words(o[0])+'<span class="dash">–</span>'+words(o[1])+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'</li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>

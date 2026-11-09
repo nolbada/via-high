@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>3과 요약문 연습 ❻</title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "geumcheon-go2", "src": "geumcheon-go2/L3/sx-data.js", "pidx": 5, "lesson": "3과", "title": "투표하는 방법에는 여러 가지가 있다", "label": "❻", "page": "yoyak-lian-z6"}, "scenes": [{"tag": "본문 1~2번", "ns": [1, 2], "line": "학생 자치회가 콩도르세 방식으로 표를 [[counted|세었다]]. 이 방식은 선택지를 둘씩 비교하는 일을 [[involves|수반한다]].", "en": ["Finally, the student council counted the votes using the Condorcet method.", "This method involves comparing the voters’ preferences between each possible pair of options."], "kos": ["마지막으로, 학생 자치회는 콩도르세 방식을 사용하여 표를 집계했다.", "이 방식은 가능한 선택지 쌍에 대한 투표자들의 선호도를 비교하는 것을 수반한다."]}, {"tag": "본문 3~4번", "ns": [3, 4], "line": "따져 볼 짝은 세 개. 먼저 A가 B를 11대 9로 앞선다는 걸 [[discovered|발견했다]]. (짝이 세 개나 [[consider|고려할]] 거리!)", "en": ["In this case, there were three pairs to consider: A vs. B, B vs. C, and A vs. C.", "Through this method, the student council discovered that its members preferred option A to option B by a count of 11 to 9."], "kos": ["이 경우에는, 고려해야 할 세 쌍이 있었는데, 그것은 바로 A와 B, B와 C, A와 C였다.", "이 방식을 통해, 학생 자치회는 구성원들이 11대 9로 선택지 B보다 선택지 A를 선호한다는 사실을 발견했다."]}, {"tag": "본문 9번", "ns": [9], "line": "A가 나머지 둘보다 더 [[preferred|선호되어]] 승자가 된다.", "en": ["As option A, the art show, was preferred to both of the other options, it would be considered the winner."], "kos": ["미술 전시회인 선택지 A가 나머지 두 선택지보다 더 선호되었으므로, 이 선택지가 승자로 간주될 것이었다."]}, {"tag": "본문 10번", "ns": [10], "line": "하지만 이 방식은 [[weakness|약점]]이 있다. 너무 [[complex|복잡하고]] 승자를 못 가릴 때도 있다.", "en": ["The Condorcet method’s weakness is that, along with being complex, it sometimes fails to select a winner."], "kos": ["콩도르세 방식의 약점은 복잡하다는 것과 더불어 때때로 승자를 가려내지 못한다는 점이다."]}], "story": [{"a": "count", "form": "counted", "n": 1, "sq": 1, "sum": "The student council [[tallied]] the votes", "hook": "표를 센다는 첫 문장의 counted(세었다) → 요약문에서는 tallied(집계했다)로 바꿨어요.", "b": "tally", "k": "세다 → 집계하다", "en": "Finally, the student council counted the votes using the Condorcet method.", "ko": "마지막으로, 학생 자치회는 콩도르세 방식을 사용하여 표를 집계했다."}, {"a": "involve", "form": "involves", "n": 2, "sq": 1, "sum": "which [[entails]] comparing the voters' preferences", "hook": "선택지를 둘씩 비교하는 방식이라는 문장의 involves(포함하다) → 요약문에서는 entails(수반하다)로 바꿨어요.", "b": "entail", "k": "포함하다 → 수반하다", "en": "This method involves comparing the voters’ preferences between each possible pair of options.", "ko": "이 방식은 가능한 선택지 쌍에 대한 투표자들의 선호도를 비교하는 것을 수반한다."}, {"a": "consider", "form": "consider", "n": 3, "sq": 2, "sum": "had to [[examine]] three pairs of options", "hook": "짝이 세 개나 된다는 문장의 consider(고려하다) → 요약문에서는 examine(살펴보다)으로 바꿨어요.", "b": "examine", "k": "고려하다 → 살펴보다", "en": "In this case, there were three pairs to consider: A vs. B, B vs. C, and A vs. C.", "ko": "이 경우에는, 고려해야 할 세 쌍이 있었는데, 그것은 바로 A와 B, B와 C, A와 C였다."}, {"a": "discover", "form": "discovered", "n": 4, "sq": 2, "sum": "it [[learned]] that more members liked option A", "hook": "A가 11대 9로 앞선다는 걸 알아낸 장면의 discovered(발견했다) → 요약문에서는 learned(알게 되었다)로 바꿨어요.", "b": "learn", "k": "발견하다 → 알게 되다", "en": "Through this method, the student council discovered that its members preferred option A to option B by a count of 11 to 9.", "ko": "이 방식을 통해, 학생 자치회는 구성원들이 11대 9로 선택지 B보다 선택지 A를 선호한다는 사실을 발견했다."}, {"a": "prefer", "form": "preferred", "n": 9, "sq": 3, "sum": "was [[favored]] over both of the other options", "hook": "A가 나머지 둘보다 더 선호되었다는 문장의 preferred(선호되었다) → 요약문에서는 favored(선호되었다)로 바꿨어요.", "b": "favor", "k": "선호하다 → 선호하다, 편들다", "en": "As option A, the art show, was preferred to both of the other options, it would be considered the winner.", "ko": "미술 전시회인 선택지 A가 나머지 두 선택지보다 더 선호되었으므로, 이 선택지가 승자로 간주될 것이었다."}, {"a": "weakness", "form": "weakness", "n": 10, "sq": 4, "sum": "method's [[drawback]] is that", "hook": "마지막에 나오는 이 방식의 약점 weakness(약점) → 요약문에서는 drawback(단점)으로 바꿨어요.", "b": "drawback", "k": "약점 → 단점", "en": "The Condorcet method’s weakness is that, along with being complex, it sometimes fails to select a winner.", "ko": "콩도르세 방식의 약점은 복잡하다는 것과 더불어 때때로 승자를 가려내지 못한다는 점이다."}, {"a": "complex", "form": "complex", "n": 10, "sq": 4, "sum": "it is [[intricate]]", "hook": "이 방식은 너무 어렵다는 complex(복잡한) → 요약문에서는 intricate(복잡한)로 바꿨어요.", "b": "intricate", "k": "복잡한 → 복잡한, 얽히고설킨", "en": "The Condorcet method’s weakness is that, along with being complex, it sometimes fails to select a winner.", "ko": "콩도르세 방식의 약점은 복잡하다는 것과 더불어 때때로 승자를 가려내지 못한다는 점이다."}], "passage": [{"n": 1, "en": "Finally, the student council counted the votes using the Condorcet method.", "ko": "마지막으로, 학생 자치회는 콩도르세 방식을 사용하여 표를 집계했다."}, {"n": 2, "en": "This method involves comparing the voters’ preferences between each possible pair of options.", "ko": "이 방식은 가능한 선택지 쌍에 대한 투표자들의 선호도를 비교하는 것을 수반한다."}, {"n": 3, "en": "In this case, there were three pairs to consider: A vs. B, B vs. C, and A vs. C.", "ko": "이 경우에는, 고려해야 할 세 쌍이 있었는데, 그것은 바로 A와 B, B와 C, A와 C였다."}, {"n": 4, "en": "Through this method, the student council discovered that its members preferred option A to option B by a count of 11 to 9.", "ko": "이 방식을 통해, 학생 자치회는 구성원들이 11대 9로 선택지 B보다 선택지 A를 선호한다는 사실을 발견했다."}, {"n": 5, "en": "In other words, 11 people preferred A to B, voting either ABC, ACB, or CAB.", "ko": "즉, 11명이 ABC, ACB, CAB 중 하나에 투표하며 B보다 A를 선호했다."}, {"n": 6, "en": "Meanwhile, 9 people preferred B to A by voting BAC, BCA, or CBA.", "ko": "한편, 9명은 BAC, BCA 또는 CBA에 투표함으로써 A보다 B를 선호했다."}, {"n": 7, "en": "Interestingly, the voters preferred option B to option C by the same count of 11 to 9.", "ko": "흥미롭게도, 투표자들은 동일하게 11대 9로 선택지 C보다 선택지 B를 선호했다."}, {"n": 8, "en": "They also preferred option A to option C by 11 to 9.", "ko": "그들은 또한 11대 9로 선택지 C보다 선택지 A를 선호했다."}, {"n": 9, "en": "As option A, the art show, was preferred to both of the other options, it would be considered the winner.", "ko": "미술 전시회인 선택지 A가 나머지 두 선택지보다 더 선호되었으므로, 이 선택지가 승자로 간주될 것이었다."}, {"n": 10, "en": "The Condorcet method’s weakness is that, along with being complex, it sometimes fails to select a winner.", "ko": "콩도르세 방식의 약점은 복잡하다는 것과 더불어 때때로 승자를 가려내지 못한다는 점이다."}, {"n": 11, "en": "This is especially true in elections that contain numerous options.", "ko": "이는 많은 선택지를 포함하는 선거에서 특히 그렇다."}, {"n": 12, "en": "It is possible that no option will be clearly preferred over the others.", "ko": "어떤 선택지도 다른 선택지들보다 명확하게 선호되지 않을 수 있다."}], "questions": [{"id": 1, "summary": "The student council (A) the votes using the Condorcet method, which (B) comparing the voters' preferences between every pair of options.", "ko": "학생 자치회는 콩도르세 방식을 사용하여 표를 <b>(A) 집계했는데</b>, 이 방식은 모든 선택지 쌍에 대한 투표자들의 선호도를 비교하는 것을 <b>(B) 수반한다</b>.", "opts": [["tallied", "prevents"], ["ignored", "entails"], ["tallied", "entails"], ["ignored", "prevents"], ["predicted", "avoids"]], "optko": ["집계하다 – 막다", "무시하다 – 수반하다", "집계하다 – 수반하다", "무시하다 – 막다", "예측하다 – 피하다"], "ans": 2, "wrong": ["prevents(막다)가 틀려요. 이 방식은 선호도 비교를 막는 게 아니라 비교하는 것을 필요로 해요.", "ignored(무시하다)가 틀려요. 학생 자치회는 표를 무시한 게 아니라 하나하나 세었어요(count).", null, "둘 다 틀려요. 표를 무시하지도 않았고, 비교를 막지도 않았어요.", "둘 다 틀려요. 표를 예측(predict)한 게 아니라 실제로 세었고, 비교를 피하는 게 아니라 비교하는 방식이에요."], "evid": [{"n": 1, "hl": ["counted the votes using the Condorcet method"]}, {"n": 2, "hl": ["involves comparing the voters’ preferences"]}], "swaps": [["count", "tally", "세다 → 집계하다"], ["involve", "entail", "포함하다 → 수반하다"], ["each possible pair", "every pair", "가능한 각 쌍 → 모든 쌍"]], "swapnote": "count(세다)는 시험에서 tally(집계하다)로, involve(포함하다)는 entail(수반하다)이나 require(필요로 하다)로 바뀌어 나와요.", "use": [{"w": "tally", "ex": "Please tally the votes by noon.", "ko": "정오까지 표를 집계해 주세요.", "wk": "집계하다", "hk": "집계해"}, {"w": "entail", "ex": "This job entails working late at night.", "ko": "이 일은 밤늦게까지 일하는 것을 수반한다.", "wk": "수반하다", "hk": "수반한다"}], "flow": "본문 1번에서 마지막 방식인 콩도르세 방식으로 표를 세고, 2번에서 그 방식은 선택지를 둘씩 짝지어 선호도를 비교하는 것이라고 설명해요.", "jd": [["The student council [[tallied]] the votes", "학생 자치회는 표를 [[집계했다]]"], ["using the Condorcet method,", "콩도르세 방식을 사용하여,"], ["which [[entails]] comparing the voters' preferences", "그 방식은 투표자들의 선호도를 비교하는 것을 [[수반한다]]"], ["between every pair of options.", "모든 선택지 쌍 사이에서."]], "fc": [["본문 1번", "마지막 방식, 콩도르세로 표를 센다", "세 번째이자 마지막 투표 방식이에요."], ["본문 2번", "선택지를 둘씩 짝지어 비교한다", "누가 누구보다 더 선호되는지 쌍마다 따져요."], ["정답 포인트", "{{count|세다}} = {{tally|집계하다}}, {{involve|수반하다}} = {{entail|수반하다}}", "본문 단어가 뜻이 같은 말로 바뀌어 나와요."]], "evid_full": [{"en": "Finally, the student council counted the votes using the Condorcet method.", "ko": "마지막으로, 학생 자치회는 콩도르세 방식을 사용하여 표를 집계했다.", "hl": ["counted the votes using the Condorcet method"], "hlko": ["콩도르세 방식을 사용하여 표를 집계했다"], "n": 1}, {"en": "This method involves comparing the voters’ preferences between each possible pair of options.", "ko": "이 방식은 가능한 선택지 쌍에 대한 투표자들의 선호도를 비교하는 것을 수반한다.", "hl": ["involves comparing the voters’ preferences"], "hlko": ["투표자들의 선호도를 비교하는 것을 수반한다"], "n": 2}]}, {"id": 2, "summary": "The council had to (A) three pairs of options, and through this method it (B) that more members liked option A than option B, 11 to 9.", "ko": "학생 자치회는 세 쌍의 선택지를 <b>(A) 살펴봐야</b> 했고, 이 방식을 통해 선택지 B보다 선택지 A를 좋아하는 구성원이 11대 9로 더 많다는 것을 <b>(B) 알게 되었다</b>.", "opts": [["examine", "denied"], ["ignore", "learned"], ["ignore", "denied"], ["cancel", "hid"], ["examine", "learned"]], "optko": ["살펴보다 – 부인했다", "무시하다 – 알게 되었다", "무시하다 – 부인했다", "취소하다 – 숨겼다", "살펴보다 – 알게 되었다"], "ans": 4, "wrong": ["denied(부인했다)가 틀려요. 자치회는 결과를 부인하지 않고 11대 9라는 사실을 발견(discover)했어요.", "ignore(무시하다)가 틀려요. 세 쌍을 무시한 게 아니라 하나씩 따져 봤어요(consider).", "둘 다 틀려요. 세 쌍을 무시하지도, 결과를 부인하지도 않았어요.", "둘 다 틀려요. 세 쌍을 취소하거나 결과를 숨겼다는 말은 본문에 없어요.", null], "evid": [{"n": 3, "hl": ["three pairs to consider"]}, {"n": 4, "hl": ["discovered", "preferred option A to option B", "11 to 9"]}], "swaps": [["consider", "examine", "고려하다 → 살펴보다"], ["discover", "learn", "발견하다 → 알게 되다"], ["preferred", "liked", "선호했다 → 좋아했다"]], "swapnote": "consider(고려하다)는 examine(살펴보다)으로, discover(발견하다)는 learn(알게 되다)이나 find out(알아내다)으로 바뀌어 나와요.", "use": [{"w": "examine", "ex": "The doctor will examine your knee carefully.", "ko": "의사가 당신의 무릎을 꼼꼼히 살펴볼 것이다.", "wk": "살펴보다", "hk": "살펴볼"}, {"w": "learn", "ex": "We learned the news from a friend.", "ko": "우리는 친구에게서 그 소식을 알게 되었다.", "wk": "알게 되다", "hk": "알게 되었다"}], "flow": "본문 3번에서 따져 볼 짝이 세 개(A 대 B, B 대 C, A 대 C)라고 알려 주고, 4번에서 첫 짝의 결과, 즉 A가 B보다 11대 9로 앞선다는 걸 발견해요.", "jd": [["The council had to [[examine]] three pairs of options,", "학생 자치회는 세 쌍의 선택지를 [[살펴봐야]] 했고,"], ["and through this method", "그리고 이 방식을 통해"], ["it [[learned]] that more members liked option A", "선택지 A를 좋아하는 구성원이 더 많다는 것을 [[알게 되었다]]"], ["than option B, 11 to 9.", "선택지 B보다 11대 9로."]], "fc": [["본문 3번", "따져 볼 짝은 세 개", "A 대 B, B 대 C, A 대 C예요."], ["본문 4번", "첫 짝: A가 B를 11대 9로 앞선다", "구성원들이 B보다 A를 더 좋아한다는 걸 알게 돼요."], ["정답 포인트", "{{consider|고려하다}} = {{examine|살펴보다}}, {{discover|발견하다}} = {{learn|알게 되다}}", "숫자 11 대 9도 함께 기억해요."]], "evid_full": [{"en": "In this case, there were three pairs to consider: A vs. B, B vs. C, and A vs. C.", "ko": "이 경우에는, 고려해야 할 세 쌍이 있었는데, 그것은 바로 A와 B, B와 C, A와 C였다.", "hl": ["three pairs to consider"], "hlko": ["고려해야 할 세 쌍"], "n": 3}, {"en": "Through this method, the student council discovered that its members preferred option A to option B by a count of 11 to 9.", "ko": "이 방식을 통해, 학생 자치회는 구성원들이 11대 9로 선택지 B보다 선택지 A를 선호한다는 사실을 발견했다.", "hl": ["discovered", "preferred option A to option B", "11 to 9"], "hlko": ["발견했다", "선택지 B보다 선택지 A를 선호한다", "11대 9로"], "n": 4}]}, {"id": 3, "summary": "Since the art show, option A, was (A) over both of the other options, it would be considered the (B).", "ko": "미술 전시회인 선택지 A가 나머지 두 선택지보다 <b>(A) 선호되었으므로</b>, 이 선택지가 <b>(B) 승리자</b>로 간주될 것이다.", "opts": [["favored", "loser"], ["favored", "victor"], ["rejected", "victor"], ["rejected", "loser"], ["ignored", "leader"]], "optko": ["선호하다 – 패배자", "선호하다 – 승리자", "거부하다 – 승리자", "거부하다 – 패배자", "무시하다 – 지도자"], "ans": 1, "wrong": ["loser(패배자)가 틀려요. 다른 두 선택지보다 더 선호된 A는 승자(winner)예요.", null, "rejected(거부하다)가 틀려요. A는 거부된 게 아니라 더 선호됐어요(prefer).", "둘 다 틀려요. A는 거부된 게 아니고, 패배자도 아니에요.", "둘 다 틀려요. A는 무시된 게 아니라 두 선택지보다 더 선호됐어요."], "evid": [{"n": 9, "hl": ["was preferred to both of the other options", "considered the winner"]}], "swaps": [["prefer", "favor", "선호하다 → 선호하다, 편들다"], ["the winner", "the victor", "승자 → 승리자"]], "swapnote": "prefer(선호하다)는 favor(선호하다)로, winner(승자)는 victor(승리자)나 champion(우승자)으로 바뀌어 나올 수 있어요.", "use": [{"w": "favor", "ex": "Most students favor a shorter school day.", "ko": "대부분의 학생들은 더 짧은 수업 시간을 선호한다.", "wk": "선호하다", "hk": "선호한다"}, {"w": "victor", "ex": "The victor of the race received a gold medal.", "ko": "경주의 승리자는 금메달을 받았다.", "wk": "승리자", "hk": "승리자"}], "flow": "본문 5~8번에서 쌍마다 A가 앞서는 걸 확인한 뒤, 9번에서 미술 전시회 A가 나머지 둘보다 더 선호되어 승자로 간주된다고 결론을 내려요.", "jd": [["Since the art show, option A,", "미술 전시회인 선택지 A가"], ["was [[favored]] over both of the other options,", "나머지 두 선택지보다 [[선호되었으므로]],"], ["it would be considered the [[victor]].", "이 선택지가 [[승리자]]로 간주될 것이다."]], "fc": [["본문 5~8번", "A는 B도 C도 11대 9로 이긴다", "모든 짝에서 A가 앞서요."], ["본문 9번", "A는 나머지 둘보다 더 선호된다", "그래서 미술 전시회가 승자로 간주돼요."], ["정답 포인트", "{{prefer|선호하다}} = {{favor|선호하다}}, {{winner|승자}} = {{victor|승리자}}", "더 선호됐으니 거부·패배는 아니에요."]], "evid_full": [{"en": "As option A, the art show, was preferred to both of the other options, it would be considered the winner.", "ko": "미술 전시회인 선택지 A가 나머지 두 선택지보다 더 선호되었으므로, 이 선택지가 승자로 간주될 것이었다.", "hl": ["was preferred to both of the other options", "considered the winner"], "hlko": ["나머지 두 선택지보다 더 선호되었으므로", "승자로 간주될"], "n": 9}]}, {"id": 4, "summary": "The Condorcet method's (A) is that it is (B), and it sometimes fails to select a winner, especially in elections with numerous options.", "ko": "콩도르세 방식의 <b>(A) 단점</b>은 <b>(B) 복잡하고</b> 때때로 승자를 가려내지 못한다는 것이며, 특히 선택지가 많은 선거에서 그렇다.", "opts": [["drawback", "simple"], ["strength", "simple"], ["strength", "intricate"], ["drawback", "intricate"], ["advantage", "flexible"]], "optko": ["단점 – 단순한", "강점 – 단순한", "강점 – 복잡한", "단점 – 복잡한", "장점 – 융통성 있는"], "ans": 3, "wrong": ["simple(단순한)이 틀려요. 이 방식은 단순하지 않고 복잡(complex)하다고 했어요.", "둘 다 틀려요. 본문은 강점이 아니라 약점(weakness)을 말하고, 방식도 단순하지 않아요.", "strength(강점)가 틀려요. 승자를 못 가릴 수 있다는 건 강점이 아니라 약점(weakness)이에요.", null, "둘 다 틀려요. 장점이나 융통성 있다는 말은 본문에 없어요. 약점과 복잡함을 말해요."], "evid": [{"n": 10, "hl": ["weakness", "complex", "fails to select a winner"]}], "swaps": [["weakness", "drawback", "약점 → 단점"], ["complex", "intricate", "복잡한 → 복잡한, 얽히고설킨"]], "swapnote": "weakness(약점)는 drawback(단점)이나 disadvantage(불리한 점)로, complex(복잡한)는 intricate(복잡한)나 complicated(복잡한)로 바뀌어 나와요.", "use": [{"w": "drawback", "ex": "The only drawback of this phone is its high price.", "ko": "이 휴대폰의 유일한 단점은 높은 가격이다.", "wk": "단점", "hk": "단점"}, {"w": "intricate", "ex": "The clock has an intricate design.", "ko": "그 시계는 복잡한 디자인을 가지고 있다.", "wk": "복잡한", "hk": "복잡한"}], "flow": "본문 10번에서 콩도르세 방식의 약점(복잡하고 승자를 못 가릴 때도 있다)을 말하고, 11~12번에서 선택지가 많을수록 그런 일이 더 잘 생긴다고 덧붙여요.", "jd": [["The Condorcet method's [[drawback]] is that it is [[intricate]],", "콩도르세 방식의 [[단점]]은 그것이 [[복잡하다는]] 것이고,"], ["and it sometimes fails to select a winner,", "때때로 승자를 가려내지 못한다는 것이며,"], ["especially in elections with numerous options.", "특히 선택지가 많은 선거에서 그렇다."]], "fc": [["본문 10번", "이 방식의 약점", "복잡하고, 승자를 못 가릴 때도 있어요."], ["본문 11~12번", "선택지가 많을수록 더 그렇다", "뚜렷한 1등이 안 나올 수 있어요."], ["정답 포인트", "{{weakness|약점}} = {{drawback|단점}}, {{complex|복잡한}} = {{intricate|복잡한}}", "강점이 아니라 약점이에요."]], "evid_full": [{"en": "The Condorcet method’s weakness is that, along with being complex, it sometimes fails to select a winner.", "ko": "콩도르세 방식의 약점은 복잡하다는 것과 더불어 때때로 승자를 가려내지 못한다는 점이다.", "hl": ["weakness", "complex", "fails to select a winner"], "hlko": ["약점", "복잡하다", "승자를 가려내지 못한다"], "n": 10}]}], "gloss": {"student": ["student", "학생"], "council": ["council", "(학생) 자치회, 위원회"], "votes": ["vote", "표, 투표"], "vote": ["vote", "투표하다, 표"], "using": ["use", "사용하다"], "condorcet": ["Condorcet", "콩도르세(사람 이름)"], "method": ["method", "방식, 방법"], "method's": ["method", "방식"], "comparing": ["compare", "비교하다"], "voters": ["voter", "투표자"], "voters'": ["voter", "투표자"], "preferences": ["preference", "선호(도)"], "between": ["between", "~ 사이의"], "every": ["every", "모든"], "pair": ["pair", "쌍"], "pairs": ["pair", "쌍"], "options": ["option", "선택지"], "option": ["option", "선택지"], "counted": ["count", "세다, 집계하다"], "involves": ["involve", "포함하다, 수반하다"], "possible": ["possible", "가능한"], "each": ["each", "각각의"], "tallied": ["tally", "집계하다"], "tally": ["tally", "집계하다"], "entails": ["entail", "수반하다"], "entail": ["entail", "수반하다"], "prevents": ["prevent", "막다"], "ignored": ["ignore", "무시하다"], "ignore": ["ignore", "무시하다"], "predicted": ["predict", "예측하다"], "avoids": ["avoid", "피하다"], "finally": ["finally", "마지막으로"], "members": ["member", "구성원"], "liked": ["like", "좋아하다"], "preferred": ["prefer", "선호하다"], "prefer": ["prefer", "선호하다"], "discovered": ["discover", "발견하다"], "discover": ["discover", "발견하다"], "count": ["count", "(표의) 수, 세다"], "consider": ["consider", "고려하다"], "considered": ["consider", "~로 간주하다"], "examine": ["examine", "살펴보다"], "learned": ["learn", "알게 되다"], "learn": ["learn", "알게 되다"], "denied": ["deny", "부인하다"], "cancel": ["cancel", "취소하다"], "hid": ["hide", "숨기다"], "through": ["through", "~을 통해"], "three": ["three", "셋의"], "since": ["since", "~이므로"], "art": ["art", "미술"], "show": ["show", "전시회"], "favored": ["favor", "선호하다, 편들다"], "favor": ["favor", "선호하다, 편들다"], "victor": ["victor", "승리자"], "loser": ["loser", "패배자"], "rejected": ["reject", "거부하다"], "leader": ["leader", "지도자"], "winner": ["winner", "승자"], "other": ["other", "나머지의"], "fails": ["fail", "~하지 못하다"], "select": ["select", "가려내다, 고르다"], "sometimes": ["sometimes", "때때로"], "especially": ["especially", "특히"], "elections": ["election", "선거"], "numerous": ["numerous", "수많은"], "weakness": ["weakness", "약점"], "complex": ["complex", "복잡한"], "drawback": ["drawback", "단점"], "intricate": ["intricate", "복잡한, 얽히고설킨"], "strength": ["strength", "강점"], "simple": ["simple", "단순한"], "advantage": ["advantage", "장점"], "flexible": ["flexible", "융통성 있는"], "noon": ["noon", "정오"], "working": ["work", "일하다"], "late": ["late", "늦게"], "doctor": ["doctor", "의사"], "knee": ["knee", "무릎"], "carefully": ["carefully", "꼼꼼히"], "news": ["news", "소식"], "friend": ["friend", "친구"], "students": ["student", "학생"], "shorter": ["short", "짧은"], "school": ["school", "학교"], "race": ["race", "경주"], "received": ["receive", "받다"], "gold": ["gold", "금"], "medal": ["medal", "메달"], "phone": ["phone", "휴대폰"], "price": ["price", "가격"], "clock": ["clock", "시계"], "design": ["design", "디자인"], "high": ["high", "높은"], "only": ["only", "유일한"], "job": ["job", "일, 직업"], "please": ["please", "~해 주세요"], "most": ["most", "대부분의"], "day": ["day", "날, 하루"], "more": ["more", "더 많은"], "winner's": ["winner", "승자"], "clearly": ["clearly", "명확하게"], "along": ["along", "~와 함께"], "case": ["case", "경우"], "over": ["over", "~보다 (A over B = B보다 A)"], "method’s": ["method", "방식"], "being": ["be", "~이다 (along with being = ~인 것과 더불어)"], "voters’": ["voter", "투표자"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="geumcheon-go2";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH;
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);render();
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){return (DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}})}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../index.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">밑줄 단어를 누르면 뜻이 나와요. 번호를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+words(o[0])+'<span class="dash">–</span>'+words(o[1])+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'</li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>

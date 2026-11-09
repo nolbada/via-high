@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>4과 요약문 연습 ❺</title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "cheongseok-go2", "src": "cheongseok-go2/L4/sx-data.js", "pidx": 4, "lesson": "4과", "title": "수리할 권리와 수리 카페", "label": "❺", "page": "yoyak-lian-z5"}, "scenes": [{"tag": "본문 1번", "ns": [1], "line": "프랑스 정부가 제조사에게 수리 가능성 [[index|지수]]를 붙이라는 법안을 [[passed|통과시켰다]].", "en": ["In January 2021, the French government passed a bill that requires that every manufacturer include a “repairability index” on five categories of electronic devices and electrical appliances: smartphones, laptops, washing machines, televisions, and lawn mowers."], "kos": ["2021년 1월, 프랑스 정부는 모든 제조사가 스마트폰, 노트북, 세탁기, 텔레비전, 그리고 잔디 깎는 기계라는 다섯 가지 종류의 전자 장치와 전자 기기에 ‘수리 가능성 지수’를 포함시킬 것을 요구하는 법안을 통과시켰다."]}, {"tag": "본문 3번", "ns": [3], "line": "점수는 수리 정보, 분해, 부품 가격 같은 [[elements|요소]]를 보고 매긴다.", "en": ["The index takes into account several elements, including the availability of repair information, the ease of disassembly, and the price of spare parts."], "kos": ["그 지수는 수리 정보의 이용 가능성, 분해의 용이성, 그리고 여분 부품의 가격을 포함하여 몇 가지 요소를 고려한다."]}, {"tag": "본문 5~7번", "ns": [5, 6, 7], "line": "이 지수는 두 가지 효과를 노리고 [[designed|만들어졌다]]. 소비자는 똑똑하게 고르고, 제조사는 고치기 쉬운 제품을 만들도록 [[encourages|장려받는다]].", "en": ["The index was designed to have two positive effects.", "Firstly, it allows consumers to make informed decisions when purchasing new devices and appliances.", "Secondly, it encourages manufacturers to make their products easier to repair."], "kos": ["그 지수는 두 가지의 긍정적인 효과를 가지도록 만들어졌다.", "첫 번째로, 그것은 소비자들이 새로운 장치와 기기를 구입할 때 정보에 근거한 결정을 내릴 수 있도록 한다.", "두 번째로, 그것은 제조사들이 자신의 제품을 수리하기 더 쉽게 만들도록 장려한다."]}, {"tag": "본문 8번", "ns": [8], "line": "버려지는 전자 제품이 줄어 지속 가능한 사회로의 [[transition|전환]]을 [[expect|기대할]] 수 있다.", "en": ["As a result, with fewer electronic and electrical items ending up in its landfills, France can expect to make a transition to a more sustainable society in the near future."], "kos": ["결과적으로, 더 적은 전자 및 전기 제품들이 쓰레기 매립지에 이르게 되면서, 프랑스는 가까운 미래에 더 지속 가능한 사회로 변화할 것을 기대할 수 있다."]}, {"tag": "본문 9~11번", "ns": [9, 10, 11], "line": "이 지수의 [[impact|영향]]은 프랑스 밖으로 퍼지고, 다른 나라들도 [[innovative|혁신적인]] 선례를 따를 수 있다.", "en": ["The impact of the index, however, is likely to spread far beyond France.", "We live in a global economy, and any company that wants to sell its appliances on the French market will need to label its products according to the repairability index.", "If the index is successful, we can anticipate seeing more countries around the world following France’s innovative lead."], "kos": ["하지만 그 지수의 영향은 프랑스를 넘어 더 멀리 퍼질 가능성이 있다.", "우리는 세계 경제 속에 살고 있으며, 프랑스 시장에서 기기를 판매하고 싶은 모든 회사는 그들의 제품에 수리 가능성 지수에 따라 라벨을 붙여야 할 것이다.", "만약 이 지수가 성공적이라면, 우리는 전 세계의 더 많은 나라들이 프랑스의 혁신적인 선례를 따르는 것을 보길 기대할 수 있다."]}], "story": [{"a": "pass", "form": "passed", "n": 1, "sq": 1, "sum": "France [[enacted]] a law requiring manufacturers", "hook": "프랑스 정부가 법안을 통과시켰다는 첫 문장의 passed(통과시켰다) → 요약문에서는 enacted(제정했다)로 바꿨어요.", "b": "enact", "k": "통과시키다 → 제정하다", "en": "In January 2021, the French government passed a bill that requires that every manufacturer include a “repairability index” on five categories of electronic devices and electrical appliances: smartphones, laptops, washing machines, televisions, and lawn mowers.", "ko": "2021년 1월, 프랑스 정부는 모든 제조사가 스마트폰, 노트북, 세탁기, 텔레비전, 그리고 잔디 깎는 기계라는 다섯 가지 종류의 전자 장치와 전자 기기에 ‘수리 가능성 지수’를 포함시킬 것을 요구하는 법안을 통과시켰다."}, {"a": "index", "form": "index", "n": 1, "sq": 1, "sum": "a repairability [[rating]] on five categories", "hook": "제품에 붙이는 수리 가능성 index(지수) → 요약문에서는 rating(등급)으로 바꿨어요.", "b": "rating", "k": "지수 → 등급, 평가", "en": "In January 2021, the French government passed a bill that requires that every manufacturer include a “repairability index” on five categories of electronic devices and electrical appliances: smartphones, laptops, washing machines, televisions, and lawn mowers.", "ko": "2021년 1월, 프랑스 정부는 모든 제조사가 스마트폰, 노트북, 세탁기, 텔레비전, 그리고 잔디 깎는 기계라는 다섯 가지 종류의 전자 장치와 전자 기기에 ‘수리 가능성 지수’를 포함시킬 것을 요구하는 법안을 통과시켰다."}, {"a": "element", "form": "elements", "n": 3, "sq": 2, "sum": "it considers several [[factors]], such as the availability", "hook": "수리 정보, 분해, 부품 가격 같은 elements(요소) → 요약문에서는 factors(요인)로 바꿨어요.", "b": "factor", "k": "요소 → 요인, 요소", "en": "The index takes into account several elements, including the availability of repair information, the ease of disassembly, and the price of spare parts.", "ko": "그 지수는 수리 정보의 이용 가능성, 분해의 용이성, 그리고 여분 부품의 가격을 포함하여 몇 가지 요소를 고려한다."}, {"a": "design", "form": "designed", "n": 5, "sq": 3, "sum": "The index was [[intended]] to have two positive effects", "hook": "두 가지 좋은 효과를 노리고 만들었다는 designed(설계되었다) → 요약문에서는 intended(의도되었다)로 바꿨어요.", "b": "intend", "k": "설계하다 → 의도하다", "en": "The index was designed to have two positive effects.", "ko": "그 지수는 두 가지의 긍정적인 효과를 가지도록 만들어졌다."}, {"a": "encourage", "form": "encourages", "n": 7, "sq": 3, "sum": "it [[motivates]] manufacturers to make products", "hook": "제조사가 고치기 쉬운 제품을 만들도록 북돋는 encourages(장려한다) → 요약문에서는 motivates(동기를 부여한다)로 바꿨어요.", "b": "motivate", "k": "장려하다 → 동기를 부여하다", "en": "Secondly, it encourages manufacturers to make their products easier to repair.", "ko": "두 번째로, 그것은 제조사들이 자신의 제품을 수리하기 더 쉽게 만들도록 장려한다."}, {"a": "expect", "form": "expect", "n": 8, "sq": 4, "sum": "France can [[anticipate]] a shift", "hook": "더 나은 사회를 바라볼 수 있다는 expect(기대하다) → 요약문에서는 anticipate(예상하다)로 바꿨어요.", "b": "anticipate", "k": "기대하다 → 예상하다, 기대하다", "en": "As a result, with fewer electronic and electrical items ending up in its landfills, France can expect to make a transition to a more sustainable society in the near future.", "ko": "결과적으로, 더 적은 전자 및 전기 제품들이 쓰레기 매립지에 이르게 되면서, 프랑스는 가까운 미래에 더 지속 가능한 사회로 변화할 것을 기대할 수 있다."}, {"a": "transition", "form": "transition", "n": 8, "sq": 4, "sum": "anticipate a [[shift]] to a more sustainable society", "hook": "지속 가능한 사회로 넘어가는 transition(전환) → 요약문에서는 shift(변화)로 바꿨어요.", "b": "shift", "k": "전환 → 변화, 전환", "en": "As a result, with fewer electronic and electrical items ending up in its landfills, France can expect to make a transition to a more sustainable society in the near future.", "ko": "결과적으로, 더 적은 전자 및 전기 제품들이 쓰레기 매립지에 이르게 되면서, 프랑스는 가까운 미래에 더 지속 가능한 사회로 변화할 것을 기대할 수 있다."}, {"a": "impact", "form": "impact", "n": 9, "sq": 5, "sum": "The [[influence]] of the index may spread", "hook": "프랑스를 넘어 퍼질 지수의 impact(영향) → 요약문에서는 influence(영향력)로 바꿨어요.", "b": "influence", "k": "영향 → 영향력", "en": "The impact of the index, however, is likely to spread far beyond France.", "ko": "하지만 그 지수의 영향은 프랑스를 넘어 더 멀리 퍼질 가능성이 있다."}, {"a": "innovative", "form": "innovative", "n": 11, "sq": 5, "sum": "its [[groundbreaking]] lead", "hook": "다른 나라가 따라 할 프랑스의 innovative(혁신적인) 선례 → 요약문에서는 groundbreaking(획기적인)으로 바꿨어요.", "b": "groundbreaking", "k": "혁신적인 → 획기적인", "en": "If the index is successful, we can anticipate seeing more countries around the world following France’s innovative lead.", "ko": "만약 이 지수가 성공적이라면, 우리는 전 세계의 더 많은 나라들이 프랑스의 혁신적인 선례를 따르는 것을 보길 기대할 수 있다."}], "passage": [{"n": 1, "en": "In January 2021, the French government passed a bill that requires that every manufacturer include a “repairability index” on five categories of electronic devices and electrical appliances: smartphones, laptops, washing machines, televisions, and lawn mowers.", "ko": "2021년 1월, 프랑스 정부는 모든 제조사가 스마트폰, 노트북, 세탁기, 텔레비전, 그리고 잔디 깎는 기계라는 다섯 가지 종류의 전자 장치와 전자 기기에 ‘수리 가능성 지수’를 포함시킬 것을 요구하는 법안을 통과시켰다."}, {"n": 2, "en": "Using a score ranging from 0 to 10, as well as a color-coded system, the index lets consumers see how easily the product can be repaired before they purchase it.", "ko": "그 지수는 색상으로 표시되는 시스템뿐만 아니라 0에서 10 사이의 점수도 사용하여 소비자들이 제품을 구입하기 전에 그것이 얼마나 쉽게 수리될 수 있는지 알 수 있게 해 준다."}, {"n": 3, "en": "The index takes into account several elements, including the availability of repair information, the ease of disassembly, and the price of spare parts.", "ko": "그 지수는 수리 정보의 이용 가능성, 분해의 용이성, 그리고 여분 부품의 가격을 포함하여 몇 가지 요소를 고려한다."}, {"n": 4, "en": "A low number on a bright red label means that repairing the product will be difficult, whereas a high number on a green label indicates that the product is easy to repair.", "ko": "초록색 라벨의 높은 숫자는 그 제품이 수리하기 쉽다는 것을 나타내는 데에 반하여, 밝은 빨간색 라벨의 낮은 숫자는 그 제품을 수리하는 것이 어려울 것이라는 것을 의미한다."}, {"n": 5, "en": "The index was designed to have two positive effects.", "ko": "그 지수는 두 가지의 긍정적인 효과를 가지도록 만들어졌다."}, {"n": 6, "en": "Firstly, it allows consumers to make informed decisions when purchasing new devices and appliances.", "ko": "첫 번째로, 그것은 소비자들이 새로운 장치와 기기를 구입할 때 정보에 근거한 결정을 내릴 수 있도록 한다."}, {"n": 7, "en": "Secondly, it encourages manufacturers to make their products easier to repair.", "ko": "두 번째로, 그것은 제조사들이 자신의 제품을 수리하기 더 쉽게 만들도록 장려한다."}, {"n": 8, "en": "As a result, with fewer electronic and electrical items ending up in its landfills, France can expect to make a transition to a more sustainable society in the near future.", "ko": "결과적으로, 더 적은 전자 및 전기 제품들이 쓰레기 매립지에 이르게 되면서, 프랑스는 가까운 미래에 더 지속 가능한 사회로 변화할 것을 기대할 수 있다."}, {"n": 9, "en": "The impact of the index, however, is likely to spread far beyond France.", "ko": "하지만 그 지수의 영향은 프랑스를 넘어 더 멀리 퍼질 가능성이 있다."}, {"n": 10, "en": "We live in a global economy, and any company that wants to sell its appliances on the French market will need to label its products according to the repairability index.", "ko": "우리는 세계 경제 속에 살고 있으며, 프랑스 시장에서 기기를 판매하고 싶은 모든 회사는 그들의 제품에 수리 가능성 지수에 따라 라벨을 붙여야 할 것이다."}, {"n": 11, "en": "If the index is successful, we can anticipate seeing more countries around the world following France’s innovative lead.", "ko": "만약 이 지수가 성공적이라면, 우리는 전 세계의 더 많은 나라들이 프랑스의 혁신적인 선례를 따르는 것을 보길 기대할 수 있다."}], "questions": [{"id": 1, "summary": "In January 2021, France (A) a law requiring manufacturers to include a repairability (B) on five categories of electronic products.", "ko": "2021년 1월, 프랑스는 제조사가 다섯 가지 종류의 전자 제품에 수리 가능성 <b>(B) 등급</b>을 포함하도록 요구하는 법을 <b>(A) 제정했다</b>.", "opts": [["enacted", "penalty"], ["rejected", "rating"], ["enacted", "rating"], ["rejected", "penalty"], ["postponed", "deadline"]], "optko": ["제정하다 – 벌금", "거부하다 – 등급", "제정하다 – 등급", "거부하다 – 벌금", "연기하다 – 기한"], "ans": 2, "wrong": ["penalty(벌금)가 틀려요. 제조사가 제품에 붙여야 하는 것은 벌금이 아니라 수리 가능성 지수(index)예요.", "rejected(거부하다)가 틀려요. 프랑스 정부는 법안을 거부한 게 아니라 통과시켰어요(passed).", null, "둘 다 틀려요. 법안을 거부하지 않았고, 붙이라고 한 것도 벌금이 아니에요.", "둘 다 틀려요. 법안을 연기한(postponed) 게 아니라 통과시켰고, 기한(deadline) 이야기도 본문에 없어요."], "evid": [{"n": 1, "hl": ["repairability index", "passed a bill"]}], "swaps": [["pass", "enact", "통과시키다 → 제정하다"], ["index", "rating", "지수 → 등급, 평가"], ["bill", "law", "법안 → 법"], ["devices", "products", "장치 → 제품"]], "swapnote": "pass a bill(법안을 통과시키다)은 시험에서 enact a law(법을 제정하다)로 바뀌어 나와요. index(지수)는 rating(등급)으로도 써요.", "use": [{"w": "enact", "ex": "The government enacted a new law to protect the sea.", "ko": "정부는 바다를 보호하기 위해 새 법을 제정했다.", "wk": "제정하다", "hk": "제정했다"}, {"w": "rating", "ex": "This restaurant has a high rating from visitors.", "ko": "이 식당은 방문객들에게 높은 평점을 받고 있다.", "wk": "등급, 평점", "hk": "평점"}], "flow": "본문 1번은 이 글의 출발점이에요. 2021년 1월에 프랑스 정부가 스마트폰, 노트북 같은 다섯 종류 제품에 수리 가능성 지수를 붙이게 하는 법안을 통과시켰어요.", "jd": [["In January 2021, France [[enacted]] a law", "2021년 1월, 프랑스는 법을 [[제정했다]]"], ["requiring manufacturers to include", "제조사가 포함하도록 요구하는"], ["a repairability [[rating]]", "수리 가능성 [[등급]]을"], ["on five categories of electronic products.", "다섯 가지 종류의 전자 제품에."]], "fc": [["본문 1번", "프랑스가 새 법안을 통과시켰다", "2021년 1월, 제조사에게 지수를 붙이라고 요구하는 법이에요."], ["대상", "스마트폰, 노트북, 세탁기, TV, 잔디 깎는 기계", "다섯 가지 전자 제품에 붙어요."], ["정답 포인트", "{{pass a bill|법안을 통과시키다}} = {{enact a law|법을 제정하다}}", "{{index|지수}} = {{rating|등급}}으로 바뀌어요."]], "evid_full": [{"en": "In January 2021, the French government passed a bill that requires that every manufacturer include a “repairability index” on five categories of electronic devices and electrical appliances: smartphones, laptops, washing machines, televisions, and lawn mowers.", "ko": "2021년 1월, 프랑스 정부는 모든 제조사가 스마트폰, 노트북, 세탁기, 텔레비전, 그리고 잔디 깎는 기계라는 다섯 가지 종류의 전자 장치와 전자 기기에 ‘수리 가능성 지수’를 포함시킬 것을 요구하는 법안을 통과시켰다.", "hl": ["repairability index", "passed a bill"], "hlko": ["수리 가능성 지수", "법안을 통과시켰다"], "n": 1}]}, {"id": 2, "summary": "The index gives a score from 0 to 10 and a color label, and it (A) several (B), such as the availability of repair information and the price of spare parts.", "ko": "그 지수는 0에서 10 사이의 점수와 색깔 라벨을 주며, 수리 정보를 구할 수 있는지와 여분 부품의 가격 같은 몇 가지 <b>(B) 요소</b>를 <b>(A) 고려한다</b>.", "opts": [["considers", "rivals"], ["ignores", "factors"], ["ignores", "rivals"], ["reduces", "risks"], ["considers", "factors"]], "optko": ["고려하다 – 경쟁자", "무시하다 – 요소", "무시하다 – 경쟁자", "줄이다 – 위험", "고려하다 – 요소"], "ans": 4, "wrong": ["rivals(경쟁자)가 틀려요. 점수에 반영되는 것은 경쟁자가 아니라 수리 정보, 분해, 부품 가격 같은 요소(elements)예요.", "ignores(무시하다)가 틀려요. 지수는 요소를 무시하는 게 아니라 고려해요(takes into account).", "둘 다 틀려요. 요소를 무시한다는 말도, 경쟁자 이야기도 본문에 없어요.", "둘 다 틀려요. 지수가 위험(risks)을 줄인다는 말은 본문에 없어요.", null], "evid": [{"n": 3, "hl": ["several elements", "takes into account"]}], "swaps": [["element", "factor", "요소 → 요인, 요소"], ["take into account", "consider", "고려하다 → 고려하다"], ["ease", "simplicity", "용이성 → 간단함"], ["spare", "extra", "여분의 → 추가의"]], "swapnote": "element(요소)는 factor(요인)로, take into account(고려하다)는 consider(고려하다)로 바뀌어 나와요. 여러 단어가 한 단어로 줄기도 해요.", "use": [{"w": "consider", "ex": "Please consider all the options before you decide.", "ko": "결정하기 전에 모든 선택지를 고려해 주세요.", "wk": "고려하다", "hk": "고려해"}, {"w": "factor", "ex": "Price is an important factor when we buy shoes.", "ko": "신발을 살 때 가격은 중요한 요소이다.", "wk": "요소, 요인", "hk": "요소"}], "flow": "본문 2~3번에서 지수를 어떻게 매기는지 나와요. 0에서 10까지 점수와 색깔 라벨로 보여 주고, 수리 정보, 분해의 쉬움, 부품 가격 같은 요소들을 고려해요.", "jd": [["The index gives a score from 0 to 10 and a color label,", "그 지수는 0에서 10 사이의 점수와 색깔 라벨을 주며,"], ["and it [[considers]] several [[factors]],", "몇 가지 [[요소]]를 [[고려한다]],"], ["such as the availability of repair information", "수리 정보를 구할 수 있는지와"], ["and the price of spare parts.", "여분 부품의 가격 같은."]], "fc": [["본문 2번", "0~10점 + 색깔 라벨", "소비자가 제품을 사기 전에 수리가 쉬운지 알 수 있어요."], ["본문 3번", "무엇을 고려할까?", "수리 정보, 분해의 쉬움, 부품 가격이에요."], ["정답 포인트", "{{takes into account|고려하다}} = {{considers|고려하다}}, {{elements|요소}} = {{factors|요인}}", "고려하는 것은 경쟁자가 아니라 수리와 관련된 요인이에요."]], "evid_full": [{"en": "The index takes into account several elements, including the availability of repair information, the ease of disassembly, and the price of spare parts.", "ko": "그 지수는 수리 정보의 이용 가능성, 분해의 용이성, 그리고 여분 부품의 가격을 포함하여 몇 가지 요소를 고려한다.", "hl": ["several elements", "takes into account"], "hlko": ["몇 가지 요소", "고려한다"], "n": 3}]}, {"id": 3, "summary": "The index was (A) to have two positive effects: it helps consumers make informed decisions, and it (B) manufacturers to make products easier to repair.", "ko": "그 지수는 두 가지 긍정적인 효과를 가지도록 <b>(A) 의도되었다</b>. 소비자가 정보에 근거한 결정을 내리도록 돕고, 제조사가 제품을 수리하기 더 쉽게 만들도록 <b>(B) 동기를 부여한다</b>.", "opts": [["intended", "motivates"], ["intended", "forces"], ["predicted", "motivates"], ["predicted", "forces"], ["forbidden", "discourages"]], "optko": ["의도하다 – 동기를 부여하다", "의도하다 – 강요하다", "예측하다 – 동기를 부여하다", "예측하다 – 강요하다", "금지하다 – 의욕을 꺾다"], "ans": 0, "wrong": [null, "forces(강요하다)가 틀려요. 본문은 제조사에게 억지로 시키는 게 아니라 장려한다(encourages)고 해요.", "predicted(예측하다)가 틀려요. 지수는 효과를 예측한 게 아니라 효과를 위해 설계된(designed) 거예요.", "둘 다 틀려요. 지수는 예측된 것도 아니고, 제조사에게 강요하는 것도 아니에요.", "둘 다 틀려요. 금지된 것이 아니고, 의욕을 꺾는 것도 아니라 오히려 장려해요."], "evid": [{"n": 5, "hl": ["designed to have two positive effects"]}, {"n": 7, "hl": ["encourages", "easier to repair"]}], "swaps": [["design", "intend", "설계하다 → 의도하다"], ["encourage", "motivate", "장려하다 → 동기를 부여하다"], ["allow", "help", "허락하다 → 돕다"], ["make", "produce", "만들다 → 생산하다"]], "swapnote": "designed to(~하도록 설계된)는 intended to(~하도록 의도된)로, encourage(장려하다)는 motivate(동기를 부여하다)로 바뀌어 나와요.", "use": [{"w": "intend", "ex": "The park was intended to be a quiet place for everyone.", "ko": "그 공원은 모두를 위한 조용한 장소가 되도록 의도되었다.", "wk": "의도하다", "hk": "의도되었다"}, {"w": "motivate", "ex": "A good teacher can motivate students to study harder.", "ko": "좋은 선생님은 학생들이 더 열심히 공부하도록 동기를 부여할 수 있다.", "wk": "동기를 부여하다", "hk": "동기를 부여할"}], "flow": "본문 5번에서 이 지수가 두 가지 좋은 효과를 노리고 만들어졌다고 말해요. 6번은 소비자 쪽(알고 고르기), 7번은 제조사 쪽(고치기 쉬운 제품 만들기) 효과예요.", "jd": [["The index was [[intended]] to have two positive effects:", "그 지수는 두 가지 긍정적인 효과를 가지도록 [[의도되었다]]:"], ["it helps consumers make informed decisions,", "소비자가 정보에 근거한 결정을 내리도록 돕고,"], ["and it [[motivates]] manufacturers", "제조사에게 [[동기를 부여한다]]"], ["to make products easier to repair.", "제품을 수리하기 더 쉽게 만들도록."]], "fc": [["본문 5번", "지수는 두 가지 좋은 효과를 노렸다", "그래서 만들어진 거예요."], ["본문 6~7번", "소비자는 똑똑하게 고르고, 제조사는 고치기 쉬운 제품을 만든다", "Firstly, Secondly로 두 효과를 나눠 말해요."], ["정답 포인트", "{{designed|설계된}} = {{intended|의도된}}, {{encourages|장려하다}} = {{motivates|동기를 부여하다}}", "강요하는 것이 아니라 장려해요."]], "evid_full": [{"en": "The index was designed to have two positive effects.", "ko": "그 지수는 두 가지의 긍정적인 효과를 가지도록 만들어졌다.", "hl": ["designed to have two positive effects"], "hlko": ["두 가지의 긍정적인 효과를 가지도록 만들어졌다"], "n": 5}, {"en": "Secondly, it encourages manufacturers to make their products easier to repair.", "ko": "두 번째로, 그것은 제조사들이 자신의 제품을 수리하기 더 쉽게 만들도록 장려한다.", "hl": ["encourages", "easier to repair"], "hlko": ["장려한다", "수리하기 더 쉽게"], "n": 7}]}, {"id": 4, "summary": "With fewer electronic items ending up in landfills, France can (A) a (B) to a more sustainable society in the near future.", "ko": "전자 제품이 쓰레기 매립지에 덜 쌓이면서, 프랑스는 가까운 미래에 더 지속 가능한 사회로의 <b>(B) 전환</b>을 <b>(A) 기대할 수 있다</b>.", "opts": [["anticipate", "return"], ["avoid", "shift"], ["avoid", "return"], ["anticipate", "shift"], ["regret", "delay"]], "optko": ["기대하다 – 복귀", "피하다 – 전환", "피하다 – 복귀", "기대하다 – 전환", "후회하다 – 지연"], "ans": 3, "wrong": ["return(복귀)이 틀려요. 프랑스는 예전으로 돌아가는 게 아니라 더 지속 가능한 사회로 나아가요(transition).", "avoid(피하다)가 틀려요. 프랑스는 변화를 피하는 게 아니라 기대해요(can expect).", "둘 다 틀려요. 변화를 피한다는 말도, 예전으로 돌아간다는 말도 본문에 없어요.", null, "둘 다 틀려요. 후회한다거나 지연된다는 말은 본문에 없어요."], "evid": [{"n": 8, "hl": ["transition to a more sustainable society", "can expect"]}], "swaps": [["expect", "anticipate", "기대하다 → 예상하다, 기대하다"], ["transition", "shift", "전환 → 변화, 전환"], ["landfill", "dump", "쓰레기 매립지 → 쓰레기 버리는 곳"], ["society", "community", "사회 → 공동체"]], "swapnote": "transition(전환)은 shift(변화)나 change(변화)로, expect(기대하다)는 anticipate(예상하다)로 바뀌어 나와요. 모두 쉬운 뜻으로 풀어서 읽어 보세요.", "use": [{"w": "anticipate", "ex": "Farmers anticipate heavy rain this weekend.", "ko": "농부들은 이번 주말에 폭우가 올 것으로 예상한다.", "wk": "예상하다, 기대하다", "hk": "예상한다"}, {"w": "shift", "ex": "There was a big shift in people's habits after the new rule.", "ko": "새 규칙 이후 사람들의 습관에 큰 변화가 있었다.", "wk": "변화, 전환", "hk": "변화"}], "flow": "본문 8번은 결과예요(As a result). 수리하기 쉬워지면 버려지는 전자 제품이 줄고, 그래서 프랑스는 더 지속 가능한 사회로 바뀔 것을 기대할 수 있어요.", "jd": [["With fewer electronic items ending up in landfills,", "전자 제품이 쓰레기 매립지에 덜 쌓이면서,"], ["France can [[anticipate]] a [[shift]]", "프랑스는 [[전환]]을 [[기대할 수 있다]]"], ["to a more sustainable society", "더 지속 가능한 사회로의"], ["in the near future.", "가까운 미래에."]], "fc": [["본문 8번", "As a result! 결과가 나온다", "수리하기 쉬운 제품이 늘어요."], ["그다음", "버려지는 전자 제품이 줄어든다", "{{landfills|쓰레기 매립지}}에 쌓이는 물건이 줄어요."], ["정답 포인트", "{{expect|기대하다}} = {{anticipate|예상하다}}, {{transition|전환}} = {{shift|변화}}", "더 지속 가능한 사회로 나아가는 방향이에요."]], "evid_full": [{"en": "As a result, with fewer electronic and electrical items ending up in its landfills, France can expect to make a transition to a more sustainable society in the near future.", "ko": "결과적으로, 더 적은 전자 및 전기 제품들이 쓰레기 매립지에 이르게 되면서, 프랑스는 가까운 미래에 더 지속 가능한 사회로 변화할 것을 기대할 수 있다.", "hl": ["transition to a more sustainable society", "can expect"], "hlko": ["더 지속 가능한 사회로 변화할 것", "기대할 수 있다"], "n": 8}]}, {"id": 5, "summary": "The (A) of the index may spread far beyond France, since companies selling in France must label their products, and other countries may follow its (B) lead.", "ko": "프랑스에서 판매하는 회사는 제품에 라벨을 붙여야 하므로, 그 지수의 <b>(A) 영향</b>은 프랑스를 훨씬 넘어 퍼질 수 있고, 다른 나라들이 그 <b>(B) 획기적인</b> 선례를 따를 수도 있다.", "opts": [["influence", "outdated"], ["influence", "groundbreaking"], ["cost", "groundbreaking"], ["cost", "outdated"], ["reputation", "risky"]], "optko": ["영향 – 시대에 뒤떨어진", "영향 – 획기적인", "비용 – 획기적인", "비용 – 시대에 뒤떨어진", "평판 – 위험한"], "ans": 1, "wrong": ["outdated(시대에 뒤떨어진)가 틀려요. 본문은 프랑스의 선례를 혁신적인(innovative) 것으로 보고 있어요.", null, "cost(비용)가 틀려요. 멀리 퍼질 것은 비용이 아니라 지수의 영향(impact)이에요.", "둘 다 틀려요. 퍼지는 것은 비용이 아니고, 선례도 시대에 뒤떨어진 게 아니에요.", "둘 다 틀려요. 평판 이야기는 본문에 없고, 선례를 위험하다고 하지도 않았어요."], "evid": [{"n": 9, "hl": ["impact of the index", "spread far beyond France"]}, {"n": 10, "hl": ["label its products"]}, {"n": 11, "hl": ["innovative lead"]}], "swaps": [["impact", "influence", "영향 → 영향력"], ["innovative", "groundbreaking", "혁신적인 → 획기적인"], ["sell", "market", "팔다 → 시장에 내놓다"], ["follow", "adopt", "따르다 → 받아들이다"]], "swapnote": "impact(영향)는 influence(영향력)로, innovative(혁신적인)는 groundbreaking(획기적인)이나 pioneering(선구적인)으로 바뀌어 나와요.", "use": [{"w": "influence", "ex": "Parents have a strong influence on their children.", "ko": "부모는 자녀에게 큰 영향을 미친다.", "wk": "영향", "hk": "영향"}, {"w": "groundbreaking", "ex": "Scientists made a groundbreaking discovery about the ocean.", "ko": "과학자들은 바다에 관한 획기적인 발견을 했다.", "wk": "획기적인", "hk": "획기적인"}], "flow": "본문 9번에서 However(하지만)로 이야기가 넓어져요. 프랑스에서 팔려면 어느 회사든 라벨을 붙여야 하니(10번) 영향이 퍼지고, 성공하면 더 많은 나라가 따라 할 거라고(11번) 마무리해요.", "jd": [["The [[influence]] of the index may spread far beyond France,", "그 지수의 [[영향]]은 프랑스를 훨씬 넘어 퍼질 수 있고,"], ["since companies selling in France must label their products,", "프랑스에서 판매하는 회사는 제품에 라벨을 붙여야 하므로,"], ["and other countries may follow", "다른 나라들이 따를 수도 있다"], ["its [[groundbreaking]] lead.", "그 [[획기적인]] 선례를."]], "fc": [["본문 9번", "However! 영향은 프랑스 밖으로", "{{impact|영향}}가 멀리 퍼질 가능성이 있어요."], ["본문 10번", "프랑스에서 팔려면 라벨 필수", "세계 경제 속에서 모든 회사가 따라야 해요."], ["정답 포인트", "{{impact|영향}} = {{influence|영향력}}, {{innovative|혁신적인}} = {{groundbreaking|획기적인}}", "다른 나라들이 따를 수도 있어요."]], "evid_full": [{"en": "The impact of the index, however, is likely to spread far beyond France.", "ko": "하지만 그 지수의 영향은 프랑스를 넘어 더 멀리 퍼질 가능성이 있다.", "hl": ["impact of the index", "spread far beyond France"], "hlko": ["그 지수의 영향", "프랑스를 넘어 더 멀리 퍼질"], "n": 9}, {"en": "We live in a global economy, and any company that wants to sell its appliances on the French market will need to label its products according to the repairability index.", "ko": "우리는 세계 경제 속에 살고 있으며, 프랑스 시장에서 기기를 판매하고 싶은 모든 회사는 그들의 제품에 수리 가능성 지수에 따라 라벨을 붙여야 할 것이다.", "hl": ["label its products"], "hlko": ["라벨을 붙여야"], "n": 10}, {"en": "If the index is successful, we can anticipate seeing more countries around the world following France’s innovative lead.", "ko": "만약 이 지수가 성공적이라면, 우리는 전 세계의 더 많은 나라들이 프랑스의 혁신적인 선례를 따르는 것을 보길 기대할 수 있다.", "hl": ["innovative lead"], "hlko": ["혁신적인 선례"], "n": 11}]}], "gloss": {"january": ["january", "1월"], "france": ["france", "프랑스"], "france’s": ["france", "프랑스"], "france's": ["france", "프랑스"], "law": ["law", "법"], "requiring": ["require", "요구하다"], "requires": ["require", "요구하다"], "manufacturers": ["manufacturers", "제조사"], "manufacturer": ["manufacturer", "제조사"], "include": ["include", "포함시키다"], "repairability": ["repairability", "수리 가능성"], "rating": ["rating", "등급, 평가"], "categories": ["category", "종류, 범주"], "electronic": ["electronic", "전자의"], "products": ["product", "제품"], "product": ["product", "제품"], "enacted": ["enact", "제정하다"], "penalty": ["penalty", "벌금, 처벌"], "rejected": ["reject", "거부하다"], "postponed": ["postpone", "연기하다"], "deadline": ["deadline", "마감 기한"], "with": ["with", "~와 함께, ~하면서"], "index": ["index", "지수"], "gives": ["give", "주다"], "score": ["score", "점수"], "from": ["from", "~부터"], "color": ["color", "색깔"], "label": ["label", "라벨, 라벨을 붙이다"], "considers": ["consider", "고려하다"], "consider": ["consider", "고려하다"], "several": ["several", "몇 가지의"], "factors": ["factor", "요인, 요소"], "factor": ["factor", "요인, 요소"], "such": ["such as", "~ 같은"], "availability": ["availability", "이용 가능성, 구할 수 있음"], "repair": ["repair", "수리, 수리하다"], "information": ["information", "정보"], "price": ["price", "가격"], "spare": ["spare", "여분의"], "parts": ["part", "부품, 부분"], "rivals": ["rival", "경쟁자"], "ignores": ["ignore", "무시하다"], "reduces": ["reduce", "줄이다"], "risks": ["risk", "위험"], "designed": ["design", "설계하다"], "intended": ["intend", "의도하다"], "positive": ["positive", "긍정적인"], "effects": ["effect", "효과"], "helps": ["help", "돕다"], "consumers": ["consumer", "소비자"], "make": ["make", "만들다"], "informed": ["informed", "정보에 근거한"], "decisions": ["decision", "결정"], "motivates": ["motivate", "동기를 부여하다"], "easier": ["easier", "더 쉬운"], "predicted": ["predict", "예측하다"], "forces": ["force", "강요하다"], "forbidden": ["forbid", "금지하다"], "discourages": ["discourage", "의욕을 꺾다"], "fewer": ["fewer", "더 적은"], "items": ["item", "물품, 제품"], "ending": ["end", "끝나다 (end up in = 결국 ~에 이르다)"], "landfills": ["landfill", "쓰레기 매립지"], "anticipate": ["anticipate", "기대하다, 예상하다"], "shift": ["shift", "변화, 전환"], "sustainable": ["sustainable", "지속 가능한"], "society": ["society", "사회"], "future": ["future", "미래"], "near": ["near", "가까운"], "avoid": ["avoid", "피하다"], "return": ["return", "복귀, 되돌아감"], "regret": ["regret", "후회하다"], "delay": ["delay", "지연"], "more": ["more", "더 ~한"], "influence": ["influence", "영향, 영향력"], "spread": ["spread", "퍼지다"], "far": ["far", "훨씬, 멀리"], "beyond": ["beyond", "~을 넘어"], "companies": ["company", "회사"], "selling": ["sell", "팔다"], "countries": ["country", "나라"], "follow": ["follow", "따르다"], "lead": ["lead", "선례, 앞장섬"], "groundbreaking": ["groundbreaking", "획기적인"], "outdated": ["outdated", "시대에 뒤떨어진"], "cost": ["cost", "비용"], "reputation": ["reputation", "평판"], "risky": ["risky", "위험한"], "government": ["government", "정부"], "bill": ["bill", "법안"], "passed": ["pass", "통과시키다"], "every": ["every", "모든"], "five": ["five", "다섯의"], "smartphones": ["smartphone", "스마트폰"], "laptops": ["laptop", "노트북"], "washing": ["washing machine", "세탁기"], "machines": ["machine", "기계"], "televisions": ["television", "텔레비전"], "lawn": ["lawn mower", "잔디 깎는 기계"], "mowers": ["lawn mower", "잔디 깎는 기계"], "devices": ["device", "장치"], "appliances": ["appliance", "(가전) 기기"], "electrical": ["electrical", "전기의"], "using": ["use", "사용하다"], "ranging": ["range", "범위가 ~에 이르다"], "color-coded": ["color-coded", "색으로 구분한"], "system": ["system", "시스템, 체계"], "lets": ["let", "~하게 해 주다"], "easily": ["easily", "쉽게"], "purchase": ["purchase", "구입하다"], "purchasing": ["purchase", "구입하다"], "takes": ["take into account", "고려하다"], "account": ["account", "고려, 계산"], "elements": ["element", "요소"], "disassembly": ["disassembly", "분해"], "ease": ["ease", "쉬움, 용이성"], "low": ["low", "낮은"], "number": ["number", "숫자"], "bright": ["bright", "밝은"], "red": ["red", "빨간"], "means": ["mean", "의미하다"], "difficult": ["difficult", "어려운"], "whereas": ["whereas", "~에 반해"], "high": ["high", "높은"], "green": ["green", "초록색의"], "indicates": ["indicate", "나타내다"], "firstly": ["firstly", "첫째로"], "allows": ["allow", "허락하다, ~할 수 있게 하다"], "new": ["new", "새로운"], "secondly": ["secondly", "둘째로"], "encourages": ["encourage", "장려하다"], "result": ["result", "결과"], "expect": ["expect", "기대하다"], "transition": ["transition", "전환"], "impact": ["impact", "영향"], "likely": ["likely", "~할 가능성이 있는"], "however": ["however", "하지만"], "live": ["live", "살다"], "global": ["global", "세계적인"], "economy": ["economy", "경제"], "wants": ["want", "원하다"], "market": ["market", "시장"], "according": ["according", "~에 따라 (according to)"], "need": ["need", "필요가 있다"], "successful": ["successful", "성공적인"], "around": ["around", "~ 곳곳의"], "world": ["world", "세계"], "innovative": ["innovative", "혁신적인"], "seeing": ["seeing", "보다"], "see": ["see", "보다, 알다"], "before": ["before", "~하기 전에"], "they": ["they", "그들"], "other": ["other", "다른"], "must": ["must", "~해야 한다"], "may": ["may", "~할 수도 있다"], "since": ["since", "~이므로"], "their": ["their", "그들의"], "its": ["its", "그것의"], "because": ["because", "~ 때문에"], "easy": ["easy", "쉬운"], "year": ["year", "해, 년"], "many": ["many", "많은"], "inspect": ["inspect", "면밀히 조사하다"], "fix": ["fix", "고치다"], "fixed": ["fix", "고치다"], "simplicity": ["simplicity", "간단함"], "extra": ["extra", "추가의"], "community": ["community", "공동체"], "dump": ["dump", "쓰레기 버리는 곳"], "adopt": ["adopt", "받아들이다"], "produce": ["produce", "생산하다"], "protect": ["protect", "보호하다"], "sea": ["sea", "바다"], "restaurant": ["restaurant", "식당"], "visitors": ["visitor", "방문객"], "options": ["option", "선택지"], "decide": ["decide", "결정하다"], "important": ["important", "중요한"], "shoes": ["shoes", "신발"], "buy": ["buy", "사다"], "park": ["park", "공원"], "quiet": ["quiet", "조용한"], "place": ["place", "장소"], "teacher": ["teacher", "선생님"], "students": ["student", "학생"], "study": ["study", "공부하다"], "harder": ["harder", "더 열심히"], "parents": ["parent", "부모"], "children": ["child", "자녀, 아이"], "scientists": ["scientist", "과학자"], "discovery": ["discovery", "발견"], "ocean": ["ocean", "바다, 대양"], "farmers": ["farmer", "농부"], "heavy": ["heavy", "심한"], "rain": ["rain", "비"], "weekend": ["weekend", "주말"], "habits": ["habit", "습관"], "rule": ["rule", "규칙"], "big": ["big", "큰"], "strong": ["strong", "강한"], "good": ["good", "좋은"], "test": ["test", "시험"], "paper": ["paper", "종이, 시험지"], "carefully": ["carefully", "꼼꼼히"], "french": ["French", "프랑스의"], "into": ["into", "~ 안으로 (take into account = 고려하다)"], "including": ["include", "포함하다"], "company": ["company", "회사"], "sell": ["sell", "팔다"], "following": ["follow", "따르다"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="cheongseok-go2";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH;
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);render();
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){return (DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}})}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../index.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">밑줄 단어를 누르면 뜻이 나와요. 번호를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+words(o[0])+'<span class="dash">–</span>'+words(o[1])+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'</li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>

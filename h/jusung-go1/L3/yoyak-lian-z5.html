@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>3과 요약문 연습 ❺</title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "jusung-go1", "src": "jusung-go1/L3/sx-data.js", "pidx": 4, "lesson": "3과", "title": "문화유산을 지킨 모뉴먼츠 맨", "label": "❺", "page": "yoyak-lian-z5"}, "scenes": [{"tag": "본문 1번", "ns": [1], "line": "전쟁이 [[end|끝나도]] 모뉴먼츠 맨의 노력은 끝나지 않았다.", "en": ["The efforts of the Monuments Men did not end with the war."], "kos": ["모뉴먼츠 맨의 노력은 전쟁과 함께 끝나지 않았다."]}, {"tag": "본문 2번", "ns": [2], "line": "여러 해 동안 문화재를 [[recovering|되찾고]] 어디서 도난당했는지 알아냈다.", "en": ["For several years, they continued the work of recovering cultural treasures and identifying where they had been stolen from."], "kos": ["여러 해 동안, 그들은 문화재를 되찾고 그것들이 어디에서 도난당했는지 식별하는 작업을 이어갔다."]}, {"tag": "본문 3번", "ns": [3], "line": "마침내 5백만 점이 넘는 작품을 [[returned|돌려보냈다]], 작품이 처음 있던 [[origin|원래의 출처]] 장소로.", "en": ["In the end, the Monuments Men returned more than five million works of art and objects of cultural importance to their places of origin."], "kos": ["마침내, 모뉴먼츠 맨은 5백만 점이 넘는 예술 작품과 문화적으로 중요한 물건들을 그것들의 원래 장소들로 돌려보냈다."]}, {"tag": "본문 4번", "ns": [4], "line": "못 찾은 것도 있지만, 이들이 [[accomplished|이룬]] 일은 정말 놀랍다.", "en": ["Not everything that was stolen by the Nazis has been found, but what the Monuments Men accomplished is truly amazing."], "kos": ["나치에 의해 도난당한 모든 것이 발견되지는 않았지만, 모뉴먼츠 맨이 이룬 것은 정말로 놀랍다."]}, {"tag": "본문 5번", "ns": [5], "line": "이 집단이 없었다면 도난당한 작품의 수색은 [[begun|시작]]되지도 못했을 것이다.", "en": ["Without this determined group, the search for stolen works of art might never have begun."], "kos": ["이 결연한 집단이 없었다면, 도난당한 예술 작품들의 수색은 시작되지 않았을지도 모른다."]}, {"tag": "본문 6번", "ns": [6], "line": "또한 수많은 랜드마크가 전쟁으로 영원히 [[lost|사라졌을]] 것이다.", "en": ["In addition, countless historical and cultural landmarks would have been lost forever due to the destruction of war."], "kos": ["또한, 수많은 역사적, 문화적 랜드마크가 전쟁의 파괴로 인해 영원히 사라져 버렸을 것이다."]}, {"tag": "본문 7번", "ns": [7], "line": "문화유산 [[preservation|보존]]에 대한 기여는 기억할 가치가 있다.", "en": ["It is worth remembering the Monuments Men’s contribution to the preservation of cultural heritage."], "kos": ["문화유산 보존에 대한 모뉴먼츠 맨의 기여는 기억할 가치가 있다."]}], "story": [{"a": "end", "form": "end", "n": 1, "sq": 1, "sum": "The Monuments Men did not [[cease]] their work", "hook": "전쟁이 끝나도 노력은 끝나지 않았다는 첫 문장의 end(끝나다) → 요약문에서는 cease(멈추다)로 바꿨어요.", "b": "cease", "k": "끝나다 → 멈추다, 그치다", "en": "The efforts of the Monuments Men did not end with the war.", "ko": "모뉴먼츠 맨의 노력은 전쟁과 함께 끝나지 않았다."}, {"a": "recover", "form": "recovering", "n": 2, "sq": 1, "sum": "tried to [[retrieve]] cultural treasures", "hook": "문화재를 되찾는 일을 이어 갔다는 문장의 recovering(되찾다) → 요약문에서는 retrieve(되찾아 오다)로 바꿨어요.", "b": "retrieve", "k": "되찾다 → 되찾아 오다", "en": "For several years, they continued the work of recovering cultural treasures and identifying where they had been stolen from.", "ko": "여러 해 동안, 그들은 문화재를 되찾고 그것들이 어디에서 도난당했는지 식별하는 작업을 이어갔다."}, {"a": "return", "form": "returned", "n": 3, "sq": 2, "sum": "the Monuments Men [[restored]] more than five million works of art", "hook": "5백만 점을 돌려보냈다는 문장의 returned(돌려보내다) → 요약문에서는 restored(되돌려 놓다)로 바꿨어요.", "b": "restore", "k": "돌려보내다 → 되돌려 놓다", "en": "In the end, the Monuments Men returned more than five million works of art and objects of cultural importance to their places of origin.", "ko": "마침내, 모뉴먼츠 맨은 5백만 점이 넘는 예술 작품과 문화적으로 중요한 물건들을 그것들의 원래 장소들로 돌려보냈다."}, {"a": "origin", "form": "origin", "n": 3, "sq": 2, "sum": "the places they [[originated]] from", "hook": "작품이 처음 있던 장소가 나오는 문장의 origin(원래의 출처) → 요약문에서는 originated(유래한)로 바꿨어요.", "b": "originate", "k": "원래의 출처 → 유래하다, 비롯되다", "en": "In the end, the Monuments Men returned more than five million works of art and objects of cultural importance to their places of origin.", "ko": "마침내, 모뉴먼츠 맨은 5백만 점이 넘는 예술 작품과 문화적으로 중요한 물건들을 그것들의 원래 장소들로 돌려보냈다."}, {"a": "accomplish", "form": "accomplished", "n": 4, "sq": 3, "sum": "the Monuments Men's [[achievement]] is truly amazing", "hook": "이 사람들이 이룬 일이 놀랍다는 문장의 accomplished(이루다) → 요약문에서는 achievement(업적)로 바꿨어요.", "b": "achievement", "k": "이루다 → 업적, 성취", "en": "Not everything that was stolen by the Nazis has been found, but what the Monuments Men accomplished is truly amazing.", "ko": "나치에 의해 도난당한 모든 것이 발견되지는 않았지만, 모뉴먼츠 맨이 이룬 것은 정말로 놀랍다."}, {"a": "begin", "form": "begun", "n": 5, "sq": 3, "sum": "the search for it might never have [[started]]", "hook": "이 집단이 없었다면 수색이 시작도 못 했을 거라는 문장의 begun(시작하다) → 요약문에서는 started(시작되다)로 바꿨어요.", "b": "start", "k": "시작하다 → 시작되다", "en": "Without this determined group, the search for stolen works of art might never have begun.", "ko": "이 결연한 집단이 없었다면, 도난당한 예술 작품들의 수색은 시작되지 않았을지도 모른다."}, {"a": "lost", "form": "lost", "n": 6, "sq": 4, "sum": "many historical landmarks would have [[vanished]] forever", "hook": "랜드마크가 영원히 사라졌을 거라는 문장의 lost(잃다) → 요약문에서는 vanished(사라지다)로 바꿨어요.", "b": "vanish", "k": "잃다 → 사라지다", "en": "In addition, countless historical and cultural landmarks would have been lost forever due to the destruction of war.", "ko": "또한, 수많은 역사적, 문화적 랜드마크가 전쟁의 파괴로 인해 영원히 사라져 버렸을 것이다."}, {"a": "preservation", "form": "preservation", "n": 7, "sq": 4, "sum": "their contribution to [[protecting]] cultural heritage", "hook": "문화유산을 지킨 기여가 나오는 문장의 preservation(보존) → 요약문에서는 protecting(보호하는 것)으로 바꿨어요.", "b": "protecting", "k": "보존 → 보호하는 것", "en": "It is worth remembering the Monuments Men’s contribution to the preservation of cultural heritage.", "ko": "문화유산 보존에 대한 모뉴먼츠 맨의 기여는 기억할 가치가 있다."}], "passage": [{"n": 1, "en": "The efforts of the Monuments Men did not end with the war.", "ko": "모뉴먼츠 맨의 노력은 전쟁과 함께 끝나지 않았다."}, {"n": 2, "en": "For several years, they continued the work of recovering cultural treasures and identifying where they had been stolen from.", "ko": "여러 해 동안, 그들은 문화재를 되찾고 그것들이 어디에서 도난당했는지 식별하는 작업을 이어갔다."}, {"n": 3, "en": "In the end, the Monuments Men returned more than five million works of art and objects of cultural importance to their places of origin.", "ko": "마침내, 모뉴먼츠 맨은 5백만 점이 넘는 예술 작품과 문화적으로 중요한 물건들을 그것들의 원래 장소들로 돌려보냈다."}, {"n": 4, "en": "Not everything that was stolen by the Nazis has been found, but what the Monuments Men accomplished is truly amazing.", "ko": "나치에 의해 도난당한 모든 것이 발견되지는 않았지만, 모뉴먼츠 맨이 이룬 것은 정말로 놀랍다."}, {"n": 5, "en": "Without this determined group, the search for stolen works of art might never have begun.", "ko": "이 결연한 집단이 없었다면, 도난당한 예술 작품들의 수색은 시작되지 않았을지도 모른다."}, {"n": 6, "en": "In addition, countless historical and cultural landmarks would have been lost forever due to the destruction of war.", "ko": "또한, 수많은 역사적, 문화적 랜드마크가 전쟁의 파괴로 인해 영원히 사라져 버렸을 것이다."}, {"n": 7, "en": "It is worth remembering the Monuments Men’s contribution to the preservation of cultural heritage.", "ko": "문화유산 보존에 대한 모뉴먼츠 맨의 기여는 기억할 가치가 있다."}, {"n": 8, "en": "Thanks to their efforts, many incredible cultural sites and works of art have survived and can still be appreciated to this day.", "ko": "그들의 노력 덕분에, 많은 놀라운 문화 유적지들과 예술 작품들이 살아남아 오늘날까지도 여전히 감상될 수 있다."}], "questions": [{"id": 1, "summary": "The Monuments Men did not (A) their work when the war ended, and for several years they tried to (B) cultural treasures and find out where they had been stolen from.", "ko": "모뉴먼츠 맨은 전쟁이 끝났을 때 자신들의 일을 <b>(A) 멈추지</b> 않았고, 여러 해 동안 문화재를 <b>(B) 되찾으려</b> 했으며 그것들이 어디에서 도난당했는지 알아내려 했다.", "opts": [["cease", "destroy"], ["continue", "retrieve"], ["cease", "retrieve"], ["continue", "hide"], ["begin", "sell"]], "optko": ["멈추다 – 파괴하다", "계속하다 – 되찾다", "멈추다 – 되찾다", "계속하다 – 숨기다", "시작하다 – 팔다"], "ans": 2, "wrong": ["destroy(파괴하다)가 틀려요. 이 사람들은 문화재를 파괴한 게 아니라 되찾으려(recover) 했어요.", "continue(계속하다)가 틀려요. 'did not (A)' 자리에 넣으면 '일을 계속하지 않았다'가 되어 본문과 반대가 돼요.", null, "둘 다 틀려요. 일을 계속하지 않았다는 뜻이 되고, 문화재를 숨긴다(hide)는 말도 본문에 없어요.", "둘 다 틀려요. 일을 시작하지 않았다는 말은 본문과 맞지 않고, 문화재를 파는(sell) 이야기도 없어요."], "evid": [{"n": 1, "hl": ["did not end"]}, {"n": 2, "hl": ["recovering cultural treasures"]}], "swaps": [["end", "cease", "끝나다 → 멈추다, 그치다"], ["recover", "retrieve", "되찾다 → 되찾아 오다"], ["identify", "find out", "식별하다 → 알아내다"]], "swapnote": "end(끝나다)는 시험에서 cease(멈추다, 그치다)로, recover(되찾다)는 retrieve(되찾아 오다)로 바뀌어 나와요. 같은 뜻의 말을 찾으세요.", "use": [{"w": "cease", "ex": "The noise did not cease until midnight.", "ko": "그 소음은 자정까지 멈추지 않았다.", "wk": "멈추다, 그치다", "hk": "멈추지"}, {"w": "retrieve", "ex": "The dog ran to retrieve the ball.", "ko": "그 개는 공을 되찾아 오려고 달려갔다.", "wk": "되찾아 오다", "hk": "되찾아 오려고"}], "flow": "본문 1번에서 전쟁이 끝나도 모뉴먼츠 맨의 노력은 끝나지 않았다고 하고, 2번에서 여러 해 동안 문화재를 되찾고 어디서 도난당했는지 알아내는 일을 이어 갔다고 해요.", "jd": [["The Monuments Men did not [[cease]] their work", "모뉴먼츠 맨은 자신들의 일을 [[멈추지]] 않았다"], ["when the war ended,", "전쟁이 끝났을 때,"], ["and for several years they tried to [[retrieve]] cultural treasures", "그리고 여러 해 동안 그들은 문화재를 [[되찾으려]] 했고"], ["and find out where they had been stolen from.", "그것들이 어디에서 도난당했는지 알아내려 했다."]], "fc": [["본문 1번", "전쟁이 끝나도 노력은 끝나지 않았다", "모뉴먼츠 맨의 일은 계속됐어요."], ["본문 2번", "여러 해 동안 문화재를 되찾았다", "어디서 도난당했는지도 알아냈어요."], ["정답 포인트", "{{end|끝나다}} = {{cease|멈추다}}, {{recover|되찾다}} = {{retrieve|되찾아 오다}}", "본문 단어가 뜻이 같은 말로 바뀌어 나와요."]], "evid_full": [{"en": "The efforts of the Monuments Men did not end with the war.", "ko": "모뉴먼츠 맨의 노력은 전쟁과 함께 끝나지 않았다.", "hl": ["did not end"], "hlko": ["끝나지 않았다"], "n": 1}, {"en": "For several years, they continued the work of recovering cultural treasures and identifying where they had been stolen from.", "ko": "여러 해 동안, 그들은 문화재를 되찾고 그것들이 어디에서 도난당했는지 식별하는 작업을 이어갔다.", "hl": ["recovering cultural treasures"], "hlko": ["문화재를 되찾고"], "n": 2}]}, {"id": 2, "summary": "In the end, the Monuments Men (A) more than five million works of art to the places they (B) from.", "ko": "마침내 모뉴먼츠 맨은 5백만 점이 넘는 예술 작품을 그것들이 <b>(B) 유래한</b> 장소로 <b>(A) 되돌려 놓았다</b>.", "opts": [["restored", "traveled"], ["sold", "originated"], ["sold", "traveled"], ["hid", "escaped"], ["restored", "originated"]], "optko": ["되돌려 놓다 – 여행하다", "팔다 – 유래하다", "팔다 – 여행하다", "숨기다 – 달아나다", "되돌려 놓다 – 유래하다"], "ans": 4, "wrong": ["traveled(여행하다)가 틀려요. 본문의 places of origin은 작품이 처음 만들어진 원래 장소예요.", "sold(팔다)가 틀려요. 작품을 판 게 아니라 원래 장소로 돌려보냈어요(returned).", "둘 다 틀려요. 작품을 팔았다는 말도, 여행했다는 말도 본문에 없어요.", "둘 다 틀려요. 작품을 숨기거나 달아난다(escape)는 말은 본문에 없어요.", null], "evid": [{"n": 3, "hl": ["returned more than five million works of art", "places of origin"]}], "swaps": [["return", "restore", "돌려보내다 → 되돌려 놓다"], ["origin", "originate", "원래의 출처 → 유래하다, 비롯되다"], ["more than", "over", "~이 넘는 → ~ 넘게"]], "swapnote": "return(돌려보내다)은 restore(되돌려 놓다)로, origin(원래의 출처)은 originate(유래하다)로 바뀌어 나올 수 있어요. 모양이 달라져도 뜻은 같아요.", "use": [{"w": "restore", "ex": "He restored the lost wallet to its owner.", "ko": "그는 잃어버린 지갑을 주인에게 되돌려 주었다.", "wk": "되돌려 놓다", "hk": "되돌려 주었다"}, {"w": "originate", "ex": "Pizza originated in Italy.", "ko": "피자는 이탈리아에서 유래했다.", "wk": "유래하다, 비롯되다", "hk": "유래했다"}], "flow": "본문 3번의 In the end(마침내)는 결과를 알려 주는 신호예요. 5백만 점이 넘는 작품을 원래 있던 장소로 돌려보냈다는 것이 결과예요.", "jd": [["In the end, the Monuments Men [[restored]]", "마침내 모뉴먼츠 맨은 [[되돌려 놓았다]]"], ["more than five million works of art", "5백만 점이 넘는 예술 작품을"], ["to the places they [[originated]] from.", "그것들이 [[유래한]] 장소로."]], "fc": [["본문 3번", "In the end = 마침내, 결과가 나와요", "결과를 알려 주는 신호예요."], ["결과", "5백만 점이 넘는 작품이 제자리로", "원래 있던 장소로 돌려보냈어요."], ["정답 포인트", "{{return|돌려보내다}} = {{restore|되돌려 놓다}}, {{origin|원래의 출처}} = {{originate|유래하다}}", "모양이 달라져도 뜻은 같아요."]], "evid_full": [{"en": "In the end, the Monuments Men returned more than five million works of art and objects of cultural importance to their places of origin.", "ko": "마침내, 모뉴먼츠 맨은 5백만 점이 넘는 예술 작품과 문화적으로 중요한 물건들을 그것들의 원래 장소들로 돌려보냈다.", "hl": ["returned more than five million works of art", "places of origin"], "hlko": ["5백만 점이 넘는 예술 작품", "원래 장소들"], "n": 3}]}, {"id": 3, "summary": "Even though not all stolen art has been found, the Monuments Men's (A) is truly amazing, and without this group the search for it might never have (B).", "ko": "도난당한 예술품이 모두 발견된 것은 아니지만, 모뉴먼츠 맨의 <b>(A) 업적</b>은 정말로 놀랍고, 이 집단이 없었다면 그것을 찾는 수색은 <b>(B) 시작되지</b> 않았을지도 모른다.", "opts": [["achievement", "started"], ["achievement", "ended"], ["failure", "started"], ["failure", "ended"], ["mystery", "continued"]], "optko": ["업적 – 시작되다", "업적 – 끝나다", "실패 – 시작되다", "실패 – 끝나다", "수수께끼 – 계속되다"], "ans": 0, "wrong": [null, "ended(끝나다)가 틀려요. 본문은 이 집단이 없었다면 수색이 시작(begin)되지 않았을 거라고 해요.", "failure(실패)가 틀려요. 본문은 이 사람들이 이룬 것이 정말 놀랍다고 칭찬해요.", "둘 다 틀려요. 이 사람들이 이룬 것은 실패가 아니고, 수색이 끝나는 이야기도 아니에요.", "둘 다 틀려요. 본문에 수수께끼 이야기는 없고, 수색이 계속된다는 말도 없어요."], "evid": [{"n": 4, "hl": ["what the Monuments Men accomplished is truly amazing"]}, {"n": 5, "hl": ["might never have begun"]}], "swaps": [["accomplish", "achievement", "이루다 → 업적, 성취"], ["begin", "start", "시작하다 → 시작되다"], ["not everything", "not all", "모든 것이 ~는 아니다 → 전부가 ~는 아니다"]], "swapnote": "accomplish(이루다)는 achievement(업적)처럼 모양이 바뀌어 나올 수 있어요. begin(시작하다)은 start(시작하다)로 바뀌기 쉬워요.", "use": [{"w": "achievement", "ex": "Winning the prize was a great achievement.", "ko": "그 상을 받은 것은 대단한 업적이었다.", "wk": "업적, 성취", "hk": "업적"}, {"w": "start", "ex": "The show will start at seven.", "ko": "그 쇼는 7시에 시작될 것이다.", "wk": "시작되다, 시작하다", "hk": "시작될"}], "flow": "본문 4번은 아직 못 찾은 것도 있지만 이룬 일은 놀랍다는 칭찬이고, 5번은 이 집단이 없었다면 수색 자체가 시작되지 않았을 거라는 말이에요.", "jd": [["Even though not all stolen art has been found,", "도난당한 예술품이 모두 발견된 것은 아니지만,"], ["the Monuments Men's [[achievement]] is truly amazing,", "모뉴먼츠 맨의 [[업적]]은 정말로 놀랍고,"], ["and without this group", "그리고 이 집단이 없었다면"], ["the search for it might never have [[started]].", "그것을 찾는 수색은 [[시작되지]] 않았을지도 모른다."]], "fc": [["본문 4번", "못 찾은 것도 있지만, 이룬 일은 놀랍다", "But 뒤에 칭찬이 나와요."], ["본문 5번", "이 집단이 없었다면 수색은 시작도 못 했다", "{{without|~이 없다면}}"], ["정답 포인트", "{{accomplish|이루다}} = {{achievement|업적}}, {{begin|시작하다}} = {{start|시작하다}}", "칭찬과 시작 두 가지를 찾아요."]], "evid_full": [{"en": "Not everything that was stolen by the Nazis has been found, but what the Monuments Men accomplished is truly amazing.", "ko": "나치에 의해 도난당한 모든 것이 발견되지는 않았지만, 모뉴먼츠 맨이 이룬 것은 정말로 놀랍다.", "hl": ["what the Monuments Men accomplished is truly amazing"], "hlko": ["모뉴먼츠 맨이 이룬 것은 정말로 놀랍다"], "n": 4}, {"en": "Without this determined group, the search for stolen works of art might never have begun.", "ko": "이 결연한 집단이 없었다면, 도난당한 예술 작품들의 수색은 시작되지 않았을지도 모른다.", "hl": ["might never have begun"], "hlko": ["시작되지 않았을지도 모른다"], "n": 5}]}, {"id": 4, "summary": "Without the Monuments Men, many historical landmarks would have (A) forever because of war, so their contribution to (B) cultural heritage is worth remembering.", "ko": "모뉴먼츠 맨이 없었다면 많은 역사적 랜드마크가 전쟁 때문에 영원히 <b>(A) 사라졌을</b> 것이므로, 문화유산을 <b>(B) 보호하는</b> 데 대한 그들의 기여는 기억할 가치가 있다.", "opts": [["vanished", "ignoring"], ["survived", "protecting"], ["survived", "ignoring"], ["vanished", "protecting"], ["grown", "selling"]], "optko": ["사라지다 – 무시하다", "살아남다 – 보호하다", "살아남다 – 무시하다", "사라지다 – 보호하다", "자라다 – 팔다"], "ans": 3, "wrong": ["ignoring(무시하다)이 틀려요. 이 사람들은 문화유산을 무시한 게 아니라 보존(preservation)했어요.", "survived(살아남다)가 틀려요. 'would have (A) forever'는 이 사람들이 없었다면 영원히 사라졌을 거라는 뜻이라 반대예요.", "둘 다 틀려요. 이 사람들이 없었다면 사라졌을 거라는 말이고, 유산을 무시했다는 말도 아니에요.", null, "둘 다 틀려요. 랜드마크가 자란다는 말도, 유산을 판다(sell)는 말도 본문에 없어요."], "evid": [{"n": 6, "hl": ["would have been lost forever"]}, {"n": 7, "hl": ["preservation of cultural heritage"]}], "swaps": [["lost", "vanish", "잃다 → 사라지다"], ["preservation", "protecting", "보존 → 보호하는 것"], ["destruction of war", "war", "전쟁의 파괴 → 전쟁"]], "swapnote": "lost(잃어버린)는 vanished(사라진)로, preservation(보존)은 protecting(보호하는 것)으로 바뀌어 나올 수 있어요.", "use": [{"w": "vanish", "ex": "The magician made the coin vanish.", "ko": "마술사는 동전을 사라지게 했다.", "wk": "사라지다", "hk": "사라지게"}, {"w": "protect", "ex": "Helmets protect your head.", "ko": "헬멧은 머리를 보호한다.", "wk": "보호하다", "hk": "보호한다"}], "flow": "본문 6번은 이 사람들이 없었다면 랜드마크가 전쟁으로 영원히 사라졌을 거라는 가정이고, 7번은 그래서 문화유산을 지킨 기여를 기억할 가치가 있다는 결론이에요.", "jd": [["Without the Monuments Men,", "모뉴먼츠 맨이 없었다면,"], ["many historical landmarks would have [[vanished]] forever", "많은 역사적 랜드마크가 영원히 [[사라졌을]] 것이다"], ["because of war,", "전쟁 때문에,"], ["so their contribution to [[protecting]] cultural heritage", "그래서 문화유산을 [[보호하는]] 데 대한 그들의 기여는"], ["is worth remembering.", "기억할 가치가 있다."]], "fc": [["본문 6번", "이 사람들이 없었다면 랜드마크가 사라졌다", "{{In addition|또한}} 이어서 말해요."], ["본문 7번", "그래서 기억할 가치가 있다", "문화유산을 지킨 기여가 결론이에요."], ["정답 포인트", "{{lost|잃다}} = {{vanish|사라지다}}, {{preservation|보존}} = {{protecting|보호하는 것}}", "두 칸 모두 뜻이 같은 말로 바뀌었어요."]], "evid_full": [{"en": "In addition, countless historical and cultural landmarks would have been lost forever due to the destruction of war.", "ko": "또한, 수많은 역사적, 문화적 랜드마크가 전쟁의 파괴로 인해 영원히 사라져 버렸을 것이다.", "hl": ["would have been lost forever"], "hlko": ["영원히 사라져 버렸을 것이다"], "n": 6}, {"en": "It is worth remembering the Monuments Men’s contribution to the preservation of cultural heritage.", "ko": "문화유산 보존에 대한 모뉴먼츠 맨의 기여는 기억할 가치가 있다.", "hl": ["preservation of cultural heritage"], "hlko": ["문화유산 보존"], "n": 7}]}], "gloss": {"monuments": ["monument", "기념물, 문화재"], "men": ["man", "사람들, 남자들"], "monuments men": ["Monuments Men", "모뉴먼츠 맨(문화재 보호 부대)"], "men's": ["man", "사람들의"], "efforts": ["effort", "노력"], "war": ["war", "전쟁"], "ended": ["end", "끝나다"], "end": ["end", "끝나다"], "did": ["do", "하다 (did not = ~하지 않았다)"], "not": ["not", "~않다"], "work": ["work", "일, 작업"], "for": ["for", "~ 동안"], "several": ["several", "여러"], "years": ["year", "해, 년"], "they": ["they", "그들, 그것들"], "tried": ["try", "노력하다, 시도하다"], "continued": ["continue", "계속하다"], "continue": ["continue", "계속하다"], "recovering": ["recover", "되찾다"], "recover": ["recover", "되찾다"], "cultural": ["cultural", "문화의"], "treasures": ["treasure", "보물, 귀중한 것"], "identifying": ["identify", "식별하다, 알아내다"], "find": ["find", "찾다"], "out": ["out", "밖으로 (find out = 알아내다)"], "where": ["where", "어디에서"], "stolen": ["steal", "훔치다 (stolen = 도난당한)"], "been": ["be", "이다, 있다 (had been stolen = 도난당했다)"], "had": ["have", "가지다 (had been ~ = ~되었었다)"], "from": ["from", "~로부터"], "when": ["when", "~할 때"], "their": ["they", "그들의"], "cease": ["cease", "멈추다, 그치다"], "retrieve": ["retrieve", "되찾아 오다"], "destroy": ["destroy", "파괴하다"], "hide": ["hide", "숨기다"], "begin": ["begin", "시작하다"], "begun": ["begin", "시작하다"], "sell": ["sell", "팔다"], "selling": ["sell", "팔다"], "cease ": ["cease", "멈추다"], "more": ["more", "더 많은"], "than": ["than", "~보다"], "five": ["five", "다섯"], "million": ["million", "백만"], "works": ["work", "작품"], "art": ["art", "예술"], "objects": ["object", "물건"], "importance": ["importance", "중요성"], "places": ["place", "장소"], "origin": ["origin", "출처, 원래 장소"], "return": ["return", "돌려보내다"], "returned": ["return", "돌려보내다"], "restored": ["restore", "되돌려 놓다"], "restore": ["restore", "되돌려 놓다"], "originated": ["originate", "유래하다, 비롯되다"], "originate": ["originate", "유래하다"], "sold": ["sell", "팔다"], "traveled": ["travel", "여행하다, 이동하다"], "escaped": ["escape", "달아나다"], "hid": ["hide", "숨기다"], "in": ["in", "~에서"], "the": ["the", "그"], "to": ["to", "~로"], "of": ["of", "~의"], "nazis": ["Nazi", "나치"], "found": ["find", "찾다 (has been found = 발견되었다)"], "accomplished": ["accomplish", "이루다, 달성하다"], "accomplish": ["accomplish", "이루다"], "truly": ["truly", "정말로"], "amazing": ["amazing", "놀라운"], "determined": ["determined", "결연한, 굳게 결심한"], "group": ["group", "집단, 무리"], "search": ["search", "수색, 찾기"], "might": ["might", "~일지도 모른다"], "never": ["never", "결코 ~않다"], "without": ["without", "~이 없다면"], "even": ["even", "~조차 (even though = ~이긴 하지만)"], "though": ["though", "~이긴 하지만"], "all": ["all", "모든"], "everything": ["everything", "모든 것"], "achievement": ["achievement", "업적, 성취"], "started": ["start", "시작되다"], "start": ["start", "시작하다"], "failure": ["failure", "실패"], "mystery": ["mystery", "수수께끼"], "search ": ["search", "수색"], "addition": ["addition", "추가 (in addition = 또한)"], "countless": ["countless", "셀 수 없이 많은"], "historical": ["historical", "역사적인"], "landmarks": ["landmark", "랜드마크(유명한 역사적 장소·건물)"], "lost": ["lose", "잃다"], "forever": ["forever", "영원히"], "due": ["due to", "~ 때문에"], "destruction": ["destruction", "파괴"], "worth": ["worth", "~할 가치가 있는"], "remembering": ["remember", "기억하다"], "contribution": ["contribution", "기여, 공헌"], "preservation": ["preservation", "보존"], "heritage": ["heritage", "유산"], "thanks": ["thanks to", "~ 덕분에"], "incredible": ["incredible", "믿기 힘들 만큼 대단한"], "sites": ["site", "장소, 유적지"], "survived": ["survive", "살아남다"], "appreciated": ["appreciate", "감상하다, 진가를 알아보다"], "vanished": ["vanish", "사라지다"], "vanish": ["vanish", "사라지다"], "protecting": ["protect", "보호하다"], "protect": ["protect", "보호하다"], "ignoring": ["ignore", "무시하다"], "grown": ["grow", "자라다"], "because": ["because of", "~ 때문에"], "many": ["many", "많은"], "so": ["so", "그래서"], "is": ["be", "이다"], "would": ["would", "~했을 것이다"], "have": ["have", "가지다 (would have + p.p. = ~했을 것이다)"], "historic": ["historic", "역사적인"], "ended ": ["end", "끝나다"], "finish": ["finish", "끝내다"], "treasure": ["treasure", "보물"], "wallet": ["wallet", "지갑"], "owner": ["owner", "주인"], "lost ": ["lose", "잃어버린"], "noise": ["noise", "소음"], "midnight": ["midnight", "자정"], "until": ["until", "~까지"], "ball": ["ball", "공"], "ran": ["run", "달려가다"], "dog": ["dog", "개"], "pizza": ["pizza", "피자"], "italy": ["Italy", "이탈리아"], "prize": ["prize", "상"], "winning": ["win", "이기다, 받다"], "great": ["great", "대단한"], "show": ["show", "쇼, 공연"], "seven": ["seven", "일곱, 7시"], "magician": ["magician", "마술사"], "coin": ["coin", "동전"], "made": ["make", "~하게 만들다"], "helmets": ["helmet", "헬멧"], "head": ["head", "머리"], "your": ["you", "너의"], "was": ["be", "이었다"], "will": ["will", "~할 것이다"], "he": ["he", "그"], "his": ["he", "그의"], "its": ["it", "그것의"], "a": ["a", "하나의"], "and": ["and", "그리고"], "it": ["it", "그것"], "this": ["this", "이"], "has": ["have", "가지다 (has been ~ = ~되었다)"], "at": ["at", "~에"], "until ": ["until", "~까지"], "the end": ["end", "끝"], "recovered": ["recover", "되찾다"], "stole": ["steal", "훔치다"], "important": ["important", "중요한"], "culturally": ["culturally", "문화적으로"], "everything ": ["everything", "모든 것"], "remember": ["remember", "기억하다"], "surviving": ["survive", "살아남다"], "men’s": ["man", "사람들의 (Monuments Men’s = 모뉴먼츠 맨의)"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="jusung-go1";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH;
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);render();
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){return (DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}})}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../index.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">밑줄 단어를 누르면 뜻이 나와요. 번호를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+words(o[0])+'<span class="dash">–</span>'+words(o[1])+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'</li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>

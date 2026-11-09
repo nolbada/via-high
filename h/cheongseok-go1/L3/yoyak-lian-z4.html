@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>3과 요약문 연습 ❹</title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "cheongseok-go1", "src": "cheongseok-go1/L3/sx-data.js", "pidx": 3, "lesson": "3과", "title": "호랑이와 한국 문화 (Tigers in Korean Culture)", "label": "❹", "page": "yoyak-lian-z4"}, "scenes": [{"tag": "본문 1~2번", "ns": [1, 2], "line": "호랑이는 K-pop 노래에도 나온다. 그 노래의 한 구절은 [[traditional|전통]] 노래를 [[reinterpreted|재해석한]] 것이다.", "en": ["Tigers are also mentioned in the K-pop song “Tiger is Coming.”", "One verse of the song is a reinterpreted version of “Sugungga,” which is a traditional Korean song."], "kos": ["호랑이는 또한 한국 대중가요 ‘범 내려온다’에도 언급된다.", "이 노래의 한 구절(가사)은 ‘수궁가’의 재해석판인데, 수궁가는 한국의 전통 가곡이다."]}, {"tag": "본문 3번", "ns": [3], "line": "노래는 [[worldwide|전 세계]]의 주목을 끌었고 영상은 수백만 번 [[viewed|시청됐다]].", "en": ["The song drew worldwide attention, and its video was viewed millions of times online."], "kos": ["그 노래는 세계적인 주목을 끌었고, 그것의 영상은 온라인에서 수백만 회 시청되었다."]}, {"tag": "본문 4~5번", "ns": [4, 5], "line": "야생 호랑이는 [[few|몇 마리뿐]]이지만, 호랑이의 문화적 [[meaning|의미]]는 아직 남아 있다.", "en": ["These days, only a few wild tigers have been reported to be living in North Korea.", "However, the history, stories, and cultural meaning of tigers still have a place among modern Korean people."], "kos": ["오늘날, 단지 소수의 야생 호랑이만이 북한에 살고 있다고 보고되어 왔다.", "그러나, 호랑이의 역사, 이야기, 그리고 문화적 의미는 현대 한국 사람들 사이에 여전히 자리하고 있다."]}, {"tag": "본문 6~7번", "ns": [6, 7], "line": "호랑이는 한국의 [[symbol|상징]]! 박물관은 호랑이 이야기를 모두 [[collects|모은]] 책을 냈다.", "en": ["Who can deny that the tiger is a symbol of Korea?", "In 2021, the National Folk Museum of Korea published a book that collects all the stories about tigers in Korea."], "kos": ["호랑이가 한국의 상징이라는 점을 누가 부정할 수 있을까?", "2021년에, 국립 민속 박물관은 한국의 호랑이에 관한 모든 이야기를 모은 책을 출판했다."]}], "story": [{"a": "reinterpret", "form": "reinterpreted", "n": 2, "sq": 1, "sum": "is a [[reimagined]] version of 'Sugungga,'", "hook": "노래의 한 구절이 옛 노래를 새롭게 풀었다는 문장의 reinterpreted(재해석한) → 요약문에서는 reimagined(새롭게 상상한)로 바꿨어요.", "b": "reimagine", "k": "재해석하다 → 새롭게 상상하다", "en": "One verse of the song is a reinterpreted version of “Sugungga,” which is a traditional Korean song.", "ko": "이 노래의 한 구절(가사)은 ‘수궁가’의 재해석판인데, 수궁가는 한국의 전통 가곡이다."}, {"a": "traditional", "form": "traditional", "n": 2, "sq": 1, "sum": "a [[classical]] Korean song", "hook": "수궁가를 소개하는 말 traditional(전통적인) → 요약문에서는 classical(고전의)로 바꿨어요.", "b": "classical", "k": "전통적인 → 고전의", "en": "One verse of the song is a reinterpreted version of “Sugungga,” which is a traditional Korean song.", "ko": "이 노래의 한 구절(가사)은 ‘수궁가’의 재해석판인데, 수궁가는 한국의 전통 가곡이다."}, {"a": "worldwide", "form": "worldwide", "n": 3, "sq": 2, "sum": "The song attracted [[global]] attention", "hook": "노래가 전 세계의 눈길을 끌었다는 worldwide(전 세계적인) → 요약문에서는 global(세계적인)로 바꿨어요.", "b": "global", "k": "전 세계적인 → 세계적인", "en": "The song drew worldwide attention, and its video was viewed millions of times online.", "ko": "그 노래는 세계적인 주목을 끌었고, 그것의 영상은 온라인에서 수백만 회 시청되었다."}, {"a": "view", "form": "viewed", "n": 3, "sq": 2, "sum": "its video was [[watched]] millions of times online", "hook": "영상이 수백만 번 봐졌다는 viewed(시청된) → 요약문에서는 watched(시청된)로 바꿨어요.", "b": "watch", "k": "보다, 시청하다 → 보다, 시청하다", "en": "The song drew worldwide attention, and its video was viewed millions of times online.", "ko": "그 노래는 세계적인 주목을 끌었고, 그것의 영상은 온라인에서 수백만 회 시청되었다."}, {"a": "few", "form": "few", "n": 4, "sq": 3, "sum": "Wild tigers are [[rare]] in North Korea today", "hook": "야생 호랑이가 몇 마리뿐이라는 슬픈 소식의 few(몇 안 되는) → 요약문에서는 rare(드문)로 바꿨어요.", "b": "rare", "k": "몇 안 되는 → 드문", "en": "These days, only a few wild tigers have been reported to be living in North Korea.", "ko": "오늘날, 단지 소수의 야생 호랑이만이 북한에 살고 있다고 보고되어 왔다."}, {"a": "meaning", "form": "meaning", "n": 5, "sq": 3, "sum": "their stories and cultural [[significance]]", "hook": "그래도 호랑이의 문화적 meaning(의미)은 남아 있다는 반전 → 요약문에서는 significance(의의)로 바꿨어요.", "b": "significance", "k": "의미 → 의의, 중요성", "en": "However, the history, stories, and cultural meaning of tigers still have a place among modern Korean people.", "ko": "그러나, 호랑이의 역사, 이야기, 그리고 문화적 의미는 현대 한국 사람들 사이에 여전히 자리하고 있다."}, {"a": "symbol", "form": "symbol", "n": 6, "sq": 4, "sum": "Korea's [[emblem]]", "hook": "호랑이가 한국의 symbol(상징)이라는 물음 → 요약문에서는 emblem(상징)으로 바꿨어요.", "b": "emblem", "k": "상징 → 상징, 표상", "en": "Who can deny that the tiger is a symbol of Korea?", "ko": "호랑이가 한국의 상징이라는 점을 누가 부정할 수 있을까?"}, {"a": "collect", "form": "collects", "n": 7, "sq": 4, "sum": "a book that [[gathers]] all the stories about tigers", "hook": "박물관의 책이 호랑이 이야기를 모두 모은다는 collects(모으다) → 요약문에서는 gathers(모으다)로 바꿨어요.", "b": "gather", "k": "모으다 → 모으다", "en": "In 2021, the National Folk Museum of Korea published a book that collects all the stories about tigers in Korea.", "ko": "2021년에, 국립 민속 박물관은 한국의 호랑이에 관한 모든 이야기를 모은 책을 출판했다."}], "passage": [{"n": 1, "en": "Tigers are also mentioned in the K-pop song “Tiger is Coming.”", "ko": "호랑이는 또한 한국 대중가요 ‘범 내려온다’에도 언급된다."}, {"n": 2, "en": "One verse of the song is a reinterpreted version of “Sugungga,” which is a traditional Korean song.", "ko": "이 노래의 한 구절(가사)은 ‘수궁가’의 재해석판인데, 수궁가는 한국의 전통 가곡이다."}, {"n": 3, "en": "The song drew worldwide attention, and its video was viewed millions of times online.", "ko": "그 노래는 세계적인 주목을 끌었고, 그것의 영상은 온라인에서 수백만 회 시청되었다."}, {"n": 4, "en": "These days, only a few wild tigers have been reported to be living in North Korea.", "ko": "오늘날, 단지 소수의 야생 호랑이만이 북한에 살고 있다고 보고되어 왔다."}, {"n": 5, "en": "However, the history, stories, and cultural meaning of tigers still have a place among modern Korean people.", "ko": "그러나, 호랑이의 역사, 이야기, 그리고 문화적 의미는 현대 한국 사람들 사이에 여전히 자리하고 있다."}, {"n": 6, "en": "Who can deny that the tiger is a symbol of Korea?", "ko": "호랑이가 한국의 상징이라는 점을 누가 부정할 수 있을까?"}, {"n": 7, "en": "In 2021, the National Folk Museum of Korea published a book that collects all the stories about tigers in Korea.", "ko": "2021년에, 국립 민속 박물관은 한국의 호랑이에 관한 모든 이야기를 모은 책을 출판했다."}, {"n": 8, "en": "How about looking for tigers around you now?", "ko": "이제 여러분 주변에서 호랑이를 찾아보는 것은 어떨까?"}], "questions": [{"id": 1, "summary": "One verse of the K-pop song 'Tiger is Coming' is a (A) version of 'Sugungga,' a (B) Korean song.", "ko": "K-pop 노래 'Tiger is Coming'의 한 구절은 <b>(B) 고전</b> 한국 노래인 'Sugungga'를 <b>(A) 새롭게 상상한</b> 버전이다.", "opts": [["reimagined", "foreign"], ["copied", "classical"], ["copied", "modern"], ["reimagined", "classical"], ["banned", "foreign"]], "optko": ["새롭게 상상한 – 외국의", "베낀 – 고전의", "베낀 – 현대의", "새롭게 상상한 – 고전의", "금지된 – 외국의"], "ans": 3, "wrong": ["foreign(외국의)이 틀려요. 수궁가는 외국 노래가 아니라 한국의 전통 노래예요.", "copied(베낀)가 틀려요. 그대로 베낀 게 아니라 새롭게 다시 해석(reinterpret)한 거예요.", "둘 다 틀려요. 베낀 것도 아니고, 수궁가는 현대 노래가 아니라 전통 노래예요.", null, "둘 다 틀려요. 금지된(banned) 노래라는 말도, 외국(foreign) 노래라는 말도 본문에 없어요."], "evid": [{"n": 1, "hl": ["K-pop song"]}, {"n": 2, "hl": ["reinterpreted version", "traditional Korean song"]}], "swaps": [["reinterpret", "reimagine", "재해석하다 → 새롭게 상상하다"], ["traditional", "classical", "전통적인 → 고전의"], ["version", "version", "버전 → 버전"]], "swapnote": "traditional(전통적인)은 classical(고전의)로 바뀌어 나올 수 있어요. 본문 단어만 찾지 말고 뜻이 같은 말을 찾으세요.", "use": [{"w": "reimagine", "ex": "The director wants to reimagine an old fairy tale.", "ko": "감독은 옛 동화를 새롭게 상상해 내고 싶어 한다.", "wk": "새롭게 상상하다", "hk": "새롭게 상상해 내고"}, {"w": "classical", "ex": "She plays classical music on the piano.", "ko": "그녀는 피아노로 고전 음악을 연주한다.", "wk": "고전의", "hk": "고전"}], "flow": "본문 1번에서 호랑이가 K-pop 노래 '범 내려온다'에도 나온다고 하고, 2번에서 그 노래의 한 구절이 전통 노래 '수궁가'를 새롭게 해석한 거라고 설명해요.", "jd": [["One verse of the K-pop song 'Tiger is Coming'", "K-pop 노래 'Tiger is Coming'의 한 구절은"], ["is a [[reimagined]] version of 'Sugungga,'", "'Sugungga'를 [[새롭게 상상한]] 버전이고,"], ["a [[classical]] Korean song.", "[[고전]] 한국 노래이다."]], "fc": [["본문 1번", "호랑이는 K-pop 노래에도 나온다", "노래 제목은 '범 내려온다'예요."], ["본문 2번", "노래의 한 구절은 전통 노래의 변신", "전통 노래 '수궁가'를 새롭게 해석했어요."], ["정답 포인트", "{{reinterpreted|재해석한}} = {{reimagined|새롭게 상상한}}, {{traditional|전통적인}} = {{classical|고전의}}", "본문 단어가 뜻이 같은 말로 바뀌어 나와요."]], "evid_full": [{"en": "Tigers are also mentioned in the K-pop song “Tiger is Coming.”", "ko": "호랑이는 또한 한국 대중가요 ‘범 내려온다’에도 언급된다.", "hl": ["K-pop song"], "hlko": ["한국 대중가요"], "n": 1}, {"en": "One verse of the song is a reinterpreted version of “Sugungga,” which is a traditional Korean song.", "ko": "이 노래의 한 구절(가사)은 ‘수궁가’의 재해석판인데, 수궁가는 한국의 전통 가곡이다.", "hl": ["reinterpreted version", "traditional Korean song"], "hlko": ["재해석판", "한국의 전통 가곡"], "n": 2}]}, {"id": 2, "summary": "The song attracted (A) attention, and its video was (B) millions of times online.", "ko": "그 노래는 <b>(A) 세계적인</b> 주목을 끌었고, 그 영상은 온라인에서 수백만 번 <b>(B) 시청되었다</b>.", "opts": [["global", "watched"], ["global", "created"], ["local", "watched"], ["local", "ignored"], ["limited", "created"]], "optko": ["세계적인 – 시청된", "세계적인 – 만들어진", "지역의 – 시청된", "지역의 – 무시된", "제한된 – 만들어진"], "ans": 0, "wrong": [null, "created(만들어진)가 틀려요. 영상은 수백만 번 만들어진 게 아니라 시청(view)됐어요.", "local(지역의)이 틀려요. 본문은 worldwide(전 세계적인) 주목이라고 해요.", "둘 다 틀려요. 주목은 지역에 그치지 않고 전 세계로 퍼졌고, 영상도 무시되지 않았어요.", "둘 다 틀려요. 주목이 제한됐다는 말도, 영상이 만들어졌다는 말도 본문의 내용과 달라요."], "evid": [{"n": 3, "hl": ["drew worldwide attention", "viewed millions of times online"]}], "swaps": [["worldwide", "global", "전 세계적인 → 세계적인"], ["view", "watch", "보다, 시청하다 → 보다, 시청하다"], ["draw", "attract", "끌다 → 끌어당기다"]], "swapnote": "worldwide(전 세계적인)는 global(세계적인)로, viewed(시청된)는 watched(시청된)로 바뀌어 나와요. 쉬운 말로 바뀌니 침착하게 찾으세요.", "use": [{"w": "global", "ex": "Climate change is a global problem.", "ko": "기후 변화는 전 세계적인 문제이다.", "wk": "세계적인", "hk": "전 세계적인"}, {"w": "watch", "ex": "We watched the video together.", "ko": "우리는 그 영상을 함께 시청했다.", "wk": "보다, 시청하다", "hk": "시청했다"}], "flow": "본문 3번이 이 노래의 인기 이야기예요. 전 세계의 주목을 끌었고, 영상은 온라인에서 수백만 번 시청됐어요.", "jd": [["The song attracted [[global]] attention,", "그 노래는 [[세계적인]] 주목을 끌었고,"], ["and its video was [[watched]] millions of times online.", "그 영상은 온라인에서 수백만 번 [[시청되었다]]."]], "fc": [["본문 3번", "세계가 주목한 노래", "영상은 온라인에서 수백만 번 시청됐어요."], ["확인", "주목은 어디까지 퍼졌나", "한 나라나 지역이 아니라 전 세계예요."], ["정답 포인트", "{{worldwide|전 세계적인}} = {{global|세계적인}}, {{viewed|시청된}} = {{watched|시청된}}", "쉬운 말로 바뀌어 나와요."]], "evid_full": [{"en": "The song drew worldwide attention, and its video was viewed millions of times online.", "ko": "그 노래는 세계적인 주목을 끌었고, 그것의 영상은 온라인에서 수백만 회 시청되었다.", "hl": ["drew worldwide attention", "viewed millions of times online"], "hlko": ["세계적인 주목을 끌었고", "수백만 회 시청되었다"], "n": 3}]}, {"id": 3, "summary": "Wild tigers are (A) in North Korea today, but their stories and cultural (B) still live on among modern Koreans.", "ko": "오늘날 북한에서 야생 호랑이는 <b>(A) 드물지만</b>, 호랑이의 이야기와 문화적 <b>(B) 의의</b>는 현대 한국 사람들 사이에 여전히 살아 있다.", "opts": [["rare", "danger"], ["rare", "significance"], ["common", "significance"], ["common", "danger"], ["extinct", "danger"]], "optko": ["드문 – 위험", "드문 – 의의", "흔한 – 의의", "흔한 – 위험", "멸종한 – 위험"], "ans": 1, "wrong": ["danger(위험)가 틀려요. 본문은 호랑이의 문화적 의미(meaning)가 남아 있다는 거예요.", null, "common(흔한)이 틀려요. 본문은 야생 호랑이가 몇 마리뿐(only a few)이라고 해요.", "둘 다 틀려요. 야생 호랑이는 흔하지 않고, 문화적 위험이라는 말도 본문에 없어요.", "둘 다 틀려요. 몇 마리가 살고 있으니 멸종한(extinct) 게 아니고, danger(위험)도 틀려요."], "evid": [{"n": 4, "hl": ["only a few wild tigers"]}, {"n": 5, "hl": ["cultural meaning", "still have a place"]}], "swaps": [["few", "rare", "몇 안 되는 → 드문"], ["meaning", "significance", "의미 → 의의, 중요성"], ["still", "remain", "여전히 ~이다 → 남아 있다"]], "swapnote": "only a few(소수의)는 rare(드문)로, meaning(의미)은 significance(의의)로 바뀌어 나와요. 이런 대응을 눈에 익혀 두세요.", "use": [{"w": "rare", "ex": "Snow is rare in this warm city.", "ko": "이 따뜻한 도시에서는 눈이 드물다.", "wk": "드문", "hk": "드물다"}, {"w": "significance", "ex": "The teacher explained the significance of the old bell.", "ko": "선생님은 그 옛 종의 의미를 설명해 주셨다.", "wk": "의의, 중요성", "hk": "의미"}], "flow": "본문 4번은 야생 호랑이가 거의 남지 않았다는 슬픈 소식이고, 5번에서 However(그러나)로 뒤집혀요. 그래도 호랑이의 문화적 의미는 여전히 한국 사람들 곁에 있다는 거예요.", "jd": [["Wild tigers are [[rare]] in North Korea today,", "오늘날 북한에서 야생 호랑이는 [[드물지만]],"], ["but their stories and cultural [[significance]]", "그들의 이야기와 문화적 [[의의]]는"], ["still live on among modern Koreans.", "현대 한국 사람들 사이에 여전히 살아 있다."]], "fc": [["본문 4번", "야생 호랑이는 몇 마리뿐", "북한에 소수만 산다고 보고돼 왔어요."], ["본문 5번", "However! 뒤집힌다", "그래도 호랑이의 이야기와 의미는 여전히 한국 사람들 곁에 있어요."], ["정답 포인트", "{{few|몇 안 되는}} → {{rare|드문}}, {{meaning|의미}} → {{significance|의의}}", "앞은 슬픈 소식, 뒤는 반전이에요."]], "evid_full": [{"en": "These days, only a few wild tigers have been reported to be living in North Korea.", "ko": "오늘날, 단지 소수의 야생 호랑이만이 북한에 살고 있다고 보고되어 왔다.", "hl": ["only a few wild tigers"], "hlko": ["소수의 야생 호랑이"], "n": 4}, {"en": "However, the history, stories, and cultural meaning of tigers still have a place among modern Korean people.", "ko": "그러나, 호랑이의 역사, 이야기, 그리고 문화적 의미는 현대 한국 사람들 사이에 여전히 자리하고 있다.", "hl": ["cultural meaning", "still have a place"], "hlko": ["문화적 의미", "여전히 자리하고 있다"], "n": 5}]}, {"id": 4, "summary": "The National Folk Museum of Korea published a book that (A) all the stories about tigers, and the tiger is widely seen as Korea's (B).", "ko": "국립민속박물관은 호랑이에 관한 모든 이야기를 <b>(A) 모은</b> 책을 출판했고, 호랑이는 한국의 <b>(B) 상징</b>으로 널리 여겨진다.", "opts": [["gathers", "enemy"], ["hides", "emblem"], ["gathers", "emblem"], ["hides", "rival"], ["ignores", "enemy"]], "optko": ["모으다 – 적", "숨기다 – 상징", "모으다 – 상징", "숨기다 – 경쟁자", "무시하다 – 적"], "ans": 2, "wrong": ["enemy(적)가 틀려요. 호랑이는 적이 아니라 한국의 상징(symbol)이에요.", "hides(숨기다)가 틀려요. 박물관은 이야기를 숨긴 게 아니라 모두 모았어요(collect).", null, "둘 다 틀려요. 이야기를 숨긴다는 말도, 호랑이가 경쟁자라는 말도 본문에 없어요.", "둘 다 틀려요. 이야기를 무시한 게 아니라 모았고, 호랑이는 적이 아니에요."], "evid": [{"n": 6, "hl": ["symbol of Korea"]}, {"n": 7, "hl": ["collects all the stories about tigers"]}], "swaps": [["collect", "gather", "모으다 → 모으다"], ["symbol", "emblem", "상징 → 상징, 표상"], ["deny", "reject", "부정하다 → 거부하다"]], "swapnote": "collect(모으다)는 gather(모으다)로, symbol(상징)은 emblem(상징, 표상)으로 바뀌어 나올 수 있어요. emblem은 처음 보면 어려우니 뜻을 꼭 기억하세요.", "use": [{"w": "gather", "ex": "Farmers gather the apples in autumn.", "ko": "농부들은 가을에 사과를 모은다.", "wk": "모으다", "hk": "모은다"}, {"w": "emblem", "ex": "The eagle is the emblem of the country.", "ko": "독수리는 그 나라의 상징이다.", "wk": "상징, 표상", "hk": "상징"}], "flow": "본문 6번에서 '호랑이가 한국의 상징임을 누가 부정할까?'라고 묻고, 7번에서 박물관이 호랑이 이야기를 모두 모은 책을 냈다고 이어져요.", "jd": [["The National Folk Museum of Korea published a book", "국립민속박물관은 책을 출판했고"], ["that [[gathers]] all the stories about tigers,", "호랑이에 관한 모든 이야기를 [[모은]],"], ["and the tiger is widely seen as Korea's [[emblem]].", "호랑이는 한국의 [[상징]]으로 널리 여겨진다."]], "fc": [["본문 6번", "호랑이는 한국의 상징", "'누가 부정할 수 있을까?'라는 물음이에요."], ["본문 7번", "호랑이 이야기를 모두 모은 책", "2021년에 국립민속박물관이 출판했어요."], ["정답 포인트", "{{collects|모으다}} = {{gathers|모으다}}, {{symbol|상징}} = {{emblem|상징}}", "{{emblem|상징}}은 처음 보면 어려우니 꼭 기억해요."]], "evid_full": [{"en": "Who can deny that the tiger is a symbol of Korea?", "ko": "호랑이가 한국의 상징이라는 점을 누가 부정할 수 있을까?", "hl": ["symbol of Korea"], "hlko": ["한국의 상징"], "n": 6}, {"en": "In 2021, the National Folk Museum of Korea published a book that collects all the stories about tigers in Korea.", "ko": "2021년에, 국립 민속 박물관은 한국의 호랑이에 관한 모든 이야기를 모은 책을 출판했다.", "hl": ["collects all the stories about tigers"], "hlko": ["모든 이야기를 모은"], "n": 7}]}], "gloss": {"tigers": ["tiger", "호랑이"], "tiger": ["tiger", "호랑이"], "also": ["also", "또한"], "mentioned": ["mention", "언급하다"], "k-pop": ["K-pop", "한국 대중가요"], "song": ["song", "노래"], "coming": ["come", "오다 (is coming = 오고 있다)"], "verse": ["verse", "(노래의) 한 구절"], "reinterpreted": ["reinterpret", "재해석하다"], "version": ["version", "버전"], "sugungga": ["Sugungga", "수궁가(한국 전통 노래)"], "traditional": ["traditional", "전통적인"], "korean": ["Korean", "한국의"], "reimagined": ["reimagine", "새롭게 상상하다"], "classical": ["classical", "고전의, 전통 있는"], "foreign": ["foreign", "외국의"], "copied": ["copy", "베끼다"], "modern": ["modern", "현대의"], "banned": ["ban", "금지하다"], "drew": ["draw", "(관심을) 끌다"], "worldwide": ["worldwide", "전 세계적인"], "attention": ["attention", "주목, 관심"], "video": ["video", "영상"], "viewed": ["view", "보다, 시청하다"], "millions": ["million", "수백만"], "times": ["time", "번, 회"], "online": ["online", "온라인으로"], "attracted": ["attract", "끌어당기다"], "global": ["global", "세계적인"], "watched": ["watch", "보다, 시청하다"], "created": ["create", "만들다"], "local": ["local", "지역의"], "ignored": ["ignore", "무시하다"], "limited": ["limit", "제한하다"], "wild": ["wild", "야생의"], "north": ["north", "북쪽"], "these": ["these", "이"], "days": ["day", "날, 요즘"], "reported": ["report", "보고하다"], "living": ["live", "살다"], "live": ["live", "살다"], "history": ["history", "역사"], "stories": ["story", "이야기"], "cultural": ["cultural", "문화적인"], "meaning": ["meaning", "의미"], "still": ["still", "여전히"], "place": ["place", "자리"], "among": ["among", "~ 사이에"], "people": ["people", "사람들"], "today": ["today", "오늘날"], "rare": ["rare", "드문"], "significance": ["significance", "의의, 중요성"], "danger": ["danger", "위험"], "common": ["common", "흔한"], "extinct": ["extinct", "멸종한"], "however": ["however", "그러나"], "few": ["few", "몇 안 되는, 소수의"], "have": ["have", "가지다"], "deny": ["deny", "부정하다"], "symbol": ["symbol", "상징"], "museum": ["museum", "박물관"], "national": ["national", "국립의, 국가의"], "folk": ["folk", "민속, 민간"], "published": ["publish", "출판하다"], "book": ["book", "책"], "collects": ["collect", "모으다"], "gathers": ["gather", "모으다"], "gather": ["gather", "모으다"], "hides": ["hide", "숨기다"], "ignores": ["ignore", "무시하다"], "enemy": ["enemy", "적"], "rival": ["rival", "경쟁자"], "emblem": ["emblem", "상징, 표상"], "widely": ["widely", "널리"], "seen": ["see", "여기다, 보다"], "korea": ["Korea", "한국"], "korea's": ["Korea", "한국"], "around": ["around", "~ 주변에"], "looking": ["look", "찾아보다"], "want": ["want", "원하다"], "about": ["about", "~에 관한"], "sugungga,": ["Sugungga", "수궁가(한국 전통 노래)"], "who": ["who", "누구"], "can": ["can", "~할 수 있다"], "reimagine": ["reimagine", "새롭게 상상하다"], "watch": ["watch", "보다, 시청하다"], "director": ["director", "감독"], "old": ["old", "옛, 오래된"], "fairy": ["fairy", "요정"], "tale": ["tale", "이야기"], "plays": ["play", "연주하다"], "music": ["music", "음악"], "piano": ["piano", "피아노"], "climate": ["climate", "기후"], "change": ["change", "변화"], "problem": ["problem", "문제"], "together": ["together", "함께"], "snow": ["snow", "눈"], "warm": ["warm", "따뜻한"], "city": ["city", "도시"], "teacher": ["teacher", "선생님"], "explained": ["explain", "설명하다"], "bell": ["bell", "종"], "farmers": ["farmer", "농부"], "apples": ["apple", "사과"], "autumn": ["autumn", "가을"], "eagle": ["eagle", "독수리"], "country": ["country", "나라"], "wants": ["want", "원하다"], "first": ["first", "첫째"], "one": ["one", "하나"], "tiger's": ["tiger", "호랑이"], "koreans": ["Korean", "한국 사람들"], "live on": ["live on", "계속 살아 있다"], "hardly": ["hardly", "거의 ~ 않다"], "only": ["only", "단지, 오직"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="cheongseok-go1";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH;
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);render();
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){return (DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}})}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../index.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">밑줄 단어를 누르면 뜻이 나와요. 번호를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+words(o[0])+'<span class="dash">–</span>'+words(o[1])+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'</li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>
