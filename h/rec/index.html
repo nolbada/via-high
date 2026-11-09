@@ -167,11 +167,13 @@ function yqLoad(name){
     var it=(r.items||[]).filter(function(i){return String(i.src||'').indexOf('요약문 완성')>=0});
     if(!it.length){box.innerHTML=sc+'<div class="pv">아직 모은 단어가 없어요. 학생이 요약문 연습에서 단어를 누르면 여기에 쌓여요.</div>';return}
     var h=sc+'<div class="pv">'+it.length+'개 · 틀린 횟수가 많은 순 · O/X 를 고르고 저장하세요.</div>';
-    it.forEach(function(i,k){h+='<div class="rc"><div class="h"><b>'+esc(i.w)+'</b><span class="l">틀린 횟수 '+(i.c||0)+'</span></div><div class="s">'+esc(i.m||'뜻 없음')+'</div><div class="fl"><button class="bt" data-yq="'+k+'" data-v="1">O</button><button class="bt" data-yq="'+k+'" data-v="0">X</button></div></div>'});
+    it.forEach(function(i,k){h+='<div class="rc"><div class="h"><b>'+esc(i.w)+'</b><span class="l">틀린 횟수 '+(i.c||0)+'</span></div><div class="s">'+esc(i.m||'뜻 없음')+'</div><div class="fl"><button class="bt" data-yq="'+k+'" data-v="1">O</button><button class="bt" data-yq="'+k+'" data-v="0">X</button><button class="bt" data-yd="'+k+'">빼기</button></div></div>'});
     h+='<div class="row"><button class="bt p" id="yqs">저장</button></div><div class="msg" id="yqm"></div>';
     box.innerHTML=h;
     [].forEach.call(box.querySelectorAll('[data-yq]'),function(b){b.onclick=function(){var k=b.getAttribute('data-yq'),v=b.getAttribute('data-v')==='1';if(YR[k]===v)delete YR[k];else YR[k]=v;
       [].forEach.call(box.querySelectorAll('[data-yq="'+k+'"]'),function(x){x.classList.toggle('p',YR[k]!==undefined&&(x.getAttribute('data-v')==='1')===YR[k])})}});
+    [].forEach.call(box.querySelectorAll('[data-yd]'),function(b){b.onclick=function(){var k=b.getAttribute('data-yd');b.disabled=true;b.textContent='...';
+      wnPost({act:'del',name:n,pin:'6900',w:it[k].w,src:it[k].src||'요약문 완성'}).then(function(x){if(x&&x.ok)yqLoad(name);else{b.disabled=false;b.textContent='실패 · 다시';}},function(){b.disabled=false;b.textContent='실패 · 다시'})}});
     document.getElementById('yqs').onclick=function(){
       var ks=Object.keys(YR);if(!ks.length)return;var m=document.getElementById('yqm'),done=0,fail=0;m.textContent='저장 중...';
       ks.reduce(function(p,k){return p.then(function(){return wnPost({act:'t_ask',name:n,w:it[k].w,okk:YR[k]}).then(function(x){if(x&&x.ok)done++;else fail++},function(){fail++})})},Promise.resolve()).then(function(){m.textContent=done+'개 저장'+(fail?' · 실패 '+fail+'개':'');if(!fail)setTimeout(function(){yqLoad(name)},800)})};

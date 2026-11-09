@@ -140,6 +140,7 @@ details li{font-size:15px;margin:4px 0;list-style:none}
 .wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
 .wl .lw{font-weight:800;font-size:18px;min-width:96px}
 .wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .rmw{border:1px solid var(--line);background:#fff;color:var(--sub);border-radius:8px;padding:4px 10px;font-size:13px}
 .wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
 .fl{display:flex;gap:8px;margin:8px 0}
 .fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
@@ -309,6 +310,7 @@ document.addEventListener('click',function(e){
   if(act==='home')go('home');
   else if(act==='q')go('q',+v);
   else if(act==='pick')pick(+v);
+  else if(act==='rmnote'){var rid=String(v);var rn=NOTES[rid];delete NOTES[rid];jset(K_NOTE,NOTES);delete PUSHED['w:'+rid];jset('vhvs:'+SCH,PUSHED);try{WN.del(rn?rn.l:rid,SRC)}catch(x){}render()}
   else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
   else if(act==='res')go('res');
   else if(act==='notes')go('notes');
@@ -434,7 +436,7 @@ function vNotes(){
   var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
   if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
   h+='<div class="card"><ul class="wl">';
-  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'</li>'});
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'<button class="rmw" data-a="rmnote" data-v="'+esc(n.l.toLowerCase())+'">빼기</button></li>'});
   return h+'</ul></div>';
 }
 function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
