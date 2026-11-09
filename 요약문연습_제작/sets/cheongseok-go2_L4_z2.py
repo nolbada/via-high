@@ -1,0 +1,177 @@
+# -*- coding: utf-8 -*-
+# 세트 정의: 금천고2 4과 ❷
+META=dict(sch='cheongseok-go2', src='cheongseok-go2/L4/sx-data.js', pidx=1, lesson='4과', title='수리할 권리와 수리 카페', label='❷', page='yoyak-lian-z2')
+Q = [
+ dict(
+  id=1,
+  summary="Discarded electronic devices, known as e-waste, are a serious (A) to people's health and the environment because they contain (B) substances.",
+  ko="전자 쓰레기라고 알려진 버려진 전자 장치는 <b>(B) 유독한</b> 물질을 포함하고 있어서 사람들의 건강과 환경에 심각한 <b>(A) 위협</b>이다.",
+  opts=[["threat","poisonous"],["threat","precious"],["resource","poisonous"],["resource","precious"],["nuisance","harmless"]],
+  optko=["위협 – 유독한","위협 – 귀중한","자원 – 유독한","자원 – 귀중한","골칫거리 – 무해한"],
+  ans=0,
+  wrong=[None,
+         "precious(귀중한)가 틀려요. 본문은 납 같은 유독한(toxic) 물질이 들어 있다고 해요.",
+         "resource(자원)가 틀려요. 본문은 전자 쓰레기가 건강과 환경에 해로운 위험 요소(hazard)라고 해요.",
+         "둘 다 틀려요. 전자 쓰레기는 귀중한 자원이 아니라 유독한 물질이 든 위험 요소예요.",
+         "harmless(무해한)가 틀려요. 납 같은 유독성 물질 때문에 오히려 심각한 위험이에요."],
+  evid=[dict(n=2, hl=["discarded electronic devices"]), dict(n=3, hl=["toxic materials","hazard"])],
+  swaps=[["hazard","threat","위험 요소 → 위협"],["toxic","poisonous","유독성의 → 독이 있는"],["materials","substances","물질 → 물질, 성분"]],
+  swapnote="hazard(위험 요소)는 threat(위협), risk(위험)로, toxic(유독성의)은 poisonous(독이 있는), harmful(해로운)로 바뀌어 나와요.",
+  use=[dict(w="threat",ex="Pollution is a serious threat to wildlife.",ko="오염은 야생 동물에게 심각한 위협이다."),
+       dict(w="poisonous",ex="Some mushrooms are poisonous, so do not eat them.",ko="어떤 버섯은 독이 있으니 먹지 마라.")],
+  flow="본문 1~2번에서 전자 쓰레기가 버려진 전자 기기라고 뜻을 밝히고 → 3번에서 납 같은 유독 물질 때문에 건강과 환경을 해치는 위험 요소라고 해요.",
+ ),
+ dict(
+  id=2,
+  summary="The amount of e-waste produced each year is (A) at a (B) rate, reaching 57.4 million metric tons worldwide in 2021.",
+  ko="매년 생산되는 전자 쓰레기의 양은 <b>(B) 걱정스러운</b> 속도로 <b>(A) 급증하여</b> 2021년 전 세계에서 5,740만 메트릭톤에 이르렀다.",
+  opts=[["escalating","disturbing"],["escalating","gradual"],["dwindling","disturbing"],["dwindling","gradual"],["fluctuating","steady"]],
+  optko=["급증하는 – 걱정스러운","급증하는 – 완만한","줄어드는 – 걱정스러운","줄어드는 – 완만한","오르내리는 – 꾸준한"],
+  ans=0,
+  wrong=[None,
+         "gradual(완만한)이 틀려요. 본문은 걱정스러울 만큼(alarming) 빠르게 늘고 있다고 해요.",
+         "dwindling(줄어드는)이 틀려요. 전자 쓰레기는 줄어드는 게 아니라 늘고(increasing) 있어요.",
+         "둘 다 틀려요. 줄어들지도 않고 완만하지도 않아요. 빠르게 늘고 있어요.",
+         "둘 다 틀려요. 오르내리거나(fluctuating) 꾸준한(steady) 게 아니라 걱정스러운 속도로 계속 늘어요."],
+  evid=[dict(n=4, hl=["increasing at an alarming rate"]), dict(n=5, hl=["57.4 million metric tons"])],
+  swaps=[["increase","escalate","증가하다 → 급증하다"],["alarming","disturbing","걱정스러운 → 불안하게 하는, 걱정스러운"]],
+  swapnote="increase(증가하다)는 rise(오르다), escalate(급증하다), grow(자라다, 늘다)로, alarming(걱정스러운)은 disturbing(불안하게 하는)으로 바뀌어 나와요.",
+  use=[dict(w="escalate",ex="The conflict may escalate if no one steps in.",ko="아무도 나서지 않으면 갈등이 커질 수 있다."),
+       dict(w="disturbing",ex="The news about the flood was disturbing.",ko="홍수 소식은 걱정스러웠다.")],
+  flow="본문 4번의 To make matters worse(설상가상) 뒤에서 전자 쓰레기가 걱정스러운 속도로 늘고 있다고 해요 → 5번에서 2021년 5,740만 톤, 2014년보다 37% 증가라는 숫자로 보여 줘요.",
+ ),
+ dict(
+  id=3,
+  summary="Experts (A) that the yearly (B) of e-waste will have doubled by 2030, in just 16 years.",
+  ko="전문가들은 매년의 전자 쓰레기 <b>(B) 양</b>이 2030년까지 단 16년 만에 두 배가 될 것이라고 <b>(A) 예측한다</b>.",
+  opts=[["forecast","volume"],["forecast","price"],["deny","volume"],["deny","price"],["doubt","quality"]],
+  optko=["예측하다 – 양","예측하다 – 가격","부인하다 – 양","부인하다 – 가격","의심하다 – 품질"],
+  ans=0,
+  wrong=[None,
+         "price(가격)가 틀려요. 두 배가 된다고 한 건 가격이 아니라 전자 쓰레기의 양(amount)이에요.",
+         "deny(부인하다)가 틀려요. 전문가들은 그렇게 될 거라고 예측해요.",
+         "둘 다 틀려요. 전문가들은 부인하지 않고, 두 배가 되는 것도 가격이 아니라 양이에요.",
+         "둘 다 틀려요. 전문가들이 의심하는 게 아니고, 품질 이야기는 본문에 없어요."],
+  evid=[dict(n=6, hl=["Experts predict","the amount of e-waste generated annually","will have doubled in just 16 years"])],
+  swaps=[["predict","forecast","예측하다 → 예보하다, 예측하다"],["amount","volume","양 → 양, 부피"],["annually","yearly","매년 → 해마다"]],
+  swapnote="predict(예측하다)는 forecast(예보하다), anticipate(예상하다), project(전망하다)로, amount(양)는 volume(양, 부피)으로 바뀌어 나와요.",
+  use=[dict(w="forecast",ex="Weather experts forecast heavy rain tomorrow.",ko="기상 전문가들은 내일 폭우를 예측한다."),
+       dict(w="volume",ex="The volume of traffic grows during rush hour.",ko="출퇴근 시간에는 교통량이 늘어난다.")],
+  flow="본문 6번은 미래 이야기예요. 전문가들이 예측하기를, 2030년이면 해마다 나오는 전자 쓰레기 양이 단 16년 만에 두 배가 된대요.",
+ ),
+ dict(
+  id=4,
+  summary="To (A) the problem, most (B) concentrate on making products easier to repair.",
+  ko="그 문제를 <b>(A) 다루기</b> 위해, 대부분의 <b>(B) 노력</b>은 제품을 수리하기 더 쉽게 만드는 데 집중한다.",
+  opts=[["tackle","initiatives"],["tackle","penalties"],["ignore","initiatives"],["ignore","penalties"],["worsen","regulations"]],
+  optko=["다루다 – 노력, 계획","다루다 – 처벌","무시하다 – 노력, 계획","무시하다 – 처벌","악화시키다 – 규제"],
+  ans=0,
+  wrong=[None,
+         "penalties(처벌)가 틀려요. 본문은 처벌이 아니라 수리하기 쉬운 제품을 만들려는 노력(efforts)이에요.",
+         "ignore(무시하다)가 틀려요. 본문은 이 문제를 다루려는(address) 노력이라고 해요.",
+         "둘 다 틀려요. 문제를 무시하는 게 아니고, 처벌 이야기도 본문에 없어요.",
+         "worsen(악화시키다)이 틀려요. 노력의 목적은 문제를 더 나쁘게 하는 게 아니라 해결하는 거예요."],
+  evid=[dict(n=7, hl=["efforts are being made to address this problem","focused on making products easier to repair"])],
+  swaps=[["address","tackle","(문제를) 다루다 → 해결하려고 맞붙다"],["effort","initiative","노력 → 계획, 노력"],["focused","concentrate","집중된 → 집중하다"]],
+  swapnote="address(문제를 다루다)는 tackle(맞붙어 해결하다), deal with(처리하다)로, efforts(노력)는 initiatives(새로운 시도, 계획)로 바뀌어 나와요.",
+  use=[dict(w="tackle",ex="The city plans to tackle the traffic problem.",ko="시는 교통 문제를 해결할 계획이다."),
+       dict(w="initiative",ex="The school started a new recycling initiative.",ko="학교는 새로운 재활용 활동을 시작했다.")],
+  flow="본문 7번의 For this reason(이러한 이유로)은 앞의 걱정거리 때문이라는 뜻이에요. 그래서 문제를 해결하려는 노력이 생겼고, 대부분 제품을 수리하기 쉽게 만드는 데 집중해요.",
+ ),
+]
+
+# 단어 사전: 표면형(소문자) -> [기본형, 이 글에서의 뜻]
+G = {
+ "discarded":["discard","버려진 (discard = 버리다)"],"electronic":["electronic","전자의"],"devices":["device","기기, 장치"],
+ "known":["know","알려진 (known as = ~로 알려진)"],"serious":["serious","심각한"],"threat":["threat","위협"],
+ "people's":["people","사람들의"],"health":["health","건강"],"environment":["environment","환경"],
+ "environmental":["environmental","환경의"],"because":["because","~ 때문에"],"contain":["contain","포함하다"],
+ "contained":["contain","포함하다 (contained in = ~에 들어 있는)"],"poisonous":["poisonous","독이 있는"],
+ "substances":["substance","물질"],"precious":["precious","귀중한"],"resource":["resource","자원"],
+ "nuisance":["nuisance","골칫거리"],"harmless":["harmless","해가 없는"],"term":["term","용어"],
+ "refers":["refer","가리키다 (refer to = ~를 나타내다)"],"electrical":["electrical","전기의"],"appliances":["appliance","(가전) 기기"],
+ "due":["due to","~ 때문에"],"toxic":["toxic","유독성의"],"materials":["material","물질, 재료"],
+ "products":["product","제품"],"such":["such as","~와 같은"],"lead":["lead","납 (금속)"],
+ "hazard":["hazard","위험 요소"],"amount":["amount","양"],"produced":["produce","생산하다"],
+ "year":["year","해, 년"],"years":["year","해, 년"],"escalating":["escalate","급증하다"],"disturbing":["disturb","불안하게 하는, 걱정스러운"],
+ "rate":["rate","속도, 비율"],"reaching":["reach","(~에) 이르다"],"million":["million","백만"],
+ "metric":["metric","미터법의 (metric ton = 1,000kg)"],"tons":["ton","톤"],"worldwide":["worldwide","전 세계에서"],
+ "gradual":["gradual","완만한, 서서히 일어나는"],"dwindling":["dwindle","줄어들다"],"fluctuating":["fluctuate","오르내리다"],
+ "steady":["steady","꾸준한"],"increasing":["increase","증가하다"],"alarming":["alarming","걱정스러운, 놀라운"],
+ "matters":["matter","상황, 문제 (make matters worse = 설상가상)"],"worse":["bad","더 나쁜"],"make":["make","만들다"],
+ "total":["total","총, 전체의"],"generated":["generate","발생시키다"],"increase":["increase","증가"],
+ "data":["data","자료"],"collected":["collect","수집하다"],"first":["first","처음으로"],"worldwide":["worldwide","전 세계에서"],
+ "experts":["expert","전문가"],"predict":["predict","예측하다"],"annually":["annually","매년"],"yearly":["yearly","해마다의"],
+ "doubled":["double","두 배가 되다"],"forecast":["forecast","예측하다, 예보하다"],"volume":["volume","양, 부피"],
+ "price":["price","가격"],"quality":["quality","품질"],"deny":["deny","부인하다"],"doubt":["doubt","의심하다"],
+ "tackle":["tackle","(문제를) 다루다, 해결하려고 맞붙다"],"initiatives":["initiative","새로운 시도, 계획, 노력"],
+ "penalties":["penalty","처벌"],"ignore":["ignore","무시하다"],"worsen":["worsen","악화시키다"],"regulations":["regulation","규제"],
+ "problem":["problem","문제"],"concentrate":["concentrate","집중하다"],"making":["make","만들다"],"easier":["easy","더 쉬운"],
+ "repair":["repair","수리하다"],"efforts":["effort","노력"],"made":["make","만들다 (efforts are being made = 노력이 이루어지고 있다)"],
+ "address":["address","(문제를) 다루다"],"focused":["focus","집중하다 (focused on = ~에 중점을 둔)"],"reason":["reason","이유"],
+ "most":["most","대부분"],"being":["be","~되고 있는"],"e-waste":["e-waste","전자 쓰레기"],"worldwide":["worldwide","전 세계에서"],
+ "wildlife":["wildlife","야생 동물"],"pollution":["pollution","오염"],"mushrooms":["mushroom","버섯"],
+ "exactly":["exactly","정확히"],"refer":["refer","가리키다"],"about":["about","~에 대해"],"just":["just","단지, 겨우"],
+}
+
+# 직독직해 조각: [영어 조각, 한글 조각]
+JD={
+ 1:[["Discarded electronic devices, known as e-waste,","전자 쓰레기라고 알려진 버려진 전자 장치는,"],
+    ["are a serious [[threat]] to people's health and the environment","사람들의 건강과 환경에 심각한 [[위협]]이다"],
+    ["because they contain [[poisonous]] substances.","그것들이 [[유독한]] 물질을 포함하고 있기 때문에."]],
+ 2:[["The amount of e-waste produced each year","매년 생산되는 전자 쓰레기의 양은"],
+    ["is [[escalating]] at a [[disturbing]] rate,","[[걱정스러운]] 속도로 [[급증하고]] 있으며,"],
+    ["reaching 57.4 million metric tons worldwide in 2021.","2021년 전 세계에서 5,740만 메트릭톤에 이르렀다."]],
+ 3:[["Experts [[forecast]] that","전문가들은 [[예측한다]]"],
+    ["the yearly [[volume]] of e-waste","매년의 전자 쓰레기 [[양]]이"],
+    ["will have doubled by 2030,","2030년까지 두 배가 될 것이라고,"],
+    ["in just 16 years.","단 16년 만에."]],
+ 4:[["To [[tackle]] the problem,","그 문제를 [[다루기]] 위해,"],
+    ["most [[initiatives]] concentrate","대부분의 [[노력]]은 집중한다"],
+    ["on making products easier to repair.","제품을 수리하기 더 쉽게 만드는 데."]],
+}
+
+# 기억할 흐름 카드뉴스
+FC={
+ 1:[["본문 2번","전자 쓰레기 = 버려진 전자 기기","이 글에서 e-waste는 쓰고 버린 전자 제품과 전기 제품을 말해요."],
+    ["본문 3번","납 같은 유독 물질이 들어 있다","그래서 건강과 환경 모두에 심각한 위험 요소예요."],
+    ["정답 포인트","{{hazard|위험 요소}} = {{threat|위협}}, {{toxic|유독성의}} = {{poisonous|독이 있는}}","본문 단어가 뜻이 같은 말로 바뀌어 나와요."]],
+ 2:[["본문 4번","설상가상! 전자 쓰레기가 빠르게 는다","{{To make matters worse|설상가상으로}} 뒤에 나쁜 소식이 이어져요."],
+    ["본문 5번","2021년 5,740만 톤, 2014년보다 37% 증가","숫자로 증가 속도를 보여 줘요."],
+    ["정답 포인트","{{increase|증가하다}} = {{escalate|급증하다}}, {{alarming|걱정스러운}} = {{disturbing|불안하게 하는}}","'완만한'이나 '줄어드는'은 본문과 반대예요."]],
+ 3:[["본문 6번","미래 예측 이야기","누가 말하는지 보세요. 전문가들이에요."],
+    ["내용","2030년이면 양이 두 배","단 16년 만에 매년 나오는 양이 두 배가 돼요."],
+    ["정답 포인트","{{predict|예측하다}} = {{forecast|예보하다}}, {{amount|양}} = {{volume|양, 부피}}","'가격'이나 '품질'은 본문에 없어요."]],
+ 4:[["본문 7번","For this reason = 그래서","앞의 걱정거리 때문에 대책이 나왔다는 뜻이에요."],
+    ["내용","문제를 해결하려는 노력들","대부분 제품을 수리하기 쉽게 만드는 데 집중해요."],
+    ["정답 포인트","{{address|(문제를) 다루다}} = {{tackle|해결하려고 맞붙다}}, {{efforts|노력}} = {{initiatives|계획, 노력}}","'처벌'이나 '무시'는 본문과 반대예요."]],
+}
+
+STORY=[
+ dict(a="hazard",form="hazard",n=3,sq=1,sum="a serious [[threat]] to people's health",hook="전자 쓰레기가 건강과 환경을 해친다는 문장의 hazard(위험 요소) → 요약문에서는 threat(위협)로 바뀌었어요."),
+ dict(a="toxic",form="toxic",n=3,sq=1,sum="they contain [[poisonous]] substances",hook="납 같은 독 성분이 들어 있다는 문장의 toxic(유독성의) → 요약문에서는 poisonous(독이 있는)로 바뀌었어요."),
+ dict(a="increase",form="increasing",n=4,sq=2,sum="is [[escalating]] at a disturbing rate",hook="매년 쓰레기 양이 계속 늘어난다는 문장의 increasing(증가하는) → 요약문에서는 escalating(급증하는)으로 바뀌었어요."),
+ dict(a="alarming",form="alarming",n=4,sq=2,sum="is escalating at a [[disturbing]] rate",hook="늘어나는 속도가 걱정될 정도라는 문장의 alarming(걱정스러운) → 요약문에서는 disturbing(불안하게 하는)으로 바뀌었어요."),
+ dict(a="predict",form="predict",n=6,sq=3,sum="Experts [[forecast]] that",hook="전문가들이 앞날을 내다본다는 문장의 predict(예측하다) → 요약문에서는 forecast(예보하다)로 바뀌었어요."),
+ dict(a="amount",form="amount",n=6,sq=3,sum="the yearly [[volume]] of e-waste",hook="2030년에 두 배가 된다는 그 '양'! 문장의 amount → 요약문에서는 volume(양, 부피)으로 바뀌었어요."),
+ dict(a="address",form="address",n=7,sq=4,sum="To [[tackle]] the problem",hook="이 문제를 해결하려고 나선다는 문장의 address(다루다) → 요약문에서는 tackle(맞붙어 해결하다)로 바뀌었어요."),
+ dict(a="effort",form="efforts",n=7,sq=4,sum="most [[initiatives]] concentrate",hook="수리하기 쉬운 제품을 만들려는 움직임이 나오는 문장의 efforts(노력) → 요약문에서는 initiatives(계획, 노력)로 바뀌었어요."),
+]
+
+SCENES=[
+ dict(tag="본문 1~2번",ns=[1,2],line="전자 쓰레기가 뭘까? 쓰고 버린 전자 기기와 전기 제품을 말한다."),
+ dict(tag="본문 3번",ns=[3],line="납 같은 [[toxic|유독한]] 물질이 들어 있어 건강과 환경에 심각한 [[hazard|위험 요소]]다."),
+ dict(tag="본문 4번",ns=[4],line="설상가상으로 매년 쏟아지는 양이 [[increasing|늘어나는]] 속도가 [[alarming|걱정스러울]] 정도다."),
+ dict(tag="본문 5~6번",ns=[5,6],line="전문가들은 2030년이면 그 [[amount|양]]이 두 배가 될 거라고 [[predict|예측]]한다."),
+ dict(tag="본문 7번",ns=[7],line="그래서 문제를 [[address|다루려는]] [[efforts|노력]]이 이어지고, 대부분 수리하기 쉬운 제품 만들기에 집중한다."),
+]
+
+# 근거 본문 한글 해석에서 영어 형광펜과 같은 자리
+HLKO={2:["버려진 전자 장치"],3:["유독성 물질","위험 요소"],4:["걱정스러운 속도로 증가하고"],5:["5,740만 메트릭톤"],
+ 6:["전문가들은","매년 발생하는 전자 쓰레기의 양","두 배가 될 것으로 예측한다"],
+ 7:["이 문제를 다루기 위해 노력이 이루어지고 있는데","제품들을 수리하기 더 쉽게 만드는 것에 중점을 두고"]}
+
+UM={'threat':('위협','위협'),'poisonous':('독이 있는','독이 있으니'),'escalate':('급증하다, 커지다','커질'),'disturbing':('불안하게 하는, 걱정스러운','걱정스러웠다'),
+ 'forecast':('예측하다, 예보하다','예측한다'),'volume':('양, 부피','교통량'),'tackle':('(문제를) 해결하려고 맞붙다','해결할'),'initiative':('새로운 계획, 시도','활동')}
+
+TARGET={1:2,2:4,3:1,4:3}

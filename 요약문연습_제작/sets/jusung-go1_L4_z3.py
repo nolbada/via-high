@@ -1,0 +1,198 @@
+# -*- coding: utf-8 -*-
+# 세트 정의: 주성고1 4과 ❸
+META=dict(sch='jusung-go1', src='jusung-go1/L4/sx-data.js', pidx=2, lesson='4과', title='웹 접근성 (Web Accessibility)', label='❸', page='yoyak-lian-z3')
+Q = [
+ dict(
+  id=1,
+  summary="Audio content can be (A) to some people, such as those with hearing (B) or those who are in a quiet library.",
+  ko="음성 콘텐츠는 일부 사람들에게 <b>(A) 접근할 수 없는</b> 것이 될 수 있다. 청각 <b>(B) 장애</b>가 있는 사람이나 조용한 도서관에 있는 사람이 그렇다.",
+  opts=[["inaccessible","impairments"],["inaccessible","advantages"],["available","impairments"],["available","preferences"],["unnecessary","talents"]],
+  optko=["접근할 수 없는 – 장애","접근할 수 없는 – 장점","이용할 수 있는 – 장애","이용할 수 있는 – 선호","불필요한 – 재능"],
+  ans=0,
+  wrong=[None,
+         "advantages(장점)가 틀려요. 청각 때문에 소리를 못 듣는 사람 이야기라서 장점이 아니라 장애(disabilities)예요.",
+         "available(이용할 수 있는)이 틀려요. 본문은 음성을 접근하거나 이해할 수 없는(cannot be accessed) 경우라고 해요.",
+         "둘 다 틀려요. 음성을 이용할 수 있다는 말도, 선호(preferences)를 말하는 것도 본문에 없어요.",
+         "둘 다 틀려요. 음성이 불필요하다는 말도, 재능(talents) 이야기도 본문에 없어요."],
+  evid=[dict(n=1, hl=["cannot be accessed or understood"]), dict(n=2, hl=["hearing disabilities","quiet library"])],
+  swaps=[["access","inaccessible","접근하다 → 접근할 수 없는"],["disability","impairment","장애 → 장애"],["cannot be accessed or understood","can be inaccessible","접근되거나 이해될 수 없다 → 접근할 수 없는 것이 될 수 있다"]],
+  swapnote="disabilities(장애)는 시험에서 impairments(장애)로 바뀌어 나와요. cannot be accessed(접근될 수 없다)도 inaccessible(접근할 수 없는) 한 단어로 바뀔 수 있어요.",
+  use=[dict(w="inaccessible",ex="The old building is inaccessible to people in wheelchairs.",ko="그 오래된 건물은 휠체어를 탄 사람들이 접근할 수 없다."),
+       dict(w="impairment",ex="He has a hearing impairment, so he uses a hearing aid.",ko="그는 청각 장애가 있어서 보청기를 사용한다.")],
+  flow="본문 1번에서 음성 콘텐츠는 접근하거나 이해할 수 없는 경우가 있다고 해요. 2번에서 그 예로 청각 장애가 있는 사람, 조용한 도서관에 있는 사람을 들어요.",
+ ),
+ dict(
+  id=2,
+  summary="Accessible websites often (A) text versions of audio, such as transcripts, which cover the (B) audio content, and captions, which appear in a video while it plays.",
+  ko="접근성 있는 웹 사이트는 흔히 대본처럼 <b>(B) 전체</b> 음성 콘텐츠를 다루는 것과, 영상이 재생되는 동안 나타나는 자막 같은 음성의 텍스트 버전을 <b>(A) 제공한다</b>.",
+  opts=[["supply","complete"],["supply","short"],["remove","complete"],["remove","short"],["avoid","partial"]],
+  optko=["제공하다 – 전체의","제공하다 – 짧은","없애다 – 전체의","없애다 – 짧은","피하다 – 부분적인"],
+  ans=0,
+  wrong=[None,
+         "short(짧은)가 틀려요. 대본은 음성 내용 전체(entire)를 글로 옮긴 거예요.",
+         "remove(없애다)가 틀려요. 접근성 있는 웹 사이트는 대본이나 자막을 없애는 게 아니라 제공(offer)해요.",
+         "둘 다 틀려요. 텍스트 버전을 없앤다는 말도, 짧다는 말도 본문에 없어요.",
+         "둘 다 틀려요. 텍스트 버전을 피한다는 말도, 일부분만 옮긴다는 말도 본문에 없어요."],
+  evid=[dict(n=3, hl=["offer other ways"]), dict(n=5, hl=["text versions of the entire audio content","as it plays"])],
+  swaps=[["offer","supply","제공하다 → 공급하다, 제공하다"],["entire","complete","전체의 → 완전한, 전체의"],["transcripts","text versions of audio","대본 → 음성의 텍스트 버전"]],
+  swapnote="offer(제공하다)는 provide(제공하다), supply(공급하다)로 바뀌고, entire(전체의)는 whole(전체의), complete(완전한)로 바뀌어 나와요.",
+  use=[dict(w="supply",ex="The school will supply books for all students.",ko="학교는 모든 학생에게 책을 제공할 것이다."),
+       dict(w="complete",ex="Please read the complete story before class.",ko="수업 전에 이야기 전체를 읽어 오세요.")],
+  flow="본문 3번에서 접근성 있는 사이트는 음성 정보를 접근할 다른 방법을 제공한다고 해요. 4~5번에서 그 방법이 대본(전체 내용)과 자막(영상과 함께 나옴)이라고 설명해요.",
+ ),
+ dict(
+  id=3,
+  summary="Because people with poor eyesight, including many elderly people, find reading (A), accessible websites use a contrasting background color, which makes the text (B) to most people.",
+  ko="많은 노인을 포함해 시력이 좋지 않은 사람들은 읽는 것을 <b>(A) 힘들어해서</b>, 접근성 있는 웹 사이트는 대비되는 배경 색을 사용하고, 이는 텍스트를 대부분의 사람들에게 <b>(B) 잘 보이게</b> 만든다.",
+  opts=[["tough","visible"],["tough","hidden"],["easy","visible"],["easy","hidden"],["pleasant","faint"]],
+  optko=["힘든 – 눈에 보이는","힘든 – 숨겨진","쉬운 – 눈에 보이는","쉬운 – 숨겨진","즐거운 – 희미한"],
+  ans=0,
+  wrong=[None,
+         "hidden(숨겨진)이 틀려요. 배경 색을 대비시키는 건 글자가 또렷하게 보이게(clear) 하려는 거예요.",
+         "easy(쉬운)가 틀려요. 시력이 나쁜 사람들에게 읽기는 어려운(difficult) 일이에요.",
+         "둘 다 틀려요. 시력이 나쁘면 읽기가 쉽지 않고, 배경 색은 글자를 숨기지 않고 또렷하게 해 줘요.",
+         "둘 다 틀려요. 읽기가 즐거운 일도 아니고, 글자가 희미해지는 것도 아니에요."],
+  evid=[dict(n=8, hl=["poor eyesight","difficult for them to read"]), dict(n=9, hl=["a background color that contrasts with the color of their text"]), dict(n=10, hl=["clear enough"])],
+  swaps=[["difficult","tough","어려운 → 힘든"],["clear","visible","또렷한 → 눈에 보이는"],["contrasts","contrasting","대조를 이루다 → 대비되는"]],
+  swapnote="difficult(어려운)는 hard(힘든), tough(힘든)로도 바뀌어요. clear(또렷한)는 visible(눈에 보이는)이나 legible(읽을 수 있는)로 바뀔 수 있어요.",
+  use=[dict(w="tough",ex="The math test was tough for most students.",ko="그 수학 시험은 대부분의 학생에게 힘들었다."),
+       dict(w="visible",ex="The stars are visible on a clear night.",ko="맑은 밤에는 별이 보인다.")],
+  flow="본문 7~8번: 시각 장애가 꼭 전혀 못 본다는 뜻은 아니고, 노인처럼 시력이 나쁜 사람도 있어서 읽기가 힘들어요. 9~10번: 그래서 글자색과 대비되는 배경 색으로 글자를 또렷하게 해 줘요.",
+ ),
+ dict(
+  id=4,
+  summary="Accessible websites allow users to (A) the loudness of background sound or turn it off completely, which gives all users, with or without hearing difficulties, more (B) over their experience.",
+  ko="접근성 있는 웹 사이트는 사용자가 배경음의 소리 크기를 <b>(A) 조절하거나</b> 완전히 끌 수 있게 해 주고, 이는 청각에 어려움이 있든 없든 모든 사용자에게 그들의 경험에 대한 더 큰 <b>(B) 영향력</b>을 준다.",
+  opts=[["regulate","influence"],["regulate","pressure"],["ignore","influence"],["ignore","pressure"],["block","trouble"]],
+  optko=["조절하다 – 영향력","조절하다 – 압박","무시하다 – 영향력","무시하다 – 압박","막다 – 문제"],
+  ans=0,
+  wrong=[None,
+         "pressure(압박)가 틀려요. 사용자가 소리를 직접 고를 수 있으니 부담이 아니라 더 큰 통제권(control)을 얻어요.",
+         "ignore(무시하다)가 틀려요. 본문은 소리 크기를 무시하는 게 아니라 조절하거나(adjust) 끌 수 있다고 해요.",
+         "둘 다 틀려요. 소리를 무시한다는 말도, 압박이 생긴다는 말도 본문에 없어요.",
+         "둘 다 틀려요. 소리를 막는다는 말도, 문제가 생긴다는 말도 본문에 없어요."],
+  evid=[dict(n=11, hl=["adjust the volume of background sound","turn it off altogether"]), dict(n=12, hl=["more control"])],
+  swaps=[["adjust","regulate","조절하다 → 조절하다"],["altogether","completely","완전히 → 완전히"],["control","influence","통제권 → 영향력"],["volume","loudness","음량 → 소리 크기"]],
+  swapnote="adjust(조절하다)는 regulate(조절하다)나 control(통제하다)로 바뀌어 나와요. altogether(완전히)는 completely(완전히), entirely(전적으로)와 같은 뜻이에요.",
+  use=[dict(w="regulate",ex="This button helps regulate the room temperature.",ko="이 버튼은 방 온도를 조절하는 데 도움이 된다."),
+       dict(w="influence",ex="Good friends have a positive influence on us.",ko="좋은 친구들은 우리에게 긍정적인 영향을 준다.")],
+  flow="본문 11번에서 사용자가 배경음의 음량을 조절하거나 완전히 끌 수 있게 해 준다고 해요. 12번에서 그래서 청각 장애가 있든 없든 모두가 경험을 더 통제할 수 있다고 마무리해요.",
+ ),
+]
+
+# 단어 사전: 표면형(소문자) -> [기본형, 이 글에서의 뜻]
+G = {
+ "in":["in","~에"],"some":["some","일부의"],"cases":["case","경우"],"case":["case","경우"],"audio":["audio","음성, 소리의"],
+ "content":["content","콘텐츠, 내용"],"cannot":["cannot","~할 수 없다"],"can":["can","~할 수 있다"],"be":["be","~이다, ~되다"],
+ "accessed":["access","접근하다"],"access":["access","접근하다"],"understood":["understand","이해하다"],
+ "people":["people","사람들"],"may":["may","~일지도 모른다"],"have":["have","가지고 있다"],"hearing":["hearing","청각, 듣기"],
+ "disabilities":["disability","장애"],"disability":["disability","장애"],"while":["while","~인 반면에, ~하는 동안"],
+ "others":["other","다른 사람들"],"other":["other","다른"],"might":["might","~일지도 모른다"],"places":["place","장소"],
+ "where":["where","~하는 곳"],"they":["they","그들"],"listen":["listen","듣다"],"such":["such as","~와 같은"],"as":["as","~처럼, ~할 때"],
+ "quiet":["quiet","조용한"],"library":["library","도서관"],"therefore":["therefore","그러므로"],"accessible":["accessible","접근성 있는, 접근할 수 있는"],
+ "websites":["website","웹 사이트"],"often":["often","흔히, 자주"],"offer":["offer","제공하다"],"ways":["way","방법"],
+ "information":["information","정보"],"that":["that","~하는"],"is":["be","~이다"],"presented":["present","제시하다"],"form":["form","형식"],
+ "for":["for","~을 위해"],"example":["example","예"],"provide":["provide","제공하다"],"transcripts":["transcript","대본(음성을 글로 옮긴 것)"],
+ "or":["or","또는"],"captions":["caption","자막"],"help":["help","돕다"],"users":["user","사용자"],"this":["this","이것"],
+ "are":["be","~이다"],"text":["text","텍스트, 글"],"versions":["version","버전, 형태"],"of":["of","~의"],"entire":["entire","전체의"],
+ "appear":["appear","나타나다"],"video":["video","영상"],"it":["it","그것"],"plays":["play","재생되다"],"include":["include","포함하다"],
+ "not":["not","~않다"],"only":["only","오직"],"but":["but","그러나"],"also":["also","또한"],"spoken":["speak","말하다 (spoken = 발화된)"],
+ "words":["word","단어"],"descriptions":["description","설명"],"music":["music","음악"],"sounds":["sound","소리"],"sound":["sound","소리"],
+ "visual":["visual","시각의"],"doesn't":["do not","~않다"],"necessarily":["necessarily","반드시"],"mean":["mean","의미하다"],
+ "person":["person","사람"],"see":["see","보다"],"at":["at","~에서"],"all":["all","모든, 전혀"],"including":["include","포함하다 (including = ~을 포함해서)"],
+ "many":["many","많은"],"elderly":["elderly","나이 든"],"simply":["simply","그저"],"poor":["poor","좋지 않은, 나쁜"],"eyesight":["eyesight","시력"],
+ "makes":["make","~하게 만들다"],"difficult":["difficult","어려운"],"them":["they","그들"],"read":["read","읽다"],"reading":["read","읽다 (reading = 읽기)"],
+ "reason":["reason","이유"],"background":["background","배경"],"color":["color","색"],"contrasts":["contrast","대조를 이루다"],
+ "contrasting":["contrast","대비되는"],"their":["their","그들의"],"clear":["clear","또렷한, 명확한"],"enough":["enough","충분히"],
+ "most":["most","대부분의"],"allow":["allow","허락하다, ~하게 해 주다"],"adjust":["adjust","조절하다"],"volume":["volume","음량"],
+ "turn":["turn","(스위치를) 돌리다 (turn off = 끄다)"],"off":["off","꺼진"],"altogether":["altogether","완전히"],"gives":["give","주다"],
+ "both":["both","둘 다"],"with":["with","~을 가진"],"without":["without","~이 없는"],"difficulties":["difficulty","어려움"],
+ "more":["more","더 많은"],"control":["control","통제(권)"],"over":["over","~에 대해"],"experience":["experience","경험"],
+ "while":["while","~인 반면에, ~하는 동안"],"using":["use","사용하다"],"sites":["site","사이트"],"inaccessible":["inaccessible","접근할 수 없는"],
+ "impairments":["impairment","장애"],"impairment":["impairment","장애"],"advantages":["advantage","장점"],"available":["available","이용할 수 있는"],
+ "preferences":["preference","선호"],"unnecessary":["unnecessary","불필요한"],"talents":["talent","재능"],"supply":["supply","제공하다, 공급하다"],
+ "complete":["complete","전체의, 완전한"],"short":["short","짧은"],"remove":["remove","없애다"],"avoid":["avoid","피하다"],"partial":["partial","부분적인"],
+ "cover":["cover","다루다, 포함하다"],"because":["because","~때문에"],"find":["find","~라고 느끼다"],"tough":["tough","힘든"],"visible":["visible","눈에 보이는"],
+ "easy":["easy","쉬운"],"hidden":["hidden","숨겨진"],"pleasant":["pleasant","즐거운"],"faint":["faint","희미한"],"which":["which","(앞 내용을 가리켜) 이는"],
+ "regulate":["regulate","조절하다"],"loudness":["loudness","소리 크기"],"completely":["completely","완전히"],"influence":["influence","영향(력)"],
+ "pressure":["pressure","압박"],"ignore":["ignore","무시하다"],"block":["block","막다"],"trouble":["trouble","문제, 어려움"],"users":["user","사용자"],
+ "will":["will","~할 것이다"],"school":["school","학교"],"books":["book","책"],"students":["student","학생"],"please":["please","제발, ~해 주세요"],
+ "story":["story","이야기"],"before":["before","~전에"],"class":["class","수업"],"math":["math","수학"],"test":["test","시험"],"stars":["star","별"],
+ "night":["night","밤"],"building":["building","건물"],"wheelchairs":["wheelchair","휠체어"],"he":["he","그"],"so":["so","그래서"],"uses":["use","사용하다"],
+ "aid":["aid","보조 기구"],"button":["button","버튼"],"room":["room","방"],"temperature":["temperature","온도"],"good":["good","좋은"],"friends":["friend","친구"],
+ "positive":["positive","긍정적인"],"on":["on","~에 대한"],"us":["we","우리"],"the":["the","그"],"a":["a","하나의"],"to":["to","~로"],"and":["and","그리고"],
+ "than":["than","~보다"],"were":["be","~이다"],"was":["be","~이었다"],"old":["old","오래된"],"his":["his","그의"],"hurt":["hurt","다치게 하다"],"for":["for","~을 위해"],
+}
+
+# 직독직해 조각: [영어 조각, 한글 조각]. [[ ]] 는 빈칸에 들어간 정답 단어 표시
+JD={
+ 1:[["Audio content can be [[inaccessible]]","음성 콘텐츠는 [[접근할 수 없는]] 것이 될 수 있다"],
+    ["to some people,","일부 사람들에게,"],
+    ["such as those with hearing [[impairments]]","청각 [[장애]]가 있는 사람들처럼"],
+    ["or those who are in a quiet library.","또는 조용한 도서관에 있는 사람들처럼."]],
+ 2:[["Accessible websites often [[supply]]","접근성 있는 웹 사이트는 흔히 [[제공한다]]"],
+    ["text versions of audio,","음성의 텍스트 버전을,"],
+    ["such as transcripts, which cover the [[complete]] audio content,","[[전체]] 음성 콘텐츠를 다루는 대본 같은 것과,"],
+    ["and captions, which appear in a video while it plays.","영상이 재생되는 동안 영상 안에 나타나는 자막을."]],
+ 3:[["Because people with poor eyesight, including many elderly people,","많은 노인을 포함해 시력이 좋지 않은 사람들이"],
+    ["find reading [[tough]],","읽는 것을 [[힘들어해서]],"],
+    ["accessible websites use a contrasting background color,","접근성 있는 웹 사이트는 대비되는 배경 색을 사용하고,"],
+    ["which makes the text [[visible]] to most people.","이는 텍스트를 대부분의 사람들에게 [[잘 보이게]] 만든다."]],
+ 4:[["Accessible websites allow users to [[regulate]]","접근성 있는 웹 사이트는 사용자가 [[조절하도록]] 해 준다"],
+    ["the loudness of background sound","배경음의 소리 크기를"],
+    ["or turn it off completely,","또는 완전히 끌 수 있도록,"],
+    ["which gives all users, with or without hearing difficulties, more [[influence]] over their experience.","이는 청각에 어려움이 있든 없든 모든 사용자에게 그들의 경험에 대한 더 큰 [[영향력]]을 준다."]],
+}
+
+# 기억할 흐름 카드뉴스: [본문 번호 태그, 한 줄 큰 문장, 작은 보충, (마지막이면 강조)]
+FC={
+ 1:[["본문 1번","음성 콘텐츠는 접근하기 어려울 때가 있다","듣거나 이해할 수 없는 경우가 있어요."],
+    ["본문 2번","청각 장애가 있는 사람, 조용한 도서관에 있는 사람","소리를 들을 수 없는 두 가지 예시예요."],
+    ["정답 포인트","{{disabilities|장애}} = {{impairments|장애}}, {{cannot be accessed|접근될 수 없다}} = {{inaccessible|접근할 수 없는}}","본문 표현이 뜻이 같은 말로 바뀌어 나와요."]],
+ 2:[["본문 3번","그래서! 다른 방법을 제공한다","소리 대신 정보를 얻을 길을 열어 줘요. {{offer|제공하다}}"],
+    ["본문 5번","대본은 전체, 자막은 영상과 함께","대본 = {{entire|전체의}} 음성의 글, 자막 = 재생될 때 나오는 글"],
+    ["정답 포인트","{{offer|제공하다}} = {{supply|공급하다}}, {{entire|전체의}} = {{complete|완전한}}","대본과 자막은 모두 음성의 텍스트 버전이에요."]],
+ 3:[["본문 8번","시력이 나쁜 사람은 읽기가 힘들다","노인처럼 아주 못 보는 건 아니어도 읽기가 어려워요."],
+    ["본문 9번","그래서 글자색과 대비되는 배경 색","{{contrasts|대조를 이루다}} → {{contrasting|대비되는}}"],
+    ["본문 10번","글자가 대부분의 사람에게 또렷하다","{{clear|또렷한}} → {{visible|눈에 보이는}}"],
+    ["정답 포인트","{{difficult|어려운}} = {{tough|힘든}}, {{clear|또렷한}} = {{visible|눈에 보이는}}","읽기가 힘드니까 글자를 또렷하게 해 줘요."]],
+ 4:[["본문 11번","배경음을 조절하거나 완전히 끈다","{{adjust|조절하다}}, {{turn it off|그것을 끄다}}"],
+    ["본문 12번","청각 장애가 있든 없든 모두 경험을 더 통제","{{control|통제(권)}}"],
+    ["정답 포인트","{{adjust|조절하다}} = {{regulate|조절하다}}, {{control|통제(권)}} = {{influence|영향(력)}}","조절하고 끌 수 있으니 내 경험을 내가 정해요."]],
+}
+
+# 바꿔 말하기 스토리: 본문 등장 순서. a=본문 단어, n=본문 문장 번호, sq=요약문 번호, sum=요약문 속 바뀐 모습([[ ]]=바뀐 단어), hook=기억 고리
+STORY=[
+ dict(a="access",form="accessed",n=1,sq=1,sum="Audio content can be [[inaccessible]] to some people",hook="음성을 접근할 수 없는 경우가 있다는 첫 문장의 accessed(접근되다) → 요약문에서는 inaccessible(접근할 수 없는)로 바꿨어요."),
+ dict(a="disability",form="disabilities",n=2,sq=1,sum="those with hearing [[impairments]]",hook="소리를 못 듣는 사람이 나오는 문장의 disabilities(장애) → 요약문에서는 impairments(장애)로 바뀌었어요."),
+ dict(a="offer",form="offer",n=3,sq=2,sum="websites often [[supply]] text versions of audio",hook="소리 대신 다른 길을 열어 준다는 문장의 offer(제공하다) → 요약문에서는 supply(공급하다, 제공하다)로 바꿨어요."),
+ dict(a="entire",form="entire",n=5,sq=2,sum="which cover the [[complete]] audio content",hook="대본은 음성 내용을 빠짐없이 옮긴 것이라는 문장의 entire(전체의) → 요약문에서는 complete(완전한, 전체의)로 바꿨어요."),
+ dict(a="difficult",form="difficult",n=8,sq=3,sum="find reading [[tough]]",hook="시력이 나쁘면 읽기가 힘들다는 문장의 difficult(어려운) → 요약문에서는 tough(힘든)로 바꿨어요."),
+ dict(a="clear",form="clear",n=10,sq=3,sum="makes the text [[visible]] to most people",hook="글자가 또렷해진다는 문장의 clear(또렷한) → 요약문에서는 visible(눈에 보이는)로 바꿨어요."),
+ dict(a="adjust",form="adjust",n=11,sq=4,sum="users to [[regulate]] the loudness",hook="배경음 크기를 맞춘다는 문장의 adjust(조절하다) → 요약문에서는 regulate(조절하다)로 바꿨어요."),
+ dict(a="altogether",form="altogether",n=11,sq=4,sum="turn it off [[completely]]",hook="소리를 아예 끈다는 문장의 altogether(완전히) → 요약문에서는 completely(완전히)로 바꿨어요."),
+ dict(a="control",form="control",n=12,sq=4,sum="more [[influence]] over their experience",hook="내 경험을 내가 정한다는 마무리 문장의 control(통제권) → 요약문에서는 influence(영향력)로 바꿨어요."),
+]
+
+# 줄거리 장면: [[영어|한글뜻]] 표시 단어가 바꿔 말하기 대상
+SCENES=[
+ dict(tag="본문 1~2번",ns=[1,2],line="음성 콘텐츠는 어떤 경우 [[accessed|접근]]할 수 없다. 청각 [[disabilities|장애]]가 있거나 조용한 도서관에 있는 사람이 그렇다."),
+ dict(tag="본문 3번",ns=[3],line="그래서 접근성 좋은 사이트는 다른 방법을 [[offer|제공]]한다."),
+ dict(tag="본문 4~5번",ns=[4,5],line="그 방법은 대본과 자막. 대본은 [[entire|전체]] 음성 내용을 글로 옮긴 것이다."),
+ dict(tag="본문 8번",ns=[8],line="시력이 나쁜 사람은 읽기가 [[difficult|힘들다]]."),
+ dict(tag="본문 9~10번",ns=[9,10],line="글자색과 대비되는 배경 색으로 글자를 [[clear|또렷하게]] 만든다."),
+ dict(tag="본문 11번",ns=[11],line="배경음 크기는 [[adjust|조절]]하거나 [[altogether|완전히]] 끌 수 있다."),
+ dict(tag="본문 12번",ns=[12],line="그래서 모두가 자기 경험을 더 [[control|통제]]할 수 있다."),
+]
+
+# 근거 본문 한글 해석에서 영어 형광펜과 같은 자리
+HLKO={1:["접근되거나 이해될 수 없다"],2:["청각 장애","조용한 도서관"],3:["다른 방법들을 제공한다"],
+ 5:["전체 음성 콘텐츠의 텍스트 버전","영상이 재생될 때"],8:["좋지 않은 시력","읽는 것을 어렵게 만든다"],
+ 9:["텍스트 색과 대조를 이루는 배경 색"],10:["충분히 명확하게"],11:["배경음의 음량을 조절하거나","완전히 끌 수"],12:["더 많은 통제권"]}
+
+UM={'inaccessible':('접근할 수 없는','접근할 수 없다'),'impairment':('장애','청각 장애'),'supply':('제공하다, 공급하다','제공할'),'complete':('완전한, 전체의','전체'),
+ 'tough':('힘든','힘들었다'),'visible':('눈에 보이는','보인다'),'regulate':('조절하다','조절하는'),'influence':('영향(력)','영향')}
+
+G.update({'access':['access','접근하다'],'can’t':['cannot','~할 수 없다'],'use':['use','사용하다']})
+
+TARGET={1:3,2:0,3:4,4:2}
