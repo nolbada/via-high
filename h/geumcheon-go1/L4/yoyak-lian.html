@@ -156,7 +156,7 @@ details li{font-size:15px;margin:4px 0;list-style:none}
 </head>
 <body>
 <div id="app"></div>
-<div id="sheet"><div class="in"><div class="sw" id="sw"></div><button class="say" id="sbtn" data-a="say" data-v="" style="display:none">발음 듣기</button><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
 <script>
 (function(W){
   if(W.WN)return;
@@ -282,25 +282,7 @@ function go(v,i){
   view=v;hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
 }
 window.addEventListener('popstate',function(){histPushed=false;view='home';hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
-var CAN_SPEAK=!!(window.speechSynthesis&&typeof SpeechSynthesisUtterance!=='undefined');
-function sayBtn(w,label){return CAN_SPEAK?'<button class="say" data-a="say" data-v="'+esc(w)+'">'+label+'</button>':''}
-try{if(CAN_SPEAK){setTimeout(function(){var s=window.speechSynthesis;if(s.getVoices().length===0&&!window.__vc){CAN_SPEAK=false;render()}},2500);window.speechSynthesis.addEventListener('voiceschanged',function(){window.__vc=1;if(!CAN_SPEAK){CAN_SPEAK=true;render()}})}}catch(e){}
-var toastT;
-function toast(m){var e=$('toast');if(!e){e=document.createElement('div');e.id='toast';document.body.appendChild(e)}e.textContent=m;e.className='on';clearTimeout(toastT);toastT=setTimeout(function(){e.className=''},2200)}
-function speak(t){
-  var s=window.speechSynthesis;
-  if(!CAN_SPEAK)return;
-  try{
-    if(s.speaking||s.pending)s.cancel();
-    s.resume();
-    var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=0.85;u.volume=1;
-    var vs=s.getVoices().filter(function(x){return /^en[-_]US/i.test(x.lang)});if(vs.length)u.voice=vs[0];
-    u.onstart=function(){toast('재생 중: '+t)};
-    u.onerror=function(ev){var er=ev&&ev.error;if(er==='not-allowed'||er==='synthesis-unavailable'||er==='audio-hardware'||er==='language-unavailable'){CAN_SPEAK=false;render();toast('이 기기에서는 발음을 들을 수 없어요')}};
-    toast('재생 중: '+t);
-    setTimeout(function(){s.speak(u)},30);
-  }catch(e){toast('발음 재생에 실패했어요')}
-}
+function sayBtn(){return ''}
 
 
 /* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
@@ -311,7 +293,7 @@ function tapWord(key){
   n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
   if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
   $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
-  $('sl').textContent=g[1];$('sbtn').setAttribute('data-v',lem);$('sbtn').style.display=CAN_SPEAK?'':'none';
+  $('sl').textContent=g[1];
   $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
   $('sheet').className='on';
   document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
@@ -333,7 +315,6 @@ document.addEventListener('click',function(e){
   else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
   else if(act==='filt'){filt=v;render()}
   else if(act==='chk'){go('chk')}
-  else if(act==='say'){speak(v)}
   else if(act==='sw'){go('sw')}
   else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
   else if(act==='dt'){swD[v]=!swD[v];render()}
