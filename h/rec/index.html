@@ -181,12 +181,16 @@ function draw(){
     h+='<div class="rw"><div class="av" style="--sc:'+(SCC[r.school]||'#94a3b8')+'">'+esc(r.school||nm.replace(/^코드 /,'').charAt(0)||'?')+'</div><div class="bd"><div class="tp"><div class="nm"><b>'+esc(nm)+'</b><span class="s">'+esc((r.school?r.school+' ':'')+r.grade)+'</span></div><span class="l">'+(r.last?fd(r.last):'기록 없음')+'</span></div>'
     +(r.stats?'<div class="gr">'+r.stats.map(function(c){return '<div><span>'+esc(c[0])+'</span><b>'+esc(c[1])+'</b></div>'}).join('')+'</div>':'<div class="mt">'+r.chips.map(esc).join(' · ')+'</div>')+'</div></div>';
   });h+='</div>'}
-  if(SEL&&rows.length===1&&!rows[0].name)h+='<details id="yq0" open><summary>요약문 단어 물어보기</summary><div class="pv">이 학생은 이름이 아직 연결되지 않아 단어를 불러올 수 없어요. 아래 "이름 연결"에서 연결해 주세요.</div></details>';
-  if(SEL&&rows.length===1&&rows[0].name)h+='<details id="yq" open><summary>요약문 단어 물어보기</summary><div id="yqb" class="pv">불러오는 중...</div></details>';
+  var yn=(SEL&&rows.length===1&&rows[0].name)?rows[0].name:'';
+  var named=all0.filter(function(r){return r.name});
+  var yh='<details id="yq" open><summary>요약문 단어 물어보기</summary><div class="pv">학생이 요약문 연습에서 모은 단어를 O/X 로 채점해요. 학생 이름을 고르거나 입력하세요.</div><div class="pls" style="margin:6px 0">'+named.map(function(r){return '<button class="pl" data-yn="'+esc(r.name)+'" style="--sc:'+(SCC[r.school]||'#94a3b8')+'"><span>'+esc(r.name)+'</span></button>'}).join('')+'</div><div class="row"><input id="yni" placeholder="학생 이름 직접 입력" value="'+esc(yn)+'" style="flex:1;padding:8px;border:1px solid #cbd5e1;border-radius:8px"><button class="bt p" id="ynb">불러오기</button></div><div id="yqb" class="pv"></div></details>';
+  h=h.replace('<div class="lg">',yh+'<div class="lg">');
   h+='<details id="nm"><summary>이름 연결 (고1, 처음 한 번)</summary><div class="pv">학생 개인링크 시트에서 이름과 개인링크가 있는 칸을 복사해 아래에 붙여넣어 주세요. 이름은 구글 시트에만 저장되고 공개 저장소에는 들어가지 않아요.</div><textarea id="tx" placeholder="여기에 붙여넣기"></textarea><div class="pv" id="pv"></div><div class="row"><button class="bt p" id="sv">저장</button></div></details>';
   h+='<div class="foot">비타민 영어클리닉</div>';
   app.innerHTML=h;
-  if(document.getElementById('yq'))yqLoad(rows[0].name);
+  if(yn)yqLoad(yn);
+  var ynb=document.getElementById('ynb');if(ynb)ynb.onclick=function(){var v=document.getElementById('yni').value.trim();if(v)yqLoad(v);else document.getElementById('yqb').textContent='이름을 입력해 주세요.'};
+  [].forEach.call(document.querySelectorAll('[data-yn]'),function(b){b.onclick=function(){document.getElementById('yni').value=b.getAttribute('data-yn');yqLoad(b.getAttribute('data-yn'))}});
   document.getElementById('rf').onclick=load;
   [].forEach.call(document.querySelectorAll('[data-sel]'),function(b){b.onclick=function(){SEL=b.getAttribute('data-sel');try{localStorage.setItem('rec_sel',SEL)}catch(e){}draw()}});
   document.getElementById('lo').onclick=function(){try{localStorage.removeItem(PK)}catch(e){}pw='';login('')};
