@@ -120,8 +120,14 @@ function info(id){
       if(/^vhdj:[^:]+$/.test(k)){var dv=val(d[k]);if(dv&&Array.isArray(dv.used)){djn+=dv.used.length;djt+=DJT[k.slice(5)]||0}}
       if(k.indexOf('vhp:')===0){var tb=CNK[k.slice(4)],pv=val(d[k]);if(tb&&pv&&typeof pv==='object')Object.keys(tb).forEach(function(q){var e=pv[q];if(e&&e.n){qg+=tb[q];if(e.t&&day0(e.t)===t0)qd+=tb[q]}});var tp=CNP[k.slice(4)];if(tp&&pv&&typeof pv==='object')Object.keys(tp).forEach(function(q){var e=pv[q];if(e&&(e.n||e.t))qf+=tp[q]})}
     });
+    var yy={n:0,r:0,w:0,sets:[]};
+    ks.forEach(function(k){if(k.indexOf('vhy:')!==0)return;var v=val(d[k]);if(!v||typeof v!=='object')return;
+      Object.keys(v).forEach(function(pg){var s=v[pg],sn=0,sr=0,sw=0,lt=0;if(!s||typeof s!=='object')return;
+        Object.keys(s).forEach(function(q){var e=s[q];if(e&&e.n){sn++;if(e.k)sr++;sw+=e.w||0;if(e.t>lt)lt=e.t}});
+        if(sn){yy.n+=sn;yy.r+=sr;yy.w+=sw;yy.sets.push({pg:pg,n:sn,r:sr,w:sw,t:lt})}})});
+    o.yy=yy;
     var tt=tm.q+tm.w+tm.h+pre;
-    o.stats=[['누적 이용시간',dur(tt)],['오늘 이용시간',dur(tm.t)],['누적 풀코스',qf+'문제'],['마지막 회차',lc?lastR(lc):'없음'],['누적 채점',qg+'문제'],['오답노트',wrong+'개']];if(djt)o.stats.push(['풀코스 추가문제',djn+' / '+djt+'문항']);
+    o.stats=[['누적 이용시간',dur(tt)],['오늘 이용시간',dur(tm.t)],['누적 풀코스',qf+'문제'],['마지막 회차',lc?lastR(lc):'없음'],['누적 채점',qg+'문제'],['오답노트',wrong+'개'],['요약문 정답',yy.n?yy.r+'/'+yy.n:'기록 없음']];if(djt)o.stats.push(['풀코스 추가문제',djn+' / '+djt+'문항']);
   }else{
     o.code=id.split('|')[1];o.grade='고1';
     var done=0,today=0,rep=0,sum=0,hw=0,t0=day0(Date.now());
@@ -144,13 +150,23 @@ var SCC={'금천':'#16a34a','주성':'#d97706','청석':'#7c3aed'};
 /* 요약문 단어 물어보기: 학생이 요약문 연습에서 모은 단어를 H로드맵 서버에서 가져와 O/X 로 채점 (오답노트에 연동) */
 var WNU='https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec',YR={};
 function wnPost(b){var w='';try{w=localStorage.getItem('wn_pw')||''}catch(e){}b.pw=w;return fetch(WNU,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b)}).then(function(r){return r.json()})}
+function yyLabel(pg){var m=/L(\d+)\/yoyak-lian-z(\d+)/.exec(pg);if(m)return m[1]+'과 요약문 '+'❶❷❸❹❺❻❼❽'.charAt(+m[2]-1);m=/yoyak-(\d\d)(\d\d)-(\d+)/.exec(pg);if(m)return m[1]+'년 '+(+m[2])+'월 '+m[3]+'번';return pg}
+function yyBlock(name){
+  var n=String(name).replace(/\s+/g,''),r=null;
+  (window.ALLROWS||[]).forEach(function(x){if(x.name&&String(x.name).replace(/\s+/g,'')===n)r=x});
+  if(!r||!r.yy||!r.yy.n)return '<div class="pv">요약문 점수: 아직 푼 기록이 없어요.</div>';
+  var h='<div class="pv"><b>요약문 점수</b> · 전체 '+r.yy.n+'문제 중 '+r.yy.r+'문제 정답 · 틀린 횟수 '+r.yy.w+'번</div>';
+  r.yy.sets.sort(function(a,b){return b.t-a.t}).forEach(function(s){h+='<div class="rc"><div class="h"><b>'+esc(yyLabel(s.pg))+'</b><span class="l">'+(s.t?fd(s.t):'')+'</span></div><div class="s">'+s.n+'문제 중 '+s.r+'문제 정답'+(s.w?' · 틀린 횟수 '+s.w+'번':'')+'</div></div>'});
+  return h;
+}
 function yqLoad(name){
   var box=document.getElementById('yqb');if(!box)return;var n=String(name).replace(/\s+/g,'');YR={};
+  var sc=yyBlock(name);
   wnPost({act:'t_list',name:n,all:1,max:300}).then(function(r){
     if(!r||!r.ok){box.innerHTML=(r&&r.err==='pw'?'H로드맵 선생님 화면(wn-t)에서 한 번 로그인한 뒤 다시 열어 주세요.':'불러오지 못했어요. 이 학생이 H로드맵 명단에 있는지 확인해 주세요.');return}
     var it=(r.items||[]).filter(function(i){return String(i.src||'').indexOf('요약문 완성')>=0});
-    if(!it.length){box.textContent='아직 모은 단어가 없어요. 학생이 요약문 연습에서 단어를 누르면 여기에 쌓여요.';return}
-    var h='<div class="pv">'+it.length+'개 · 틀린 횟수가 많은 순 · O/X 를 고르고 저장하세요.</div>';
+    if(!it.length){box.innerHTML=sc+'<div class="pv">아직 모은 단어가 없어요. 학생이 요약문 연습에서 단어를 누르면 여기에 쌓여요.</div>';return}
+    var h=sc+'<div class="pv">'+it.length+'개 · 틀린 횟수가 많은 순 · O/X 를 고르고 저장하세요.</div>';
     it.forEach(function(i,k){h+='<div class="rc"><div class="h"><b>'+esc(i.w)+'</b><span class="l">틀린 횟수 '+(i.c||0)+'</span></div><div class="s">'+esc(i.m||'뜻 없음')+'</div><div class="fl"><button class="bt" data-yq="'+k+'" data-v="1">O</button><button class="bt" data-yq="'+k+'" data-v="0">X</button></div></div>'});
     h+='<div class="row"><button class="bt p" id="yqs">저장</button></div><div class="msg" id="yqm"></div>';
     box.innerHTML=h;
@@ -164,6 +180,7 @@ function yqLoad(name){
 function draw(){
   var ids=Object.keys(ALL).filter(function(id){return id.indexOf('REC|')===0&&id!=='REC|names'});
   var all0=ids.map(info).filter(function(r){return r.name!=='신유정'}).sort(function(a,b){return String(a.name||'~').localeCompare(String(b.name||'~'),'ko')});
+  window.ALLROWS=all0;
   if(SEL&&!all0.some(function(r){return r.id===SEL}))SEL='';
   var t0=day0(Date.now()),todayN=all0.filter(function(r){return r.last>=t0}).length;
   var late=all0.filter(function(r){return !r.last||t0-day0(r.last)>=3*86400000});
