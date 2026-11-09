@@ -211,7 +211,7 @@ if(!WN.name())WN.gate(function(){location.reload()});
 var DATA=__DATA__;
 var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
 var SCH='geumcheon-go1';
-var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH;
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH+':'+location.pathname.split('/').slice(-2).join('/');
 var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
 function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
 function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
