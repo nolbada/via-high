@@ -364,7 +364,7 @@ function curUnits(){var o={},lab='';try{lab=ROAD[curWeek(new Date())][2]}catch(e
   if(lab.indexOf('2과')>=0)o.L2=1;if(lab.indexOf('4과')>=0)o.L4=1;if(lab.indexOf('모의고사')>=0)o.mock=1;
   if(!o.L2&&!o.L4&&!o.mock)o.L4=1;return o}
 function lrow(href,t,sm){return '<a class="row" href="'+href+'"><span>'+t+(sm?'<small>'+sm+'</small>':'')+'</span><span class="go" style="white-space:nowrap">열기</span></a>'}
-var YL={"L4": [1, 2, 3, 4, 5, 6, 7]},YM=[];
+var YL={"L4": [1, 2, 3, 4, 5, 6, 7], "L2": [1, 2, 3, 4, 5, 6, 7]},YM=[];
 function yoyakRows(k){var a=YL[k];if(!a)return '';return '<details class="acc sub"><summary>요약문 연습</summary><div class="in">'+a.map(function(z){return lrow(k+'/yoyak-lian-z'+z+'.html','요약문 연습 '+'❶❷❸❹❺❻❼❽'.charAt(z-1))}).join('')+'</div></details>'}
 function text(){
   var cu=curUnits(),h='';
