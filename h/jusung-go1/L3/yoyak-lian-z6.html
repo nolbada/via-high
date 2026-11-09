@@ -389,7 +389,7 @@ function vHome(){
 }
 function vQ(){
   var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
-  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
   if(!done)h+='<p class="hint">문장의 밑줄 단어를 누르면 뜻이 나와요. 보기를 누르면 답을 골라요.</p>';
   h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
   q.opts.forEach(function(o,i){
@@ -423,7 +423,7 @@ function vQ(){
   return h;
 }
 function vRes(){
-  var h='<div class="top"><button class="back" data-a="home">목록</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
   h+='<div class="nums">';
   Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
   h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
@@ -433,7 +433,7 @@ function vRes(){
 function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
 function vNotes(){
   var L=sortedNotes();
-  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
   if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
   h+='<div class="card"><ul class="wl">';
   L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'<button class="rmw" data-a="rmnote" data-v="'+esc(n.l.toLowerCase())+'">빼기</button></li>'});
