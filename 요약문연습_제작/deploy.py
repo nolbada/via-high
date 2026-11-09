@@ -9,7 +9,7 @@ for dj in sys.argv[1:]:
     ip='%s%s/index.html'%(VH,M['sch']); s=open(ip,encoding='utf-8').read()
     href='%s/%s.html'%(L,M['page'])
     if href in s: print('row exists',href); continue
-    row='["%s 요약문 연습 %s","바꿔 말하기·단어 물어보기","%s","key:%s:%s"],'%(M['lesson'],M['label'],href,L,M['page'])
+    row='["%s","바꿔 말하기·단어 물어보기","%s","key:%s:%s"],'%((M['lesson']+' 요약문 연습 '+M['label']).strip(),href,L,M['page'])
     m=re.search(r'"플러스 자료","subs":\[\{"t":"","items":\[',s); assert m,ip
     s=s[:m.end()]+row+s[m.end():]
     open(ip,'w',encoding='utf-8').write(s); print('added',href)

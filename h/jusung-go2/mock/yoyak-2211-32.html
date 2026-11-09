@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>22년 11월 32번 요약문 연습 </title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "jusung-go2", "src": "jusung-go2/mock/sx-data.js", "pidx": 3, "lesson": "22년 11월 32번", "title": "", "label": "", "page": "yoyak-2211-32"}, "scenes": [{"tag": "본문 1~2번", "ns": [1, 2], "line": "세계 시장은 [[connectedness|연결성]] 때문에 [[vulnerable|취약해]], 한 곳의 실패가 독감처럼 퍼진다.", "en": ["The connectedness of the global economic market makes it vulnerable to potential “infection.”", "A financial failure can make its way from borrowers to banks to insurers, spreading like a flu."], "kos": ["전 세계 경제 시장의 연결성은 그것을 잠재적 ‘감염’에 취약하게 만든다.", "금융상의 실패는 독감처럼 퍼지면서 채무자에서부터 은행, 보험사까지 나아갈 수 있다."]}, {"tag": "본문 4번", "ns": [4], "line": "놀랍게도 접촉이 없어도 감염이 [[occur|일어난다]].", "en": ["Infection can occur even without any contact."], "kos": ["감염이 심지어 어떤 접촉 없이도 일어날 수 있다."]}, {"tag": "본문 5번", "ns": [5], "line": "투자가 하나도 실패하지 않아도 은행이 [[insolvent|지급 불능]]이 될 수 있다.", "en": ["A bank might become insolvent even without having any of its investments fail."], "kos": ["은행은 심지어 투자 중 어느 하나도 실패하지 않고도 지급 불능이 될 수 있다."]}, {"tag": "본문 6번", "ns": [6], "line": "두려움과 불확실성도 시장에 [[damaging|손해를 끼친다]].", "en": ["Fear and uncertainty can be damaging to financial markets, just as cascading failures due to bad investments."], "kos": ["나쁜 투자들 때문에 일어나는 연속된 실패가 그러하듯, 두려움과 불확실성은 금융 시장에 손해를 끼칠 수 있다."]}], "story": [{"a": "connectedness", "form": "connectedness", "n": 1, "sq": 1, "sum": "The close [[connection]] among global markets", "hook": "세계 시장이 서로 이어져 있다는 첫 문장의 connectedness(연결성) → 요약문에서는 connection(연결)으로 바꿨어요.", "b": "connection", "k": "연결성 → 연결", "en": "The connectedness of the global economic market makes it vulnerable to potential “infection.”", "ko": "전 세계 경제 시장의 연결성은 그것을 잠재적 ‘감염’에 취약하게 만든다."}, {"a": "vulnerable", "form": "vulnerable", "n": 1, "sq": 1, "sum": "makes the economy [[exposed]] to financial failures", "hook": "감염에 약하다는 그 문장의 vulnerable(취약한) → 요약문에서는 exposed(노출된)로 바꿨어요.", "b": "exposed", "k": "취약한 → 노출된", "en": "The connectedness of the global economic market makes it vulnerable to potential “infection.”", "ko": "전 세계 경제 시장의 연결성은 그것을 잠재적 ‘감염’에 취약하게 만든다."}, {"a": "occur", "form": "occur", "n": 4, "sq": 2, "sum": "Trouble in the market can [[happen]] without any contact", "hook": "접촉 없이도 감염이 생긴다는 문장의 occur(일어나다) → 요약문에서는 happen(일어나다)으로 바꿨어요.", "b": "happen", "k": "일어나다 → 일어나다, 벌어지다", "en": "Infection can occur even without any contact.", "ko": "감염이 심지어 어떤 접촉 없이도 일어날 수 있다."}, {"a": "insolvent", "form": "insolvent", "n": 5, "sq": 2, "sum": "so a bank may become [[bankrupt]]", "hook": "투자가 멀쩡한데도 은행이 돈을 못 갚게 된다는 문장의 insolvent(지급 불능의) → 요약문에서는 bankrupt(파산한)로 바뀌었어요.", "b": "bankrupt", "k": "지급 불능의 → 파산한", "en": "A bank might become insolvent even without having any of its investments fail.", "ko": "은행은 심지어 투자 중 어느 하나도 실패하지 않고도 지급 불능이 될 수 있다."}, {"a": "damaging", "form": "damaging", "n": 6, "sq": 3, "sum": "Fear and uncertainty can be [[harmful]] to financial markets", "hook": "두려움이 시장에 손해를 준다는 문장의 damaging(손해를 끼치는) → 요약문에서는 harmful(해로운)로 바꿨어요.", "b": "harmful", "k": "손해를 끼치는 → 해로운", "en": "Fear and uncertainty can be damaging to financial markets, just as cascading failures due to bad investments.", "ko": "나쁜 투자들 때문에 일어나는 연속된 실패가 그러하듯, 두려움과 불확실성은 금융 시장에 손해를 끼칠 수 있다."}], "passage": [{"n": 1, "en": "The connectedness of the global economic market makes it vulnerable to potential “infection.”", "ko": "전 세계 경제 시장의 연결성은 그것을 잠재적 ‘감염’에 취약하게 만든다."}, {"n": 2, "en": "A financial failure can make its way from borrowers to banks to insurers, spreading like a flu.", "ko": "금융상의 실패는 독감처럼 퍼지면서 채무자에서부터 은행, 보험사까지 나아갈 수 있다."}, {"n": 3, "en": "However, there are unexpected characteristics when it comes to such infection in the market.", "ko": "그러나 시장에서의 그러한 감염에 관한 예상치 못한 특징들이 있다."}, {"n": 4, "en": "Infection can occur even without any contact.", "ko": "감염이 심지어 어떤 접촉 없이도 일어날 수 있다."}, {"n": 5, "en": "A bank might become insolvent even without having any of its investments fail.", "ko": "은행은 심지어 투자 중 어느 하나도 실패하지 않고도 지급 불능이 될 수 있다."}, {"n": 6, "en": "Fear and uncertainty can be damaging to financial markets, just as cascading failures due to bad investments.", "ko": "나쁜 투자들 때문에 일어나는 연속된 실패가 그러하듯, 두려움과 불확실성은 금융 시장에 손해를 끼칠 수 있다."}, {"n": 7, "en": "If we all woke up tomorrow and believed that Bank X would be insolvent, then it would become insolvent.", "ko": "만약 우리 모두가 내일 깨어나서 X은행이 지급 불능이 될 것이라고 믿는다면, 그것은 지급 불능이 될 것이다."}, {"n": 8, "en": "In fact, it would be enough for us to fear that others believed that Bank X was going to fail, or just to fear our collective fear!", "ko": "사실 우리가 다른 사람들이 X은행이 실패할 것이라고 믿고 있다는 것을 무서워하거나 단지 우리의 집단적인 두려움을 무서워하는 것으로 충분할 것이다."}, {"n": 9, "en": "We might all even know that Bank X was well-managed with healthy investments, but if we expected others to pull their money out, then we would fear being the last to pull our money out.", "ko": "우리 모두가 심지어 X은행이 건전한 투자로 잘 운영된다는 것을 알지라도, 만약 우리가 다른 사람들이 그들의 돈을 인출해 갈 것이라고 예상한다면, 그러면 우리는 자신의 돈을 인출하는 마지막 사람이 되는 것을 무서워할 것이다."}, {"n": 10, "en": "Financial distress can be self-fulfilling and is a particularly troublesome aspect of financial markets.", "ko": "재정적인 고통은 자기충족적일 수 있고 금융 시장에서의 특별히 골치 아픈 측면이다."}], "questions": [{"id": 1, "summary": "The close (A) among global markets makes the economy (B) to financial failures that spread like a flu.", "ko": "전 세계 시장 사이의 긴밀한 <b>(A) 연결</b>은 경제를 독감처럼 퍼지는 금융 실패에 <b>(B) 노출되게</b> 만든다.", "opts": [["connection", "immune"], ["separation", "immune"], ["connection", "exposed"], ["competition", "exposed"], ["separation", "open"]], "optko": ["연결 – 면역이 된", "분리 – 면역이 된", "연결 – 노출된", "경쟁 – 노출된", "분리 – 열린"], "ans": 2, "wrong": ["immune(면역이 된)이 틀려요. 본문은 시장이 감염에 취약(vulnerable)하다고 해요.", "둘 다 틀려요. 본문은 시장이 서로 연결(connected)되어 있어서 취약하다고 해요.", null, "competition(경쟁)이 틀려요. 본문은 경쟁이 아니라 서로 이어져 있다는 이야기예요.", "둘 다 틀려요. 시장이 분리(separation)되어 있다는 말은 본문과 반대예요."], "evid": [{"n": 1, "hl": ["connectedness of the global economic market", "vulnerable"]}, {"n": 2, "hl": ["spreading like a flu"]}], "swaps": [["connectedness", "connection", "연결성 → 연결"], ["vulnerable", "exposed", "취약한 → 노출된"], ["economic market", "economy", "경제 시장 → 경제"]], "swapnote": "vulnerable(취약한)은 exposed(노출된), weak(약한), sensitive(민감한)로 바뀌어 나올 수 있어요.", "use": [{"w": "connection", "ex": "The connection between the two cities is a long bridge.", "ko": "두 도시 사이의 연결은 긴 다리이다.", "wk": "연결", "hk": "연결"}, {"w": "exposed", "ex": "Children are exposed to a lot of ads on the internet.", "ko": "아이들은 인터넷에서 많은 광고에 노출된다.", "wk": "노출된", "hk": "노출된"}], "flow": "본문 1번에서 세계 시장이 서로 연결돼 있어서 감염에 약하다고 시작하고, 2번에서 실패가 독감처럼 채무자 → 은행 → 보험사로 퍼진다고 예를 들어요.", "jd": [["The close [[connection]] among global markets", "전 세계 시장 사이의 긴밀한 [[연결]]은"], ["makes the economy [[exposed]] to financial failures", "경제를 금융 실패에 [[노출되게]] 만든다"], ["that spread like a flu.", "독감처럼 퍼지는."]], "fc": [["본문 1번", "세계 시장은 서로 이어져 있다", "그래서 감염(문제)에 약해요."], ["본문 2번", "실패가 독감처럼 퍼진다", "채무자 → 은행 → 보험사 순서로 번져요."], ["정답 포인트", "{{connectedness|연결성}} = {{connection|연결}}, {{vulnerable|취약한}} = {{exposed|노출된}}", "본문 단어가 뜻이 같은 말로 바뀌어 나와요."]], "evid_full": [{"en": "The connectedness of the global economic market makes it vulnerable to potential “infection.”", "ko": "전 세계 경제 시장의 연결성은 그것을 잠재적 ‘감염’에 취약하게 만든다.", "hl": ["connectedness of the global economic market", "vulnerable"], "hlko": ["연결성", "취약하게"], "n": 1}, {"en": "A financial failure can make its way from borrowers to banks to insurers, spreading like a flu.", "ko": "금융상의 실패는 독감처럼 퍼지면서 채무자에서부터 은행, 보험사까지 나아갈 수 있다.", "hl": ["spreading like a flu"], "hlko": ["독감처럼 퍼지면서"], "n": 2}]}, {"id": 2, "summary": "Trouble in the market can (A) without any contact, so a bank may become (B) even if none of its investments fail.", "ko": "시장의 문제는 접촉 없이도 <b>(A) 일어날</b> 수 있어서, 은행은 투자가 하나도 실패하지 않아도 <b>(B) 파산할</b> 수 있다.", "opts": [["happen", "profitable"], ["stop", "profitable"], ["stop", "bankrupt"], ["disappear", "successful"], ["happen", "bankrupt"]], "optko": ["일어나다 – 이익이 나는", "멈추다 – 이익이 나는", "멈추다 – 파산한", "사라지다 – 성공한", "일어나다 – 파산한"], "ans": 4, "wrong": ["profitable(이익이 나는)이 틀려요. 본문은 은행이 지급 불능(insolvent)이 될 수 있다고 해요.", "둘 다 틀려요. 감염은 멈추는(stop) 게 아니라 접촉 없이도 일어나요.", "stop(멈추다)이 틀려요. 본문은 접촉 없이도 감염이 일어난다(occur)고 해요.", "둘 다 틀려요. 감염이 사라진다거나 은행이 성공한다는 말은 본문에 없어요.", null], "evid": [{"n": 3, "hl": ["unexpected characteristics"]}, {"n": 4, "hl": ["Infection can occur even without any contact"]}, {"n": 5, "hl": ["become insolvent", "without having any of its investments fail"]}], "swaps": [["occur", "happen", "일어나다 → 일어나다, 벌어지다"], ["insolvent", "bankrupt", "지급 불능의 → 파산한"], ["infection", "trouble", "감염 → 문제"]], "swapnote": "insolvent(지급 불능의)는 처음 보면 어렵지만 bankrupt(파산한)로 바뀌어 나와요. 돈을 못 갚는 은행이라고 떠올리세요.", "use": [{"w": "happen", "ex": "Strange things can happen at night.", "ko": "이상한 일들이 밤에 일어날 수 있다.", "wk": "일어나다", "hk": "일어날"}, {"w": "bankrupt", "ex": "The shop went bankrupt after two years.", "ko": "그 가게는 2년 뒤에 파산했다.", "wk": "파산한", "hk": "파산했다"}], "flow": "본문 3번에서 예상 밖의 특징이 있다고 한 뒤, 4번에서 접촉 없이도 감염이 일어나고, 5번에서 투자가 실패하지 않아도 은행이 지급 불능이 될 수 있다고 이어져요.", "jd": [["Trouble in the market can [[happen]]", "시장의 문제는 [[일어날]] 수 있다"], ["without any contact,", "어떤 접촉도 없이,"], ["so a bank may become [[bankrupt]]", "그래서 은행은 [[파산할]] 수 있다"], ["even if none of its investments fail.", "투자 중 하나도 실패하지 않아도."]], "fc": [["본문 3~4번", "But! 접촉 없이도 감염된다", "예상 밖의 특징이에요."], ["본문 5번", "투자가 멀쩡해도 은행이 무너진다", "그런데도 지급 불능이 될 수 있어요."], ["정답 포인트", "{{occur|일어나다}} = {{happen|일어나다}}, {{insolvent|지급 불능의}} = {{bankrupt|파산한}}", "돈을 못 갚는 은행을 떠올려요."]], "evid_full": [{"en": "However, there are unexpected characteristics when it comes to such infection in the market.", "ko": "그러나 시장에서의 그러한 감염에 관한 예상치 못한 특징들이 있다.", "hl": ["unexpected characteristics"], "hlko": ["예상치 못한 특징들"], "n": 3}, {"en": "Infection can occur even without any contact.", "ko": "감염이 심지어 어떤 접촉 없이도 일어날 수 있다.", "hl": ["Infection can occur even without any contact"], "hlko": ["감염이 심지어 어떤 접촉 없이도 일어날 수 있다"], "n": 4}, {"en": "A bank might become insolvent even without having any of its investments fail.", "ko": "은행은 심지어 투자 중 어느 하나도 실패하지 않고도 지급 불능이 될 수 있다.", "hl": ["become insolvent", "without having any of its investments fail"], "hlko": ["지급 불능이 될 수", "투자 중 어느 하나도 실패하지 않고도"], "n": 5}]}, {"id": 3, "summary": "Fear and uncertainty can be (A) to financial markets, because if people expect others to (B) their money, the bank will actually fail.", "ko": "두려움과 불확실성은 금융 시장에 <b>(A) 해로울</b> 수 있는데, 사람들이 다른 사람들이 자기 돈을 <b>(B) 인출할</b> 것이라고 예상하면 은행이 실제로 무너지기 때문이다.", "opts": [["harmful", "withdraw"], ["harmful", "deposit"], ["helpful", "deposit"], ["helpful", "withdraw"], ["useless", "borrow"]], "optko": ["해로운 – 인출하다", "해로운 – 예금하다", "도움이 되는 – 예금하다", "도움이 되는 – 인출하다", "쓸모없는 – 빌리다"], "ans": 0, "wrong": [null, "deposit(예금하다)이 틀려요. 본문은 사람들이 돈을 빼 가는(pull out) 것을 무서워한다고 해요.", "둘 다 틀려요. 두려움은 도움이 되는 게 아니라 해롭고, 돈은 넣는 게 아니라 빼 가요.", "helpful(도움이 되는)이 틀려요. 본문은 두려움이 시장에 손해를 끼친다(damaging)고 해요.", "둘 다 틀려요. 두려움은 쓸모없는 게 아니라 해롭고, 돈을 빌린다는 말은 본문에 없어요."], "evid": [{"n": 6, "hl": ["damaging to financial markets"]}, {"n": 9, "hl": ["pull their money out"]}, {"n": 10, "hl": ["self-fulfilling"]}], "swaps": [["damaging", "harmful", "손해를 끼치는 → 해로운"], ["pull out", "withdraw", "빼내다 → 인출하다"], ["expected", "expect", "예상했다 → 예상하다"]], "swapnote": "pull out(빼내다)은 withdraw(인출하다)로 바뀌어 나와요. 은행 이야기에서는 돈을 찾아간다는 뜻이에요.", "use": [{"w": "harmful", "ex": "Too much sugar is harmful to your teeth.", "ko": "너무 많은 설탕은 치아에 해롭다.", "wk": "해로운", "hk": "해롭다"}, {"w": "withdraw", "ex": "He went to the bank to withdraw some money.", "ko": "그는 돈을 조금 인출하려고 은행에 갔다.", "wk": "인출하다", "hk": "인출하려고"}], "flow": "본문 6번에서 두려움이 시장에 해롭다고 하고, 9번에서 다들 돈을 빼 가려 하면 나도 마지막이 되기 싫어 빼게 된다고 설명해요. 10번에서 이것을 자기충족적이라고 정리해요.", "jd": [["Fear and uncertainty can be [[harmful]] to financial markets,", "두려움과 불확실성은 금융 시장에 [[해로울]] 수 있다,"], ["because if people expect others to [[withdraw]] their money,", "사람들이 다른 이들이 자기 돈을 [[인출할]] 것이라 예상하면,"], ["the bank will actually fail.", "은행은 실제로 무너질 것이기 때문이다."]], "fc": [["본문 6번", "두려움은 시장에 해롭다", "나쁜 투자만큼 위험해요."], ["본문 7~9번", "남들이 돈을 뺀다고 믿으면 나도 뺀다", "마지막이 되기 싫어서요."], ["정답 포인트", "{{damaging|손해를 끼치는}} = {{harmful|해로운}}, {{pull out|빼내다}} = {{withdraw|인출하다}}", "두려움이 현실이 되는 자기충족적 고통이에요."]], "evid_full": [{"en": "Fear and uncertainty can be damaging to financial markets, just as cascading failures due to bad investments.", "ko": "나쁜 투자들 때문에 일어나는 연속된 실패가 그러하듯, 두려움과 불확실성은 금융 시장에 손해를 끼칠 수 있다.", "hl": ["damaging to financial markets"], "hlko": ["금융 시장에 손해를 끼칠 수"], "n": 6}, {"en": "We might all even know that Bank X was well-managed with healthy investments, but if we expected others to pull their money out, then we would fear being the last to pull our money out.", "ko": "우리 모두가 심지어 X은행이 건전한 투자로 잘 운영된다는 것을 알지라도, 만약 우리가 다른 사람들이 그들의 돈을 인출해 갈 것이라고 예상한다면, 그러면 우리는 자신의 돈을 인출하는 마지막 사람이 되는 것을 무서워할 것이다.", "hl": ["pull their money out"], "hlko": ["그들의 돈을 인출해 갈 것이라고"], "n": 9}, {"en": "Financial distress can be self-fulfilling and is a particularly troublesome aspect of financial markets.", "ko": "재정적인 고통은 자기충족적일 수 있고 금융 시장에서의 특별히 골치 아픈 측면이다.", "hl": ["self-fulfilling"], "hlko": ["자기충족적일 수"], "n": 10}]}], "gloss": {"connectedness": ["connectedness", "연결성"], "connection": ["connection", "연결"], "global": ["global", "전 세계의"], "economic": ["economic", "경제의"], "economy": ["economy", "경제"], "market": ["market", "시장"], "markets": ["market", "시장"], "makes": ["make", "~하게 만들다"], "vulnerable": ["vulnerable", "취약한"], "potential": ["potential", "잠재적인"], "infection": ["infection", "감염"], "financial": ["financial", "금융의"], "failure": ["failure", "실패"], "failures": ["failure", "실패"], "fail": ["fail", "실패하다"], "way": ["way", "길, 방식"], "borrowers": ["borrower", "채무자"], "banks": ["bank", "은행"], "bank": ["bank", "은행"], "insurers": ["insurer", "보험사"], "spreading": ["spread", "퍼지다"], "spread": ["spread", "퍼지다"], "like": ["like", "~처럼"], "flu": ["flu", "독감"], "however": ["however", "그러나"], "unexpected": ["unexpected", "예상치 못한"], "characteristics": ["characteristic", "특징"], "comes": ["come", "오다"], "such": ["such", "그러한"], "occur": ["occur", "일어나다"], "even": ["even", "심지어"], "without": ["without", "~ 없이"], "contact": ["contact", "접촉"], "might": ["might", "~일지도 모른다"], "become": ["become", "~이 되다"], "insolvent": ["insolvent", "지급 불능의(빚을 못 갚는)"], "having": ["have", "가지다"], "investments": ["investment", "투자"], "fear": ["fear", "두려워하다"], "uncertainty": ["uncertainty", "불확실성"], "damaging": ["damage", "손해를 끼치다"], "just": ["just", "꼭, 단지"], "cascading": ["cascade", "연속해서 쏟아지다"], "due": ["due to", "~ 때문에"], "bad": ["bad", "나쁜"], "woke": ["wake", "깨다"], "tomorrow": ["tomorrow", "내일"], "believed": ["believe", "믿다"], "enough": ["enough", "충분한"], "others": ["other", "다른 사람들"], "collective": ["collective", "집단의"], "know": ["know", "알다"], "well-managed": ["well-managed", "잘 운영되는"], "healthy": ["healthy", "건전한, 건강한"], "expected": ["expect", "예상하다"], "expect": ["expect", "예상하다"], "pull": ["pull", "당기다, 빼내다"], "money": ["money", "돈"], "last": ["last", "마지막의"], "distress": ["distress", "고통, 곤경"], "self-fulfilling": ["self-fulfilling", "자기충족적인(믿은 대로 현실이 되는)"], "particularly": ["particularly", "특별히"], "troublesome": ["troublesome", "골치 아픈"], "aspect": ["aspect", "측면"], "close": ["close", "긴밀한"], "among": ["among", "~ 사이에"], "exposed": ["expose", "노출시키다 (exposed = 노출된)"], "immune": ["immune", "면역이 된"], "separation": ["separation", "분리"], "competition": ["competition", "경쟁"], "open": ["open", "열린"], "trouble": ["trouble", "문제"], "happen": ["happen", "일어나다"], "bankrupt": ["bankrupt", "파산한"], "profitable": ["profitable", "이익이 나는"], "stop": ["stop", "멈추다"], "disappear": ["disappear", "사라지다"], "successful": ["successful", "성공한"], "harmful": ["harmful", "해로운"], "withdraw": ["withdraw", "인출하다"], "deposit": ["deposit", "예금하다"], "helpful": ["helpful", "도움이 되는"], "useless": ["useless", "쓸모없는"], "borrow": ["borrow", "빌리다"], "actually": ["actually", "실제로"], "people": ["people", "사람들"], "because": ["because", "~ 때문에"], "children": ["child", "아이들"], "ads": ["ad", "광고"], "internet": ["internet", "인터넷"], "cities": ["city", "도시"], "long": ["long", "긴"], "bridge": ["bridge", "다리"], "strange": ["strange", "이상한"], "things": ["thing", "일"], "night": ["night", "밤"], "shop": ["shop", "가게"], "years": ["year", "년"], "went": ["go", "가다"], "sugar": ["sugar", "설탕"], "teeth": ["tooth", "치아"], "some": ["some", "조금"], "pull out": ["pull out", "빼내다"], "nothing": ["nothing", "아무것도 ~ 않다"], "flow": ["flow", "흐름"], "woke up": ["wake up", "깨다"], "none": ["none", "하나도 ~ 않다"], "its": ["it", "그것의"], "any": ["any", "어떤"], "between": ["between", "~ 사이에"], "two": ["two", "둘"], "after": ["after", "~ 후에"], "too": ["too", "너무"], "much": ["much", "많은"], "their": ["they", "그들의"], "our": ["we", "우리의"], "bank x": ["Bank X", "X은행"], "make": ["make", "만들다"], "out": ["out", "밖으로"], "being": ["be", "~이 되다"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="jusung-go2";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH;
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);render();
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){return (DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}})}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../index.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">밑줄 단어를 누르면 뜻이 나와요. 번호를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+words(o[0])+'<span class="dash">–</span>'+words(o[1])+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'</li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>

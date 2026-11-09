@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>22년 11월 29번 요약문 연습 </title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "jusung-go2", "src": "jusung-go2/mock/sx-data.js", "pidx": 0, "lesson": "22년 11월 29번", "title": "", "label": "", "page": "yoyak-2211-29"}, "scenes": [{"tag": "본문 1번", "ns": [1], "line": "선매 행위는 경쟁자가 일을 시작하지 못하게 [[prevent|막는]] 전략이다.", "en": ["Pre-emption means that a strategy is designed to prevent a rival from starting some particular activity."], "kos": ["선매 행위는 어떤 전략이 경쟁자로 하여금 어떤 특정한 활동을 시작하는 것을 방지하기 위해 만들어진다는 것을 의미한다."]}, {"tag": "본문 2번", "ns": [2], "line": "말뿐인 공표만으로도 경쟁자의 마음을 [[discourage|꺾을]] 수 있다.", "en": ["In some case a pre-emptive move may simply be an announcement of some intent that might discourage rivals from doing the same."], "kos": ["어떤 경우에는 선제적 조치는 단순히 경쟁자들이 같은 행동을 하는 것을 단념시킬 수 있는 어떤 의도의 공표일 수도 있다."]}, {"tag": "본문 3번", "ns": [3], "line": "그래서 [[timing|타이밍]]이 중요하다. 때에 따라 이득이 크게 달라진다.", "en": ["The idea of pre-emption implies that timing is sometimes very important—a decision or an action at one point in time might be much more rewarding than doing it at a different time point."], "kos": ["선매 행위 개념은 때로 타이밍이 매우 중요하다는 것을 암시하는데, 즉 어떤 시점의 결정이나 조치는 다른 시점에 그것을 하는 것보다 훨씬 더 득이 될 수 있다."]}, {"tag": "본문 4번", "ns": [4], "line": "새 [[entrant|진입자]]가 오기 전후로 광고를 확 늘린다.", "en": ["Pre-emption may involve up-weighting advertising for a period before and during when a new entrant launches into a market."], "kos": ["선매 행위는 새로운 진입자가 시장에 진출하기 이전과 진출해 있는 동안에 광고의 가중치를 높이는 것을 포함할 수 있다."]}, {"tag": "본문 5번", "ns": [5], "line": "목적은 진입자의 광고가 인상을 남기기 [[difficult|어렵게]] 만드는 것.", "en": ["The intent is to make it more difficult for the new entrant’s advertising to make an impression on potential buyers."], "kos": ["그 취지는 신규 진입자의 광고가 잠재적 구매자들에게 인상을 남기는 것을 더 어렵게 만드는 것이다."]}, {"tag": "본문 6~7번", "ns": [6, 7], "line": "두 번째 전략은 제품 [[variants|변형]]을 엄청난 [[variety|종류]]로 [[launch|출시하는]] 것이다.", "en": ["Product proliferation is another potential pre-emption strategy.", "The general idea is to launch a large variety of product variants so that there is very little in the way of market demand that is not accommodated."], "kos": ["제품 확산은 또 다른 잠재적인 선매 행위 전략이다.", "일반적인 아이디어는 수용되지 않는 시장 수요가 거의 없도록 다양한 제품 변형을 출시하는 것이다."]}, {"tag": "본문 8번", "ns": [8], "line": "시장이 꽉 차면 경쟁자는 [[untapped|아직 손대지 않은]] 수요를 찾기 힘들다.", "en": ["Arguably, if a market is already filled with product variants it is more difficult for competitors to find untapped pockets of market demand."], "kos": ["거의 틀림없이, 만약 시장이 제품 변형으로 이미 채워져 있다면 경쟁자들은 아직 점유되지 않은 시장 수요 주머니를 찾기가 더 어렵다."]}], "story": [{"a": "prevent", "form": "prevent", "n": 1, "sq": 1, "sum": "meant to [[block]] a rival's start of some activity", "hook": "경쟁자가 시작하지 못하게 막는다는 첫 문장의 prevent(방지하다) → 요약문에서는 block(막다)으로 바꿨어요.", "b": "block", "k": "방지하다 → 막다", "en": "Pre-emption means that a strategy is designed to prevent a rival from starting some particular activity.", "ko": "선매 행위는 어떤 전략이 경쟁자로 하여금 어떤 특정한 활동을 시작하는 것을 방지하기 위해 만들어진다는 것을 의미한다."}, {"a": "discourage", "form": "discourage", "n": 2, "sq": 1, "sum": "may [[weaken]] rivals' wish to do the same", "hook": "말뿐인 공표로 경쟁자의 의욕을 꺾는다는 문장의 discourage(단념시키다) → 요약문에서는 weaken(약하게 하다)으로 바꿨어요.", "b": "weaken", "k": "단념시키다 → 약하게 하다", "en": "In some case a pre-emptive move may simply be an announcement of some intent that might discourage rivals from doing the same.", "ko": "어떤 경우에는 선제적 조치는 단순히 경쟁자들이 같은 행동을 하는 것을 단념시킬 수 있는 어떤 의도의 공표일 수도 있다."}, {"a": "timing", "form": "timing", "n": 3, "sq": 2, "sum": "the right [[moment]] can bring greater rewards", "hook": "때에 따라 이득이 달라진다는 문장의 timing(타이밍) → 요약문에서는 moment(시점)로 바꿨어요.", "b": "moment", "k": "타이밍 → 시점", "en": "The idea of pre-emption implies that timing is sometimes very important—a decision or an action at one point in time might be much more rewarding than doing it at a different time point.", "ko": "선매 행위 개념은 때로 타이밍이 매우 중요하다는 것을 암시하는데, 즉 어떤 시점의 결정이나 조치는 다른 시점에 그것을 하는 것보다 훨씬 더 득이 될 수 있다."}, {"a": "entrant", "form": "entrant", "n": 4, "sq": 2, "sum": "a [[newcomer]]'s market launch", "hook": "시장에 새로 들어오는 업체를 가리키는 entrant(진입자) → 요약문에서는 newcomer(새로 들어온 업체)로 바꿨어요.", "b": "newcomer", "k": "진입자 → 새로 들어온 업체", "en": "Pre-emption may involve up-weighting advertising for a period before and during when a new entrant launches into a market.", "ko": "선매 행위는 새로운 진입자가 시장에 진출하기 이전과 진출해 있는 동안에 광고의 가중치를 높이는 것을 포함할 수 있다."}, {"a": "difficult", "form": "difficult", "n": 5, "sq": 2, "sum": "to make it [[harder]] for the newcomer's ads", "hook": "진입자 광고가 먹히기 힘들게 만든다는 문장의 difficult(어려운) → 요약문에서는 harder(더 어려운)로 바꿨어요.", "b": "hard", "k": "어려운 → 어려운(더 어렵게)", "en": "The intent is to make it more difficult for the new entrant’s advertising to make an impression on potential buyers.", "ko": "그 취지는 신규 진입자의 광고가 잠재적 구매자들에게 인상을 남기는 것을 더 어렵게 만드는 것이다."}, {"a": "launch", "form": "launch", "n": 7, "sq": 3, "sum": "is to [[release]] a wide range of product versions", "hook": "제품을 시장에 내놓는다는 문장의 launch(출시하다) → 요약문에서는 release(출시하다)로 바꿨어요.", "b": "release", "k": "출시하다 → 출시하다", "en": "The general idea is to launch a large variety of product variants so that there is very little in the way of market demand that is not accommodated.", "ko": "일반적인 아이디어는 수용되지 않는 시장 수요가 거의 없도록 다양한 제품 변형을 출시하는 것이다."}, {"a": "variety", "form": "variety", "n": 7, "sq": 3, "sum": "a wide [[range]] of product versions", "hook": "제품을 아주 많은 종류로 내놓는다는 문장의 variety(다양성) → 요약문에서는 range(범위, 종류)로 바꿨어요.", "b": "range", "k": "다양성 → 범위, 종류", "en": "The general idea is to launch a large variety of product variants so that there is very little in the way of market demand that is not accommodated.", "ko": "일반적인 아이디어는 수용되지 않는 시장 수요가 거의 없도록 다양한 제품 변형을 출시하는 것이다."}, {"a": "variant", "form": "variants", "n": 7, "sq": 3, "sum": "a wide range of product [[versions]]", "hook": "조금씩 다른 제품들을 가리키는 variants(변형) → 요약문에서는 versions(버전)로 바꿨어요.", "b": "version", "k": "변형 → 버전", "en": "The general idea is to launch a large variety of product variants so that there is very little in the way of market demand that is not accommodated.", "ko": "일반적인 아이디어는 수용되지 않는 시장 수요가 거의 없도록 다양한 제품 변형을 출시하는 것이다."}, {"a": "untapped", "form": "untapped", "n": 8, "sq": 3, "sum": "to find [[unmet]] market demand", "hook": "아직 아무도 손대지 않은 수요를 가리키는 untapped → 요약문에서는 unmet(충족되지 않은)으로 바꿨어요.", "b": "unmet", "k": "손대지 않은 → 충족되지 않은", "en": "Arguably, if a market is already filled with product variants it is more difficult for competitors to find untapped pockets of market demand.", "ko": "거의 틀림없이, 만약 시장이 제품 변형으로 이미 채워져 있다면 경쟁자들은 아직 점유되지 않은 시장 수요 주머니를 찾기가 더 어렵다."}], "passage": [{"n": 1, "en": "Pre-emption means that a strategy is designed to prevent a rival from starting some particular activity.", "ko": "선매 행위는 어떤 전략이 경쟁자로 하여금 어떤 특정한 활동을 시작하는 것을 방지하기 위해 만들어진다는 것을 의미한다."}, {"n": 2, "en": "In some case a pre-emptive move may simply be an announcement of some intent that might discourage rivals from doing the same.", "ko": "어떤 경우에는 선제적 조치는 단순히 경쟁자들이 같은 행동을 하는 것을 단념시킬 수 있는 어떤 의도의 공표일 수도 있다."}, {"n": 3, "en": "The idea of pre-emption implies that timing is sometimes very important—a decision or an action at one point in time might be much more rewarding than doing it at a different time point.", "ko": "선매 행위 개념은 때로 타이밍이 매우 중요하다는 것을 암시하는데, 즉 어떤 시점의 결정이나 조치는 다른 시점에 그것을 하는 것보다 훨씬 더 득이 될 수 있다."}, {"n": 4, "en": "Pre-emption may involve up-weighting advertising for a period before and during when a new entrant launches into a market.", "ko": "선매 행위는 새로운 진입자가 시장에 진출하기 이전과 진출해 있는 동안에 광고의 가중치를 높이는 것을 포함할 수 있다."}, {"n": 5, "en": "The intent is to make it more difficult for the new entrant’s advertising to make an impression on potential buyers.", "ko": "그 취지는 신규 진입자의 광고가 잠재적 구매자들에게 인상을 남기는 것을 더 어렵게 만드는 것이다."}, {"n": 6, "en": "Product proliferation is another potential pre-emption strategy.", "ko": "제품 확산은 또 다른 잠재적인 선매 행위 전략이다."}, {"n": 7, "en": "The general idea is to launch a large variety of product variants so that there is very little in the way of market demand that is not accommodated.", "ko": "일반적인 아이디어는 수용되지 않는 시장 수요가 거의 없도록 다양한 제품 변형을 출시하는 것이다."}, {"n": 8, "en": "Arguably, if a market is already filled with product variants it is more difficult for competitors to find untapped pockets of market demand.", "ko": "거의 틀림없이, 만약 시장이 제품 변형으로 이미 채워져 있다면 경쟁자들은 아직 점유되지 않은 시장 수요 주머니를 찾기가 더 어렵다."}], "questions": [{"id": 1, "summary": "Pre-emption is a strategy meant to (A) a rival's start of some activity, and even a simple announcement of intent may (B) rivals' wish to do the same.", "ko": "선매 행위는 경쟁자가 어떤 활동을 <b>(A) 시작하지 못하게 막으려는</b> 전략이고, 단순한 의도의 공표도 경쟁자들이 같은 행동을 하려는 마음을 <b>(B) 약하게 할</b> 수 있다.", "opts": [["block", "strengthen"], ["block", "weaken"], ["support", "strengthen"], ["support", "weaken"], ["ignore", "weaken"]], "optko": ["막다 – 강하게 하다", "막다 – 약하게 하다", "돕다 – 강하게 하다", "돕다 – 약하게 하다", "무시하다 – 약하게 하다"], "ans": 1, "wrong": ["strengthen(강하게 하다)이 틀려요. 공표는 경쟁자의 마음을 단념시키지(discourage), 키우지 않아요.", null, "둘 다 틀려요. 선매 행위는 경쟁자를 돕는(support) 게 아니라 막는 거고, 마음을 강하게 한다는 말도 반대예요.", "support(돕다)가 틀려요. 경쟁자의 시작을 돕는 게 아니라 막으려고(prevent) 만든 전략이에요.", "ignore(무시하다)가 틀려요. 경쟁자를 무시하는 게 아니라 시작하지 못하게 막는 전략이에요."], "evid": [{"n": 1, "hl": ["prevent a rival from starting"]}, {"n": 2, "hl": ["discourage rivals from doing the same"]}], "swaps": [["prevent", "block", "방지하다 → 막다"], ["discourage", "weaken", "단념시키다 → 약하게 하다"], ["a rival from starting", "a rival's start", "경쟁자가 시작하는 것을 → 경쟁자의 시작"]], "swapnote": "prevent(방지하다)는 block(막다)이나 stop(멈추다)으로, discourage(단념시키다)는 weaken(약하게 하다)이나 deter(막다)로 바뀌어 나올 수 있어요.", "use": [{"w": "block", "ex": "A wall can block the wind.", "ko": "벽은 바람을 막을 수 있다.", "wk": "막다", "hk": "막을"}, {"w": "weaken", "ex": "Bad news can weaken your hope.", "ko": "나쁜 소식은 희망을 약하게 할 수 있다.", "wk": "약하게 하다", "hk": "약하게 할"}], "flow": "본문 1번에서 선매 행위의 뜻(경쟁자가 시작하지 못하게 막기)을 말하고, 2번에서 In some case(어떤 경우)로 좁혀 말뿐인 공표도 선매가 될 수 있다고 이어요.", "jd": [["Pre-emption is a strategy meant to [[block]]", "선매 행위는 [[막으려는]] 전략이다"], ["a rival's start of some activity,", "경쟁자가 어떤 활동을 시작하는 것을,"], ["and even a simple announcement of intent", "그리고 단순한 의도의 공표조차"], ["may [[weaken]] rivals' wish to do the same.", "경쟁자들이 같은 일을 하려는 마음을 [[약하게 할]] 수 있다."]], "fc": [["본문 1번", "선매 행위 = 경쟁자 막기", "경쟁자가 특정 활동을 시작하지 못하게 만든 전략이에요."], ["본문 2번", "말뿐인 공표도 선매", "같은 행동을 하려는 경쟁자의 마음을 꺾어요."], ["정답 포인트", "{{prevent|막다}} = {{block|막다}}, {{discourage|단념시키다}} = {{weaken|약하게 하다}}", "본문 단어가 뜻이 비슷한 말로 바뀌어 나와요."]], "evid_full": [{"en": "Pre-emption means that a strategy is designed to prevent a rival from starting some particular activity.", "ko": "선매 행위는 어떤 전략이 경쟁자로 하여금 어떤 특정한 활동을 시작하는 것을 방지하기 위해 만들어진다는 것을 의미한다.", "hl": ["prevent a rival from starting"], "hlko": ["경쟁자로 하여금 어떤 특정한 활동을 시작하는 것을 방지하기"], "n": 1}, {"en": "In some case a pre-emptive move may simply be an announcement of some intent that might discourage rivals from doing the same.", "ko": "어떤 경우에는 선제적 조치는 단순히 경쟁자들이 같은 행동을 하는 것을 단념시킬 수 있는 어떤 의도의 공표일 수도 있다.", "hl": ["discourage rivals from doing the same"], "hlko": ["경쟁자들이 같은 행동을 하는 것을 단념시킬"], "n": 2}]}, {"id": 2, "summary": "Because the right (A) can bring greater rewards, a firm may (B) its advertising around a newcomer's market launch to make it harder for the newcomer's ads to influence buyers.", "ko": "올바른 <b>(A) 시점</b>이 더 큰 이득을 가져올 수 있어서, 기업은 새 업체가 시장에 나오는 전후로 광고를 <b>(B) 늘려</b> 그 업체의 광고가 구매자들에게 영향을 주기 더 어렵게 만들 수 있다.", "opts": [["moment", "reduce"], ["price", "reduce"], ["price", "increase"], ["moment", "increase"], ["location", "copy"]], "optko": ["시점 – 줄이다", "가격 – 줄이다", "가격 – 늘리다", "시점 – 늘리다", "위치 – 따라 하다"], "ans": 3, "wrong": ["reduce(줄이다)가 틀려요. 경쟁자가 들어올 때 광고를 줄이는 게 아니라 늘려요(up-weight).", "둘 다 틀려요. 본문이 중요하다고 한 건 가격이 아니라 타이밍(시점)이고, 광고도 줄이지 않고 늘려요.", "price(가격)가 틀려요. 본문은 가격이 아니라 타이밍(시점)이 중요하다고 해요.", null, "둘 다 틀려요. 위치 이야기는 본문에 없고, 광고를 따라 하는 게 아니라 늘리는 거예요."], "evid": [{"n": 3, "hl": ["timing is sometimes very important", "much more rewarding"]}, {"n": 4, "hl": ["up-weighting advertising"]}, {"n": 5, "hl": ["make it more difficult"]}], "swaps": [["timing", "moment", "타이밍 → 시점"], ["up-weighting", "increase", "가중치를 높이다 → 늘리다"], ["entrant", "newcomer", "진입자 → 새로 들어온 업체"], ["difficult", "hard", "어려운 → 어려운(더 어렵게)"], ["make an impression on", "influence", "인상을 남기다 → 영향을 주다"]], "swapnote": "timing(타이밍)은 moment(순간, 시점)로, up-weighting(가중치를 높이기)은 increase(늘리다)로 바뀌었어요. 어려운 합성어는 쉬운 동사 하나로 줄여 읽어요.", "use": [{"w": "moment", "ex": "Wait for the right moment to speak.", "ko": "말할 알맞은 시점을 기다려라.", "wk": "순간, 시점", "hk": "시점"}, {"w": "increase", "ex": "The shop will increase its prices next month.", "ko": "그 가게는 다음 달에 가격을 올릴 것이다.", "wk": "늘리다, 올리다", "hk": "올릴"}], "flow": "본문 3번에서 타이밍이 중요하다고 말하고 → 4번에서 그 예로 새 진입자가 오기 전후에 광고를 늘리는 이야기 → 5번에서 그 목적(진입자 광고가 인상을 남기기 어렵게)이 나와요.", "jd": [["Because the right [[moment]] can bring greater rewards,", "올바른 [[시점]]이 더 큰 이득을 가져올 수 있기 때문에,"], ["a firm may [[increase]] its advertising", "기업은 광고를 [[늘릴]] 수 있다"], ["around a newcomer's market launch", "새 업체가 시장에 나오는 전후로"], ["to make it harder", "더 어렵게 만들려고"], ["for the newcomer's ads to influence buyers.", "그 업체의 광고가 구매자들에게 영향을 주기가."]], "fc": [["본문 3번", "타이밍이 중요하다", "때에 따라 이득이 크게 달라져요."], ["본문 4번", "진입자가 오기 전후로 광고를 늘린다", "{{up-weighting|가중치를 높이기}}가 핵심이에요."], ["본문 5번", "목적은 진입자 광고 효과 줄이기", "{{make an impression|인상을 남기다}}를 더 어렵게 만들어요."], ["정답 포인트", "{{timing|타이밍}} = {{moment|시점}}, {{up-weighting|가중치를 높이다}} = {{increase|늘리다}}", "어려운 말을 쉬운 말로 바꿔 읽어요."]], "evid_full": [{"en": "The idea of pre-emption implies that timing is sometimes very important—a decision or an action at one point in time might be much more rewarding than doing it at a different time point.", "ko": "선매 행위 개념은 때로 타이밍이 매우 중요하다는 것을 암시하는데, 즉 어떤 시점의 결정이나 조치는 다른 시점에 그것을 하는 것보다 훨씬 더 득이 될 수 있다.", "hl": ["timing is sometimes very important", "much more rewarding"], "hlko": ["타이밍이 매우 중요하다", "훨씬 더 득이 될 수 있다"], "n": 3}, {"en": "Pre-emption may involve up-weighting advertising for a period before and during when a new entrant launches into a market.", "ko": "선매 행위는 새로운 진입자가 시장에 진출하기 이전과 진출해 있는 동안에 광고의 가중치를 높이는 것을 포함할 수 있다.", "hl": ["up-weighting advertising"], "hlko": ["광고의 가중치를 높이는 것"], "n": 4}, {"en": "The intent is to make it more difficult for the new entrant’s advertising to make an impression on potential buyers.", "ko": "그 취지는 신규 진입자의 광고가 잠재적 구매자들에게 인상을 남기는 것을 더 어렵게 만드는 것이다.", "hl": ["make it more difficult"], "hlko": ["더 어렵게 만드는 것"], "n": 5}]}, {"id": 3, "summary": "Another pre-emption strategy is to (A) a wide range of product versions, which makes it hard for rivals to find (B) market demand.", "ko": "또 다른 선매 행위 전략은 다양한 제품 버전을 <b>(A) 출시하는</b> 것이고, 이는 경쟁자가 <b>(B) 충족되지 않은</b> 시장 수요를 찾기 어렵게 만든다.", "opts": [["release", "declining"], ["remove", "declining"], ["limit", "unmet"], ["remove", "unmet"], ["release", "unmet"]], "optko": ["출시하다 – 줄어드는", "없애다 – 줄어드는", "제한하다 – 충족되지 않은", "없애다 – 충족되지 않은", "출시하다 – 충족되지 않은"], "ans": 4, "wrong": ["declining(줄어드는)이 틀려요. 본문은 아직 채워지지 않은(untapped) 수요를 찾기 어렵다고 해요.", "둘 다 틀려요. 제품을 없애는 게 아니라 다양하게 내놓는 전략이고, 수요가 줄어든다는 말도 없어요.", "limit(제한하다)이 틀려요. 제품 종류를 제한하는 게 아니라 다양하게 출시(launch)해요.", "remove(없애다)가 틀려요. 제품을 없애는 게 아니라 다양하게 출시(launch)해요.", null], "evid": [{"n": 7, "hl": ["launch a large variety of product variants"]}, {"n": 8, "hl": ["untapped pockets of market demand"]}], "swaps": [["launch", "release", "출시하다 → 출시하다"], ["variety", "range", "다양성 → 범위, 종류"], ["variant", "version", "변형 → 버전"], ["untapped", "unmet", "손대지 않은 → 충족되지 않은"]], "swapnote": "untapped(아직 손대지 않은)는 unmet(충족되지 않은)으로 바뀌었어요. 앞 문장의 accommodated(수용된)의 반대말이라고 생각하면 쉬워요.", "use": [{"w": "release", "ex": "The company will release a new phone next week.", "ko": "그 회사는 다음 주에 새 휴대폰을 출시할 것이다.", "wk": "출시하다", "hk": "출시할"}, {"w": "unmet", "ex": "Many people have unmet needs in the city.", "ko": "도시에는 충족되지 않은 필요를 가진 사람이 많다.", "wk": "충족되지 않은", "hk": "충족되지 않은"}], "flow": "본문 6번에서 또 다른 전략(제품 확산)을 소개 → 7번에서 다양한 제품을 출시한다고 풀이 → 8번에서 시장이 꽉 차면 경쟁자가 빈틈 수요를 찾기 어렵다고 마무리해요.", "jd": [["Another pre-emption strategy is to [[release]]", "또 다른 선매 행위 전략은 [[출시하는]] 것이다"], ["a wide range of product versions,", "다양한 제품 버전을,"], ["which makes it hard for rivals", "그것은 경쟁자들이 ~하기 어렵게 만든다"], ["to find [[unmet]] market demand.", "[[충족되지 않은]] 시장 수요를 찾기가."]], "fc": [["본문 6번", "또 다른 전략: 제품 확산", "광고에 이어 두 번째 전략이에요."], ["본문 7번", "다양한 제품을 출시한다", "채워지지 않는 수요가 거의 없게 만들어요."], ["본문 8번", "시장이 꽉 차면 빈틈 찾기 어렵다", "{{untapped|손대지 않은}} 수요를 못 찾아요."], ["정답 포인트", "{{launch|출시하다}} = {{release|출시하다}}, {{untapped|손대지 않은}} = {{unmet|충족되지 않은}}", "{{variety|다양성}}은 {{range|범위, 종류}}로, {{variant|변형}}은 {{version|버전}}으로 바뀌어요."]], "evid_full": [{"en": "The general idea is to launch a large variety of product variants so that there is very little in the way of market demand that is not accommodated.", "ko": "일반적인 아이디어는 수용되지 않는 시장 수요가 거의 없도록 다양한 제품 변형을 출시하는 것이다.", "hl": ["launch a large variety of product variants"], "hlko": ["다양한 제품 변형을 출시하는 것"], "n": 7}, {"en": "Arguably, if a market is already filled with product variants it is more difficult for competitors to find untapped pockets of market demand.", "ko": "거의 틀림없이, 만약 시장이 제품 변형으로 이미 채워져 있다면 경쟁자들은 아직 점유되지 않은 시장 수요 주머니를 찾기가 더 어렵다.", "hl": ["untapped pockets of market demand"], "hlko": ["아직 점유되지 않은 시장 수요 주머니"], "n": 8}]}], "gloss": {"pre-emption": ["pre-emption", "선매 행위(경쟁자보다 먼저 선수 치기)"], "pre-emptive": ["pre-emptive", "선제적인"], "means": ["mean", "의미하다"], "strategy": ["strategy", "전략"], "designed": ["design", "(목적을 갖고) 만들다"], "prevent": ["prevent", "방지하다, 막다"], "rival": ["rival", "경쟁자"], "rivals": ["rival", "경쟁자"], "rival's": ["rival", "경쟁자"], "starting": ["start", "시작하다"], "start": ["start", "시작"], "some": ["some", "어떤"], "particular": ["particular", "특정한"], "activity": ["activity", "활동"], "case": ["case", "경우"], "move": ["move", "조치, 움직임"], "simply": ["simply", "단순히"], "announcement": ["announcement", "공표, 발표"], "intent": ["intent", "의도"], "discourage": ["discourage", "단념시키다"], "doing": ["do", "하다"], "same": ["same", "같은"], "simple": ["simple", "단순한"], "wish": ["wish", "바람, 마음"], "block": ["block", "막다"], "weaken": ["weaken", "약하게 하다"], "strengthen": ["strengthen", "강하게 하다"], "support": ["support", "돕다, 지지하다"], "ignore": ["ignore", "무시하다"], "even": ["even", "~조차"], "idea": ["idea", "개념, 생각"], "implies": ["imply", "암시하다"], "timing": ["timing", "타이밍, 시기 선택"], "important": ["important", "중요한"], "decision": ["decision", "결정"], "action": ["action", "조치, 행동"], "point": ["point", "시점, 지점"], "time": ["time", "시간, 시점"], "rewarding": ["rewarding", "득이 되는, 보람 있는"], "different": ["different", "다른"], "rewards": ["reward", "이득, 보상"], "sometimes": ["sometimes", "때때로"], "very": ["very", "매우"], "much": ["much", "훨씬"], "might": ["might", "~일 수도 있다"], "right": ["right", "알맞은, 올바른"], "bring": ["bring", "가져오다"], "greater": ["great", "더 큰"], "firm": ["firm", "기업, 회사"], "moment": ["moment", "순간, 시점"], "increase": ["increase", "늘리다, 올리다"], "reduce": ["reduce", "줄이다"], "price": ["price", "가격"], "location": ["location", "위치"], "copy": ["copy", "따라 하다, 베끼다"], "advertising": ["advertising", "광고(하기)"], "ads": ["ad", "광고"], "newcomer's": ["newcomer", "새로 들어온 업체"], "newcomer": ["newcomer", "새로 들어온 업체"], "market": ["market", "시장"], "launch": ["launch", "출시하다, 진출하다"], "launches": ["launch", "출시하다, 진출하다"], "harder": ["hard", "더 어려운"], "influence": ["influence", "영향을 주다"], "buyers": ["buyer", "구매자"], "around": ["around", "~ 전후로, 주변에"], "involve": ["involve", "포함하다"], "up-weighting": ["up-weight", "가중치를 높이다"], "period": ["period", "기간"], "before": ["before", "~ 전에"], "during": ["during", "~ 동안"], "new": ["new", "새로운"], "entrant": ["entrant", "진입자, 새로 들어온 업체"], "entrant’s": ["entrant", "진입자"], "make": ["make", "만들다"], "difficult": ["difficult", "어려운"], "impression": ["impression", "인상"], "potential": ["potential", "잠재적인"], "product": ["product", "제품"], "proliferation": ["proliferation", "확산, 급증"], "another": ["another", "또 다른"], "general": ["general", "일반적인"], "large": ["large", "큰, 많은"], "variety": ["variety", "다양성, 종류"], "variants": ["variant", "변형"], "little": ["little", "거의 없는"], "demand": ["demand", "수요"], "accommodated": ["accommodate", "수용하다"], "arguably": ["arguably", "거의 틀림없이"], "already": ["already", "이미"], "filled": ["fill", "채우다"], "competitors": ["competitor", "경쟁자"], "find": ["find", "찾다"], "untapped": ["untapped", "아직 손대지 않은"], "pockets": ["pocket", "(작은) 틈새, 주머니"], "wide": ["wide", "넓은, 다양한"], "range": ["range", "범위, 종류"], "versions": ["version", "버전, 형태"], "release": ["release", "출시하다"], "unmet": ["unmet", "충족되지 않은"], "declining": ["decline", "줄어드는"], "remove": ["remove", "없애다"], "limit": ["limit", "제한하다"], "hard": ["hard", "어려운"], "makes": ["make", "만들다"], "leave": ["leave", "남기다"], "weaker": ["weak", "약한"], "discourages": ["discourage", "단념시키다"], "announce": ["announce", "발표하다"], "wall": ["wall", "벽"], "meant": ["mean", "~할 목적으로 만들어진 (meant to = ~하려는)"], "because": ["because", "~ 때문에"], "into": ["into", "~ 안으로"], "way": ["way", "방식, 방법"], "variant": ["variant", "변형"], "version": ["version", "버전, 형태"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="jusung-go2";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH;
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);render();
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){return (DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}})}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../index.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">밑줄 단어를 누르면 뜻이 나와요. 번호를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+words(o[0])+'<span class="dash">–</span>'+words(o[1])+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'</li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>
