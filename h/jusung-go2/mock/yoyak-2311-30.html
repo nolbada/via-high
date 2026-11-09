@@ -387,12 +387,12 @@ function vHome(){
 function vQ(){
   var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
   var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
-  if(!done)h+='<p class="hint">밑줄 단어를 누르면 뜻이 나와요. 번호를 누르면 답을 골라요.</p>';
+  if(!done)h+='<p class="hint">문장의 밑줄 단어를 누르면 뜻이 나와요. 보기를 누르면 답을 골라요.</p>';
   h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
   q.opts.forEach(function(o,i){
     var cls='opt'+(done?' lock':'');
     if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
-    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+words(o[0])+'<span class="dash">–</span>'+words(o[1])+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+(done?words(o[0]):esc(o[0]))+'<span class="dash">–</span>'+(done?words(o[1]):esc(o[1]))+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
   });
   h+='</div>';
   if(done){
