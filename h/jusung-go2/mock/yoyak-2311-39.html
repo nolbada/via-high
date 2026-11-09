@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>23년 11월 39번 요약문 연습 </title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+<script>(function(){try{if(window.__recl||!/\/h\/(geumcheon|jusung|cheongseok)-(gimal|go1|go2)\//.test(location.pathname))return;window.__recl=1;var s=document.createElement('script');s.src=location.pathname.replace(/\/h\/.*$/,'/h/rec.js')+'?v=1';(document.head||document.documentElement).appendChild(s)}catch(e){}})();</script></head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "jusung-go2", "src": "jusung-go2/mock/sx-data.js", "pidx": 21, "lesson": "23년 11월 39번", "title": "", "label": "", "page": "yoyak-2311-39"}, "scenes": [{"tag": "본문 1~2번", "ns": [1, 2], "line": "프랑스가 [[precisely|정밀하게]] 규정한 단위를 퍼뜨렸지만, 양자 역학이 그 꿈을 [[destroyed|깨 버렸다]].", "en": ["By the nineteenth century, France had developed a system of precisely defined units of measurement to capture space, time, and more, and had begun to get other nations to adopt the same standards.", "Just half a century later, in the 1920s, the discoveries of quantum mechanics forever destroyed the dream of comprehensive and perfect measurement."], "kos": ["19세기까지, 프랑스는 공간, 시간, 그리고 더 많은 것을 포착하기 위해 정밀하게 규정된 측정 단위의 체계를 개발했고, 다른 국가들이 동일한 기준을 채택하도록 만들기 시작했었다.", "불과 반세기 후, 1920년대에, 양자 역학의 발견은 포괄적이고 완벽한 측정에 대한 꿈을 영원히 깨 버렸다."]}, {"tag": "본문 3~4번", "ns": [3, 4], "line": "그래도 완벽한 측정을 향한 정신은 [[continued|이어졌고]] 비즈니스에서는 [[expanded|확장됐다]].", "en": ["And yet, outside a relatively small circle of physicists, the mindset of humankind’s drive to flawlessly measure continued among engineers and scientists.", "In the world of business it even expanded, as the precision-oriented sciences of mathematics and statistics began to influence all areas of commerce."], "kos": ["그러나 비교적 소수 집단의 물리학자를 제외하고는 공학자와 과학자 사이에서 완벽하게 측정하려고 하는 인류의 추진 정신은 계속되었다.", "정확성을 지향하는 수학과 통계학이라는 과학이 상업의 모든 영역에 영향을 미치기 시작하면서 비즈니스의 세계에서 그것은 심지어 확장되었다."]}, {"tag": "본문 5번", "ns": [5], "line": "하지만 [[imprecision|부정확함]]을 허용하는 것은 [[shortcoming|단점]]이 아닐 수 있다.", "en": ["However, contrary to the trend of the past several decades, in many new situations that are occurring today, allowing for imprecision ― for messiness ― may be a positive feature, not a shortcoming."], "kos": ["그러나, 지난 수십 년간의 경향과 반대로, 오늘날 발생하는 많은 새로운 상황에서 부정확성, 즉, 번잡함을 허용하는 것은 단점이 아니라 긍정적인 특성이 될 수 있다."]}, {"tag": "본문 6~7번", "ns": [6, 7], "line": "오류 기준을 풀어 주는 [[tradeoff|맞교환]]으로 훨씬 더 많은 데이터를 얻는다.", "en": ["As a tradeoff for relaxing the standards of allowable errors, one can get a hold of much more data.", "It isn’t just that “more is better than some,” but that, in fact, sometimes “more is greater than better.”"], "kos": ["허용 가능한 오류의 기준을 완화하는 것에 대한 맞교환으로서, 사람은 훨씬 더 많은 데이터를 얻을 수 있다.", "그것은 단순히 ‘더 많은 것이 조금보다 더 나을’ 뿐만 아니라, 사실은 때때로 ‘더 많은 것이 더 좋은 것보다 더 훌륭하기’도 하다."]}], "story": [{"a": "precisely", "form": "precisely", "n": 1, "sq": 1, "sum": "a system of [[exact]] units", "hook": "정밀하게 규정된 측정 단위라는 precisely → 요약문에서는 exact(정확한)로 바뀌었어요.", "b": "exactly", "k": "정밀하게 → 정확하게", "en": "By the nineteenth century, France had developed a system of precisely defined units of measurement to capture space, time, and more, and had begun to get other nations to adopt the same standards.", "ko": "19세기까지, 프랑스는 공간, 시간, 그리고 더 많은 것을 포착하기 위해 정밀하게 규정된 측정 단위의 체계를 개발했고, 다른 국가들이 동일한 기준을 채택하도록 만들기 시작했었다."}, {"a": "destroy", "form": "destroyed", "n": 2, "sq": 1, "sum": "later [[shattered]] the dream", "hook": "양자 역학이 꿈을 깨 버렸다는 destroyed(파괴했다) → 요약문에서는 shattered(산산이 깼다)로 바뀌었어요.", "b": "shatter", "k": "파괴하다 → 산산이 깨다", "en": "Just half a century later, in the 1920s, the discoveries of quantum mechanics forever destroyed the dream of comprehensive and perfect measurement.", "ko": "불과 반세기 후, 1920년대에, 양자 역학의 발견은 포괄적이고 완벽한 측정에 대한 꿈을 영원히 깨 버렸다."}, {"a": "continue", "form": "continued", "n": 3, "sq": 2, "sum": "flawlessly [[persisted]] among engineers", "hook": "공학자·과학자 사이에서 계속됐다는 continued → 요약문에서는 persisted(이어졌다)로 바뀌었어요.", "b": "persist", "k": "계속되다 → 끈질기게 이어지다", "en": "And yet, outside a relatively small circle of physicists, the mindset of humankind’s drive to flawlessly measure continued among engineers and scientists.", "ko": "그러나 비교적 소수 집단의 물리학자를 제외하고는 공학자와 과학자 사이에서 완벽하게 측정하려고 하는 인류의 추진 정신은 계속되었다."}, {"a": "expand", "form": "expanded", "n": 4, "sq": 2, "sum": "and even [[grew]] in business", "hook": "비즈니스에서는 심지어 확장됐다는 expanded → 요약문에서는 grew(커졌다)로 바뀌었어요.", "b": "grow", "k": "확장되다 → 커지다", "en": "In the world of business it even expanded, as the precision-oriented sciences of mathematics and statistics began to influence all areas of commerce.", "ko": "정확성을 지향하는 수학과 통계학이라는 과학이 상업의 모든 영역에 영향을 미치기 시작하면서 비즈니스의 세계에서 그것은 심지어 확장되었다."}, {"a": "imprecision", "form": "imprecision", "n": 5, "sq": 3, "sum": "allowing some [[inaccuracy]]", "hook": "부정확함을 허용한다는 imprecision → 요약문에서는 inaccuracy(부정확함)로 바뀌었어요.", "b": "inaccuracy", "k": "부정확함 → 부정확함", "en": "However, contrary to the trend of the past several decades, in many new situations that are occurring today, allowing for imprecision ― for messiness ― may be a positive feature, not a shortcoming.", "ko": "그러나, 지난 수십 년간의 경향과 반대로, 오늘날 발생하는 많은 새로운 상황에서 부정확성, 즉, 번잡함을 허용하는 것은 단점이 아니라 긍정적인 특성이 될 수 있다."}, {"a": "shortcoming", "form": "shortcoming", "n": 5, "sq": 3, "sum": "rather than a [[weakness]]", "hook": "단점이 아니라 긍정적인 특성이라는 shortcoming(단점) → 요약문에서는 weakness(약점)로 바뀌었어요.", "b": "weakness", "k": "단점 → 약점", "en": "However, contrary to the trend of the past several decades, in many new situations that are occurring today, allowing for imprecision ― for messiness ― may be a positive feature, not a shortcoming.", "ko": "그러나, 지난 수십 년간의 경향과 반대로, 오늘날 발생하는 많은 새로운 상황에서 부정확성, 즉, 번잡함을 허용하는 것은 단점이 아니라 긍정적인 특성이 될 수 있다."}, {"a": "tradeoff", "form": "tradeoff", "n": 6, "sq": 3, "sum": "in [[exchange]] for relaxing", "hook": "기준을 풀어 주는 대신 데이터를 더 얻는 tradeoff(맞교환) → 요약문에서는 exchange(교환)로 바뀌었어요.", "b": "exchange", "k": "맞교환 → 교환", "en": "As a tradeoff for relaxing the standards of allowable errors, one can get a hold of much more data.", "ko": "허용 가능한 오류의 기준을 완화하는 것에 대한 맞교환으로서, 사람은 훨씬 더 많은 데이터를 얻을 수 있다."}], "passage": [{"n": 1, "en": "By the nineteenth century, France had developed a system of precisely defined units of measurement to capture space, time, and more, and had begun to get other nations to adopt the same standards.", "ko": "19세기까지, 프랑스는 공간, 시간, 그리고 더 많은 것을 포착하기 위해 정밀하게 규정된 측정 단위의 체계를 개발했고, 다른 국가들이 동일한 기준을 채택하도록 만들기 시작했었다."}, {"n": 2, "en": "Just half a century later, in the 1920s, the discoveries of quantum mechanics forever destroyed the dream of comprehensive and perfect measurement.", "ko": "불과 반세기 후, 1920년대에, 양자 역학의 발견은 포괄적이고 완벽한 측정에 대한 꿈을 영원히 깨 버렸다."}, {"n": 3, "en": "And yet, outside a relatively small circle of physicists, the mindset of humankind’s drive to flawlessly measure continued among engineers and scientists.", "ko": "그러나 비교적 소수 집단의 물리학자를 제외하고는 공학자와 과학자 사이에서 완벽하게 측정하려고 하는 인류의 추진 정신은 계속되었다."}, {"n": 4, "en": "In the world of business it even expanded, as the precision-oriented sciences of mathematics and statistics began to influence all areas of commerce.", "ko": "정확성을 지향하는 수학과 통계학이라는 과학이 상업의 모든 영역에 영향을 미치기 시작하면서 비즈니스의 세계에서 그것은 심지어 확장되었다."}, {"n": 5, "en": "However, contrary to the trend of the past several decades, in many new situations that are occurring today, allowing for imprecision ― for messiness ― may be a positive feature, not a shortcoming.", "ko": "그러나, 지난 수십 년간의 경향과 반대로, 오늘날 발생하는 많은 새로운 상황에서 부정확성, 즉, 번잡함을 허용하는 것은 단점이 아니라 긍정적인 특성이 될 수 있다."}, {"n": 6, "en": "As a tradeoff for relaxing the standards of allowable errors, one can get a hold of much more data.", "ko": "허용 가능한 오류의 기준을 완화하는 것에 대한 맞교환으로서, 사람은 훨씬 더 많은 데이터를 얻을 수 있다."}, {"n": 7, "en": "It isn’t just that “more is better than some,” but that, in fact, sometimes “more is greater than better.”", "ko": "그것은 단순히 ‘더 많은 것이 조금보다 더 나을’ 뿐만 아니라, 사실은 때때로 ‘더 많은 것이 더 좋은 것보다 더 훌륭하기’도 하다."}], "questions": [{"id": 1, "summary": "By the nineteenth century France had built a system of exact units and begun to (A) other nations to adopt the same standards, but quantum mechanics later (B) the dream of perfect measurement.", "ko": "19세기에 이르러 프랑스는 정확한 단위 체계를 만들고 다른 나라들이 같은 기준을 채택하도록 <b>(A) 설득하기</b> 시작했지만, 양자 역학이 나중에 완벽한 측정에 대한 꿈을 <b>(B) 깨 버렸다</b>.", "opts": [["persuade", "strengthened"], ["forbid", "shattered"], ["forbid", "strengthened"], ["persuade", "shattered"], ["warn", "completed"]], "optko": ["설득하다 – 강화했다", "금지하다 – 깨 버렸다", "금지하다 – 강화했다", "설득하다 – 깨 버렸다", "경고하다 – 완성했다"], "ans": 3, "wrong": ["strengthened(강화했다)가 틀려요. 1920년대 양자 역학은 완벽한 측정의 꿈을 영원히 깨 버렸어요(destroyed).", "forbid(금지하다)가 틀려요. 프랑스는 다른 나라가 같은 기준을 채택하도록 만들려고 했지(get ... to adopt) 금지하지 않았어요.", "둘 다 틀려요. 프랑스는 기준을 채택하게 하려 했고, 양자 역학은 꿈을 강화하지 않고 깼어요.", null, "둘 다 틀려요. 경고했다는 말도, 꿈을 완성했다는 말도 본문과 반대예요."], "evid": [{"n": 1, "hl": ["a system of precisely defined units of measurement", "get other nations to adopt the same standards"]}, {"n": 2, "hl": ["forever destroyed the dream of comprehensive and perfect measurement"]}], "swaps": [["precisely", "exactly", "정밀하게 → 정확하게"], ["destroy", "shatter", "파괴하다 → 산산이 깨다"], ["comprehensive", "complete", "포괄적인 → 완전한"]], "swapnote": "precisely defined(정밀하게 규정된)는 exact(정확한)로, destroyed(파괴했다)는 shattered(산산이 깼다)로 바뀌었어요. 꿈이 '깨졌다'고 읽으면 쉬워요.", "use": [{"w": "persuade", "ex": "He tried to persuade his friend to join the club.", "ko": "그는 친구가 동아리에 들어오도록 설득하려 했다.", "wk": "설득하다", "hk": "설득하려"}, {"w": "shatter", "ex": "The ball can shatter a glass window.", "ko": "공은 유리창을 산산이 깰 수 있다.", "wk": "산산이 깨다", "hk": "산산이 깰"}], "flow": "본문 1번에서 19세기 프랑스가 정밀한 측정 단위를 만들어 다른 나라에도 채택시켰다고 하고 → 2번에서 불과 반세기 뒤 양자 역학이 그 완벽한 측정의 꿈을 깨 버렸다고 이어요.", "jd": [["By the nineteenth century France had built a system of exact units", "19세기에 이르러 프랑스는 정확한 단위 체계를 만들었고"], ["and begun to [[persuade]] other nations", "다른 나라들을 [[설득하기]] 시작했다"], ["to adopt the same standards,", "같은 기준을 채택하도록,"], ["but quantum mechanics later [[shattered]]", "하지만 양자 역학이 나중에 [[깨 버렸다]]"], ["the dream of perfect measurement.", "완벽한 측정에 대한 꿈을."]], "fc": [["본문 1번", "19세기 프랑스: 정밀한 측정 단위를 만들어 퍼뜨림", "다른 나라도 같은 기준을 쓰게 했어요."], ["본문 2번", "1920년대 양자 역학: 완벽한 측정의 꿈이 깨짐", "불과 반세기 뒤예요."], ["정답 포인트", "{{precisely|정밀하게}} → {{exact|정확한}}, {{destroy|파괴하다}} → {{shatter|산산이 깨다}}", "본문 단어를 쉬운 말로 바꿨어요."]], "evid_full": [{"en": "By the nineteenth century, France had developed a system of precisely defined units of measurement to capture space, time, and more, and had begun to get other nations to adopt the same standards.", "ko": "19세기까지, 프랑스는 공간, 시간, 그리고 더 많은 것을 포착하기 위해 정밀하게 규정된 측정 단위의 체계를 개발했고, 다른 국가들이 동일한 기준을 채택하도록 만들기 시작했었다.", "hl": ["a system of precisely defined units of measurement", "get other nations to adopt the same standards"], "hlko": ["정밀하게 규정된 측정 단위의 체계", "다른 국가들이 동일한 기준을 채택하도록 만들기"], "n": 1}, {"en": "Just half a century later, in the 1920s, the discoveries of quantum mechanics forever destroyed the dream of comprehensive and perfect measurement.", "ko": "불과 반세기 후, 1920년대에, 양자 역학의 발견은 포괄적이고 완벽한 측정에 대한 꿈을 영원히 깨 버렸다.", "hl": ["forever destroyed the dream of comprehensive and perfect measurement"], "hlko": ["포괄적이고 완벽한 측정에 대한 꿈을 영원히 깨 버렸다"], "n": 2}]}, {"id": 2, "summary": "Outside a small circle of physicists, the urge to measure flawlessly (A) among engineers and scientists and even (B) in business as mathematics and statistics came to influence commerce.", "ko": "소수의 물리학자들을 제외하고는 결점 없이 측정하려는 충동이 공학자와 과학자 사이에서 <b>(A) 이어졌고</b>, 수학과 통계학이 상업에 영향을 미치게 되면서 비즈니스에서는 심지어 <b>(B) 커졌다</b>.", "opts": [["persisted", "shrank"], ["persisted", "grew"], ["vanished", "grew"], ["vanished", "shrank"], ["faded", "weakened"]], "optko": ["이어졌다 – 줄었다", "이어졌다 – 커졌다", "사라졌다 – 커졌다", "사라졌다 – 줄었다", "흐려졌다 – 약해졌다"], "ans": 1, "wrong": ["shrank(줄었다)가 틀려요. 비즈니스에서는 이 추구가 오히려 확장됐어요(expanded).", null, "vanished(사라졌다)가 틀려요. 완벽하게 측정하려는 정신은 공학자와 과학자 사이에서 계속됐어요(continued).", "둘 다 틀려요. 그 정신은 사라지지 않고 이어졌고, 비즈니스에서는 줄지 않고 커졌어요.", "둘 다 틀려요. 흐려지거나 약해진 게 아니라 이어지고 확장됐어요."], "evid": [{"n": 3, "hl": ["outside a relatively small circle of physicists", "continued among engineers and scientists"]}, {"n": 4, "hl": ["even expanded", "began to influence all areas of commerce"]}], "swaps": [["continue", "persist", "계속되다 → 끈질기게 이어지다"], ["expand", "grow", "확장되다 → 커지다"], ["precision-oriented", "exact", "정확성을 지향하는 → 정확한"]], "swapnote": "continued(계속됐다)는 persisted(이어졌다)로, expanded(확장됐다)는 grew(커졌다)로 바뀌었어요. 꿈이 깨져도 현실에서는 계속됐다는 대비를 기억해요.", "use": [{"w": "persist", "ex": "The rain will persist all day.", "ko": "비가 하루 종일 계속될 것이다.", "wk": "계속되다", "hk": "계속될"}, {"w": "grew", "ex": "The town grew quickly after the road opened.", "ko": "도로가 열린 뒤 마을은 빠르게 커졌다.", "wk": "커지다", "hk": "커졌다"}], "flow": "본문 3번에서 And yet(그러나) 소수의 물리학자를 빼면 공학자·과학자들은 완벽한 측정을 계속 추구했다고 하고 → 4번에서 비즈니스에서는 수학과 통계학 덕에 오히려 더 넓어졌다고 해요.", "jd": [["Outside a small circle of physicists,", "소수의 물리학자들을 제외하고는,"], ["the urge to measure flawlessly [[persisted]]", "결점 없이 측정하려는 충동은 [[이어졌고]]"], ["among engineers and scientists", "공학자와 과학자 사이에서"], ["and even [[grew]] in business", "비즈니스에서는 심지어 [[커졌다]]"], ["as mathematics and statistics came to influence commerce.", "수학과 통계학이 상업에 영향을 미치게 되면서."]], "fc": [["본문 3번", "그래도 공학자·과학자는 완벽한 측정을 계속 추구", "소수 물리학자만 예외였어요."], ["본문 4번", "비즈니스에서는 더 확장됨", "수학과 통계학이 상업에 영향을 줬어요."], ["정답 포인트", "{{continue|계속되다}} → {{persist|끈질기게 이어지다}}, {{expand|확장되다}} → {{grow|커지다}}", "꿈이 깨져도 현실은 이어졌어요."]], "evid_full": [{"en": "And yet, outside a relatively small circle of physicists, the mindset of humankind’s drive to flawlessly measure continued among engineers and scientists.", "ko": "그러나 비교적 소수 집단의 물리학자를 제외하고는 공학자와 과학자 사이에서 완벽하게 측정하려고 하는 인류의 추진 정신은 계속되었다.", "hl": ["outside a relatively small circle of physicists", "continued among engineers and scientists"], "hlko": ["비교적 소수 집단의 물리학자를 제외하고는", "공학자와 과학자 사이에서"], "n": 3}, {"en": "In the world of business it even expanded, as the precision-oriented sciences of mathematics and statistics began to influence all areas of commerce.", "ko": "정확성을 지향하는 수학과 통계학이라는 과학이 상업의 모든 영역에 영향을 미치기 시작하면서 비즈니스의 세계에서 그것은 심지어 확장되었다.", "hl": ["even expanded", "began to influence all areas of commerce"], "hlko": ["심지어 확장되었다", "상업의 모든 영역에 영향을 미치기 시작하면서"], "n": 4}]}, {"id": 3, "summary": "Today, allowing some (A) can be a strength rather than a weakness: in (B) for relaxing the standards of allowable errors, we can gather far more data.", "ko": "오늘날 어느 정도의 <b>(A) 부정확함</b>을 허용하는 것은 약점이 아니라 강점이 될 수 있다. 허용 오류 기준을 완화하는 <b>(B) 대가로</b> 우리는 훨씬 더 많은 데이터를 모을 수 있다.", "opts": [["inaccuracy", "competition"], ["precision", "exchange"], ["inaccuracy", "exchange"], ["precision", "competition"], ["stability", "preference"]], "optko": ["부정확함 – 경쟁", "정밀함 – 대가", "부정확함 – 대가", "정밀함 – 경쟁", "안정 – 선호"], "ans": 2, "wrong": ["competition(경쟁)이 틀려요. 기준을 완화하는 것은 더 많은 데이터를 얻는 대가(tradeoff)예요.", "precision(정밀함)이 틀려요. 본문은 정밀함이 아니라 부정확함(imprecision)을 허용하는 게 장점일 수 있다고 해요.", null, "둘 다 틀려요. 허용하는 건 정밀함이 아니라 부정확함이고, 경쟁 이야기는 본문에 없어요.", "둘 다 틀려요. 안정이라는 말도, 선호라는 말도 본문에 없어요."], "evid": [{"n": 5, "hl": ["allowing for imprecision", "a positive feature, not a shortcoming"]}, {"n": 6, "hl": ["relaxing the standards of allowable errors", "get a hold of much more data"]}], "swaps": [["imprecision", "inaccuracy", "부정확함 → 부정확함"], ["shortcoming", "weakness", "단점 → 약점"], ["tradeoff", "exchange", "맞교환 → 교환"]], "swapnote": "imprecision(부정확함)은 inaccuracy(부정확함)로, shortcoming(단점)은 weakness(약점)로, tradeoff(맞교환)는 exchange(교환)로 바뀌었어요.", "use": [{"w": "inaccuracy", "ex": "The map had an inaccuracy near the river.", "ko": "그 지도는 강 근처에 부정확한 부분이 있었다.", "wk": "부정확함", "hk": "부정확한 부분"}, {"w": "exchange", "ex": "She gave me a pen in exchange for my notebook.", "ko": "그녀는 내 공책의 대가로 펜을 주었다.", "wk": "교환, 대가", "hk": "대가로"}], "flow": "본문 5번에서 However(하지만) 요즘은 부정확함을 허용하는 것이 단점이 아니라 장점일 수 있다고 하고 → 6번에서 오류 기준을 느슨하게 하는 대신 훨씬 더 많은 데이터를 얻는다고 풀어요.", "jd": [["Today, allowing some [[inaccuracy]] can be a strength", "오늘날 어느 정도의 [[부정확함]]을 허용하는 것은 강점이 될 수 있다"], ["rather than a weakness:", "약점이 아니라:"], ["in [[exchange]] for relaxing the standards of allowable errors,", "허용 오류 기준을 완화하는 [[대가로]],"], ["we can gather far more data.", "우리는 훨씬 더 많은 데이터를 모을 수 있다."]], "fc": [["본문 5번", "하지만 부정확함을 허용하는 게 장점일 수 있다", "However(하지만)로 방향이 바뀌어요."], ["본문 6번", "오류 기준을 풀어 주면 훨씬 더 많은 데이터", "맞교환이에요."], ["정답 포인트", "{{imprecision|부정확함}} = {{inaccuracy|부정확함}}, {{tradeoff|맞교환}} → {{exchange|교환}}", "{{shortcoming|단점}}은 {{weakness|약점}}으로 바뀌었어요."]], "evid_full": [{"en": "However, contrary to the trend of the past several decades, in many new situations that are occurring today, allowing for imprecision ― for messiness ― may be a positive feature, not a shortcoming.", "ko": "그러나, 지난 수십 년간의 경향과 반대로, 오늘날 발생하는 많은 새로운 상황에서 부정확성, 즉, 번잡함을 허용하는 것은 단점이 아니라 긍정적인 특성이 될 수 있다.", "hl": ["allowing for imprecision", "a positive feature, not a shortcoming"], "hlko": ["부정확성, 즉, 번잡함을 허용하는 것은", "단점이 아니라 긍정적인 특성"], "n": 5}, {"en": "As a tradeoff for relaxing the standards of allowable errors, one can get a hold of much more data.", "ko": "허용 가능한 오류의 기준을 완화하는 것에 대한 맞교환으로서, 사람은 훨씬 더 많은 데이터를 얻을 수 있다.", "hl": ["relaxing the standards of allowable errors", "get a hold of much more data"], "hlko": ["허용 가능한 오류의 기준을 완화하는 것", "훨씬 더 많은 데이터를 얻을 수 있다"], "n": 6}]}], "gloss": {"change": ["change", "변화, 바꾸다"], "changes": ["change", "변화"], "out": ["out", "밖으로"], "person's": ["person", "사람"], "person’s": ["person", "사람"], "good": ["good", "좋은"], "terms": ["term", "관점, 용어"], "rather": ["rather", "오히려"], "against": ["against", "~에 반대하여, ~을 배경으로"], "about": ["about", "~에 대해"], "example": ["example", "예"], "people": ["people", "사람들"], "want": ["want", "원하다"], "see": ["see", "보다, 알다"], "opposite": ["opposite", "정반대인"], "unrelated": ["unrelated", "관련 없는"], "always": ["always", "항상"], "never": ["never", "결코 ~ 않다"], "often": ["often", "자주"], "because": ["because", "~ 때문에"], "however": ["however", "그러나"], "instead": ["instead", "대신에"], "time": ["time", "시간"], "year": ["year", "해"], "years": ["year", "해"], "first": ["first", "처음의"], "like": ["like", "~처럼"], "makes": ["make", "만들다"], "make": ["make", "만들다"], "feel": ["feel", "느끼다"], "eat": ["eat", "먹다"], "again": ["again", "다시"], "know": ["know", "알다"], "stay": ["stay", "머무르다, 그대로이다"], "being": ["be", "~인 상태, ~되는"], "down": ["down", "아래로"], "intuition": ["intuition", "직관"], "just": ["just", "단지"], "ever": ["ever", "한 번이라도"], "tries": ["try", "노력하다"], "while": ["while", "~하는 동안"], "still": ["still", "아직"], "even": ["even", "~조차"], "grow": ["grow", "자라다, 늘다"], "such": ["such", "그러한"], "long": ["long", "오랜, 긴"], "child's": ["child", "아이"], "child’s": ["child", "아이"], "between": ["between", "~ 사이에"], "over": ["over", "~ 동안, 넘어"], "after": ["after", "~ 후에"], "around": ["around", "~ 무렵, 주변에"], "whole": ["whole", "전체의"], "chatterjee": ["Chatterjee", "채터지(사람 이름)"], "hard": ["hard", "어려운"], "there's": ["there is", "~이 있다"], "there’s": ["there is", "~이 있다"], "something": ["something", "어떤 것"], "we're": ["we are", "우리는 ~이다"], "we’re": ["we are", "우리는 ~이다"], "become": ["become", "되다"], "picasso": ["Picasso", "피카소"], "world": ["world", "세계"], "spanish": ["Spanish", "스페인의"], "lorraine": ["Lorraine", "로레인(사람 이름)"], "hansberry": ["Hansberry", "핸스베리"], "raisin": ["raisin", "건포도"], "sun": ["sun", "태양"], "american": ["American", "미국의"], "offering": ["offer", "제공하다"], "easy": ["easy", "쉬운"], "wanted": ["want", "원하다"], "without": ["without", "~ 없이"], "others": ["other", "다른 사람들"], "use": ["use", "사용하다"], "wouldn't": ["would not", "~하지 않을 것이다"], "wouldn’t": ["would not", "~하지 않을 것이다"], "only": ["only", "오직"], "few": ["few", "몇몇의"], "made": ["make", "만들다"], "less": ["less", "덜"], "upon": ["upon", "~ 위에"], "different": ["different", "다른"], "asked": ["ask", "요청하다"], "shop": ["shop", "쇼핑하다"], "woman": ["woman", "여성"], "near": ["near", "가까운"], "told": ["tell", "말하다"], "look": ["look", "보다"], "using": ["use", "사용하다"], "don't": ["do not", "~하지 않다"], "don’t": ["do not", "~하지 않다"], "let": ["let", "~하게 해 주다"], "away": ["away", "멀리"], "get": ["get", "얻다, 되다"], "take": ["take", "가져가다"], "give": ["give", "주다"], "go": ["go", "가다"], "come": ["come", "오다"], "think": ["think", "생각하다"], "say": ["say", "말하다"], "thing": ["thing", "것"], "things": ["thing", "것"], "way": ["way", "방법"], "ways": ["way", "방법"], "new": ["new", "새로운"], "old": ["old", "오래된"], "high": ["high", "높은"], "low": ["low", "낮은"], "big": ["big", "큰"], "small": ["small", "작은"], "need": ["need", "필요하다"], "help": ["help", "돕다"], "find": ["find", "찾다"], "show": ["show", "보여 주다"], "shows": ["show", "보여 주다"], "work": ["work", "일하다"], "works": ["work", "일하다"], "keep": ["keep", "유지하다"], "begin": ["begin", "시작하다"], "part": ["part", "일부"], "fact": ["fact", "사실"], "someone": ["someone", "누군가"], "another": ["another", "다른, 또 다른"], "advances": ["advance", "발전"], "should": ["should", "~해야 한다"], "became": ["become", "되었다"], "gave": ["give", "주었다"], "thus": ["thus", "따라서"], "once": ["once", "일단 ~하면"], "into": ["into", "~ 안으로"], "causes": ["cause", "일으키다, 원인"], "having": ["have", "가지다"], "calls": ["call", "요구하다, 부르다"], "says": ["say", "말하다"], "lies": ["lie", "(~에) 있다"], "said": ["say", "말했다"], "beyond": ["beyond", "~ 너머"], "used": ["use", "사용하다"], "yet": ["yet", "하지만"], "finding": ["find", "찾다"], "forgetting": ["forget", "잊어버림"], "post-event": ["post-event", "사건 후의"], "sense": ["sense", "이해가 되다"], "him": ["him", "그를"], "knows": ["know", "알다"], "happening": ["happen", "일어나다"], "himself": ["himself", "그 자신"], "herself": ["herself", "그녀 자신"], "led": ["lead", "이끌다"], "other": ["other", "다른"], "came": ["come", "왔다"], "including": ["include", "포함하다"], "strong": ["strong", "강력한, 튼튼한"], "bring": ["bring", "가져오다"], "back": ["back", "다시, 뒤로"], "cars": ["car", "차"], "car": ["car", "차"], "far": ["far", "훨씬"], "likely": ["likely", "~할 가능성이 있는"], "start": ["start", "시작하다"], "correlation": ["correlation", "상관관계"], "read": ["read", "읽다"], "already": ["already", "이미"], "road": ["road", "도로"], "therefore": ["therefore", "따라서"], "they're": ["they are", "그들은 ~이다"], "they’re": ["they are", "그들은 ~이다"], "explain": ["explain", "설명하다"], "cause": ["cause", "원인"], "cannot": ["cannot", "~할 수 없다"], "can't": ["cannot", "~할 수 없다"], "can’t": ["cannot", "~할 수 없다"], "easily": ["easily", "쉽게"], "explaining": ["explain", "설명하다"], "same": ["same", "같은"], "well": ["well", "잘"], "off": ["off", "떨어져"], "instance": ["instance", "예"], "available": ["available", "이용 가능한"], "age": ["age", "나이"], "live": ["live", "살다"], "before": ["before", "~ 전에"], "speed": ["speed", "속도"], "now": ["now", "이제"], "point": ["point", "지점"], "animal": ["animal", "동물"], "thanks": ["thanks", "덕분에"], "better": ["better", "더 잘"], "every": ["every", "모든"], "past": ["past", "과거"], "ignore": ["ignore", "무시하다"], "though": ["though", "비록 ~이지만"], "means": ["mean", "의미하다"], "early": ["early", "일찍"], "lives": ["life", "삶"], "five": ["five", "다섯"], "men": ["man", "남성"], "women": ["woman", "여성"], "human": ["human", "인간의"], "until": ["until", "~까지"], "able": ["able", "~할 수 있는"], "comes": ["come", "오다"], "little": ["little", "조금"], "it's": ["it is", "그것은 ~이다"], "it’s": ["it is", "그것은 ~이다"], "large": ["large", "큰"], "last": ["last", "지난"], "hundred": ["hundred", "백"], "animals": ["animal", "동물"], "whose": ["whose", "그것의"], "fold": ["-fold", "~배"], "found": ["find", "발견하다"], "living": ["live", "살다"], "rise": ["rise", "오르다"], "three": ["three", "셋"], "four": ["four", "넷"], "since": ["since", "~ 이후로"], "spend": ["spend", "보내다"], "days": ["day", "날"], "food": ["food", "먹이"], "result": ["result", "결과"], "clearly": ["clearly", "분명히"], "times": ["time", "배"], "data": ["data", "자료"], "problems": ["problem", "문제"], "smaller": ["small", "더 작은"], "full": ["full", "전체의"], "close": ["close", "가까운"], "provides": ["provide", "제공하다"], "lot": ["lot", "많음"], "light": ["light", "빛"], "field": ["field", "장"], "million": ["million", "백만"], "later": ["later", "나중에"], "included": ["include", "포함하다"], "gives": ["give", "주다"], "face": ["face", "맞닥뜨리다"], "although": ["although", "비록 ~이지만"], "parts": ["part", "부분"], "done": ["do", "하다"], "doesn't": ["does not", "~하지 않는다"], "doesn’t": ["does not", "~하지 않는다"], "regent": ["Regent", "리전트(대학 이름)"], "among": ["among", "~ 사이에서"], "key": ["key", "핵심적인"], "achieve": ["achieve", "달성하다"], "requires": ["require", "필요로 하다"], "goes": ["go", "가다"], "holds": ["hold", "믿다"], "developed": ["develop", "개발하다"], "half": ["half", "절반"], "outside": ["outside", "~ 밖에서, 외부의"], "continued": ["continue", "계속되다"], "sciences": ["science", "과학"], "began": ["begin", "시작했다"], "several": ["several", "여러"], "isn't": ["is not", "~이 아니다"], "isn’t": ["is not", "~이 아니다"], "greater": ["great", "더 큰, 더 훌륭한"], "nineteenth": ["nineteenth", "19번째의"], "century": ["century", "세기"], "france": ["France", "프랑스"], "built": ["build", "만들다"], "system": ["system", "체계"], "exact": ["exact", "정확한"], "units": ["unit", "단위"], "measurement": ["measurement", "측정"], "precisely": ["precisely", "정밀하게"], "defined": ["define", "규정하다"], "capture": ["capture", "담아내다"], "space": ["space", "공간"], "begun": ["begin", "시작하다"], "persuade": ["persuade", "설득하다"], "nations": ["nation", "국가"], "adopt": ["adopt", "채택하다"], "standards": ["standard", "기준"], "forbid": ["forbid", "금지하다"], "warn": ["warn", "경고하다"], "completed": ["complete", "완성하다"], "strengthened": ["strengthen", "강화하다"], "shattered": ["shatter", "산산이 깨다"], "shatter": ["shatter", "산산이 깨다"], "quantum": ["quantum", "양자"], "mechanics": ["mechanics", "역학"], "dream": ["dream", "꿈"], "perfect": ["perfect", "완벽한"], "destroyed": ["destroy", "파괴하다"], "comprehensive": ["comprehensive", "포괄적인"], "complete": ["complete", "완전한"], "discoveries": ["discovery", "발견"], "forever": ["forever", "영원히"], "relatively": ["relatively", "비교적"], "circle": ["circle", "집단"], "physicists": ["physicist", "물리학자"], "mindset": ["mindset", "정신"], "humankind's": ["humankind", "인류"], "humankind’s": ["humankind", "인류"], "drive": ["drive", "추진"], "flawlessly": ["flawlessly", "결점 없이"], "measure": ["measure", "측정하다"], "engineers": ["engineer", "공학자"], "scientists": ["scientist", "과학자"], "urge": ["urge", "충동"], "persisted": ["persist", "이어지다"], "persist": ["persist", "계속되다"], "grew": ["grow", "커지다"], "shrank": ["shrink", "줄다"], "vanished": ["vanish", "사라지다"], "faded": ["fade", "흐려지다"], "weakened": ["weaken", "약해지다"], "business": ["business", "비즈니스"], "expanded": ["expand", "확장되다"], "precision-oriented": ["precision-oriented", "정확성을 지향하는"], "mathematics": ["mathematics", "수학"], "statistics": ["statistics", "통계학"], "influence": ["influence", "영향을 미치다"], "areas": ["area", "영역"], "commerce": ["commerce", "상업"], "physics'": ["physics", "물리학"], "physics’": ["physics", "물리학"], "contrary": ["contrary", "반대의"], "trend": ["trend", "경향"], "decades": ["decade", "수십 년"], "situations": ["situation", "상황"], "occurring": ["occur", "발생하다"], "allowing": ["allow", "허용하다"], "imprecision": ["imprecision", "부정확함"], "messiness": ["messiness", "번잡함"], "positive": ["positive", "긍정적인"], "feature": ["feature", "특성"], "shortcoming": ["shortcoming", "단점"], "tradeoff": ["tradeoff", "맞교환"], "relaxing": ["relax", "완화하다"], "allowable": ["allowable", "허용 가능한"], "errors": ["error", "오류"], "hold": ["hold", "얻다"], "sometimes": ["sometimes", "때때로"], "today": ["today", "오늘날"], "inaccuracy": ["inaccuracy", "부정확함"], "exchange": ["exchange", "교환, 대가"], "competition": ["competition", "경쟁"], "precision": ["precision", "정밀함"], "stability": ["stability", "안정"], "preference": ["preference", "선호"], "strength": ["strength", "강점"], "weakness": ["weakness", "약점"], "gather": ["gather", "모으다"], "map": ["map", "지도"], "pen": ["pen", "펜"], "notebook": ["notebook", "공책"], "rain": ["rain", "비"], "town": ["town", "마을"], "glass": ["glass", "유리"], "window": ["window", "창문"], "club": ["club", "동아리"], "friend": ["friend", "친구"], "ball": ["ball", "공"], "day": ["day", "하루"], "opened": ["open", "열리다"], "quickly": ["quickly", "빠르게"], "join": ["join", "가입하다"], "tried": ["try", "노력하다"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="jusung-go2";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH+':'+location.pathname.split('/').slice(-2).join('/');
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);recordYy(q,i);render();
+}
+/* 점수 기록: vhy:<학교> = {<페이지>:{<문제>:{n:푼 횟수,w:틀린 횟수,k:마지막 정답(1/0),c:고른 번호,t:시각}}} -> REC 로 자동 연동(선생님 화면) */
+function recordYy(q,i){
+  try{
+    var K='vhy:'+SCH,P=location.pathname.split('/').slice(-2).join('/'),Y=jget(K,{});
+    var pg=Y[P]||(Y[P]={}),e=pg[q.id]||(pg[q.id]={n:0,w:0});
+    e.n=(e.n||0)+1;if(i!==q.ans)e.w=(e.w||0)+1;e.k=(i===q.ans?1:0);e.c=i;e.t=Date.now();
+    jset(K,Y);
+  }catch(x){}
+  /* 바꿔 말하기 단어는 푼 즉시 모두 선생님 질문 목록에 올린다 */
+  try{swList().forEach(function(s){pushSw(s.id)})}catch(x){}
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){return (DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}})}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function yyLine(){
+  try{var Y=jget('vhy:'+SCH,{}),pg=Y[location.pathname.split('/').slice(-2).join('/')]||{},n=0,r=0,w=0;
+    Qs.forEach(function(q){var e=pg[q.id];if(e&&e.n){n++;if(e.k)r++;w+=e.w||0}});
+    if(!n)return '';
+    return '<p class="sub">내 기록: '+n+'문제 중 '+r+'문제 정답'+(w?' · 틀린 횟수 '+w+'번':'')+'</p>';
+  }catch(x){return ''}
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../index.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+=yyLine();
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">밑줄 단어를 누르면 뜻이 나와요. 번호를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+words(o[0])+'<span class="dash">–</span>'+words(o[1])+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'</li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>

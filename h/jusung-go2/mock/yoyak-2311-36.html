@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>23년 11월 36번 요약문 연습 </title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+<script>(function(){try{if(window.__recl||!/\/h\/(geumcheon|jusung|cheongseok)-(gimal|go1|go2)\//.test(location.pathname))return;window.__recl=1;var s=document.createElement('script');s.src=location.pathname.replace(/\/h\/.*$/,'/h/rec.js')+'?v=1';(document.head||document.documentElement).appendChild(s)}catch(e){}})();</script></head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "jusung-go2", "src": "jusung-go2/mock/sx-data.js", "pidx": 18, "lesson": "23년 11월 36번", "title": "", "label": "", "page": "yoyak-2311-36"}, "scenes": [{"tag": "본문 1~3번", "ns": [1, 2, 3], "line": "종의 크기는 우연이 아니고, 크기의 [[fluctuations|변동]]은 환경 변화의 신호다.", "en": ["The size of a species is not accidental.", "It’s a fine-tuned interaction between a species and the world it inhabits.", "Over large periods of time, size fluctuations have often signalled significant changes in the environment."], "kos": ["종의 크기는 우연한 것이 아니다.", "그것은 한 종과 그것이 서식하는 세계 사이의 미세 조정된 상호 작용이다.", "오랜 시간에 걸쳐, 크기의 변동은 종종 환경에서의 상당한 변화를 나타내 왔다."]}, {"tag": "본문 4~5번", "ns": [4, 5], "line": "5억 년 동안 동물은 [[larger|더 크게]] 되었고 바다 동물은 150배로 [[increased|늘었다]].", "en": ["Generally speaking, over the last five hundred million years, the trend has been towards animals getting larger.", "It’s particularly notable in marine animals, whose average body size has increased 150-fold in this time."], "kos": ["일반적으로 말해서, 지난 5억 년 동안, 그 경향은 동물들이 점점 커지는 쪽으로 되어 왔다.", "그것은 특히 해양 동물들에게서 두드러지는데, 그들의 평균 몸 크기는 이 시기에 150배로 증가해 왔다."]}, {"tag": "본문 6~8번", "ns": [6, 7, 8], "line": "그런데 경향에 [[changes|변화]]가 생겨 동물이 작아지고 있다. 원인은 열이다.", "en": ["But we are beginning to see changes in this trend.", "Scientists have discovered that many animals are shrinking.", "Around the world, species in every category have been found to be getting smaller, and one major cause appears to be the heat."], "kos": ["하지만 우리는 이 경향에서 변화를 관찰하기 시작하고 있다.", "과학자들은 많은 동물이 작아지고 있다는 것을 발견해 왔다.", "전 세계적으로, 모든 범주의 종들이 점점 작아지고 있는 것으로 발견되어 왔고, 한 가지 주요 원인은 열인 것으로 보인다."]}, {"tag": "본문 9~10번", "ns": [9, 10], "line": "알프스 샤무아는 쉬는 데 날들을 [[spend|보내서]] 새 세대가 25% 작다.", "en": ["Animals living in the Italian Alps, for example, have seen temperatures rise by three to four degrees Celsius since the 1980s.", "To avoid overheating, chamois goats now spend more of their days resting rather than searching for food, and as a result, in just a few decades, the new generations of chamois are 25 percent smaller."], "kos": ["예를 들어, 이탈리아 알프스에 살고 있는 동물들은 1980년대 이후로 기온이 섭씨 3에서 4도만큼 상승하는 것을 보아 왔다.", "과열을 피하기 위해서, 샤무아 염소들은 이제 먹이를 찾는 것보다 휴식을 취하는 데 더 많은 그들의 날들을 보내고, 결과적으로, 단지 몇 십 년 만에, 새로운 세대들의 샤무아는 25% 더 작아져 있다."]}], "story": [{"a": "fluctuation", "form": "fluctuations", "n": 3, "sq": 1, "sum": "size [[swings]] have often signalled", "hook": "크기의 변동이 환경 변화를 알려 준다는 fluctuations(변동) → 요약문에서는 swings(오르내림)로 바뀌었어요.", "b": "swing", "k": "변동 → 오르내림", "en": "Over large periods of time, size fluctuations have often signalled significant changes in the environment.", "ko": "오랜 시간에 걸쳐, 크기의 변동은 종종 환경에서의 상당한 변화를 나타내 왔다."}, {"a": "larger", "form": "larger", "n": 4, "sq": 2, "sum": "have generally become [[bigger]]", "hook": "동물이 점점 커지는 경향이라는 larger → 요약문에서는 bigger(더 큰)로 바뀌었어요.", "b": "bigger", "k": "더 큰 → 더 큰", "en": "Generally speaking, over the last five hundred million years, the trend has been towards animals getting larger.", "ko": "일반적으로 말해서, 지난 5억 년 동안, 그 경향은 동물들이 점점 커지는 쪽으로 되어 왔다."}, {"a": "increase", "form": "increased", "n": 5, "sq": 2, "sum": "has [[expanded]] 150 times", "hook": "바다 동물 크기가 150배로 늘었다는 increased(늘었다) → 요약문에서는 expanded(커졌다)로 바뀌었어요.", "b": "expand", "k": "늘다 → 커지다", "en": "It’s particularly notable in marine animals, whose average body size has increased 150-fold in this time.", "ko": "그것은 특히 해양 동물들에게서 두드러지는데, 그들의 평균 몸 크기는 이 시기에 150배로 증가해 왔다."}, {"a": "change", "form": "changes", "n": 6, "sq": 3, "sum": "this trend is [[reversing]]", "hook": "경향에 변화가 보인다는 changes → 요약문에서는 reversing(뒤바뀌는)으로 바뀌었어요.", "b": "reversing", "k": "변화 → 뒤바뀜", "en": "But we are beginning to see changes in this trend.", "ko": "하지만 우리는 이 경향에서 변화를 관찰하기 시작하고 있다."}, {"a": "spend", "form": "spend", "n": 10, "sq": 3, "sum": "chamois now [[devote]] more of their time", "hook": "샤무아가 쉬는 데 날들을 보낸다는 spend(보내다) → 요약문에서는 devote(쏟다)로 바뀌었어요.", "b": "devote", "k": "보내다 → 쓰다", "en": "To avoid overheating, chamois goats now spend more of their days resting rather than searching for food, and as a result, in just a few decades, the new generations of chamois are 25 percent smaller.", "ko": "과열을 피하기 위해서, 샤무아 염소들은 이제 먹이를 찾는 것보다 휴식을 취하는 데 더 많은 그들의 날들을 보내고, 결과적으로, 단지 몇 십 년 만에, 새로운 세대들의 샤무아는 25% 더 작아져 있다."}], "passage": [{"n": 1, "en": "The size of a species is not accidental.", "ko": "종의 크기는 우연한 것이 아니다."}, {"n": 2, "en": "It’s a fine-tuned interaction between a species and the world it inhabits.", "ko": "그것은 한 종과 그것이 서식하는 세계 사이의 미세 조정된 상호 작용이다."}, {"n": 3, "en": "Over large periods of time, size fluctuations have often signalled significant changes in the environment.", "ko": "오랜 시간에 걸쳐, 크기의 변동은 종종 환경에서의 상당한 변화를 나타내 왔다."}, {"n": 4, "en": "Generally speaking, over the last five hundred million years, the trend has been towards animals getting larger.", "ko": "일반적으로 말해서, 지난 5억 년 동안, 그 경향은 동물들이 점점 커지는 쪽으로 되어 왔다."}, {"n": 5, "en": "It’s particularly notable in marine animals, whose average body size has increased 150-fold in this time.", "ko": "그것은 특히 해양 동물들에게서 두드러지는데, 그들의 평균 몸 크기는 이 시기에 150배로 증가해 왔다."}, {"n": 6, "en": "But we are beginning to see changes in this trend.", "ko": "하지만 우리는 이 경향에서 변화를 관찰하기 시작하고 있다."}, {"n": 7, "en": "Scientists have discovered that many animals are shrinking.", "ko": "과학자들은 많은 동물이 작아지고 있다는 것을 발견해 왔다."}, {"n": 8, "en": "Around the world, species in every category have been found to be getting smaller, and one major cause appears to be the heat.", "ko": "전 세계적으로, 모든 범주의 종들이 점점 작아지고 있는 것으로 발견되어 왔고, 한 가지 주요 원인은 열인 것으로 보인다."}, {"n": 9, "en": "Animals living in the Italian Alps, for example, have seen temperatures rise by three to four degrees Celsius since the 1980s.", "ko": "예를 들어, 이탈리아 알프스에 살고 있는 동물들은 1980년대 이후로 기온이 섭씨 3에서 4도만큼 상승하는 것을 보아 왔다."}, {"n": 10, "en": "To avoid overheating, chamois goats now spend more of their days resting rather than searching for food, and as a result, in just a few decades, the new generations of chamois are 25 percent smaller.", "ko": "과열을 피하기 위해서, 샤무아 염소들은 이제 먹이를 찾는 것보다 휴식을 취하는 데 더 많은 그들의 날들을 보내고, 결과적으로, 단지 몇 십 년 만에, 새로운 세대들의 샤무아는 25% 더 작아져 있다."}], "questions": [{"id": 1, "summary": "A species' size is not an accident but a (A) interaction with the world it lives in, and over long periods, size (B) have often signalled major environmental change.", "ko": "한 종의 크기는 우연이 아니라 그것이 사는 세계와의 <b>(A) 정밀한</b> 상호 작용이고, 오랜 시간에 걸쳐 크기의 <b>(B) 변동</b>은 종종 큰 환경 변화를 나타내 왔다.", "opts": [["precise", "habits"], ["random", "swings"], ["random", "habits"], ["precise", "swings"], ["temporary", "rules"]], "optko": ["정밀한 – 습관", "무작위의 – 변동", "무작위의 – 습관", "정밀한 – 변동", "일시적인 – 규칙"], "ans": 3, "wrong": ["habits(습관)가 틀려요. 환경 변화를 알려 준 건 크기의 변동(fluctuations)이에요.", "random(무작위의)이 틀려요. 종의 크기는 우연이 아니라 세계와 미세하게 조정된(fine-tuned) 관계예요.", "둘 다 틀려요. 크기는 무작위가 아니라 정밀하게 맞춰진 거고, 신호는 습관이 아니라 변동이에요.", null, "둘 다 틀려요. 일시적이라는 말도, 규칙이라는 말도 본문에 없어요."], "evid": [{"n": 1, "hl": ["not accidental"]}, {"n": 2, "hl": ["fine-tuned interaction between a species and the world it inhabits"]}, {"n": 3, "hl": ["size fluctuations have often signalled significant changes"]}], "swaps": [["fine-tuned", "precise", "미세 조정된 → 정밀한"], ["fluctuation", "swing", "변동 → 오르내림"], ["significant", "major", "상당한 → 중요한"]], "swapnote": "fine-tuned(미세 조정된)는 precise(정밀한)로, fluctuations(변동)는 swings(오르내림)로 바뀌었어요. 크기가 오르내리면 환경이 변했다는 신호예요.", "use": [{"w": "precise", "ex": "The machine needs a precise setting.", "ko": "그 기계는 정밀한 설정이 필요하다.", "wk": "정밀한", "hk": "정밀한"}, {"w": "swing", "ex": "Prices often swing during the holidays.", "ko": "가격은 휴일에 자주 오르내린다.", "wk": "오르내리다", "hk": "오르내린다"}], "flow": "본문 1번에서 종의 크기는 우연이 아니라고 하고 → 2번에서 종과 서식 환경 사이의 미세하게 조정된 상호 작용이라고 풀어 → 3번에서 그래서 크기의 변동이 환경이 크게 변했다는 신호가 된다고 해요.", "jd": [["A species' size is not an accident", "한 종의 크기는 우연이 아니라"], ["but a [[precise]] interaction with the world it lives in,", "그것이 사는 세계와의 [[정밀한]] 상호 작용이고,"], ["and over long periods, size [[swings]] have often signalled", "오랜 시간에 걸쳐 크기의 [[변동]]은 종종 나타내 왔다"], ["major environmental change.", "큰 환경 변화를."]], "fc": [["본문 1~2번", "종의 크기는 우연이 아니다", "사는 환경과 미세하게 맞춰진 관계예요."], ["본문 3번", "크기가 변하면 환경이 변했다는 신호", "오랜 시간에 걸쳐 그랬어요."], ["정답 포인트", "{{fine-tuned|미세 조정된}} = {{precise|정밀한}}, {{fluctuation|변동}} → {{swing|오르내림}}", "본문 단어를 쉬운 말로 바꿨어요."]], "evid_full": [{"en": "The size of a species is not accidental.", "ko": "종의 크기는 우연한 것이 아니다.", "hl": ["not accidental"], "hlko": ["우연한 것이 아니다"], "n": 1}, {"en": "It’s a fine-tuned interaction between a species and the world it inhabits.", "ko": "그것은 한 종과 그것이 서식하는 세계 사이의 미세 조정된 상호 작용이다.", "hl": ["fine-tuned interaction between a species and the world it inhabits"], "hlko": ["한 종과 그것이 서식하는 세계 사이의 미세 조정된 상호 작용"], "n": 2}, {"en": "Over large periods of time, size fluctuations have often signalled significant changes in the environment.", "ko": "오랜 시간에 걸쳐, 크기의 변동은 종종 환경에서의 상당한 변화를 나타내 왔다.", "hl": ["size fluctuations have often signalled significant changes"], "hlko": ["크기의 변동은 종종 환경에서의 상당한 변화를 나타내 왔다"], "n": 3}]}, {"id": 2, "summary": "Over the last five hundred million years animals have generally become (A), most clearly in sea animals, whose average body size has (B) 150 times.", "ko": "지난 5억 년 동안 동물들은 대체로 <b>(A) 더 커졌고</b>, 특히 바다 동물에게서 뚜렷해서 그들의 평균 몸 크기는 150배로 <b>(B) 커졌다</b>.", "opts": [["bigger", "expanded"], ["bigger", "shrunk"], ["smaller", "expanded"], ["smaller", "shrunk"], ["lighter", "doubled"]], "optko": ["더 큰 – 커졌다", "더 큰 – 줄었다", "더 작은 – 커졌다", "더 작은 – 줄었다", "더 가벼운 – 두 배가 됐다"], "ans": 0, "wrong": [null, "shrunk(줄었다)가 틀려요. 바다 동물의 평균 몸 크기는 150배로 늘었어요(increased).", "smaller(더 작은)가 틀려요. 지난 5억 년 동안의 경향은 동물이 점점 커지는 쪽이에요(larger).", "둘 다 틀려요. 동물은 작아진 게 아니라 커졌고, 크기도 줄지 않고 늘었어요.", "둘 다 틀려요. 가벼워졌다는 말은 본문에 없고, 두 배가 아니라 150배예요."], "evid": [{"n": 4, "hl": ["the trend has been towards animals getting larger"]}, {"n": 5, "hl": ["increased 150-fold"]}], "swaps": [["larger", "bigger", "더 큰 → 더 큰"], ["increase", "expand", "늘다 → 커지다"], ["marine", "sea", "해양의 → 바다의"]], "swapnote": "larger(더 큰)는 bigger(더 큰)로, increased(늘었다)는 expanded(커졌다)로 바뀌었어요. marine(해양의)은 sea(바다)처럼 쉬운 말로 읽어요.", "use": [{"w": "bigger", "ex": "A whale is bigger than a shark.", "ko": "고래는 상어보다 더 크다.", "wk": "더 큰", "hk": "더 크다"}, {"w": "expand", "ex": "Metal will expand when it is heated.", "ko": "금속은 가열되면 팽창한다.", "wk": "팽창하다, 커지다", "hk": "팽창한다"}], "flow": "본문 4번에서 지난 5억 년 동안 동물이 점점 커지는 경향이라고 하고 → 5번에서 특히 바다 동물은 평균 몸 크기가 150배로 늘었다고 예를 들어요.", "jd": [["Over the last five hundred million years animals have generally become [[bigger]],", "지난 5억 년 동안 동물들은 대체로 [[더 커졌고]],"], ["most clearly in sea animals,", "특히 바다 동물에게서 뚜렷해서,"], ["whose average body size has [[expanded]] 150 times.", "그들의 평균 몸 크기는 150배로 [[커졌다]]."]], "fc": [["본문 4번", "지난 5억 년: 동물은 점점 커졌다", "일반적인 경향이에요."], ["본문 5번", "바다 동물은 150배로 커졌다", "경향의 뚜렷한 예예요."], ["정답 포인트", "{{larger|더 큰}} = {{bigger|더 큰}}, {{increase|늘다}} = {{expand|커지다}}", "{{marine|해양의}}은 {{sea|바다}}로 바뀌었어요."]], "evid_full": [{"en": "Generally speaking, over the last five hundred million years, the trend has been towards animals getting larger.", "ko": "일반적으로 말해서, 지난 5억 년 동안, 그 경향은 동물들이 점점 커지는 쪽으로 되어 왔다.", "hl": ["the trend has been towards animals getting larger"], "hlko": ["동물들이 점점 커지는 쪽으로 되어 왔다"], "n": 4}, {"en": "It’s particularly notable in marine animals, whose average body size has increased 150-fold in this time.", "ko": "그것은 특히 해양 동물들에게서 두드러지는데, 그들의 평균 몸 크기는 이 시기에 150배로 증가해 왔다.", "hl": ["increased 150-fold"], "hlko": ["150배로 증가해 왔다"], "n": 5}]}, {"id": 3, "summary": "Today this trend is (A): many animals are shrinking, partly because of heat, and in the Italian Alps chamois now (B) more of their time resting than searching for food, so the new generations are 25 percent smaller.", "ko": "오늘날 이 경향은 <b>(A) 뒤바뀌고</b> 있다. 많은 동물이 부분적으로 열 때문에 작아지고 있고, 이탈리아 알프스에서 샤무아는 이제 먹이를 찾는 것보다 쉬는 데 더 많은 시간을 <b>(B) 쓰고</b> 있어서 새로운 세대는 25퍼센트 더 작다.", "opts": [["reversing", "cut"], ["continuing", "devote"], ["reversing", "devote"], ["continuing", "cut"], ["strengthening", "cut"]], "optko": ["뒤바뀌는 – 줄이다", "계속되는 – 쓰다", "뒤바뀌는 – 쓰다", "계속되는 – 줄이다", "강해지는 – 줄이다"], "ans": 2, "wrong": ["cut(줄이다)이 틀려요. 샤무아는 쉬는 시간을 줄이는 게 아니라 쉬는 데 더 많은 날을 써요(spend).", "continuing(계속되는)이 틀려요. 동물이 커지던 경향은 계속되는 게 아니라 작아지는 쪽으로 바뀌고 있어요.", null, "둘 다 틀려요. 경향은 바뀌고 있고, 샤무아는 쉬는 시간을 늘렸어요.", "둘 다 틀려요. 커지던 경향이 강해지는 게 아니라 바뀌고 있고, 쉬는 시간도 줄이지 않았어요."], "evid": [{"n": 7, "hl": ["many animals are shrinking"]}, {"n": 8, "hl": ["one major cause appears to be the heat"]}, {"n": 10, "hl": ["spend more of their days resting rather than searching for food"]}], "swaps": [["change", "reversing", "변화 → 뒤바뀜"], ["spend", "devote", "보내다 → 쓰다"], ["category", "group", "범주 → 집단"]], "swapnote": "'경향에 변화(changes in this trend)'는 reversing(뒤바뀌는)으로, spend(보내다)는 devote(쏟다)로 바뀌었어요. 커지던 경향이 반대로 돌아선 거예요.", "use": [{"w": "reversing", "ex": "The river is reversing its flow in winter.", "ko": "그 강은 겨울에 흐름을 거꾸로 바꾸고 있다.", "wk": "뒤바뀌는", "hk": "거꾸로 바꾸고"}, {"w": "devote", "ex": "She devotes an hour a day to reading.", "ko": "그녀는 하루 한 시간을 독서에 쏟는다.", "wk": "쏟다", "hk": "쏟는다"}], "flow": "본문 6번에서 But(하지만) 이 경향에 변화가 보인다고 하고 → 7~8번에서 많은 동물이 작아지고 있고 주요 원인이 열이라고 하고 → 9~10번에서 알프스 샤무아가 더위를 피해 쉬는 시간이 늘어 새 세대가 25% 작아졌다고 예를 들어요.", "jd": [["Today this trend is [[reversing]]:", "오늘날 이 경향은 [[뒤바뀌고]] 있다:"], ["many animals are shrinking, partly because of heat,", "많은 동물이 부분적으로 열 때문에 작아지고 있고,"], ["and in the Italian Alps chamois now [[devote]] more of their time", "이탈리아 알프스에서 샤무아는 이제 더 많은 시간을 [[쓰고]]"], ["resting than searching for food,", "먹이를 찾는 것보다 쉬는 데,"], ["so the new generations are 25 percent smaller.", "그래서 새로운 세대는 25퍼센트 더 작다."]], "fc": [["본문 6번", "하지만 경향에 변화가 보인다", "But(하지만)으로 뒤집혀요."], ["본문 7~8번", "많은 동물이 작아지고 주원인은 열", "모든 범주의 종에서 나타나요."], ["본문 9~10번", "알프스 샤무아: 쉬는 시간이 늘어 25% 작아짐", "구체적인 예예요."], ["정답 포인트", "{{changes in this trend|경향의 변화}} → {{reverse|뒤바뀌다}}, {{spend|보내다}} → {{devote|쏟다}}", "커지던 경향이 반대로 돌아섰어요."]], "evid_full": [{"en": "Scientists have discovered that many animals are shrinking.", "ko": "과학자들은 많은 동물이 작아지고 있다는 것을 발견해 왔다.", "hl": ["many animals are shrinking"], "hlko": ["많은 동물이 작아지고 있다"], "n": 7}, {"en": "Around the world, species in every category have been found to be getting smaller, and one major cause appears to be the heat.", "ko": "전 세계적으로, 모든 범주의 종들이 점점 작아지고 있는 것으로 발견되어 왔고, 한 가지 주요 원인은 열인 것으로 보인다.", "hl": ["one major cause appears to be the heat"], "hlko": ["한 가지 주요 원인은 열인 것으로 보인다"], "n": 8}, {"en": "To avoid overheating, chamois goats now spend more of their days resting rather than searching for food, and as a result, in just a few decades, the new generations of chamois are 25 percent smaller.", "ko": "과열을 피하기 위해서, 샤무아 염소들은 이제 먹이를 찾는 것보다 휴식을 취하는 데 더 많은 그들의 날들을 보내고, 결과적으로, 단지 몇 십 년 만에, 새로운 세대들의 샤무아는 25% 더 작아져 있다.", "hl": ["spend more of their days resting rather than searching for food"], "hlko": ["먹이를 찾는 것보다 휴식을 취하는 데 더 많은 그들의 날들을 보내고"], "n": 10}]}], "gloss": {"change": ["change", "변화, 바꾸다"], "changes": ["change", "변화"], "out": ["out", "밖으로"], "person's": ["person", "사람"], "person’s": ["person", "사람"], "good": ["good", "좋은"], "terms": ["term", "관점, 용어"], "rather": ["rather", "오히려"], "against": ["against", "~에 반대하여, ~을 배경으로"], "about": ["about", "~에 대해"], "example": ["example", "예"], "people": ["people", "사람들"], "want": ["want", "원하다"], "see": ["see", "보다, 알다"], "opposite": ["opposite", "정반대인"], "unrelated": ["unrelated", "관련 없는"], "always": ["always", "항상"], "never": ["never", "결코 ~ 않다"], "often": ["often", "자주"], "because": ["because", "~ 때문에"], "however": ["however", "그러나"], "instead": ["instead", "대신에"], "time": ["time", "시간"], "year": ["year", "해"], "years": ["year", "해"], "first": ["first", "처음의"], "like": ["like", "~처럼"], "makes": ["make", "만들다"], "make": ["make", "만들다"], "feel": ["feel", "느끼다"], "eat": ["eat", "먹다"], "again": ["again", "다시"], "know": ["know", "알다"], "stay": ["stay", "머무르다, 그대로이다"], "being": ["be", "~인 상태, ~되는"], "down": ["down", "아래로"], "intuition": ["intuition", "직관"], "just": ["just", "단지"], "ever": ["ever", "한 번이라도"], "tries": ["try", "노력하다"], "while": ["while", "~하는 동안"], "still": ["still", "아직"], "even": ["even", "~조차"], "grow": ["grow", "자라다, 늘다"], "such": ["such", "그러한"], "long": ["long", "오랜, 긴"], "child's": ["child", "아이"], "child’s": ["child", "아이"], "between": ["between", "~ 사이에"], "over": ["over", "~ 동안, 넘어"], "after": ["after", "~ 후에"], "around": ["around", "~ 무렵, 주변에"], "whole": ["whole", "전체의"], "chatterjee": ["Chatterjee", "채터지(사람 이름)"], "hard": ["hard", "어려운"], "there's": ["there is", "~이 있다"], "there’s": ["there is", "~이 있다"], "something": ["something", "어떤 것"], "we're": ["we are", "우리는 ~이다"], "we’re": ["we are", "우리는 ~이다"], "become": ["become", "되다"], "picasso": ["Picasso", "피카소"], "world": ["world", "세계"], "spanish": ["Spanish", "스페인의"], "lorraine": ["Lorraine", "로레인(사람 이름)"], "hansberry": ["Hansberry", "핸스베리"], "raisin": ["raisin", "건포도"], "sun": ["sun", "태양"], "american": ["American", "미국의"], "offering": ["offer", "제공하다"], "easy": ["easy", "쉬운"], "wanted": ["want", "원하다"], "without": ["without", "~ 없이"], "others": ["other", "다른 사람들"], "use": ["use", "사용하다"], "wouldn't": ["would not", "~하지 않을 것이다"], "wouldn’t": ["would not", "~하지 않을 것이다"], "only": ["only", "오직"], "few": ["few", "몇몇의"], "made": ["make", "만들다"], "less": ["less", "덜"], "upon": ["upon", "~ 위에"], "different": ["different", "다른"], "asked": ["ask", "요청하다"], "shop": ["shop", "쇼핑하다"], "woman": ["woman", "여성"], "near": ["near", "가까운"], "told": ["tell", "말하다"], "look": ["look", "보다"], "using": ["use", "사용하다"], "don't": ["do not", "~하지 않다"], "don’t": ["do not", "~하지 않다"], "let": ["let", "~하게 해 주다"], "away": ["away", "멀리"], "get": ["get", "얻다, 되다"], "take": ["take", "가져가다"], "give": ["give", "주다"], "go": ["go", "가다"], "come": ["come", "오다"], "think": ["think", "생각하다"], "say": ["say", "말하다"], "thing": ["thing", "것"], "things": ["thing", "것"], "way": ["way", "방법"], "ways": ["way", "방법"], "new": ["new", "새로운"], "old": ["old", "오래된"], "high": ["high", "높은"], "low": ["low", "낮은"], "big": ["big", "큰"], "small": ["small", "작은"], "need": ["need", "필요하다"], "help": ["help", "돕다"], "find": ["find", "찾다"], "show": ["show", "보여 주다"], "shows": ["show", "보여 주다"], "work": ["work", "일하다"], "works": ["work", "일하다"], "keep": ["keep", "유지하다"], "begin": ["begin", "시작하다"], "part": ["part", "일부"], "fact": ["fact", "사실"], "someone": ["someone", "누군가"], "another": ["another", "다른, 또 다른"], "advances": ["advance", "발전"], "should": ["should", "~해야 한다"], "became": ["become", "되었다"], "gave": ["give", "주었다"], "thus": ["thus", "따라서"], "once": ["once", "일단 ~하면"], "into": ["into", "~ 안으로"], "causes": ["cause", "일으키다, 원인"], "having": ["have", "가지다"], "calls": ["call", "요구하다, 부르다"], "says": ["say", "말하다"], "lies": ["lie", "(~에) 있다"], "said": ["say", "말했다"], "beyond": ["beyond", "~ 너머"], "used": ["use", "사용하다"], "yet": ["yet", "하지만"], "finding": ["find", "찾다"], "forgetting": ["forget", "잊어버림"], "post-event": ["post-event", "사건 후의"], "sense": ["sense", "이해가 되다"], "him": ["him", "그를"], "knows": ["know", "알다"], "happening": ["happen", "일어나다"], "himself": ["himself", "그 자신"], "herself": ["herself", "그녀 자신"], "led": ["lead", "이끌다"], "other": ["other", "다른"], "came": ["come", "왔다"], "including": ["include", "포함하다"], "strong": ["strong", "강력한, 튼튼한"], "bring": ["bring", "가져오다"], "back": ["back", "다시, 뒤로"], "cars": ["car", "차"], "car": ["car", "차"], "far": ["far", "훨씬"], "likely": ["likely", "~할 가능성이 있는"], "start": ["start", "시작하다"], "correlation": ["correlation", "상관관계"], "read": ["read", "읽다"], "already": ["already", "이미"], "road": ["road", "도로"], "therefore": ["therefore", "따라서"], "they're": ["they are", "그들은 ~이다"], "they’re": ["they are", "그들은 ~이다"], "explain": ["explain", "설명하다"], "cause": ["cause", "원인"], "cannot": ["cannot", "~할 수 없다"], "can't": ["cannot", "~할 수 없다"], "can’t": ["cannot", "~할 수 없다"], "easily": ["easily", "쉽게"], "explaining": ["explain", "설명하다"], "same": ["same", "같은"], "well": ["well", "잘"], "off": ["off", "떨어져"], "instance": ["instance", "예"], "available": ["available", "이용 가능한"], "age": ["age", "나이"], "live": ["live", "살다"], "before": ["before", "~ 전에"], "speed": ["speed", "속도"], "now": ["now", "이제"], "point": ["point", "지점"], "animal": ["animal", "동물"], "thanks": ["thanks", "덕분에"], "better": ["better", "더 잘"], "every": ["every", "모든"], "past": ["past", "과거"], "ignore": ["ignore", "무시하다"], "though": ["though", "비록 ~이지만"], "means": ["mean", "의미하다"], "early": ["early", "일찍"], "lives": ["life", "삶"], "five": ["five", "다섯"], "men": ["man", "남성"], "women": ["woman", "여성"], "human": ["human", "인간의"], "until": ["until", "~까지"], "able": ["able", "~할 수 있는"], "comes": ["come", "오다"], "little": ["little", "조금"], "it's": ["it is", "그것은 ~이다"], "it’s": ["it is", "그것은 ~이다"], "large": ["large", "큰"], "last": ["last", "지난"], "hundred": ["hundred", "백"], "animals": ["animal", "동물"], "whose": ["whose", "그것의"], "fold": ["-fold", "~배"], "found": ["find", "발견하다"], "living": ["live", "살다"], "rise": ["rise", "오르다"], "three": ["three", "셋"], "four": ["four", "넷"], "since": ["since", "~ 이후로"], "spend": ["spend", "보내다"], "days": ["day", "날"], "food": ["food", "먹이"], "result": ["result", "결과"], "clearly": ["clearly", "분명히"], "times": ["time", "배"], "data": ["data", "자료"], "problems": ["problem", "문제"], "smaller": ["small", "더 작은"], "full": ["full", "전체의"], "close": ["close", "가까운"], "provides": ["provide", "제공하다"], "lot": ["lot", "많음"], "light": ["light", "빛"], "field": ["field", "장"], "million": ["million", "백만"], "later": ["later", "나중에"], "included": ["include", "포함하다"], "gives": ["give", "주다"], "face": ["face", "맞닥뜨리다"], "although": ["although", "비록 ~이지만"], "parts": ["part", "부분"], "done": ["do", "하다"], "doesn't": ["does not", "~하지 않는다"], "doesn’t": ["does not", "~하지 않는다"], "regent": ["Regent", "리전트(대학 이름)"], "among": ["among", "~ 사이에서"], "key": ["key", "핵심적인"], "achieve": ["achieve", "달성하다"], "requires": ["require", "필요로 하다"], "goes": ["go", "가다"], "holds": ["hold", "믿다"], "developed": ["develop", "개발하다"], "half": ["half", "절반"], "outside": ["outside", "~ 밖에서, 외부의"], "continued": ["continue", "계속되다"], "sciences": ["science", "과학"], "began": ["begin", "시작했다"], "several": ["several", "여러"], "isn't": ["is not", "~이 아니다"], "isn’t": ["is not", "~이 아니다"], "greater": ["great", "더 큰, 더 훌륭한"], "species": ["species", "종"], "size": ["size", "크기"], "accidental": ["accidental", "우연한"], "accident": ["accident", "우연, 사고"], "fine-tuned": ["fine-tuned", "미세 조정된"], "interaction": ["interaction", "상호 작용"], "inhabits": ["inhabit", "서식하다"], "periods": ["period", "기간"], "fluctuations": ["fluctuation", "변동"], "signalled": ["signal", "신호를 보내다"], "significant": ["significant", "상당한"], "environment": ["environment", "환경"], "environmental": ["environmental", "환경의"], "precise": ["precise", "정밀한"], "random": ["random", "무작위의"], "temporary": ["temporary", "일시적인"], "swings": ["swing", "오르내림"], "habits": ["habit", "습관"], "rules": ["rule", "규칙"], "generally": ["generally", "대체로"], "speaking": ["speak", "말하다"], "trend": ["trend", "경향"], "towards": ["towards", "~ 쪽으로"], "larger": ["large", "더 큰"], "getting": ["get", "되다"], "particularly": ["particularly", "특히"], "notable": ["notable", "두드러지는"], "marine": ["marine", "해양의"], "average": ["average", "평균의"], "body": ["body", "몸"], "increased": ["increase", "늘다"], "150-fold": ["150-fold", "150배"], "bigger": ["big", "더 큰"], "expanded": ["expand", "커지다"], "expand": ["expand", "팽창하다"], "shrunk": ["shrink", "줄다"], "lighter": ["light", "더 가벼운"], "doubled": ["double", "두 배가 되다"], "sea": ["sea", "바다"], "beginning": ["begin", "시작하다"], "scientists": ["scientist", "과학자"], "discovered": ["discover", "발견하다"], "shrinking": ["shrink", "작아지다"], "category": ["category", "범주"], "major": ["major", "큰"], "appears": ["appear", "~인 것 같다"], "heat": ["heat", "열, 더위"], "italian": ["Italian", "이탈리아의"], "alps": ["Alps", "알프스"], "seen": ["see", "겪다"], "temperatures": ["temperature", "기온"], "celsius": ["Celsius", "섭씨"], "degrees": ["degree", "도"], "avoid": ["avoid", "피하다"], "overheating": ["overheating", "과열"], "chamois": ["chamois", "샤무아(산양의 일종)"], "goats": ["goat", "염소"], "resting": ["rest", "쉬다"], "searching": ["search", "찾다"], "generation": ["generation", "세대"], "generations": ["generation", "세대"], "percent": ["percent", "퍼센트"], "decades": ["decade", "십 년"], "reversing": ["reverse", "뒤바뀌다"], "continuing": ["continue", "계속되다"], "strengthening": ["strengthen", "강해지다"], "devote": ["devote", "쏟다"], "cut": ["cut", "줄이다"], "today": ["today", "오늘날"], "partly": ["partly", "부분적으로"], "whale": ["whale", "고래"], "shark": ["shark", "상어"], "metal": ["metal", "금속"], "heated": ["heat", "가열하다"], "river": ["river", "강"], "flow": ["flow", "흐름"], "winter": ["winter", "겨울"], "hour": ["hour", "시간"], "setting": ["setting", "설정"], "group": ["group", "집단"], "swing": ["swing", "오르내리다"], "machine": ["machine", "기계"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="jusung-go2";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH+':'+location.pathname.split('/').slice(-2).join('/');
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);recordYy(q,i);render();
+}
+/* 점수 기록: vhy:<학교> = {<페이지>:{<문제>:{n:푼 횟수,w:틀린 횟수,k:마지막 정답(1/0),c:고른 번호,t:시각}}} -> REC 로 자동 연동(선생님 화면) */
+function recordYy(q,i){
+  try{
+    var K='vhy:'+SCH,P=location.pathname.split('/').slice(-2).join('/'),Y=jget(K,{});
+    var pg=Y[P]||(Y[P]={}),e=pg[q.id]||(pg[q.id]={n:0,w:0});
+    e.n=(e.n||0)+1;if(i!==q.ans)e.w=(e.w||0)+1;e.k=(i===q.ans?1:0);e.c=i;e.t=Date.now();
+    jset(K,Y);
+  }catch(x){}
+  /* 바꿔 말하기 단어는 푼 즉시 모두 선생님 질문 목록에 올린다 */
+  try{swList().forEach(function(s){pushSw(s.id)})}catch(x){}
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){return (DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}})}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function yyLine(){
+  try{var Y=jget('vhy:'+SCH,{}),pg=Y[location.pathname.split('/').slice(-2).join('/')]||{},n=0,r=0,w=0;
+    Qs.forEach(function(q){var e=pg[q.id];if(e&&e.n){n++;if(e.k)r++;w+=e.w||0}});
+    if(!n)return '';
+    return '<p class="sub">내 기록: '+n+'문제 중 '+r+'문제 정답'+(w?' · 틀린 횟수 '+w+'번':'')+'</p>';
+  }catch(x){return ''}
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../index.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+=yyLine();
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">밑줄 단어를 누르면 뜻이 나와요. 번호를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+words(o[0])+'<span class="dash">–</span>'+words(o[1])+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'</li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>
