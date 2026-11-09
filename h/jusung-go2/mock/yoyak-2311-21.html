@@ -279,9 +279,10 @@ function go(v,i){
   if(i!==undefined)cur=i;
   if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
   if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
-  view=v;hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+  view=v;try{if(v==='home')sessionStorage.removeItem('vhyv');else sessionStorage.setItem('vhyv',JSON.stringify({p:location.pathname,v:v,c:cur,t:Date.now()}))}catch(e){}
+  hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
 }
-window.addEventListener('popstate',function(){histPushed=false;view='home';hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+window.addEventListener('popstate',function(){histPushed=false;view='home';try{sessionStorage.removeItem('vhyv')}catch(e){}hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
 function sayBtn(){return ''}
 
 
@@ -472,6 +473,8 @@ function vSw(){
   });
   return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
 }
+/* 자동 새로고침(기록 연동)이 일어나도 보던 문제로 되돌린다 */
+try{var sv=JSON.parse(sessionStorage.getItem('vhyv')||'null');if(sv&&sv.p===location.pathname&&Date.now()-sv.t<600000&&sv.v&&sv.v!=='home'){view=sv.v;cur=sv.c||0;try{history.pushState({v:view},'');histPushed=true}catch(e){}}}catch(e){}
 render();srvLoad();window.addEventListener('pageshow',srvLoad);
 </script>
 </body>
