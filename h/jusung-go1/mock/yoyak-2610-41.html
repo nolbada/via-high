@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>26년 10월 41~42번 요약문 연습 </title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .rmw{border:1px solid var(--line);background:#fff;color:var(--sub);border-radius:8px;padding:4px 10px;font-size:13px}
+.qn{font-size:12px;font-weight:800;color:#fff;background:var(--sub);border-radius:6px;padding:2px 6px;margin-right:6px;flex:none}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+<script>window.REC_NOGATE=1;(function(){try{if(window.__recl||!/\/h\/(geumcheon|jusung|cheongseok)-(gimal|go1|go2)\//.test(location.pathname))return;window.__recl=1;var s=document.createElement('script');s.src=location.pathname.replace(/\/h\/.*$/,'/h/rec.js')+'?v=2';(document.head||document.documentElement).appendChild(s)}catch(e){}})();</script></head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "jusung-go1", "src": "common/sx-data-2610.js", "dir": "mock", "pidx": 16, "lesson": "26년 10월 41~42번", "title": "", "label": "", "page": "yoyak-2610-41"}, "scenes": [{"tag": "본문 1~2번", "ns": [1, 2], "line": "무한 스크롤, 자동 재생 같은 패턴은 사용자의 통제를 [[interfere|방해하고]], 데이터와 주의력의 과잉 소비를 [[encourage|부추긴다]].", "en": ["Patterns such as infinite scroll, autoplaying videos, or requiring an account just to make a purchase all interfere with the user's control over their own experience.", "From a sustainability perspective, many of these patterns encourage overconsumption of data and attention."], "kos": ["무한 스크롤, 자동 재생 영상, 혹은 단지 구매를 하기 위해 계정을 요구하는 것과 같은 패턴들은 모두 사용자들이 자기 자신의 경험을 통제하는 것을 방해한다.", "지속 가능성의 관점에서 이러한 패턴들 중 많은 것들이 데이터와 주의력의 과잉 소비를 부추긴다."]}, {"tag": "본문 3~5번", "ns": [3, 4, 5], "line": "원하든 말든 콘텐츠를 불러와 데이터 사용을 [[increasing|늘리고]], 기기와 서버 모두에서 에너지를 더 [[consume|소비한다]].", "en": ["Infinite scroll keeps loading new content whether the user wants it or not, increasing data usage and device processing.", "Autoplay forces media to load and play even for people who may never watch it.", "These choices consume more energy on both the user's device and the servers delivering the content."], "kos": ["무한 스크롤은 사용자가 그것을 원하든 원하지 않든 새로운 콘텐츠를 계속해서 로딩하고, 이는 데이터 사용과 기기의 처리 작업을 증가시킨다.", "자동 재생은 매체가 그것을 절대 시청하지 않을 사람들에게조차도 로딩하고 재생하도록 강요한다.", "이러한 선택들은 사용자의 기기와 콘텐츠를 전달하는 서버 모두에서 더 많은 에너지를 소비한다."]}, {"tag": "본문 6~8번", "ns": [6, 7, 8], "line": "한 음악 플랫폼은 [[static|정지된]] 앨범 표지를 반복 영상으로 바꾸고, 끄는 선택지는 설정 깊이 [[buried|묻어]] 두었다.", "en": ["Take the decision by a popular music streaming platform to replace static album artwork with short video loops by default.", "This change significantly increases data usage and battery consumption, while the option to disable it is buried deep in the settings.", "As a result, most users consume more resources unless they actively search for a way to opt out."], "kos": ["한 인기 음악 스트리밍 플랫폼이 기본값으로 정적인 앨범 표지를 짧은 영상의 반복으로 대체하기로 한 결정을 예로 들어 보자.", "이러한 변화는 데이터 사용과 배터리 소비를 상당히 증가시키고, 반면 그것을 비활성화하는 선택은 설정 메뉴 속 깊이 숨겨져 있다.", "그 결과 대부분의 사용자들은 그들이 적극적으로 빠져나올 방법을 찾지 않으면 더 많은 자원을 소비한다."]}, {"tag": "본문 9~11번", "ns": [9, 10, 11], "line": "웹 디자인은 늘 행동을 [[nudges|유도한다]]. 중요한 건 그것이 투명하고 되돌릴 수 있는지다.", "en": ["It is important to acknowledge that web design always nudges behavior in some way.", "Showing consequences and highlighting options are all forms of influence.", "The ethical line is not whether nudging exists, but whether it is transparent, reversible, and aligned with the user's interests."], "kos": ["웹 디자인이 항상 어떤 방식으로든 행동을 유도한다는 것을 인정하는 것은 중요하다.", "결과를 보여 주는 것과 선택지를 강조하는 것은 모두 영향력의 형태이다.", "윤리적 기준은 행동 유도가 존재하느냐가 아니라, 그것이 투명하고, 되돌릴 수 있으며, 사용자의 이익과 일치하는지이다."]}, {"tag": "본문 12~13번", "ns": [12, 13], "line": "영향이 적은 선택지를 기본값으로 하면 사용자 [[agency|주체성]]을 지키면서 환경 영향을 [[reduce|줄일]] 수 있다.", "en": ["In many cases, the most responsible approach is to make the lower-impact option the default, while keeping alternatives clearly available.", "Defaults are powerful, and when chosen carefully, they can reduce environmental impact without removing user agency."], "kos": ["많은 경우, 가장 책임 있는 접근 방법은 대안들을 분명하게 이용할 수 있도록 유지하면서 (환경에 미치는) 영향이 더 적은 선택지를 기본값으로 만드는 것이다.", "기본값들은 영향력이 크고, 신중하게 선택될 경우 그것들은 사용자 주체성을 없애지 않으면서 환경적 영향을 줄일 수 있다."]}], "story": [{"a": "interfere", "form": "interfere", "n": 1, "sq": 1, "sum": "[[hinder]] the control users have", "hook": "사용자의 통제를 방해한다는 문장의 interfere(방해하다) → 요약문에서는 hinder(방해하다)로 바꿨어요.", "b": "hinder", "k": "방해하다 → 방해하다", "en": "Patterns such as infinite scroll, autoplaying videos, or requiring an account just to make a purchase all interfere with the user's control over their own experience.", "ko": "무한 스크롤, 자동 재생 영상, 혹은 단지 구매를 하기 위해 계정을 요구하는 것과 같은 패턴들은 모두 사용자들이 자기 자신의 경험을 통제하는 것을 방해한다."}, {"a": "encourage", "form": "encourage", "n": 2, "sq": 1, "sum": "many of them [[urge]] people", "hook": "과잉 소비를 부추긴다는 문장의 encourage(부추기다) → 요약문에서는 urge(부추기다)로 바꿨어요.", "b": "urge", "k": "부추기다 → 부추기다", "en": "From a sustainability perspective, many of these patterns encourage overconsumption of data and attention.", "ko": "지속 가능성의 관점에서 이러한 패턴들 중 많은 것들이 데이터와 주의력의 과잉 소비를 부추긴다."}, {"a": "increase", "form": "increasing", "n": 3, "sq": 2, "sum": "can [[raise]] data usage", "hook": "데이터 사용을 증가시킨다는 문장의 increase(증가시키다) → 요약문에서는 raise(올리다)로 바꿨어요.", "b": "raise", "k": "증가시키다 → 올리다", "en": "Infinite scroll keeps loading new content whether the user wants it or not, increasing data usage and device processing.", "ko": "무한 스크롤은 사용자가 그것을 원하든 원하지 않든 새로운 콘텐츠를 계속해서 로딩하고, 이는 데이터 사용과 기기의 처리 작업을 증가시킨다."}, {"a": "consume", "form": "consume", "n": 5, "sq": 2, "sum": "these choices [[use]] more energy", "hook": "에너지를 더 많이 소비한다는 문장의 consume(소비하다) → 요약문에서는 use(쓰다)로 바꿨어요.", "b": "use", "k": "소비하다 → 쓰다", "en": "These choices consume more energy on both the user's device and the servers delivering the content.", "ko": "이러한 선택들은 사용자의 기기와 콘텐츠를 전달하는 서버 모두에서 더 많은 에너지를 소비한다."}, {"a": "static", "form": "static", "n": 6, "sq": 3, "sum": "replaced [[still]] album art", "hook": "정적인 앨범 표지를 바꿨다는 문장의 static(정지된) → 요약문에서는 still(정지된)로 바꿨어요.", "b": "still", "k": "정지된 → 정지된", "en": "Take the decision by a popular music streaming platform to replace static album artwork with short video loops by default.", "ko": "한 인기 음악 스트리밍 플랫폼이 기본값으로 정적인 앨범 표지를 짧은 영상의 반복으로 대체하기로 한 결정을 예로 들어 보자."}, {"a": "bury", "form": "buried", "n": 7, "sq": 3, "sum": "was [[hidden]] deep in the settings", "hook": "끄는 선택지가 설정 깊이 묻혀 있다는 문장의 bury(묻다) → 요약문에서는 hide(숨기다)로 바꿨어요.", "b": "hide", "k": "묻다 → 숨기다", "en": "This change significantly increases data usage and battery consumption, while the option to disable it is buried deep in the settings.", "ko": "이러한 변화는 데이터 사용과 배터리 소비를 상당히 증가시키고, 반면 그것을 비활성화하는 선택은 설정 메뉴 속 깊이 숨겨져 있다."}, {"a": "nudge", "form": "nudges", "n": 9, "sq": 4, "sum": "always [[guide]] behavior", "hook": "웹 디자인이 항상 행동을 유도한다는 문장의 nudge(살짝 유도하다) → 요약문에서는 guide(이끌다)로 바꿨어요.", "b": "guide", "k": "살짝 유도하다 → 이끌다", "en": "It is important to acknowledge that web design always nudges behavior in some way.", "ko": "웹 디자인이 항상 어떤 방식으로든 행동을 유도한다는 것을 인정하는 것은 중요하다."}, {"a": "reduce", "form": "reduce", "n": 13, "sq": 4, "sum": "can [[cut]] harm to the environment", "hook": "환경적 영향을 줄일 수 있다는 문장의 reduce(줄이다) → 요약문에서는 cut(줄이다)으로 바꿨어요.", "b": "cut", "k": "줄이다 → 줄이다", "en": "Defaults are powerful, and when chosen carefully, they can reduce environmental impact without removing user agency.", "ko": "기본값들은 영향력이 크고, 신중하게 선택될 경우 그것들은 사용자 주체성을 없애지 않으면서 환경적 영향을 줄일 수 있다."}, {"a": "agency", "form": "agency", "n": 13, "sq": 4, "sum": "user [[freedom]]", "hook": "사용자 주체성을 없애지 않는다는 문장의 agency(주체성) → 요약문에서는 freedom(자유)으로 바꿨어요.", "b": "freedom", "k": "주체성 → 자유", "en": "Defaults are powerful, and when chosen carefully, they can reduce environmental impact without removing user agency.", "ko": "기본값들은 영향력이 크고, 신중하게 선택될 경우 그것들은 사용자 주체성을 없애지 않으면서 환경적 영향을 줄일 수 있다."}], "passage": [{"n": 1, "en": "Patterns such as infinite scroll, autoplaying videos, or requiring an account just to make a purchase all interfere with the user's control over their own experience.", "ko": "무한 스크롤, 자동 재생 영상, 혹은 단지 구매를 하기 위해 계정을 요구하는 것과 같은 패턴들은 모두 사용자들이 자기 자신의 경험을 통제하는 것을 방해한다."}, {"n": 2, "en": "From a sustainability perspective, many of these patterns encourage overconsumption of data and attention.", "ko": "지속 가능성의 관점에서 이러한 패턴들 중 많은 것들이 데이터와 주의력의 과잉 소비를 부추긴다."}, {"n": 3, "en": "Infinite scroll keeps loading new content whether the user wants it or not, increasing data usage and device processing.", "ko": "무한 스크롤은 사용자가 그것을 원하든 원하지 않든 새로운 콘텐츠를 계속해서 로딩하고, 이는 데이터 사용과 기기의 처리 작업을 증가시킨다."}, {"n": 4, "en": "Autoplay forces media to load and play even for people who may never watch it.", "ko": "자동 재생은 매체가 그것을 절대 시청하지 않을 사람들에게조차도 로딩하고 재생하도록 강요한다."}, {"n": 5, "en": "These choices consume more energy on both the user's device and the servers delivering the content.", "ko": "이러한 선택들은 사용자의 기기와 콘텐츠를 전달하는 서버 모두에서 더 많은 에너지를 소비한다."}, {"n": 6, "en": "Take the decision by a popular music streaming platform to replace static album artwork with short video loops by default.", "ko": "한 인기 음악 스트리밍 플랫폼이 기본값으로 정적인 앨범 표지를 짧은 영상의 반복으로 대체하기로 한 결정을 예로 들어 보자."}, {"n": 7, "en": "This change significantly increases data usage and battery consumption, while the option to disable it is buried deep in the settings.", "ko": "이러한 변화는 데이터 사용과 배터리 소비를 상당히 증가시키고, 반면 그것을 비활성화하는 선택은 설정 메뉴 속 깊이 숨겨져 있다."}, {"n": 8, "en": "As a result, most users consume more resources unless they actively search for a way to opt out.", "ko": "그 결과 대부분의 사용자들은 그들이 적극적으로 빠져나올 방법을 찾지 않으면 더 많은 자원을 소비한다."}, {"n": 9, "en": "It is important to acknowledge that web design always nudges behavior in some way.", "ko": "웹 디자인이 항상 어떤 방식으로든 행동을 유도한다는 것을 인정하는 것은 중요하다."}, {"n": 10, "en": "Showing consequences and highlighting options are all forms of influence.", "ko": "결과를 보여 주는 것과 선택지를 강조하는 것은 모두 영향력의 형태이다."}, {"n": 11, "en": "The ethical line is not whether nudging exists, but whether it is transparent, reversible, and aligned with the user's interests.", "ko": "윤리적 기준은 행동 유도가 존재하느냐가 아니라, 그것이 투명하고, 되돌릴 수 있으며, 사용자의 이익과 일치하는지이다."}, {"n": 12, "en": "In many cases, the most responsible approach is to make the lower-impact option the default, while keeping alternatives clearly available.", "ko": "많은 경우, 가장 책임 있는 접근 방법은 대안들을 분명하게 이용할 수 있도록 유지하면서 (환경에 미치는) 영향이 더 적은 선택지를 기본값으로 만드는 것이다."}, {"n": 13, "en": "Defaults are powerful, and when chosen carefully, they can reduce environmental impact without removing user agency.", "ko": "기본값들은 영향력이 크고, 신중하게 선택될 경우 그것들은 사용자 주체성을 없애지 않으면서 환경적 영향을 줄일 수 있다."}], "questions": [{"id": 1, "summary": "Design patterns like infinite scroll and autoplay (A) the control users have over their own experience, and many of them (B) people to use too much data and attention.", "ko": "무한 스크롤과 자동 재생 같은 디자인 패턴은 사용자가 자기 경험에 대해 가진 통제를 <b>(A) 방해하고</b>, 그중 많은 것이 사람들에게 데이터와 주의력을 너무 많이 쓰도록 <b>(B) 부추긴다</b>.", "opts": [["hinder", "urge"], ["hinder", "forbid"], ["support", "urge"], ["support", "forbid"], ["ignore", "teach"]], "optko": ["방해하다 – 부추기다", "방해하다 – 금지하다", "돕다 – 부추기다", "돕다 – 금지하다", "무시하다 – 가르치다"], "ans": 0, "wrong": [null, "forbid(금지하다)가 틀려요. 이런 패턴은 데이터와 주의력의 과잉 소비를 막는 게 아니라 부추겨요(encourage).", "support(돕다)가 틀려요. 이런 패턴은 사용자의 통제를 돕는 게 아니라 방해해요(interfere with).", "둘 다 틀려요. 패턴은 통제를 돕는 게 아니라 방해하고, 과잉 소비를 금지하는 게 아니라 부추겨요.", "둘 다 틀려요. 통제를 무시한다(ignore)는 말이 아니라 방해한다는 말이고, 가르친다(teach)는 말도 본문에 없어요."], "evid": [{"n": 1, "hl": ["all interfere with the user"]}, {"n": 2, "hl": ["many of these patterns encourage overconsumption of data and attention"]}], "swaps": [["interfere", "hinder", "방해하다 → 방해하다"], ["encourage", "urge", "부추기다 → 부추기다"]], "swapnote": "interfere(방해하다)는 hinder(방해하다)로, encourage(부추기다)는 urge(부추기다)로 바뀌었어요. overconsumption(과잉 소비)은 use too much(너무 많이 쓰다)로 풀어 썼어요.", "use": [{"w": "hinder", "ex": "The rain hindered our trip.", "ko": "비가 우리 여행을 방해했다.", "wk": "방해하다", "hk": "방해했다"}, {"w": "urge", "ex": "My mom urged me to eat more.", "ko": "엄마는 나에게 더 먹으라고 재촉했다.", "wk": "부추기다, 재촉하다", "hk": "재촉했다"}], "flow": "본문 1번에서 무한 스크롤, 자동 재생, 구매하려면 계정을 요구하는 것 같은 패턴이 사용자의 통제를 방해한다고 하고, 2번에서 지속 가능성으로 보면 이런 패턴이 데이터와 주의력의 과잉 소비를 부추긴다고 해요.", "jd": [["Design patterns like infinite scroll and autoplay", "무한 스크롤과 자동 재생 같은 디자인 패턴은"], ["[[hinder]] the control users have", "사용자가 가진 통제를 [[방해한다]]"], ["over their own experience,", "자기 경험에 대해,"], ["and many of them [[urge]] people", "그리고 그중 많은 것이 사람들을 [[부추긴다]]"], ["to use too much data and attention.", "데이터와 주의력을 너무 많이 쓰도록."]], "fc": [["본문 1번", "패턴이 사용자의 통제를 방해한다", "무한 스크롤, 자동 재생 같은 패턴은 사용자의 통제를 {{interfere|방해해요}}."], ["본문 2번", "너무 많이 쓰게 만든다", "이런 패턴은 데이터와 주의력의 {{overconsumption|과잉 소비}}를 {{encourage|부추겨요}}."], ["정답 포인트", "{{interfere|방해하다}} = {{hinder|방해하다}}, {{encourage|부추기다}} = {{urge|부추기다}}", "본문 단어가 다른 말로 바뀌어 나와요."]], "evid_full": [{"en": "Patterns such as infinite scroll, autoplaying videos, or requiring an account just to make a purchase all interfere with the user's control over their own experience.", "ko": "무한 스크롤, 자동 재생 영상, 혹은 단지 구매를 하기 위해 계정을 요구하는 것과 같은 패턴들은 모두 사용자들이 자기 자신의 경험을 통제하는 것을 방해한다.", "hl": ["all interfere with the user"], "hlko": ["사용자들이 자기 자신의 경험을 통제하는 것을 방해한다"], "n": 1}, {"en": "From a sustainability perspective, many of these patterns encourage overconsumption of data and attention.", "ko": "지속 가능성의 관점에서 이러한 패턴들 중 많은 것들이 데이터와 주의력의 과잉 소비를 부추긴다.", "hl": ["many of these patterns encourage overconsumption of data and attention"], "hlko": ["이러한 패턴들 중 많은 것들이 데이터와 주의력의 과잉 소비를 부추긴다"], "n": 2}]}, {"id": 2, "summary": "Infinite scroll and autoplay load content even when users do not want it, which can (A) data usage, so these choices (B) more energy on both devices and servers.", "ko": "무한 스크롤과 자동 재생은 사용자가 원하지 않을 때도 콘텐츠를 불러와 데이터 사용량을 <b>(A) 올릴</b> 수 있어서, 이런 선택은 기기와 서버 모두에서 더 많은 에너지를 <b>(B) 쓴다</b>.", "opts": [["raise", "save"], ["cut", "use"], ["cut", "save"], ["raise", "use"], ["hide", "share"]], "optko": ["올리다 – 아끼다", "줄이다 – 쓰다", "줄이다 – 아끼다", "올리다 – 쓰다", "숨기다 – 나누다"], "ans": 3, "wrong": ["save(아끼다)가 틀려요. 본문은 이런 선택이 더 많은 에너지를 소비한다(consume)고 해요.", "cut(줄이다)이 틀려요. 무한 스크롤은 데이터 사용을 줄이는 게 아니라 증가시켜요(increasing).", "둘 다 틀려요. 데이터 사용은 줄어드는 게 아니라 늘고, 에너지는 아끼는 게 아니라 더 많이 소비돼요.", null, "둘 다 틀려요. 데이터 사용을 숨긴다(hide)는 말도, 에너지를 나눈다(share)는 말도 본문에 없어요."], "evid": [{"n": 3, "hl": ["Infinite scroll keeps loading new content whether the user wants it or not, increasing data usage and device processing"]}, {"n": 4, "hl": ["Autoplay forces media to load and play even for people who may never watch it"]}, {"n": 5, "hl": ["These choices consume more energy"]}], "swaps": [["increase", "raise", "증가시키다 → 올리다"], ["consume", "use", "소비하다 → 쓰다"]], "swapnote": "increase(증가시키다)는 raise(올리다)로, consume(소비하다)은 use(쓰다)로 바뀌었어요. whether the user wants it or not(원하든 원하지 않든)은 even when users do not want it(사용자가 원하지 않을 때도)로 읽어요.", "use": [{"w": "raise", "ex": "The shop will raise its prices.", "ko": "그 가게는 가격을 올릴 것이다.", "wk": "올리다", "hk": "올릴"}, {"w": "use", "ex": "Big TVs use a lot of energy.", "ko": "큰 TV는 에너지를 많이 쓴다.", "wk": "쓰다", "hk": "쓴다"}], "flow": "본문 3번에서 무한 스크롤은 원하든 말든 콘텐츠를 계속 불러와 데이터 사용을 늘린다고 하고, 4번에서 자동 재생은 보지도 않을 사람에게도 영상을 틀게 한다고 하고, 5번에서 그래서 기기와 서버 모두에서 에너지를 더 소비한다고 해요.", "jd": [["Infinite scroll and autoplay load content", "무한 스크롤과 자동 재생은 콘텐츠를 불러온다"], ["even when users do not want it,", "사용자가 원하지 않을 때조차,"], ["which can [[raise]] data usage,", "그리고 이것은 데이터 사용량을 [[올릴]] 수 있다,"], ["so these choices [[use]] more energy", "그래서 이런 선택은 더 많은 에너지를 [[쓴다]]"], ["on both devices and servers.", "기기와 서버 모두에서."]], "fc": [["본문 3~4번", "원하지 않아도 계속 불러온다", "무한 스크롤은 원하든 말든 콘텐츠를 불러와 데이터 사용을 {{increase|늘려요}}."], ["본문 5번", "에너지를 더 쓴다", "기기와 서버 모두에서 에너지를 더 {{consume|소비해요}}."], ["정답 포인트", "{{increase|증가시키다}} = {{raise|올리다}}, {{consume|소비하다}} = {{use|쓰다}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "Infinite scroll keeps loading new content whether the user wants it or not, increasing data usage and device processing.", "ko": "무한 스크롤은 사용자가 그것을 원하든 원하지 않든 새로운 콘텐츠를 계속해서 로딩하고, 이는 데이터 사용과 기기의 처리 작업을 증가시킨다.", "hl": ["Infinite scroll keeps loading new content whether the user wants it or not, increasing data usage and device processing"], "hlko": ["무한 스크롤은 사용자가 그것을 원하든 원하지 않든 새로운 콘텐츠를 계속해서 로딩하고, 이는 데이터 사용과 기기의 처리 작업을 증가시킨다"], "n": 3}, {"en": "Autoplay forces media to load and play even for people who may never watch it.", "ko": "자동 재생은 매체가 그것을 절대 시청하지 않을 사람들에게조차도 로딩하고 재생하도록 강요한다.", "hl": ["Autoplay forces media to load and play even for people who may never watch it"], "hlko": ["자동 재생은 매체가 그것을 절대 시청하지 않을 사람들에게조차도 로딩하고 재생하도록 강요한다"], "n": 4}, {"en": "These choices consume more energy on both the user's device and the servers delivering the content.", "ko": "이러한 선택들은 사용자의 기기와 콘텐츠를 전달하는 서버 모두에서 더 많은 에너지를 소비한다.", "hl": ["These choices consume more energy"], "hlko": ["이러한 선택들은 사용자의 기기와 콘텐츠를 전달하는 서버 모두에서 더 많은 에너지를 소비한다"], "n": 5}]}, {"id": 3, "summary": "A music platform replaced (A) album art with short video loops by default, while the option to turn this feature off was (B) deep in the settings, so most users ended up consuming more resources.", "ko": "한 음악 플랫폼은 기본값으로 <b>(A) 정지된</b> 앨범 그림을 짧은 반복 영상으로 바꿨고, 이 기능을 끄는 선택지는 설정 깊이 <b>(B) 숨겨져</b> 있어서 대부분의 사용자가 결국 더 많은 자원을 소비하게 되었다.", "opts": [["still", "shown"], ["still", "hidden"], ["moving", "hidden"], ["moving", "shown"], ["colorful", "printed"]], "optko": ["정지된 – 보이는", "정지된 – 숨겨진", "움직이는 – 숨겨진", "움직이는 – 보이는", "화려한 – 인쇄된"], "ans": 1, "wrong": ["shown(보이는)이 틀려요. 끄는 선택지는 설정 속 깊이 묻혀 있어요(buried).", null, "moving(움직이는)이 틀려요. 원래 앨범 표지는 정적인(static) 그림이었고, 그것을 움직이는 영상으로 바꾼 거예요.", "둘 다 틀려요. 원래 표지는 움직이는 게 아니라 정지된 그림이고, 끄는 선택지는 잘 보이는 게 아니라 깊이 숨겨져 있어요.", "둘 다 틀려요. 화려한(colorful) 표지라는 말은 없고, 선택지가 인쇄된(printed) 게 아니라 설정 속에 숨겨져 있어요."], "evid": [{"n": 6, "hl": ["replace static album artwork with short video loops by default"]}, {"n": 7, "hl": ["the option to disable it is buried deep in the settings"]}, {"n": 8, "hl": ["most users consume more resources"]}], "swaps": [["static", "still", "정지된 → 정지된"], ["bury", "hide", "묻다 → 숨기다"]], "swapnote": "static(정지된)은 still(정지된)로, bury(묻다)는 hide(숨기다)로 바뀌었어요. disable(끄다)은 turn off(끄다)로 풀어 썼어요.", "use": [{"w": "still", "ex": "This is a still photo, not a video.", "ko": "이것은 영상이 아니라 정지된 사진이다.", "wk": "정지된, 가만히 있는", "hk": "정지된"}, {"w": "hide", "ex": "She tried to hide the gift from her brother.", "ko": "그녀는 남동생에게 선물을 숨기려고 했다.", "wk": "숨기다, (hidden) 숨겨진", "hk": "숨기려고"}], "flow": "본문 6번에서 한 음악 플랫폼이 정지된 앨범 표지를 기본값으로 짧은 반복 영상으로 바꾼 예를 들고, 7번에서 그 변화가 데이터와 배터리를 많이 쓰는데 끄는 선택지는 설정 깊이 숨겨져 있다고 하고, 8번에서 그래서 대부분 더 많은 자원을 쓰게 된다고 해요.", "jd": [["A music platform replaced [[still]] album art", "한 음악 플랫폼은 [[정지된]] 앨범 그림을 바꿨다"], ["with short video loops by default,", "기본값으로 짧은 반복 영상으로,"], ["while the option to turn this feature off was [[hidden]]", "반면 이 기능을 끄는 선택지는 [[숨겨져]] 있었다"], ["deep in the settings,", "설정 깊이,"], ["so most users ended up consuming more resources.", "그래서 대부분의 사용자는 결국 더 많은 자원을 소비하게 되었다."]], "fc": [["본문 6번", "정지된 표지를 영상으로", "{{static|정지된}} 앨범 표지를 짧은 반복 영상으로 바꿨어요."], ["본문 7~8번", "끄는 버튼은 깊이 숨겼다", "끄는 선택지는 설정 깊이 {{bury|묻혀}} 있어서 자원을 더 쓰게 돼요."], ["정답 포인트", "{{static|정지된}} = {{still|정지된}}, {{bury|묻다}} = {{hide|숨기다}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "Take the decision by a popular music streaming platform to replace static album artwork with short video loops by default.", "ko": "한 인기 음악 스트리밍 플랫폼이 기본값으로 정적인 앨범 표지를 짧은 영상의 반복으로 대체하기로 한 결정을 예로 들어 보자.", "hl": ["replace static album artwork with short video loops by default"], "hlko": ["기본값으로 정적인 앨범 표지를 짧은 영상의 반복으로 대체하기로 한 결정"], "n": 6}, {"en": "This change significantly increases data usage and battery consumption, while the option to disable it is buried deep in the settings.", "ko": "이러한 변화는 데이터 사용과 배터리 소비를 상당히 증가시키고, 반면 그것을 비활성화하는 선택은 설정 메뉴 속 깊이 숨겨져 있다.", "hl": ["the option to disable it is buried deep in the settings"], "hlko": ["그것을 비활성화하는 선택은 설정 메뉴 속 깊이 숨겨져 있다"], "n": 7}, {"en": "As a result, most users consume more resources unless they actively search for a way to opt out.", "ko": "그 결과 대부분의 사용자들은 그들이 적극적으로 빠져나올 방법을 찾지 않으면 더 많은 자원을 소비한다.", "hl": ["most users consume more resources"], "hlko": ["대부분의 사용자들은 그들이 적극적으로 빠져나올 방법을 찾지 않으면 더 많은 자원을 소비한다"], "n": 8}]}, {"id": 4, "summary": "Since web design will always (A) behavior in some way, the most responsible approach is to make the lower-impact option the default, which can (B) harm to the environment without taking away user freedom.", "ko": "웹 디자인은 언제나 어떤 식으로든 행동을 <b>(A) 이끌기</b> 때문에, 가장 책임 있는 방법은 영향이 더 적은 선택지를 기본값으로 만드는 것이며, 이는 사용자의 자유를 빼앗지 않고 환경 피해를 <b>(B) 줄일</b> 수 있다.", "opts": [["guide", "double"], ["ignore", "cut"], ["ignore", "double"], ["copy", "hide"], ["guide", "cut"]], "optko": ["이끌다 – 두 배로 만들다", "무시하다 – 줄이다", "무시하다 – 두 배로 만들다", "베끼다 – 숨기다", "이끌다 – 줄이다"], "ans": 4, "wrong": ["double(두 배로 만들다)이 틀려요. 잘 고른 기본값은 환경적 영향을 줄일(reduce) 수 있어요.", "ignore(무시하다)가 틀려요. 본문은 웹 디자인이 항상 어떤 방식으로든 행동을 유도한다(nudges)고 해요.", "둘 다 틀려요. 웹 디자인은 행동을 무시하는 게 아니라 유도하고, 환경 피해는 두 배가 되는 게 아니라 줄어들어요.", "둘 다 틀려요. 행동을 베낀다(copy)는 말도 없고, 환경 피해를 숨기는(hide) 게 아니라 줄이는 거예요.", null], "evid": [{"n": 9, "hl": ["web design always nudges behavior in some way"]}, {"n": 12, "hl": ["make the lower-impact option the default"]}, {"n": 13, "hl": ["they can reduce environmental impact without removing user agency"]}], "swaps": [["nudge", "guide", "살짝 유도하다 → 이끌다"], ["reduce", "cut", "줄이다 → 줄이다"], ["agency", "freedom", "주체성 → 자유"]], "swapnote": "nudge(살짝 유도하다)는 guide(이끌다)로, reduce(줄이다)는 cut(줄이다)으로, agency(주체성)는 freedom(자유)으로 바뀌었어요. without removing(없애지 않으면서)은 without taking away(빼앗지 않고)로 읽어요.", "use": [{"w": "guide", "ex": "Signs guide people to the exit.", "ko": "표지판은 사람들을 출구로 이끈다.", "wk": "이끌다", "hk": "이끈다"}, {"w": "cut", "ex": "We need to cut our water use.", "ko": "우리는 물 사용을 줄여야 한다.", "wk": "줄이다", "hk": "줄여야"}], "flow": "본문 9~10번에서 웹 디자인은 늘 행동을 유도하고 결과를 보여 주거나 선택지를 강조하는 것도 영향력이라고 하고, 11번에서 윤리 기준은 투명하고 되돌릴 수 있고 사용자 이익과 맞는지라고 하고, 12~13번에서 영향이 적은 선택지를 기본값으로 하면 사용자 주체성을 없애지 않고 환경 영향을 줄일 수 있다고 정리해요.", "jd": [["Since web design will always [[guide]] behavior in some way,", "웹 디자인은 언제나 어떤 식으로든 행동을 [[이끌기]] 때문에,"], ["the most responsible approach", "가장 책임 있는 방법은"], ["is to make the lower-impact option the default,", "영향이 더 적은 선택지를 기본값으로 만드는 것이다,"], ["which can [[cut]] harm to the environment", "그리고 이것은 환경 피해를 [[줄일]] 수 있다"], ["without taking away user freedom.", "사용자의 자유를 빼앗지 않고."]], "fc": [["본문 9~11번", "디자인은 늘 행동을 유도한다", "웹 디자인은 항상 행동을 {{nudge|유도해요}}. 기준은 투명하고 되돌릴 수 있는지예요."], ["본문 12~13번", "영향이 적은 것을 기본값으로", "잘 고른 기본값은 사용자의 {{agency|주체성}}을 지키며 환경 영향을 {{reduce|줄여요}}."], ["정답 포인트", "{{nudge|살짝 유도하다}} = {{guide|이끌다}}, {{reduce|줄이다}} = {{cut|줄이다}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "It is important to acknowledge that web design always nudges behavior in some way.", "ko": "웹 디자인이 항상 어떤 방식으로든 행동을 유도한다는 것을 인정하는 것은 중요하다.", "hl": ["web design always nudges behavior in some way"], "hlko": ["웹 디자인이 항상 어떤 방식으로든 행동을 유도한다는 것을"], "n": 9}, {"en": "In many cases, the most responsible approach is to make the lower-impact option the default, while keeping alternatives clearly available.", "ko": "많은 경우, 가장 책임 있는 접근 방법은 대안들을 분명하게 이용할 수 있도록 유지하면서 (환경에 미치는) 영향이 더 적은 선택지를 기본값으로 만드는 것이다.", "hl": ["make the lower-impact option the default"], "hlko": ["(환경에 미치는) 영향이 더 적은 선택지를 기본값으로 만드는 것이다"], "n": 12}, {"en": "Defaults are powerful, and when chosen carefully, they can reduce environmental impact without removing user agency.", "ko": "기본값들은 영향력이 크고, 신중하게 선택될 경우 그것들은 사용자 주체성을 없애지 않으면서 환경적 영향을 줄일 수 있다.", "hl": ["they can reduce environmental impact without removing user agency"], "hlko": ["사용자 주체성을 없애지 않으면서 환경적 영향을 줄일 수 있다"], "n": 13}]}], "gloss": {"patterns": ["pattern", "패턴, 방식"], "infinite": ["infinite", "무한한"], "scroll": ["scroll", "스크롤"], "autoplaying": ["autoplay", "자동 재생하다"], "videos": ["video", "영상"], "requiring": ["require", "요구하다"], "account": ["account", "계정"], "purchase": ["purchase", "구매"], "interfere": ["interfere", "방해하다"], "user's": ["user", "사용자의"], "user": ["user", "사용자"], "users": ["user", "사용자"], "control": ["control", "통제"], "experience": ["experience", "경험"], "sustainability": ["sustainability", "지속 가능성"], "perspective": ["perspective", "관점"], "encourage": ["encourage", "부추기다"], "overconsumption": ["overconsumption", "과잉 소비"], "data": ["data", "데이터"], "attention": ["attention", "주의력"], "keeps": ["keep", "계속하다"], "loading": ["load", "불러오다"], "new": ["new", "새로운"], "content": ["content", "콘텐츠"], "wants": ["want", "원하다"], "increasing": ["increase", "증가시키다"], "usage": ["usage", "사용(량)"], "device": ["device", "기기"], "devices": ["device", "기기"], "processing": ["processing", "처리 작업"], "autoplay": ["autoplay", "자동 재생"], "forces": ["force", "강요하다"], "media": ["media", "매체"], "load": ["load", "불러오다"], "play": ["play", "재생하다"], "never": ["never", "절대 ~않다"], "watch": ["watch", "보다"], "choices": ["choice", "선택"], "consume": ["consume", "소비하다"], "energy": ["energy", "에너지"], "servers": ["server", "서버"], "delivering": ["deliver", "전달하다"], "take": ["take", "(예로) 들다"], "decision": ["decision", "결정"], "popular": ["popular", "인기 있는"], "music": ["music", "음악"], "streaming": ["streaming", "스트리밍"], "platform": ["platform", "플랫폼"], "replace": ["replace", "대체하다"], "static": ["static", "정지된"], "album": ["album", "앨범"], "artwork": ["artwork", "표지 그림"], "short": ["short", "짧은"], "video": ["video", "영상"], "loops": ["loop", "반복 재생"], "default": ["default", "기본값"], "change": ["change", "변화"], "significantly": ["significantly", "상당히"], "increases": ["increase", "증가시키다"], "battery": ["battery", "배터리"], "consumption": ["consumption", "소비"], "option": ["option", "선택지"], "disable": ["disable", "끄다"], "buried": ["bury", "묻다, 숨기다"], "deep": ["deep", "깊이"], "settings": ["setting", "설정"], "result": ["result", "결과"], "most": ["most", "대부분의, (the most) 가장"], "resources": ["resource", "자원"], "unless": ["unless", "~하지 않으면"], "actively": ["actively", "적극적으로"], "search": ["search", "찾다"], "opt": ["opt", "(opt out) 빠져나오다"], "out": ["out", "밖으로"], "acknowledge": ["acknowledge", "인정하다"], "web": ["web", "웹"], "design": ["design", "디자인"], "nudges": ["nudge", "살짝 유도하다"], "behavior": ["behavior", "행동"], "showing": ["show", "보여 주다"], "consequences": ["consequence", "결과"], "highlighting": ["highlight", "강조하다"], "options": ["option", "선택지"], "forms": ["form", "형태"], "influence": ["influence", "영향력"], "ethical": ["ethical", "윤리적인"], "line": ["line", "기준선"], "nudging": ["nudge", "유도하기"], "exists": ["exist", "존재하다"], "transparent": ["transparent", "투명한"], "reversible": ["reversible", "되돌릴 수 있는"], "aligned": ["align", "일치시키다"], "interests": ["interest", "이익"], "cases": ["case", "경우"], "responsible": ["responsible", "책임 있는"], "approach": ["approach", "접근 방법"], "lower-impact": ["lower-impact", "영향이 더 적은"], "keeping": ["keep", "유지하다"], "alternatives": ["alternative", "대안"], "clearly": ["clearly", "분명하게"], "available": ["available", "이용할 수 있는"], "defaults": ["default", "기본값"], "powerful": ["powerful", "강력한"], "chosen": ["choose", "고르다"], "carefully": ["carefully", "신중하게"], "reduce": ["reduce", "줄이다"], "environmental": ["environmental", "환경의"], "impact": ["impact", "영향"], "removing": ["remove", "없애다"], "agency": ["agency", "주체성"], "like": ["like", "~ 같은"], "hinder": ["hinder", "방해하다"], "support": ["support", "돕다"], "ignore": ["ignore", "무시하다"], "urge": ["urge", "부추기다, 재촉하다"], "forbid": ["forbid", "금지하다"], "teach": ["teach", "가르치다"], "use": ["use", "쓰다"], "too": ["too", "너무"], "their": ["they", "그들의"], "them": ["they", "그것들"], "over": ["over", "~에 대한"], "want": ["want", "원하다"], "nobody": ["nobody", "아무도 ~않다"], "raise": ["raise", "올리다"], "cut": ["cut", "줄이다"], "save": ["save", "아끼다"], "hide": ["hide", "숨기다"], "share": ["share", "나누다"], "replaced": ["replace", "대체하다"], "still": ["still", "정지된"], "moving": ["moving", "움직이는"], "colorful": ["colorful", "화려한"], "turn": ["turn", "(turn off) 끄다"], "off": ["off", "꺼진"], "hidden": ["hidden", "숨겨진"], "shown": ["show", "보여 주다"], "printed": ["print", "인쇄하다"], "end": ["end", "(end up) 결국 ~하게 되다"], "consuming": ["consume", "소비하다"], "feature": ["feature", "기능"], "ended": ["end", "(end up) 결국 ~하게 되다"], "art": ["art", "그림"], "since": ["since", "~ 때문에"], "will": ["will", "~할 것이다"], "guide": ["guide", "이끌다, 유도하다"], "double": ["double", "두 배로 만들다"], "copy": ["copy", "베끼다"], "harm": ["harm", "해, 피해"], "environment": ["environment", "환경"], "taking": ["take", "가져가다"], "away": ["away", "멀리"], "freedom": ["freedom", "자유"], "some": ["some", "어떤"], "only": ["only", "오직, 단지"], "becomes": ["become", "~이 되다"], "among": ["among", "~ 사이에서, ~ 가운데"], "because": ["because", "~ 때문에"], "died": ["die", "죽었다"], "while": ["while", "~하는 동안, 한편"], "didn't": ["do not", "~하지 않았다"], "about": ["about", "약, ~에 대해"], "human": ["human", "인간의"], "between": ["between", "~ 사이에"], "during": ["during", "~ 동안"], "after": ["after", "~ 후에"], "always": ["always", "항상"], "often": ["often", "자주"], "however": ["however", "그러나"], "therefore": ["therefore", "그러므로"], "instead": ["instead", "대신에"], "both": ["both", "둘 다"], "other": ["other", "다른"], "others": ["other", "다른 것들"], "another": ["another", "또 다른"], "such": ["such", "그러한"], "same": ["same", "같은"], "different": ["different", "다른"], "important": ["important", "중요한"], "together": ["together", "함께"], "people": ["people", "사람들"], "can": ["can", "~할 수 있다"], "being": ["be", "~되는 것"], "into": ["into", "~ 속으로"], "through": ["through", "~을 통해"], "without": ["without", "~ 없이"], "within": ["within", "~ 안에"], "against": ["against", "~에 맞서"], "whether": ["whether", "~인지 아닌지"], "just": ["just", "단지, 바로"], "even": ["even", "~조차"], "yet": ["yet", "하지만, 그래도"], "every": ["every", "모든"], "own": ["own", "자신의"], "make": ["make", "만들다"], "made": ["make", "만들어진"], "way": ["way", "방식, 방법"], "today": ["today", "오늘날"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="jusung-go1";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH+':'+location.pathname.split('/').slice(-2).join('/');
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;try{if(v==='home')sessionStorage.removeItem('vhyv');else sessionStorage.setItem('vhyv',JSON.stringify({p:location.pathname,v:v,c:cur,t:Date.now()}))}catch(e){}
+  hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';try{sessionStorage.removeItem('vhyv')}catch(e){}hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='rmnote'){var rid=String(v);var rn=NOTES[rid];delete NOTES[rid];jset(K_NOTE,NOTES);delete PUSHED['w:'+rid];jset('vhvs:'+SCH,PUSHED);try{WN.del(rn?rn.l:rid,SRC)}catch(x){}render()}
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);recordYy(q,i);render();
+}
+/* 점수 기록: vhy:<학교> = {<페이지>:{<문제>:{n:푼 횟수,w:틀린 횟수,k:마지막 정답(1/0),c:고른 번호,t:시각}}} -> REC 로 자동 연동(선생님 화면) */
+function recordYy(q,i){
+  try{
+    var K='vhy:'+SCH,P=location.pathname.split('/').slice(-2).join('/'),Y=jget(K,{});
+    var pg=Y[P]||(Y[P]={}),e=pg[q.id]||(pg[q.id]={n:0,w:0});
+    e.n=(e.n||0)+1;if(i!==q.ans)e.w=(e.w||0)+1;e.k=(i===q.ans?1:0);e.c=i;e.t=Date.now();
+    jset(K,Y);
+  }catch(x){}
+  /* 바꿔 말하기 단어는 푼 즉시 모두 선생님 질문 목록에 올린다 */
+  try{swList().forEach(function(s){pushSw(s.id)})}catch(x){}
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){
+  var L=(DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}}),seen={};
+  L.forEach(function(s){seen[s.a.toLowerCase()]=1});
+  /* 모든 문제의 '이 단어, 이렇게 바뀌었어요' 단어도 빠짐없이 바꿔 말하기 연습에 넣는다 */
+  Qs.forEach(function(q,qi){(q.swaps||[]).forEach(function(w){var k=String(w[0]).toLowerCase();if(seen[k])return;seen[k]=1;L.push({a:w[0],form:w[0],b:w[1],k:w[2],id:'sw:'+k,n:0,sq:qi+1,sum:'',hook:'',en:'',ko:''})})});
+  return L.map(function(s,i){return {s:s,i:i}}).sort(function(x,y){return (x.s.sq-y.s.sq)||(x.i-y.i)}).map(function(x){return x.s});
+}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function yyLine(){
+  try{var Y=jget('vhy:'+SCH,{}),pg=Y[location.pathname.split('/').slice(-2).join('/')]||{},n=0,r=0,w=0;
+    Qs.forEach(function(q){var e=pg[q.id];if(e&&e.n){n++;if(e.k)r++;w+=e.w||0}});
+    if(!n)return '';
+    return '<p class="sub">내 기록: '+n+'문제 중 '+r+'문제 정답'+(w?' · 틀린 횟수 '+w+'번':'')+'</p>';
+  }catch(x){return ''}
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../yoyak.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+=yyLine();
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">문장의 밑줄 단어를 누르면 뜻이 나와요. 보기를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+(done?words(o[0]):esc(o[0]))+'<span class="dash">–</span>'+(done?words(o[1]):esc(o[1]))+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'<button class="rmw" data-a="rmnote" data-v="'+esc(n.l.toLowerCase())+'">빼기</button></li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="qn">'+s.sq+'번</span><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+/* 자동 새로고침(기록 연동)이 일어나도 보던 문제로 되돌린다 */
+try{var sv=JSON.parse(sessionStorage.getItem('vhyv')||'null');if(sv&&sv.p===location.pathname&&Date.now()-sv.t<600000&&sv.v&&sv.v!=='home'){view=sv.v;cur=sv.c||0;try{history.pushState({v:view},'');histPushed=true}catch(e){}}}catch(e){}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>

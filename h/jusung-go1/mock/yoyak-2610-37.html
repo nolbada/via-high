@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>26년 10월 37번 요약문 연습 </title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .rmw{border:1px solid var(--line);background:#fff;color:var(--sub);border-radius:8px;padding:4px 10px;font-size:13px}
+.qn{font-size:12px;font-weight:800;color:#fff;background:var(--sub);border-radius:6px;padding:2px 6px;margin-right:6px;flex:none}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+<script>window.REC_NOGATE=1;(function(){try{if(window.__recl||!/\/h\/(geumcheon|jusung|cheongseok)-(gimal|go1|go2)\//.test(location.pathname))return;window.__recl=1;var s=document.createElement('script');s.src=location.pathname.replace(/\/h\/.*$/,'/h/rec.js')+'?v=2';(document.head||document.documentElement).appendChild(s)}catch(e){}})();</script></head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "jusung-go1", "src": "common/sx-data-2610.js", "dir": "mock", "pidx": 12, "lesson": "26년 10월 37번", "title": "", "label": "", "page": "yoyak-2610-37"}, "scenes": [{"tag": "본문 1~2번", "ns": [1, 2], "line": "마주 보고 일하면 서로의 의사소통 [[cues|단서]]를 [[easily|쉽게]] 본다. Ishii는 이것을 [[seamless|틈이 없는]] 의사소통이라 부른다.", "en": ["When people are collaborating face to face they can easily see each other and the range of different communication cues being used, so the task space is a subset of the communication space.", "Ishii, a professor at the MIT Media Lab, describes this as seamless communication because there is no functional separation between the task and communication space."], "kos": ["사람들이 대면하여 협업하고 있을 때, 그들은 서로를 그리고 사용되고 있는 다양한 의사소통 단서들의 범위를 쉽게 볼 수 있으며, 그래서 작업 공간은 의사소통 공간의 부분 집합이다.", "MIT Media Lab의 교수인 Ishii는 이것을 갈라진 틈이 없는 의사소통이라고 묘사하는데, 왜냐하면 작업 공간과 의사소통 공간 사이에 기능적 분리가 없기 때문이다."]}, {"tag": "본문 3~5번", "ns": [3, 4, 5], "line": "멀리서 일하면 작업 공간이 의사소통 공간과 [[separated|분리된다]]. 한 화면엔 [[collaborator|협업자]]의 얼굴, 다른 화면엔 문서라 둘을 함께 보는 건 [[impossible|불가능하다]].", "en": ["However, when people are working remotely, the task space is often separated from the communication space.", "For example, when video conferencing, people may have the face of their collaborator on one screen, while looking at a shared document on another.", "In this case, it is impossible to see many of the remote collaborator's communication cues at the same time as looking at the task space."], "kos": ["그러나 사람들이 원격으로 작업할 때, 그 작업 공간은 흔히 의사소통 공간으로부터 분리된다.", "예를 들어, 화상 회의를 할 때, 사람들은 한 화면에는 협업자의 얼굴을 두고, 동시에 다른 화면에서는 공유 문서를 보고 있을 수 있다.", "이 경우, 작업 공간을 보는 것과 동시에 원격 협업자의 많은 의사소통 단서들을 보는 것은 불가능하다."]}, {"tag": "본문 6~7번", "ns": [6, 7], "line": "그래서 두 공간 사이에 [[artificial|인위적인]] [[seam|틈]]이 생긴다. 이런 [[impact|영향]]은 의사소통 모델로 [[predicted|예측해야]] 한다.", "en": ["So, there is an artificial seam between the communication space and task space.", "This is the type of impact of remote communication technology that needs to be predicted through communication models."], "kos": ["그래서, 의사소통 공간과 작업 공간 사이에는 인위적인 갈라진 틈이 존재한다.", "이것은 의사소통 모델을 통해 예측될 필요가 있는 원격 의사소통 기술이 미치는 영향의 한 유형이다."]}], "story": [{"a": "easily", "form": "easily", "n": 1, "sq": 1, "sum": "can [[readily]] see", "hook": "마주 보면 서로를 쉽게 본다는 문장의 easily(쉽게) → 요약문에서는 readily(쉽게)로 바꿨어요.", "b": "readily", "k": "쉽게 → 쉽게", "en": "When people are collaborating face to face they can easily see each other and the range of different communication cues being used, so the task space is a subset of the communication space.", "ko": "사람들이 대면하여 협업하고 있을 때, 그들은 서로를 그리고 사용되고 있는 다양한 의사소통 단서들의 범위를 쉽게 볼 수 있으며, 그래서 작업 공간은 의사소통 공간의 부분 집합이다."}, {"a": "cue", "form": "cues", "n": 1, "sq": 1, "sum": "communication [[signals]]", "hook": "다양한 의사소통 단서라는 문장의 cue(단서) → 요약문에서는 signal(신호)로 바꿨어요.", "b": "signal", "k": "단서 → 신호", "en": "When people are collaborating face to face they can easily see each other and the range of different communication cues being used, so the task space is a subset of the communication space.", "ko": "사람들이 대면하여 협업하고 있을 때, 그들은 서로를 그리고 사용되고 있는 다양한 의사소통 단서들의 범위를 쉽게 볼 수 있으며, 그래서 작업 공간은 의사소통 공간의 부분 집합이다."}, {"a": "seamless", "form": "seamless", "n": 2, "sq": 1, "sum": "as [[smooth]] communication", "hook": "갈라진 틈이 없는 의사소통이라는 문장의 seamless(틈이 없는) → 요약문에서는 smooth(매끄러운)로 바꿨어요.", "b": "smooth", "k": "틈이 없는 → 매끄러운", "en": "Ishii, a professor at the MIT Media Lab, describes this as seamless communication because there is no functional separation between the task and communication space.", "ko": "MIT Media Lab의 교수인 Ishii는 이것을 갈라진 틈이 없는 의사소통이라고 묘사하는데, 왜냐하면 작업 공간과 의사소통 공간 사이에 기능적 분리가 없기 때문이다."}, {"a": "separate", "form": "separated", "n": 3, "sq": 2, "sum": "often [[split]] from", "hook": "작업 공간이 의사소통 공간과 분리된다는 문장의 separate(분리하다) → 요약문에서는 split(가르다)으로 바꿨어요.", "b": "split", "k": "분리하다 → 가르다", "en": "However, when people are working remotely, the task space is often separated from the communication space.", "ko": "그러나 사람들이 원격으로 작업할 때, 그 작업 공간은 흔히 의사소통 공간으로부터 분리된다."}, {"a": "collaborator", "form": "collaborator", "n": 4, "sq": 2, "sum": "signals from their [[partner]]", "hook": "한 화면에 협업자의 얼굴을 둔다는 문장의 collaborator(협업자) → 요약문에서는 partner(상대)로 바꿨어요.", "b": "partner", "k": "협업자 → 상대", "en": "For example, when video conferencing, people may have the face of their collaborator on one screen, while looking at a shared document on another.", "ko": "예를 들어, 화상 회의를 할 때, 사람들은 한 화면에는 협업자의 얼굴을 두고, 동시에 다른 화면에서는 공유 문서를 보고 있을 수 있다."}, {"a": "impossible", "form": "impossible", "n": 5, "sq": 2, "sum": "they are [[unable]] to see", "hook": "동시에 보는 건 불가능하다는 문장의 impossible(불가능한) → 요약문에서는 unable(~할 수 없는)로 바꿨어요.", "b": "unable", "k": "불가능한 → ~할 수 없는", "en": "In this case, it is impossible to see many of the remote collaborator's communication cues at the same time as looking at the task space.", "ko": "이 경우, 작업 공간을 보는 것과 동시에 원격 협업자의 많은 의사소통 단서들을 보는 것은 불가능하다."}, {"a": "artificial", "form": "artificial", "n": 6, "sq": 3, "sum": "that is [[unnatural]]", "hook": "인위적인 틈이 있다는 문장의 artificial(인위적인) → 요약문에서는 unnatural(부자연스러운)로 바꿨어요.", "b": "unnatural", "k": "인위적인 → 부자연스러운", "en": "So, there is an artificial seam between the communication space and task space.", "ko": "그래서, 의사소통 공간과 작업 공간 사이에는 인위적인 갈라진 틈이 존재한다."}, {"a": "seam", "form": "seam", "n": 6, "sq": 3, "sum": "creates a [[gap]]", "hook": "두 공간 사이의 갈라진 틈이라는 문장의 seam(갈라진 틈) → 요약문에서는 gap(틈)으로 바꿨어요.", "b": "gap", "k": "갈라진 틈 → 틈", "en": "So, there is an artificial seam between the communication space and task space.", "ko": "그래서, 의사소통 공간과 작업 공간 사이에는 인위적인 갈라진 틈이 존재한다."}, {"a": "impact", "form": "impact", "n": 7, "sq": 3, "sum": "a kind of [[effect]] of remote technology", "hook": "원격 기술이 미치는 영향이라는 문장의 impact(영향) → 요약문에서는 effect(영향)로 바꿨어요.", "b": "effect", "k": "영향 → 영향", "en": "This is the type of impact of remote communication technology that needs to be predicted through communication models.", "ko": "이것은 의사소통 모델을 통해 예측될 필요가 있는 원격 의사소통 기술이 미치는 영향의 한 유형이다."}, {"a": "predict", "form": "predicted", "n": 7, "sq": 3, "sum": "we need to [[forecast]]", "hook": "모델로 예측될 필요가 있다는 문장의 predict(예측하다) → 요약문에서는 forecast(예측하다)로 바꿨어요.", "b": "forecast", "k": "예측하다 → 예측하다", "en": "This is the type of impact of remote communication technology that needs to be predicted through communication models.", "ko": "이것은 의사소통 모델을 통해 예측될 필요가 있는 원격 의사소통 기술이 미치는 영향의 한 유형이다."}], "passage": [{"n": 1, "en": "When people are collaborating face to face they can easily see each other and the range of different communication cues being used, so the task space is a subset of the communication space.", "ko": "사람들이 대면하여 협업하고 있을 때, 그들은 서로를 그리고 사용되고 있는 다양한 의사소통 단서들의 범위를 쉽게 볼 수 있으며, 그래서 작업 공간은 의사소통 공간의 부분 집합이다."}, {"n": 2, "en": "Ishii, a professor at the MIT Media Lab, describes this as seamless communication because there is no functional separation between the task and communication space.", "ko": "MIT Media Lab의 교수인 Ishii는 이것을 갈라진 틈이 없는 의사소통이라고 묘사하는데, 왜냐하면 작업 공간과 의사소통 공간 사이에 기능적 분리가 없기 때문이다."}, {"n": 3, "en": "However, when people are working remotely, the task space is often separated from the communication space.", "ko": "그러나 사람들이 원격으로 작업할 때, 그 작업 공간은 흔히 의사소통 공간으로부터 분리된다."}, {"n": 4, "en": "For example, when video conferencing, people may have the face of their collaborator on one screen, while looking at a shared document on another.", "ko": "예를 들어, 화상 회의를 할 때, 사람들은 한 화면에는 협업자의 얼굴을 두고, 동시에 다른 화면에서는 공유 문서를 보고 있을 수 있다."}, {"n": 5, "en": "In this case, it is impossible to see many of the remote collaborator's communication cues at the same time as looking at the task space.", "ko": "이 경우, 작업 공간을 보는 것과 동시에 원격 협업자의 많은 의사소통 단서들을 보는 것은 불가능하다."}, {"n": 6, "en": "So, there is an artificial seam between the communication space and task space.", "ko": "그래서, 의사소통 공간과 작업 공간 사이에는 인위적인 갈라진 틈이 존재한다."}, {"n": 7, "en": "This is the type of impact of remote communication technology that needs to be predicted through communication models.", "ko": "이것은 의사소통 모델을 통해 예측될 필요가 있는 원격 의사소통 기술이 미치는 영향의 한 유형이다."}], "questions": [{"id": 1, "summary": "When people work together in person, they can (A) see each other and all their communication signals, so Ishii describes this as (B) communication.", "ko": "사람들이 직접 만나 함께 일할 때 서로와 모든 의사소통 신호를 <b>(A) 쉽게</b> 볼 수 있어서, Ishii는 이것을 <b>(B) 매끄러운</b> 의사소통이라고 묘사한다.", "opts": [["readily", "broken"], ["hardly", "smooth"], ["hardly", "broken"], ["readily", "smooth"], ["slowly", "silent"]], "optko": ["쉽게 – 끊긴", "거의 못 – 매끄러운", "거의 못 – 끊긴", "쉽게 – 매끄러운", "느리게 – 조용한"], "ans": 3, "wrong": ["broken(끊긴)이 틀려요. Ishii는 이것을 갈라진 틈이 없는 의사소통(seamless communication)이라고 불러요.", "hardly(거의 ~않다)가 틀려요. 마주 보고 일하면 서로의 단서를 쉽게(easily) 볼 수 있어요.", "둘 다 틀려요. 서로를 거의 못 보는 게 아니라 쉽게 보고, 의사소통은 끊긴 게 아니라 틈이 없어요.", null, "둘 다 틀려요. 느리게(slowly) 본다는 말도, 조용한(silent) 의사소통이라는 말도 본문에 없어요."], "evid": [{"n": 1, "hl": ["they can easily see each other and the range of different communication cues"]}, {"n": 2, "hl": ["describes this as seamless communication"]}], "swaps": [["easily", "readily", "쉽게 → 쉽게"], ["cue", "signal", "단서 → 신호"], ["seamless", "smooth", "틈이 없는 → 매끄러운"]], "swapnote": "easily(쉽게)는 readily(쉽게)로, cue(단서)는 signal(신호)로, seamless(틈이 없는)는 smooth(매끄러운)로 바뀌었어요.", "use": [{"w": "readily", "ex": "Fresh fruit is readily available here.", "ko": "여기서는 신선한 과일을 쉽게 구할 수 있다.", "wk": "쉽게", "hk": "쉽게"}, {"w": "smooth", "ex": "We had a smooth talk with no problems.", "ko": "우리는 아무 문제 없이 매끄러운 대화를 나눴다.", "wk": "매끄러운", "hk": "매끄러운"}], "flow": "본문 1번에서 마주 보고 협업하면 서로와 여러 의사소통 단서를 쉽게 본다고 하고, 2번에서 Ishii가 이것을 갈라진 틈이 없는 의사소통이라고 부른다고 해요.", "jd": [["When people work together in person,", "사람들이 직접 만나 함께 일할 때,"], ["they can [[readily]] see each other", "그들은 서로를 [[쉽게]] 볼 수 있다"], ["and all their communication signals,", "그리고 그들의 모든 의사소통 신호를,"], ["so Ishii describes this", "그래서 Ishii는 이것을 묘사한다"], ["as [[smooth]] communication.", "[[매끄러운]] 의사소통이라고."]], "fc": [["본문 1번", "마주 보면 단서가 다 보인다", "마주 보고 일하면 서로의 {{cue|단서}}를 {{easily|쉽게}} 봐요."], ["본문 2번", "틈이 없는 의사소통", "Ishii는 이것을 {{seamless|틈이 없는}} 의사소통이라 불러요."], ["정답 포인트", "{{easily|쉽게}} = {{readily|쉽게}}, {{seamless|틈이 없는}} = {{smooth|매끄러운}}", "본문 단어가 다른 말로 바뀌어 나와요."]], "evid_full": [{"en": "When people are collaborating face to face they can easily see each other and the range of different communication cues being used, so the task space is a subset of the communication space.", "ko": "사람들이 대면하여 협업하고 있을 때, 그들은 서로를 그리고 사용되고 있는 다양한 의사소통 단서들의 범위를 쉽게 볼 수 있으며, 그래서 작업 공간은 의사소통 공간의 부분 집합이다.", "hl": ["they can easily see each other and the range of different communication cues"], "hlko": ["서로를 그리고 사용되고 있는 다양한 의사소통 단서들의 범위를 쉽게 볼 수 있으며"], "n": 1}, {"en": "Ishii, a professor at the MIT Media Lab, describes this as seamless communication because there is no functional separation between the task and communication space.", "ko": "MIT Media Lab의 교수인 Ishii는 이것을 갈라진 틈이 없는 의사소통이라고 묘사하는데, 왜냐하면 작업 공간과 의사소통 공간 사이에 기능적 분리가 없기 때문이다.", "hl": ["describes this as seamless communication"], "hlko": ["이것을 갈라진 틈이 없는 의사소통이라고 묘사하는데"], "n": 2}]}, {"id": 2, "summary": "When people work at a distance, the task space is often (A) from the communication space, so they are (B) to see many signals from their partner while looking at the task.", "ko": "사람들이 멀리 떨어져 일할 때 작업 공간은 흔히 의사소통 공간과 <b>(A) 갈라져서</b>, 작업을 보는 동안 상대의 많은 신호를 볼 <b>(B) 수 없다</b>.", "opts": [["split", "unable"], ["split", "able"], ["copied", "unable"], ["copied", "able"], ["hidden", "eager"]], "optko": ["갈라진 – ~할 수 없는", "갈라진 – ~할 수 있는", "베껴진 – ~할 수 없는", "베껴진 – ~할 수 있는", "숨겨진 – 간절히 원하는"], "ans": 0, "wrong": [null, "able(~할 수 있는)이 틀려요. 본문은 작업 공간을 보면서 상대의 단서를 보는 것이 불가능하다(impossible)고 해요.", "copied(베껴진, 기본형 copy)가 틀려요. 작업 공간은 의사소통 공간에서 베껴 온 게 아니라 분리돼요(separated).", "둘 다 틀려요. 작업 공간은 베껴진 게 아니라 분리되고, 상대의 신호는 볼 수 있는 게 아니라 볼 수 없어요.", "둘 다 틀려요. 공간이 숨겨진(hidden) 게 아니라 분리된 것이고, 보고 싶어 한다(eager)는 말이 아니라 볼 수 없다는 말이에요."], "evid": [{"n": 3, "hl": ["the task space is often separated from the communication space"]}, {"n": 4, "hl": ["the face of their collaborator on one screen"]}, {"n": 5, "hl": ["it is impossible to see many of the remote collaborator"]}], "swaps": [["separate", "split", "분리하다 → 가르다"], ["collaborator", "partner", "협업자 → 상대"], ["impossible", "unable", "불가능한 → ~할 수 없는"]], "swapnote": "separate(분리하다)는 split(가르다)로, collaborator(협업자)는 partner(상대)로, impossible(불가능한)은 unable(~할 수 없는)로 바뀌었어요. it is impossible to see = they are unable to see로 읽어요.", "use": [{"w": "split", "ex": "The river split the town into two parts.", "ko": "그 강은 마을을 두 부분으로 갈라 놓았다.", "wk": "가르다, 나누다", "hk": "갈라"}, {"w": "unable", "ex": "I was unable to sleep last night.", "ko": "나는 어젯밤 잠을 잘 수 없었다.", "wk": "~할 수 없는", "hk": "잘 수 없었다"}], "flow": "본문 3번에서 원격으로 일하면 작업 공간이 의사소통 공간과 분리된다고 하고, 4번에서 화상 회의 때 한 화면엔 얼굴, 다른 화면엔 문서를 본다는 예를 들고, 5번에서 그래서 둘을 동시에 보는 건 불가능하다고 해요.", "jd": [["When people work at a distance,", "사람들이 멀리 떨어져 일할 때,"], ["the task space is often [[split]]", "작업 공간은 흔히 [[갈라진다]]"], ["from the communication space,", "의사소통 공간으로부터,"], ["so they are [[unable]] to see", "그래서 그들은 볼 [[수 없다]]"], ["many signals from their partner", "상대의 많은 신호를"], ["while looking at the task.", "작업을 보는 동안."]], "fc": [["본문 3번", "멀리서 일하면 공간이 갈라진다", "작업 공간이 의사소통 공간과 {{separate|분리돼요}}."], ["본문 4~5번", "얼굴과 문서를 동시에 못 본다", "한 화면엔 {{collaborator|협업자}}, 다른 화면엔 문서라 둘을 함께 보는 건 {{impossible|불가능해요}}."], ["정답 포인트", "{{separate|분리하다}} = {{split|가르다}}, {{impossible|불가능한}} = {{unable|~할 수 없는}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "However, when people are working remotely, the task space is often separated from the communication space.", "ko": "그러나 사람들이 원격으로 작업할 때, 그 작업 공간은 흔히 의사소통 공간으로부터 분리된다.", "hl": ["the task space is often separated from the communication space"], "hlko": ["그 작업 공간은 흔히 의사소통 공간으로부터 분리된다"], "n": 3}, {"en": "For example, when video conferencing, people may have the face of their collaborator on one screen, while looking at a shared document on another.", "ko": "예를 들어, 화상 회의를 할 때, 사람들은 한 화면에는 협업자의 얼굴을 두고, 동시에 다른 화면에서는 공유 문서를 보고 있을 수 있다.", "hl": ["the face of their collaborator on one screen"], "hlko": ["한 화면에는 협업자의 얼굴을 두고"], "n": 4}, {"en": "In this case, it is impossible to see many of the remote collaborator's communication cues at the same time as looking at the task space.", "ko": "이 경우, 작업 공간을 보는 것과 동시에 원격 협업자의 많은 의사소통 단서들을 보는 것은 불가능하다.", "hl": ["it is impossible to see many of the remote collaborator"], "hlko": ["원격 협업자의 많은 의사소통 단서들을 보는 것은 불가능하다"], "n": 5}]}, {"id": 3, "summary": "Separating the two spaces creates a gap between them that is (A), which is a kind of effect of remote technology that we need to (B) through communication models.", "ko": "두 공간이 분리되면 그 사이에 <b>(A) 부자연스러운</b> 틈이 생기는데, 이는 우리가 의사소통 모델을 통해 <b>(B) 예측해야</b> 하는 원격 기술의 영향 중 하나이다.", "opts": [["unnatural", "ignore"], ["natural", "forecast"], ["unnatural", "forecast"], ["natural", "ignore"], ["tiny", "hide"]], "optko": ["부자연스러운 – 무시하다", "자연스러운 – 예측하다", "부자연스러운 – 예측하다", "자연스러운 – 무시하다", "아주 작은 – 숨기다"], "ans": 2, "wrong": ["ignore(무시하다)가 틀려요. 본문은 이런 영향을 의사소통 모델로 예측해야(predicted) 한다고 해요.", "natural(자연스러운)이 틀려요. 두 공간 사이의 틈은 인위적인(artificial) 것이에요.", null, "둘 다 틀려요. 틈은 자연스러운 게 아니라 인위적이고, 영향은 무시하는 게 아니라 예측해야 해요.", "둘 다 틀려요. 틈이 아주 작다(tiny)는 말은 없고, 영향을 숨기는(hide) 게 아니라 예측해야 해요."], "evid": [{"n": 6, "hl": ["there is an artificial seam between the communication space and task space"]}, {"n": 7, "hl": ["the type of impact of remote communication technology that needs to be predicted through communication models"]}], "swaps": [["artificial", "unnatural", "인위적인 → 부자연스러운"], ["seam", "gap", "갈라진 틈 → 틈"], ["predict", "forecast", "예측하다 → 예측하다"], ["impact", "effect", "영향 → 영향"]], "swapnote": "artificial(인위적인)은 unnatural(부자연스러운)로, seam(갈라진 틈)은 gap(틈)으로, predict(예측하다)는 forecast(예측하다)로, impact(영향)는 effect(영향)로 바뀌었어요.", "use": [{"w": "unnatural", "ex": "His smile looked unnatural.", "ko": "그의 미소는 부자연스러워 보였다.", "wk": "부자연스러운", "hk": "부자연스러워"}, {"w": "forecast", "ex": "They forecast rain for tomorrow.", "ko": "그들은 내일 비가 온다고 예측한다.", "wk": "예측하다", "hk": "예측한다"}], "flow": "본문 6번에서 그래서 두 공간 사이에 인위적인 틈이 생긴다고 하고, 7번에서 이것이 의사소통 모델로 예측해야 할 원격 기술의 영향이라고 정리해요.", "jd": [["Separating the two spaces", "두 공간을 분리하는 것은"], ["creates a gap between them", "그 둘 사이에 틈을 만든다"], ["that is [[unnatural]],", "[[부자연스러운]],"], ["which is a kind of effect of remote technology", "그것은 원격 기술이 미치는 영향의 한 종류이다"], ["that we need to [[forecast]]", "우리가 [[예측해야]] 하는"], ["through communication models.", "의사소통 모델을 통해."]], "fc": [["본문 6번", "인위적인 틈이 생긴다", "두 공간 사이에 {{artificial|인위적인}} {{seam|틈}}이 생겨요."], ["본문 7번", "모델로 미리 예측해야 할 영향", "원격 기술의 이런 {{impact|영향}}은 의사소통 모델로 {{predict|예측해야}} 해요."], ["정답 포인트", "{{artificial|인위적인}} = {{unnatural|부자연스러운}}, {{predict|예측하다}} = {{forecast|예측하다}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "So, there is an artificial seam between the communication space and task space.", "ko": "그래서, 의사소통 공간과 작업 공간 사이에는 인위적인 갈라진 틈이 존재한다.", "hl": ["there is an artificial seam between the communication space and task space"], "hlko": ["의사소통 공간과 작업 공간 사이에는 인위적인 갈라진 틈이 존재한다"], "n": 6}, {"en": "This is the type of impact of remote communication technology that needs to be predicted through communication models.", "ko": "이것은 의사소통 모델을 통해 예측될 필요가 있는 원격 의사소통 기술이 미치는 영향의 한 유형이다.", "hl": ["the type of impact of remote communication technology that needs to be predicted through communication models"], "hlko": ["의사소통 모델을 통해 예측될 필요가 있는 원격 의사소통 기술이 미치는 영향의 한 유형"], "n": 7}]}], "gloss": {"when": ["when", "~할 때"], "collaborating": ["collaborate", "협업하다"], "face": ["face", "얼굴, 마주 보다"], "easily": ["easily", "쉽게"], "see": ["see", "보다"], "each": ["each", "각각"], "range": ["range", "범위"], "communication": ["communication", "의사소통"], "cues": ["cue", "단서, 신호"], "used": ["use", "사용되는"], "task": ["task", "작업"], "space": ["space", "공간"], "spaces": ["space", "공간"], "subset": ["subset", "부분 집합"], "ishii": ["Ishii", "Ishii(사람 이름)"], "professor": ["professor", "교수"], "mit": ["MIT", "MIT(대학 이름)"], "media": ["media", "미디어"], "lab": ["lab", "연구소"], "describes": ["describe", "묘사하다"], "seamless": ["seamless", "갈라진 틈이 없는, 매끄러운"], "functional": ["functional", "기능적인"], "separation": ["separation", "분리"], "working": ["work", "일하다"], "remotely": ["remotely", "원격으로, 멀리서"], "separated": ["separate", "분리되다"], "example": ["example", "예"], "video": ["video", "영상"], "conferencing": ["conference", "회의하다"], "collaborator": ["collaborator", "협업자"], "collaborator's": ["collaborator", "협업자의"], "screen": ["screen", "화면"], "looking": ["look", "보다"], "shared": ["share", "공유된"], "document": ["document", "문서"], "case": ["case", "경우"], "impossible": ["impossible", "불가능한"], "many": ["many", "많은"], "remote": ["remote", "원격의, 멀리 떨어진"], "time": ["time", "시간, 때"], "artificial": ["artificial", "인위적인"], "seam": ["seam", "갈라진 틈, 이음매"], "type": ["type", "유형"], "impact": ["impact", "영향"], "technology": ["technology", "기술"], "needs": ["need", "필요가 있다"], "need": ["need", "~해야 하다"], "predicted": ["predict", "예측되다"], "models": ["model", "모델"], "work": ["work", "일하다"], "person": ["person", "사람"], "readily": ["readily", "쉽게, 선뜻"], "signals": ["signal", "신호"], "smooth": ["smooth", "매끄러운"], "broken": ["broken", "끊긴, 깨진"], "hardly": ["hardly", "거의 ~않다"], "slowly": ["slowly", "느리게"], "silent": ["silent", "조용한, 말 없는"], "distance": ["distance", "거리"], "split": ["split", "갈라진, 나뉜"], "unable": ["unable", "~할 수 없는"], "able": ["able", "~할 수 있는"], "copied": ["copy", "베끼다"], "hidden": ["hidden", "숨겨진"], "eager": ["eager", "간절히 원하는"], "partner": ["partner", "상대, 짝"], "signal": ["signal", "신호"], "creates": ["create", "만들다"], "unnatural": ["unnatural", "부자연스러운"], "natural": ["natural", "자연스러운"], "gap": ["gap", "틈"], "kind": ["kind", "종류"], "effect": ["effect", "효과, 영향"], "forecast": ["forecast", "예측하다"], "ignore": ["ignore", "무시하다"], "tiny": ["tiny", "아주 작은"], "hide": ["hide", "숨기다"], "two": ["two", "둘"], "separating": ["separate", "분리하다"], "them": ["they", "그것들"], "their": ["they", "그들의"], "this": ["this", "이것"], "describe": ["describe", "묘사하다"], "one": ["one", "하나의"], "is": ["be", "~이다"], "are": ["be", "~이다"], "only": ["only", "오직, 단지"], "becomes": ["become", "~이 되다"], "among": ["among", "~ 사이에서, ~ 가운데"], "because": ["because", "~ 때문에"], "died": ["die", "죽었다"], "while": ["while", "~하는 동안, 한편"], "didn't": ["do not", "~하지 않았다"], "about": ["about", "약, ~에 대해"], "human": ["human", "인간의"], "between": ["between", "~ 사이에"], "during": ["during", "~ 동안"], "after": ["after", "~ 후에"], "always": ["always", "항상"], "often": ["often", "자주"], "however": ["however", "그러나"], "therefore": ["therefore", "그러므로"], "instead": ["instead", "대신에"], "both": ["both", "둘 다"], "other": ["other", "다른"], "others": ["other", "다른 것들"], "another": ["another", "또 다른"], "such": ["such", "그러한"], "same": ["same", "같은"], "different": ["different", "다른"], "important": ["important", "중요한"], "together": ["together", "함께"], "people": ["people", "사람들"], "can": ["can", "~할 수 있다"], "being": ["be", "~되는 것"], "into": ["into", "~ 속으로"], "through": ["through", "~을 통해"], "without": ["without", "~ 없이"], "within": ["within", "~ 안에"], "against": ["against", "~에 맞서"], "whether": ["whether", "~인지 아닌지"], "like": ["like", "~처럼"], "just": ["just", "단지, 바로"], "even": ["even", "~조차"], "still": ["still", "여전히"], "yet": ["yet", "하지만, 그래도"], "every": ["every", "모든"], "own": ["own", "자신의"], "make": ["make", "만들다"], "made": ["make", "만들어진"], "way": ["way", "방식, 방법"], "today": ["today", "오늘날"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="jusung-go1";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH+':'+location.pathname.split('/').slice(-2).join('/');
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;try{if(v==='home')sessionStorage.removeItem('vhyv');else sessionStorage.setItem('vhyv',JSON.stringify({p:location.pathname,v:v,c:cur,t:Date.now()}))}catch(e){}
+  hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';try{sessionStorage.removeItem('vhyv')}catch(e){}hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='rmnote'){var rid=String(v);var rn=NOTES[rid];delete NOTES[rid];jset(K_NOTE,NOTES);delete PUSHED['w:'+rid];jset('vhvs:'+SCH,PUSHED);try{WN.del(rn?rn.l:rid,SRC)}catch(x){}render()}
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);recordYy(q,i);render();
+}
+/* 점수 기록: vhy:<학교> = {<페이지>:{<문제>:{n:푼 횟수,w:틀린 횟수,k:마지막 정답(1/0),c:고른 번호,t:시각}}} -> REC 로 자동 연동(선생님 화면) */
+function recordYy(q,i){
+  try{
+    var K='vhy:'+SCH,P=location.pathname.split('/').slice(-2).join('/'),Y=jget(K,{});
+    var pg=Y[P]||(Y[P]={}),e=pg[q.id]||(pg[q.id]={n:0,w:0});
+    e.n=(e.n||0)+1;if(i!==q.ans)e.w=(e.w||0)+1;e.k=(i===q.ans?1:0);e.c=i;e.t=Date.now();
+    jset(K,Y);
+  }catch(x){}
+  /* 바꿔 말하기 단어는 푼 즉시 모두 선생님 질문 목록에 올린다 */
+  try{swList().forEach(function(s){pushSw(s.id)})}catch(x){}
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){
+  var L=(DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}}),seen={};
+  L.forEach(function(s){seen[s.a.toLowerCase()]=1});
+  /* 모든 문제의 '이 단어, 이렇게 바뀌었어요' 단어도 빠짐없이 바꿔 말하기 연습에 넣는다 */
+  Qs.forEach(function(q,qi){(q.swaps||[]).forEach(function(w){var k=String(w[0]).toLowerCase();if(seen[k])return;seen[k]=1;L.push({a:w[0],form:w[0],b:w[1],k:w[2],id:'sw:'+k,n:0,sq:qi+1,sum:'',hook:'',en:'',ko:''})})});
+  return L.map(function(s,i){return {s:s,i:i}}).sort(function(x,y){return (x.s.sq-y.s.sq)||(x.i-y.i)}).map(function(x){return x.s});
+}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function yyLine(){
+  try{var Y=jget('vhy:'+SCH,{}),pg=Y[location.pathname.split('/').slice(-2).join('/')]||{},n=0,r=0,w=0;
+    Qs.forEach(function(q){var e=pg[q.id];if(e&&e.n){n++;if(e.k)r++;w+=e.w||0}});
+    if(!n)return '';
+    return '<p class="sub">내 기록: '+n+'문제 중 '+r+'문제 정답'+(w?' · 틀린 횟수 '+w+'번':'')+'</p>';
+  }catch(x){return ''}
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../yoyak.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+=yyLine();
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">문장의 밑줄 단어를 누르면 뜻이 나와요. 보기를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+(done?words(o[0]):esc(o[0]))+'<span class="dash">–</span>'+(done?words(o[1]):esc(o[1]))+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'<button class="rmw" data-a="rmnote" data-v="'+esc(n.l.toLowerCase())+'">빼기</button></li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="qn">'+s.sq+'번</span><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+/* 자동 새로고침(기록 연동)이 일어나도 보던 문제로 되돌린다 */
+try{var sv=JSON.parse(sessionStorage.getItem('vhyv')||'null');if(sv&&sv.p===location.pathname&&Date.now()-sv.t<600000&&sv.v&&sv.v!=='home'){view=sv.v;cur=sv.c||0;try{history.pushState({v:view},'');histPushed=true}catch(e){}}}catch(e){}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>
