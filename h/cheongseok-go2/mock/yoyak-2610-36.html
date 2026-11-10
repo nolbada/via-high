@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>26년 10월 36번 요약문 연습 </title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .rmw{border:1px solid var(--line);background:#fff;color:var(--sub);border-radius:8px;padding:4px 10px;font-size:13px}
+.qn{font-size:12px;font-weight:800;color:#fff;background:var(--sub);border-radius:6px;padding:2px 6px;margin-right:6px;flex:none}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+<script>window.REC_NOGATE=1;(function(){try{if(window.__recl||!/\/h\/(geumcheon|jusung|cheongseok)-(gimal|go1|go2)\//.test(location.pathname))return;window.__recl=1;var s=document.createElement('script');s.src=location.pathname.replace(/\/h\/.*$/,'/h/rec.js')+'?v=2';(document.head||document.documentElement).appendChild(s)}catch(e){}})();</script></head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "jusung-go2", "src": "common/sx-data-2610g2.js", "dir": "mock", "pidx": 11, "lesson": "26년 10월 36번", "title": "", "label": "", "page": "yoyak-2610-36"}, "scenes": [{"tag": "본문 1번", "ns": [1], "line": "더 효과적인 제품을 만들려면 디자이너가 [[embrace|수용해야]] 할 진리가 있다. 우리는 사용자가 아니다.", "en": ["A simple truth that designers must embrace in order to create more effective products and experiences is the fact that we are not the user."], "kos": ["디자이너들이 더 효과적인 제품과 경험을 만들어 내기 위해 수용해야만 하는 단순한 진리는 우리가 ‘사용자가 아니라’는 사실이다."]}, {"tag": "본문 2번", "ns": [2], "line": "우리는 만든 것에 너무 가까워서 그것을 [[objectively|객관적으로]] 볼 수 없다.", "en": ["We're much too close to what we build to objectively see it and understand how users will interact with it."], "kos": ["우리는 우리가 만드는 것에 너무 가까워서 그것을 객관적으로 보고 사용자들이 그것과 어떻게 상호 작용할지 이해할 수 없다."]}, {"tag": "본문 3번", "ns": [3], "line": "가장 좋은 인터페이스는 실제 사용자에 대한 [[observations|관찰]]로 [[shaped|만들어진다]].", "en": ["The best user interfaces are those that have been shaped by observations of real users and their interactions with them."], "kos": ["가장 좋은 사용자 인터페이스들은 실제 사용자들과 그들의 그것들과의 상호 작용에 대한 관찰 결과들에 의해 만들어져 온 것들이다."]}, {"tag": "본문 4~5번", "ns": [4, 5], "line": "그럼 어떻게 해야 할까? [[incredibly|엄청나게]] [[effective|효과적인]] 방법은 사용성 테스트다.", "en": ["So how can designers shape their work to be more effective?", "An incredibly effective way is with usability testing."], "kos": ["그러면 디자이너들은 어떻게 자신의 작업이 더 효과적일 수 있도록 만들 수 있을까?", "한 가지 엄청나게 효과적인 방법은 사용성 테스트를 가지고 하는 것이다."]}, {"tag": "본문 6번", "ns": [6], "line": "참가자에게 실제적인 [[activities|활동]]을 시켜 문제를 [[uncover|밝혀내고]], 사용자의 [[behaviors|행동]]과 [[preferences|선호]]를 배운다.", "en": ["The goal of this method is to uncover problems in a design, discover existing opportunities, and learn more about the behaviors and preferences of users by asking participants to engage in realistic activities."], "kos": ["이 방법의 목표는 참가자들이 실제적인 활동들에 참여하도록 요청함으로써 디자인상의 문제들을 밝혀 내고, 현재 있는 가능성들을 발견하고, 사용자들의 행동들과 선호하는 것들에 대해 더 많이 학습하는 것이다."]}, {"tag": "본문 7번", "ns": [7], "line": "디자인이 실제 사용자의 손에서 얼마나 잘 [[perform|작동할지]] 알 수 있다.", "en": ["This technique is effective for understanding how well a design will perform once it is in the hands of real users."], "kos": ["이 기술은 디자인이 실제 사용자들의 손 안에 있을 때 얼마나 그것이 잘 작동할 것인지를 이해하는 데 효과적이다."]}, {"tag": "본문 8번", "ns": [8], "line": "[[representative|대표적인]] 사용자에게서 얻은 결과로 [[subsequent|차후의]] [[revisions|수정]]을 거쳐 작업을 [[improve|개선한다]].", "en": ["Designers can use this method to improve their work through subsequent revisions based on the findings from representative users."], "kos": ["디자이너들은 대표적인 사용자들로부터 발견한 것들에 기반한 차후의 수정들을 통해 그들의 작업물을 개선하기 위해 이 방법을 사용할 수 있다."]}], "story": [{"a": "embrace", "form": "embrace", "n": 1, "sq": 1, "sum": "Designers must [[accept]] that", "hook": "디자이너가 수용해야 할 단순한 진리라는 문장의 embrace(수용하다) → 요약문에서는 accept(받아들이다)로 바꿨어요.", "b": "accept", "k": "수용하다 → 받아들이다", "en": "A simple truth that designers must embrace in order to create more effective products and experiences is the fact that we are not the user.", "ko": "디자이너들이 더 효과적인 제품과 경험을 만들어 내기 위해 수용해야만 하는 단순한 진리는 우리가 ‘사용자가 아니라’는 사실이다."}, {"a": "objectively", "form": "objectively", "n": 2, "sq": 1, "sum": "to judge it [[impartially]]", "hook": "너무 가까워서 객관적으로 볼 수 없다는 문장의 objectively(객관적으로) → 요약문에서는 impartially(치우침 없이)로 바꿨어요.", "b": "impartially", "k": "객관적으로 → 치우침 없이", "en": "We're much too close to what we build to objectively see it and understand how users will interact with it.", "ko": "우리는 우리가 만드는 것에 너무 가까워서 그것을 객관적으로 보고 사용자들이 그것과 어떻게 상호 작용할지 이해할 수 없다."}, {"a": "shape", "form": "shaped", "n": 3, "sq": 2, "sum": "interfaces are [[formed]] by watching", "hook": "좋은 인터페이스는 관찰로 만들어진다는 문장의 shape(만들다) → 요약문에서는 form(형성하다)으로 바꿨어요.", "b": "form", "k": "만들다 → 형성하다", "en": "The best user interfaces are those that have been shaped by observations of real users and their interactions with them.", "ko": "가장 좋은 사용자 인터페이스들은 실제 사용자들과 그들의 그것들과의 상호 작용에 대한 관찰 결과들에 의해 만들어져 온 것들이다."}, {"a": "observation", "form": "observations", "n": 3, "sq": 2, "sum": "by [[watching]] real users", "hook": "실제 사용자에 대한 관찰이라는 문장의 observation(관찰) → 요약문에서는 watch(지켜보다)로 바꿨어요.", "b": "watch", "k": "관찰 → 지켜보다", "en": "The best user interfaces are those that have been shaped by observations of real users and their interactions with them.", "ko": "가장 좋은 사용자 인터페이스들은 실제 사용자들과 그들의 그것들과의 상호 작용에 대한 관찰 결과들에 의해 만들어져 온 것들이다."}, {"a": "incredibly", "form": "incredibly", "n": 5, "sq": 2, "sum": "an [[extremely]] useful way", "hook": "엄청나게 효과적인 방법이라는 문장의 incredibly(엄청나게) → 요약문에서는 extremely(매우)로 바꿨어요.", "b": "extremely", "k": "엄청나게 → 매우", "en": "An incredibly effective way is with usability testing.", "ko": "한 가지 엄청나게 효과적인 방법은 사용성 테스트를 가지고 하는 것이다."}, {"a": "effective", "form": "effective", "n": 5, "sq": 2, "sum": "an extremely [[useful]] way", "hook": "사용성 테스트가 효과적인 방법이라는 문장의 effective(효과적인) → 요약문에서는 useful(유용한)로 바꿨어요.", "b": "useful", "k": "효과적인 → 유용한", "en": "An incredibly effective way is with usability testing.", "ko": "한 가지 엄청나게 효과적인 방법은 사용성 테스트를 가지고 하는 것이다."}, {"a": "uncover", "form": "uncover", "n": 6, "sq": 3, "sum": "to [[find]] problems in a design", "hook": "디자인의 문제를 밝혀낸다는 문장의 uncover(밝혀내다) → 요약문에서는 find(찾아내다)로 바꿨어요.", "b": "find", "k": "밝혀내다 → 찾아내다", "en": "The goal of this method is to uncover problems in a design, discover existing opportunities, and learn more about the behaviors and preferences of users by asking participants to engage in realistic activities.", "ko": "이 방법의 목표는 참가자들이 실제적인 활동들에 참여하도록 요청함으로써 디자인상의 문제들을 밝혀 내고, 현재 있는 가능성들을 발견하고, 사용자들의 행동들과 선호하는 것들에 대해 더 많이 학습하는 것이다."}, {"a": "behavior", "form": "behaviors", "n": 6, "sq": 3, "sum": "learn about users' [[actions]]", "hook": "사용자의 행동을 배운다는 문장의 behavior(행동) → 요약문에서는 action(행동)으로 바꿨어요.", "b": "action", "k": "행동 → 행동", "en": "The goal of this method is to uncover problems in a design, discover existing opportunities, and learn more about the behaviors and preferences of users by asking participants to engage in realistic activities.", "ko": "이 방법의 목표는 참가자들이 실제적인 활동들에 참여하도록 요청함으로써 디자인상의 문제들을 밝혀 내고, 현재 있는 가능성들을 발견하고, 사용자들의 행동들과 선호하는 것들에 대해 더 많이 학습하는 것이다."}, {"a": "preference", "form": "preferences", "n": 6, "sq": 3, "sum": "actions and [[likes]]", "hook": "사용자가 선호하는 것을 배운다는 문장의 preference(선호) → 요약문에서는 like(좋아하는 것)로 바꿨어요.", "b": "like", "k": "선호 → 좋아하는 것", "en": "The goal of this method is to uncover problems in a design, discover existing opportunities, and learn more about the behaviors and preferences of users by asking participants to engage in realistic activities.", "ko": "이 방법의 목표는 참가자들이 실제적인 활동들에 참여하도록 요청함으로써 디자인상의 문제들을 밝혀 내고, 현재 있는 가능성들을 발견하고, 사용자들의 행동들과 선호하는 것들에 대해 더 많이 학습하는 것이다."}, {"a": "activity", "form": "activities", "n": 6, "sq": 3, "sum": "to do realistic [[tasks]]", "hook": "참가자에게 실제적인 활동을 시킨다는 문장의 activity(활동) → 요약문에서는 task(과제)로 바꿨어요.", "b": "task", "k": "활동 → 과제", "en": "The goal of this method is to uncover problems in a design, discover existing opportunities, and learn more about the behaviors and preferences of users by asking participants to engage in realistic activities.", "ko": "이 방법의 목표는 참가자들이 실제적인 활동들에 참여하도록 요청함으로써 디자인상의 문제들을 밝혀 내고, 현재 있는 가능성들을 발견하고, 사용자들의 행동들과 선호하는 것들에 대해 더 많이 학습하는 것이다."}, {"a": "perform", "form": "perform", "n": 7, "sq": 3, "sum": "how well a design will [[work]]", "hook": "디자인이 얼마나 잘 작동할지라는 문장의 perform(작동하다) → 요약문에서는 work(작동하다)로 바꿨어요.", "b": "work", "k": "작동하다 → 작동하다", "en": "This technique is effective for understanding how well a design will perform once it is in the hands of real users.", "ko": "이 기술은 디자인이 실제 사용자들의 손 안에 있을 때 얼마나 그것이 잘 작동할 것인지를 이해하는 데 효과적이다."}, {"a": "improve", "form": "improve", "n": 8, "sq": 4, "sum": "to [[enhance]] their work", "hook": "이 방법으로 작업을 개선한다는 문장의 improve(개선하다) → 요약문에서는 enhance(향상시키다)로 바꿨어요.", "b": "enhance", "k": "개선하다 → 향상시키다", "en": "Designers can use this method to improve their work through subsequent revisions based on the findings from representative users.", "ko": "디자이너들은 대표적인 사용자들로부터 발견한 것들에 기반한 차후의 수정들을 통해 그들의 작업물을 개선하기 위해 이 방법을 사용할 수 있다."}, {"a": "subsequent", "form": "subsequent", "n": 8, "sq": 4, "sum": "through [[later]] changes", "hook": "차후의 수정들을 통해라는 문장의 subsequent(차후의) → 요약문에서는 later(이후의)로 바꿨어요.", "b": "later", "k": "차후의 → 이후의", "en": "Designers can use this method to improve their work through subsequent revisions based on the findings from representative users.", "ko": "디자이너들은 대표적인 사용자들로부터 발견한 것들에 기반한 차후의 수정들을 통해 그들의 작업물을 개선하기 위해 이 방법을 사용할 수 있다."}, {"a": "revision", "form": "revisions", "n": 8, "sq": 4, "sum": "through later [[changes]]", "hook": "수정들을 통해 작업을 고친다는 문장의 revision(수정) → 요약문에서는 change(변화)로 바꿨어요.", "b": "change", "k": "수정 → 변화", "en": "Designers can use this method to improve their work through subsequent revisions based on the findings from representative users.", "ko": "디자이너들은 대표적인 사용자들로부터 발견한 것들에 기반한 차후의 수정들을 통해 그들의 작업물을 개선하기 위해 이 방법을 사용할 수 있다."}, {"a": "representative", "form": "representative", "n": 8, "sq": 4, "sum": "learn from [[typical]] users", "hook": "대표적인 사용자에게서 얻은 결과라는 문장의 representative(대표적인) → 요약문에서는 typical(전형적인)로 바꿨어요.", "b": "typical", "k": "대표적인 → 전형적인", "en": "Designers can use this method to improve their work through subsequent revisions based on the findings from representative users.", "ko": "디자이너들은 대표적인 사용자들로부터 발견한 것들에 기반한 차후의 수정들을 통해 그들의 작업물을 개선하기 위해 이 방법을 사용할 수 있다."}], "passage": [{"n": 1, "en": "A simple truth that designers must embrace in order to create more effective products and experiences is the fact that we are not the user.", "ko": "디자이너들이 더 효과적인 제품과 경험을 만들어 내기 위해 수용해야만 하는 단순한 진리는 우리가 ‘사용자가 아니라’는 사실이다."}, {"n": 2, "en": "We're much too close to what we build to objectively see it and understand how users will interact with it.", "ko": "우리는 우리가 만드는 것에 너무 가까워서 그것을 객관적으로 보고 사용자들이 그것과 어떻게 상호 작용할지 이해할 수 없다."}, {"n": 3, "en": "The best user interfaces are those that have been shaped by observations of real users and their interactions with them.", "ko": "가장 좋은 사용자 인터페이스들은 실제 사용자들과 그들의 그것들과의 상호 작용에 대한 관찰 결과들에 의해 만들어져 온 것들이다."}, {"n": 4, "en": "So how can designers shape their work to be more effective?", "ko": "그러면 디자이너들은 어떻게 자신의 작업이 더 효과적일 수 있도록 만들 수 있을까?"}, {"n": 5, "en": "An incredibly effective way is with usability testing.", "ko": "한 가지 엄청나게 효과적인 방법은 사용성 테스트를 가지고 하는 것이다."}, {"n": 6, "en": "The goal of this method is to uncover problems in a design, discover existing opportunities, and learn more about the behaviors and preferences of users by asking participants to engage in realistic activities.", "ko": "이 방법의 목표는 참가자들이 실제적인 활동들에 참여하도록 요청함으로써 디자인상의 문제들을 밝혀 내고, 현재 있는 가능성들을 발견하고, 사용자들의 행동들과 선호하는 것들에 대해 더 많이 학습하는 것이다."}, {"n": 7, "en": "This technique is effective for understanding how well a design will perform once it is in the hands of real users.", "ko": "이 기술은 디자인이 실제 사용자들의 손 안에 있을 때 얼마나 그것이 잘 작동할 것인지를 이해하는 데 효과적이다."}, {"n": 8, "en": "Designers can use this method to improve their work through subsequent revisions based on the findings from representative users.", "ko": "디자이너들은 대표적인 사용자들로부터 발견한 것들에 기반한 차후의 수정들을 통해 그들의 작업물을 개선하기 위해 이 방법을 사용할 수 있다."}], "questions": [{"id": 1, "summary": "Designers must accept that they and their users are (A), since designers are too close to their work to judge it (B).", "ko": "디자이너는 자신과 사용자가 <b>(A) 다르다</b>는 것을 받아들여야 하는데, 디자이너는 자기 작업에 너무 가까워서 그것을 <b>(B) 치우침 없이</b> 판단할 수 없기 때문이다.", "opts": [["different", "unfairly"], ["different", "impartially"], ["alike", "impartially"], ["alike", "unfairly"], ["identical", "quickly"]], "optko": ["다른 – 불공정하게", "다른 – 치우침 없이", "비슷한 – 치우침 없이", "비슷한 – 불공정하게", "똑같은 – 빨리"], "ans": 1, "wrong": ["unfairly(불공정하게)가 틀려요. 너무 가까워서 할 수 없는 건 객관적으로(objectively), 곧 치우침 없이(impartially) 보는 일이에요.", null, "alike(비슷한)가 틀려요. 본문은 '우리(디자이너)는 사용자가 아니다'라고 해요. 디자이너와 사용자는 다른 사람이에요.", "둘 다 틀려요. 디자이너와 사용자는 비슷한 게 아니라 다르고, 너무 가까워서 못 하는 건 불공정한 판단이 아니라 객관적인 판단이에요.", "둘 다 틀려요. 디자이너와 사용자는 똑같은(identical) 게 아니라 다르고, 본문은 빨리(quickly) 판단하는 게 아니라 객관적으로 보는 걸 말해요."], "evid": [{"n": 1, "hl": ["A simple truth that designers must embrace", "we are not the user"]}, {"n": 2, "hl": ["much too close to what we build to objectively see it"]}], "swaps": [["embrace", "accept", "수용하다 → 받아들이다"], ["objectively", "impartially", "객관적으로 → 치우침 없이"], ["we are not the user", "different", "우리는 사용자가 아니다 → 다르다"]], "swapnote": "embrace(수용하다)는 accept(받아들이다)로, objectively(객관적으로)는 impartially(치우침 없이)로 바뀌었어요. 우리는 사용자가 아니다 = 디자이너와 사용자는 다르다(different)로 읽어요.", "use": [{"w": "different", "ex": "My brother and I are very different.", "ko": "형과 나는 매우 다르다.", "wk": "다른", "hk": "다르다"}, {"w": "impartially", "ex": "A judge must decide impartially.", "ko": "판사는 치우침 없이 판결해야 한다.", "wk": "치우침 없이, 공정하게", "hk": "치우침 없이"}], "flow": "본문 1번에서 디자이너가 받아들여야 할 단순한 진리는 우리가 사용자가 아니라는 사실이라고 하고, 2번에서 그 이유로 우리는 만든 것에 너무 가까워서 객관적으로 볼 수 없다고 설명해요.", "jd": [["Designers must accept", "디자이너는 받아들여야 한다"], ["that they and their users are [[different]],", "자신과 사용자가 [[다르다]]는 것을,"], ["since designers are too close to their work", "디자이너는 자기 작업에 너무 가깝기 때문이다"], ["to judge it [[impartially]].", "그것을 [[치우침 없이]] 판단하기에는."]], "fc": [["본문 1번", "우리는 사용자가 아니다", "디자이너가 {{embrace|수용해야}} 할 단순한 {{truth|진리}}는 우리가 사용자가 아니라는 사실이에요."], ["본문 2번", "너무 가까워서 객관적으로 못 본다", "만든 것에 너무 가까워서 {{objectively|객관적으로}} 볼 수 없어요."], ["정답 포인트", "{{embrace|수용하다}} = {{accept|받아들이다}}, {{objectively|객관적으로}} = {{impartially|치우침 없이}}", "사용자가 아니다 = 사용자와 다르다로 읽어요."]], "evid_full": [{"en": "A simple truth that designers must embrace in order to create more effective products and experiences is the fact that we are not the user.", "ko": "디자이너들이 더 효과적인 제품과 경험을 만들어 내기 위해 수용해야만 하는 단순한 진리는 우리가 ‘사용자가 아니라’는 사실이다.", "hl": ["A simple truth that designers must embrace", "we are not the user"], "hlko": ["수용해야만 하는 단순한 진리", "우리가 ‘사용자가 아니라’는 사실"], "n": 1}, {"en": "We're much too close to what we build to objectively see it and understand how users will interact with it.", "ko": "우리는 우리가 만드는 것에 너무 가까워서 그것을 객관적으로 보고 사용자들이 그것과 어떻게 상호 작용할지 이해할 수 없다.", "hl": ["much too close to what we build to objectively see it"], "hlko": ["우리가 만드는 것에 너무 가까워서 그것을 객관적으로 보고"], "n": 2}]}, {"id": 2, "summary": "The best user interfaces are (A) by watching real users, and usability testing is an extremely (B) way to make designs better.", "ko": "가장 좋은 사용자 인터페이스는 실제 사용자를 지켜보는 것으로 <b>(A) 만들어지고</b>, 사용성 테스트는 디자인을 더 좋게 만드는 매우 <b>(B) 유용한</b> 방법이다.", "opts": [["formed", "useless"], ["hidden", "useful"], ["formed", "useful"], ["hidden", "useless"], ["ruined", "costly"]], "optko": ["만들어지다 – 쓸모없는", "숨겨지다 – 유용한", "만들어지다 – 유용한", "숨겨지다 – 쓸모없는", "망쳐지다 – 비용이 많이 드는"], "ans": 2, "wrong": ["useless(쓸모없는)가 틀려요. 본문은 사용성 테스트가 엄청나게 효과적인(effective) 방법이라고 해요.", "hidden(숨겨지다)이 틀려요. 가장 좋은 인터페이스는 실제 사용자 관찰로 만들어져요(shaped). 숨겨지는 게 아니에요.", null, "둘 다 틀려요. 좋은 인터페이스는 관찰로 숨겨지는 게 아니라 만들어지고, 사용성 테스트는 쓸모없는 게 아니라 효과적인 방법이에요.", "둘 다 틀려요. 좋은 인터페이스는 관찰로 망쳐지는(ruin) 게 아니라 만들어지고, 비용이 많이 든다(costly)는 말은 본문에 없어요. 본문은 효과적인 방법이라고 해요."], "evid": [{"n": 3, "hl": ["shaped by observations of real users"]}, {"n": 5, "hl": ["An incredibly effective way is with usability testing"]}], "swaps": [["shape", "form", "만들다 → 형성하다"], ["observation", "watch", "관찰 → 지켜보다"], ["incredibly", "extremely", "엄청나게 → 매우"], ["effective", "useful", "효과적인 → 유용한"]], "swapnote": "shape(만들다)는 form(형성하다)으로, observation(관찰)은 watch(지켜보다)로, incredibly(엄청나게)는 extremely(매우)로, effective(효과적인)는 useful(유용한)로 바뀌었어요.", "use": [{"w": "form", "ex": "Good habits are formed by practice.", "ko": "좋은 습관은 연습으로 만들어진다.", "wk": "만들다, 형성하다", "hk": "만들어진다"}, {"w": "useful", "ex": "This map is very useful.", "ko": "이 지도는 매우 유용하다.", "wk": "유용한", "hk": "유용하다"}], "flow": "본문 3번에서 가장 좋은 인터페이스는 실제 사용자를 관찰해서 만들어진다고 하고, 4번에서 그럼 어떻게 하면 되냐고 묻고, 5번에서 엄청나게 효과적인 방법이 사용성 테스트라고 답해요.", "jd": [["The best user interfaces are [[formed]]", "가장 좋은 사용자 인터페이스는 [[만들어진다]]"], ["by watching real users,", "실제 사용자를 지켜보는 것으로,"], ["and usability testing is an extremely [[useful]] way", "그리고 사용성 테스트는 매우 [[유용한]] 방법이다"], ["to make designs better.", "디자인을 더 좋게 만드는."]], "fc": [["본문 3번", "좋은 인터페이스는 관찰로 만들어진다", "가장 좋은 {{interface|인터페이스}}는 실제 사용자에 대한 {{observation|관찰}}로 {{shaped|만들어져요}}."], ["본문 4~5번", "그 방법은 사용성 테스트", "{{incredibly|엄청나게}} {{effective|효과적인}} 방법은 {{usability|사용성}} 테스트예요."], ["정답 포인트", "{{shape|만들다}} = {{form|형성하다}}, {{effective|효과적인}} = {{useful|유용한}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "The best user interfaces are those that have been shaped by observations of real users and their interactions with them.", "ko": "가장 좋은 사용자 인터페이스들은 실제 사용자들과 그들의 그것들과의 상호 작용에 대한 관찰 결과들에 의해 만들어져 온 것들이다.", "hl": ["shaped by observations of real users"], "hlko": ["실제 사용자들과 그들의 그것들과의 상호 작용에 대한 관찰 결과들에 의해 만들어져 온"], "n": 3}, {"en": "An incredibly effective way is with usability testing.", "ko": "한 가지 엄청나게 효과적인 방법은 사용성 테스트를 가지고 하는 것이다.", "hl": ["An incredibly effective way is with usability testing"], "hlko": ["한 가지 엄청나게 효과적인 방법은 사용성 테스트를 가지고 하는 것이다"], "n": 5}]}, {"id": 3, "summary": "Usability testing asks participants to do realistic tasks to (A) problems in a design and learn about users' actions and likes, and it shows how well a design will (B) in the hands of real users.", "ko": "사용성 테스트는 참가자에게 실제적인 과제를 하게 해서 디자인의 문제를 <b>(A) 찾아내고</b> 사용자의 행동과 좋아하는 것을 알아내며, 디자인이 실제 사용자의 손에서 얼마나 잘 <b>(B) 작동할지</b> 보여 준다.", "opts": [["find", "sell"], ["ignore", "work"], ["ignore", "sell"], ["create", "shrink"], ["find", "work"]], "optko": ["찾아내다 – 팔리다", "무시하다 – 작동하다", "무시하다 – 팔리다", "만들어 내다 – 줄어들다", "찾아내다 – 작동하다"], "ans": 4, "wrong": ["sell(팔리다)이 틀려요. 본문은 디자인이 실제 사용자의 손에서 얼마나 잘 작동할지(perform)를 이해하는 데 효과적이라고 해요. 판매 이야기는 없어요.", "ignore(무시하다)가 틀려요. 이 방법의 목표는 디자인의 문제를 밝혀내는(uncover) 거예요. 문제를 무시하는 게 아니에요.", "둘 다 틀려요. 문제를 무시하는 게 아니라 밝혀내고, 얼마나 잘 팔릴지가 아니라 얼마나 잘 작동할지를 알아봐요.", "둘 다 틀려요. 문제를 만들어 내는(create) 게 아니라 밝혀내고, 디자인이 줄어드는(shrink) 이야기는 없어요. 얼마나 잘 작동할지를 알아봐요.", null], "evid": [{"n": 6, "hl": ["to uncover problems in a design", "the behaviors and preferences of users", "by asking participants to engage in realistic activities"]}, {"n": 7, "hl": ["how well a design will perform once it is in the hands of real users"]}], "swaps": [["uncover", "find", "밝혀내다 → 찾아내다"], ["behavior", "action", "행동 → 행동"], ["preference", "like", "선호 → 좋아하는 것"], ["activity", "task", "활동 → 과제"], ["perform", "work", "작동하다 → 작동하다"]], "swapnote": "uncover(밝혀내다)는 find(찾아내다)로, behavior(행동)는 action(행동)으로, preference(선호)는 like(좋아하는 것)로, activity(활동)는 task(과제)로, perform(작동하다)은 work(작동하다)로 바뀌었어요.", "use": [{"w": "find", "ex": "Can you find the mistakes in this letter?", "ko": "이 편지에서 실수를 찾아낼 수 있니?", "wk": "찾아내다", "hk": "찾아낼"}, {"w": "work", "ex": "This old phone still works well.", "ko": "이 오래된 전화기는 아직도 잘 작동한다.", "wk": "작동하다", "hk": "작동한다"}], "flow": "본문 6번에서 사용성 테스트는 참가자에게 실제적인 활동을 시켜 문제를 밝혀내고 사용자의 행동과 선호를 배우는 게 목표라고 하고, 7번에서 실제 사용자 손에서 디자인이 얼마나 잘 작동할지 이해하는 데 효과적이라고 이어요.", "jd": [["Usability testing asks participants to do realistic tasks", "사용성 테스트는 참가자에게 실제적인 과제를 하라고 요청한다"], ["to [[find]] problems in a design", "디자인의 문제를 [[찾아내고]]"], ["and learn about users' actions and likes,", "사용자의 행동과 좋아하는 것을 알아내기 위해,"], ["and it shows", "그리고 그것은 보여 준다"], ["how well a design will [[work]]", "디자인이 얼마나 잘 [[작동할지]]"], ["in the hands of real users.", "실제 사용자의 손에서."]], "fc": [["본문 6번", "문제를 밝혀내고 사용자를 배운다", "{{realistic|실제적인}} 활동으로 문제를 {{uncover|밝혀내고}} 사용자의 {{behavior|행동}}과 {{preference|선호}}를 배워요."], ["본문 7번", "실제 사용자 손에서 얼마나 잘 작동할지", "디자인이 실제 사용자 손에서 얼마나 잘 {{perform|작동할지}} 알 수 있어요."], ["정답 포인트", "{{uncover|밝혀내다}} = {{find|찾아내다}}, {{perform|작동하다}} = {{work|작동하다}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "The goal of this method is to uncover problems in a design, discover existing opportunities, and learn more about the behaviors and preferences of users by asking participants to engage in realistic activities.", "ko": "이 방법의 목표는 참가자들이 실제적인 활동들에 참여하도록 요청함으로써 디자인상의 문제들을 밝혀 내고, 현재 있는 가능성들을 발견하고, 사용자들의 행동들과 선호하는 것들에 대해 더 많이 학습하는 것이다.", "hl": ["to uncover problems in a design", "the behaviors and preferences of users", "by asking participants to engage in realistic activities"], "hlko": ["디자인상의 문제들을 밝혀 내고", "사용자들의 행동들과 선호하는 것들", "참가자들이 실제적인 활동들에 참여하도록 요청함으로써"], "n": 6}, {"en": "This technique is effective for understanding how well a design will perform once it is in the hands of real users.", "ko": "이 기술은 디자인이 실제 사용자들의 손 안에 있을 때 얼마나 그것이 잘 작동할 것인지를 이해하는 데 효과적이다.", "hl": ["how well a design will perform once it is in the hands of real users"], "hlko": ["디자인이 실제 사용자들의 손 안에 있을 때 얼마나 그것이 잘 작동할 것인지"], "n": 7}]}, {"id": 4, "summary": "Designers can use this method to (A) their work through later changes based on what they learn from (B) users.", "ko": "디자이너는 <b>(B) 전형적인</b> 사용자에게서 알게 된 것을 바탕으로 한 이후의 수정을 통해 자기 작업을 <b>(A) 향상시키기</b> 위해 이 방법을 쓸 수 있다.", "opts": [["enhance", "typical"], ["enhance", "unusual"], ["weaken", "typical"], ["weaken", "unusual"], ["hide", "imaginary"]], "optko": ["향상시키다 – 전형적인", "향상시키다 – 특이한", "약하게 만들다 – 전형적인", "약하게 만들다 – 특이한", "숨기다 – 상상 속의"], "ans": 0, "wrong": [null, "unusual(특이한)이 틀려요. 본문은 대표적인(representative) 사용자, 곧 보통 사용자를 잘 보여 주는 사람들에게서 얻은 결과라고 해요.", "weaken(약하게 만들다)이 틀려요. 디자이너는 이 방법으로 작업을 개선해요(improve).", "둘 다 틀려요. 작업을 약하게 만드는 게 아니라 개선하고, 특이한 사용자가 아니라 대표적인 사용자에게서 배워요.", "둘 다 틀려요. 작업을 숨기는(hide) 게 아니라 개선하고, 상상 속의(imaginary) 사용자가 아니라 실제로 테스트에 참여한 대표적인 사용자에게서 배워요."], "evid": [{"n": 8, "hl": ["to improve their work through subsequent revisions based on the findings from representative users"]}], "swaps": [["improve", "enhance", "개선하다 → 향상시키다"], ["subsequent", "later", "차후의 → 이후의"], ["revision", "change", "수정 → 변화"], ["representative", "typical", "대표적인 → 전형적인"]], "swapnote": "improve(개선하다)는 enhance(향상시키다)로, subsequent(차후의)는 later(이후의)로, revision(수정)은 change(변화)로, representative(대표적인)는 typical(전형적인)로 바뀌었어요.", "use": [{"w": "enhance", "ex": "Good lighting can enhance a photo.", "ko": "좋은 조명은 사진의 질을 향상시킬 수 있다.", "wk": "향상시키다", "hk": "향상시킬"}, {"w": "typical", "ex": "This is a typical summer day.", "ko": "이것은 전형적인 여름날이다.", "wk": "전형적인", "hk": "전형적인"}], "flow": "본문 8번에서 디자이너는 대표적인 사용자에게서 얻은 결과를 바탕으로 수정을 거듭하며 이 방법으로 작업을 개선할 수 있다고 글을 마무리해요.", "jd": [["Designers can use this method", "디자이너는 이 방법을 쓸 수 있다"], ["to [[enhance]] their work", "자기 작업을 [[향상시키기]] 위해"], ["through later changes", "이후의 수정을 통해"], ["based on what they learn", "알게 된 것을 바탕으로 한"], ["from [[typical]] users.", "[[전형적인]] 사용자에게서."]], "fc": [["본문 8번", "대표 사용자의 결과로 고쳐 나간다", "{{representative|대표적인}} 사용자에게서 얻은 결과로 {{subsequent|차후의}} {{revision|수정}}을 거쳐요."], ["본문 8번", "그래서 작업이 좋아진다", "이 방법으로 디자이너는 작업을 {{improve|개선할}} 수 있어요."], ["정답 포인트", "{{improve|개선하다}} = {{enhance|향상시키다}}, {{representative|대표적인}} = {{typical|전형적인}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "Designers can use this method to improve their work through subsequent revisions based on the findings from representative users.", "ko": "디자이너들은 대표적인 사용자들로부터 발견한 것들에 기반한 차후의 수정들을 통해 그들의 작업물을 개선하기 위해 이 방법을 사용할 수 있다.", "hl": ["to improve their work through subsequent revisions based on the findings from representative users"], "hlko": ["대표적인 사용자들로부터 발견한 것들에 기반한 차후의 수정들을 통해 그들의 작업물을 개선하기 위해"], "n": 8}]}], "gloss": {"simple": ["simple", "단순한"], "truth": ["truth", "진리, 사실"], "designers": ["designer", "디자이너"], "must": ["must", "~해야 한다"], "embrace": ["embrace", "수용하다, 받아들이다"], "order": ["order", "목적, 순서"], "create": ["create", "만들어 내다"], "effective": ["effective", "효과적인"], "products": ["product", "제품"], "experiences": ["experience", "경험"], "fact": ["fact", "사실"], "user": ["user", "사용자"], "users": ["user", "사용자"], "we're": ["we are", "우리는 ~이다"], "too": ["too", "너무"], "close": ["close", "가까운"], "build": ["build", "만들다"], "objectively": ["objectively", "객관적으로"], "see": ["see", "보다"], "understand": ["understand", "이해하다"], "interact": ["interact", "상호 작용하다"], "best": ["good", "가장 좋은"], "interfaces": ["interface", "인터페이스, 화면"], "those": ["those", "그것들"], "shaped": ["shape", "만들다, 형성하다"], "observations": ["observation", "관찰"], "real": ["real", "실제의"], "interactions": ["interaction", "상호 작용"], "shape": ["shape", "만들다, 형성하다"], "work": ["work", "작업, 작동하다"], "incredibly": ["incredibly", "엄청나게"], "way": ["way", "방법"], "usability": ["usability", "사용성"], "testing": ["testing", "테스트"], "goal": ["goal", "목표"], "method": ["method", "방법"], "uncover": ["uncover", "밝혀내다"], "problems": ["problem", "문제"], "design": ["design", "디자인"], "discover": ["discover", "발견하다"], "existing": ["existing", "현재 있는"], "opportunities": ["opportunity", "가능성, 기회"], "learn": ["learn", "배우다, 알게 되다"], "behaviors": ["behavior", "행동"], "preferences": ["preference", "선호, 좋아하는 것"], "asking": ["ask", "요청하다"], "participants": ["participant", "참가자"], "engage": ["engage", "참여하다"], "realistic": ["realistic", "실제적인"], "activities": ["activity", "활동"], "technique": ["technique", "기술, 기법"], "understanding": ["understand", "이해하는 것"], "well": ["well", "잘"], "perform": ["perform", "작동하다, 수행하다"], "once": ["once", "일단 ~하면"], "hands": ["hand", "손"], "improve": ["improve", "개선하다"], "through": ["through", "~을 통해"], "subsequent": ["subsequent", "차후의, 이후의"], "revisions": ["revision", "수정"], "based": ["base", "~에 기반을 두다"], "findings": ["finding", "발견한 것, 결과"], "representative": ["representative", "대표적인"], "accept": ["accept", "받아들이다"], "different": ["different", "다른"], "alike": ["alike", "비슷한"], "identical": ["identical", "똑같은"], "since": ["since", "~ 때문에"], "judge": ["judge", "판단하다"], "impartially": ["impartially", "치우침 없이, 공정하게"], "actions": ["action", "행동"], "unfairly": ["unfairly", "불공정하게"], "quickly": ["quickly", "빨리"], "formed": ["form", "만들다, 형성하다"], "watching": ["watch", "지켜보는 것"], "extremely": ["extremely", "매우"], "useful": ["useful", "유용한"], "useless": ["useless", "쓸모없는"], "hidden": ["hide", "숨기다"], "ruined": ["ruin", "망치다"], "costly": ["costly", "비용이 많이 드는"], "make": ["make", "만들다"], "designs": ["design", "디자인"], "better": ["good", "더 좋은"], "asks": ["ask", "요청하다"], "tasks": ["task", "과제"], "find": ["find", "찾아내다"], "likes": ["like", "좋아하는 것"], "shows": ["show", "보여 주다"], "sell": ["sell", "팔리다"], "ignore": ["ignore", "무시하다"], "shrink": ["shrink", "줄어들다"], "enhance": ["enhance", "향상시키다"], "weaken": ["weaken", "약하게 만들다"], "hide": ["hide", "숨기다"], "later": ["later", "이후의"], "changes": ["change", "변화, 수정"], "typical": ["typical", "전형적인"], "unusual": ["unusual", "특이한"], "imaginary": ["imaginary", "상상 속의"], "what": ["what", "~하는 것"], "their": ["they", "그들의"], "they": ["they", "그들"], "them": ["they", "그것들"], "this": ["this", "이"], "how": ["how", "어떻게, 얼마나"], "are": ["be", "~이다"], "is": ["be", "~이다"], "will": ["will", "~할 것이다"], "can": ["can", "~할 수 있다"], "use": ["use", "사용하다"], "only": ["only", "오직, 단지"], "becomes": ["become", "~이 되다"], "among": ["among", "~ 사이에서, ~ 가운데"], "because": ["because", "~ 때문에"], "died": ["die", "죽었다"], "while": ["while", "~하는 동안, 한편"], "didn't": ["do not", "~하지 않았다"], "about": ["about", "약, ~에 대해"], "human": ["human", "인간의"], "between": ["between", "~ 사이에"], "during": ["during", "~ 동안"], "after": ["after", "~ 후에"], "always": ["always", "항상"], "often": ["often", "자주"], "however": ["however", "그러나"], "therefore": ["therefore", "그러므로"], "instead": ["instead", "대신에"], "both": ["both", "둘 다"], "other": ["other", "다른"], "others": ["other", "다른 것들"], "another": ["another", "또 다른"], "such": ["such", "그러한"], "same": ["same", "같은"], "important": ["important", "중요한"], "together": ["together", "함께"], "people": ["people", "사람들"], "being": ["be", "~되는 것"], "into": ["into", "~ 속으로"], "without": ["without", "~ 없이"], "within": ["within", "~ 안에"], "against": ["against", "~에 맞서"], "whether": ["whether", "~인지 아닌지"], "like": ["like", "~처럼"], "just": ["just", "단지, 바로"], "even": ["even", "~조차"], "still": ["still", "여전히"], "yet": ["yet", "하지만, 그래도"], "every": ["every", "모든"], "own": ["own", "자신의"], "made": ["make", "만들어진"], "today": ["today", "오늘날"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="cheongseok-go2";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH+':'+location.pathname.split('/').slice(-2).join('/');
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;try{if(v==='home')sessionStorage.removeItem('vhyv');else sessionStorage.setItem('vhyv',JSON.stringify({p:location.pathname,v:v,c:cur,t:Date.now()}))}catch(e){}
+  hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';try{sessionStorage.removeItem('vhyv')}catch(e){}hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='rmnote'){var rid=String(v);var rn=NOTES[rid];delete NOTES[rid];jset(K_NOTE,NOTES);delete PUSHED['w:'+rid];jset('vhvs:'+SCH,PUSHED);try{WN.del(rn?rn.l:rid,SRC)}catch(x){}render()}
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);recordYy(q,i);render();
+}
+/* 점수 기록: vhy:<학교> = {<페이지>:{<문제>:{n:푼 횟수,w:틀린 횟수,k:마지막 정답(1/0),c:고른 번호,t:시각}}} -> REC 로 자동 연동(선생님 화면) */
+function recordYy(q,i){
+  try{
+    var K='vhy:'+SCH,P=location.pathname.split('/').slice(-2).join('/'),Y=jget(K,{});
+    var pg=Y[P]||(Y[P]={}),e=pg[q.id]||(pg[q.id]={n:0,w:0});
+    e.n=(e.n||0)+1;if(i!==q.ans)e.w=(e.w||0)+1;e.k=(i===q.ans?1:0);e.c=i;e.t=Date.now();
+    jset(K,Y);
+  }catch(x){}
+  /* 바꿔 말하기 단어는 푼 즉시 모두 선생님 질문 목록에 올린다 */
+  try{swList().forEach(function(s){pushSw(s.id)})}catch(x){}
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){
+  var L=(DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}}),seen={};
+  L.forEach(function(s){seen[s.a.toLowerCase()]=1});
+  /* 모든 문제의 '이 단어, 이렇게 바뀌었어요' 단어도 빠짐없이 바꿔 말하기 연습에 넣는다 */
+  Qs.forEach(function(q,qi){(q.swaps||[]).forEach(function(w){var k=String(w[0]).toLowerCase();if(seen[k])return;seen[k]=1;L.push({a:w[0],form:w[0],b:w[1],k:w[2],id:'sw:'+k,n:0,sq:qi+1,sum:'',hook:'',en:'',ko:''})})});
+  return L.map(function(s,i){return {s:s,i:i}}).sort(function(x,y){return (x.s.sq-y.s.sq)||(x.i-y.i)}).map(function(x){return x.s});
+}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function yyLine(){
+  try{var Y=jget('vhy:'+SCH,{}),pg=Y[location.pathname.split('/').slice(-2).join('/')]||{},n=0,r=0,w=0;
+    Qs.forEach(function(q){var e=pg[q.id];if(e&&e.n){n++;if(e.k)r++;w+=e.w||0}});
+    if(!n)return '';
+    return '<p class="sub">내 기록: '+n+'문제 중 '+r+'문제 정답'+(w?' · 틀린 횟수 '+w+'번':'')+'</p>';
+  }catch(x){return ''}
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../yoyak.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+=yyLine();
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">문장의 밑줄 단어를 누르면 뜻이 나와요. 보기를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+(done?words(o[0]):esc(o[0]))+'<span class="dash">–</span>'+(done?words(o[1]):esc(o[1]))+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'<button class="rmw" data-a="rmnote" data-v="'+esc(n.l.toLowerCase())+'">빼기</button></li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="qn">'+s.sq+'번</span><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+/* 자동 새로고침(기록 연동)이 일어나도 보던 문제로 되돌린다 */
+try{var sv=JSON.parse(sessionStorage.getItem('vhyv')||'null');if(sv&&sv.p===location.pathname&&Date.now()-sv.t<600000&&sv.v&&sv.v!=='home'){view=sv.v;cur=sv.c||0;try{history.pushState({v:view},'');histPushed=true}catch(e){}}}catch(e){}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>

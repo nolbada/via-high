@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>26년 10월 34번 요약문 연습 </title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .rmw{border:1px solid var(--line);background:#fff;color:var(--sub);border-radius:8px;padding:4px 10px;font-size:13px}
+.qn{font-size:12px;font-weight:800;color:#fff;background:var(--sub);border-radius:6px;padding:2px 6px;margin-right:6px;flex:none}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+<script>window.REC_NOGATE=1;(function(){try{if(window.__recl||!/\/h\/(geumcheon|jusung|cheongseok)-(gimal|go1|go2)\//.test(location.pathname))return;window.__recl=1;var s=document.createElement('script');s.src=location.pathname.replace(/\/h\/.*$/,'/h/rec.js')+'?v=2';(document.head||document.documentElement).appendChild(s)}catch(e){}})();</script></head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "jusung-go2", "src": "common/sx-data-2610g2.js", "dir": "mock", "pidx": 9, "lesson": "26년 10월 34번", "title": "", "label": "", "page": "yoyak-2610-34"}, "scenes": [{"tag": "본문 1번", "ns": [1], "line": "소셜 미디어가 비즈니스, 정치, 친목을 [[altered|바꿨다]]. 입소문이 일상어가 됐다.", "en": ["Social media has altered business, politics, and friendships, making going viral a household term."], "kos": ["소셜 미디어는 비즈니스, 정치, 친목을 변화시켰으며, ‘입소문이 나다’를 일상적인 용어로 만들었다."]}, {"tag": "본문 2번", "ns": [2], "line": "금융 산업은 전 세계 은행과 가정을 [[links|잇는다]]. 그래서 지구 반대편의 실수에도 우리는 [[vulnerable|취약하다]].", "en": ["The global financial industry links every bank and countless households in every country, making us vulnerable to human error taking place on the other side of the world."], "kos": ["세계 금융 산업은 모든 은행과 전 세계 각국의 수많은 가정을 연결하여, 우리를 세계의 다른 곳에서 발생한 인간의 오류에 취약해지게 만들었다."]}, {"tag": "본문 3~4번", "ns": [3, 4], "line": "옛날 기관들은 [[separate|따로따로]]여서 바깥 오류로부터 [[buffered|보호되었다]]. 지금은 그렇지 않다.", "en": ["As Columbia University strategy professor Rita McGrath explains, years ago most of our institutions were separate and thereby buffered from the effects of errors outside their walls.", "That is no longer the case."], "kos": ["Columbia University 전략학 교수 Rita McGrath가 설명하듯이, 수년 전 우리의 기관들 중 대부분은 서로 분리되어 있었고, 따라서 그것들의 장벽 밖에 있는 오류들의 영향으로부터 보호되었다.", "더 이상은 그렇지 않다."]}, {"tag": "본문 5~6번", "ns": [5, 6], "line": "컴퓨팅이 싸지며 정보의 디지털화가 [[enormously|엄청나게]] 늘었다. 스스로 소통하는 시스템은 [[infinite|무한히]] 다양한 [[potential|잠재적]] 고장을 낳았다.", "en": ["The digitization of massive amounts of information has continued to grow enormously as the cost of computing power has decreased.", "The development of smart systems that communicate autonomously gave rise to an infinite variety of potential breakdowns."], "kos": ["컴퓨팅 능력의 비용이 감소함에 따라 방대한 양의 정보의 디지털화는 계속해서 엄청나게 증가해 왔다.", "자율적으로 소통하는 스마트 시스템의 발달은 무한히 다양한 잠재적 고장들을 초래했다."]}, {"tag": "본문 7~8번", "ns": [7, 8], "line": "이런 상호 의존성은 복합적 실패의 온상이다. 따로 있던 것들이 부딪치면 다음 일을 예측하기 어렵다.", "en": ["This interdependence is a breeding ground for complex failure.", "As Rita puts it, when “things that used to be kept separate bump up against each other, it becomes far more difficult to predict what’s going to happen next.”"], "kos": ["이러한 상호 의존성은 복합적 실패의 온상이다.", "Rita가 말하듯, ‘분리되어 있던 것들이 서로 부딪치게 될 때, 다음에 무슨 일이 일어날지를 예측하는 것은 훨씬 더 어려워진다.’"]}, {"tag": "본문 9번", "ns": [9], "line": "정보 기술은 새로운 [[vulnerabilities|취약성]]을 [[creates|만든다]]. 연결성이 작은 실패를 [[instantly|순식간에]] 퍼뜨리기 때문이다.", "en": ["Information technology creates new vulnerabilities because interconnectedness instantly spreads the impact of small failures."], "kos": ["정보 기술은 새로운 취약성을 만들어 내는데, 왜냐하면 상호 연결성이 작은 실패들의 영향을 즉각적으로 확산시키기 때문이다."]}], "story": [{"a": "alter", "form": "altered", "n": 1, "sq": 1, "sum": "Social media has [[changed]] business", "hook": "소셜 미디어가 비즈니스, 정치, 친목을 변화시켰다는 문장의 alter(변화시키다) → 요약문에서는 change(바꾸다)로 바꿨어요.", "b": "change", "k": "변화시키다 → 바꾸다", "en": "Social media has altered business, politics, and friendships, making going viral a household term.", "ko": "소셜 미디어는 비즈니스, 정치, 친목을 변화시켰으며, ‘입소문이 나다’를 일상적인 용어로 만들었다."}, {"a": "link", "form": "links", "n": 2, "sq": 1, "sum": "the global financial industry [[connects]] banks", "hook": "금융 산업이 모든 은행과 가정을 연결한다는 문장의 link(연결하다) → 요약문에서는 connect(연결하다)로 바꿨어요.", "b": "connect", "k": "연결하다 → 연결하다", "en": "The global financial industry links every bank and countless households in every country, making us vulnerable to human error taking place on the other side of the world.", "ko": "세계 금융 산업은 모든 은행과 전 세계 각국의 수많은 가정을 연결하여, 우리를 세계의 다른 곳에서 발생한 인간의 오류에 취약해지게 만들었다."}, {"a": "vulnerable", "form": "vulnerable", "n": 2, "sq": 1, "sum": "making us [[open]] to errors", "hook": "지구 반대편의 실수에 취약해진다는 문장의 vulnerable(취약한) → 요약문에서는 open(노출된)으로 바꿨어요.", "b": "open", "k": "취약한 → 노출된", "en": "The global financial industry links every bank and countless households in every country, making us vulnerable to human error taking place on the other side of the world.", "ko": "세계 금융 산업은 모든 은행과 전 세계 각국의 수많은 가정을 연결하여, 우리를 세계의 다른 곳에서 발생한 인간의 오류에 취약해지게 만들었다."}, {"a": "separate", "form": "separate", "n": 3, "sq": 2, "sum": "most institutions were [[isolated]]", "hook": "옛날 기관들은 서로 분리되어 있었다는 문장의 separate(분리된) → 요약문에서는 isolated(고립된)로 바꿨어요.", "b": "isolated", "k": "분리된 → 고립된", "en": "As Columbia University strategy professor Rita McGrath explains, years ago most of our institutions were separate and thereby buffered from the effects of errors outside their walls.", "ko": "Columbia University 전략학 교수 Rita McGrath가 설명하듯이, 수년 전 우리의 기관들 중 대부분은 서로 분리되어 있었고, 따라서 그것들의 장벽 밖에 있는 오류들의 영향으로부터 보호되었다."}, {"a": "buffer", "form": "buffered", "n": 3, "sq": 2, "sum": "they were [[shielded]] from the effects", "hook": "바깥 오류의 영향으로부터 보호되었다는 문장의 buffer(보호하다) → 요약문에서는 shield(막아 주다)로 바꿨어요.", "b": "shield", "k": "보호하다 → 막아 주다", "en": "As Columbia University strategy professor Rita McGrath explains, years ago most of our institutions were separate and thereby buffered from the effects of errors outside their walls.", "ko": "Columbia University 전략학 교수 Rita McGrath가 설명하듯이, 수년 전 우리의 기관들 중 대부분은 서로 분리되어 있었고, 따라서 그것들의 장벽 밖에 있는 오류들의 영향으로부터 보호되었다."}, {"a": "enormously", "form": "enormously", "n": 5, "sq": 3, "sum": "digital information grew [[hugely]]", "hook": "정보의 디지털화가 엄청나게 늘었다는 문장의 enormously(엄청나게) → 요약문에서는 hugely(엄청나게)로 바꿨어요.", "b": "hugely", "k": "엄청나게 → 엄청나게", "en": "The digitization of massive amounts of information has continued to grow enormously as the cost of computing power has decreased.", "ko": "컴퓨팅 능력의 비용이 감소함에 따라 방대한 양의 정보의 디지털화는 계속해서 엄청나게 증가해 왔다."}, {"a": "infinite", "form": "infinite", "n": 6, "sq": 3, "sum": "caused [[countless]] possible breakdowns", "hook": "무한히 다양한 고장을 낳았다는 문장의 infinite(무한한) → 요약문에서는 countless(셀 수 없이 많은)로 바꿨어요.", "b": "countless", "k": "무한한 → 셀 수 없이 많은", "en": "The development of smart systems that communicate autonomously gave rise to an infinite variety of potential breakdowns.", "ko": "자율적으로 소통하는 스마트 시스템의 발달은 무한히 다양한 잠재적 고장들을 초래했다."}, {"a": "potential", "form": "potential", "n": 6, "sq": 3, "sum": "countless [[possible]] breakdowns", "hook": "잠재적인 고장들이라는 문장의 potential(잠재적인) → 요약문에서는 possible(일어날 수 있는)로 바꿨어요.", "b": "possible", "k": "잠재적인 → 일어날 수 있는", "en": "The development of smart systems that communicate autonomously gave rise to an infinite variety of potential breakdowns.", "ko": "자율적으로 소통하는 스마트 시스템의 발달은 무한히 다양한 잠재적 고장들을 초래했다."}, {"a": "create", "form": "creates", "n": 9, "sq": 4, "sum": "information technology [[brings]] new weaknesses", "hook": "정보 기술이 새로운 취약성을 만들어 낸다는 문장의 create(만들어 내다) → 요약문에서는 bring(가져오다)으로 바꿨어요.", "b": "bring", "k": "만들어 내다 → 가져오다", "en": "Information technology creates new vulnerabilities because interconnectedness instantly spreads the impact of small failures.", "ko": "정보 기술은 새로운 취약성을 만들어 내는데, 왜냐하면 상호 연결성이 작은 실패들의 영향을 즉각적으로 확산시키기 때문이다."}, {"a": "vulnerability", "form": "vulnerabilities", "n": 9, "sq": 4, "sum": "brings new [[weaknesses]]", "hook": "정보 기술이 새로운 취약성을 만든다는 문장의 vulnerability(취약성) → 요약문에서는 weakness(약점)로 바꿨어요.", "b": "weakness", "k": "취약성 → 약점", "en": "Information technology creates new vulnerabilities because interconnectedness instantly spreads the impact of small failures.", "ko": "정보 기술은 새로운 취약성을 만들어 내는데, 왜냐하면 상호 연결성이 작은 실패들의 영향을 즉각적으로 확산시키기 때문이다."}, {"a": "instantly", "form": "instantly", "n": 9, "sq": 4, "sum": "the impact of small failures [[immediately]]", "hook": "작은 실패의 영향이 즉각적으로 퍼진다는 문장의 instantly(즉각적으로) → 요약문에서는 immediately(즉시)로 바꿨어요.", "b": "immediately", "k": "즉각적으로 → 즉시", "en": "Information technology creates new vulnerabilities because interconnectedness instantly spreads the impact of small failures.", "ko": "정보 기술은 새로운 취약성을 만들어 내는데, 왜냐하면 상호 연결성이 작은 실패들의 영향을 즉각적으로 확산시키기 때문이다."}], "passage": [{"n": 1, "en": "Social media has altered business, politics, and friendships, making going viral a household term.", "ko": "소셜 미디어는 비즈니스, 정치, 친목을 변화시켰으며, ‘입소문이 나다’를 일상적인 용어로 만들었다."}, {"n": 2, "en": "The global financial industry links every bank and countless households in every country, making us vulnerable to human error taking place on the other side of the world.", "ko": "세계 금융 산업은 모든 은행과 전 세계 각국의 수많은 가정을 연결하여, 우리를 세계의 다른 곳에서 발생한 인간의 오류에 취약해지게 만들었다."}, {"n": 3, "en": "As Columbia University strategy professor Rita McGrath explains, years ago most of our institutions were separate and thereby buffered from the effects of errors outside their walls.", "ko": "Columbia University 전략학 교수 Rita McGrath가 설명하듯이, 수년 전 우리의 기관들 중 대부분은 서로 분리되어 있었고, 따라서 그것들의 장벽 밖에 있는 오류들의 영향으로부터 보호되었다."}, {"n": 4, "en": "That is no longer the case.", "ko": "더 이상은 그렇지 않다."}, {"n": 5, "en": "The digitization of massive amounts of information has continued to grow enormously as the cost of computing power has decreased.", "ko": "컴퓨팅 능력의 비용이 감소함에 따라 방대한 양의 정보의 디지털화는 계속해서 엄청나게 증가해 왔다."}, {"n": 6, "en": "The development of smart systems that communicate autonomously gave rise to an infinite variety of potential breakdowns.", "ko": "자율적으로 소통하는 스마트 시스템의 발달은 무한히 다양한 잠재적 고장들을 초래했다."}, {"n": 7, "en": "This interdependence is a breeding ground for complex failure.", "ko": "이러한 상호 의존성은 복합적 실패의 온상이다."}, {"n": 8, "en": "As Rita puts it, when “things that used to be kept separate bump up against each other, it becomes far more difficult to predict what’s going to happen next.”", "ko": "Rita가 말하듯, ‘분리되어 있던 것들이 서로 부딪치게 될 때, 다음에 무슨 일이 일어날지를 예측하는 것은 훨씬 더 어려워진다.’"}, {"n": 9, "en": "Information technology creates new vulnerabilities because interconnectedness instantly spreads the impact of small failures.", "ko": "정보 기술은 새로운 취약성을 만들어 내는데, 왜냐하면 상호 연결성이 작은 실패들의 영향을 즉각적으로 확산시키기 때문이다."}], "questions": [{"id": 1, "summary": "Social media has (A) business, politics, and friendships, and the global financial industry (B) banks and households worldwide, making us open to errors far away.", "ko": "소셜 미디어는 비즈니스, 정치, 친목을 <b>(A) 바꾸었고</b>, 세계 금융 산업은 전 세계의 은행과 가정을 <b>(B) 연결하여</b> 우리를 멀리서 일어난 오류에 노출되게 만들었다.", "opts": [["changed", "separates"], ["preserved", "connects"], ["preserved", "separates"], ["ignored", "protects"], ["changed", "connects"]], "optko": ["바꾸다 – 분리하다", "보존하다 – 연결하다", "보존하다 – 분리하다", "무시하다 – 보호하다", "바꾸다 – 연결하다"], "ans": 4, "wrong": ["separates(분리하다)가 틀려요. 본문 2번에서 금융 산업은 모든 은행과 가정을 연결해요(links). 그래서 먼 곳의 오류에도 흔들려요.", "preserved(보존하다)가 틀려요. 본문 1번에서 소셜 미디어는 비즈니스, 정치, 친목을 변화시켰어요(altered). 그대로 지킨 게 아니에요.", "둘 다 틀려요. 소셜 미디어는 여러 분야를 그대로 보존한 게 아니라 바꾸었고, 금융 산업은 은행과 가정을 분리하는 게 아니라 연결해요.", "둘 다 틀려요. 소셜 미디어는 여러 분야를 무시한(ignore) 게 아니라 바꾸었고, 금융 산업은 우리를 보호하는(protect) 게 아니라 연결해서 먼 곳의 오류에 취약하게 만들어요.", null], "evid": [{"n": 1, "hl": ["Social media has altered business, politics, and friendships"]}, {"n": 2, "hl": ["links every bank and countless households in every country", "vulnerable to human error taking place on the other side of the world"]}], "swaps": [["alter", "change", "변화시키다 → 바꾸다"], ["link", "connect", "연결하다 → 연결하다"], ["vulnerable", "open", "취약한 → 노출된"]], "swapnote": "alter(변화시키다)는 change(바꾸다)로, link(연결하다)는 connect(연결하다)로, vulnerable to(~에 취약한)는 open to(~에 노출된)로 바뀌었어요.", "use": [{"w": "change", "ex": "The new phone changed my life.", "ko": "새 휴대폰이 내 삶을 바꾸었다.", "wk": "바꾸다", "hk": "바꾸었다"}, {"w": "connect", "ex": "This bridge connects the two towns.", "ko": "이 다리는 두 마을을 연결한다.", "wk": "연결하다", "hk": "연결한다"}], "flow": "본문 1번에서 소셜 미디어가 비즈니스, 정치, 친목을 바꾸었다고 하고, 2번에서 금융 산업이 전 세계 은행과 가정을 이어서 지구 반대편의 실수에도 우리가 흔들리게 됐다고 이어요.", "jd": [["Social media has [[changed]]", "소셜 미디어는 [[바꾸었다]]"], ["business, politics, and friendships,", "비즈니스, 정치, 친목을,"], ["and the global financial industry [[connects]]", "그리고 세계 금융 산업은 [[연결한다]]"], ["banks and households worldwide,", "전 세계의 은행과 가정을,"], ["making us open to errors far away.", "그래서 우리를 멀리서 일어난 오류에 노출되게 만든다."]], "fc": [["본문 1번", "소셜 미디어가 세상을 바꿨다", "소셜 미디어는 비즈니스, 정치, 친목을 {{alter|변화시켰다}}."], ["본문 2번", "금융은 전 세계를 잇는다", "금융 산업은 모든 은행과 가정을 {{link|연결해서}} 우리를 먼 곳의 실수에 {{vulnerable|취약하게}} 만든다."], ["정답 포인트", "{{alter|변화시키다}} = {{change|바꾸다}}, {{link|연결하다}} = {{connect|연결하다}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "Social media has altered business, politics, and friendships, making going viral a household term.", "ko": "소셜 미디어는 비즈니스, 정치, 친목을 변화시켰으며, ‘입소문이 나다’를 일상적인 용어로 만들었다.", "hl": ["Social media has altered business, politics, and friendships"], "hlko": ["소셜 미디어는 비즈니스, 정치, 친목을 변화시켰으며"], "n": 1}, {"en": "The global financial industry links every bank and countless households in every country, making us vulnerable to human error taking place on the other side of the world.", "ko": "세계 금융 산업은 모든 은행과 전 세계 각국의 수많은 가정을 연결하여, 우리를 세계의 다른 곳에서 발생한 인간의 오류에 취약해지게 만들었다.", "hl": ["links every bank and countless households in every country", "vulnerable to human error taking place on the other side of the world"], "hlko": ["모든 은행과 전 세계 각국의 수많은 가정을 연결하여", "세계의 다른 곳에서 발생한 인간의 오류에 취약해지게"], "n": 2}]}, {"id": 2, "summary": "Years ago, most institutions were (A), so they were (B) from the effects of errors outside their walls, but that has changed.", "ko": "수년 전에는 대부분의 기관이 <b>(A) 분리되어</b> 있어서 장벽 밖의 오류가 주는 영향으로부터 <b>(B) 보호받았지만</b>, 그것은 바뀌었다.", "opts": [["isolated", "suffering"], ["isolated", "shielded"], ["connected", "shielded"], ["connected", "suffering"], ["united", "learning"]], "optko": ["분리된 – 시달리는", "분리된 – 보호받는", "연결된 – 보호받는", "연결된 – 시달리는", "하나로 합쳐진 – 배우는"], "ans": 1, "wrong": ["suffering(시달리는)이 틀려요. 본문 3번에서 옛날 기관들은 바깥 오류의 영향으로부터 보호되었어요(buffered). 시달린 게 아니에요.", null, "connected(연결된)가 틀려요. 본문 3번에서 옛날 기관들은 서로 분리되어(separate) 있었어요. 연결된 건 지금 이야기예요.", "둘 다 틀려요. 옛날 기관들은 연결된 게 아니라 분리되어 있었고, 그래서 바깥 오류에 시달린 게 아니라 보호받았어요.", "둘 다 틀려요. 옛날 기관들은 하나로 합쳐진(united) 게 아니라 분리되어 있었고, 오류에서 배운(learn) 게 아니라 오류의 영향으로부터 보호받았어요."], "evid": [{"n": 3, "hl": ["most of our institutions were separate", "buffered from the effects of errors outside their walls"]}, {"n": 4, "hl": ["That is no longer the case."]}], "swaps": [["separate", "isolated", "분리된 → 고립된"], ["buffer", "shield", "보호하다 → 막아 주다"]], "swapnote": "separate(분리된)는 isolated(고립된)로, buffered(보호된)는 shielded(보호받는)로 바뀌었어요. no longer the case(더 이상 그렇지 않다)는 that has changed(그것은 바뀌었다)로 읽어요.", "use": [{"w": "isolated", "ex": "The small village was isolated by the snow.", "ko": "그 작은 마을은 눈 때문에 고립되었다.", "wk": "고립된, 분리된", "hk": "고립되었다"}, {"w": "shield", "ex": "The trees shielded the house from the wind.", "ko": "나무들이 바람으로부터 집을 막아 주었다.", "wk": "막아 주다, 보호하다", "hk": "막아 주었다"}], "flow": "본문 3번에서 McGrath 교수의 말로, 옛날 기관들은 서로 떨어져 있어서 바깥 오류의 영향을 막을 수 있었다고 하고, 4번에서 지금은 더 이상 그렇지 않다고 딱 잘라요.", "jd": [["Years ago, most institutions were [[isolated]],", "수년 전에는 대부분의 기관이 [[분리되어]] 있었다,"], ["so they were [[shielded]]", "그래서 그것들은 [[보호받았다]]"], ["from the effects of errors", "오류의 영향으로부터"], ["outside their walls,", "그것들의 장벽 밖에 있는,"], ["but that has changed.", "하지만 그것은 바뀌었다."]], "fc": [["본문 3번", "옛날 기관은 따로따로", "옛날 {{institution|기관}}들은 {{separate|분리되어}} 있어서 바깥 오류로부터 {{buffer|보호되었다}}."], ["본문 4번", "지금은 그렇지 않다", "더 이상 그렇지 않다. 이제는 모두 이어져 있다."], ["정답 포인트", "{{separate|분리된}} = {{isolated|고립된}}, {{buffer|보호하다}} = {{shield|막아 주다}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "As Columbia University strategy professor Rita McGrath explains, years ago most of our institutions were separate and thereby buffered from the effects of errors outside their walls.", "ko": "Columbia University 전략학 교수 Rita McGrath가 설명하듯이, 수년 전 우리의 기관들 중 대부분은 서로 분리되어 있었고, 따라서 그것들의 장벽 밖에 있는 오류들의 영향으로부터 보호되었다.", "hl": ["most of our institutions were separate", "buffered from the effects of errors outside their walls"], "hlko": ["우리의 기관들 중 대부분은 서로 분리되어 있었고", "그것들의 장벽 밖에 있는 오류들의 영향으로부터 보호되었다"], "n": 3}, {"en": "That is no longer the case.", "ko": "더 이상은 그렇지 않다.", "hl": ["That is no longer the case."], "hlko": ["더 이상은 그렇지 않다."], "n": 4}]}, {"id": 3, "summary": "As computing became cheaper, digital information grew (A), and smart systems that communicate on their own (B) countless possible breakdowns.", "ko": "컴퓨팅이 더 싸지면서 디지털 정보는 <b>(A) 엄청나게</b> 늘었고, 스스로 소통하는 스마트 시스템은 셀 수 없이 많은 일어날 수 있는 고장을 <b>(B) 일으켰다</b>.", "opts": [["hugely", "prevented"], ["slightly", "caused"], ["slightly", "prevented"], ["hugely", "caused"], ["slowly", "solved"]], "optko": ["엄청나게 – 막다", "약간 – 일으키다", "약간 – 막다", "엄청나게 – 일으키다", "천천히 – 해결하다"], "ans": 3, "wrong": ["prevented(막다)가 틀려요. 본문 6번에서 스마트 시스템은 무한히 다양한 고장을 초래했어요(gave rise to). 막은 게 아니에요.", "slightly(약간)가 틀려요. 본문 5번에서 정보의 디지털화는 엄청나게(enormously) 늘었어요.", "둘 다 틀려요. 디지털 정보는 약간이 아니라 엄청나게 늘었고, 스마트 시스템은 고장을 막은 게 아니라 일으켰어요.", null, "둘 다 틀려요. 디지털 정보는 천천히(slowly)가 아니라 엄청나게 늘었고, 스마트 시스템은 고장을 해결한(solve) 게 아니라 일으켰어요."], "evid": [{"n": 5, "hl": ["has continued to grow enormously as the cost of computing power has decreased"]}, {"n": 6, "hl": ["gave rise to an infinite variety of potential breakdowns"]}], "swaps": [["enormously", "hugely", "엄청나게 → 엄청나게"], ["give rise to", "cause", "초래하다 → 일으키다"], ["infinite", "countless", "무한한 → 셀 수 없이 많은"], ["potential", "possible", "잠재적인 → 일어날 수 있는"]], "swapnote": "enormously(엄청나게)는 hugely(엄청나게)로, give rise to(초래하다)는 cause(일으키다)로, infinite(무한한)는 countless(셀 수 없이 많은)로, potential(잠재적인)은 possible(일어날 수 있는)로 바뀌었어요.", "use": [{"w": "hugely", "ex": "The movie was hugely popular.", "ko": "그 영화는 엄청나게 인기가 있었다.", "wk": "엄청나게", "hk": "엄청나게"}, {"w": "cause", "ex": "The storm caused a lot of damage.", "ko": "그 폭풍은 많은 피해를 일으켰다.", "wk": "일으키다, 초래하다", "hk": "일으켰다"}], "flow": "본문 5번에서 컴퓨팅 비용이 떨어지면서 정보의 디지털화가 엄청나게 늘었다고 하고, 6번에서 스스로 소통하는 스마트 시스템이 무한히 다양한 고장 가능성을 낳았다고 이어요.", "jd": [["As computing became cheaper,", "컴퓨팅이 더 싸지면서,"], ["digital information grew [[hugely]],", "디지털 정보는 [[엄청나게]] 늘었다,"], ["and smart systems that communicate on their own", "그리고 스스로 소통하는 스마트 시스템은"], ["[[caused]] countless possible breakdowns.", "셀 수 없이 많은 일어날 수 있는 고장을 [[일으켰다]]."]], "fc": [["본문 5번", "디지털 정보가 폭발했다", "컴퓨팅 비용이 {{decrease|줄면서}} 정보의 {{digitization|디지털화}}가 {{enormously|엄청나게}} 늘었다."], ["본문 6번", "스마트 시스템이 고장을 낳았다", "스스로 소통하는 시스템이 {{infinite|무한히}} 다양한 {{breakdown|고장}}을 {{give rise to|초래했다}}."], ["정답 포인트", "{{enormously|엄청나게}} = {{hugely|엄청나게}}, {{give rise to|초래하다}} = {{cause|일으키다}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "The digitization of massive amounts of information has continued to grow enormously as the cost of computing power has decreased.", "ko": "컴퓨팅 능력의 비용이 감소함에 따라 방대한 양의 정보의 디지털화는 계속해서 엄청나게 증가해 왔다.", "hl": ["has continued to grow enormously as the cost of computing power has decreased"], "hlko": ["컴퓨팅 능력의 비용이 감소함에 따라 방대한 양의 정보의 디지털화는 계속해서 엄청나게 증가해 왔다"], "n": 5}, {"en": "The development of smart systems that communicate autonomously gave rise to an infinite variety of potential breakdowns.", "ko": "자율적으로 소통하는 스마트 시스템의 발달은 무한히 다양한 잠재적 고장들을 초래했다.", "hl": ["gave rise to an infinite variety of potential breakdowns"], "hlko": ["무한히 다양한 잠재적 고장들을 초래했다"], "n": 6}]}, {"id": 4, "summary": "When things that were kept separate bump into each other, the future becomes hard to predict, and information technology brings new (A) because linked systems spread the impact of small failures (B).", "ko": "분리되어 있던 것들이 서로 부딪치면 미래를 예측하기 어려워지고, 정보 기술은 새로운 <b>(A) 약점</b>을 가져오는데, 연결된 시스템이 작은 실패의 영향을 <b>(B) 즉시</b> 퍼뜨리기 때문이다.", "opts": [["weaknesses", "immediately"], ["weaknesses", "slowly"], ["strengths", "immediately"], ["strengths", "slowly"], ["rewards", "gently"]], "optko": ["약점 – 즉시", "약점 – 천천히", "강점 – 즉시", "강점 – 천천히", "보상 – 부드럽게"], "ans": 0, "wrong": [null, "slowly(천천히)가 틀려요. 본문 9번에서 상호 연결성은 작은 실패의 영향을 즉각적으로(instantly) 퍼뜨려요.", "strengths(강점)가 틀려요. 본문 9번에서 정보 기술은 새로운 취약성(vulnerabilities)을 만들어요. 강점이 아니에요.", "둘 다 틀려요. 정보 기술이 가져오는 건 강점이 아니라 약점이고, 작은 실패의 영향은 천천히가 아니라 즉시 퍼져요.", "둘 다 틀려요. 정보 기술이 가져오는 건 보상(reward)이 아니라 약점이고, 영향은 부드럽게(gently)가 아니라 즉시 퍼져요."], "evid": [{"n": 7, "hl": ["a breeding ground for complex failure"]}, {"n": 8, "hl": ["things that used to be kept separate bump up against each other", "it becomes far more difficult to predict what’s going to happen next"]}, {"n": 9, "hl": ["Information technology creates new vulnerabilities", "interconnectedness instantly spreads the impact of small failures"]}], "swaps": [["vulnerability", "weakness", "취약성 → 약점"], ["instantly", "immediately", "즉각적으로 → 즉시"], ["create", "bring", "만들어 내다 → 가져오다"], ["interconnectedness", "linked systems", "상호 연결성 → 연결된 시스템"]], "swapnote": "vulnerability(취약성)는 weakness(약점)로, instantly(즉각적으로)는 immediately(즉시)로, create(만들어 내다)는 bring(가져오다)으로 바뀌었어요. 쉽게 망가지는 곳 = 약점으로 읽어요.", "use": [{"w": "weakness", "ex": "Everyone has strengths and weaknesses.", "ko": "누구에게나 강점과 약점이 있다.", "wk": "약점", "hk": "약점이"}, {"w": "immediately", "ex": "Please call me immediately.", "ko": "나에게 즉시 전화해 줘.", "wk": "즉시", "hk": "즉시"}], "flow": "본문 7번에서 이런 상호 의존성이 복합적 실패의 온상이라고 하고, 8번에서 따로 있던 것들이 부딪치면 다음 일을 예측하기 훨씬 어렵다고 한 뒤, 9번에서 연결성이 작은 실패를 즉시 퍼뜨려 새로운 취약성을 만든다고 결론 내요.", "jd": [["When things that were kept separate bump into each other,", "분리되어 있던 것들이 서로 부딪치면,"], ["the future becomes hard to predict,", "미래를 예측하기 어려워진다,"], ["and information technology brings new [[weaknesses]]", "그리고 정보 기술은 새로운 [[약점]]을 가져온다"], ["because linked systems", "연결된 시스템이"], ["spread the impact of small failures [[immediately]].", "작은 실패의 영향을 [[즉시]] 퍼뜨리기 때문이다."]], "fc": [["본문 7~8번", "부딪치면 예측이 어려워진다", "{{interdependence|상호 의존성}}은 복합적 실패의 온상이고, 따로 있던 것들이 부딪치면 {{predict|예측하기}} 어려워요."], ["본문 9번", "작은 실패가 순식간에 퍼진다", "{{interconnectedness|상호 연결성}}이 작은 실패의 영향을 {{instantly|즉각적으로}} 퍼뜨려 새로운 {{vulnerability|취약성}}을 만들어요."], ["정답 포인트", "{{vulnerability|취약성}} = {{weakness|약점}}, {{instantly|즉각적으로}} = {{immediately|즉시}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "This interdependence is a breeding ground for complex failure.", "ko": "이러한 상호 의존성은 복합적 실패의 온상이다.", "hl": ["a breeding ground for complex failure"], "hlko": ["복합적 실패의 온상"], "n": 7}, {"en": "As Rita puts it, when “things that used to be kept separate bump up against each other, it becomes far more difficult to predict what’s going to happen next.”", "ko": "Rita가 말하듯, ‘분리되어 있던 것들이 서로 부딪치게 될 때, 다음에 무슨 일이 일어날지를 예측하는 것은 훨씬 더 어려워진다.’", "hl": ["things that used to be kept separate bump up against each other", "it becomes far more difficult to predict what’s going to happen next"], "hlko": ["분리되어 있던 것들이 서로 부딪치게 될 때", "다음에 무슨 일이 일어날지를 예측하는 것은 훨씬 더 어려워진다"], "n": 8}, {"en": "Information technology creates new vulnerabilities because interconnectedness instantly spreads the impact of small failures.", "ko": "정보 기술은 새로운 취약성을 만들어 내는데, 왜냐하면 상호 연결성이 작은 실패들의 영향을 즉각적으로 확산시키기 때문이다.", "hl": ["Information technology creates new vulnerabilities", "interconnectedness instantly spreads the impact of small failures"], "hlko": ["정보 기술은 새로운 취약성을 만들어 내는데", "상호 연결성이 작은 실패들의 영향을 즉각적으로 확산시키기"], "n": 9}]}], "gloss": {"social": ["social", "사회의, 소셜"], "media": ["media", "미디어, 매체"], "altered": ["alter", "바꾸다"], "business": ["business", "비즈니스, 사업"], "politics": ["politics", "정치"], "friendships": ["friendship", "우정, 친목"], "making": ["make", "~하게 만들다"], "going": ["go", "~하게 되다"], "viral": ["viral", "입소문이 나는"], "household": ["household", "일상적인, 가정의"], "term": ["term", "용어"], "global": ["global", "세계의"], "financial": ["financial", "금융의"], "industry": ["industry", "산업"], "links": ["link", "연결하다"], "bank": ["bank", "은행"], "banks": ["bank", "은행"], "countless": ["countless", "셀 수 없이 많은"], "households": ["household", "가정"], "country": ["country", "나라"], "vulnerable": ["vulnerable", "취약한"], "error": ["error", "오류"], "errors": ["error", "오류"], "taking": ["take", "(일이) 일어나는"], "place": ["place", "일어남"], "side": ["side", "쪽, 편"], "world": ["world", "세계"], "university": ["university", "대학교"], "strategy": ["strategy", "전략"], "professor": ["professor", "교수"], "explains": ["explain", "설명하다"], "years": ["year", "해, 년"], "ago": ["ago", "~ 전에"], "institutions": ["institution", "기관"], "separate": ["separate", "분리된"], "thereby": ["thereby", "따라서, 그렇게 하여"], "buffered": ["buffer", "보호하다, 완충하다"], "effects": ["effect", "영향"], "outside": ["outside", "~ 밖에"], "walls": ["wall", "벽, 장벽"], "longer": ["long", "더 이상"], "case": ["case", "사실, 경우"], "digitization": ["digitization", "디지털화"], "massive": ["massive", "방대한"], "amounts": ["amount", "양"], "information": ["information", "정보"], "continued": ["continue", "계속하다"], "grow": ["grow", "증가하다"], "enormously": ["enormously", "엄청나게"], "cost": ["cost", "비용"], "computing": ["computing", "컴퓨팅, 컴퓨터 사용"], "power": ["power", "능력, 힘"], "decreased": ["decrease", "감소하다"], "development": ["development", "발달"], "smart": ["smart", "스마트한, 똑똑한"], "systems": ["system", "시스템"], "communicate": ["communicate", "소통하다"], "autonomously": ["autonomously", "자율적으로"], "gave": ["give", "주다"], "rise": ["rise", "발생, 증가"], "infinite": ["infinite", "무한한"], "variety": ["variety", "다양성"], "potential": ["potential", "잠재적인"], "breakdowns": ["breakdown", "고장"], "interdependence": ["interdependence", "상호 의존성"], "breeding": ["breeding", "번식, 사육"], "ground": ["ground", "장소, 땅"], "complex": ["complex", "복합적인"], "failure": ["failure", "실패"], "failures": ["failure", "실패"], "puts": ["put", "말하다, 표현하다"], "things": ["thing", "것"], "used": ["use", "(used to) 예전에 ~했다"], "kept": ["keep", "유지하다"], "bump": ["bump", "부딪치다"], "becomes": ["become", "~이 되다"], "far": ["far", "훨씬"], "difficult": ["difficult", "어려운"], "predict": ["predict", "예측하다"], "what's": ["what is", "무엇이 ~인지"], "happen": ["happen", "일어나다"], "next": ["next", "다음에"], "technology": ["technology", "기술"], "creates": ["create", "만들어 내다"], "new": ["new", "새로운"], "vulnerabilities": ["vulnerability", "취약성"], "interconnectedness": ["interconnectedness", "상호 연결성"], "instantly": ["instantly", "즉각적으로"], "spreads": ["spread", "퍼뜨리다"], "spread": ["spread", "퍼뜨리다"], "impact": ["impact", "영향"], "small": ["small", "작은"], "changed": ["change", "바꾸다"], "connects": ["connect", "연결하다"], "separates": ["separate", "분리하다"], "preserved": ["preserve", "보존하다"], "ignored": ["ignore", "무시하다"], "protects": ["protect", "보호하다"], "worldwide": ["worldwide", "전 세계에"], "open": ["open", "노출된, 열려 있는"], "away": ["away", "떨어진"], "isolated": ["isolated", "고립된, 분리된"], "shielded": ["shield", "보호하다, 막아 주다"], "suffering": ["suffer", "고통받다, 시달리다"], "connected": ["connected", "연결된"], "united": ["united", "하나로 합쳐진"], "learning": ["learn", "배우다"], "computers": ["computer", "컴퓨터"], "became": ["become", "~이 되다"], "cheaper": ["cheap", "더 싼"], "digital": ["digital", "디지털의"], "grew": ["grow", "증가하다"], "hugely": ["hugely", "엄청나게"], "slightly": ["slightly", "약간"], "slowly": ["slowly", "천천히"], "caused": ["cause", "일으키다"], "prevented": ["prevent", "막다"], "solved": ["solve", "해결하다"], "possible": ["possible", "가능한, 일어날 수 있는"], "own": ["own", "자기 자신의"], "weaknesses": ["weakness", "약점"], "strengths": ["strength", "강점"], "rewards": ["reward", "보상"], "immediately": ["immediately", "즉시"], "gently": ["gently", "부드럽게, 천천히"], "brings": ["bring", "가져오다"], "linked": ["link", "연결된"], "future": ["future", "미래"], "hard": ["hard", "어려운"], "past": ["past", "과거"], "their": ["they", "그것들의"], "them": ["they", "그것들"], "our": ["we", "우리의"], "that": ["that", "그것"], "most": ["most", "대부분의"], "when": ["when", "~할 때"], "because": ["because", "~ 때문에"], "columbia": ["Columbia", "컬럼비아(대학 이름)"], "rita": ["Rita", "리타(사람 이름)"], "mcgrath": ["McGrath", "맥그래스(사람 이름)"], "what’s": ["what is", "무엇이 ~인지"], "only": ["only", "오직, 단지"], "among": ["among", "~ 사이에서, ~ 가운데"], "died": ["die", "죽었다"], "while": ["while", "~하는 동안, 한편"], "didn't": ["do not", "~하지 않았다"], "about": ["about", "약, ~에 대해"], "human": ["human", "인간의"], "between": ["between", "~ 사이에"], "during": ["during", "~ 동안"], "after": ["after", "~ 후에"], "always": ["always", "항상"], "often": ["often", "자주"], "however": ["however", "그러나"], "therefore": ["therefore", "그러므로"], "instead": ["instead", "대신에"], "both": ["both", "둘 다"], "other": ["other", "다른"], "others": ["other", "다른 것들"], "another": ["another", "또 다른"], "such": ["such", "그러한"], "same": ["same", "같은"], "different": ["different", "다른"], "important": ["important", "중요한"], "together": ["together", "함께"], "people": ["people", "사람들"], "can": ["can", "~할 수 있다"], "being": ["be", "~되는 것"], "into": ["into", "~ 속으로"], "through": ["through", "~을 통해"], "without": ["without", "~ 없이"], "within": ["within", "~ 안에"], "against": ["against", "~에 맞서"], "whether": ["whether", "~인지 아닌지"], "like": ["like", "~처럼"], "just": ["just", "단지, 바로"], "even": ["even", "~조차"], "still": ["still", "여전히"], "yet": ["yet", "하지만, 그래도"], "every": ["every", "모든"], "make": ["make", "만들다"], "made": ["make", "만들어진"], "way": ["way", "방식, 방법"], "today": ["today", "오늘날"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="cheongseok-go2";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH+':'+location.pathname.split('/').slice(-2).join('/');
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;try{if(v==='home')sessionStorage.removeItem('vhyv');else sessionStorage.setItem('vhyv',JSON.stringify({p:location.pathname,v:v,c:cur,t:Date.now()}))}catch(e){}
+  hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';try{sessionStorage.removeItem('vhyv')}catch(e){}hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='rmnote'){var rid=String(v);var rn=NOTES[rid];delete NOTES[rid];jset(K_NOTE,NOTES);delete PUSHED['w:'+rid];jset('vhvs:'+SCH,PUSHED);try{WN.del(rn?rn.l:rid,SRC)}catch(x){}render()}
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);recordYy(q,i);render();
+}
+/* 점수 기록: vhy:<학교> = {<페이지>:{<문제>:{n:푼 횟수,w:틀린 횟수,k:마지막 정답(1/0),c:고른 번호,t:시각}}} -> REC 로 자동 연동(선생님 화면) */
+function recordYy(q,i){
+  try{
+    var K='vhy:'+SCH,P=location.pathname.split('/').slice(-2).join('/'),Y=jget(K,{});
+    var pg=Y[P]||(Y[P]={}),e=pg[q.id]||(pg[q.id]={n:0,w:0});
+    e.n=(e.n||0)+1;if(i!==q.ans)e.w=(e.w||0)+1;e.k=(i===q.ans?1:0);e.c=i;e.t=Date.now();
+    jset(K,Y);
+  }catch(x){}
+  /* 바꿔 말하기 단어는 푼 즉시 모두 선생님 질문 목록에 올린다 */
+  try{swList().forEach(function(s){pushSw(s.id)})}catch(x){}
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){
+  var L=(DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}}),seen={};
+  L.forEach(function(s){seen[s.a.toLowerCase()]=1});
+  /* 모든 문제의 '이 단어, 이렇게 바뀌었어요' 단어도 빠짐없이 바꿔 말하기 연습에 넣는다 */
+  Qs.forEach(function(q,qi){(q.swaps||[]).forEach(function(w){var k=String(w[0]).toLowerCase();if(seen[k])return;seen[k]=1;L.push({a:w[0],form:w[0],b:w[1],k:w[2],id:'sw:'+k,n:0,sq:qi+1,sum:'',hook:'',en:'',ko:''})})});
+  return L.map(function(s,i){return {s:s,i:i}}).sort(function(x,y){return (x.s.sq-y.s.sq)||(x.i-y.i)}).map(function(x){return x.s});
+}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function yyLine(){
+  try{var Y=jget('vhy:'+SCH,{}),pg=Y[location.pathname.split('/').slice(-2).join('/')]||{},n=0,r=0,w=0;
+    Qs.forEach(function(q){var e=pg[q.id];if(e&&e.n){n++;if(e.k)r++;w+=e.w||0}});
+    if(!n)return '';
+    return '<p class="sub">내 기록: '+n+'문제 중 '+r+'문제 정답'+(w?' · 틀린 횟수 '+w+'번':'')+'</p>';
+  }catch(x){return ''}
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../yoyak.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+=yyLine();
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">문장의 밑줄 단어를 누르면 뜻이 나와요. 보기를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+(done?words(o[0]):esc(o[0]))+'<span class="dash">–</span>'+(done?words(o[1]):esc(o[1]))+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'<button class="rmw" data-a="rmnote" data-v="'+esc(n.l.toLowerCase())+'">빼기</button></li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="qn">'+s.sq+'번</span><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+/* 자동 새로고침(기록 연동)이 일어나도 보던 문제로 되돌린다 */
+try{var sv=JSON.parse(sessionStorage.getItem('vhyv')||'null');if(sv&&sv.p===location.pathname&&Date.now()-sv.t<600000&&sv.v&&sv.v!=='home'){view=sv.v;cur=sv.c||0;try{history.pushState({v:view},'');histPushed=true}catch(e){}}}catch(e){}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>
