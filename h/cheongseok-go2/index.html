@@ -364,7 +364,7 @@ function curUnits(){var o={},lab='';try{lab=ROAD[curWeek(new Date())][2]}catch(e
   if(lab.indexOf('2과')>=0)o.L2=1;if(lab.indexOf('4과')>=0)o.L4=1;if(lab.indexOf('모의고사')>=0)o.mock=1;
   if(!o.L2&&!o.L4&&!o.mock)o.L4=1;return o}
 function lrow(href,t,sm){return '<a class="row" href="'+href+'"><span>'+t+(sm?'<small>'+sm+'</small>':'')+'</span><span class="go" style="white-space:nowrap">열기</span></a>'}
-var YL={"L4": [1, 2, 3, 4, 5, 6, 7], "L2": [1, 2, 3, 4, 5, 6, 7]},YM=[];
+var YL={"L4": [1, 2, 3, 4, 5, 6, 7], "L2": [1, 2, 3, 4, 5, 6, 7]},YM=[["26년 10월 21번", "mock/yoyak-2610-21.html"], ["26년 10월 22번", "mock/yoyak-2610-22.html"], ["26년 10월 23번", "mock/yoyak-2610-23.html"], ["26년 10월 24번", "mock/yoyak-2610-24.html"], ["26년 10월 29번", "mock/yoyak-2610-29.html"], ["26년 10월 30번", "mock/yoyak-2610-30.html"], ["26년 10월 31번", "mock/yoyak-2610-31.html"], ["26년 10월 32번", "mock/yoyak-2610-32.html"], ["26년 10월 33번", "mock/yoyak-2610-33.html"], ["26년 10월 34번", "mock/yoyak-2610-34.html"], ["26년 10월 35번", "mock/yoyak-2610-35.html"], ["26년 10월 36번", "mock/yoyak-2610-36.html"], ["26년 10월 37번", "mock/yoyak-2610-37.html"], ["26년 10월 38번", "mock/yoyak-2610-38.html"], ["26년 10월 39번", "mock/yoyak-2610-39.html"], ["26년 10월 40번", "mock/yoyak-2610-40.html"], ["26년 10월 41~42번", "mock/yoyak-2610-41.html"]];
 function yoyakRows(k){var a=YL[k];if(!a)return '';return '<details class="acc sub"><summary>요약문 연습</summary><div class="in">'+a.map(function(z){return lrow(k+'/yoyak-lian-z'+z+'.html','요약문 연습 '+'❶❷❸❹❺❻❼❽'.charAt(z-1))}).join('')+'</div></details>'}
 function text(){
   var cu=curUnits(),h='';
