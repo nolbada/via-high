@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>26년 10월 36번 요약문 연습 </title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .rmw{border:1px solid var(--line);background:#fff;color:var(--sub);border-radius:8px;padding:4px 10px;font-size:13px}
+.qn{font-size:12px;font-weight:800;color:#fff;background:var(--sub);border-radius:6px;padding:2px 6px;margin-right:6px;flex:none}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+<script>window.REC_NOGATE=1;(function(){try{if(window.__recl||!/\/h\/(geumcheon|jusung|cheongseok)-(gimal|go1|go2)\//.test(location.pathname))return;window.__recl=1;var s=document.createElement('script');s.src=location.pathname.replace(/\/h\/.*$/,'/h/rec.js')+'?v=2';(document.head||document.documentElement).appendChild(s)}catch(e){}})();</script></head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "jusung-go1", "src": "common/sx-data-2610.js", "dir": "mock", "pidx": 11, "lesson": "26년 10월 36번", "title": "", "label": "", "page": "yoyak-2610-36"}, "scenes": [{"tag": "본문 1번", "ns": [1], "line": "모든 소리는 공기나 물 속 분자를 [[disturbs|흔들어 놓는]] 어떤 [[motion|움직임]]에서 시작된다.", "en": ["All sound begins with some kind of motion, something that disturbs molecules in air, water, steel, wood, or other medium."], "kos": ["모든 소리는 어떤 종류의 운동, 즉 공기, 물, 강철, 나무 또는 다른 매질 속의 분자들을 교란하는 어떤 것에서 시작된다."]}, {"tag": "본문 2~3번", "ns": [2, 3], "line": "뉴턴은 빛에는 색이 없고, 색의 [[perception|인식]]은 살아 있는 생명체의 뇌에서만 [[occurs|일어난다고]] 했다. 소리도 같다.", "en": ["Isaac Newton noted that light waves are colorless; the perception of color only occurs in the brain of a living organism.", "The same is true of sound."], "kos": ["Isaac Newton은 빛의 파동은 색이 없으며, 즉, 색에 대한 인식은 오직 살아 있는 생명체의 뇌에서만 일어난다고 지적했다.", "소리 역시 마찬가지이다."]}, {"tag": "본문 4~5번", "ns": [4, 5], "line": "소리의 인식은 고막에서 시작된다. 고막에 [[hits|닿기]] 전에는 분자의 흔들림일 뿐이고, 뇌에 닿기 전엔 소리가 아니다.", "en": ["Thus perception of sound begins at our eardrums — before it hits our eardrums, it is nothing more than the disturbance of molecules.", "We can measure that disturbance with gauges and instruments, but until it hits a brain, it is not sound."], "kos": ["따라서 소리에 대한 인식은 우리의 고막에서 시작된다. 그것이 우리의 고막에 도달하기 전에는, 그것은 단지 분자들의 교란에 불과하다.", "우리는 측정기와 도구를 사용하여 그 교란을 측정할 수 있지만, 그것이 뇌에 도달할 때까지는 그것은 소리가 아니다."]}, {"tag": "본문 6~7번", "ns": [6, 7], "line": "숲에서 나무가 쓰러지는데 아무도 없다면 소리가 날까? 아니다. 소리는 [[psychological|심리학적]] [[concept|개념]], 즉 뇌의 [[product|산물]]이다.", "en": ["You may have heard the old philosophical riddle, “If a tree falls in the forest and no one is there to hear it, does it make it sound?”", "No, because sound is a psychological concept, a product of brains."], "kos": ["여러분은 “숲에서 나무가 쓰러지고 그것을 들을 사람이 그곳에 아무도 없다면, 그것은 그것을 소리로 만드는가?”라는 오래된 철학적 난제를 들어 봤을지도 모른다.", "아니다. 왜냐하면 소리는 심리학적 개념, 즉 뇌가 만들어 내는 산물이기 때문이다."]}, {"tag": "본문 8번", "ns": [8], "line": "나무는 분자를 흔들지만, 새도 여우도 사람도 듣지 않으면 소리를 낸 것이 아니다.", "en": ["That tree will disturb molecules and make a mess, but if no creature hears it, no bird, fox, or human, it has not made sound."], "kos": ["그 나무는 분자들을 교란하고 혼란을 만들어 낼 것이지만, 어떤 생명체도, 즉 어떤 새도, 여우도, 또는 인간도 그것을 듣지 않는다면, 그것은 소리를 낸 것이 아니다."]}], "story": [{"a": "motion", "form": "motion", "n": 1, "sq": 1, "sum": "begins with some [[movement]]", "hook": "모든 소리는 어떤 운동에서 시작된다는 문장의 motion(운동) → 요약문에서는 movement(움직임)로 바꿨어요.", "b": "movement", "k": "운동 → 움직임", "en": "All sound begins with some kind of motion, something that disturbs molecules in air, water, steel, wood, or other medium.", "ko": "모든 소리는 어떤 종류의 운동, 즉 공기, 물, 강철, 나무 또는 다른 매질 속의 분자들을 교란하는 어떤 것에서 시작된다."}, {"a": "disturb", "form": "disturbs", "n": 1, "sq": 1, "sum": "that [[shakes]] molecules", "hook": "분자를 교란하는 어떤 것이라는 문장의 disturb(교란하다) → 요약문에서는 shake(흔들다)로 바꿨어요.", "b": "shake", "k": "교란하다 → 흔들다", "en": "All sound begins with some kind of motion, something that disturbs molecules in air, water, steel, wood, or other medium.", "ko": "모든 소리는 어떤 종류의 운동, 즉 공기, 물, 강철, 나무 또는 다른 매질 속의 분자들을 교란하는 어떤 것에서 시작된다."}, {"a": "perception", "form": "perception", "n": 2, "sq": 2, "sum": "the [[sense]] of sound", "hook": "색에 대한 인식은 뇌에서만 일어난다는 문장의 perception(인식) → 요약문에서는 sense(감각)로 바꿨어요.", "b": "sense", "k": "인식 → 감각", "en": "Isaac Newton noted that light waves are colorless; the perception of color only occurs in the brain of a living organism.", "ko": "Isaac Newton은 빛의 파동은 색이 없으며, 즉, 색에 대한 인식은 오직 살아 있는 생명체의 뇌에서만 일어난다고 지적했다."}, {"a": "occur", "form": "occurs", "n": 2, "sq": 2, "sum": "sense of sound [[happens]] only in a brain", "hook": "색의 인식이 뇌에서만 일어난다는 문장의 occur(일어나다) → 요약문에서는 happen(일어나다)으로 바꿨어요.", "b": "happen", "k": "일어나다 → 일어나다", "en": "Isaac Newton noted that light waves are colorless; the perception of color only occurs in the brain of a living organism.", "ko": "Isaac Newton은 빛의 파동은 색이 없으며, 즉, 색에 대한 인식은 오직 살아 있는 생명체의 뇌에서만 일어난다고 지적했다."}, {"a": "hit", "form": "hits", "n": 4, "sq": 2, "sum": "a disturbance [[reaches]] our eardrums", "hook": "고막에 도달하기 전에는 분자의 교란일 뿐이라는 문장의 hit(도달하다) → 요약문에서는 reach(닿다)로 바꿨어요.", "b": "reach", "k": "도달하다 → 닿다", "en": "Thus perception of sound begins at our eardrums — before it hits our eardrums, it is nothing more than the disturbance of molecules.", "ko": "따라서 소리에 대한 인식은 우리의 고막에서 시작된다. 그것이 우리의 고막에 도달하기 전에는, 그것은 단지 분자들의 교란에 불과하다."}, {"a": "psychological", "form": "psychological", "n": 7, "sq": 3, "sum": "a [[mental]] idea", "hook": "소리는 심리학적 개념이라는 문장의 psychological(심리학적인) → 요약문에서는 mental(정신적인)로 바꿨어요.", "b": "mental", "k": "심리학적인 → 정신적인", "en": "No, because sound is a psychological concept, a product of brains.", "ko": "아니다. 왜냐하면 소리는 심리학적 개념, 즉 뇌가 만들어 내는 산물이기 때문이다."}, {"a": "concept", "form": "concept", "n": 7, "sq": 3, "sum": "mental [[idea]]", "hook": "소리는 심리학적 개념이라는 문장의 concept(개념) → 요약문에서는 idea(생각)로 바꿨어요.", "b": "idea", "k": "개념 → 생각", "en": "No, because sound is a psychological concept, a product of brains.", "ko": "아니다. 왜냐하면 소리는 심리학적 개념, 즉 뇌가 만들어 내는 산물이기 때문이다."}, {"a": "product", "form": "product", "n": 7, "sq": 3, "sum": "a [[creation]] of brains", "hook": "소리는 뇌의 산물이라는 문장의 product(산물) → 요약문에서는 creation(창조물)으로 바꿨어요.", "b": "creation", "k": "산물 → 창조물", "en": "No, because sound is a psychological concept, a product of brains.", "ko": "아니다. 왜냐하면 소리는 심리학적 개념, 즉 뇌가 만들어 내는 산물이기 때문이다."}], "passage": [{"n": 1, "en": "All sound begins with some kind of motion, something that disturbs molecules in air, water, steel, wood, or other medium.", "ko": "모든 소리는 어떤 종류의 운동, 즉 공기, 물, 강철, 나무 또는 다른 매질 속의 분자들을 교란하는 어떤 것에서 시작된다."}, {"n": 2, "en": "Isaac Newton noted that light waves are colorless; the perception of color only occurs in the brain of a living organism.", "ko": "Isaac Newton은 빛의 파동은 색이 없으며, 즉, 색에 대한 인식은 오직 살아 있는 생명체의 뇌에서만 일어난다고 지적했다."}, {"n": 3, "en": "The same is true of sound.", "ko": "소리 역시 마찬가지이다."}, {"n": 4, "en": "Thus perception of sound begins at our eardrums — before it hits our eardrums, it is nothing more than the disturbance of molecules.", "ko": "따라서 소리에 대한 인식은 우리의 고막에서 시작된다. 그것이 우리의 고막에 도달하기 전에는, 그것은 단지 분자들의 교란에 불과하다."}, {"n": 5, "en": "We can measure that disturbance with gauges and instruments, but until it hits a brain, it is not sound.", "ko": "우리는 측정기와 도구를 사용하여 그 교란을 측정할 수 있지만, 그것이 뇌에 도달할 때까지는 그것은 소리가 아니다."}, {"n": 6, "en": "You may have heard the old philosophical riddle, “If a tree falls in the forest and no one is there to hear it, does it make it sound?”", "ko": "여러분은 “숲에서 나무가 쓰러지고 그것을 들을 사람이 그곳에 아무도 없다면, 그것은 그것을 소리로 만드는가?”라는 오래된 철학적 난제를 들어 봤을지도 모른다."}, {"n": 7, "en": "No, because sound is a psychological concept, a product of brains.", "ko": "아니다. 왜냐하면 소리는 심리학적 개념, 즉 뇌가 만들어 내는 산물이기 때문이다."}, {"n": 8, "en": "That tree will disturb molecules and make a mess, but if no creature hears it, no bird, fox, or human, it has not made sound.", "ko": "그 나무는 분자들을 교란하고 혼란을 만들어 낼 것이지만, 어떤 생명체도, 즉 어떤 새도, 여우도, 또는 인간도 그것을 듣지 않는다면, 그것은 소리를 낸 것이 아니다."}], "questions": [{"id": 1, "summary": "Every sound begins with some (A) that (B) molecules in air, water, or other materials.", "ko": "모든 소리는 공기, 물, 또는 다른 물질 속의 분자를 <b>(B) 흔드는</b> 어떤 <b>(A) 움직임</b>에서 시작된다.", "opts": [["movement", "calms"], ["stillness", "shakes"], ["stillness", "calms"], ["silence", "hides"], ["movement", "shakes"]], "optko": ["움직임 – 진정시키다", "고요함 – 흔들다", "고요함 – 진정시키다", "침묵 – 숨기다", "움직임 – 흔들다"], "ans": 4, "wrong": ["calms(진정시키다)가 틀려요. 본문은 그 움직임이 분자를 교란한다고 해요(disturbs). 가라앉히는 게 아니라 흔들어 놓아요.", "stillness(고요함)가 틀려요. 본문은 모든 소리가 어떤 종류의 운동에서 시작된다고 해요(some kind of motion).", "둘 다 틀려요. 소리는 고요함이 아니라 움직임에서 시작되고, 그 움직임은 분자를 진정시키는 게 아니라 흔들어요.", "둘 다 틀려요. 소리는 침묵(silence)에서 시작되지 않고, 분자를 숨긴다(hide)는 말도 없어요.", null], "evid": [{"n": 1, "hl": ["All sound begins with some kind of motion", "something that disturbs molecules in air, water, steel, wood, or other medium"]}], "swaps": [["motion", "movement", "운동 → 움직임"], ["disturb", "shake", "교란하다 → 흔들다"]], "swapnote": "motion(운동)은 movement(움직임)로, disturb(교란하다)는 shake(흔들다)로 바뀌었어요. 여기서 motion은 '체육 운동'이 아니라 '움직임'이라는 뜻이에요.", "use": [{"w": "movement", "ex": "I saw a movement in the grass.", "ko": "풀숲에서 움직임을 보았다.", "wk": "움직임", "hk": "움직임"}, {"w": "shake", "ex": "The wind shakes the leaves.", "ko": "바람이 나뭇잎을 흔든다.", "wk": "흔들다", "hk": "흔든다"}], "flow": "본문 1번에서 모든 소리는 공기, 물, 강철, 나무 같은 매질 속 분자를 교란하는 어떤 움직임에서 시작된다고 해요.", "jd": [["Every sound begins with some [[movement]]", "모든 소리는 어떤 [[움직임]]에서 시작된다"], ["that [[shakes]] molecules", "분자를 [[흔드는]]"], ["in air, water, or other materials.", "공기, 물, 또는 다른 물질 속의."]], "fc": [["본문 1번", "소리는 움직임에서 시작된다", "모든 소리는 어떤 {{motion|운동}}에서 시작돼요."], ["본문 1번", "분자를 흔들어 놓는다", "그 움직임이 공기나 물 속 {{molecule|분자}}를 {{disturb|흔들어 놓아요}}."], ["정답 포인트", "{{motion|운동}} = {{movement|움직임}}, {{disturb|교란하다}} = {{shake|흔들다}}", "본문 단어가 쉬운 말로 바뀌어 나와요."]], "evid_full": [{"en": "All sound begins with some kind of motion, something that disturbs molecules in air, water, steel, wood, or other medium.", "ko": "모든 소리는 어떤 종류의 운동, 즉 공기, 물, 강철, 나무 또는 다른 매질 속의 분자들을 교란하는 어떤 것에서 시작된다.", "hl": ["All sound begins with some kind of motion", "something that disturbs molecules in air, water, steel, wood, or other medium"], "hlko": ["모든 소리는 어떤 종류의 운동", "공기, 물, 강철, 나무 또는 다른 매질 속의 분자들을 교란하는 어떤 것"], "n": 1}]}, {"id": 2, "summary": "As with color, the sense of sound (A) only in a brain, so before a disturbance (B) our eardrums, it is just moving molecules.", "ko": "색과 마찬가지로 소리에 대한 감각은 뇌에서만 <b>(A) 일어나므로</b>, 교란이 우리 고막에 <b>(B) 닿기</b> 전에는 그것은 그저 움직이는 분자일 뿐이다.", "opts": [["happens", "leaves"], ["disappears", "reaches"], ["happens", "reaches"], ["disappears", "leaves"], ["fades", "avoids"]], "optko": ["일어나다 – 떠나다", "사라지다 – 닿다", "일어나다 – 닿다", "사라지다 – 떠나다", "희미해지다 – 피하다"], "ans": 2, "wrong": ["leaves(떠나다)가 틀려요. 본문은 교란이 고막에 도달하기 전에는 분자의 교란일 뿐이라고 해요(before it hits our eardrums).", "disappears(사라지다)가 틀려요. 본문은 색의 인식이 살아 있는 생명체의 뇌에서만 일어나고 소리도 마찬가지라고 해요(occurs).", null, "둘 다 틀려요. 소리의 감각은 뇌에서 사라지는 게 아니라 일어나고, 교란은 고막을 떠나는 게 아니라 고막에 닿아요.", "둘 다 틀려요. 희미해진다(fade)는 말도, 고막을 피한다(avoid)는 말도 본문에 없어요."], "evid": [{"n": 2, "hl": ["the perception of color only occurs in the brain of a living organism"]}, {"n": 3, "hl": ["The same is true of sound"]}, {"n": 4, "hl": ["before it hits our eardrums, it is nothing more than the disturbance of molecules"]}, {"n": 5, "hl": ["until it hits a brain, it is not sound"]}], "swaps": [["perception", "sense", "인식 → 감각"], ["occur", "happen", "일어나다 → 일어나다"], ["hit", "reach", "도달하다 → 닿다"]], "swapnote": "perception(인식)은 sense(감각)로, occur(일어나다)는 happen(일어나다)으로, hit(도달하다)은 reach(닿다)로 바뀌었어요. 여기서 hit은 '때리다'가 아니라 '도달하다'라는 뜻이에요.", "use": [{"w": "happen", "ex": "Accidents happen every day.", "ko": "사고는 매일 일어난다.", "wk": "일어나다", "hk": "일어난다"}, {"w": "reach", "ex": "The letter reached me today.", "ko": "그 편지가 오늘 나에게 닿았다.", "wk": "닿다, 도달하다", "hk": "닿았다"}], "flow": "본문 2번에서 뉴턴이 빛에는 색이 없고 색의 인식은 뇌에서만 일어난다고 했다고 하고, 3번에서 소리도 같다고 해요. 4~5번에서 고막에 닿기 전에는 분자의 교란일 뿐이고, 뇌에 닿기 전에는 소리가 아니라고 해요.", "jd": [["As with color,", "색과 마찬가지로,"], ["the sense of sound [[happens]] only in a brain,", "소리에 대한 감각은 뇌에서만 [[일어나므로]],"], ["so before a disturbance [[reaches]] our eardrums,", "교란이 우리 고막에 [[닿기]] 전에는,"], ["it is just moving molecules.", "그것은 그저 움직이는 분자일 뿐이다."]], "fc": [["본문 2~3번", "색도 소리도 뇌에서 생긴다", "색의 {{perception|인식}}은 뇌에서만 {{occur|일어나요}}. 소리도 같아요."], ["본문 4~5번", "고막에 닿아야 시작된다", "고막에 {{hit|닿기}} 전에는 분자의 흔들림일 뿐, 아직 소리가 아니에요."], ["정답 포인트", "{{occur|일어나다}} = {{happen|일어나다}}, {{hit|도달하다}} = {{reach|닿다}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "Isaac Newton noted that light waves are colorless; the perception of color only occurs in the brain of a living organism.", "ko": "Isaac Newton은 빛의 파동은 색이 없으며, 즉, 색에 대한 인식은 오직 살아 있는 생명체의 뇌에서만 일어난다고 지적했다.", "hl": ["the perception of color only occurs in the brain of a living organism"], "hlko": ["색에 대한 인식은 오직 살아 있는 생명체의 뇌에서만 일어난다"], "n": 2}, {"en": "The same is true of sound.", "ko": "소리 역시 마찬가지이다.", "hl": ["The same is true of sound"], "hlko": ["소리 역시 마찬가지이다"], "n": 3}, {"en": "Thus perception of sound begins at our eardrums — before it hits our eardrums, it is nothing more than the disturbance of molecules.", "ko": "따라서 소리에 대한 인식은 우리의 고막에서 시작된다. 그것이 우리의 고막에 도달하기 전에는, 그것은 단지 분자들의 교란에 불과하다.", "hl": ["before it hits our eardrums, it is nothing more than the disturbance of molecules"], "hlko": ["그것이 우리의 고막에 도달하기 전에는, 그것은 단지 분자들의 교란에 불과하다"], "n": 4}, {"en": "We can measure that disturbance with gauges and instruments, but until it hits a brain, it is not sound.", "ko": "우리는 측정기와 도구를 사용하여 그 교란을 측정할 수 있지만, 그것이 뇌에 도달할 때까지는 그것은 소리가 아니다.", "hl": ["until it hits a brain, it is not sound"], "hlko": ["그것이 뇌에 도달할 때까지는 그것은 소리가 아니다"], "n": 5}]}, {"id": 3, "summary": "A falling tree makes a sound only if some creature hears it, because sound is a (A) idea, a (B) of brains.", "ko": "쓰러지는 나무는 어떤 생명체가 그것을 들을 때만 소리를 내는데, 소리는 <b>(A) 정신적인</b> 생각, 즉 뇌가 만든 <b>(B) 창조물</b>이기 때문이다.", "opts": [["mental", "creation"], ["mental", "source"], ["physical", "creation"], ["physical", "source"], ["natural", "enemy"]], "optko": ["정신적인 – 창조물", "정신적인 – 근원", "물리적인 – 창조물", "물리적인 – 근원", "자연의 – 적"], "ans": 0, "wrong": [null, "source(근원)가 틀려요. 본문은 소리가 뇌의 산물이라고 해요(a product of brains). 소리가 뇌를 만드는 게 아니라 뇌가 소리를 만들어요.", "physical(물리적인)이 틀려요. 본문은 소리가 심리학적 개념이라고 해요(a psychological concept). 물리적인 것은 분자의 교란 쪽이에요.", "둘 다 틀려요. 소리는 물리적인 것이 아니라 심리학적 개념이고, 뇌의 근원이 아니라 뇌가 만든 산물이에요.", "둘 다 틀려요. 자연의(natural) 생각이라는 말도, 뇌의 적(enemy)이라는 말도 본문에 없어요."], "evid": [{"n": 6, "hl": ["If a tree falls in the forest and no one is there to hear it"]}, {"n": 7, "hl": ["sound is a psychological concept, a product of brains"]}, {"n": 8, "hl": ["if no creature hears it", "it has not made sound"]}], "swaps": [["psychological", "mental", "심리학적인 → 정신적인"], ["concept", "idea", "개념 → 생각"], ["product", "creation", "산물 → 창조물"]], "swapnote": "psychological(심리학적인)은 mental(정신적인)로, concept(개념)는 idea(생각)로, product(산물)는 creation(창조물)으로 바뀌었어요. 여기서 product는 '상품'이 아니라 '만들어진 결과물'이라는 뜻이에요.", "use": [{"w": "mental", "ex": "Sleep is good for mental health.", "ko": "잠은 정신 건강에 좋다.", "wk": "정신의, 정신적인", "hk": "정신"}, {"w": "creation", "ex": "This cake is my own creation.", "ko": "이 케이크는 내가 직접 만든 창조물이다.", "wk": "창조물, 만든 것", "hk": "창조물"}], "flow": "본문 6번에서 숲에서 아무도 없을 때 나무가 쓰러지면 소리가 나느냐는 오래된 수수께끼를 꺼내고, 7번에서 아니라고 답해요. 소리는 심리학적 개념, 뇌의 산물이기 때문이에요. 8번에서 어떤 생명체도 듣지 않으면 소리를 낸 것이 아니라고 정리해요.", "jd": [["A falling tree makes a sound", "쓰러지는 나무는 소리를 낸다"], ["only if some creature hears it,", "어떤 생명체가 그것을 들을 때만,"], ["because sound is a [[mental]] idea,", "소리는 [[정신적인]] 생각이기 때문이다,"], ["a [[creation]] of brains.", "즉 뇌가 만든 [[창조물]]."]], "fc": [["본문 6번", "아무도 없는 숲의 나무", "나무가 쓰러지는데 아무도 없다면 소리가 날까요? 오래된 {{riddle|수수께끼}}예요."], ["본문 7~8번", "소리는 뇌가 만든다", "소리는 {{psychological|심리학적인}} 개념, 뇌의 {{product|산물}}이에요. 아무도 안 들으면 소리가 아니에요."], ["정답 포인트", "{{psychological|심리학적인}} = {{mental|정신적인}}, {{product|산물}} = {{creation|창조물}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "You may have heard the old philosophical riddle, “If a tree falls in the forest and no one is there to hear it, does it make it sound?”", "ko": "여러분은 “숲에서 나무가 쓰러지고 그것을 들을 사람이 그곳에 아무도 없다면, 그것은 그것을 소리로 만드는가?”라는 오래된 철학적 난제를 들어 봤을지도 모른다.", "hl": ["If a tree falls in the forest and no one is there to hear it"], "hlko": ["숲에서 나무가 쓰러지고 그것을 들을 사람이 그곳에 아무도 없다면"], "n": 6}, {"en": "No, because sound is a psychological concept, a product of brains.", "ko": "아니다. 왜냐하면 소리는 심리학적 개념, 즉 뇌가 만들어 내는 산물이기 때문이다.", "hl": ["sound is a psychological concept, a product of brains"], "hlko": ["소리는 심리학적 개념, 즉 뇌가 만들어 내는 산물이기 때문이다"], "n": 7}, {"en": "That tree will disturb molecules and make a mess, but if no creature hears it, no bird, fox, or human, it has not made sound.", "ko": "그 나무는 분자들을 교란하고 혼란을 만들어 낼 것이지만, 어떤 생명체도, 즉 어떤 새도, 여우도, 또는 인간도 그것을 듣지 않는다면, 그것은 소리를 낸 것이 아니다.", "hl": ["if no creature hears it", "it has not made sound"], "hlko": ["어떤 생명체도, 즉 어떤 새도, 여우도, 또는 인간도 그것을 듣지 않는다면", "그것은 소리를 낸 것이 아니다"], "n": 8}]}], "gloss": {"sound": ["sound", "소리"], "begins": ["begin", "시작되다"], "begin": ["begin", "시작되다"], "kind": ["kind", "종류"], "motion": ["motion", "운동, 움직임"], "something": ["something", "어떤 것"], "disturbs": ["disturb", "교란하다, 흔들어 놓다"], "disturb": ["disturb", "교란하다"], "molecules": ["molecule", "분자"], "air": ["air", "공기"], "water": ["water", "물"], "steel": ["steel", "강철"], "wood": ["wood", "나무"], "medium": ["medium", "매질(소리를 전하는 물질)"], "isaac": ["Isaac", "아이작(이름)"], "newton": ["Newton", "뉴턴(과학자 이름)"], "noted": ["note", "지적했다"], "light": ["light", "빛"], "waves": ["wave", "파동"], "colorless": ["colorless", "색이 없는"], "perception": ["perception", "인식"], "color": ["color", "색"], "occurs": ["occur", "일어나다"], "brain": ["brain", "뇌"], "living": ["living", "살아 있는"], "organism": ["organism", "생명체"], "true": ["true", "사실인(be true of: ~에도 해당되다)"], "thus": ["thus", "따라서"], "eardrums": ["eardrum", "고막"], "before": ["before", "~ 전에"], "hits": ["hit", "도달하다, 닿다"], "nothing": ["nothing", "아무것도 아닌 것(nothing more than: ~에 불과한)"], "disturbance": ["disturbance", "교란, 흔들림"], "measure": ["measure", "측정하다"], "gauges": ["gauge", "측정기"], "instruments": ["instrument", "도구, 기구"], "until": ["until", "~할 때까지"], "may": ["may", "~했을지도 모른다"], "heard": ["hear", "들었다"], "old": ["old", "오래된"], "philosophical": ["philosophical", "철학적인"], "riddle": ["riddle", "수수께끼, 난제"], "tree": ["tree", "나무"], "falls": ["fall", "쓰러지다"], "forest": ["forest", "숲"], "hear": ["hear", "듣다"], "psychological": ["psychological", "심리학적인"], "concept": ["concept", "개념"], "product": ["product", "산물"], "brains": ["brain", "뇌"], "mess": ["mess", "혼란, 엉망"], "creature": ["creature", "생명체"], "hears": ["hear", "듣다"], "bird": ["bird", "새"], "fox": ["fox", "여우"], "movement": ["movement", "움직임"], "shakes": ["shake", "흔들다"], "calms": ["calm", "진정시키다"], "stillness": ["stillness", "고요함"], "silence": ["silence", "침묵"], "hides": ["hide", "숨기다"], "materials": ["material", "물질"], "sense": ["sense", "감각"], "happens": ["happen", "일어나다"], "reaches": ["reach", "닿다, 도달하다"], "leaves": ["leave", "떠나다"], "disappears": ["disappear", "사라지다"], "fades": ["fade", "희미해지다"], "avoids": ["avoid", "피하다"], "moving": ["move", "움직이는"], "falling": ["fall", "쓰러지는"], "makes": ["make", "만들다, (소리를) 내다"], "make": ["make", "만들다, (소리를) 내다"], "made": ["make", "(소리를) 냈다"], "idea": ["idea", "생각"], "mental": ["mental", "정신적인"], "creation": ["creation", "창조물, 만든 것"], "source": ["source", "근원"], "physical": ["physical", "물리적인"], "natural": ["natural", "자연의"], "enemy": ["enemy", "적"], "our": ["our", "우리의"], "there": ["there", "그곳에"], "does": ["do", "(의문문을 만드는 말)"], "will": ["will", "~할 것이다"], "has": ["have", "(has made: ~했다)"], "not": ["not", "~ 아니다"], "just": ["just", "그저"], "some": ["some", "어떤"], "only": ["only", "오직, 단지"], "becomes": ["become", "~이 되다"], "among": ["among", "~ 사이에서, ~ 가운데"], "because": ["because", "~ 때문에"], "died": ["die", "죽었다"], "while": ["while", "~하는 동안, 한편"], "didn't": ["do not", "~하지 않았다"], "about": ["about", "약, ~에 대해"], "human": ["human", "인간의"], "between": ["between", "~ 사이에"], "during": ["during", "~ 동안"], "after": ["after", "~ 후에"], "always": ["always", "항상"], "often": ["often", "자주"], "however": ["however", "그러나"], "therefore": ["therefore", "그러므로"], "instead": ["instead", "대신에"], "both": ["both", "둘 다"], "other": ["other", "다른"], "others": ["other", "다른 것들"], "another": ["another", "또 다른"], "such": ["such", "그러한"], "same": ["same", "같은"], "different": ["different", "다른"], "important": ["important", "중요한"], "together": ["together", "함께"], "people": ["people", "사람들"], "can": ["can", "~할 수 있다"], "being": ["be", "~되는 것"], "into": ["into", "~ 속으로"], "through": ["through", "~을 통해"], "without": ["without", "~ 없이"], "within": ["within", "~ 안에"], "against": ["against", "~에 맞서"], "whether": ["whether", "~인지 아닌지"], "like": ["like", "~처럼"], "even": ["even", "~조차"], "still": ["still", "여전히"], "yet": ["yet", "하지만, 그래도"], "every": ["every", "모든"], "own": ["own", "자신의"], "way": ["way", "방식, 방법"], "today": ["today", "오늘날"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="geumcheon-go1";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH+':'+location.pathname.split('/').slice(-2).join('/');
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;try{if(v==='home')sessionStorage.removeItem('vhyv');else sessionStorage.setItem('vhyv',JSON.stringify({p:location.pathname,v:v,c:cur,t:Date.now()}))}catch(e){}
+  hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';try{sessionStorage.removeItem('vhyv')}catch(e){}hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='rmnote'){var rid=String(v);var rn=NOTES[rid];delete NOTES[rid];jset(K_NOTE,NOTES);delete PUSHED['w:'+rid];jset('vhvs:'+SCH,PUSHED);try{WN.del(rn?rn.l:rid,SRC)}catch(x){}render()}
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);recordYy(q,i);render();
+}
+/* 점수 기록: vhy:<학교> = {<페이지>:{<문제>:{n:푼 횟수,w:틀린 횟수,k:마지막 정답(1/0),c:고른 번호,t:시각}}} -> REC 로 자동 연동(선생님 화면) */
+function recordYy(q,i){
+  try{
+    var K='vhy:'+SCH,P=location.pathname.split('/').slice(-2).join('/'),Y=jget(K,{});
+    var pg=Y[P]||(Y[P]={}),e=pg[q.id]||(pg[q.id]={n:0,w:0});
+    e.n=(e.n||0)+1;if(i!==q.ans)e.w=(e.w||0)+1;e.k=(i===q.ans?1:0);e.c=i;e.t=Date.now();
+    jset(K,Y);
+  }catch(x){}
+  /* 바꿔 말하기 단어는 푼 즉시 모두 선생님 질문 목록에 올린다 */
+  try{swList().forEach(function(s){pushSw(s.id)})}catch(x){}
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){
+  var L=(DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}}),seen={};
+  L.forEach(function(s){seen[s.a.toLowerCase()]=1});
+  /* 모든 문제의 '이 단어, 이렇게 바뀌었어요' 단어도 빠짐없이 바꿔 말하기 연습에 넣는다 */
+  Qs.forEach(function(q,qi){(q.swaps||[]).forEach(function(w){var k=String(w[0]).toLowerCase();if(seen[k])return;seen[k]=1;L.push({a:w[0],form:w[0],b:w[1],k:w[2],id:'sw:'+k,n:0,sq:qi+1,sum:'',hook:'',en:'',ko:''})})});
+  return L.map(function(s,i){return {s:s,i:i}}).sort(function(x,y){return (x.s.sq-y.s.sq)||(x.i-y.i)}).map(function(x){return x.s});
+}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function yyLine(){
+  try{var Y=jget('vhy:'+SCH,{}),pg=Y[location.pathname.split('/').slice(-2).join('/')]||{},n=0,r=0,w=0;
+    Qs.forEach(function(q){var e=pg[q.id];if(e&&e.n){n++;if(e.k)r++;w+=e.w||0}});
+    if(!n)return '';
+    return '<p class="sub">내 기록: '+n+'문제 중 '+r+'문제 정답'+(w?' · 틀린 횟수 '+w+'번':'')+'</p>';
+  }catch(x){return ''}
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../yoyak.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+=yyLine();
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">문장의 밑줄 단어를 누르면 뜻이 나와요. 보기를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+(done?words(o[0]):esc(o[0]))+'<span class="dash">–</span>'+(done?words(o[1]):esc(o[1]))+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'<button class="rmw" data-a="rmnote" data-v="'+esc(n.l.toLowerCase())+'">빼기</button></li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="qn">'+s.sq+'번</span><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+/* 자동 새로고침(기록 연동)이 일어나도 보던 문제로 되돌린다 */
+try{var sv=JSON.parse(sessionStorage.getItem('vhyv')||'null');if(sv&&sv.p===location.pathname&&Date.now()-sv.t<600000&&sv.v&&sv.v!=='home'){view=sv.v;cur=sv.c||0;try{history.pushState({v:view},'');histPushed=true}catch(e){}}}catch(e){}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>
