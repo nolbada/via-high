@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>26년 10월 22번 요약문 연습 </title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .rmw{border:1px solid var(--line);background:#fff;color:var(--sub);border-radius:8px;padding:4px 10px;font-size:13px}
+.qn{font-size:12px;font-weight:800;color:#fff;background:var(--sub);border-radius:6px;padding:2px 6px;margin-right:6px;flex:none}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+<script>window.REC_NOGATE=1;(function(){try{if(window.__recl||!/\/h\/(geumcheon|jusung|cheongseok)-(gimal|go1|go2)\//.test(location.pathname))return;window.__recl=1;var s=document.createElement('script');s.src=location.pathname.replace(/\/h\/.*$/,'/h/rec.js')+'?v=2';(document.head||document.documentElement).appendChild(s)}catch(e){}})();</script></head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "jusung-go2", "src": "common/sx-data-2610g2.js", "dir": "mock", "pidx": 1, "lesson": "26년 10월 22번", "title": "", "label": "", "page": "yoyak-2610-22"}, "scenes": [{"tag": "본문 1번", "ns": [1], "line": "사회적·환경적 책임이 콘텐츠 제작자에게 점점 더 [[important|중요한]] 윤리적 [[consideration|고려 사항]]이 되었다.", "en": ["Social and environmental responsibility has become an increasingly important ethical consideration for content creators."], "kos": ["사회적 그리고 환경적 책임은 콘텐츠 제작자들에게 점점 더 중요한 윤리적 고려 사항이 되어 왔다."]}, {"tag": "본문 2번", "ns": [2], "line": "사회·환경 문제에 대한 전 세계적인 [[awareness|인식]]이 커지면서, 제작자들은 자기 작업의 [[broader|더 폭넓은]] 영향을 생각하라고 요구받는다.", "en": ["As global awareness of social, environmental, and sustainability issues grows, many content creators are being called upon to consider the broader impact of their work."], "kos": ["사회적, 환경적, 그리고 지속가능성 문제들에 대한 전 세계적인 인식이 커짐에 따라, 많은 콘텐츠 제작자들은 자신의 작업의 더 폭넓은 영향력을 고려하도록 요구받고 있다."]}, {"tag": "본문 3번", "ns": [3], "line": "여기에는 기후 변화, 사회 정의 같은 주제를 콘텐츠에서 [[addressing|다루는]] 일이 들어간다.", "en": ["This includes addressing topics such as climate change, social justice, and ethical consumerism in their content."], "kos": ["이것은 그들의 콘텐츠에서 기후 변화, 사회 정의, 그리고 윤리적 소비주의와 같은 주제들을 다루는 것을 포함한다."]}, {"tag": "본문 4번", "ns": [4], "line": "제작자의 플랫폼은 청중의 태도와 행동에 [[influence|영향을 미칠]] 수 있다. 그래서 그것을 좋은 변화에 쓸 [[responsibility|책임]]이 있다.", "en": ["Content creators have a platform that can influence their audience's attitudes and behaviors, and they have a responsibility to use that platform for positive change."], "kos": ["콘텐츠 제작자들은 자신의 청중의 태도와 행동에 영향을 미칠 수 있는 플랫폼을 가지고 있으며, 그들은 그 플랫폼을 긍정적인 변화를 위해 사용할 책임을 지닌다."]}, {"tag": "본문 5번", "ns": [5], "line": "친환경 제품을 홍보하거나 평등과 정의를 위한 대의명분을 [[supporting|지지하면]] 인식을 [[raise|높일]] 수 있다.", "en": ["For example, promoting environmentally sustainable products or supporting causes related to equality and justice can help raise awareness and drive meaningful social impact."], "kos": ["예를 들어, 환경적으로 지속가능한 제품들을 홍보하거나 평등과 정의에 관련된 대의명분을 지지하는 것은 인식을 높이고 의미 있는 사회적 영향을 이끌어 내는 것을 도울 수 있다."]}, {"tag": "본문 6번", "ns": [6], "line": "윤리적인 제작자는 제품 홍보에만 매달리지 않고, 자기 콘텐츠가 자기 원칙과 [[aligns|일치하는지]] 챙긴다.", "en": ["Ethical content creators not only focus on promoting their products or services but also consider the values and causes they support, ensuring that their content aligns with their social and environmental principles."], "kos": ["윤리적인 콘텐츠 제작자들은 자신의 제품이나 서비스를 홍보하는 데만 초점을 맞추는 것이 아니라, 자신이 지지하는 가치와 대의명분도 고려하며, 자신의 콘텐츠가 자신의 사회적 그리고 환경적 원칙과 반드시 일치하게 한다."]}], "story": [{"a": "important", "form": "important", "n": 1, "sq": 1, "sum": "an increasingly [[significant]] ethical concern", "hook": "책임이 점점 더 중요한 고려 사항이 되었다는 문장의 important(중요한) → 요약문에서는 significant(중요한)로 바꿨어요.", "b": "significant", "k": "중요한 → 중요한", "en": "Social and environmental responsibility has become an increasingly important ethical consideration for content creators.", "ko": "사회적 그리고 환경적 책임은 콘텐츠 제작자들에게 점점 더 중요한 윤리적 고려 사항이 되어 왔다."}, {"a": "consideration", "form": "consideration", "n": 1, "sq": 1, "sum": "ethical [[concern]] for content creators", "hook": "윤리적 고려 사항이라는 문장의 consideration(고려 사항) → 요약문에서는 concern(관심사)으로 바꿨어요.", "b": "concern", "k": "고려 사항 → 관심사", "en": "Social and environmental responsibility has become an increasingly important ethical consideration for content creators.", "ko": "사회적 그리고 환경적 책임은 콘텐츠 제작자들에게 점점 더 중요한 윤리적 고려 사항이 되어 왔다."}, {"a": "awareness", "form": "awareness", "n": 2, "sq": 1, "sum": "growing global [[consciousness]] of social issues", "hook": "전 세계적인 인식이 커진다는 문장의 awareness(인식) → 요약문에서는 consciousness(의식)로 바꿨어요.", "b": "consciousness", "k": "인식 → 의식", "en": "As global awareness of social, environmental, and sustainability issues grows, many content creators are being called upon to consider the broader impact of their work.", "ko": "사회적, 환경적, 그리고 지속가능성 문제들에 대한 전 세계적인 인식이 커짐에 따라, 많은 콘텐츠 제작자들은 자신의 작업의 더 폭넓은 영향력을 고려하도록 요구받고 있다."}, {"a": "broad", "form": "broader", "n": 2, "sq": 1, "sum": "consider the [[wider]] impact", "hook": "작업의 더 폭넓은 영향을 생각하라는 문장의 broad(폭넓은) → 요약문에서는 wide(넓은)로 바꿨어요.", "b": "wide", "k": "폭넓은 → 넓은", "en": "As global awareness of social, environmental, and sustainability issues grows, many content creators are being called upon to consider the broader impact of their work.", "ko": "사회적, 환경적, 그리고 지속가능성 문제들에 대한 전 세계적인 인식이 커짐에 따라, 많은 콘텐츠 제작자들은 자신의 작업의 더 폭넓은 영향력을 고려하도록 요구받고 있다."}, {"a": "address", "form": "addressing", "n": 3, "sq": 2, "sum": "to [[deal]] with topics like climate change", "hook": "기후 변화 같은 주제를 다룬다는 문장의 address(다루다) → 요약문에서는 deal with(다루다)로 바꿨어요.", "b": "deal", "k": "다루다 → 다루다", "en": "This includes addressing topics such as climate change, social justice, and ethical consumerism in their content.", "ko": "이것은 그들의 콘텐츠에서 기후 변화, 사회 정의, 그리고 윤리적 소비주의와 같은 주제들을 다루는 것을 포함한다."}, {"a": "influence", "form": "influence", "n": 4, "sq": 2, "sum": "can [[affect]] their audience's attitudes", "hook": "플랫폼이 청중의 태도에 영향을 미친다는 문장의 influence(영향을 미치다) → 요약문에서는 affect(영향을 주다)로 바꿨어요.", "b": "affect", "k": "영향을 미치다 → 영향을 주다", "en": "Content creators have a platform that can influence their audience's attitudes and behaviors, and they have a responsibility to use that platform for positive change.", "ko": "콘텐츠 제작자들은 자신의 청중의 태도와 행동에 영향을 미칠 수 있는 플랫폼을 가지고 있으며, 그들은 그 플랫폼을 긍정적인 변화를 위해 사용할 책임을 지닌다."}, {"a": "responsibility", "form": "responsibility", "n": 4, "sq": 2, "sum": "they are [[accountable]] for using that platform", "hook": "플랫폼을 좋은 변화에 쓸 책임이 있다는 문장의 responsibility(책임) → 요약문에서는 accountable(책임이 있는)로 바꿨어요.", "b": "accountable", "k": "책임 → 책임이 있는", "en": "Content creators have a platform that can influence their audience's attitudes and behaviors, and they have a responsibility to use that platform for positive change.", "ko": "콘텐츠 제작자들은 자신의 청중의 태도와 행동에 영향을 미칠 수 있는 플랫폼을 가지고 있으며, 그들은 그 플랫폼을 긍정적인 변화를 위해 사용할 책임을 지닌다."}, {"a": "support", "form": "supporting", "n": 5, "sq": 3, "sum": "or [[backing]] causes related to equality", "hook": "평등과 관련된 대의명분을 지지한다는 문장의 support(지지하다) → 요약문에서는 back(지지하다)으로 바꿨어요.", "b": "back", "k": "지지하다 → 지지하다", "en": "For example, promoting environmentally sustainable products or supporting causes related to equality and justice can help raise awareness and drive meaningful social impact.", "ko": "예를 들어, 환경적으로 지속가능한 제품들을 홍보하거나 평등과 정의에 관련된 대의명분을 지지하는 것은 인식을 높이고 의미 있는 사회적 영향을 이끌어 내는 것을 도울 수 있다."}, {"a": "raise", "form": "raise", "n": 5, "sq": 3, "sum": "can [[increase]] awareness", "hook": "인식을 높이는 데 도움이 된다는 문장의 raise(높이다) → 요약문에서는 increase(늘리다)로 바꿨어요.", "b": "increase", "k": "높이다 → 늘리다", "en": "For example, promoting environmentally sustainable products or supporting causes related to equality and justice can help raise awareness and drive meaningful social impact.", "ko": "예를 들어, 환경적으로 지속가능한 제품들을 홍보하거나 평등과 정의에 관련된 대의명분을 지지하는 것은 인식을 높이고 의미 있는 사회적 영향을 이끌어 내는 것을 도울 수 있다."}, {"a": "align", "form": "aligns", "n": 6, "sq": 3, "sum": "their content [[agrees]] with their social and environmental principles", "hook": "콘텐츠가 자기 원칙과 일치하게 한다는 문장의 align(일치하다) → 요약문에서는 agree(일치하다)로 바꿨어요.", "b": "agree", "k": "일치하다 → 일치하다", "en": "Ethical content creators not only focus on promoting their products or services but also consider the values and causes they support, ensuring that their content aligns with their social and environmental principles.", "ko": "윤리적인 콘텐츠 제작자들은 자신의 제품이나 서비스를 홍보하는 데만 초점을 맞추는 것이 아니라, 자신이 지지하는 가치와 대의명분도 고려하며, 자신의 콘텐츠가 자신의 사회적 그리고 환경적 원칙과 반드시 일치하게 한다."}], "passage": [{"n": 1, "en": "Social and environmental responsibility has become an increasingly important ethical consideration for content creators.", "ko": "사회적 그리고 환경적 책임은 콘텐츠 제작자들에게 점점 더 중요한 윤리적 고려 사항이 되어 왔다."}, {"n": 2, "en": "As global awareness of social, environmental, and sustainability issues grows, many content creators are being called upon to consider the broader impact of their work.", "ko": "사회적, 환경적, 그리고 지속가능성 문제들에 대한 전 세계적인 인식이 커짐에 따라, 많은 콘텐츠 제작자들은 자신의 작업의 더 폭넓은 영향력을 고려하도록 요구받고 있다."}, {"n": 3, "en": "This includes addressing topics such as climate change, social justice, and ethical consumerism in their content.", "ko": "이것은 그들의 콘텐츠에서 기후 변화, 사회 정의, 그리고 윤리적 소비주의와 같은 주제들을 다루는 것을 포함한다."}, {"n": 4, "en": "Content creators have a platform that can influence their audience's attitudes and behaviors, and they have a responsibility to use that platform for positive change.", "ko": "콘텐츠 제작자들은 자신의 청중의 태도와 행동에 영향을 미칠 수 있는 플랫폼을 가지고 있으며, 그들은 그 플랫폼을 긍정적인 변화를 위해 사용할 책임을 지닌다."}, {"n": 5, "en": "For example, promoting environmentally sustainable products or supporting causes related to equality and justice can help raise awareness and drive meaningful social impact.", "ko": "예를 들어, 환경적으로 지속가능한 제품들을 홍보하거나 평등과 정의에 관련된 대의명분을 지지하는 것은 인식을 높이고 의미 있는 사회적 영향을 이끌어 내는 것을 도울 수 있다."}, {"n": 6, "en": "Ethical content creators not only focus on promoting their products or services but also consider the values and causes they support, ensuring that their content aligns with their social and environmental principles.", "ko": "윤리적인 콘텐츠 제작자들은 자신의 제품이나 서비스를 홍보하는 데만 초점을 맞추는 것이 아니라, 자신이 지지하는 가치와 대의명분도 고려하며, 자신의 콘텐츠가 자신의 사회적 그리고 환경적 원칙과 반드시 일치하게 한다."}], "questions": [{"id": 1, "summary": "Social and environmental responsibility has become an increasingly (A) ethical concern for content creators, as growing global (B) of social issues calls on them to consider the wider impact of their work.", "ko": "사회적·환경적 책임은 콘텐츠 제작자들에게 점점 더 <b>(A) 중요한</b> 윤리적 관심사가 되었는데, 사회 문제에 대한 전 세계적인 <b>(B) 의식</b>이 커지면서 그들에게 자기 작업의 더 넓은 영향을 생각해 보라고 요구하기 때문이다.", "opts": [["significant", "ignorance"], ["minor", "consciousness"], ["minor", "ignorance"], ["significant", "consciousness"], ["optional", "confusion"]], "optko": ["중요한 – 무지", "사소한 – 의식", "사소한 – 무지", "중요한 – 의식", "선택적인 – 혼란"], "ans": 3, "wrong": ["ignorance(무지)가 틀려요. 본문은 사회 문제에 대한 전 세계적인 인식(awareness)이 커진다고 해요. 모르는 게 커지는 게 아니에요.", "minor(사소한)가 틀려요. 본문 1번은 이 책임이 점점 더 중요한(important) 고려 사항이 되었다고 해요.", "둘 다 틀려요. 책임은 사소한 게 아니라 점점 더 중요해졌고, 커지는 건 무지가 아니라 인식이에요.", null, "둘 다 틀려요. optional(안 해도 되는)은 점점 더 중요해졌다는 말과 반대이고, 커지는 건 confusion(혼란)이 아니라 인식이에요."], "evid": [{"n": 1, "hl": ["an increasingly important ethical consideration"]}, {"n": 2, "hl": ["As global awareness of social, environmental, and sustainability issues grows", "consider the broader impact of their work"]}], "swaps": [["important", "significant", "중요한 → 중요한"], ["consideration", "concern", "고려 사항 → 관심사"], ["awareness", "consciousness", "인식 → 의식"], ["broad", "wide", "폭넓은 → 넓은"]], "swapnote": "important(중요한)는 significant(중요한)로, consideration(고려 사항)은 concern(관심사)으로, awareness(인식)는 consciousness(의식)로, broader(더 폭넓은)는 wider(더 넓은)로 바뀌었어요.", "use": [{"w": "significant", "ex": "Sleep plays a significant role in health.", "ko": "잠은 건강에 중요한 역할을 한다.", "wk": "중요한", "hk": "중요한"}, {"w": "consciousness", "ex": "Public consciousness of plastic waste is growing.", "ko": "플라스틱 쓰레기에 대한 대중의 의식이 커지고 있다.", "wk": "의식, 인식", "hk": "의식이"}], "flow": "본문 1번에서 사회적·환경적 책임이 콘텐츠 제작자에게 점점 더 중요한 윤리적 고려 사항이 되었다고 하고, 2번에서 그 이유로 사회·환경 문제에 대한 전 세계적인 인식이 커지면서 제작자들이 자기 작업의 더 폭넓은 영향을 생각하도록 요구받는다고 이어요.", "jd": [["Social and environmental responsibility", "사회적·환경적 책임은"], ["has become an increasingly [[significant]] ethical concern", "점점 더 [[중요한]] 윤리적 관심사가 되었다"], ["for content creators,", "콘텐츠 제작자들에게,"], ["as growing global [[consciousness]] of social issues", "사회 문제에 대한 전 세계적인 [[의식]]이 커지면서"], ["calls on them", "그들에게 요구하기 때문이다"], ["to consider the wider impact of their work.", "자기 작업의 더 넓은 영향을 생각해 보라고."]], "fc": [["본문 1번", "책임은 점점 더 중요한 고려 사항", "사회적·환경적 책임이 제작자에게 점점 더 {{important|중요한}} {{consideration|고려 사항}}이 되었어요."], ["본문 2번", "인식이 커지니 영향을 생각하라", "전 세계적인 {{awareness|인식}}이 커지면서 작업의 {{broader|더 폭넓은}} 영향을 생각하라고 요구받아요."], ["정답 포인트", "{{important|중요한}} = {{significant|중요한}}, {{awareness|인식}} = {{consciousness|의식}}", "본문 단어가 같은 뜻의 다른 말로 바뀌어 나와요."]], "evid_full": [{"en": "Social and environmental responsibility has become an increasingly important ethical consideration for content creators.", "ko": "사회적 그리고 환경적 책임은 콘텐츠 제작자들에게 점점 더 중요한 윤리적 고려 사항이 되어 왔다.", "hl": ["an increasingly important ethical consideration"], "hlko": ["점점 더 중요한 윤리적 고려 사항"], "n": 1}, {"en": "As global awareness of social, environmental, and sustainability issues grows, many content creators are being called upon to consider the broader impact of their work.", "ko": "사회적, 환경적, 그리고 지속가능성 문제들에 대한 전 세계적인 인식이 커짐에 따라, 많은 콘텐츠 제작자들은 자신의 작업의 더 폭넓은 영향력을 고려하도록 요구받고 있다.", "hl": ["As global awareness of social, environmental, and sustainability issues grows", "consider the broader impact of their work"], "hlko": ["사회적, 환경적, 그리고 지속가능성 문제들에 대한 전 세계적인 인식이 커짐에 따라", "자신의 작업의 더 폭넓은 영향력을 고려하도록"], "n": 2}]}, {"id": 2, "summary": "Creators are asked to deal with topics like climate change, since their platform can (A) their audience's attitudes and they are (B) for using that platform for positive change.", "ko": "제작자들은 기후 변화 같은 주제를 다루도록 요구받는데, 그들의 플랫폼이 청중의 태도에 <b>(A) 영향을 줄</b> 수 있고, 그들은 그 플랫폼을 긍정적인 변화를 위해 쓸 <b>(B) 책임이 있기</b> 때문이다.", "opts": [["affect", "blamed"], ["affect", "accountable"], ["ignore", "accountable"], ["ignore", "blamed"], ["weaken", "punished"]], "optko": ["영향을 주다 – 비난받는", "영향을 주다 – 책임이 있는", "무시하다 – 책임이 있는", "무시하다 – 비난받는", "약하게 만들다 – 벌을 받는"], "ans": 1, "wrong": ["blamed(비난받는)가 틀려요. 본문 4번은 제작자에게 플랫폼을 좋은 변화에 쓸 책임(responsibility)이 있다고 해요. 좋은 일에 썼다고 비난받는다는 말이 아니에요.", null, "ignore(무시하다)가 틀려요. 본문 4번은 플랫폼이 청중의 태도와 행동에 영향을 미칠(influence) 수 있다고 해요.", "둘 다 틀려요. 플랫폼은 청중의 태도를 무시하는 게 아니라 영향을 주고, 제작자는 비난받는 게 아니라 책임을 지는 사람이에요.", "둘 다 틀려요. 플랫폼이 태도를 weaken(약하게 만들다)한다는 말은 없고, 좋은 변화에 쓴다고 punished(벌을 받는) 것도 아니에요. 본문은 영향력과 책임을 말해요."], "evid": [{"n": 3, "hl": ["addressing topics such as climate change"]}, {"n": 4, "hl": ["a platform that can influence their audience's attitudes and behaviors", "they have a responsibility to use that platform for positive change"]}], "swaps": [["address", "deal", "다루다 → 다루다"], ["influence", "affect", "영향을 미치다 → 영향을 주다"], ["responsibility", "accountable", "책임 → 책임이 있는"]], "swapnote": "address(다루다)는 deal with(다루다)로, influence(영향을 미치다)는 affect(영향을 주다)로 바뀌었어요. have a responsibility(책임을 지다)는 be accountable(책임이 있다)로 읽어요.", "use": [{"w": "affect", "ex": "Weather can affect your mood.", "ko": "날씨는 네 기분에 영향을 줄 수 있다.", "wk": "영향을 주다", "hk": "영향을 줄"}, {"w": "accountable", "ex": "Leaders are accountable for their decisions.", "ko": "지도자는 자신의 결정에 책임이 있다.", "wk": "책임이 있는", "hk": "책임이 있다"}], "flow": "본문 3번에서 이 책임에는 기후 변화, 사회 정의 같은 주제를 콘텐츠에서 다루는 일이 들어 있다고 하고, 4번에서 제작자의 플랫폼은 청중의 태도와 행동에 영향을 줄 수 있으니 그것을 좋은 변화에 쓸 책임이 있다고 이어요.", "jd": [["Creators are asked", "제작자들은 요구받는다"], ["to deal with topics like climate change,", "기후 변화 같은 주제를 다루도록,"], ["since their platform can [[affect]] their audience's attitudes", "그들의 플랫폼이 청중의 태도에 [[영향을 줄]] 수 있기 때문이다"], ["and they are [[accountable]]", "그리고 그들은 [[책임이 있다]]"], ["for using that platform for positive change.", "그 플랫폼을 긍정적인 변화를 위해 쓰는 것에."]], "fc": [["본문 3번", "기후 변화 같은 주제를 다룬다", "콘텐츠에서 기후 변화, 사회 정의 같은 주제를 {{address|다루는}} 일이 들어가요."], ["본문 4번", "영향력이 있으니 책임도 있다", "플랫폼은 청중의 태도에 {{influence|영향을 미칠}} 수 있고, 그래서 좋은 변화에 쓸 {{responsibility|책임}}이 있어요."], ["정답 포인트", "{{influence|영향을 미치다}} = {{affect|영향을 주다}}, {{responsibility|책임}} = {{accountable|책임이 있는}}", "책임을 지다 = 책임이 있다로 읽어요."]], "evid_full": [{"en": "This includes addressing topics such as climate change, social justice, and ethical consumerism in their content.", "ko": "이것은 그들의 콘텐츠에서 기후 변화, 사회 정의, 그리고 윤리적 소비주의와 같은 주제들을 다루는 것을 포함한다.", "hl": ["addressing topics such as climate change"], "hlko": ["기후 변화, 사회 정의, 그리고 윤리적 소비주의와 같은 주제들을 다루는 것"], "n": 3}, {"en": "Content creators have a platform that can influence their audience's attitudes and behaviors, and they have a responsibility to use that platform for positive change.", "ko": "콘텐츠 제작자들은 자신의 청중의 태도와 행동에 영향을 미칠 수 있는 플랫폼을 가지고 있으며, 그들은 그 플랫폼을 긍정적인 변화를 위해 사용할 책임을 지닌다.", "hl": ["a platform that can influence their audience's attitudes and behaviors", "they have a responsibility to use that platform for positive change"], "hlko": ["청중의 태도와 행동에 영향을 미칠 수 있는 플랫폼", "그 플랫폼을 긍정적인 변화를 위해 사용할 책임을 지닌다"], "n": 4}]}, {"id": 3, "summary": "Promoting eco-friendly products or backing causes related to equality can (A) awareness, and ethical creators make sure their content (B) with their social and environmental principles.", "ko": "친환경 제품을 홍보하거나 평등과 관련된 대의명분을 지지하는 것은 인식을 <b>(A) 높일</b> 수 있고, 윤리적인 제작자들은 자신의 콘텐츠가 자신의 사회적·환경적 원칙과 <b>(B) 일치하도록</b> 확실히 한다.", "opts": [["increase", "conflicts"], ["reduce", "agrees"], ["reduce", "conflicts"], ["hide", "competes"], ["increase", "agrees"]], "optko": ["높이다 – 충돌하다", "줄이다 – 일치하다", "줄이다 – 충돌하다", "숨기다 – 경쟁하다", "높이다 – 일치하다"], "ans": 4, "wrong": ["conflicts(충돌하다)가 틀려요. 본문 6번은 윤리적인 제작자가 콘텐츠를 자기 원칙과 일치하게(align) 만든다고 해요.", "reduce(줄이다)가 틀려요. 본문 5번은 이런 활동이 인식을 높이는(raise) 데 도움이 된다고 해요.", "둘 다 틀려요. 인식은 줄어드는 게 아니라 높아지고, 콘텐츠는 원칙과 충돌하는 게 아니라 일치해요.", "둘 다 틀려요. 인식을 hide(숨기다)하는 게 아니라 높이고, 콘텐츠가 원칙과 compete(경쟁하다)하는 게 아니라 일치해요.", null], "evid": [{"n": 5, "hl": ["promoting environmentally sustainable products or supporting causes related to equality and justice", "help raise awareness"]}, {"n": 6, "hl": ["ensuring that their content aligns with their social and environmental principles"]}], "swaps": [["support", "back", "지지하다 → 지지하다"], ["raise", "increase", "높이다 → 늘리다"], ["align", "agree", "일치하다 → 일치하다"]], "swapnote": "supporting(지지하는 것)은 backing(지지하는 것)으로, raise(높이다)는 increase(늘리다)로, align with(일치하다)는 agree with(일치하다)로 바뀌었어요.", "use": [{"w": "increase", "ex": "Exercise can increase your energy.", "ko": "운동은 너의 에너지를 늘려 줄 수 있다.", "wk": "늘리다, 높이다", "hk": "늘려"}, {"w": "agree", "ex": "Your actions should agree with your words.", "ko": "너의 행동은 너의 말과 일치해야 한다.", "wk": "일치하다", "hk": "일치해야"}], "flow": "본문 5번에서 친환경 제품을 홍보하거나 평등과 정의를 위한 대의명분을 지지하면 인식을 높이고 의미 있는 사회적 영향을 낼 수 있다고 예를 들고, 6번에서 윤리적인 제작자는 제품 홍보만이 아니라 자기 콘텐츠가 자기 원칙과 맞는지도 챙긴다고 마무리해요.", "jd": [["Promoting eco-friendly products", "친환경 제품을 홍보하는 것"], ["or backing causes related to equality", "또는 평등과 관련된 대의명분을 지지하는 것은"], ["can [[increase]] awareness,", "인식을 [[높일]] 수 있다,"], ["and ethical creators make sure", "그리고 윤리적인 제작자들은 확실히 한다"], ["their content [[agrees]] with their social and environmental principles.", "자신의 콘텐츠가 자신의 사회적·환경적 원칙과 [[일치하도록]]."]], "fc": [["본문 5번", "홍보와 지지가 인식을 높인다", "친환경 제품을 홍보하고 대의명분을 {{support|지지하면}} 인식을 {{raise|높일}} 수 있어요."], ["본문 6번", "콘텐츠를 원칙에 맞춘다", "윤리적인 제작자는 콘텐츠가 자기 {{principle|원칙}}과 {{align|일치하게}} 만들어요."], ["정답 포인트", "{{raise|높이다}} = {{increase|늘리다}}, {{align|일치하다}} = {{agree|일치하다}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "For example, promoting environmentally sustainable products or supporting causes related to equality and justice can help raise awareness and drive meaningful social impact.", "ko": "예를 들어, 환경적으로 지속가능한 제품들을 홍보하거나 평등과 정의에 관련된 대의명분을 지지하는 것은 인식을 높이고 의미 있는 사회적 영향을 이끌어 내는 것을 도울 수 있다.", "hl": ["promoting environmentally sustainable products or supporting causes related to equality and justice", "help raise awareness"], "hlko": ["환경적으로 지속가능한 제품들을 홍보하거나 평등과 정의에 관련된 대의명분을 지지하는 것", "인식을 높이고"], "n": 5}, {"en": "Ethical content creators not only focus on promoting their products or services but also consider the values and causes they support, ensuring that their content aligns with their social and environmental principles.", "ko": "윤리적인 콘텐츠 제작자들은 자신의 제품이나 서비스를 홍보하는 데만 초점을 맞추는 것이 아니라, 자신이 지지하는 가치와 대의명분도 고려하며, 자신의 콘텐츠가 자신의 사회적 그리고 환경적 원칙과 반드시 일치하게 한다.", "hl": ["ensuring that their content aligns with their social and environmental principles"], "hlko": ["자신의 콘텐츠가 자신의 사회적 그리고 환경적 원칙과 반드시 일치하게 한다"], "n": 6}]}], "gloss": {"social": ["social", "사회적인"], "environmental": ["environmental", "환경적인"], "responsibility": ["responsibility", "책임"], "become": ["become", "~이 되다"], "increasingly": ["increasingly", "점점 더"], "ethical": ["ethical", "윤리적인"], "consideration": ["consideration", "고려 사항"], "content": ["content", "콘텐츠, 내용"], "creators": ["creator", "제작자"], "global": ["global", "전 세계적인"], "awareness": ["awareness", "인식"], "sustainability": ["sustainability", "지속가능성"], "issues": ["issue", "문제"], "grows": ["grow", "커지다"], "called": ["call", "요구받는, 부르는"], "upon": ["upon", "~에게, ~ 위에"], "consider": ["consider", "고려하다"], "broader": ["broad", "더 폭넓은"], "impact": ["impact", "영향, 영향력"], "work": ["work", "작업, 일"], "includes": ["include", "포함하다"], "addressing": ["address", "다루는 것"], "topics": ["topic", "주제"], "climate": ["climate", "기후"], "change": ["change", "변화"], "justice": ["justice", "정의"], "consumerism": ["consumerism", "소비주의"], "platform": ["platform", "플랫폼, 발언 무대"], "influence": ["influence", "영향을 미치다"], "audience's": ["audience", "청중의"], "attitudes": ["attitude", "태도"], "behaviors": ["behavior", "행동"], "use": ["use", "사용하다"], "positive": ["positive", "긍정적인"], "example": ["example", "예시"], "promoting": ["promote", "홍보하는 것"], "environmentally": ["environmentally", "환경적으로"], "sustainable": ["sustainable", "지속가능한"], "products": ["product", "제품"], "supporting": ["support", "지지하는 것"], "causes": ["cause", "대의명분"], "related": ["relate", "관련된"], "equality": ["equality", "평등"], "help": ["help", "돕다"], "raise": ["raise", "높이다, 올리다"], "drive": ["drive", "이끌어 내다"], "meaningful": ["meaningful", "의미 있는"], "focus": ["focus", "초점을 맞추다"], "services": ["service", "서비스"], "values": ["value", "가치"], "support": ["support", "지지하다"], "ensuring": ["ensure", "반드시 ~하게 하는"], "aligns": ["align", "일치하다"], "principles": ["principle", "원칙"], "significant": ["significant", "중요한"], "concern": ["concern", "관심사, 고려할 일"], "growing": ["grow", "커지는"], "consciousness": ["consciousness", "의식, 인식"], "calls": ["call", "요구하다"], "wider": ["wide", "더 넓은"], "ignorance": ["ignorance", "무지, 모름"], "minor": ["minor", "사소한"], "optional": ["optional", "선택적인, 안 해도 되는"], "confusion": ["confusion", "혼란"], "asked": ["ask", "요구받은"], "deal": ["deal", "다루다"], "since": ["since", "~ 때문에"], "affect": ["affect", "영향을 주다"], "accountable": ["accountable", "책임이 있는"], "using": ["use", "사용하는 것"], "blamed": ["blame", "비난받는"], "ignore": ["ignore", "무시하다"], "weaken": ["weaken", "약하게 만들다"], "punished": ["punish", "벌을 받는"], "eco-friendly": ["eco-friendly", "친환경적인"], "backing": ["back", "지지하는 것"], "increase": ["increase", "늘리다"], "sure": ["sure", "확실한"], "agrees": ["agree", "일치하다"], "conflicts": ["conflict", "충돌하다"], "reduce": ["reduce", "줄이다"], "hide": ["hide", "숨기다"], "competes": ["compete", "경쟁하다"], "only": ["only", "오직, 단지"], "becomes": ["become", "~이 되다"], "among": ["among", "~ 사이에서, ~ 가운데"], "because": ["because", "~ 때문에"], "died": ["die", "죽었다"], "while": ["while", "~하는 동안, 한편"], "didn't": ["do not", "~하지 않았다"], "about": ["about", "약, ~에 대해"], "human": ["human", "인간의"], "between": ["between", "~ 사이에"], "during": ["during", "~ 동안"], "after": ["after", "~ 후에"], "always": ["always", "항상"], "often": ["often", "자주"], "however": ["however", "그러나"], "therefore": ["therefore", "그러므로"], "instead": ["instead", "대신에"], "both": ["both", "둘 다"], "other": ["other", "다른"], "others": ["other", "다른 것들"], "another": ["another", "또 다른"], "such": ["such", "그러한"], "same": ["same", "같은"], "different": ["different", "다른"], "important": ["important", "중요한"], "together": ["together", "함께"], "people": ["people", "사람들"], "can": ["can", "~할 수 있다"], "being": ["be", "~되는 것"], "into": ["into", "~ 속으로"], "through": ["through", "~을 통해"], "without": ["without", "~ 없이"], "within": ["within", "~ 안에"], "against": ["against", "~에 맞서"], "whether": ["whether", "~인지 아닌지"], "like": ["like", "~처럼"], "just": ["just", "단지, 바로"], "even": ["even", "~조차"], "still": ["still", "여전히"], "yet": ["yet", "하지만, 그래도"], "every": ["every", "모든"], "own": ["own", "자신의"], "make": ["make", "만들다"], "made": ["make", "만들어진"], "way": ["way", "방식, 방법"], "today": ["today", "오늘날"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="geumcheon-go2";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH+':'+location.pathname.split('/').slice(-2).join('/');
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;try{if(v==='home')sessionStorage.removeItem('vhyv');else sessionStorage.setItem('vhyv',JSON.stringify({p:location.pathname,v:v,c:cur,t:Date.now()}))}catch(e){}
+  hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';try{sessionStorage.removeItem('vhyv')}catch(e){}hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='rmnote'){var rid=String(v);var rn=NOTES[rid];delete NOTES[rid];jset(K_NOTE,NOTES);delete PUSHED['w:'+rid];jset('vhvs:'+SCH,PUSHED);try{WN.del(rn?rn.l:rid,SRC)}catch(x){}render()}
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);recordYy(q,i);render();
+}
+/* 점수 기록: vhy:<학교> = {<페이지>:{<문제>:{n:푼 횟수,w:틀린 횟수,k:마지막 정답(1/0),c:고른 번호,t:시각}}} -> REC 로 자동 연동(선생님 화면) */
+function recordYy(q,i){
+  try{
+    var K='vhy:'+SCH,P=location.pathname.split('/').slice(-2).join('/'),Y=jget(K,{});
+    var pg=Y[P]||(Y[P]={}),e=pg[q.id]||(pg[q.id]={n:0,w:0});
+    e.n=(e.n||0)+1;if(i!==q.ans)e.w=(e.w||0)+1;e.k=(i===q.ans?1:0);e.c=i;e.t=Date.now();
+    jset(K,Y);
+  }catch(x){}
+  /* 바꿔 말하기 단어는 푼 즉시 모두 선생님 질문 목록에 올린다 */
+  try{swList().forEach(function(s){pushSw(s.id)})}catch(x){}
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){
+  var L=(DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}}),seen={};
+  L.forEach(function(s){seen[s.a.toLowerCase()]=1});
+  /* 모든 문제의 '이 단어, 이렇게 바뀌었어요' 단어도 빠짐없이 바꿔 말하기 연습에 넣는다 */
+  Qs.forEach(function(q,qi){(q.swaps||[]).forEach(function(w){var k=String(w[0]).toLowerCase();if(seen[k])return;seen[k]=1;L.push({a:w[0],form:w[0],b:w[1],k:w[2],id:'sw:'+k,n:0,sq:qi+1,sum:'',hook:'',en:'',ko:''})})});
+  return L.map(function(s,i){return {s:s,i:i}}).sort(function(x,y){return (x.s.sq-y.s.sq)||(x.i-y.i)}).map(function(x){return x.s});
+}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function yyLine(){
+  try{var Y=jget('vhy:'+SCH,{}),pg=Y[location.pathname.split('/').slice(-2).join('/')]||{},n=0,r=0,w=0;
+    Qs.forEach(function(q){var e=pg[q.id];if(e&&e.n){n++;if(e.k)r++;w+=e.w||0}});
+    if(!n)return '';
+    return '<p class="sub">내 기록: '+n+'문제 중 '+r+'문제 정답'+(w?' · 틀린 횟수 '+w+'번':'')+'</p>';
+  }catch(x){return ''}
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../yoyak.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+=yyLine();
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">문장의 밑줄 단어를 누르면 뜻이 나와요. 보기를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+(done?words(o[0]):esc(o[0]))+'<span class="dash">–</span>'+(done?words(o[1]):esc(o[1]))+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'<button class="rmw" data-a="rmnote" data-v="'+esc(n.l.toLowerCase())+'">빼기</button></li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="qn">'+s.sq+'번</span><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+/* 자동 새로고침(기록 연동)이 일어나도 보던 문제로 되돌린다 */
+try{var sv=JSON.parse(sessionStorage.getItem('vhyv')||'null');if(sv&&sv.p===location.pathname&&Date.now()-sv.t<600000&&sv.v&&sv.v!=='home'){view=sv.v;cur=sv.c||0;try{history.pushState({v:view},'');histPushed=true}catch(e){}}}catch(e){}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>

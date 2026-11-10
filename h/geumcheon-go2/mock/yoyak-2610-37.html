@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>26년 10월 37번 요약문 연습 </title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .rmw{border:1px solid var(--line);background:#fff;color:var(--sub);border-radius:8px;padding:4px 10px;font-size:13px}
+.qn{font-size:12px;font-weight:800;color:#fff;background:var(--sub);border-radius:6px;padding:2px 6px;margin-right:6px;flex:none}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+<script>window.REC_NOGATE=1;(function(){try{if(window.__recl||!/\/h\/(geumcheon|jusung|cheongseok)-(gimal|go1|go2)\//.test(location.pathname))return;window.__recl=1;var s=document.createElement('script');s.src=location.pathname.replace(/\/h\/.*$/,'/h/rec.js')+'?v=2';(document.head||document.documentElement).appendChild(s)}catch(e){}})();</script></head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "jusung-go2", "src": "common/sx-data-2610g2.js", "dir": "mock", "pidx": 12, "lesson": "26년 10월 37번", "title": "", "label": "", "page": "yoyak-2610-37"}, "scenes": [{"tag": "본문 1번", "ns": [1], "line": "재평가는 감정을 [[regulating|조절하는]] 데 특히 [[effective|효과적인]] 방법이다. 감정을 [[root|뿌리]]부터 [[transforms|바꾸기]] 때문이다.", "en": ["Reappraisal ― changing the way one thinks about emotional situations ― might present a particularly effective avenue to regulating emotions because it transforms emotions at their root."], "kos": ["재평가, 즉 누군가가 감정적인 상황들에 대해 생각하는 방식을 바꾸는 것은 그것이 감정을 본질적으로 변화시키기 때문에 감정을 조절하는 데 특히 효과적인 방법을 제공할지도 모른다."]}, {"tag": "본문 2~3번", "ns": [2, 3], "line": "이혼은 보통 [[adverse|부정적인]] 사건이지만 여러 방식으로 [[construed|해석될]] 수 있다.", "en": ["Take, for example, someone who is going through a divorce.", "This is often an adverse event, and yet, it can be construed in different ways."], "kos": ["예를 들어, 이혼을 겪고 있는 누군가를 생각해 보자.", "이것은 보통 부정적인 사건이지만, 그럼에도 불구하고 그것은 다른 방식들로 해석될 수 있다."]}, {"tag": "본문 4~5번", "ns": [4, 5], "line": "가족에게 평생 흔적을 남길 [[overpowering|강렬한]] 상실로 볼 수도 있고, 고통스럽지만 장기적으로 좋은 [[outcomes|결과]]로 이어질 일로 볼 수도 있다.", "en": ["One might view it as an overpowering loss that will mark one's family for life.", "Alternatively, one might see it as something that is painful but that might lead to positive outcomes in the long run, such as improved relationships."], "kos": ["누군가는 그것을 자신의 가족에게 평생 흔적을 남길 강렬한 상실로 여길지도 모른다.", "이와는 달리, 누군가는 그것을 고통스럽기는 하지만 개선된 관계와 같이 장기적으로는 긍정적인 결과로 이어질 수 있는 일로 여길지도 모른다."]}, {"tag": "본문 6~8번", "ns": [6, 7, 8], "line": "해석이 다르면 감정도 다르다. 첫 번째는 [[intense|강렬한]] 슬픔과 분노, 두 번째는 더 낮은 강도다.", "en": ["As a result of these different construals, one might feel different emotions.", "The first construal may bring intense sadness and anger.", "The second construal might also bring sadness and anger but perhaps at lower levels."], "kos": ["이러한 다른 해석들의 결과로서 누군가는 다른 감정들을 느낄지도 모른다.", "첫 번째 해석은 강렬한 슬픔과 분노를 불러올 수 있다.", "두 번째 해석 역시 슬픔과 분노를 불러올지도 모르지만, 아마도 더 낮은 강도로 그러할지도 모른다."]}, {"tag": "본문 9번", "ns": [9], "line": "결정적으로 희망, 강인함, [[gratitude|감사]] 같은 [[positive|긍정적인]] 감정도 불러올 수 있다.", "en": ["Crucially, it might also bring some positive emotions, such as hope, strength, or gratitude."], "kos": ["결정적으로 그것은 희망, 강인함 또는 감사함과 같은 어떤 긍정적인 감정들 또한 불러올지도 모른다."]}, {"tag": "본문 10~12번", "ns": [10, 11, 12], "line": "짧은 반응이 반복되면 [[accumulate|쌓여]] 심리적 건강을 만든다. 그래서 회복 탄력성의 [[key|열쇠]]가 될 수 있다.", "en": ["This example illustrates how reappraisal might powerfully transform short-term emotional responses.", "When repeated over time, these short-term emotional consequences of reappraisal might accumulate to shape people's psychological health.", "Thereby, reappraisal might be a key to resilience."], "kos": ["이 예시는 재평가가 어떻게 단기적인 감정적 반응들을 강력하게 변화시킬 수 있을지를 보여 준다.", "오랫동안 반복되면, 재평가의 이러한 단기적인 감정적 결과들이 축적되어 사람들의 심리적 건강을 형성할지도 모른다.", "그렇게 함으로써 재평가는 회복 탄력성의 해답이 될지도 모른다."]}], "story": [{"a": "effective", "form": "effective", "n": 1, "sq": 1, "sum": "an especially [[powerful]] way", "hook": "재평가가 감정 조절에 효과적인 방법이라는 문장의 effective(효과적인) → 요약문에서는 powerful(강력한)로 바꿨어요.", "b": "powerful", "k": "효과적인 → 강력한", "en": "Reappraisal ― changing the way one thinks about emotional situations ― might present a particularly effective avenue to regulating emotions because it transforms emotions at their root.", "ko": "재평가, 즉 누군가가 감정적인 상황들에 대해 생각하는 방식을 바꾸는 것은 그것이 감정을 본질적으로 변화시키기 때문에 감정을 조절하는 데 특히 효과적인 방법을 제공할지도 모른다."}, {"a": "regulate", "form": "regulating", "n": 1, "sq": 1, "sum": "way to [[control]] emotions", "hook": "감정을 조절하는 방법이라는 문장의 regulate(조절하다) → 요약문에서는 control(조절하다)로 바꿨어요.", "b": "control", "k": "조절하다 → 조절하다", "en": "Reappraisal ― changing the way one thinks about emotional situations ― might present a particularly effective avenue to regulating emotions because it transforms emotions at their root.", "ko": "재평가, 즉 누군가가 감정적인 상황들에 대해 생각하는 방식을 바꾸는 것은 그것이 감정을 본질적으로 변화시키기 때문에 감정을 조절하는 데 특히 효과적인 방법을 제공할지도 모른다."}, {"a": "transform", "form": "transforms", "n": 1, "sq": 1, "sum": "because it [[changes]] feelings", "hook": "감정을 본질적으로 변화시킨다는 문장의 transform(변화시키다) → 요약문에서는 change(바꾸다)로 바꿨어요.", "b": "change", "k": "변화시키다 → 바꾸다", "en": "Reappraisal ― changing the way one thinks about emotional situations ― might present a particularly effective avenue to regulating emotions because it transforms emotions at their root.", "ko": "재평가, 즉 누군가가 감정적인 상황들에 대해 생각하는 방식을 바꾸는 것은 그것이 감정을 본질적으로 변화시키기 때문에 감정을 조절하는 데 특히 효과적인 방법을 제공할지도 모른다."}, {"a": "root", "form": "root", "n": 1, "sq": 1, "sum": "at their [[source]]", "hook": "감정을 뿌리에서 바꾼다는 문장의 root(뿌리) → 요약문에서는 source(근원)로 바꿨어요.", "b": "source", "k": "뿌리 → 근원", "en": "Reappraisal ― changing the way one thinks about emotional situations ― might present a particularly effective avenue to regulating emotions because it transforms emotions at their root.", "ko": "재평가, 즉 누군가가 감정적인 상황들에 대해 생각하는 방식을 바꾸는 것은 그것이 감정을 본질적으로 변화시키기 때문에 감정을 조절하는 데 특히 효과적인 방법을 제공할지도 모른다."}, {"a": "adverse", "form": "adverse", "n": 3, "sq": 2, "sum": "often a [[harmful]] event", "hook": "이혼은 보통 부정적인 사건이라는 문장의 adverse(부정적인) → 요약문에서는 harmful(해로운)로 바꿨어요.", "b": "harmful", "k": "부정적인 → 해로운", "en": "This is often an adverse event, and yet, it can be construed in different ways.", "ko": "이것은 보통 부정적인 사건이지만, 그럼에도 불구하고 그것은 다른 방식들로 해석될 수 있다."}, {"a": "construe", "form": "construed", "n": 3, "sq": 2, "sum": "one can [[regard]] it", "hook": "다른 방식으로 해석될 수 있다는 문장의 construe(해석하다) → 요약문에서는 regard(여기다)로 바꿨어요.", "b": "regard", "k": "해석하다 → 여기다", "en": "This is often an adverse event, and yet, it can be construed in different ways.", "ko": "이것은 보통 부정적인 사건이지만, 그럼에도 불구하고 그것은 다른 방식들로 해석될 수 있다."}, {"a": "overpowering", "form": "overpowering", "n": 4, "sq": 2, "sum": "as a [[crushing]] loss for the family", "hook": "가족에게 평생 흔적을 남길 강렬한 상실이라는 문장의 overpowering(강렬한) → 요약문에서는 crushing(큰 타격을 주는)으로 바꿨어요.", "b": "crushing", "k": "강렬한 → 큰 타격을 주는", "en": "One might view it as an overpowering loss that will mark one's family for life.", "ko": "누군가는 그것을 자신의 가족에게 평생 흔적을 남길 강렬한 상실로 여길지도 모른다."}, {"a": "outcome", "form": "outcomes", "n": 5, "sq": 2, "sum": "lead to good [[results]] over time", "hook": "장기적으로 긍정적인 결과로 이어질 수 있다는 문장의 outcome(결과) → 요약문에서는 result(결과)로 바꿨어요.", "b": "result", "k": "결과 → 결과", "en": "Alternatively, one might see it as something that is painful but that might lead to positive outcomes in the long run, such as improved relationships.", "ko": "이와는 달리, 누군가는 그것을 고통스럽기는 하지만 개선된 관계와 같이 장기적으로는 긍정적인 결과로 이어질 수 있는 일로 여길지도 모른다."}, {"a": "intense", "form": "intense", "n": 7, "sq": 3, "sum": "brings [[strong]] sadness and anger", "hook": "첫 번째 해석이 강렬한 슬픔과 분노를 불러온다는 문장의 intense(강렬한) → 요약문에서는 strong(강한)으로 바꿨어요.", "b": "strong", "k": "강렬한 → 강한", "en": "The first construal may bring intense sadness and anger.", "ko": "첫 번째 해석은 강렬한 슬픔과 분노를 불러올 수 있다."}, {"a": "positive", "form": "positive", "n": 9, "sq": 3, "sum": "even [[uplifting]] feelings", "hook": "희망, 강인함, 감사함 같은 긍정적인 감정이라는 문장의 positive(긍정적인) → 요약문에서는 uplifting(힘을 북돋는)으로 바꿨어요.", "b": "uplifting", "k": "긍정적인 → 힘을 북돋는", "en": "Crucially, it might also bring some positive emotions, such as hope, strength, or gratitude.", "ko": "결정적으로 그것은 희망, 강인함 또는 감사함과 같은 어떤 긍정적인 감정들 또한 불러올지도 모른다."}, {"a": "gratitude", "form": "gratitude", "n": 9, "sq": 3, "sum": "like hope or [[thankfulness]]", "hook": "희망, 강인함 또는 감사함이라는 문장의 gratitude(감사함) → 요약문에서는 thankfulness(고마움)로 바꿨어요.", "b": "thankfulness", "k": "감사함 → 고마움", "en": "Crucially, it might also bring some positive emotions, such as hope, strength, or gratitude.", "ko": "결정적으로 그것은 희망, 강인함 또는 감사함과 같은 어떤 긍정적인 감정들 또한 불러올지도 모른다."}, {"a": "accumulate", "form": "accumulate", "n": 11, "sq": 4, "sum": "these effects [[gather]] and shape", "hook": "단기적인 결과들이 축적되어 건강을 형성한다는 문장의 accumulate(축적되다) → 요약문에서는 gather(쌓이다)로 바꿨어요.", "b": "gather", "k": "축적되다 → 쌓이다", "en": "When repeated over time, these short-term emotional consequences of reappraisal might accumulate to shape people's psychological health.", "ko": "오랫동안 반복되면, 재평가의 이러한 단기적인 감정적 결과들이 축적되어 사람들의 심리적 건강을 형성할지도 모른다."}, {"a": "key", "form": "key", "n": 12, "sq": 4, "sum": "may be a [[secret]] to resilience", "hook": "회복 탄력성의 열쇠라는 문장의 key(열쇠) → 요약문에서는 secret(비결)로 바꿨어요.", "b": "secret", "k": "열쇠 → 비결", "en": "Thereby, reappraisal might be a key to resilience.", "ko": "그렇게 함으로써 재평가는 회복 탄력성의 해답이 될지도 모른다."}], "passage": [{"n": 1, "en": "Reappraisal ― changing the way one thinks about emotional situations ― might present a particularly effective avenue to regulating emotions because it transforms emotions at their root.", "ko": "재평가, 즉 누군가가 감정적인 상황들에 대해 생각하는 방식을 바꾸는 것은 그것이 감정을 본질적으로 변화시키기 때문에 감정을 조절하는 데 특히 효과적인 방법을 제공할지도 모른다."}, {"n": 2, "en": "Take, for example, someone who is going through a divorce.", "ko": "예를 들어, 이혼을 겪고 있는 누군가를 생각해 보자."}, {"n": 3, "en": "This is often an adverse event, and yet, it can be construed in different ways.", "ko": "이것은 보통 부정적인 사건이지만, 그럼에도 불구하고 그것은 다른 방식들로 해석될 수 있다."}, {"n": 4, "en": "One might view it as an overpowering loss that will mark one's family for life.", "ko": "누군가는 그것을 자신의 가족에게 평생 흔적을 남길 강렬한 상실로 여길지도 모른다."}, {"n": 5, "en": "Alternatively, one might see it as something that is painful but that might lead to positive outcomes in the long run, such as improved relationships.", "ko": "이와는 달리, 누군가는 그것을 고통스럽기는 하지만 개선된 관계와 같이 장기적으로는 긍정적인 결과로 이어질 수 있는 일로 여길지도 모른다."}, {"n": 6, "en": "As a result of these different construals, one might feel different emotions.", "ko": "이러한 다른 해석들의 결과로서 누군가는 다른 감정들을 느낄지도 모른다."}, {"n": 7, "en": "The first construal may bring intense sadness and anger.", "ko": "첫 번째 해석은 강렬한 슬픔과 분노를 불러올 수 있다."}, {"n": 8, "en": "The second construal might also bring sadness and anger but perhaps at lower levels.", "ko": "두 번째 해석 역시 슬픔과 분노를 불러올지도 모르지만, 아마도 더 낮은 강도로 그러할지도 모른다."}, {"n": 9, "en": "Crucially, it might also bring some positive emotions, such as hope, strength, or gratitude.", "ko": "결정적으로 그것은 희망, 강인함 또는 감사함과 같은 어떤 긍정적인 감정들 또한 불러올지도 모른다."}, {"n": 10, "en": "This example illustrates how reappraisal might powerfully transform short-term emotional responses.", "ko": "이 예시는 재평가가 어떻게 단기적인 감정적 반응들을 강력하게 변화시킬 수 있을지를 보여 준다."}, {"n": 11, "en": "When repeated over time, these short-term emotional consequences of reappraisal might accumulate to shape people's psychological health.", "ko": "오랫동안 반복되면, 재평가의 이러한 단기적인 감정적 결과들이 축적되어 사람들의 심리적 건강을 형성할지도 모른다."}, {"n": 12, "en": "Thereby, reappraisal might be a key to resilience.", "ko": "그렇게 함으로써 재평가는 회복 탄력성의 해답이 될지도 모른다."}], "questions": [{"id": 1, "summary": "Reappraisal may be an especially (A) way to control emotions, because it changes feelings at their (B).", "ko": "재평가는 감정을 조절하는 특히 <b>(A) 강력한</b> 방법일 수 있는데, 감정을 그 <b>(B) 근원</b>에서 바꾸기 때문이다.", "opts": [["powerful", "surface"], ["weak", "source"], ["powerful", "source"], ["weak", "surface"], ["risky", "end"]], "optko": ["강력한 – 겉", "약한 – 근원", "강력한 – 근원", "약한 – 겉", "위험한 – 끝"], "ans": 2, "wrong": ["surface(겉)가 틀려요. 재평가는 감정을 뿌리(root), 곧 본질에서 바꿔요. 겉만 바꾸는 게 아니에요.", "weak(약한)가 틀려요. 본문은 재평가가 감정을 조절하는 데 특히 효과적인 방법일 수 있다고 해요(effective).", null, "둘 다 틀려요. 재평가는 약한 방법이 아니라 효과적인 방법이고, 감정을 겉이 아니라 뿌리에서 바꿔요.", "둘 다 틀려요. 위험한(risky) 방법이라는 말은 없고, 감정을 끝(end)이 아니라 뿌리에서 바꿔요."], "evid": [{"n": 1, "hl": ["a particularly effective avenue to regulating emotions", "transforms emotions at their root"]}], "swaps": [["effective", "powerful", "효과적인 → 강력한"], ["regulate", "control", "조절하다 → 조절하다"], ["transform", "change", "변화시키다 → 바꾸다"], ["root", "source", "뿌리 → 근원"]], "swapnote": "effective(효과적인)는 powerful(강력한)로, regulate(조절하다)는 control(조절하다)로, transform(변화시키다)은 change(바꾸다)로, root(뿌리)는 source(근원)로 바뀌었어요.", "use": [{"w": "powerful", "ex": "The engine is very powerful.", "ko": "그 엔진은 매우 강력하다.", "wk": "강력한", "hk": "강력하다"}, {"w": "source", "ex": "The river's source is in the mountains.", "ko": "그 강의 근원은 산속에 있다.", "wk": "근원, 출처", "hk": "근원은"}], "flow": "본문 1번에서 재평가, 곧 상황을 생각하는 방식을 바꾸는 일이 감정을 조절하는 특히 효과적인 방법일 수 있다고 하고, 그 이유는 감정을 뿌리에서 바꾸기 때문이라고 해요.", "jd": [["Reappraisal may be an especially [[powerful]] way", "재평가는 특히 [[강력한]] 방법일 수 있다"], ["to control emotions,", "감정을 조절하는,"], ["because it changes feelings", "감정을 바꾸기 때문이다"], ["at their [[source]].", "그 [[근원]]에서."]], "fc": [["본문 1번", "재평가는 효과적인 감정 조절법", "생각하는 방식을 바꾸는 {{reappraisal|재평가}}가 감정을 {{regulate|조절하는}} {{effective|효과적인}} 방법일 수 있어요."], ["본문 1번", "감정을 뿌리부터 바꾼다", "재평가는 감정을 {{root|뿌리}}에서 {{transform|변화시켜요}}."], ["정답 포인트", "{{effective|효과적인}} = {{powerful|강력한}}, {{root|뿌리}} = {{source|근원}}", "본문 단어가 쉬운 말로 바뀌어 나와요."]], "evid_full": [{"en": "Reappraisal ― changing the way one thinks about emotional situations ― might present a particularly effective avenue to regulating emotions because it transforms emotions at their root.", "ko": "재평가, 즉 누군가가 감정적인 상황들에 대해 생각하는 방식을 바꾸는 것은 그것이 감정을 본질적으로 변화시키기 때문에 감정을 조절하는 데 특히 효과적인 방법을 제공할지도 모른다.", "hl": ["a particularly effective avenue to regulating emotions", "transforms emotions at their root"], "hlko": ["감정을 조절하는 데 특히 효과적인 방법", "감정을 본질적으로 변화시키기 때문에"], "n": 1}]}, {"id": 2, "summary": "Divorce is often a (A) event, yet one can regard it as a crushing loss for the family or as something painful that may lead to (B) results over time.", "ko": "이혼은 흔히 <b>(A) 해로운</b> 사건이지만, 가족에게 큰 타격을 주는 상실로 볼 수도 있고, 고통스럽지만 시간이 지나면 <b>(B) 좋은</b> 결과로 이어질 수 있는 일로 볼 수도 있다.", "opts": [["harmful", "good"], ["harmful", "bad"], ["joyful", "good"], ["joyful", "bad"], ["pleasant", "rare"]], "optko": ["해로운 – 좋은", "해로운 – 나쁜", "즐거운 – 좋은", "즐거운 – 나쁜", "유쾌한 – 드문"], "ans": 0, "wrong": [null, "bad(나쁜)가 틀려요. 두 번째 해석은 고통스럽기는 하지만 장기적으로는 긍정적인 결과로 이어질 수 있다고 해요(positive outcomes).", "joyful(즐거운)이 틀려요. 이혼은 보통 부정적인 사건이에요(adverse event).", "둘 다 틀려요. 이혼은 즐거운 사건이 아니라 부정적인 사건이고, 장기적으로는 나쁜 결과가 아니라 긍정적인 결과로 이어질 수도 있어요.", "둘 다 틀려요. 이혼은 유쾌한(pleasant) 사건이 아니라 부정적인 사건이고, 결과가 드물다(rare)는 말은 본문에 없어요."], "evid": [{"n": 3, "hl": ["often an adverse event", "it can be construed in different ways"]}, {"n": 4, "hl": ["an overpowering loss that will mark one's family for life"]}, {"n": 5, "hl": ["painful but that might lead to positive outcomes in the long run"]}], "swaps": [["adverse", "harmful", "부정적인 → 해로운"], ["overpowering", "crushing", "강렬한 → 큰 타격을 주는"], ["construe", "regard", "해석하다 → 여기다"], ["outcome", "result", "결과 → 결과"]], "swapnote": "adverse(부정적인)는 harmful(해로운)로, overpowering(강렬한)은 crushing(큰 타격을 주는)으로, construe(해석하다)는 regard(여기다)로, outcome(결과)은 result(결과)로 바뀌었어요. positive outcomes(긍정적인 결과)는 good results(좋은 결과)로 읽어요.", "use": [{"w": "harmful", "ex": "Smoking is harmful to health.", "ko": "흡연은 건강에 해롭다.", "wk": "해로운", "hk": "해롭다"}, {"w": "good", "ex": "Fruit is good for you.", "ko": "과일은 몸에 좋다.", "wk": "좋은", "hk": "좋다"}], "flow": "본문 3번에서 이혼은 보통 부정적인 사건이지만 다르게 해석될 수 있다고 하고, 4번에서 가족에게 평생 흔적을 남길 상실로 보는 해석을, 5번에서 고통스럽지만 장기적으로 좋은 결과로 이어질 일로 보는 해석을 보여 줘요.", "jd": [["Divorce is often a [[harmful]] event,", "이혼은 흔히 [[해로운]] 사건이지만,"], ["yet one can regard it", "그것을 여길 수도 있다"], ["as a crushing loss for the family", "가족에게 큰 타격을 주는 상실로"], ["or as something painful", "또는 고통스럽지만"], ["that may lead to [[good]] results", "[[좋은]] 결과로 이어질 수 있는 일로"], ["over time.", "시간이 지나면."]], "fc": [["본문 3번", "이혼은 보통 부정적인 사건", "보통 {{adverse|부정적인}} 사건이지만 다르게 {{construe|해석될}} 수 있어요."], ["본문 4~5번", "상실로 볼지, 좋은 결과로 볼지", "평생 흔적을 남길 {{overpowering|강렬한}} 상실로 볼 수도, 장기적으로 좋은 {{outcome|결과}}로 이어질 일로 볼 수도 있어요."], ["정답 포인트", "{{adverse|부정적인}} = {{harmful|해로운}}, {{outcome|결과}} = {{result|결과}}", "어려운 단어가 쉬운 말로 바뀌어 나와요."]], "evid_full": [{"en": "This is often an adverse event, and yet, it can be construed in different ways.", "ko": "이것은 보통 부정적인 사건이지만, 그럼에도 불구하고 그것은 다른 방식들로 해석될 수 있다.", "hl": ["often an adverse event", "it can be construed in different ways"], "hlko": ["보통 부정적인 사건이지만", "다른 방식들로 해석될 수 있다"], "n": 3}, {"en": "One might view it as an overpowering loss that will mark one's family for life.", "ko": "누군가는 그것을 자신의 가족에게 평생 흔적을 남길 강렬한 상실로 여길지도 모른다.", "hl": ["an overpowering loss that will mark one's family for life"], "hlko": ["평생 흔적을 남길 강렬한 상실"], "n": 4}, {"en": "Alternatively, one might see it as something that is painful but that might lead to positive outcomes in the long run, such as improved relationships.", "ko": "이와는 달리, 누군가는 그것을 고통스럽기는 하지만 개선된 관계와 같이 장기적으로는 긍정적인 결과로 이어질 수 있는 일로 여길지도 모른다.", "hl": ["painful but that might lead to positive outcomes in the long run"], "hlko": ["장기적으로는 긍정적인 결과로 이어질 수 있는 일"], "n": 5}]}, {"id": 3, "summary": "Seeing a divorce in different ways leads to different feelings: the first view brings (A) sadness and anger, while the second may bring lower levels of them and even (B) feelings like hope or thankfulness.", "ko": "이혼을 다르게 보면 감정도 달라진다. 첫 번째 관점은 <b>(A) 강한</b> 슬픔과 분노를 가져오고, 두 번째는 그것들을 더 낮은 수준으로 가져오면서 희망이나 감사 같은 <b>(B) 힘을 북돋는</b> 감정도 가져올 수 있다.", "opts": [["strong", "painful"], ["mild", "uplifting"], ["mild", "painful"], ["faint", "dull"], ["strong", "uplifting"]], "optko": ["강한 – 고통스러운", "약한 – 힘을 북돋는", "약한 – 고통스러운", "희미한 – 따분한", "강한 – 힘을 북돋는"], "ans": 4, "wrong": ["painful(고통스러운)이 틀려요. 본문은 두 번째 해석이 희망, 강인함, 감사함 같은 긍정적인 감정도 불러올 수 있다고 해요.", "mild(약한)가 틀려요. 첫 번째 해석은 강렬한 슬픔과 분노를 불러와요(intense).", "둘 다 틀려요. 첫 번째 해석은 약한 게 아니라 강렬한 슬픔과 분노를 불러오고, 희망, 강인함, 감사함은 고통스러운 감정이 아니라 긍정적인 감정이에요.", "둘 다 틀려요. 첫 번째 해석의 슬픔과 분노는 희미한(faint) 게 아니라 강렬하고, 희망과 감사는 따분한(dull) 감정이 아니라 힘을 북돋는 감정이에요.", null], "evid": [{"n": 6, "hl": ["one might feel different emotions"]}, {"n": 7, "hl": ["The first construal may bring intense sadness and anger"]}, {"n": 8, "hl": ["bring sadness and anger but perhaps at lower levels"]}, {"n": 9, "hl": ["it might also bring some positive emotions, such as hope, strength, or gratitude"]}], "swaps": [["intense", "strong", "강렬한 → 강한"], ["positive", "uplifting", "긍정적인 → 힘을 북돋는"], ["gratitude", "thankfulness", "감사함 → 고마움"]], "swapnote": "intense(강렬한)는 strong(강한)으로, positive(긍정적인)는 uplifting(힘을 북돋는)으로, gratitude(감사함)는 thankfulness(고마움)로 바뀌었어요. 긍정적인 감정 = 힘을 북돋는 감정으로 읽어요.", "use": [{"w": "strong", "ex": "He felt a strong pain.", "ko": "그는 강한 통증을 느꼈다.", "wk": "강한", "hk": "강한"}, {"w": "uplifting", "ex": "The song was uplifting.", "ko": "그 노래는 기운을 북돋아 주었다.", "wk": "기운을 북돋는", "hk": "북돋아"}], "flow": "본문 6번에서 해석이 다르면 감정도 다르다고 하고, 7번에서 첫 번째 해석은 강렬한 슬픔과 분노를, 8번에서 두 번째는 더 낮은 강도를, 9번에서 결정적으로 희망과 강인함, 감사함 같은 긍정적인 감정까지 불러온다고 이어요.", "jd": [["Seeing a divorce in different ways", "이혼을 다르게 보면"], ["leads to different feelings:", "다른 감정으로 이어진다:"], ["the first view brings [[strong]] sadness and anger,", "첫 번째 관점은 [[강한]] 슬픔과 분노를 가져오고,"], ["while the second may bring lower levels of them", "두 번째는 그것들을 더 낮은 수준으로 가져오고"], ["and even [[uplifting]] feelings", "더 나아가 [[힘을 북돋는]] 감정도"], ["like hope or thankfulness.", "희망이나 감사 같은."]], "fc": [["본문 7번", "첫 번째 해석은 강렬한 슬픔", "첫 번째 {{construal|해석}}은 {{intense|강렬한}} 슬픔과 분노를 불러와요."], ["본문 8~9번", "두 번째 해석은 낮은 강도와 긍정적 감정", "슬픔과 분노가 더 낮고 {{positive|긍정적인}} 감정과 {{gratitude|감사함}}도 불러올 수 있어요."], ["정답 포인트", "{{intense|강렬한}} = {{strong|강한}}, {{positive|긍정적인}} = {{uplifting|힘을 북돋는}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "As a result of these different construals, one might feel different emotions.", "ko": "이러한 다른 해석들의 결과로서 누군가는 다른 감정들을 느낄지도 모른다.", "hl": ["one might feel different emotions"], "hlko": ["누군가는 다른 감정들을 느낄지도 모른다"], "n": 6}, {"en": "The first construal may bring intense sadness and anger.", "ko": "첫 번째 해석은 강렬한 슬픔과 분노를 불러올 수 있다.", "hl": ["The first construal may bring intense sadness and anger"], "hlko": ["강렬한 슬픔과 분노를 불러올 수 있다"], "n": 7}, {"en": "The second construal might also bring sadness and anger but perhaps at lower levels.", "ko": "두 번째 해석 역시 슬픔과 분노를 불러올지도 모르지만, 아마도 더 낮은 강도로 그러할지도 모른다.", "hl": ["bring sadness and anger but perhaps at lower levels"], "hlko": ["슬픔과 분노를 불러올지도 모르지만, 아마도 더 낮은 강도로"], "n": 8}, {"en": "Crucially, it might also bring some positive emotions, such as hope, strength, or gratitude.", "ko": "결정적으로 그것은 희망, 강인함 또는 감사함과 같은 어떤 긍정적인 감정들 또한 불러올지도 모른다.", "hl": ["it might also bring some positive emotions, such as hope, strength, or gratitude"], "hlko": ["희망, 강인함 또는 감사함과 같은 어떤 긍정적인 감정들 또한 불러올지도 모른다"], "n": 9}]}, {"id": 4, "summary": "Reappraisal can powerfully change short-term feelings, and when repeated, these effects (A) and shape mental health, so it may be a (B) to resilience.", "ko": "재평가는 단기적인 감정을 강력하게 바꿀 수 있고, 반복되면 이 효과들이 <b>(A) 쌓여</b> 정신 건강을 형성하므로, 회복 탄력성의 <b>(B) 비결</b>일 수 있다.", "opts": [["gather", "barrier"], ["gather", "secret"], ["scatter", "secret"], ["scatter", "barrier"], ["vanish", "threat"]], "optko": ["쌓이다 – 장벽", "쌓이다 – 비결", "흩어지다 – 비결", "흩어지다 – 장벽", "사라지다 – 위협"], "ans": 1, "wrong": ["barrier(장벽)가 틀려요. 본문은 재평가가 회복 탄력성의 열쇠(key)가 될지도 모른다고 해요.", null, "scatter(흩어지다)가 틀려요. 단기적인 감정 결과들은 흩어지는 게 아니라 축적돼요(accumulate).", "둘 다 틀려요. 단기적인 결과들은 흩어지는 게 아니라 쌓이고, 재평가는 회복 탄력성의 장벽이 아니라 열쇠예요.", "둘 다 틀려요. 효과들은 사라지는(vanish) 게 아니라 쌓이고, 재평가는 회복 탄력성에 위협(threat)이 아니라 열쇠예요."], "evid": [{"n": 10, "hl": ["reappraisal might powerfully transform short-term emotional responses"]}, {"n": 11, "hl": ["these short-term emotional consequences of reappraisal might accumulate to shape people's psychological health"]}, {"n": 12, "hl": ["reappraisal might be a key to resilience"]}], "swaps": [["accumulate", "gather", "축적되다 → 쌓이다"], ["key", "secret", "열쇠 → 비결"]], "swapnote": "accumulate(축적되다)는 gather(쌓이다)로, key(열쇠)는 secret(비결)로 바뀌었어요. 회복 탄력성의 열쇠 = 회복 탄력성의 비결로 읽어요.", "use": [{"w": "gather", "ex": "Dust gathered on the old books.", "ko": "오래된 책들에 먼지가 쌓였다.", "wk": "쌓이다, 모이다", "hk": "쌓였다"}, {"w": "secret", "ex": "Practice is the secret to success.", "ko": "연습이 성공의 비결이다.", "wk": "비결, 비밀", "hk": "비결이다"}], "flow": "본문 10번에서 이 예시가 재평가가 단기적인 감정 반응을 강력하게 바꿀 수 있음을 보여 주고, 11번에서 오래 반복되면 그 결과가 쌓여 심리적 건강을 만들고, 12번에서 그래서 회복 탄력성의 열쇠가 될지도 모른다고 결론 내요.", "jd": [["Reappraisal can powerfully change short-term feelings,", "재평가는 단기적인 감정을 강력하게 바꿀 수 있고,"], ["and when repeated,", "반복되면,"], ["these effects [[gather]]", "이 효과들이 [[쌓여]]"], ["and shape mental health,", "정신 건강을 형성하며,"], ["so it may be a [[secret]] to resilience.", "그래서 회복 탄력성의 [[비결]]일 수 있다."]], "fc": [["본문 10~11번", "짧은 반응이 쌓인다", "단기적인 감정 반응이 반복되면 {{accumulate|축적돼서}} 심리적 {{health|건강}}을 만들어요."], ["본문 12번", "회복 탄력성의 열쇠", "그래서 재평가는 {{resilience|회복 탄력성}}의 {{key|열쇠}}가 될 수 있어요."], ["정답 포인트", "{{accumulate|축적되다}} = {{gather|쌓이다}}, {{key|열쇠}} = {{secret|비결}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "This example illustrates how reappraisal might powerfully transform short-term emotional responses.", "ko": "이 예시는 재평가가 어떻게 단기적인 감정적 반응들을 강력하게 변화시킬 수 있을지를 보여 준다.", "hl": ["reappraisal might powerfully transform short-term emotional responses"], "hlko": ["단기적인 감정적 반응들을 강력하게 변화시킬 수 있을지"], "n": 10}, {"en": "When repeated over time, these short-term emotional consequences of reappraisal might accumulate to shape people's psychological health.", "ko": "오랫동안 반복되면, 재평가의 이러한 단기적인 감정적 결과들이 축적되어 사람들의 심리적 건강을 형성할지도 모른다.", "hl": ["these short-term emotional consequences of reappraisal might accumulate to shape people's psychological health"], "hlko": ["단기적인 감정적 결과들이 축적되어 사람들의 심리적 건강을 형성할지도 모른다"], "n": 11}, {"en": "Thereby, reappraisal might be a key to resilience.", "ko": "그렇게 함으로써 재평가는 회복 탄력성의 해답이 될지도 모른다.", "hl": ["reappraisal might be a key to resilience"], "hlko": ["재평가는 회복 탄력성의 해답이 될지도 모른다"], "n": 12}]}], "gloss": {"reappraisal": ["reappraisal", "재평가"], "changing": ["change", "바꾸는 것"], "thinks": ["think", "생각하다"], "emotional": ["emotional", "감정적인"], "situations": ["situation", "상황"], "present": ["present", "제공하다"], "particularly": ["particularly", "특히"], "effective": ["effective", "효과적인"], "avenue": ["avenue", "방법, 길"], "regulating": ["regulate", "조절하는 것"], "emotions": ["emotion", "감정"], "transforms": ["transform", "변화시키다"], "root": ["root", "뿌리, 본질"], "take": ["take", "(예로) 들다"], "someone": ["someone", "누군가"], "going": ["go", "겪고 있는"], "divorce": ["divorce", "이혼"], "often": ["often", "보통, 자주"], "adverse": ["adverse", "부정적인, 해로운"], "event": ["event", "사건"], "construed": ["construe", "해석되다"], "different": ["different", "다른"], "ways": ["way", "방식"], "view": ["view", "관점, 보다"], "regard": ["regard", "여기다"], "overpowering": ["overpowering", "강렬한, 압도적인"], "loss": ["loss", "상실"], "mark": ["mark", "흔적을 남기다"], "family": ["family", "가족"], "life": ["life", "평생, 삶"], "alternatively": ["alternatively", "이와는 달리"], "painful": ["painful", "고통스러운"], "lead": ["lead", "이어지다"], "positive": ["positive", "긍정적인"], "outcomes": ["outcome", "결과"], "long": ["long", "긴"], "run": ["run", "(기간)"], "such": ["such", "~와 같은"], "improved": ["improve", "개선된"], "relationships": ["relationship", "관계"], "result": ["result", "결과"], "construals": ["construal", "해석"], "feel": ["feel", "느끼다"], "first": ["first", "첫 번째의"], "construal": ["construal", "해석"], "bring": ["bring", "불러오다"], "intense": ["intense", "강렬한"], "sadness": ["sadness", "슬픔"], "anger": ["anger", "분노"], "second": ["second", "두 번째의"], "perhaps": ["perhaps", "아마도"], "lower": ["low", "더 낮은"], "levels": ["level", "수준, 강도"], "crucially": ["crucially", "결정적으로"], "hope": ["hope", "희망"], "strength": ["strength", "강인함"], "gratitude": ["gratitude", "감사함"], "example": ["example", "예시"], "illustrates": ["illustrate", "보여 주다"], "powerfully": ["powerfully", "강력하게"], "short-term": ["short-term", "단기적인"], "responses": ["response", "반응"], "repeated": ["repeat", "반복되는"], "time": ["time", "시간"], "consequences": ["consequence", "결과"], "accumulate": ["accumulate", "축적되다"], "shape": ["shape", "형성하다"], "people's": ["people", "사람들의"], "psychological": ["psychological", "심리적인"], "health": ["health", "건강"], "thereby": ["thereby", "그렇게 함으로써"], "key": ["key", "열쇠, 비결"], "resilience": ["resilience", "회복 탄력성"], "powerful": ["powerful", "강력한"], "source": ["source", "근원"], "surface": ["surface", "겉, 표면"], "weak": ["weak", "약한"], "risky": ["risky", "위험한"], "end": ["end", "끝"], "harmful": ["harmful", "해로운"], "good": ["good", "좋은"], "bad": ["bad", "나쁜"], "joyful": ["joyful", "즐거운"], "pleasant": ["pleasant", "유쾌한"], "rare": ["rare", "드문"], "crushing": ["crushing", "큰 타격을 주는"], "control": ["control", "조절하다"], "feelings": ["feeling", "감정"], "especially": ["especially", "특히"], "changes": ["change", "바꾸다"], "strong": ["strong", "강한"], "mild": ["mild", "약한"], "uplifting": ["uplifting", "힘을 북돋는"], "faint": ["faint", "희미한"], "dull": ["dull", "따분한"], "thankfulness": ["thankfulness", "고마움"], "seeing": ["see", "보는 것"], "leads": ["lead", "이어지다"], "brings": ["bring", "가져오다"], "gather": ["gather", "쌓이다, 모이다"], "scatter": ["scatter", "흩어지다"], "vanish": ["vanish", "사라지다"], "secret": ["secret", "비결"], "barrier": ["barrier", "장벽"], "threat": ["threat", "위협"], "mental": ["mental", "정신의"], "effects": ["effect", "효과"], "results": ["result", "결과"], "them": ["they", "그것들"], "one": ["one", "사람"], "may": ["may", "~할지도 모른다"], "might": ["might", "~할지도 모른다"], "will": ["will", "~할 것이다"], "its": ["it", "그것의"], "thinking": ["think", "생각"], "transform": ["transform", "변화시키다"], "something": ["something", "어떤 것"], "over": ["over", "~ 동안, ~ 너머"], "one's": ["one", "누군가의"], "see": ["see", "보다"], "change": ["change", "바꾸다, 변화"], "only": ["only", "오직, 단지"], "becomes": ["become", "~이 되다"], "among": ["among", "~ 사이에서, ~ 가운데"], "because": ["because", "~ 때문에"], "died": ["die", "죽었다"], "while": ["while", "~하는 동안, 한편"], "didn't": ["do not", "~하지 않았다"], "about": ["about", "약, ~에 대해"], "human": ["human", "인간의"], "between": ["between", "~ 사이에"], "during": ["during", "~ 동안"], "after": ["after", "~ 후에"], "always": ["always", "항상"], "however": ["however", "그러나"], "therefore": ["therefore", "그러므로"], "instead": ["instead", "대신에"], "both": ["both", "둘 다"], "other": ["other", "다른"], "others": ["other", "다른 것들"], "another": ["another", "또 다른"], "same": ["same", "같은"], "important": ["important", "중요한"], "together": ["together", "함께"], "people": ["people", "사람들"], "can": ["can", "~할 수 있다"], "being": ["be", "~되는 것"], "into": ["into", "~ 속으로"], "through": ["through", "~을 통해"], "without": ["without", "~ 없이"], "within": ["within", "~ 안에"], "against": ["against", "~에 맞서"], "whether": ["whether", "~인지 아닌지"], "like": ["like", "~처럼"], "just": ["just", "단지, 바로"], "even": ["even", "~조차"], "still": ["still", "여전히"], "yet": ["yet", "하지만, 그래도"], "every": ["every", "모든"], "own": ["own", "자신의"], "make": ["make", "만들다"], "made": ["make", "만들어진"], "way": ["way", "방식, 방법"], "today": ["today", "오늘날"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="geumcheon-go2";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH+':'+location.pathname.split('/').slice(-2).join('/');
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;try{if(v==='home')sessionStorage.removeItem('vhyv');else sessionStorage.setItem('vhyv',JSON.stringify({p:location.pathname,v:v,c:cur,t:Date.now()}))}catch(e){}
+  hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';try{sessionStorage.removeItem('vhyv')}catch(e){}hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='rmnote'){var rid=String(v);var rn=NOTES[rid];delete NOTES[rid];jset(K_NOTE,NOTES);delete PUSHED['w:'+rid];jset('vhvs:'+SCH,PUSHED);try{WN.del(rn?rn.l:rid,SRC)}catch(x){}render()}
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);recordYy(q,i);render();
+}
+/* 점수 기록: vhy:<학교> = {<페이지>:{<문제>:{n:푼 횟수,w:틀린 횟수,k:마지막 정답(1/0),c:고른 번호,t:시각}}} -> REC 로 자동 연동(선생님 화면) */
+function recordYy(q,i){
+  try{
+    var K='vhy:'+SCH,P=location.pathname.split('/').slice(-2).join('/'),Y=jget(K,{});
+    var pg=Y[P]||(Y[P]={}),e=pg[q.id]||(pg[q.id]={n:0,w:0});
+    e.n=(e.n||0)+1;if(i!==q.ans)e.w=(e.w||0)+1;e.k=(i===q.ans?1:0);e.c=i;e.t=Date.now();
+    jset(K,Y);
+  }catch(x){}
+  /* 바꿔 말하기 단어는 푼 즉시 모두 선생님 질문 목록에 올린다 */
+  try{swList().forEach(function(s){pushSw(s.id)})}catch(x){}
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){
+  var L=(DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}}),seen={};
+  L.forEach(function(s){seen[s.a.toLowerCase()]=1});
+  /* 모든 문제의 '이 단어, 이렇게 바뀌었어요' 단어도 빠짐없이 바꿔 말하기 연습에 넣는다 */
+  Qs.forEach(function(q,qi){(q.swaps||[]).forEach(function(w){var k=String(w[0]).toLowerCase();if(seen[k])return;seen[k]=1;L.push({a:w[0],form:w[0],b:w[1],k:w[2],id:'sw:'+k,n:0,sq:qi+1,sum:'',hook:'',en:'',ko:''})})});
+  return L.map(function(s,i){return {s:s,i:i}}).sort(function(x,y){return (x.s.sq-y.s.sq)||(x.i-y.i)}).map(function(x){return x.s});
+}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function yyLine(){
+  try{var Y=jget('vhy:'+SCH,{}),pg=Y[location.pathname.split('/').slice(-2).join('/')]||{},n=0,r=0,w=0;
+    Qs.forEach(function(q){var e=pg[q.id];if(e&&e.n){n++;if(e.k)r++;w+=e.w||0}});
+    if(!n)return '';
+    return '<p class="sub">내 기록: '+n+'문제 중 '+r+'문제 정답'+(w?' · 틀린 횟수 '+w+'번':'')+'</p>';
+  }catch(x){return ''}
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../yoyak.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+=yyLine();
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">문장의 밑줄 단어를 누르면 뜻이 나와요. 보기를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+(done?words(o[0]):esc(o[0]))+'<span class="dash">–</span>'+(done?words(o[1]):esc(o[1]))+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'<button class="rmw" data-a="rmnote" data-v="'+esc(n.l.toLowerCase())+'">빼기</button></li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="qn">'+s.sq+'번</span><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+/* 자동 새로고침(기록 연동)이 일어나도 보던 문제로 되돌린다 */
+try{var sv=JSON.parse(sessionStorage.getItem('vhyv')||'null');if(sv&&sv.p===location.pathname&&Date.now()-sv.t<600000&&sv.v&&sv.v!=='home'){view=sv.v;cur=sv.c||0;try{history.pushState({v:view},'');histPushed=true}catch(e){}}}catch(e){}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>

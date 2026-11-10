@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0f766e">
+<title>26년 10월 23번 요약문 연습 </title>
+<style>
+html{scroll-behavior:auto}html,body{overscroll-behavior-y:contain}
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--ansL:#fdeeee;--ok:#14803c;--okL:#eefaf3;--navy:#1e2a44;--pi:#fff3a8;--got:#fff8d6;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--ansL:#3a1d1d;--ok:#6ee7a0;--okL:#12302d;--navy:#e8f0ee;--pi:#5a4f12;--got:#3b3715;--warn:#f0b35a}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+#app{max-width:560px;margin:0 auto;padding:12px 14px 130px}
+button{font:inherit;color:inherit;cursor:pointer}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14px;color:var(--sub);min-height:36px}
+.cnt{margin-left:auto;font-size:14px;color:var(--sub);font-weight:700}
+.tag{display:inline-block;font-size:12px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:6px;padding:1px 8px}
+h1{font-size:22px;line-height:1.35;margin:6px 0 2px}
+.sub{color:var(--sub);font-size:15px;margin:0 0 12px}
+.hint{font-size:14px;color:var(--sub);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:10px 0}
+.sum{font-size:18px;line-height:1.8}
+.blank{display:inline-block;min-width:44px;text-align:center;border-bottom:2px solid var(--pri);color:var(--pri);font-weight:800;margin:0 2px}
+.fill{display:inline;background:var(--priL);color:var(--pri);font-weight:800;border-radius:6px;padding:0 5px}
+.w{border-bottom:1.5px dotted var(--pri);cursor:pointer}
+.w.got{border-bottom:2.5px solid var(--warn);font-weight:700}
+mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
+.opts{margin:10px 0}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:6px 12px 6px 6px;margin:8px 0;min-height:56px}
+.opt .num{flex:0 0 44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;background:var(--bg)}
+.opt .ot{flex:1;font-size:18px}
+.opt .dash{color:var(--sub);margin:0 4px}
+.opt.lock{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--okL)}
+.opt.right .num{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.mine{border-color:var(--ans);background:var(--ansL)}
+.opt.mine .num{background:var(--ans);color:#fff;border-color:var(--ans)}
+.opt .st{font-size:13px;font-weight:800}
+.opt.right .st{color:var(--ok)}.opt.mine .st{color:var(--ans)}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{background:var(--navy);color:var(--card);border-radius:8px;font-size:13px;font-weight:800;padding:1px 9px}
+.chip{background:var(--ans);color:#fff;border-radius:999px;font-size:14px;font-weight:800;padding:2px 12px}
+.msg{font-weight:800}
+.msg.o{color:var(--ok)}.msg.x{color:var(--ans)}
+.lb{font-size:13px;font-weight:800;color:var(--pri);margin:0 0 4px;letter-spacing:.2px}
+.ko{color:var(--ink);font-size:16px;margin-top:4px}
+.ko b{color:var(--pri)}
+.opl{margin:0;padding:0;list-style:none;font-size:16px}
+.opl li{padding:3px 0;border-bottom:1px solid var(--line)}
+.opl li:last-child{border-bottom:0}
+.opl .k{color:var(--sub);font-size:14px;margin-left:6px}
+.opl li.a{font-weight:800}
+.opl li.a .k{color:var(--ans);font-weight:800}
+.ev{margin:6px 0 10px}
+.ev .en{font-size:16.5px}
+.ev .kk{font-size:15px;color:var(--sub)}
+.swap{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:6px 0}
+.swap .a,.swap .b{border-radius:999px;padding:2px 12px;font-size:15px;font-weight:700}
+.swap .a{background:var(--bg);border:1px solid var(--line)}
+.swap .b{background:var(--priL);color:var(--pri)}
+.swap .arr{color:var(--sub)}
+.swap .ds{flex-basis:100%;font-size:13.5px;color:var(--sub);margin:-2px 0 4px 4px}
+.fc{display:flex;flex-direction:column;align-items:stretch}
+.fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
+.fc mark{color:var(--ink)}
+.fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
+.fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
+.fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
+.fc .c.last{background:var(--pri);border-color:var(--pri)}
+.fc .c.last .tg{background:#fff;color:var(--pri)}
+.fc .c.last .hd{color:#fff}.fc .c.last .sb2{color:#e6f4f1}
+.fc .ar{text-align:center;color:var(--pri);font-size:14px;line-height:1;padding:5px 0}
+.sl{margin-top:2px}
+.sl .r{border-left:3px solid var(--pri);padding:2px 0 2px 12px;margin:0 0 12px;text-align:left}
+.sl .r>b{display:block;font-size:17px;font-weight:700;line-height:1.5;color:var(--ink)}
+.sl .r>span{display:block;font-size:15.5px;line-height:1.5;color:var(--pri);margin-top:1px}
+.sl .r>span u{text-decoration:none;font-weight:800;background:var(--priL);border-radius:4px;padding:0 3px}
+.sl .r b mark{padding:0 2px;border-radius:4px}
+.say:active{transform:scale(.95)}
+.say{border:1px solid var(--line);background:var(--card);color:var(--pri);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700;min-height:34px}
+#sheet .say{float:right;background:transparent;color:var(--card);border-color:rgba(255,255,255,.4)}.flag{display:inline-block;background:#fde8e6;color:#c0392b;border-radius:999px;font-size:11.5px;font-weight:800;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.btn.flagbtn{background:#fde8e6;color:#c0392b;border:1px solid #f3c4bf;font-weight:800}
+.sc .tg2{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:4px}
+.swr{border-bottom:1px solid var(--line);padding:2px 0}.swr:last-child{border-bottom:0}
+.swr .swq{border-bottom:0}
+.acc2{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;background:transparent;padding:2px 2px 8px;font-size:13.5px;font-weight:700;color:var(--sub);text-align:left;min-height:34px}
+.acc2 span{font-size:12.5px;color:var(--pri)}
+.swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
+.swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
+.swr .story .wc.me{background:#fff3b0;border-radius:3px}
+.sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
+.sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
+.sc .sen{font-size:16.5px;line-height:1.55}
+.sc .sko{font-size:14px;color:var(--sub);margin-top:2px}
+.sc .swq{border-bottom:0;padding:4px 0 6px}
+.acc{display:flex;justify-content:space-between;align-items:center;width:100%;border:0;border-top:1px solid var(--line);background:transparent;padding:10px 2px;font-size:14.5px;font-weight:700;color:var(--sub);text-align:left;min-height:42px}
+.acc span{font-size:13px;color:var(--pri)}
+.sc .hk{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px;margin-top:4px}
+.sc .smr{margin-top:10px}
+
+.swq{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.swq:last-child{border-bottom:0}
+.swq .sa{font-size:20px;font-weight:800;min-width:110px}
+.swq .sb{flex:1;font-size:15px;color:var(--sub)}
+.swq .sb em{font-style:normal;font-size:18px;font-weight:800;color:var(--pri);display:block}
+.swq button{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700;min-height:40px}
+.tabs{display:flex;gap:6px;margin:8px 0}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px;font-size:15px;font-weight:700;min-height:42px}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.note{font-size:14.5px;color:var(--sub);margin-top:6px}
+.use{display:flex;gap:10px;flex-wrap:wrap}
+.use .u{flex:1 1 220px;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.use .uwk{font-size:13.5px;font-weight:600;color:var(--sub);margin-left:5px}
+.use .uw{font-size:19px;font-weight:800;color:var(--pri)}
+.use .ue{font-size:15.5px;margin-top:2px}.use .uk{font-size:14px;color:var(--sub)}
+.flow{background:var(--priL);border-radius:12px;padding:10px 13px;font-size:15.5px}
+details{margin-top:2px}summary{cursor:pointer;font-weight:700;color:var(--sub);font-size:15px;padding:4px 0}
+details li{font-size:15px;margin:4px 0;list-style:none}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:14px;font-size:17px;font-weight:800;min-height:52px;margin:10px 0}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.sec{background:var(--card);border:1px solid var(--line);color:var(--ink);font-weight:700}
+.nums{display:flex;gap:10px;margin:12px 0 4px;flex-wrap:wrap}
+.nb{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);font-weight:800;font-size:18px}
+.nb.o{background:var(--ok);color:#fff;border-color:var(--ok)}
+.nb.x{background:var(--ans);color:#fff;border-color:var(--ans)}
+.foot{display:flex;gap:16px;justify-content:center;margin-top:18px;font-size:14px}
+.foot button{border:0;background:none;color:var(--sub);text-decoration:underline;padding:6px}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);z-index:60;background:var(--navy);color:var(--card);border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .15s;max-width:90%}
+#toast.on{opacity:1}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;transform:translateY(110%);transition:transform .18s;padding:0 12px calc(12px + env(safe-area-inset-bottom))}
+#sheet.on{transform:none}
+#sheet .in{max-width:560px;margin:0 auto;background:var(--navy);color:var(--card);border-radius:18px;padding:14px 18px;box-shadow:0 8px 26px rgba(0,0,0,.28)}
+#sheet .sw{font-size:22px;font-weight:800}
+#sheet .sl{font-size:17px;margin-top:2px}
+#sheet .sn{font-size:13px;opacity:.75;margin-top:6px}
+.wl{margin:0;padding:0;list-style:none}
+.wl li{display:flex;gap:10px;align-items:baseline;padding:9px 2px;border-bottom:1px solid var(--line)}
+.wl .lw{font-weight:800;font-size:18px;min-width:96px}
+.wl .lm{color:var(--sub);font-size:15.5px;flex:1}
+.wl .rmw{border:1px solid var(--line);background:#fff;color:var(--sub);border-radius:8px;padding:4px 10px;font-size:13px}
+.qn{font-size:12px;font-weight:800;color:#fff;background:var(--sub);border-radius:6px;padding:2px 6px;margin-right:6px;flex:none}
+.wl .lc{font-size:12.5px;color:var(--warn);font-weight:800}
+.fl{display:flex;gap:8px;margin:8px 0}
+.fl button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:14.5px}
+.fl button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.tr{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid var(--line)}
+.tr .tw{flex:1;font-size:20px;font-weight:800;cursor:pointer}
+.tr .tm{font-size:15px;color:var(--sub);font-weight:400;display:block}
+.tr button{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:56px;min-height:44px;font-weight:700;font-size:15px}
+.tr button.o.on{background:var(--ok);color:#fff;border-color:var(--ok)}
+.tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
+.sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
+.empty{color:var(--sub);text-align:center;padding:26px 0}
+</style>
+<script>window.REC_NOGATE=1;(function(){try{if(window.__recl||!/\/h\/(geumcheon|jusung|cheongseok)-(gimal|go1|go2)\//.test(location.pathname))return;window.__recl=1;var s=document.createElement('script');s.src=location.pathname.replace(/\/h\/.*$/,'/h/rec.js')+'?v=2';(document.head||document.documentElement).appendChild(s)}catch(e){}})();</script></head>
+<body>
+<div id="app"></div>
+<div id="sheet"><div class="in"><div class="sw" id="sw"></div><div class="sl" id="sl"></div><div class="sn" id="sn"></div></div></div>
+<script>
+(function(W){
+  if(W.WN)return;
+  var TM=/[?&]t=1(&|$)/.test(W.location.search);if(TM){W.TEACHER_MODE=true;try{W.document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;var u=a.getAttribute('href')||'';if(/(^index\.html$)|(\/via\/wn\/$)|(^\d\d[ab]\.html$)/.test(u)){var cm=/[?&]c=([AB])(&|$)/.exec(W.location.search);a.setAttribute('href',u+'?t=1'+(cm?'&c='+cm[1]:''))}},true)}catch(x){}}var URL_=TM?'https://script.google.com/macros/s/AKfycbz0OolJAHbhYzjWxOkRY851Sn1-ZKL3JOYf4eWancUEotJsm4-z6aWzcm-71I9CIWyR/exec':(W.WN_URL||'https://script.google.com/macros/s/AKfycbzc2ei1hfWwFPviIFZndCLPchR7NRlrUtY9IqZ6mL2sruJxshFJMpGaKp3LeHHUEl6Apg/exec'),PIN='6900',QK='wn_q',HK='wn_hq';
+  function ls(){try{return W.localStorage}catch(e){return null}}
+  function g(k){var l=ls();try{return l&&l.getItem(k)}catch(e){return null}}
+  function s(k,v){var l=ls();try{l&&l.setItem(k,v)}catch(e){}}
+  function name(){if(TM)return'신유정'+((/[?&]c=([AB])(&|$)/.exec(W.location.search)||[])[1]||'');return(g('wn_name')||g('recm_name')||g('rec_name')||'').replace(/\s+/g,'')}
+  function jq(k){try{return JSON.parse(g(k)||'[]')}catch(e){return[]}}
+  function post(b){return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(b),keepalive:true}).then(function(r){return r.json()})}
+  var busy=false,again=false;
+  function flush(){
+    var n=name(),Q=jq(QK),H=jq(HK);
+    if(busy){again=true;return Promise.resolve(false)}
+    if(!n||(!Q.length&&!H.length))return Promise.resolve(false);
+    busy=true;var p=Promise.resolve();
+    if(Q.length){var items=[];Q.forEach(function(b){items=items.concat(b)});
+      p=p.then(function(){return post({act:'add',name:n,pin:PIN,items:items}).then(function(r){if(r&&r.ok)s(QK,JSON.stringify(jq(QK).slice(Q.length)))})})}
+    H.forEach(function(h){p=p.then(function(){return post({act:'hw',name:n,pin:PIN,level:h.level,day:h.day,score:h.score}).then(function(r){if(r&&r.ok)s(HK,JSON.stringify(jq(HK).filter(function(x){return!(x.level===h.level&&x.day===h.day&&x.score===h.score)})))})})});
+    return p.then(function(){busy=false;if(again){again=false;flush()}return true},function(){busy=false;again=false;return false});
+  }
+  function gate(cb){
+    if(name()){cb();flush();return}
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;inset:0;z-index:99999;background:Canvas;color:CanvasText;display:flex;align-items:center;justify-content:center;padding:20px;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif';
+    d.innerHTML='<div style="width:100%;max-width:420px"><div style="font-size:22px;font-weight:800;margin-bottom:12px">이름</div><input id="wng" type="text" autocomplete="off" style="width:100%;font-size:18px;padding:12px;border:1px solid #8885;border-radius:12px;background:Canvas;color:CanvasText"><button id="wnb" style="width:100%;margin-top:10px;padding:13px;border:0;border-radius:12px;font-size:16px;font-weight:700;background:#2f7d5b;color:#fff">시작</button><div id="wnm" style="margin-top:8px;font-size:14px;opacity:.7;min-height:20px"></div></div>';
+    document.body.appendChild(d);
+    var b=d.querySelector('#wnb'),m=d.querySelector('#wnm'),i=d.querySelector('#wng');
+    function go(){var v=(i.value||'').replace(/\s+/g,'');if(!v)return;b.disabled=true;m.textContent='확인 중...';
+      post({act:'list',name:v,pin:PIN}).then(function(r){
+        if(r&&r.ok){s('wn_name',v);d.remove();cb();flush()}
+        else{b.disabled=false;m.textContent='등록된 이름이 아니에요.'}
+      },function(){b.disabled=false;m.textContent='연결이 안 됐어요. 인터넷을 확인해 주세요.'})}
+    b.onclick=go;i.onkeydown=function(e){if(e.key==='Enter')go()};i.focus();
+  }
+  function DEL(w,src){var k=String(w||'').toLowerCase().trim(),hit=false;
+    if(!busy){var Q=jq(QK).map(function(b){return b.filter(function(it){var m=String(it.w||'').toLowerCase().trim()===k&&it.src===src;if(m)hit=true;return!m})}).filter(function(b){return b.length});if(hit){s(QK,JSON.stringify(Q));return Promise.resolve({ok:true,removed:true})}}
+    var n=name();if(!n)return Promise.resolve(null);
+    function go(){return post({act:'del',name:n,pin:PIN,w:w,src:src})}
+    return flush().then(go).then(function(r){if(r&&r.ok&&r.removed===false&&r.reason==='none')return new Promise(function(z){setTimeout(z,3000)}).then(go);return r}).catch(function(){return null})}
+  W.WN={add:function(items){
+    if(!items||!items.length)return Promise.resolve(false);
+    var Q=jq(QK);Q.push(items);s(QK,JSON.stringify(Q));return flush();
+  },hw:function(level,day,score){
+    var H=jq(HK);H.push({level:level,day:day,score:score});s(HK,JSON.stringify(H));return flush();
+  },del:DEL,gate:gate,flush:flush,name:name,list:function(){var n=name();if(!n)return Promise.resolve(null);return flush().then(function(){return post({act:"list",name:n,pin:PIN})}).catch(function(){return null})}};
+  flush();
+})(window);
+if(!WN.name())WN.gate(function(){location.reload()});
+</script>
+<script>
+var DATA={"meta": {"sch": "jusung-go2", "src": "common/sx-data-2610g2.js", "dir": "mock", "pidx": 2, "lesson": "26년 10월 23번", "title": "", "label": "", "page": "yoyak-2610-23"}, "scenes": [{"tag": "본문 1~2번", "ns": [1, 2], "line": "문어는 [[roughly|대략]] 5억 개의 뉴런을 [[possesses|가지고 있다]]. 신기한 건 그 뉴런이 어디에 있느냐다.", "en": ["Research on cephalopod neurobiology suggests that an octopus possesses roughly five hundred million neurons.", "What makes this system unusual is where many of those neurons are located."], "kos": ["두족류 동물 신경 생물학에 관한 연구는 문어가 대략 5억 개의 뉴런을 가지고 있다는 것을 시사한다.", "이 체계를 특이하게 만드는 것은 그 뉴런들 중 다수가 어디에 위치해 있는가이다."]}, {"tag": "본문 3번", "ns": [3], "line": "절반 이상이 뇌가 아니라 팔 전체에 [[distributed|퍼져 있다]].", "en": ["More than half are distributed throughout the arms rather than concentrated entirely in the central brain."], "kos": ["절반 이상은 중앙의 뇌에 전적으로 집중되어 있기보다는 팔들 전체에 걸쳐 분포되어 있다."]}, {"tag": "본문 4번", "ns": [4], "line": "각각의 팔은 복잡한 움직임을 [[locally|그 자리에서]] 통제한다.", "en": ["Each arm contains networks of nerve cells capable of controlling complex movements and responding to sensory input locally."], "kos": ["각각의 팔은 복잡한 움직임들을 통제하고 감각적 입력에 국소적으로 반응할 수 있는 신경 세포들의 네트워크를 갖고 있다."]}, {"tag": "본문 5~6번", "ns": [5, 6], "line": "많은 행동은 뇌의 [[detailed|세세한]] [[instructions|지시]]를 [[require|필요로]] 하지 않는다. 팔은 신경계의 연장선처럼 직접 움직인다.", "en": ["This means that many actions do not require detailed instructions from the brain itself.", "Instead, the arms function as highly capable extensions of the nervous system that interact with the environment directly."], "kos": ["이것은 많은 행동들이 뇌 자체로부터 상세한 지시들을 필요로 하지 않는다는 것을 의미한다.", "대신에, 그 팔들은 환경과 직접적으로 상호 작용하는 대단히 유능한 신경계의 연장선으로서 작동한다."]}, {"tag": "본문 7~8번", "ns": [7, 8], "line": "팔을 따라 늘어선 빨판이 강하게 붙잡고 표면의 화학 신호를 [[detect|탐지한다]].", "en": ["The suckers lining each arm play an important role in this process.", "These structures provide strong grip but also detect chemical signals on surfaces they contact."], "kos": ["각각의 팔을 따라 늘어서 있는 빨판들은 이 과정에서 중요한 역할을 한다.", "이 구조들은 강한 붙잡는 힘을 제공하지만 또한 그것들이 접촉하는 표면의 화학적 신호들도 탐지한다."]}, {"tag": "본문 9~10번", "ns": [9, 10], "line": "그래서 문어는 닿는 것을 [[effectively|사실상]] 맛볼 수 있다.", "en": ["Marine biologists studying octopus behavior have shown that this allows the animal to gather chemical information through touch.", "In practical terms, an octopus can effectively taste what it touches."], "kos": ["문어의 행동을 연구하는 해양 생물학자들은 이것이 그 동물이 접촉을 통해 화학적 정보를 수집할 수 있게 한다는 것을 보여 주었다.", "실질적으로 말해서, 문어는 사실상 그것이 접촉하는 것을 맛볼 수 있다."]}], "story": [{"a": "possess", "form": "possesses", "n": 1, "sq": 1, "sum": "An octopus [[has]] about five hundred million neurons", "hook": "문어가 5억 개의 뉴런을 가졌다는 문장의 possess(가지고 있다) → 요약문에서는 have(가지고 있다)로 바꿨어요.", "b": "have", "k": "가지고 있다 → 가지고 있다", "en": "Research on cephalopod neurobiology suggests that an octopus possesses roughly five hundred million neurons.", "ko": "두족류 동물 신경 생물학에 관한 연구는 문어가 대략 5억 개의 뉴런을 가지고 있다는 것을 시사한다."}, {"a": "roughly", "form": "roughly", "n": 1, "sq": 1, "sum": "has [[about]] five hundred million", "hook": "뉴런이 대략 5억 개라는 문장의 roughly(대략) → 요약문에서는 about(약)으로 바꿨어요.", "b": "about", "k": "대략 → 약", "en": "Research on cephalopod neurobiology suggests that an octopus possesses roughly five hundred million neurons.", "ko": "두족류 동물 신경 생물학에 관한 연구는 문어가 대략 5억 개의 뉴런을 가지고 있다는 것을 시사한다."}, {"a": "distribute", "form": "distributed", "n": 3, "sq": 1, "sum": "are [[spread]] across its arms", "hook": "절반 이상이 팔 전체에 분포한다는 문장의 distribute(분포하다) → 요약문에서는 spread(퍼지다)로 바꿨어요.", "b": "spread", "k": "분포하다 → 퍼지다", "en": "More than half are distributed throughout the arms rather than concentrated entirely in the central brain.", "ko": "절반 이상은 중앙의 뇌에 전적으로 집중되어 있기보다는 팔들 전체에 걸쳐 분포되어 있다."}, {"a": "locally", "form": "locally", "n": 4, "sq": 2, "sum": "complex movements [[independently]]", "hook": "팔이 그 자리에서 반응한다는 문장의 locally(그 자리에서) → 요약문에서는 independently(스스로)로 바꿨어요.", "b": "independently", "k": "그 자리에서 → 스스로", "en": "Each arm contains networks of nerve cells capable of controlling complex movements and responding to sensory input locally.", "ko": "각각의 팔은 복잡한 움직임들을 통제하고 감각적 입력에 국소적으로 반응할 수 있는 신경 세포들의 네트워크를 갖고 있다."}, {"a": "detailed", "form": "detailed", "n": 5, "sq": 2, "sum": "give [[precise]] orders", "hook": "상세한 지시가 필요 없다는 문장의 detailed(상세한) → 요약문에서는 precise(정확한)로 바꿨어요.", "b": "precise", "k": "상세한 → 정확한", "en": "This means that many actions do not require detailed instructions from the brain itself.", "ko": "이것은 많은 행동들이 뇌 자체로부터 상세한 지시들을 필요로 하지 않는다는 것을 의미한다."}, {"a": "instruction", "form": "instructions", "n": 5, "sq": 2, "sum": "precise [[orders]] for many actions", "hook": "뇌의 지시가 필요 없다는 문장의 instruction(지시) → 요약문에서는 order(명령)로 바꿨어요.", "b": "order", "k": "지시 → 명령", "en": "This means that many actions do not require detailed instructions from the brain itself.", "ko": "이것은 많은 행동들이 뇌 자체로부터 상세한 지시들을 필요로 하지 않는다는 것을 의미한다."}, {"a": "require", "form": "require", "n": 5, "sq": 2, "sum": "does not [[need]] to give", "hook": "행동에 지시가 필요하지 않다는 문장의 require(필요로 하다) → 요약문에서는 need(필요하다)로 바꿨어요.", "b": "need", "k": "필요로 하다 → 필요하다", "en": "This means that many actions do not require detailed instructions from the brain itself.", "ko": "이것은 많은 행동들이 뇌 자체로부터 상세한 지시들을 필요로 하지 않는다는 것을 의미한다."}, {"a": "detect", "form": "detect", "n": 8, "sq": 3, "sum": "also [[sense]] chemical signals", "hook": "빨판이 화학 신호를 탐지한다는 문장의 detect(탐지하다) → 요약문에서는 sense(감지하다)로 바꿨어요.", "b": "sense", "k": "탐지하다 → 감지하다", "en": "These structures provide strong grip but also detect chemical signals on surfaces they contact.", "ko": "이 구조들은 강한 붙잡는 힘을 제공하지만 또한 그것들이 접촉하는 표면의 화학적 신호들도 탐지한다."}, {"a": "effectively", "form": "effectively", "n": 10, "sq": 3, "sum": "can [[practically]] taste what it touches", "hook": "문어가 닿는 것을 사실상 맛볼 수 있다는 문장의 effectively(사실상) → 요약문에서는 practically(사실상)로 바꿨어요.", "b": "practically", "k": "사실상 → 사실상", "en": "In practical terms, an octopus can effectively taste what it touches.", "ko": "실질적으로 말해서, 문어는 사실상 그것이 접촉하는 것을 맛볼 수 있다."}], "passage": [{"n": 1, "en": "Research on cephalopod neurobiology suggests that an octopus possesses roughly five hundred million neurons.", "ko": "두족류 동물 신경 생물학에 관한 연구는 문어가 대략 5억 개의 뉴런을 가지고 있다는 것을 시사한다."}, {"n": 2, "en": "What makes this system unusual is where many of those neurons are located.", "ko": "이 체계를 특이하게 만드는 것은 그 뉴런들 중 다수가 어디에 위치해 있는가이다."}, {"n": 3, "en": "More than half are distributed throughout the arms rather than concentrated entirely in the central brain.", "ko": "절반 이상은 중앙의 뇌에 전적으로 집중되어 있기보다는 팔들 전체에 걸쳐 분포되어 있다."}, {"n": 4, "en": "Each arm contains networks of nerve cells capable of controlling complex movements and responding to sensory input locally.", "ko": "각각의 팔은 복잡한 움직임들을 통제하고 감각적 입력에 국소적으로 반응할 수 있는 신경 세포들의 네트워크를 갖고 있다."}, {"n": 5, "en": "This means that many actions do not require detailed instructions from the brain itself.", "ko": "이것은 많은 행동들이 뇌 자체로부터 상세한 지시들을 필요로 하지 않는다는 것을 의미한다."}, {"n": 6, "en": "Instead, the arms function as highly capable extensions of the nervous system that interact with the environment directly.", "ko": "대신에, 그 팔들은 환경과 직접적으로 상호 작용하는 대단히 유능한 신경계의 연장선으로서 작동한다."}, {"n": 7, "en": "The suckers lining each arm play an important role in this process.", "ko": "각각의 팔을 따라 늘어서 있는 빨판들은 이 과정에서 중요한 역할을 한다."}, {"n": 8, "en": "These structures provide strong grip but also detect chemical signals on surfaces they contact.", "ko": "이 구조들은 강한 붙잡는 힘을 제공하지만 또한 그것들이 접촉하는 표면의 화학적 신호들도 탐지한다."}, {"n": 9, "en": "Marine biologists studying octopus behavior have shown that this allows the animal to gather chemical information through touch.", "ko": "문어의 행동을 연구하는 해양 생물학자들은 이것이 그 동물이 접촉을 통해 화학적 정보를 수집할 수 있게 한다는 것을 보여 주었다."}, {"n": 10, "en": "In practical terms, an octopus can effectively taste what it touches.", "ko": "실질적으로 말해서, 문어는 사실상 그것이 접촉하는 것을 맛볼 수 있다."}], "questions": [{"id": 1, "summary": "An octopus (A) about five hundred million neurons, and more than half of them are (B) across its arms instead of being gathered in the brain.", "ko": "문어는 약 5억 개의 뉴런을 <b>(A) 가지고 있고</b>, 그중 절반 이상은 뇌에 모여 있기보다 팔 전체에 <b>(B) 퍼져 있다</b>.", "opts": [["has", "spread"], ["has", "packed"], ["lacks", "spread"], ["lacks", "packed"], ["needs", "hidden"]], "optko": ["가지고 있다 – 퍼져 있는", "가지고 있다 – 빽빽이 모여 있는", "없다 – 퍼져 있는", "없다 – 빽빽이 모여 있는", "필요로 하다 – 숨겨진"], "ans": 0, "wrong": [null, "packed(빽빽이 모여 있는)가 틀려요. 절반 이상은 뇌에 모여 있는(concentrated) 게 아니라 팔 전체에 퍼져 있어요(distributed).", "lacks(없다)가 틀려요. 문어는 대략 5억 개의 뉴런을 가지고 있어요(possesses).", "둘 다 틀려요. 문어는 뉴런이 없는(lack) 게 아니라 5억 개를 가지고 있고, 뉴런은 뇌에 모인 게 아니라 팔에 퍼져 있어요.", "둘 다 틀려요. 뉴런을 필요로 한다(need)는 말이 아니라 이미 가지고 있다는 말이고, 뉴런이 숨겨진(hidden) 게 아니라 팔 전체에 퍼져 있어요."], "evid": [{"n": 1, "hl": ["an octopus possesses roughly five hundred million neurons"]}, {"n": 3, "hl": ["distributed throughout the arms rather than concentrated entirely in the central brain"]}], "swaps": [["possess", "have", "가지고 있다 → 가지고 있다"], ["roughly", "about", "대략 → 약"], ["distribute", "spread", "분포하다 → 퍼지다"]], "swapnote": "possess(가지고 있다)는 have(가지고 있다)로, roughly(대략)는 about(약)으로, distribute(분포하다)는 spread(퍼지다)로 바뀌었어요. 어려운 단어가 쉬운 단어로 바뀐 거예요.", "use": [{"w": "have", "ex": "I have a new bike.", "ko": "나는 새 자전거를 가지고 있다.", "wk": "가지고 있다", "hk": "가지고 있"}, {"w": "spread", "ex": "Spread the jam on the bread.", "ko": "빵에 잼을 펴 발라라.", "wk": "퍼지다, 펴 바르다", "hk": "펴 발라"}], "flow": "본문 1번에서 문어가 대략 5억 개의 뉴런을 가졌다고 하고, 2번에서 신기한 건 그 위치라고 짚은 뒤, 3번에서 절반 이상이 뇌가 아니라 팔 전체에 퍼져 있다고 알려 줘요.", "jd": [["An octopus [[has]]", "문어는 [[가지고 있다]]"], ["about five hundred million neurons,", "약 5억 개의 뉴런을,"], ["and more than half of them", "그리고 그중 절반 이상은"], ["are [[spread]] across its arms", "팔 전체에 [[퍼져 있다]]"], ["instead of being gathered in the brain.", "뇌에 모여 있기보다는."]], "fc": [["본문 1번", "문어의 뉴런은 약 5억 개", "문어는 대략 5억 개의 {{neuron|뉴런}}을 {{possess|가지고 있어요}}."], ["본문 3번", "절반 이상은 팔에", "뇌에만 모인 게 아니라 {{arm|팔}} 전체에 {{distribute|분포해요}}."], ["정답 포인트", "{{possess|가지고 있다}} = {{have|가지고 있다}}, {{distribute|분포하다}} = {{spread|퍼지다}}", "어려운 동사가 쉬운 동사로 바뀌어 나와요."]], "evid_full": [{"en": "Research on cephalopod neurobiology suggests that an octopus possesses roughly five hundred million neurons.", "ko": "두족류 동물 신경 생물학에 관한 연구는 문어가 대략 5억 개의 뉴런을 가지고 있다는 것을 시사한다.", "hl": ["an octopus possesses roughly five hundred million neurons"], "hlko": ["문어가 대략 5억 개의 뉴런을 가지고 있다는"], "n": 1}, {"en": "More than half are distributed throughout the arms rather than concentrated entirely in the central brain.", "ko": "절반 이상은 중앙의 뇌에 전적으로 집중되어 있기보다는 팔들 전체에 걸쳐 분포되어 있다.", "hl": ["distributed throughout the arms rather than concentrated entirely in the central brain"], "hlko": ["중앙의 뇌에 전적으로 집중되어 있기보다는 팔들 전체에 걸쳐 분포되어"], "n": 3}]}, {"id": 2, "summary": "Each arm can control complex movements (A), so the brain does not need to give (B) orders for many actions.", "ko": "각각의 팔은 복잡한 움직임을 <b>(A) 스스로</b> 통제할 수 있어서, 뇌는 많은 행동에 대해 <b>(B) 정확한</b> 명령을 줄 필요가 없다.", "opts": [["independently", "careless"], ["slowly", "precise"], ["jointly", "secret"], ["independently", "precise"], ["slowly", "careless"]], "optko": ["스스로 – 부주의한", "느리게 – 정확한", "함께 – 비밀의", "스스로 – 정확한", "느리게 – 부주의한"], "ans": 3, "wrong": ["careless(부주의한)가 틀려요. 본문은 뇌가 상세한(detailed) 지시를 일일이 내릴 필요가 없다고 해요. 부주의한 명령 이야기가 아니에요.", "slowly(느리게)가 틀려요. 본문은 팔이 복잡한 움직임을 그 자리에서 통제한다고만 해요. 속도 이야기는 없어요.", "둘 다 틀려요. 팔은 뇌와 함께(jointly)가 아니라 스스로 움직임을 통제하고, 명령이 비밀(secret)이라는 말도 없어요.", null, "둘 다 틀려요. 속도(slowly)나 부주의함(careless)을 말하는 글이 아니에요. 팔이 스스로 움직여서 뇌가 상세한 지시를 안 줘도 된다는 얘기예요."], "evid": [{"n": 4, "hl": ["capable of controlling complex movements", "responding to sensory input locally"]}, {"n": 5, "hl": ["do not require detailed instructions from the brain itself"]}], "swaps": [["locally", "independently", "그 자리에서 → 스스로"], ["detailed", "precise", "상세한 → 정확한"], ["instruction", "order", "지시 → 명령"], ["require", "need", "필요로 하다 → 필요하다"]], "swapnote": "locally(그 자리에서)는 independently(스스로)로, detailed(상세한)는 precise(정확한)로, instruction(지시)은 order(명령)로 바뀌었어요. 뇌가 안 시켜도 팔이 그 자리에서 스스로 움직인다고 읽어요.", "use": [{"w": "independently", "ex": "She can work independently.", "ko": "그녀는 혼자 스스로 일할 수 있다.", "wk": "스스로, 독립해서", "hk": "스스로"}, {"w": "precise", "ex": "Give me precise directions.", "ko": "나에게 정확한 길 안내를 해 주세요.", "wk": "정확한", "hk": "정확한"}], "flow": "본문 4번에서 각 팔의 신경 세포가 복잡한 움직임을 그 자리에서 통제한다고 하고, 5번에서 그래서 많은 행동에 뇌의 상세한 지시가 필요 없다고 정리해요.", "jd": [["Each arm can control complex movements", "각각의 팔은 복잡한 움직임을 통제할 수 있다"], ["[[independently]],", "[[스스로]],"], ["so the brain does not need to give", "그래서 뇌는 줄 필요가 없다"], ["[[precise]] orders", "[[정확한]] 명령을"], ["for many actions.", "많은 행동에 대해."]], "fc": [["본문 4번", "팔이 그 자리에서 통제", "각 팔의 신경 세포가 복잡한 {{movement|움직임}}을 {{locally|그 자리에서}} 통제해요."], ["본문 5번", "뇌가 일일이 지시하지 않는다", "뇌의 {{detailed|상세한}} {{instruction|지시}}가 많은 행동에는 필요 없어요."], ["정답 포인트", "{{locally|그 자리에서}} = {{independently|스스로}}, {{detailed|상세한}} = {{precise|정확한}}", "그 자리에서 움직인다 = 스스로 움직인다로 읽어요."]], "evid_full": [{"en": "Each arm contains networks of nerve cells capable of controlling complex movements and responding to sensory input locally.", "ko": "각각의 팔은 복잡한 움직임들을 통제하고 감각적 입력에 국소적으로 반응할 수 있는 신경 세포들의 네트워크를 갖고 있다.", "hl": ["capable of controlling complex movements", "responding to sensory input locally"], "hlko": ["복잡한 움직임들을 통제하고", "국소적으로 반응할"], "n": 4}, {"en": "This means that many actions do not require detailed instructions from the brain itself.", "ko": "이것은 많은 행동들이 뇌 자체로부터 상세한 지시들을 필요로 하지 않는다는 것을 의미한다.", "hl": ["do not require detailed instructions from the brain itself"], "hlko": ["뇌 자체로부터 상세한 지시들을 필요로 하지 않는다는"], "n": 5}]}, {"id": 3, "summary": "The suckers on each arm grip strongly and also (A) chemical signals on surfaces, so an octopus can (B) taste what it touches.", "ko": "각 팔의 빨판은 강하게 붙잡을 뿐 아니라 표면의 화학 신호도 <b>(A) 감지해서</b>, 문어는 닿는 것을 <b>(B) 사실상</b> 맛볼 수 있다.", "opts": [["sense", "hardly"], ["make", "practically"], ["sense", "practically"], ["hide", "hardly"], ["ignore", "never"]], "optko": ["감지하다 – 거의 ~않는", "만들어 내다 – 사실상", "감지하다 – 사실상", "숨기다 – 거의 ~않는", "무시하다 – 결코 ~않는"], "ans": 2, "wrong": ["hardly(거의 ~않는)가 틀려요. 본문은 문어가 닿는 것을 사실상 맛볼 수 있다고 해요(effectively taste).", "make(만들어 내다)가 틀려요. 빨판은 화학 신호를 만드는 게 아니라 탐지해요(detect).", null, "둘 다 틀려요. 빨판은 화학 신호를 숨기는(hide) 게 아니라 탐지하고, 맛을 거의 못 보는 게 아니라 사실상 맛봐요.", "둘 다 틀려요. 신호를 무시하는(ignore) 게 아니라 탐지하고, 맛을 결코 못 보는(never) 게 아니라 닿는 것으로 맛을 봐요."], "evid": [{"n": 8, "hl": ["detect chemical signals on surfaces"]}, {"n": 10, "hl": ["an octopus can effectively taste what it touches"]}], "swaps": [["detect", "sense", "탐지하다 → 감지하다"], ["effectively", "practically", "사실상 → 사실상"]], "swapnote": "detect(탐지하다)는 sense(감지하다)로, effectively(사실상)는 practically(사실상)로 바뀌었어요. 두 쌍 모두 뜻은 같고 단어만 달라요.", "use": [{"w": "sense", "ex": "Dogs can sense danger.", "ko": "개는 위험을 감지할 수 있다.", "wk": "감지하다", "hk": "감지할"}, {"w": "practically", "ex": "The room was practically empty.", "ko": "그 방은 사실상 비어 있었다.", "wk": "사실상", "hk": "사실상"}], "flow": "본문 7~8번에서 빨판이 강하게 붙잡을 뿐 아니라 표면의 화학 신호도 탐지한다고 하고, 9~10번에서 그래서 문어는 닿는 것을 사실상 맛볼 수 있다고 마무리해요.", "jd": [["The suckers on each arm grip strongly", "각 팔의 빨판은 강하게 붙잡고"], ["and also [[sense]] chemical signals", "또한 화학 신호를 [[감지하며]]"], ["on surfaces,", "표면에서,"], ["so an octopus can [[practically]] taste", "그래서 문어는 [[사실상]] 맛볼 수 있다"], ["what it touches.", "자신이 닿는 것을."]], "fc": [["본문 8번", "빨판은 화학 신호를 탐지", "빨판은 {{grip|붙잡는 힘}}도 주고 {{chemical|화학의}} {{signal|신호}}도 {{detect|탐지해요}}."], ["본문 10번", "닿으면 맛을 본다", "닿는 것을 {{effectively|사실상}} {{taste|맛볼}} 수 있어요."], ["정답 포인트", "{{detect|탐지하다}} = {{sense|감지하다}}, {{effectively|사실상}} = {{practically|사실상}}", "같은 뜻의 다른 단어예요."]], "evid_full": [{"en": "These structures provide strong grip but also detect chemical signals on surfaces they contact.", "ko": "이 구조들은 강한 붙잡는 힘을 제공하지만 또한 그것들이 접촉하는 표면의 화학적 신호들도 탐지한다.", "hl": ["detect chemical signals on surfaces"], "hlko": ["표면의 화학적 신호들도 탐지한다"], "n": 8}, {"en": "In practical terms, an octopus can effectively taste what it touches.", "ko": "실질적으로 말해서, 문어는 사실상 그것이 접촉하는 것을 맛볼 수 있다.", "hl": ["an octopus can effectively taste what it touches"], "hlko": ["사실상 그것이 접촉하는 것을 맛볼 수 있다"], "n": 10}]}], "gloss": {"research": ["research", "연구"], "cephalopod": ["cephalopod", "두족류(문어·오징어 무리)"], "neurobiology": ["neurobiology", "신경 생물학"], "suggests": ["suggest", "시사하다, 암시하다"], "octopus": ["octopus", "문어"], "possesses": ["possess", "가지고 있다"], "roughly": ["roughly", "대략"], "five": ["five", "다섯"], "hundred": ["hundred", "백"], "million": ["million", "백만"], "neurons": ["neuron", "뉴런(신경 세포)"], "makes": ["make", "~하게 만들다"], "system": ["system", "체계, 시스템"], "unusual": ["unusual", "특이한"], "located": ["locate", "위치해 있는"], "half": ["half", "절반"], "distributed": ["distribute", "분포되어 있는, 퍼져 있는"], "throughout": ["throughout", "~ 전체에 걸쳐"], "arms": ["arm", "팔"], "arm": ["arm", "팔"], "rather": ["rather", "오히려"], "concentrated": ["concentrate", "집중된"], "entirely": ["entirely", "전적으로"], "central": ["central", "중앙의"], "brain": ["brain", "뇌"], "contains": ["contain", "가지고 있다, 담고 있다"], "networks": ["network", "네트워크, 망"], "nerve": ["nerve", "신경"], "cells": ["cell", "세포"], "capable": ["capable", "~할 수 있는"], "controlling": ["control", "통제하는 것"], "complex": ["complex", "복잡한"], "movements": ["movement", "움직임"], "responding": ["respond", "반응하는 것"], "sensory": ["sensory", "감각의"], "input": ["input", "입력, 자극"], "locally": ["locally", "국소적으로, 그 자리에서"], "means": ["mean", "의미하다"], "actions": ["action", "행동"], "require": ["require", "필요로 하다"], "detailed": ["detailed", "상세한"], "instructions": ["instruction", "지시"], "itself": ["itself", "그 자체"], "instead": ["instead", "대신에"], "function": ["function", "작동하다"], "highly": ["highly", "대단히"], "extensions": ["extension", "연장선, 확장"], "nervous": ["nervous", "신경의"], "interact": ["interact", "상호 작용하다"], "environment": ["environment", "환경"], "directly": ["directly", "직접적으로"], "suckers": ["sucker", "빨판"], "lining": ["line", "줄지어 있는"], "play": ["play", "맡다, 하다"], "important": ["important", "중요한"], "role": ["role", "역할"], "process": ["process", "과정"], "structures": ["structure", "구조(물)"], "provide": ["provide", "제공하다"], "strong": ["strong", "강한"], "grip": ["grip", "붙잡는 힘, 붙잡다"], "detect": ["detect", "탐지하다"], "chemical": ["chemical", "화학의"], "signals": ["signal", "신호"], "surfaces": ["surface", "표면"], "contact": ["contact", "접촉하다"], "marine": ["marine", "해양의"], "biologists": ["biologist", "생물학자"], "studying": ["study", "연구하는"], "behavior": ["behavior", "행동"], "shown": ["show", "보여 주다"], "allows": ["allow", "~할 수 있게 하다"], "animal": ["animal", "동물"], "gather": ["gather", "모으다, 수집하다"], "information": ["information", "정보"], "through": ["through", "~을 통해"], "touch": ["touch", "접촉, 닿다"], "practical": ["practical", "실질적인"], "terms": ["term", "말, 관점"], "effectively": ["effectively", "사실상, 효과적으로"], "taste": ["taste", "맛보다"], "touches": ["touch", "닿다, 접촉하다"], "octopus's": ["octopus", "문어의"], "spread": ["spread", "퍼진, 펴다"], "packed": ["packed", "빽빽이 모여 있는"], "lacks": ["lack", "없다, 부족하다"], "needs": ["need", "필요로 하다"], "hidden": ["hidden", "숨겨진"], "has": ["have", "가지고 있다"], "about": ["about", "약, 대략"], "gathered": ["gather", "모인"], "across": ["across", "~ 전체에, ~을 가로질러"], "independently": ["independently", "스스로, 독립해서"], "slowly": ["slowly", "느리게"], "jointly": ["jointly", "함께, 공동으로"], "careless": ["careless", "부주의한"], "secret": ["secret", "비밀의"], "precise": ["precise", "정확한"], "orders": ["order", "명령"], "sense": ["sense", "감지하다"], "practically": ["practically", "사실상"], "hardly": ["hardly", "거의 ~않는"], "make": ["make", "만들어 내다"], "hide": ["hide", "숨기다"], "ignore": ["ignore", "무시하다"], "never": ["never", "결코 ~않다"], "strongly": ["strongly", "강하게"], "need": ["need", "필요하다"], "give": ["give", "주다"], "being": ["be", "~되는 것"], "people": ["people", "사람들"], "control": ["control", "통제하다"], "only": ["only", "오직, 단지"], "becomes": ["become", "~이 되다"], "among": ["among", "~ 사이에서, ~ 가운데"], "because": ["because", "~ 때문에"], "died": ["die", "죽었다"], "while": ["while", "~하는 동안, 한편"], "didn't": ["do not", "~하지 않았다"], "human": ["human", "인간의"], "between": ["between", "~ 사이에"], "during": ["during", "~ 동안"], "after": ["after", "~ 후에"], "always": ["always", "항상"], "often": ["often", "자주"], "however": ["however", "그러나"], "therefore": ["therefore", "그러므로"], "both": ["both", "둘 다"], "other": ["other", "다른"], "others": ["other", "다른 것들"], "another": ["another", "또 다른"], "such": ["such", "그러한"], "same": ["same", "같은"], "different": ["different", "다른"], "together": ["together", "함께"], "can": ["can", "~할 수 있다"], "into": ["into", "~ 속으로"], "without": ["without", "~ 없이"], "within": ["within", "~ 안에"], "against": ["against", "~에 맞서"], "whether": ["whether", "~인지 아닌지"], "like": ["like", "~처럼"], "just": ["just", "단지, 바로"], "even": ["even", "~조차"], "still": ["still", "여전히"], "yet": ["yet", "하지만, 그래도"], "every": ["every", "모든"], "own": ["own", "자신의"], "made": ["make", "만들어진"], "way": ["way", "방식, 방법"], "today": ["today", "오늘날"]}};
+var G=DATA.gloss, Qs=DATA.questions, PASS=DATA.passage;
+var SCH="geumcheon-go2";
+var K_NOTE='vhv:'+SCH, K_PROG='vhvp:'+SCH+':'+location.pathname.split('/').slice(-2).join('/');
+var LS=(function(){try{var t=window.localStorage;t.setItem('__t','1');t.removeItem('__t');return t}catch(e){var m={};return{getItem:function(k){return m[k]===undefined?null:m[k]},setItem:function(k,v){m[k]=String(v)},removeItem:function(k){delete m[k]}}}})();
+function jget(k,d){try{var v=JSON.parse(LS.getItem(k));return v==null?d:v}catch(e){return d}}
+function jset(k,v){try{LS.setItem(k,JSON.stringify(v))}catch(e){}}
+var NOTES=jget(K_NOTE,{}), PR=jget(K_PROG,{a:{}}), SRV={}, SRC='요약문 완성', PUSHED=jget('vhvs:'+SCH,{});
+if(!PR.a)PR={a:{}};
+var view='home', cur=0, filt='all', curQ=0;
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+var CN='①②③④⑤';
+var WRE=/[A-Za-z][A-Za-z'’\-]*[A-Za-z]|[A-Za-z]/g;
+function words(t){
+  var out='',last=0,m;WRE.lastIndex=0;
+  while((m=WRE.exec(t))){
+    out+=esc(t.slice(last,m.index));
+    var key=m[0].toLowerCase().replace(/’/g,"'");
+    if(G[key]){out+='<span class="w'+(NOTES[G[key][0].toLowerCase()]?' got':'')+'" data-k="'+esc(key)+'">'+esc(m[0])+'</span>'}
+    else out+=esc(m[0]);
+    last=m.index+m[0].length;
+  }
+  return out+esc(t.slice(last));
+}
+function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function hlp(t){
+  var o=esc(t);
+  o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  o=o.replace(/([가-힣]+)\(([A-Za-z][A-Za-z' ]*[A-Za-z])\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
+  return o;
+}
+function useEx(u){
+  var re=new RegExp('\\b'+u.w+'\\w*','i');
+  return u.ex.split(new RegExp('('+re.source+')','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('');
+}
+function richKo(t,hl){
+  var pos=[];(hl||[]).forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=esc(t.slice(c,p[0]))+'<mark>'+esc(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+esc(t.slice(c));
+}
+function rich(t,hl){
+  if(!hl||!hl.length)return words(t);
+  var pos=[];hl.forEach(function(h){var i=t.indexOf(h);if(i>=0)pos.push([i,i+h.length])});
+  pos.sort(function(a,b){return a[0]-b[0]});
+  var c=0,o='';
+  pos.forEach(function(p){if(p[0]<c)return;o+=words(t.slice(c,p[0]))+'<mark>'+words(t.slice(p[0],p[1]))+'</mark>';c=p[1]});
+  return o+words(t.slice(c));
+}
+function sumHtml(q,done){
+  var o='';
+  q.summary.split(/(\(A\)|\(B\))/).forEach(function(p){
+    if(p==='(A)'||p==='(B)'){
+      if(done)o+='<span class="fill">'+words(q.opts[q.ans][p==='(A)'?0:1])+'</span>';
+      else o+='<span class="blank">'+p+'</span>';
+    }else o+=words(p);
+  });
+  return o;
+}
+function nNotes(){return Object.keys(NOTES).length}
+function firstOpen(){for(var i=0;i<Qs.length;i++)if(PR.a[Qs[i].id]===undefined)return i;return -1}
+function doneCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]!==undefined)n++});return n}
+function okCount(){var n=0;Qs.forEach(function(q){if(PR.a[q.id]===q.ans)n++});return n}
+function hideSheet(){$('sheet').className=''}
+var histPushed=false;
+function go(v,i){
+  if(i!==undefined)cur=i;
+  if(v==='home'&&view!=='home'&&histPushed){histPushed=false;try{history.back();return}catch(e){}}
+  if(v!=='home'&&view==='home'){try{history.pushState({v:v},'');histPushed=true}catch(e){}}
+  view=v;try{if(v==='home')sessionStorage.removeItem('vhyv');else sessionStorage.setItem('vhyv',JSON.stringify({p:location.pathname,v:v,c:cur,t:Date.now()}))}catch(e){}
+  hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)
+}
+window.addEventListener('popstate',function(){histPushed=false;view='home';try{sessionStorage.removeItem('vhyv')}catch(e){}hideSheet();window.__goTop=1;render();window.__goTop=0;window.scrollTo(0,0)});
+function sayBtn(){return ''}
+
+
+/* 단어 누르기: 뜻을 보여 주고 단어노트에 자동으로 담는다 */
+function tapWord(key){
+  var g=G[key];if(!g)return;
+  var lem=g[0],id=lem.toLowerCase();
+  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
+  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
+  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
+  $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
+  $('sl').textContent=g[1];
+  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sheet').className='on';
+  document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
+}
+document.addEventListener('click',function(e){
+  var w=e.target.closest&&e.target.closest('.w');
+  if(w){e.stopPropagation();tapWord(w.getAttribute('data-k'));return}
+  if(!(e.target.closest&&e.target.closest('#sheet')))hideSheet();
+  var a=e.target.closest&&e.target.closest('[data-a]');
+  if(!a)return;
+  var act=a.getAttribute('data-a'),v=a.getAttribute('data-v');
+  if(act==='home')go('home');
+  else if(act==='q')go('q',+v);
+  else if(act==='pick')pick(+v);
+  else if(act==='rmnote'){var rid=String(v);var rn=NOTES[rid];delete NOTES[rid];jset(K_NOTE,NOTES);delete PUSHED['w:'+rid];jset('vhvs:'+SCH,PUSHED);try{WN.del(rn?rn.l:rid,SRC)}catch(x){}render()}
+  else if(act==='next'){if(cur<Qs.length-1)go('q',cur+1);else go('res')}
+  else if(act==='res')go('res');
+  else if(act==='notes')go('notes');
+  else if(act==='resume'){var f=firstOpen();if(f<0)go('res');else go('q',f)}
+  else if(act==='reset'){PR={a:{}};jset(K_PROG,PR);go('home')}
+  else if(act==='filt'){filt=v;render()}
+  else if(act==='chk'){go('chk')}
+  else if(act==='sw'){go('sw')}
+  else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='dt'){swD[v]=!swD[v];render()}
+  else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
+  else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
+});
+function pick(i){
+  var q=Qs[cur];if(PR.a[q.id]!==undefined)return;
+  PR.a[q.id]=i;jset(K_PROG,PR);recordYy(q,i);render();
+}
+/* 점수 기록: vhy:<학교> = {<페이지>:{<문제>:{n:푼 횟수,w:틀린 횟수,k:마지막 정답(1/0),c:고른 번호,t:시각}}} -> REC 로 자동 연동(선생님 화면) */
+function recordYy(q,i){
+  try{
+    var K='vhy:'+SCH,P=location.pathname.split('/').slice(-2).join('/'),Y=jget(K,{});
+    var pg=Y[P]||(Y[P]={}),e=pg[q.id]||(pg[q.id]={n:0,w:0});
+    e.n=(e.n||0)+1;if(i!==q.ans)e.w=(e.w||0)+1;e.k=(i===q.ans?1:0);e.c=i;e.t=Date.now();
+    jset(K,Y);
+  }catch(x){}
+  /* 바꿔 말하기 단어는 푼 즉시 모두 선생님 질문 목록에 올린다 */
+  try{swList().forEach(function(s){pushSw(s.id)})}catch(x){}
+}
+
+
+function jdHtml(q){
+  var h='<div class="sl">';
+  q.jd.forEach(function(c){
+    var en=c[0].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(s)}).join('');
+    var ko=c[1].split(/(\[\[.*?\]\])/).map(function(s){var m=s.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+esc(m[1])+'</mark>':esc(s)}).join('');
+    h+='<div class="r"><b>'+en+'</b><span>'+ko+'</span></div>';
+  });
+  return h+'</div>';
+}
+function pushSw(id){
+  if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
+  var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
+  PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
+  try{WN.add([{w:s.a,m:s.k+' → '+s.b,src:SRC,how:'바꿔 말하기',ask:true}])}catch(e){}
+}
+function swList(){
+  var L=(DATA.story||[]).map(function(s){return {a:s.a,form:s.form,b:s.b,k:s.k,id:'sw:'+s.a.toLowerCase(),n:s.n,sq:s.sq,sum:s.sum,hook:s.hook,en:s.en,ko:s.ko}}),seen={};
+  L.forEach(function(s){seen[s.a.toLowerCase()]=1});
+  /* 모든 문제의 '이 단어, 이렇게 바뀌었어요' 단어도 빠짐없이 바꿔 말하기 연습에 넣는다 */
+  Qs.forEach(function(q,qi){(q.swaps||[]).forEach(function(w){var k=String(w[0]).toLowerCase();if(seen[k])return;seen[k]=1;L.push({a:w[0],form:w[0],b:w[1],k:w[2],id:'sw:'+k,n:0,sq:qi+1,sum:'',hook:'',en:'',ko:''})})});
+  return L.map(function(s,i){return {s:s,i:i}}).sort(function(x,y){return (x.s.sq-y.s.sq)||(x.i-y.i)}).map(function(x){return x.s});
+}
+function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
+function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
+var swOpen={},swD={};
+/* 화면 */
+function render(){
+  var h='';
+  if(view==='home')h=vHome();else if(view==='q')h=vQ();else if(view==='res')h=vRes();else if(view==='notes')h=vNotes();else if(view==='sw')h=vSw();else if(view==='chk')h=vChk();else h=vHome();
+  var y=window.pageYOffset||0;
+  $('app').innerHTML=h;
+  if(!window.__goTop)window.scrollTo(0,y);
+}
+function yyLine(){
+  try{var Y=jget('vhy:'+SCH,{}),pg=Y[location.pathname.split('/').slice(-2).join('/')]||{},n=0,r=0,w=0;
+    Qs.forEach(function(q){var e=pg[q.id];if(e&&e.n){n++;if(e.k)r++;w+=e.w||0}});
+    if(!n)return '';
+    return '<p class="sub">내 기록: '+n+'문제 중 '+r+'문제 정답'+(w?' · 틀린 횟수 '+w+'번':'')+'</p>';
+  }catch(x){return ''}
+}
+function vHome(){
+  var d=doneCount(),f=firstOpen();
+  var h='<a class="tag" href="../yoyak.html" style="text-decoration:none">목록</a><h1>'+DATA.meta.lesson+' '+esc(DATA.meta.title)+'</h1><p class="sub">요약문 연습 '+DATA.meta.label+' · '+Qs.length+'문제</p><div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div>';
+  h+=yyLine();
+  h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
+  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
+  return h;
+}
+function vQ(){
+  var q=Qs[cur],a=PR.a[q.id],done=a!==undefined;curQ=q.id;
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">'+(cur+1)+' / '+Qs.length+'</span></div>';
+  if(!done)h+='<p class="hint">문장의 밑줄 단어를 누르면 뜻이 나와요. 보기를 누르면 답을 골라요.</p>';
+  h+='<div class="card sum">'+sumHtml(q,done)+'</div><div class="opts">';
+  q.opts.forEach(function(o,i){
+    var cls='opt'+(done?' lock':'');
+    if(done){if(i===q.ans)cls+=' right';else if(i===a)cls+=' mine'}
+    h+='<div class="'+cls+'"'+(done?'':' data-a="pick" data-v="'+i+'"')+'><span class="num">'+CN[i]+'</span><span class="ot">'+(done?words(o[0]):esc(o[0]))+'<span class="dash">–</span>'+(done?words(o[1]):esc(o[1]))+'</span>'+(done&&i===q.ans?'<span class="st">정답</span>':(done&&i===a?'<span class="st">내 답</span>':''))+'</div>';
+  });
+  h+='</div>';
+  if(done){
+    var ok=a===q.ans;
+    h+='<div id="exp"><div class="card"><div class="row"><span class="badge">'+(cur+1)+'번</span><span class="chip">정답 '+CN[q.ans]+'</span><span class="msg '+(ok?'o':'x')+'">'+(ok?'맞았어요':'내 답 '+CN[a])+'</span></div>';
+    h+='</div><div class="card"><p class="lb">직독직해 (끊어서 앞에서부터 이해해요)</p>'+jdHtml(q)+'<details><summary>자연스러운 해석 보기</summary><div class="ko">'+q.ko.replace(/\((A|B)\)\s*/g,'')+'</div></details></div>';
+    h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
+    q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
+    h+='</ul></div>';
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
+    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='</div>';
+    h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
+    q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
+    h+='<div class="note">'+esc(q.swapnote)+'</div></div>';
+    h+='<div class="card"><p class="lb">쓰임 익히기</p><div class="use">';
+    q.use.forEach(function(u){h+='<div class="u"><div class="uw">'+esc(u.w)+'<small class="uwk">('+esc(u.wk)+')</small></div><div class="ue">'+useEx(u)+'</div><div class="uk">'+esc(u.ko).replace(esc(u.hk),'<mark>'+esc(u.hk)+'</mark>')+'</div></div>'});
+    h+='</div></div>';
+    h+='<div class="card"><p class="lb">기억할 흐름</p><div class="fc">'+q.fc.map(function(c,i){return (i?'<div class="ar">▼</div>':'')+'<div class="c'+(i===q.fc.length-1?' last':'')+'"><span class="tg">'+esc(c[0])+'</span><div class="hd">'+mk(c[1])+'</div><div class="sb2">'+mk(c[2])+'</div></div>'}).join('')+'</div></div>';
+    h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
+    q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
+    h+='</ul></details></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+  }
+  return h;
+}
+function vRes(){
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
+  h+='<div class="nums">';
+  Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
+  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
+  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  return h;
+}
+function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
+function vNotes(){
+  var L=sortedNotes();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button><span class="cnt">단어노트 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">밑줄 단어를 누르면 여기에 쌓여요.</div>';
+  h+='<div class="card"><ul class="wl">';
+  L.forEach(function(n){h+='<li><span class="lw">'+esc(n.l)+'</span><span class="lm">'+esc(n.k)+'</span>'+(n.c>1?'<span class="lc">'+n.c+'번</span>':'')+'<button class="rmw" data-a="rmnote" data-v="'+esc(n.l.toLowerCase())+'">빼기</button></li>'});
+  return h+'</ul></div>';
+}
+function sk(id){return id.indexOf('sw:')===0?id.slice(3):id}
+function wrongOf(id){var r=SRV[sk(id).toLowerCase()];return r&&r.c>0?r.c:0}
+function flagList(){return Object.keys(SRV).map(function(k){return SRV[k]}).filter(function(r){return r.c>0}).sort(function(a,b){return b.c-a.c})}
+function nFlag(){return flagList().length}
+function srvLoad(){
+  try{WN.list().then(function(r){
+    if(!r||!r.ok||!r.items)return;SRV={};
+    r.items.forEach(function(i){if(String(i.src||'').indexOf(SRC)>=0)SRV[String(i.w).toLowerCase()]={w:i.w,m:i.m,c:i.c||0}});
+    if(view==='home'||view==='chk'||view==='sw')render();
+  })}catch(e){}
+}
+function vChk(){
+  var L=flagList();
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">선생님 확인 단어 '+L.length+'개</span></div>';
+  if(!L.length)return h+'<div class="empty">틀린 단어가 없어요.</div>';
+  h+='<p class="hint">선생님이 물어봤을 때 틀린 단어예요. 먼저 뜻을 떠올려 보고 확인해 보세요. 오답노트(H로드맵)에도 같이 있어요.</p><div class="card">';
+  L.forEach(function(r){
+    var id=r.w.toLowerCase(),o=swOpen['c'+id];
+    h+='<div class="swr"><div class="swq"><span class="sa">'+esc(r.w)+'</span><span class="sb">'+(o?'<em>'+esc(r.m)+'</em>':'뜻은?')+'</span><small class="flag">'+r.c+'번 틀림</small><button data-a="rv" data-v="c'+esc(id)+'">'+(o?'가리기':'확인')+'</button></div></div>';
+  });
+  return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
+}
+function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+function vSw(){
+  var L=swList(),sc={};
+  (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
+  var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
+  h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  L.forEach(function(s){
+    var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
+    h+='<div class="swr"><div class="swq"><span class="qn">'+s.sq+'번</span><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
+    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='</div>';
+  });
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+}
+/* 자동 새로고침(기록 연동)이 일어나도 보던 문제로 되돌린다 */
+try{var sv=JSON.parse(sessionStorage.getItem('vhyv')||'null');if(sv&&sv.p===location.pathname&&Date.now()-sv.t<600000&&sv.v&&sv.v!=='home'){view=sv.v;cur=sv.c||0;try{history.pushState({v:view},'');histPushed=true}catch(e){}}}catch(e){}
+render();srvLoad();window.addEventListener('pageshow',srvLoad);
+</script>
+</body>
+</html>
