@@ -493,8 +493,26 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'…것을 안전한 장소로 옮기는 데 대략 <b>1년이</b>(about one year) 걸릴 것으로 생각했다.'],[2,'그러나 전쟁이 끝날 때 그 지역의 <b>통제권이</b>(control) 바뀔 예정이었기 때문에, 그들은 오직…']],
+'2':[[3,'<b>불충분한</b>(insufficient) 포장 자재와 오직 몇 대의 트럭으로…'],[4,'그뿐만 아니라 식량 공급량도 <b>부족했다</b>(in short supply).']],
+'3':[[5,'…식사도 하지 못한 채, 그들은 하루에 <b>20시간까지</b>(up to) 일했다.'],[6,'그들은 외투와 방독면을 포장 재료로 <b>사용했고</b>(used) 이 중요한 임무를 시간 내에 완수하기…']],
+'4':[[6,'…방독면을 포장 재료로 사용했고 이 <b>중요한</b>(vital) 임무를 시간 내에 완수하기 위해…'],[7,'…수천 점의 도난당한 예술 작품을 <b>구출하는</b>(rescuing) 데 성공했다.']]
+};
+var REL={
+control:{bj:'…전쟁이 끝날 때 그 지역의 <b>통제권이</b>(control) 바뀔 예정이었기 때문에,…',s:[['command','지휘'],['power','권력']],a:[['chaos','혼란']],t:'authority',tr:'통제권 → 권한'},
+'have access to':{bj:'…오직 두 달 동안만 광산에 <b>접근하게</b>(have access to) 될 것이었다.',s:[],a:[],t:'enter',tr:'~에 접근하다 → ~에 들어가다'},
+'about one year':{bj:'…장소로 옮기는 데 대략 <b>1년이</b>(about one year) 걸릴 것으로 생각했다.',s:[],a:[],t:'a year',tr:'대략 1년 → 1년'},
+insufficient:{bj:'<b>불충분한</b>(insufficient) 포장 자재와 오직 몇 대의…',s:[['scarce','부족한'],['lacking','모자라는']],a:[['sufficient','충분한'],['abundant','풍부한']],t:'inadequate',tr:'불충분한 → 충분하지 않은'},
+'in short supply':{bj:'그뿐만 아니라 식량 공급량도 <b>부족했다</b>(in short supply).',s:[],a:[],t:'scarce',tr:'공급이 부족한 → 귀한'},
+'transporting mission':{bj:'…몇 대의 트럭으로 수송 <b>임무는</b>(transporting mission) 불가능한 것처럼 보였다.',s:[],a:[],t:'mission',tr:'수송 임무 → 임무'},
+use:{bj:'…방독면을 포장 재료로 <b>사용했고</b>(used) 이 중요한 임무를 시간…',s:[['employ','사용하다'],['apply','적용하다']],a:[['waste','낭비하다']],t:'utilize',tr:'사용하다 → 활용하다'},
+material:{bj:'그들은 외투와 방독면을 포장 <b>재료로</b>(materials) 사용했고 이 중요한 임무를…',s:[['supplies','물자'],['substance','물질']],a:[],t:'equipment',tr:'재료 → 장비'},
+'up to':{bj:'…못한 채, 그들은 하루에 <b>20시간까지</b>(up to) 일했다.',s:[],a:[],t:'as long as',tr:'~까지 → 최대 ~까지'},
+vital:{bj:'…포장 재료로 사용했고 이 <b>중요한</b>(vital) 임무를 시간 내에 완수하기…',s:[['critical','중대한'],['crucial','결정적인']],a:[['dispensable','없어도 되는'],['trivial','사소한']],t:'essential',tr:'중요한 → 필수적인'},
+rescue:{bj:'…점의 도난당한 예술 작품을 <b>구출하는</b>(rescuing) 데 성공했다.',s:[['free','해방시키다'],['help','구조하다']],a:[['abandon','버리다']],t:'save',tr:'구출하다 → 구하다'},
+accomplish:{bj:'…중요한 임무를 시간 내에 <b>완수하기</b>(accomplish) 위해 그들이 할 수 있는…',s:[['achieve','달성하다'],['attain','이루다']],a:[['fail','실패하다']],t:'finish',tr:'완수하다 → 끝내다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
