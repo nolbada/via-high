@@ -493,8 +493,26 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'…You Trap a Tiger를 <b>출판했을</b>(published) 때 한국 문화에 대해 조금 더 알게…']],
+'2':[[2,'…with a girl who <b>meets</b> a tiger.'],[4,'…아프게 되자, 그 소녀는 그 호랑이와 <b>거래를</b>(deal) 한다.']],
+'3':[[5,'Keller의 수상 도서에 <b>영감을</b>(inspiration) 준 것은 그녀의 할머니가 그녀에게…']],
+'4':[[7,'…씀으로써 호랑이에 대한 대중의 흥미를 <b>되살리고</b>(revive) 싶어 했다.']]
+};
+var REL={
+publish:{bj:'…Trap a Tiger를 <b>출판했을</b>(published) 때 한국 문화에 대해 조금…',s:[['issue','발행하다'],['print','인쇄하다']],a:[['withhold','내놓지 않다']],t:'release',tr:'출판하다 → 출간하다, 내놓다'},
+'a bit more':{bj:'<b>Children</b> around the world learned a …',s:[],a:[],t:'more',tr:'조금 더 → 더'},
+'writer tae keller published her book':{bj:'<b>Children</b> around the world learned a …',s:[],a:[],t:'Tae Keller\'s book, released',tr:'작가가 책을 출판했을 때 → 책이 출간되어'},
+meet:{bj:'… starts with a girl who <b>meets</b> a tiger.',s:[['run into','우연히 만나다'],['face','맞닥뜨리다']],a:[['avoid','피하다']],t:'encounter',tr:'만나다 → 마주치다'},
+deal:{bj:'…그 소녀는 그 호랑이와 <b>거래를</b>(deal) 한다.',s:[['agreement','합의'],['trade','거래']],a:[],t:'bargain',tr:'거래 → 거래, 흥정'},
+sick:{bj:'When her grandmother gets <b>sick,</b> the girl makes a deal …',s:[['unwell','몸이 안 좋은'],['ailing','앓는']],a:[['healthy','건강한'],['well','건강한']],t:'ill',tr:'아픈 → 아픈'},
+inspiration:{bj:'Keller의 수상 도서에 <b>영감을</b>(inspiration) 준 것은 그녀의 할머니가…',s:[['motivation','동기'],['stimulus','자극']],a:[],t:'inspire',tr:'영감 → 영감을 주다'},
+folktale:{bj:'…그녀에게 이야기해 주던 옛 <b>설화였다</b>(folktale).',s:[['legend','전설'],['myth','신화'],['tale','이야기']],a:[],t:'story',tr:'옛 설화 → 이야기'},
+'award-winning':{bj:'Keller의 <b>수상</b>(award-winning) 도서에 영감을 준 것은…',s:[['acclaimed','호평받는'],['celebrated','유명한']],a:[['unknown','무명의']],t:'prize-winning',tr:'수상한 → 상을 받은'},
+revive:{bj:'…대한 대중의 흥미를 <b>되살리고</b>(revive) 싶어 했다.',s:[['restore','복원하다'],['bring back','되살리다']],a:[['destroy','파괴하다']],t:'renew',tr:'되살리다 → 되살리다, 새롭게 하다'},
+public:{bj:'…씀으로써 호랑이에 대한 <b>대중의</b>(public) 흥미를 되살리고 싶어 했다.',s:[['citizens','시민들'],['crowd','대중']],a:[],t:'people',tr:'대중 → 사람들'},
+book:{bj:'… tigers by writing her own <b>book.</b>',s:[['title','서적'],['volume','책']],a:[],t:'novel',tr:'책 → 소설'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
