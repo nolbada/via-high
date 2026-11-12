@@ -492,8 +492,23 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'아리스토텔레스의 일부 생각은 오늘날 우리에게 <b>낯설게</b>(strange) 다가옴'],[2,'그는 노예 제도를 <b>정당화하는</b>(justifying) 데 어려움이 없었고, 철학자들은 높은 특권과 영향력의 지위를 <b>누렸음</b>(enjoyed)']],
+'2':[[3,'철학자들은 삶에서 모든 최고의 것들을 가질 <b>만하다고</b>(worthy) 여겨짐'],[4,'그 주장은 <b>자기 잇속만 차리는</b>(self-serving) 것처럼 <b>보임</b>(seems)']],
+'3':[[6,'그의 인간 번영은 오늘날만큼 <b>포용적이지</b>(inclusive) 않을 것임'],[8,'그의 생각은 장점에도 불구하고 <b>심각하게</b>(deeply) <b>결함이 있음</b>(flawed)']]
+};
+var REL={
+strange:{bj:'아리스토텔레스의 일부 생각은 오늘날 우리에게 <b>낯설게</b>(strange) 다가온다',s:[['peculiar','독특한'],['unusual','특이한'],['weird','기이한']],a:[['familiar','익숙한']],t:'odd',tr:'strange는 낯선, 이상한 두 뜻 모두 씀'},
+justify:{bj:'노예 제도를 <b>정당화하는</b>(justifying) 데 아무런 어려움이 없었다',s:[['warrant','정당화하다'],['support','뒷받침하다']],a:[['condemn','비난하다']],t:'defend',tr:'justify는 옳다고 이유를 대어 주다, 여기서는 나쁜 것도 옳다고 변호하다'},
+high:{bj:'철학자들은 <b>높은</b>(high) 특권과 영향력이 있는 지위를 누렸다',s:[['elevated','높은'],['superior','우월한']],a:[['low','낮은']],t:'great',tr:'high는 높이뿐 아니라 지위 · 정도가 높다는 뜻'},
+enjoy:{bj:'높은 특권과 영향력이 있는 지위를 <b>누렸다</b>(enjoyed)',s:[['possess','소유하다'],['hold','쥐다'],['benefit from','덕을 보다']],a:[['lack','부족하다']],t:'have',tr:'enjoy는 즐기다가 먼저, 여기서는 (특권을) 누리다'},
+worthy:{bj:'철학자들은 삶에서 모든 최고의 것들을 가질 <b>만하다고</b>(worthy) 여겨졌다',s:[['qualified','자격 있는'],['eligible','자격이 있는'],['valuable','가치 있는']],a:[['unworthy','자격 없는']],t:'deserving',tr:'worthy of ~는 ~을 받을 자격이 있는'},
+seem:{bj:'그 주장은 이상하게도 자기 잇속만 차리는 것처럼 <b>보인다</b>(seems)',s:[['appear','~처럼 보이다'],['sound','~처럼 들리다']],a:[],t:'look',tr:'seem은 ~처럼 보이다, 뒤에 형용사가 옴'},
+'self-serving':{bj:'그 주장은 <b>자기 잇속만 차리는</b>(self-serving) 것처럼 보인다',s:[['self-centered','자기중심적인'],['egocentric','자기중심적인']],a:[['selfless','사심 없는'],['altruistic','이타적인']],t:'selfish',tr:'self-serving은 자기 이익만 챙기는, 이기적인과 같은 방향'},
+inclusive:{bj:'인간 번영은 오늘날만큼 <b>포용적이지</b>(inclusive) 않을 것이다',s:[['comprehensive','포괄적인'],['all-embracing','모두를 아우르는']],a:[['exclusive','배타적인'],['narrow','좁은']],t:'open',tr:'inclusive는 모두를 포함하는, 반대는 일부만 받는 exclusive'},
+flawed:{bj:'그것은 또한 심각하게 <b>결함이 있다</b>(flawed)',s:[['defective','결함 있는'],['imperfect','불완전한'],['deficient','부족한']],a:[['flawless','흠 없는']],t:'faulty',tr:'flawed는 flaw(결함)에서 온 형용사'},
+deeply:{bj:'그것은 또한 <b>심각하게</b>(deeply) 결함이 있다',s:[['profoundly','깊이'],['extremely','극도로'],['severely','심하게']],a:[['slightly','약간']],t:'seriously',tr:'deeply는 깊이 뜻이 먼저, 여기서는 정도가 심하게'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
