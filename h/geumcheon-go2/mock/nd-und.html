@@ -66,13 +66,13 @@ var KEEP={voc:.7,find:.7,eob:.75,awk:.7,und:.7};ids.forEach(function(e){var sp=S
 if(WN.MODE){var _wi=WN.ids('mock',P,ACTN);all=all.filter(function(x){return _wi.indexOf(x.id)>=0})}
 if(!all.length){H.innerHTML=WN.MODE?'<div class="card sum"><h3>오답 노트에 담긴 문제가 없어요</h3><a class="nx sub" style="text-decoration:none;text-align:center" href="../wrong.html">오답 노트 ›</a></div>':'<div class="card sum"><h3>이 범위에는 이 유형 문제가 없어요</h3></div>';return}
 var SK='nd:'+K+WN.SUF,S;try{S=JSON.parse(localStorage.getItem(SK)||'null')}catch(e){}
-if(!S||S.n!==all.length)S={n:all.length,done:{},round:1,wrong:{},fin:0};
+if(!S||typeof S!=='object'||!S.done||typeof S.done!=='object')S={n:all.length,done:{},round:1,wrong:{},fin:0};else{S.n=all.length;if(!S.round)S.round=1;if(!S.wrong||typeof S.wrong!=='object')S.wrong={}}
 function save(){try{localStorage.setItem(SK,JSON.stringify(S))}catch(e){}}
 var queue=[],pos=0;
 function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
 function build(){queue=all.filter(function(x){return !S.done[x.id]});pos=0}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
-function top(){var d=Object.keys(S.done).length;CNT.textContent=(S.round>1?(S.round+'번째 돌기 · '):'')+'맞힌 문제 '+d+' / '+all.length;PB.style.width=(d/all.length*100)+'%'}
+function top(){var d=all.filter(function(x){return S.done[x.id]}).length;CNT.textContent=(S.round>1?(S.round+'번째 돌기 · '):'')+'맞힌 문제 '+d+' / '+all.length;PB.style.width=(d/all.length*100)+'%'}
 function show(){
  top();
  if(pos>=queue.length){
