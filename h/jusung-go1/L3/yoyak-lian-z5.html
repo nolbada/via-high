@@ -493,8 +493,26 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'모뉴먼츠 맨의 노력은 전쟁과 함께 <b>끝나지</b>(end) 않았다.'],[2,'여러 해 동안, 그들은 문화재를 <b>되찾고</b>(recovering) 그것들이 어디에서 도난당했는지…']],
+'2':[[3,'…물건들을 그것들의 원래 장소들로 <b>돌려보냈다</b>(returned).']],
+'3':[[4,'…the Monuments Men <b>accomplished</b> is truly amazing.'],[5,'…도난당한 예술 작품들의 수색은 <b>시작되지</b>(begun) 않았을지도 모른다.']],
+'4':[[6,'…would have been <b>lost</b> forever due to the…'],[7,'문화유산 <b>보존에</b>(preservation) 대한 모뉴먼츠 맨의 기여는 기억할…']]
+};
+var REL={
+end:{bj:'…맨의 노력은 전쟁과 함께 <b>끝나지</b>(end) 않았다.',s:[['stop','멈추다'],['terminate','끝내다']],a:[['begin','시작하다'],['continue','계속하다']],t:'cease',tr:'끝나다 → 멈추다, 그치다'},
+recover:{bj:'…해 동안, 그들은 문화재를 <b>되찾고</b>(recovering) 그것들이 어디에서…',s:[['regain','되찾다'],['get back','되찾다']],a:[['lose','잃다']],t:'retrieve',tr:'되찾다 → 되찾아 오다'},
+identify:{bj:'…어디에서 도난당했는지 <b>식별하는</b>(identifying) 작업을 이어갔다.',s:[['recognize','알아보다'],['detect','발견하다']],a:[['overlook','간과하다']],t:'find out',tr:'식별하다 → 알아내다'},
+return:{bj:'…그것들의 원래 장소들로 <b>돌려보냈다</b>(returned).',s:[['give back','돌려주다'],['hand back','반환하다']],a:[['keep','간직하다'],['take','가져가다']],t:'restore',tr:'돌려보내다 → 되돌려 놓다'},
+origin:{bj:'… importance to their places of <b>origin.</b>',s:[['source','근원'],['root','뿌리']],a:[['end','끝']],t:'originate',tr:'원래의 출처 → 유래하다, 비롯되다'},
+'more than':{bj:'…모뉴먼츠 맨은 5백만 점이 <b>넘는</b>(more than) 예술 작품과 문화적으로…',s:[],a:[],t:'over',tr:'~이 넘는 → ~ 넘게'},
+accomplish:{bj:'… but what the Monuments Men <b>accomplished</b> is truly amazing.',s:[['achieve','달성하다'],['attain','이루다']],a:[['fail','실패하다']],t:'achievement',tr:'이루다 → 업적, 성취'},
+begin:{bj:'…예술 작품들의 수색은 <b>시작되지</b>(begun) 않았을지도 모른다.',s:[['commence','시작하다'],['launch','개시하다']],a:[['end','끝내다'],['finish','마치다']],t:'start',tr:'시작하다 → 시작되다'},
+'not everything':{bj:'<b>Not</b> everything that was stolen by …',s:[],a:[],t:'not all',tr:'모든 것이 ~는 아니다 → 전부가 ~는 아니다'},
+lost:{bj:'… cultural landmarks would have been <b>lost</b> forever due to the destruction …',s:[['missing','사라진'],['gone','없어진']],a:[['found','발견된']],t:'vanish',tr:'잃다 → 사라지다'},
+preservation:{bj:'문화유산 <b>보존에</b>(preservation) 대한 모뉴먼츠 맨의 기여는…',s:[['conservation','보존'],['maintenance','유지']],a:[['destruction','파괴']],t:'protecting',tr:'보존 → 보호하는 것'},
+'destruction of war':{bj:'…문화적 랜드마크가 전쟁의 <b>파괴로</b>(destruction of war) 인해 영원히 사라져 버렸을…',s:[],a:[],t:'war',tr:'전쟁의 파괴 → 전쟁'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
