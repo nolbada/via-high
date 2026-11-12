@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'지표면의 인체는 <b>일정한</b>(constant) 기압을 받음'],[2,'외부 압력이 폐와 몸의 공기 공간의 내부 압력과 <b>균형을 이루어</b>(balanced) 압력을 느끼지 못함']],
+'2':[[4,'물속에서는 외부와 <b>내부</b>(internal) 압력이 같은 상태를 유지해야 함'],[5,'이를 위해 잠수부에게 주변 물의 압력과 <b>같은</b>(equal) 압력으로 공기가 <b>공급됨</b>(supplied)']],
+'3':[[6,'수압은 깊이에 비례해 <b>증가함</b>(increases)'],[7,'10미터마다 1바씩 증가'],[8,'10미터 깊이에서는 2바이므로 압력을 <b>안정시키려면</b>(stabilize) 2기압의 호흡 혼합물 <b>공급이 필요함</b>(required)']]
+};
+var REL={
+constant:{bj:'지표면의 인체는 <b>일정한</b>(constant) 기압을 받음',s:[['continuous','계속되는'],['consistent','일관된']],a:[['variable','변하는'],['inconsistent','일관되지 않은']],tr:'constant는 끊임없는 뜻도 있지만 여기서는 일정한, variable과 반대'},
+balance:{bj:'외부 압력이 내부 압력과 <b>균형을 이루어</b>(balanced) 압력을 못 느낌',s:[['equilibrium','평형'],['offset','상쇄하다']],a:[['imbalance','불균형']],tr:'balance는 균형을 맞추다, 저울(scale) 뜻도 있는 다의어'},
+external:{bj:'<b>외부</b>(external) 압력이 내부 압력과 균형을 이룸',s:[['exterior','외부의'],['outer','바깥쪽의']],a:[['internal','내부의']],tr:'internal과 짝으로 나와 서로 반대말'},
+internal:{bj:'폐와 몸의 공기 공간의 <b>내부</b>(internal) 압력',s:[['inner','안쪽의'],['interior','내부의']],a:[['external','외부의']],tr:'external과 짝으로 나와 서로 반대말'},
+supply:{bj:'잠수부에게 공기나 호흡 혼합물이 <b>공급됨</b>(supplied)',s:[['furnish','공급하다']],a:[['demand','요구하다']],tr:'supply는 명사 공급, 동사 공급하다 둘 다 가능'},
+equal:{bj:'주변 물의 압력과 <b>같은</b>(equal) 압력으로 공급함',s:[['same','같은']],a:[['unequal','같지 않은']],tr:'equal은 같은. equal to는 ~와 같은'},
+increase:{bj:'수압은 깊이에 비례해 <b>증가함</b>(increases)',s:[['grow','커지다'],['raise','올리다']],a:[['decrease','감소하다'],['reduce','줄이다']],tr:'increase는 자동사(증가하다), raise는 타동사(올리다)로 구분'},
+stabilize:{bj:'압력을 <b>안정시키려면</b>(stabilize) 2기압 공급이 필요함',s:[['steady','안정시키다'],['level','평평하게 하다']],a:[['fluctuate','오르내리다']],tr:'어려운 단어라 stable(안정된)에 -ize가 붙은 것으로 파악'},
+require:{bj:'호흡 혼합물의 <b>공급이 필요함</b>(required)',s:[['demand','요구하다'],['call for','~을 필요로 하다']],a:[],tr:'require는 요구하다, need와 같은 계열'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
