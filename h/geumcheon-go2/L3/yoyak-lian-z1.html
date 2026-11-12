@@ -493,8 +493,23 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'…추구할 것인지까지 우리의 삶에서 많은 <b>개인적인</b>(personal) 선택을 한다.'],[2,'하지만, 우리가 <b>집단으로서</b>(group) 결정을 내려야 하는 상황들이 많이…']],
+'2':[[3,'…때문에 우리의 개인적인 선택들만큼 <b>간단하지</b>(simple) 않다.']],
+'3':[[4,'…공정하고 더 효율적으로 만들기 위해 <b>사용되며</b>(used), 시간이 흐르면서 다양한 투표 방법이…']]
+};
+var REL={
+personal:{bj:'…우리의 삶에서 많은 <b>개인적인</b>(personal) 선택을 한다.',s:[['private','사적인'],['own','자신의']],a:[['public','공공의'],['general','일반적인']],t:'individual',tr:'개인적인 → 개인의, 개인적인'},
+group:{bj:'하지만, 우리가 <b>집단으로서</b>(group) 결정을 내려야 하는…',s:[['team','팀'],['collective','집단의']],a:[['individual','개인']],t:'collectively',tr:'집단(으로서) → 집단적으로'},
+simple:{bj:'…우리의 개인적인 선택들만큼 <b>간단하지</b>(simple) 않다.',s:[['easy','쉬운'],['basic','기본적인']],a:[['complicated','복잡한']],t:'complex',tr:'간단한 → 복잡한 (not simple = complex)'},
+differ:{bj:'… it involves numerous voices with <b>differing</b> opinions.',s:[['vary','다르다'],['disagree','의견이 다르다']],a:[['agree','일치하다'],['match','일치하다']],t:'divergent',tr:'서로 다르다(differing) → 서로 갈리는'},
+numerous:{bj:'…결정은 다른 의견을 가진 <b>수많은</b>(numerous) 목소리를 수반하기 때문에…',s:[['countless','수많은'],['plenty of','많은']],a:[['few','거의 없는']],t:'many',tr:'수많은 → 많은'},
+voices:{bj:'…다른 의견을 가진 수많은 <b>목소리를</b>(voices) 수반하기 때문에 우리의…',s:[['opinions','의견'],['views','견해']],a:[],t:'people',tr:'목소리 → 사람들'},
+use:{bj:'…더 효율적으로 만들기 위해 <b>사용되며</b>(used), 시간이 흐르면서 다양한…',s:[['apply','적용하다'],['utilize','활용하다']],a:[['waste','낭비하다']],t:'employ',tr:'사용하다 → 활용하다'},
+fair:{bj:'…흔히 집단 의사 결정을 더 <b>공정하고</b>(fairer) 더 효율적으로 만들기 위해…',s:[['just','공정한'],['impartial','공평한']],a:[['unfair','불공정한'],['biased','편향된']],t:'equitable',tr:'공정한 → 공평한'},
+method:{bj:'…흐르면서 다양한 투표 <b>방법이</b>(methods) 개발되어 왔다.',s:[['way','방법'],['approach','접근법'],['system','체계']],a:[],t:'technique',tr:'방법 → 기법'},
+developed:{bj:'…다양한 투표 방법이 <b>개발되어</b>(developed) 왔다.',s:[['invented','발명되었다'],['designed','고안되었다']],a:[],t:'created',tr:'개발되다 → 만들어지다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
