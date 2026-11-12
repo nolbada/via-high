@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[2,'종의 크기는 세계와의 <b>미세 조정된</b>(fine-tuned) 상호작용'],[3,'크기 <b>변동</b>(fluctuations)은 <b>중대한</b>(significant) 환경 변화를 알림']],
+'2':[[4,'지난 5억 년간 동물은 <b>더 커지는</b>(larger) 추세'],[5,'<b>해양</b>(marine) 동물의 몸집이 150배 <b>늘었음</b>(increased)']],
+'3':[[8,'모든 범주(<b>category</b>)의 종이 작아지고 있음'],[10,'샤무아는 쉬는 데 시간을 <b>보냄</b>(spend)'],[7,'동물들이 줄어드는 <b>변화</b>(change)']]
+};
+var REL={
+'fine-tuned':{bj:'<b>미세 조정된</b>(fine-tuned) 상호작용',s:[['calibrated','정밀하게 조정된'],['adjusted','맞춰진']],a:[],t:'precise',tr:'fine-tune은 아주 세밀하게 맞추다'},
+fluctuation:{bj:'크기 <b>변동</b>(fluctuations)',s:[['variation','변화'],['shift','이동']],a:[['stability','안정']],t:'swing',tr:'fluctuation은 오르락내리락하는 변화'},
+significant:{bj:'<b>중대한</b>(significant) 환경 변화',s:[['considerable','상당한'],['substantial','상당한'],['meaningful','의미 있는']],a:[['insignificant','대수롭지 않은']],t:'major',tr:'significant는 크고 의미 있는'},
+larger:{bj:'동물이 <b>더 커지는</b>(larger) 쪽으로',s:[['greater','더 큰'],['huge','거대한']],a:[['smaller','더 작은']],t:'bigger',tr:'larger는 크기가 더 큰'},
+increase:{bj:'몸집이 150배 <b>늘었다</b>(increased)',s:[['rise','오르다'],['grow','자라다']],a:[['decrease','줄다'],['reduce','줄이다']],t:'expand',tr:'increase는 수나 양이 늘다'},
+marine:{bj:'<b>해양</b>(marine) 동물',s:[['oceanic','대양의'],['maritime','바다의']],a:[['terrestrial','육지의']],t:'sea',tr:'marine은 바다에 사는, 바다와 관련된'},
+change:{bj:'동물들이 줄어드는 <b>변화</b>(change)',s:[['shift','변화'],['transformation','변형'],['alteration','바뀜']],a:[],t:'reversing',tr:'change는 달라지는 것. reversing은 방향이 반대로 뒤바뀌는 것'},
+spend:{bj:'쉬는 데 시간을 <b>보낸다</b>(spend)',s:[['pass','보내다'],['use up','소비하다']],a:[['save','아끼다']],t:'devote',tr:'spend는 시간이나 돈을 쓰다'},
+category:{bj:'모든 <b>범주</b>(category)의 종',s:[['class','분류'],['kind','종류'],['type','유형']],a:[],t:'group',tr:'category는 비슷한 것끼리 묶은 갈래'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
