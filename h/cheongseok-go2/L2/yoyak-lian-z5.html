@@ -493,8 +493,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'캐나다 앨버타주에는 온라인상에서 <b>비공식</b>(informal) 단체를 결성한 ‘오로라 추적자들’이…'],[2,'그들은 밤에 집을 나서 <b>특별한</b>(exceptional) 오로라 사진을 찍으려고 하곤 했다.'],[3,'그런 다음 그들은 단체의 나머지 사람들과 그것들을 공유하곤 했다.']],
+'2':[[4,'…이상한 무언가가 나타나는 것을 <b>알아채기</b>(notice) 시작했다.'],[5,'…of which seemed to <b>stretch</b> for thousands of…'],[6,'그것들은 어떤 때에는 단 몇 분간 지속되었지만, 다른 때에는 한 시간 내내 하늘…']],
+'3':[[7,'그것들은 오로라와 생김새가 <b>비슷했지만</b>(similar), 몇 가지 현저하게 다른 특징들을…']],
+'4':[[8,'<b>Unsure</b> of what they were,…']]
+};
+var REL={
+informal:{bj:'…앨버타주에는 온라인상에서 <b>비공식</b>(informal) 단체를 결성한 ‘오로라…',s:[['relaxed','편안한'],['easygoing','느긋한']],a:[['formal','격식 있는']],t:'casual',tr:'비공식적인 → 격식 없는'},
+exceptional:{bj:'그들은 밤에 집을 나서 <b>특별한</b>(exceptional) 오로라 사진을 찍으려고…',s:[['remarkable','놀라운'],['superb','최고의']],a:[['ordinary','평범한']],t:'outstanding',tr:'특별한 → 뛰어난'},
+notice:{bj:'…무언가가 나타나는 것을 <b>알아채기</b>(notice) 시작했다.',s:[['observe','관찰하다'],['detect','감지하다']],a:[['overlook','간과하다'],['miss','놓치다']],t:'spot',tr:'알아채다 → 발견하다'},
+stretch:{bj:'… some of which seemed to <b>stretch</b> for thousands of kilometers',s:[['reach','이르다'],['spread','퍼지다']],a:[['shrink','줄어들다']],t:'extend',tr:'뻗다 → 뻗어 나가다'},
+similar:{bj:'그것들은 오로라와 생김새가 <b>비슷했지만</b>(similar), 몇 가지 현저하게 다른…',s:[['alike','닮은'],['comparable','비슷한']],a:[['different','다른']],t:'resemble',tr:'비슷한 → 닮다'},
+notably:{bj:'…비슷했지만, 몇 가지 <b>현저하게</b>(notably) 다른 특징들을 지니고…',s:[['particularly','특히'],['especially','특별히']],a:[['slightly','약간']],t:'remarkably',tr:'현저하게 → 두드러지게'},
+unsure:{bj:'<b>Unsure</b> of what they were, the …',s:[['doubtful','의심스러운'],['hesitant','망설이는']],a:[['certain','확신하는'],['confident','자신 있는']],t:'uncertain',tr:'확신이 없는 → 불확실한'},
+name:{bj:'… were, the group decided to <b>name</b> the phenomenon “Steve,” based on …',s:[['call','부르다'],['title','제목을 붙이다']],a:[],t:'label',tr:'이름 짓다 → 이름 붙이다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
