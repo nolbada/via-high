@@ -493,8 +493,23 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'제조사들이 기기에 대한 의심의 씨앗을 <b>노련하게</b>(masterfully) <b>뿌림</b>(sow)'],[2,'1년 전 생명줄이던 폰이 지금은 <b>박물관 전시품</b>(a museum piece)'],[3,'<b>진짜</b>(genuine) 필요가 생기기 전에 업그레이드 욕구가 시작됨']],
+'2':[[4,'디지털 기기에만 <b>갇히지</b>(confined) 않음'],[5,'소비자 전자제품 거의 모든 분야로 <b>번짐</b>(spills over)'],[6,'모든 제품이 <b>멈출 수 없는</b>(unstoppable) 행진 중']],
+'3':[[7,'이 순환의 <b>효력</b>(efficacy)이 욕구를 형성함'],[8,'우리는 그것이 <b>필요하다고</b>(need) 믿게 됨'],[9,'원하는 것과 필요한 것의 구분이 <b>흐려짐</b>(blurs)']]
+};
+var REL={
+masterfully:{bj:'제조사들이 <b>노련하게</b>(masterfully) 의심의 씨앗을 뿌린다',s:[['expertly','능숙하게'],['adeptly','솜씨 있게']],a:[['clumsily','서투르게']],t:'skillfully',tr:'masterfully는 마스터처럼 아주 능숙하게'},
+sow:{bj:'의심의 씨앗을 <b>뿌린다</b>(sow)',s:[['scatter','흩뿌리다'],['spread','퍼뜨리다']],a:[],t:'plant',tr:'sow는 씨를 뿌리다, 비유로 생각을 심다'},
+genuine:{bj:'<b>진짜</b>(genuine) 필요',s:[['authentic','진품의'],['sincere','진심의'],['real','진짜의']],a:[['fake','가짜의']],t:'true',tr:'genuine은 꾸밈없이 진짜인'},
+'a museum piece':{bj:'폰이 지금은 <b>박물관 전시품</b>(a museum piece)',s:[['relic','유물'],['antique','골동품']],a:[['brand-new','신제품의']],t:'outdated',tr:'a museum piece는 낡아서 전시할 정도로 구식인 물건'},
+confine:{bj:'이 현상은 디지털 기기에만 <b>갇히지</b>(confined) 않는다',s:[['restrict','제한하다'],['trap','가두다']],a:[['release','풀어 주다'],['free','자유롭게 하다']],t:'limit',tr:'confine은 어떤 범위 안에 가두다'},
+spill:{bj:'거의 모든 분야로 <b>번진다</b>(spills over)',s:[['overflow','넘치다'],['leak','새어 나가다']],a:[['contain','억제하다']],t:'spread',tr:'spill over는 넘쳐서 다른 곳으로 퍼지다'},
+unstoppable:{bj:'<b>멈출 수 없는</b>(unstoppable) 행진',s:[['irresistible','저항할 수 없는'],['inevitable','피할 수 없는']],a:[],t:'relentless',tr:'unstoppable은 막을 수 없는'},
+efficacy:{bj:'이 순환의 <b>효력</b>(efficacy)',s:[['effectiveness','효과'],['potency','힘']],a:[['futility','무익함']],t:'powerful',tr:'efficacy는 원하는 효과를 내는 힘'},
+need:{bj:'우리는 그것이 <b>필요하다고</b>(need) 믿게 된다',s:[['call for','필요로 하다']],a:[],t:'require',tr:'need는 없으면 안 되다'},
+blur:{bj:'원하는 것과 필요한 것의 구분이 <b>흐려진다</b>(blurs)',s:[['smudge','번지게 하다'],['fade','희미해지다'],['cloud','흐리게 하다']],a:[['sharpen','선명하게 하다']],t:'unclear',tr:'blur는 경계가 뚜렷하지 않게 되다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
