@@ -493,8 +493,21 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[3,'주로 낮의 길이 변화로 <b>촉발됨</b>(triggered)'],[4,'먹이 공급이 <b>최고조</b>(peak)일 때 새끼를 기름']],
+'2':[[5,'새들은 번식을 꺼릴 뿐 아니라 신체적으로 <b>할 수 없음</b>(incapable)'],[6,'생식 기관이 <b>줄어들어</b>(shrinks) 몸무게를 <b>아낌</b>(save)']],
+'3':[[8,'비가 오면 며칠 안에 번식 주기를 <b>시작함</b>(initiate)'],[9,'갑작스러운 번식 <b>기회</b>(opportunity)를 최대한 이용'],[10,'종마다 번식기를 다르게 <b>나눔</b>(divide)']]
+};
+var REL={
+trigger:{bj:'낮의 길이 변화로 <b>촉발된다</b>(triggered)',s:[['set off','일으키다'],['spark','불러일으키다'],['provoke','자극하다']],a:[],t:'prompt',tr:'trigger는 방아쇠처럼 일을 일으키다'},
+peak:{bj:'먹이 공급이 <b>최고조</b>(peak)일 때',s:[['summit','정상'],['top','꼭대기'],['climax','절정']],a:[['base','바닥']],t:'abundant',tr:'peak는 가장 높은 지점, abundant는 아주 풍부한'},
+incapable:{bj:'신체적으로 번식<b>할 수 없다</b>(incapable)',s:[['unfit','부적합한']],a:[['capable','할 수 있는'],['able','할 수 있는']],t:'unable',tr:'incapable는 능력이 아예 없는'},
+shrink:{bj:'생식 기관이 <b>줄어든다</b>(shrinks)',s:[['contract','수축하다'],['diminish','줄어들다']],a:[['expand','팽창하다'],['swell','부풀다']],t:'become smaller',tr:'shrink는 크기가 작아지다'},
+save:{bj:'날아다니는 새의 무게를 <b>아낀다</b>(save)',s:[['conserve','아끼다'],['spare','아끼다'],['preserve','보존하다']],a:[['waste','낭비하다']],t:'reduce',tr:'save weight는 무게를 덜다'},
+initiate:{bj:'번식 주기를 <b>시작할</b>(initiate) 수 있다',s:[['launch','시작하다'],['commence','개시하다']],a:[['complete','완료하다']],t:'start',tr:'initiate는 공식적으로 일을 시작하다'},
+opportunity:{bj:'갑작스러운 번식 <b>기회</b>(opportunity)',s:[['opening','틈'],['occasion','때']],a:[],t:'chance',tr:'opportunity는 무언가를 할 수 있는 좋은 때'},
+divide:{bj:'번식기를 다양한 방식으로 <b>나눈다</b>(divide)',s:[['separate','분리하다'],['partition','칸을 나누다']],a:[['unite','결합하다'],['combine','합치다']],t:'split',tr:'divide는 둘 이상으로 나누다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
