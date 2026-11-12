@@ -493,8 +493,30 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[2,'…노예를 감시하고 사냥하는 데 자주 <b>사용되었기</b>(used) 때문에 개에 대한 두려움이 컸다.'],[3,'…개에 대한 그의 두려움이 강하게 <b>표현되어</b>(expressed) 있다.']],
+'2':[[4,'…아프리카계 미국인의 자유로운 삶을 <b>묘사한다</b>(portrays).']],
+'3':[[5,'…이르는 미국 역사의 복잡한 순간을 <b>포착했다</b>(captured).'],[6,'As a result, he\'s now <b>considered</b> an important figure…']],
+'4':[[7,'…마음이 따뜻해지는 그림으로 알려진, <b>유명</b>(renowned) 예술가 Maud Lewis이다.'],[8,'1903년 캐나다의 작은 마을에서 태어난 Lewis는 기형적인 어깨와 손가락과 …'],[9,'이것은 그녀의 이동성을 <b>제한했고</b>(limited) 그녀가 학교를 중퇴하도록 만들었다.']],
+'5':[[10,'To <b>make</b> a living, she began…'],[12,'…여생을 그곳에서 보냈고 Lewis는 <b>계속해서</b>(continued) 그림을 그렸다.']]
+};
+var REL={
+use:{bj:'…감시하고 사냥하는 데 자주 <b>사용되었기</b>(used) 때문에 개에 대한 두려움이…',s:[['utilize','활용하다'],['apply','적용하다']],a:[['waste','낭비하다']],t:'employ',tr:'사용하다 → 이용하다'},
+express:{bj:'…대한 그의 두려움이 강하게 <b>표현되어</b>(expressed) 있다.',s:[['show','나타내다'],['communicate','전하다']],a:[['hide','숨기다']],t:'convey',tr:'표현하다 → 나타내다, 전달하다'},
+strong:{bj:'Traylor had a <b>strong</b> fear of dogs because they …',s:[['powerful','강력한'],['intense','강렬한']],a:[['weak','약한'],['mild','온화한']],t:'deep',tr:'강한 → 깊은'},
+portray:{bj:'…미국인의 자유로운 삶을 <b>묘사한다</b>(portrays).',s:[['describe','묘사하다'],['represent','나타내다']],a:[],t:'depict',tr:'묘사하다 → 그려 내다'},
+observe:{bj:'…몽고메리 거리에서 그가 <b>관찰한</b>(observed) 아프리카계 미국인의…',s:[['notice','알아채다'],['watch','지켜보다']],a:[['overlook','간과하다']],t:'witness',tr:'관찰하다 → 직접 보다'},
+paintings:{bj:'…큰 개〉를 시작으로 그의 <b>그림</b>(paintings) 몇 점을 살펴보겠다.',s:[['pictures','그림'],['artworks','미술 작품']],a:[],t:'works',tr:'그림 → 작품'},
+capture:{bj:'…미국 역사의 복잡한 순간을 <b>포착했다</b>(captured).',s:[['catch','포착하다'],['preserve','보존하다']],a:[['lose','놓치다']],t:'record',tr:'포착하다 → 기록하다'},
+consider:{bj:'As a result, he\'s now <b>considered</b> an important figure in American …',s:[['view','여기다'],['think of','~로 생각하다']],a:[['ignore','무시하다']],t:'regard',tr:'여기다 → 여기다'},
+using:{bj:'…단순한 형태와 색채를 <b>사용하여</b>(Using) 노예 제도에서 자유에…',s:[['by means of','~을 이용하여'],['through','~을 통해']],a:[],t:'with',tr:'~을 사용하여 → ~으로'},
+renowned:{bj:'…그림으로 알려진, <b>유명</b>(renowned) 예술가 Maud…',s:[['well-known','잘 알려진'],['celebrated','유명한']],a:[['unknown','알려지지 않은'],['obscure','무명의']],t:'famous',tr:'유명한 → 유명한'},
+limit:{bj:'이것은 그녀의 이동성을 <b>제한했고</b>(limited) 그녀가 학교를 중퇴하도록…',s:[['restrain','억제하다'],['confine','한정하다']],a:[['expand','넓히다']],t:'restrict',tr:'제한하다 → 제한하다'},
+'drop out of school':{bj:'…제한했고 그녀가 학교를 <b>중퇴하도록</b>(drop out of school) 만들었다.',s:[['quit school','학교를 그만두다'],['leave early','일찍 떠나다']],a:[['graduate','졸업하다']],t:'leave school',tr:'학교를 중퇴하다 → 학교를 떠나다'},
+make:{bj:'To <b>make</b> a living, she began to …',s:[['get','얻다'],['gain','얻다']],a:[['lose','잃다']],t:'earn',tr:'(생계를) 꾸리다 → 벌다'},
+continue:{bj:'…보냈고 Lewis는 <b>계속해서</b>(continued) 그림을 그렸다.',s:[['carry on','계속하다'],['go on','계속 나아가다']],a:[['stop','멈추다'],['quit','그만두다']],t:'keep',tr:'계속하다 → 계속하다'},
+'after marrying':{bj:'<b>After</b> marrying, the couple spent the …',s:[],a:[],t:'even after marrying',tr:'결혼 후 → 결혼한 뒤에도'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
