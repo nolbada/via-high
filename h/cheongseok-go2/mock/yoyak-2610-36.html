@@ -492,8 +492,30 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'디자이너가 더 효과적인 제품을 만들려면 우리가 사용자가 <b>아니라는</b>(we are not the user) 진리를 <b>받아들여야</b>(embrace) 함'],[2,'우리는 만드는 것에 너무 가까워 <b>객관적으로</b>(objectively) 볼 수 없음']],
+'2':[[3,'가장 좋은 인터페이스는 실제 사용자의 <b>관찰</b>(observations)로 <b>만들어진</b>(shaped) 것'],[5,'<b>엄청나게</b>(incredibly) <b>효과적인</b>(effective) 방법은 사용성 테스트']],
+'3':[[6,'이 방법은 설계의 문제를 <b>밝혀 내고</b>(uncover), 사용자의 <b>행동</b>(behaviors)과 <b>선호</b>(preferences)를 배우며, 참가자를 현실적인 <b>활동</b>(activities)에 참여시킴'],[7,'디자인이 실제 사용자 손에서 얼마나 잘 <b>작동할지</b>(perform) 이해하는 데 효과적']],
+'4':[[8,'대표적인 사용자의 발견에 기반한 차후의 <b>수정</b>(revisions)으로 작업을 <b>개선할</b>(improve) 수 있음']]
+};
+var REL={
+embrace:{bj:'디자이너들이 <b>받아들여야</b>(embrace) 하는 단순한 진리',s:[['adopt','채택하다'],['welcome','환영하다'],['hug','껴안다']],a:[['reject','거부하다']],t:'accept',tr:'embrace는 껴안다 뜻이 먼저, 여기서는 사실을 받아들이다'},
+objectively:{bj:'그것을 <b>객관적으로</b>(objectively) 보지 못한다',s:[['neutrally','중립적으로'],['fairly','공정하게'],['without bias','편견 없이']],a:[['subjectively','주관적으로']],t:'impartially',tr:'objectively는 개인 생각을 빼고 사실대로'},
+'we are not the user':{bj:'우리는 <b>사용자가 아니라는</b>(we are not the user) 사실',s:[],a:[],t:'different',tr:'우리는 사용자와 입장이 다르다는 뜻으로 줄여서 쓴 말'},
+shape:{bj:'실제 사용자의 관찰로 <b>만들어진</b>(shaped) 인터페이스',s:[['mold','틀 짓다'],['develop','발달시키다'],['fashion','만들다']],a:[],t:'form',tr:'shape은 모양 · 형태, 동사로 형성하다'},
+observation:{bj:'실제 사용자들에 대한 <b>관찰</b>(observations) 결과',s:[['monitoring','관찰'],['surveillance','감시'],['study','연구']],a:[],t:'watch',tr:'observation은 observe(관찰하다)의 명사형'},
+incredibly:{bj:'<b>엄청나게</b>(incredibly) 효과적인 방법',s:[['remarkably','놀랄 만큼'],['tremendously','엄청나게'],['exceedingly','극도로']],a:[['slightly','약간']],t:'extremely',tr:'incredibly는 믿기 어려울 만큼 매우'},
+effective:{bj:'엄청나게 <b>효과적인</b>(effective) 방법은 사용성 테스트',s:[['successful','성공적인'],['efficient','효율적인'],['productive','생산적인']],a:[['ineffective','효과 없는']],t:'useful',tr:'effective는 목표한 결과를 내는, 반대는 ineffective'},
+uncover:{bj:'디자인의 문제들을 <b>밝혀 내는</b>(uncover) 것',s:[['reveal','밝히다'],['expose','드러내다'],['discover','발견하다']],a:[['conceal','숨기다']],t:'find',tr:'uncover는 덮개를 벗기다, cover의 반대 방향'},
+behavior:{bj:'사용자들의 <b>행동</b>(behaviors)과 선호에 대해 배운다',s:[['conduct','행실'],['manner','태도'],['habit','습관']],a:[],t:'action',tr:'behavior는 behaviour(영국식)와 같은 말'},
+preference:{bj:'사용자들의 행동과 <b>선호</b>(preferences)에 대해 배운다',s:[['taste','취향'],['inclination','성향'],['favorite','좋아하는 것']],a:[['dislike','싫어함']],t:'like',tr:'preference는 prefer(더 좋아하다)의 명사형'},
+activity:{bj:'참가자들이 현실적인 <b>활동</b>(activities)에 참여하도록 요청한다',s:[['action','활동'],['exercise','연습'],['pursuit','활동']],a:[['inactivity','활동 없음']],t:'task',tr:'activity는 몸이나 머리를 써서 하는 활동'},
+perform:{bj:'디자인이 얼마나 잘 <b>작동할지</b>(perform)',s:[['function','기능하다'],['operate','작동하다'],['run','작동하다']],a:[['fail','실패하다']],t:'work',tr:'perform은 수행하다가 먼저, 여기서는 (제품이) 작동하다'},
+improve:{bj:'작업을 <b>개선하기</b>(improve) 위해 이 방법을 사용할 수 있다',s:[['refine','다듬다'],['upgrade','개선하다'],['develop','발전시키다']],a:[['worsen','악화시키다']],t:'enhance',tr:'improve는 더 좋게 만들다'},
+subsequent:{bj:'<b>차후의</b>(subsequent) 수정들을 통해',s:[['following','다음의'],['succeeding','뒤따르는'],['ensuing','뒤이은']],a:[['previous','이전의']],t:'later',tr:'subsequent는 시간상 뒤에 오는'},
+revision:{bj:'차후의 <b>수정</b>(revisions)들을 통해 개선한다',s:[['modification','수정'],['amendment','개정'],['edit','편집']],a:[],t:'change',tr:'revision은 revise(고치다)의 명사형'},
+representative:{bj:'<b>대표적인</b>(representative) 사용자들로부터 발견한 것들',s:[['characteristic','특징적인'],['archetypal','전형적인'],['standard','표준적인']],a:[['atypical','비전형적인']],t:'typical',tr:'representative는 명사 대표자도 되지만 여기서는 형용사 대표적인'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
