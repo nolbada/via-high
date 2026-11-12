@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[2,'<b>외부</b>(external) 원인으로 죽음'],[3,'<b>평균</b>(average)적으로 2년 넘게 살지 못함'],[2,'질병, 굶주림, <b>포식자</b>(predators) 때문']],
+'2':[[4,'수명은 야생에서 <b>살아남는</b>(survive) 평균 시간에 의해 <b>정해짐</b>(determined)'],[5,'박쥐는 30년 산다']],
+'3':[[6,'박쥐는 날 수 있어 위험에서 <b>벗어남</b>(escape)'],[7,'더 먼 <b>거리</b>(distances)를 이동'],[8,'수명을 늘린 변화는 <b>유용했음</b>(useful)']]
+};
+var REL={
+external:{bj:'<b>외부</b>(external) 원인으로 죽는다',s:[['outer','바깥쪽의'],['exterior','외부의'],['foreign','외래의']],a:[['internal','내부의']],t:'outside',tr:'external은 바깥에서 오는'},
+average:{bj:'<b>평균</b>(average)적으로 2년 넘게 살지 못한다',s:[['normal','보통의'],['ordinary','평범한'],['standard','표준의']],a:[['exceptional','예외적인']],t:'typically',tr:'average는 흔히 나타나는 평균 수준'},
+predator:{bj:'질병, 굶주림, <b>포식자</b>(predators)',s:[['carnivore','육식동물']],a:[['prey','먹이']],t:'hunter',tr:'predator는 다른 동물을 잡아먹는 동물'},
+determine:{bj:'수명은 평균 시간에 의해 <b>정해진다</b>(determined)',s:[['resolve','결정하다'],['settle','정하다'],['establish','확정하다']],a:[],t:'decide',tr:'determine은 어떤 결과를 결정짓다'},
+survive:{bj:'야생에서 <b>살아남는</b>(survive) 평균 시간',s:[['live on','계속 살다'],['persist','지속하다'],['withstand','견디다']],a:[['perish','죽다']],t:'endure',tr:'survive는 위험을 넘기고 살아남다'},
+species:{bj:'동물 <b>종</b>(species)의 수명',s:[['kind','종류'],['breed','품종']],a:[],t:'type',tr:'species는 생물을 나누는 분류 단위'},
+escape:{bj:'위험에서 훨씬 빨리 <b>벗어날</b>(escape) 수 있다',s:[['get away','달아나다'],['run away','도망치다'],['avoid','피하다']],a:[],t:'flee',tr:'escape는 위험이나 장소에서 벗어나다'},
+useful:{bj:'수명을 늘린 변화는 <b>유용했다</b>(useful)',s:[['helpful','도움이 되는'],['valuable','가치 있는'],['practical','실용적인']],a:[['useless','쓸모없는']],t:'beneficial',tr:'useful은 쓸모가 있는'},
+distance:{bj:'더 먼 <b>거리</b>(distances)를 이동',s:[['span','범위'],['length','길이']],a:[],t:'range',tr:'distance는 두 지점 사이의 떨어진 정도'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
