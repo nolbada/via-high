@@ -493,8 +493,21 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'동물이 원하는 것을 <b>알아내는</b>(finding out) <b>방법</b>(way)'],[2,'연구자들은 장소와 경험을 <b>연관시키도록</b>(associate) <b>훈련함</b>(train)']],
+'2':[[4,'장소에 대한 선호를 경험 전후에 <b>측정함</b>(measured)'],[6,'<b>불쾌한</b>(unpleasant) 자극이면 그 장소를 피함']],
+'3':[[7,'암에 걸린 쥐가 모르핀 장소에 <b>선호</b>(preference)를 보임'],[8,'이는 쥐가 모르핀을 원했음을 <b>시사함</b>(suggests)']]
+};
+var REL={
+find:{bj:'동물이 원하는 것을 <b>알아내는</b>(finding out) 방법',s:[['locate','위치를 찾다'],['detect','알아내다'],['identify','확인하다']],a:[['overlook','간과하다']],t:'discover',tr:'find out은 조사해서 알아내다'},
+way:{bj:'원하는 것을 알아내는 <b>방법</b>(way)',s:[['approach','접근법'],['manner','방식'],['means','수단']],a:[],t:'method',tr:'way는 어떤 일을 하는 길이나 방식'},
+train:{bj:'경험과 연결하도록 <b>훈련한다</b>(train)',s:[['instruct','가르치다'],['drill','반복 훈련시키다'],['discipline','훈련하다']],a:[],t:'teach',tr:'train은 반복해서 몸에 익히게 하다'},
+associate:{bj:'한 장소를 경험과 <b>연관시키도록</b>(associate)',s:[['link','연결하다'],['relate','관련짓다'],['tie','묶다']],a:[['separate','분리하다']],t:'connect',tr:'associate A with B는 A와 B를 연관 짓다'},
+measure:{bj:'선호를 경험 전후에 <b>측정한다</b>(measured)',s:[['gauge','가늠하다'],['assess','평가하다'],['evaluate','평가하다']],a:[],t:'record',tr:'measure는 크기나 정도를 재다'},
+unpleasant:{bj:'<b>불쾌한</b>(unpleasant) 자극',s:[['nasty','불쾌한'],['disagreeable','불쾌한'],['awful','끔찍한']],a:[['pleasant','유쾌한']],t:'unwelcome',tr:'unpleasant는 기분 나쁜'},
+preference:{bj:'모르핀 장소에 대한 <b>선호</b>(preference)',s:[['inclination','성향'],['favor','편애']],a:[['dislike','싫어함']],t:'liking',tr:'preference는 더 좋아하는 쪽'},
+suggest:{bj:'모르핀을 원했음을 <b>시사한다</b>(suggests)',s:[['imply','암시하다'],['hint','넌지시 말하다'],['signal','나타내다']],a:[],t:'indicate',tr:'suggest는 직접 말하지 않고 보여 주다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
