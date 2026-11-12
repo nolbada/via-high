@@ -493,8 +493,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'세계 경제 시장의 <b>연결성</b>(connectedness)이 잠재적 감염에 <b>취약하게</b>(vulnerable) 만듦'],[2,'금융 실패가 채무자에서 은행, 보험사로 독감처럼 퍼질 수 있음']],
+'2':[[3,'시장의 감염에는 예상치 못한 특징이 있음'],[4,'감염은 접촉 없이도 <b>일어날</b>(occur) 수 있음'],[5,'은행은 투자가 실패하지 않아도 <b>지급 불능이</b>(insolvent) 될 수 있음']],
+'3':[[6,'두려움과 불확실성은 금융 시장에 <b>손해를 끼칠</b>(damaging) 수 있음'],[9,'다른 사람들이 돈을 <b>인출할</b>(pull out) 거라 예상하면 우리도 마지막이 되는 것을 두려워함'],[10,'재정적 고통은 자기충족적일 수 있음']]
+};
+var REL={
+connectedness:{bj:'세계 경제 시장의 <b>연결성</b>(connectedness)',s:[['linkage','연결'],['interconnection','상호 연결']],a:[['isolation','고립']],t:'connection',tr:'connected(연결된)에 -ness를 붙인 명사'},
+vulnerable:{bj:'잠재적 감염에 <b>취약한</b>(vulnerable)',s:[['susceptible','영향받기 쉬운'],['fragile','부서지기 쉬운'],['defenseless','무방비의']],a:[['immune','면역이 있는']],t:'exposed',tr:'vulnerable to는 ~에 취약한'},
+'economic market':{bj:'세계 <b>경제 시장</b>(economic market)',s:[],a:[],t:'economy',tr:'시장 경제 전체를 가리키는 말을 economy로 줄여 쓴 표현'},
+occur:{bj:'감염이 접촉 없이도 <b>일어날</b>(occur) 수 있다',s:[['take place','일어나다'],['arise','생기다'],['come about','생기다']],a:[],t:'happen',tr:'occur는 사건이 일어나다, 수동태로 쓰지 않음'},
+insolvent:{bj:'은행이 <b>지급 불능이</b>(insolvent) 될 수 있다',s:[['broke','무일푼의'],['ruined','파산한']],a:[['solvent','지급 능력이 있는']],t:'bankrupt',tr:'insolvent는 solvent(빚을 갚을 능력이 있는)의 반대'},
+infection:{bj:'접촉 없이도 <b>감염</b>(infection)이 일어난다',s:[['contagion','전염'],['contamination','오염']],a:[],t:'trouble',tr:'infection은 여기서 금융 위기가 퍼지는 비유로 쓰임'},
+damaging:{bj:'금융 시장에 <b>손해를 끼칠</b>(damaging) 수 있다',s:[['destructive','파괴적인'],['detrimental','해로운'],['injurious','해로운']],a:[['beneficial','이로운']],t:'harmful',tr:'damaging은 damage(손해)의 형용사 형태'},
+'pull out':{bj:'돈을 <b>인출해</b>(pull out) 갈 것이다',s:[['take out','꺼내다'],['remove','제거하다']],a:[['deposit','예금하다']],t:'withdraw',tr:'pull out은 구동사, 돈을 빼내다'},
+expected:{bj:'다른 사람들이 돈을 뺄 것이라고 <b>예상한다면</b>(expected)',s:[['anticipated','예상한'],['predicted','예측한']],a:[],t:'expect',tr:'expected는 expect(예상하다)의 과거형·과거분사'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
