@@ -493,8 +493,28 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'…the council members <b>examined</b> the votes using the…']],
+'2':[[2,'…more than one <b>round</b> of counting.'],[3,'<b>For</b> an option to win in …'],[4,'…of counting was <b>required.</b>']],
+'3':[[5,'…received the fewest <b>first-preference</b> votes, with only 5…'],[6,'…option A was <b>eliminated,</b> and the 5 council…'],[9,'결과적으로, 빵 바자회가 승자가 될 것이었다.']],
+'4':[[10,'안타깝게도, AV 방식도 <b>완벽하지는</b>(perfect) 않다.'],[11,'…2지망 표가 1지망 표보다 더 큰 <b>영향력을</b>(influence) 갖게 하기도 한다.'],[12,'이 경우에는 빵 바자회가 승리했지만, 이는 주로 그것이 얻은 2지망 표 때문이었다.']]
+};
+var REL={
+examine:{bj:'Next, the council members <b>examined</b> the votes using the AV …',s:[['check','점검하다'],['study','연구하다']],a:[['ignore','무시하다']],t:'inspect',tr:'살펴보다 → 면밀히 조사하다'},
+result:{bj:'…검토했고, 그들은 곧 다른 <b>결과가</b>(result) 나올 것이라는 것을…',s:[['effect','영향'],['consequence','결과']],a:[['cause','원인']],t:'outcome',tr:'결과 → 결과'},
+realized:{bj:'…결과가 나올 것이라는 것을 <b>깨달았다</b>(realized).',s:[['understood','이해했다'],['recognized','인식했다']],a:[['overlooked','간과했다']],t:'noticed',tr:'깨달았다 → 알아차렸다'},
+round:{bj:'… potentially include more than one <b>round</b> of counting.',s:[['turn','차례'],['phase','국면']],a:[],t:'stage',tr:'차례, 회 → 단계'},
+'more than 50%':{bj:'<b>For</b> an option to win in …',s:[['over half','절반 이상'],['most','대부분']],a:[['a minority','소수']],t:'a majority',tr:'50% 초과 → 과반수'},
+required:{bj:'… second round of counting was <b>required.</b>',s:[['demanded','요구되다'],['necessary','필요한']],a:[['optional','선택적인']],t:'needed',tr:'요구되다 → 필요하다'},
+eliminated:{bj:'Therefore, option A was <b>eliminated,</b> and the 5 council members’ …',s:[['removed','제거되었다'],['knocked out','탈락했다']],a:[['included','포함되었다']],t:'excluded',tr:'탈락시키다 → 제외하다'},
+redistributed:{bj:'… 5 council members’ votes were <b>redistributed</b> based on their second preferences.',s:[['shared out','나눠졌다'],['transferred','이전되었다']],a:[],t:'reallocated',tr:'다시 나누다 → 다시 배정하다'},
+based:{bj:'… council members’ votes were redistributed <b>based</b> on their second preferences.',s:[['founded','기초한'],['dependent','의존하는']],a:[],t:'according',tr:'~에 기반하여 → ~에 따라'},
+preferences:{bj:'… art show, received the fewest <b>first-preference</b> votes, with only 5 council …',s:[['favorites','선호'],['wishes','바람']],a:[],t:'choices',tr:'선호 → 선택'},
+perfect:{bj:'안타깝게도, AV 방식도 <b>완벽하지는</b>(perfect) 않다.',s:[['ideal','이상적인'],['faultless','결점 없는']],a:[['flawed','결함 있는'],['imperfect','불완전한']],t:'flawless',tr:'완벽한 → 흠 없는'},
+influence:{bj:'…표가 1지망 표보다 더 큰 <b>영향력을</b>(influence) 갖게 하기도 한다.',s:[['effect','영향'],['power','힘']],a:[],t:'impact',tr:'영향력 → 영향'},
+greater:{bj:'… second-preference votes to have a <b>greater</b> influence than first-preference votes.',s:[['larger','더 큰'],['bigger','더 큰']],a:[['smaller','더 작은'],['lesser','더 적은']],t:'more',tr:'더 큰 → 더 많은'},
+allows:{bj:'It sometimes <b>allows</b> second-preference votes to have a …',s:[['lets','~하게 해 주다'],['permits','허락하다']],a:[['prevents','막다']],t:'give',tr:'허용하다 → 주다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
