@@ -492,8 +492,19 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'모든 경험이 물리적 공간에서 일어나므로 공간은 그 안의 사건과 분리될 수 없음'],[2,'나무와 그 아래 땅도 거기서 일어난 일과 분리될 수 없음'],[3,'공간, 장소, 경험이 <b>얽혀</b>(intertwining) 있어 장소가 수동적 배경이라는 생각에 <b>이의를 제기함</b>(challenges)']],
+'2':[[4,'장소와 공간이 경험의 <b>중심</b>(heart)이라면 공간적 틀이 모든 경험의 <b>매개체</b>(medium)일 수 있음']],
+'3':[[6,'존재는 <b>의복</b>(garment)처럼 장소로 자신을 감쌈'],[7,'장소가 없다면 존재는 <b>추상적 개념</b>(abstractions)에 불과']]
+};
+var REL={
+intertwine:{bj:'공간, 장소, 경험이 서로 <b>얽혀</b>(intertwining) 있음',s:[['twist','꼬다']],a:[],tr:'어려운 단어라 앞의 inseparable(분리될 수 없는)로 뜻을 잡음'},
+challenge:{bj:'장소가 수동적 배경이라는 생각에 <b>이의를 제기함</b>(challenges)',s:[['dispute','반박하다']],a:[],tr:'challenge는 도전이 먼저지만 여기서는 이의를 제기하다'},
+heart:{bj:'장소와 공간이 경험의 <b>중심</b>(heart)에 있음',s:[['center','중심']],a:[['periphery','주변부']],tr:'heart는 심장이 먼저지만 여기서는 중심, 핵심'},
+medium:{bj:'공간적 틀이 모든 경험의 <b>매개체</b>(medium)',s:[],a:[],tr:'medium은 중간의, 보통의로 외우면 놓침, 여기서는 매개체'},
+garment:{bj:'존재가 장소를 <b>의복</b>(garment)처럼 걸침',s:[['clothes','옷'],['attire','복장']],a:[],tr:'어려운 단어라 wraps oneself up(몸을 감싸다)에서 옷을 연상'},
+abstraction:{bj:'장소가 없다면 존재는 <b>추상적 개념</b>(abstractions)에 불과',s:[['idea','생각'],['notion','관념']],a:[['reality','현실']],tr:'abstraction은 추상, 구체적 존재의 반대'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
