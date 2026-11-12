@@ -493,8 +493,26 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'…예술 작품들과 기타 문화재들을 <b>훔치고</b>(stealing) 있었다.'],[2,'They <b>hid</b> these treasures in…']],
+'2':[[3,'…the Monuments Men <b>learned</b> about this, they…'],[4,'Their search has <b>since</b> been called “the…']],
+'3':[[5,'…때, 도난당한 물건들은 위협을 <b>받았다</b>(came under threat).'],[6,'…유용할 수 있는 모든 것을 파괴하라고 <b>명령했다</b>(ordered).']],
+'4':[[7,'Some Nazi leaders <b>believed</b> that this included…']]
+};
+var REL={
+steal:{bj:'…작품들과 기타 문화재들을 <b>훔치고</b>(stealing) 있었다.',s:[['rob','훔치다'],['take','가져가다']],a:[['return','돌려주다']],t:'seize',tr:'훔치다 → 빼앗다'},
+hide:{bj:'They <b>hid</b> these treasures in places like …',s:[['cover up','감추다'],['disguise','위장하다']],a:[['reveal','드러내다'],['disclose','공개하다']],t:'conceal',tr:'숨기다 → 감추다'},
+'places like':{bj:'<b>They</b> hid these treasures in places …',s:[],a:[],t:'in',tr:'~ 같은 곳 → ~에'},
+learn:{bj:'When the Monuments Men <b>learned</b> about this, they started looking …',s:[['find out','알아내다'],['realize','깨닫다']],a:[['overlook','간과하다']],t:'discover',tr:'알게 되다 → 발견하다, 알아내다'},
+look:{bj:'… learned about this, they started <b>looking</b> for the stolen treasures.',s:[['search','찾다'],['hunt','뒤지다']],a:[['ignore','무시하다']],t:'seek',tr:'찾다 → 찾아 나서다'},
+since:{bj:'Their search has <b>since</b> been called “the greatest treasure …',s:[['after','~한 후에'],['following','~에 이어']],a:[['before','~전에']],t:'later',tr:'그 후 → 이후에'},
+order:{bj:'…있는 모든 것을 파괴하라고 <b>명령했다</b>(ordered).',s:[['instruct','지시하다'],['direct','명령하다']],a:[],t:'command',tr:'명령하다 → 명령하다'},
+destroy:{bj:'…유용할 수 있는 모든 것을 <b>파괴하라고</b>(destroy) 명령했다.',s:[['ruin','파괴하다'],['wreck','부수다']],a:[['build','짓다'],['create','만들다']],t:'demolish',tr:'파괴하다 → 허물다, 부수다'},
+'came under threat':{bj:'…도난당한 물건들은 위협을 <b>받았다</b>(came under threat).',s:[],a:[],t:'were in danger',tr:'위협을 받았다 → 위험에 처했다'},
+believe:{bj:'Some Nazi leaders <b>believed</b> that this included not just …',s:[['think','생각하다'],['suppose','추정하다']],a:[['doubt','의심하다']],t:'assume',tr:'믿다 → 여기다'},
+'everything of value':{bj:'<b>Some</b> Nazi leaders believed that this …',s:[],a:[],t:'everything precious',tr:'가치 있는 모든 것 → 귀중한 모든 것'},
+'works of art':{bj:'…것, 심지어 훔친 예술 <b>작품들까지</b>(works of art) 포함한다고 여겼다.',s:[],a:[],t:'artworks',tr:'예술 작품 → 예술품'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
