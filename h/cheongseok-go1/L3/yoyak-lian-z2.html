@@ -493,8 +493,26 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[2,'…ago, tigers were so <b>abundant</b> in Korea that people…'],[3,'…한국에 적어도 십만 년을 살았다고 <b>추정된다</b>(estimated).']],
+'2':[[4,'…청동기 시대의 바위 그림으로 거슬러 <b>올라간다</b>(dates).'],[5,'…다양한 동물을 사냥하는 사람들을 <b>묘사한다</b>(depicts).']],
+'3':[[6,'…악기에 이르기까지 한국 문화의 많은 <b>측면에</b>(aspects) 등장해 왔다.'],[8,'…한국 설화의 약 40%가 호랑이를 <b>포함한다</b>(include).']],
+'4':[[9,'한국 설화에서 호랑이는 때로는 긍정적인 <b>시각</b>(positive light), 그리고 때로는 어리석은 존재로…'],[10,'…호랑이의 생명을 구해 준 이후 그가 <b>부유해지도록</b>(rich) 돕는다.']]
+};
+var REL={
+abundant:{bj:'Long ago, tigers were so <b>abundant</b> in Korea that people often …',s:[['rich','풍부한'],['ample','충분한'],['copious','풍부한']],a:[['scarce','부족한']],t:'plentiful',tr:'매우 많은 → 풍부한, 많은'},
+estimate:{bj:'…적어도 십만 년을 살았다고 <b>추정된다</b>(estimated).',s:[['guess','추측하다'],['calculate','산정하다']],a:[],t:'believe',tr:'추정하다 → 믿다, 생각하다'},
+'people often called':{bj:'…‘호랑이의 땅’이라고 <b>불렀다</b>(people often called).',s:[],a:[],t:'people called',tr:'사람들이 종종 불렀다 → 사람들이 불렀다'},
+date:{bj:'…바위 그림으로 거슬러 <b>올라간다</b>(dates).',s:[['trace back','거슬러 올라가다'],['originate','유래하다']],a:[],t:'go',tr:'거슬러 올라가다 → 거슬러 올라가다'},
+depict:{bj:'…동물을 사냥하는 사람들을 <b>묘사한다</b>(depicts).',s:[['describe','묘사하다'],['represent','나타내다'],['show','보여주다']],a:[],t:'portray',tr:'묘사하다 → 묘사하다'},
+'the rock art of the bronze age':{bj:'…등장은 청동기 시대의 바위 <b>그림으로</b>(the rock art of the Bronze Age) 거슬러 올라간다.',s:[],a:[],t:'Bronze Age rock art',tr:'청동기 시대의 바위 그림 → 청동기 시대 바위 그림'},
+aspect:{bj:'…한국 문화의 많은 <b>측면에</b>(aspects) 등장해 왔다.',s:[['feature','특징'],['side','측면'],['element','요소']],a:[],t:'area',tr:'측면 → 분야, 영역'},
+include:{bj:'…약 40%가 호랑이를 <b>포함한다</b>(include).',s:[['involve','포함하다'],['comprise','구성하다']],a:[['exclude','제외하다']],t:'contain',tr:'포함하다 → 담고 있다, 포함하다'},
+approximately:{bj:'In fact, <b>approximately</b> forty percent of Korean folktales …',s:[['roughly','대략'],['around','약'],['nearly','거의']],a:[['exactly','정확히']],t:'about',tr:'대략 → 약'},
+'positive light':{bj:'…호랑이는 때로는 긍정적인 <b>시각</b>(positive light), 그리고 때로는 어리석은…',s:[],a:[],t:'positively',tr:'긍정적인 시각 → 긍정적으로'},
+rich:{bj:'…생명을 구해 준 이후 그가 <b>부유해지도록</b>(rich) 돕는다.',s:[['affluent','풍족한'],['well-off','부유한']],a:[['poor','가난한']],t:'wealthy',tr:'부유한 → 부유한'},
+'saves the tiger’s life':{bj:'<b>For</b> example, in one story, a …',s:[],a:[],t:'saves its life',tr:'호랑이의 생명을 구하다 → 그것의 생명을 구하다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
