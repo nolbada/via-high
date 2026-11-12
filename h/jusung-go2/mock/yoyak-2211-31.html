@@ -493,8 +493,24 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[2,'유기체는 사건이 기대를 <b>어길</b>(violate) 때만 학습함'],[3,'놀람은 학습의 <b>근본적인</b>(fundamental) 동력 중 하나']],
+'2':[[5,'음이 반복되면서(<b>repeat</b>) 반응이 점진적으로(<b>progressively</b>) <b>감소함</b>(decrease)'],[6,'이것이 적응이며 뇌가 다음 사건을 <b>예상하는</b>(anticipate) 법을 배우고 있다는 증거'],[8,'예상 밖 소리에는 적응이 사라지고 뉴런이 더 활성화됨']],
+'3':[[9,'적응은 반복 자체보다 음이 <b>예측 가능한지</b>(predictable)가 중요함'],[10,'<b>교차하는</b>(alternating) 음에 <b>익숙해지면</b>(gets used to) 청각 활동이 다시 감소함'],[11,'<b>예상치 못한</b>(unexpected) 반복이 놀람 반응을 일으킴']]
+};
+var REL={
+violate:{bj:'사건이 기대를 <b>어길</b>(violate) 때',s:[['breach','위반하다'],['infringe','침해하다']],a:[['obey','따르다'],['comply with','~을 지키다']],t:'contradict',tr:'violate는 규칙이나 기대를 어기다'},
+fundamental:{bj:'학습의 <b>근본적인</b>(fundamental) 동력',s:[['essential','필수적인'],['underlying','근본적인'],['primary','주요한']],a:[['superficial','피상적인']],t:'basic',tr:'fundamental은 fund(바닥)에서 온 기초적인'},
+organisms:{bj:'<b>유기체</b>(organisms)는 기대에 어긋날 때만 학습한다',s:[['creature','생물'],['living thing','생명체']],a:[],t:'organisms',tr:'organism은 살아 있는 하나의 생물체'},
+decrease:{bj:'그 반응은 점진적으로 <b>감소한다</b>(decrease)',s:[['decline','줄다'],['diminish','줄어들다'],['shrink','줄어들다']],a:[['increase','증가하다']],t:'weaken',tr:'decrease는 줄다, 반대는 increase'},
+anticipate:{bj:'다음 사건을 <b>예상하는</b>(anticipate) 법을 배운다',s:[['expect','예상하다'],['foresee','예견하다'],['forecast','예보하다']],a:[],t:'predict',tr:'anticipate는 앞서서 예상하고 대비하다'},
+progressively:{bj:'반응이 <b>점진적으로</b>(progressively) 감소한다',s:[['steadily','꾸준히'],['step by step','단계적으로']],a:[['suddenly','갑자기']],t:'gradually',tr:'progressively는 단계적으로 조금씩'},
+repeat:{bj:'음이 <b>반복되면서</b>(repeat)',s:[['recur','되풀이되다'],['duplicate','복사하다']],a:[],t:'repeated',tr:'repeat는 되풀이하다, repetition은 반복'},
+predictable:{bj:'음이 <b>예측 가능한지</b>(predictable)',s:[['expected','예상되는'],['anticipated','예상된']],a:[['unpredictable','예측 불가능한']],t:'foreseeable',tr:'predictable은 predict(예측하다)+able'},
+'gets used to':{bj:'뇌가 이 교차에 <b>익숙해진다</b>(gets used to)',s:[['adapt to','~에 적응하다'],['grow accustomed to','~에 익숙해지다']],a:[],t:'becomes accustomed to',tr:'get used to 뒤에는 명사나 -ing'},
+alternating:{bj:'<b>교차하는</b>(alternating) 음 세트',s:[['alternate','번갈아 하다'],['rotating','교대하는']],a:[],t:'alternating',tr:'alternate는 번갈아 나오다'},
+unexpected:{bj:'<b>예상치 못한</b>(unexpected) 반복',s:[['abrupt','갑작스러운'],['sudden','갑작스러운'],['surprising','놀라운']],a:[['expected','예상된']],t:'unexpected',tr:'unexpected는 expected의 반대'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
