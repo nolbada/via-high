@@ -492,8 +492,23 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'과학과 의료 기술은 전염병 치료와 예방에 <b>엄청난</b>(enormous) 진보를 가져왔음'],[2,'페니실린의 발견은 전염병과의 <b>싸움</b>(battle)에서 가장 큰 <b>획기적 발전</b>(breakthroughs) 중 하나']],
+'2':[[3,'인간은 우두 바이러스에 <b>노출된</b>(exposure) 뒤 천연두로부터 보호되며, 우두는 인간에게 <b>무해함</b>(harmless)'],[4,'백신은 질병 부담의 <b>감소</b>(reduction)에 크게 기여함']],
+'3':[[5,'통제와 위생 <b>조치</b>(measures)가 부담을 <b>줄였고</b>(reduced), 치료법은 치명적인 병을 <b>만성적이고</b>(chronic) <b>관리 가능한</b>(manageable) 병으로 바꿈']]
+};
+var REL={
+enormous:{bj:'전염병의 치료와 예방에 있어 <b>엄청난</b>(enormous) 진보',s:[['massive','거대한'],['tremendous','엄청난'],['immense','막대한']],a:[['tiny','아주 작은']],t:'huge',tr:'enormous는 크기와 정도가 아주 큰'},
+breakthrough:{bj:'페니실린의 발견은 가장 큰 <b>획기적 발전</b>(breakthroughs) 중 하나였다',s:[['discovery','발견'],['milestone','이정표'],['development','발전']],a:[['setback','차질']],t:'advance',tr:'breakthrough는 막혀 있던 것을 뚫고 나아가는 큰 발전'},
+battle:{bj:'전염병과의 <b>싸움</b>(battle)에서',s:[['combat','전투'],['struggle','투쟁'],['war','전쟁']],a:[['peace','평화']],t:'fight',tr:'battle against ~는 ~와의 싸움'},
+exposure:{bj:'우두 바이러스에 <b>노출된</b>(exposure) 후 천연두로부터 보호된다',s:[['encounter','마주침'],['experience','경험']],a:[['protection','보호']],t:'contact',tr:'exposure to ~는 ~에 노출됨'},
+harmless:{bj:'우두 바이러스는 인간에게 <b>무해하다</b>(harmless)',s:[['innocuous','무해한'],['benign','해롭지 않은']],a:[['harmful','해로운'],['dangerous','위험한']],t:'safe',tr:'harmless는 harm(해)이 없는, 반대는 harmful'},
+reduction:{bj:'질병 부담의 <b>감소</b>(reduction)에 기여했다',s:[['decrease','감소'],['decline','하락'],['cut','삭감']],a:[['increase','증가']],t:'lower',tr:'reduction은 reduce의 명사형'},
+measure:{bj:'통제와 위생 관리 <b>조치</b>(measures)들이 부담을 줄였다',s:[['action','조치'],['move','조치'],['procedure','절차']],a:[],t:'step',tr:'measure는 재다 뜻도 있음, 여기서는 조치(보통 복수 measures)'},
+reduce:{bj:'위생 관리 조치들이 그것들의 부담을 <b>줄였다</b>(reduced)',s:[['decrease','줄이다'],['lessen','줄이다'],['cut','줄이다']],a:[['increase','늘리다']],t:'ease',tr:'reduce는 양이나 정도를 줄이다'},
+chronic:{bj:'치명적인 병을 <b>만성적이고</b>(chronic) 관리 가능한 병으로 바꾸었다',s:[['persistent','지속되는'],['lingering','오래 끄는'],['long-term','장기적인']],a:[['acute','급성의']],t:'long-lasting',tr:'chronic은 만성적인, 반대는 급성의 acute'},
+manageable:{bj:'치명적인 병을 만성적이고 <b>관리 가능한</b>(manageable) 병으로 바꾸었다',s:[['controllable','제어할 수 있는'],['tolerable','견딜 만한'],['workable','실행 가능한']],a:[['unmanageable','감당 못 할']],t:'handle',tr:'manageable은 형용사, handle은 동사, 품사가 다름'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
