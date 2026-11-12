@@ -493,8 +493,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'…possible event was <b>given</b> a letter: “art show”…'],[2,'…선호하는 순서대로 선택지를 적으라는 <b>지시를</b>(instructed) 받았다.']],
+'2':[[3,'예를 들어, 자선 콘서트가 첫 번째 <b>선택이고</b>(choice) 빵 바자회와 미술 전시회가…']],
+'3':[[4,'모든 구성원이 <b>투표를</b>(voted) 마친 후, 투표용지가 집계되었다.']]
+};
+var REL={
+give:{bj:'… vote, each possible event was <b>given</b> a letter: “art show” was …',s:[['hand out','나눠 주다'],['provide','제공하다']],a:[['take','가져가다']],t:'assign',tr:'주다 → 배정하다'},
+instruct:{bj:'…순서대로 선택지를 적으라는 <b>지시를</b>(instructed) 받았다.',s:[['order','명령하다'],['tell','말하다']],a:[['obey','따르다']],t:'direct',tr:'지시하다 → 지시하다, 명령하다'},
+'write down':{bj:'<b>Each</b> of the 20 council members …',s:[['note','적어 두다'],['record','기록하다']],a:[['erase','지우다']],t:'list',tr:'적다 → 나열하다'},
+choice:{bj:'…자선 콘서트가 첫 번째 <b>선택이고</b>(choice) 빵 바자회와 미술 전시회가…',s:[['option','선택지'],['pick','고른 것']],a:[],t:'prefer',tr:'선택 → 선호하다'},
+write:{bj:'… the art show, they would <b>write</b> CBA.',s:[['note','적다'],['jot down','갈겨쓰다']],a:[['erase','지우다']],t:'record',tr:'적다 → 기록하다'},
+'followed by':{bj:'…빵 바자회와 미술 전시회가 <b>뒤따른다면</b>(followed by), 그들은 CBA를 적을…',s:[['after','~ 다음에'],['next','다음으로']],a:[['preceded by','~에 앞서는']],t:'then',tr:'뒤따르는 → 그다음'},
+vote:{bj:'모든 구성원이 <b>투표를</b>(voted) 마친 후, 투표용지가…',s:[['elect','선출하다'],['ballot','투표하다']],a:[['abstain','기권하다']],t:'cast',tr:'투표하다 → (표를) 던지다'},
+count:{bj:'… voted, the voting slips were <b>counted.</b>',s:[['calculate','계산하다'],['add up','합산하다']],a:[],t:'tally',tr:'세다 → 집계하다'},
+results:{bj:'<b>결과는</b>(results) 다음과 같았다.',s:[['outcome','결과'],['effects','효과']],a:[],t:'results',tr:'결과 → 결과'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
