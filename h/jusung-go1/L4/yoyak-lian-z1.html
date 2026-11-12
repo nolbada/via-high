@@ -493,8 +493,26 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[2,'당신의 다친 팔로 하기에 <b>어려울</b>(difficult) 몇몇 일들이 있다.'],[3,'예를 들어, 당신은 무거운 상자를 <b>옮기거나</b>(carry) 자전거를 타지 못할 수도 있다.']],
+'2':[[5,'…마우스나 터치스크린을 사용하는 것은 <b>어색하고</b>(awkward) 많은 시간이 걸릴 것이다.'],[6,'…this is a minor <b>challenge</b> compared to what…']],
+'3':[[7,'특정 <b>장애가</b>(disabilities) 있는 사람들에게는, 많은 웹 사이트가…'],[8,'이것이 웹 접근성이 <b>중요한</b>(important) 이유이다.']],
+'4':[[9,'…모두에게 사용될 수 있도록 하는 <b>실천이다</b>(practice).']]
+};
+var REL={
+difficult:{bj:'당신의 다친 팔로 하기에 <b>어려울</b>(difficult) 몇몇 일들이 있다.',s:[['tough','힘든'],['hard','어려운']],a:[['easy','쉬운'],['simple','간단한']],t:'challenging',tr:'어려운 → 힘든'},
+injured:{bj:'당신의 <b>다친</b>(injured) 팔로 하기에 어려울 몇몇…',s:[['wounded','부상당한']],a:[['healthy','건강한'],['unharmed','다치지 않은']],t:'hurt',tr:'다친 → 다친, 아픈'},
+carry:{bj:'…당신은 무거운 상자를 <b>옮기거나</b>(carry) 자전거를 타지 못할 수도…',s:[['transport','운반하다'],['convey','나르다']],a:[['drop','떨어뜨리다']],t:'carrying',tr:'옮기다 → 옮기는 것'},
+awkward:{bj:'…터치스크린을 사용하는 것은 <b>어색하고</b>(awkward) 많은 시간이 걸릴 것이다.',s:[['uncomfortable','불편한'],['difficult','다루기 힘든']],a:[['comfortable','편안한'],['skillful','능숙한']],t:'clumsy',tr:'어색한 → 서툰'},
+challenge:{bj:'However, this is a minor <b>challenge</b> compared to what some of …',s:[['difficulty','어려움'],['obstacle','장애물']],a:[['ease','쉬움']],t:'problem',tr:'어려움 → 문제'},
+internet:{bj:'…이것은 우리 중 몇몇이 <b>인터넷에서</b>(Internet) 직면하는 것에 비해 작은…',s:[],a:[],t:'online',tr:'인터넷 → 온라인'},
+disability:{bj:'특정 <b>장애가</b>(disabilities) 있는 사람들에게는, 많은…',s:[['handicap','장애']],a:[['ability','능력']],t:'impairment',tr:'장애 → 장애, 손상'},
+important:{bj:'이것이 웹 접근성이 <b>중요한</b>(important) 이유이다.',s:[['crucial','중요한'],['significant','중대한']],a:[['trivial','사소한'],['minor','하찮은']],t:'essential',tr:'중요한 → 꼭 필요한'},
+nearly:{bj:'…웹 사이트가 사용하기에 <b>거의</b>(nearly) 불가능할 수 있다.',s:[['practically','사실상'],['virtually','거의']],a:[],t:'almost',tr:'거의 → 거의'},
+practice:{bj:'…사용될 수 있도록 하는 <b>실천이다</b>(practice).',s:[['custom','관행'],['convention','관례']],a:[],t:'effort',tr:'실천 → 노력'},
+'making sure':{bj:'<b>Web</b> accessibility is the practice of …',s:[],a:[],t:'ensuring',tr:'확실히 하는 것 → 보장하는 것'},
+everyone:{bj:'…웹 사이트가 장애가 있는 <b>사람들을</b>(everyone) 포함하여 반드시 모두에게…',s:[],a:[],t:'all people',tr:'모든 사람 → 모든 사람'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
