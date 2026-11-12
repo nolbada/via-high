@@ -492,8 +492,23 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'선호 구조를 알아낸 경제학자에게 행동은 <b>기저에 있는</b>(underlying) 좋고 싫음의 변화로 설명할 수 있음'],[2,'출산율 변화를 아이에 대한 기호 변화로 설명하는 것은 <b>문제가 많고</b>(problematic) 설득력이 약함(unsound)']],
+'2':[[3,'그런 주장은 사망률(<b>mortality</b>)의 오르내림을 죽음에 대한 욕구 변화로 설명하는 것과 <b>같음</b>(equivalent)'],[4,'경제학자에게는 기호보다 소득과 <b>가격</b>(prices)의 변화가 출산율에 영향을 줌']],
+'3':[[5,'<b>소득</b>(income)이 <b>오르면</b>(rises) 아이에 대한 <b>내재적인</b>(inherent) 욕구가 그대로 <b>머물러도</b>(stays) 자녀를 더 원함']]
+};
+var REL={
+problematic:{bj:'그런 주장은 <b>문제가 많다</b>(problematic)',s:[['questionable','의심스러운'],['controversial','논란이 많은']],a:[['unproblematic','문제없는']],t:'troublesome',tr:'problematic은 problem(문제)의 형용사형'},
+unsound:{bj:'설득력이 <b>약한</b>(unsound) 주장',s:[['flawed','결함이 있는'],['invalid','타당하지 않은'],['groundless','근거 없는']],a:[['sound','타당한']],t:'shaky',tr:'sound는 건전한, 타당한 / unsound는 그 반대'},
+underlying:{bj:'<b>기저에 있는</b>(underlying) 좋고 싫음의 변화',s:[['fundamental','근본적인'],['intrinsic','본질적인']],a:[['superficial','피상적인']],t:'basic',tr:'underlying은 겉으로 드러나지 않고 밑에 깔린'},
+equivalent:{bj:'말하는 것과 <b>같을</b>(equivalent) 것이다',s:[['equal','동등한'],['corresponding','대응하는'],['tantamount','~나 다름없는']],a:[['different','다른']],t:'comparable',tr:'equivalent to는 ~와 같은'},
+price:{bj:'소득과 <b>가격</b>(prices)의 변화',s:[['cost','비용'],['charge','요금']],a:[],t:'costs',tr:'price는 상품에 매겨진 값, cost는 들어가는 비용'},
+mortality:{bj:'<b>사망률</b>(mortality)의 상승과 하락',s:[['death rate','사망률'],['fatality','사망']],a:[['immortality','불멸']],t:'death',tr:'mortal(죽을 운명인)의 명사형, 반대는 immortality'},
+income:{bj:'<b>소득</b>(income)이 증가할 때',s:[['revenue','수입'],['salary','급여'],['profit','이익']],a:[['expense','지출']],t:'earnings',tr:'income은 들어오는 돈, 반대는 expense'},
+rise:{bj:'소득이 <b>증가할</b>(rises) 때',s:[['increase','증가하다'],['climb','오르다']],a:[['decline','감소하다'],['fall','떨어지다']],t:'grow',tr:'rise는 자동사, 목적어 없이 쓰임'},
+inherent:{bj:'아이에 대한 <b>내재적인</b>(inherent) 욕구',s:[['innate','타고난'],['intrinsic','본질적인'],['inborn','선천적인']],a:[['acquired','후천적인']],t:'natural',tr:'inherent는 원래부터 안에 들어 있는'},
+stay:{bj:'욕구가 그대로 <b>유지되더라도</b>(stays)',s:[['linger','남아 있다'],['persist','지속되다']],a:[['change','변하다']],t:'remain',tr:'stay the same은 변하지 않고 그대로이다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
