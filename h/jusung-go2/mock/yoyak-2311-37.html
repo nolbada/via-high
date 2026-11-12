@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[2,'무작위 표본은 분석을 <b>가능하게 했음</b>(possible)'],[3,'표본 추출 시 정보가 <b>손실됨</b>(lost)'],[1,'무작위 표본 추출은 좋은 <b>지름길</b>(shortcut)']],
+'2':[[4,'전체 데이터는 더 많은 <b>자유</b>(freedom)를 줌, 다른 <b>각도</b>(angles)로 볼 수 있음'],[5,'라이트 필드 카메라는 모든 빛을 <b>포착함</b>(captures)']],
+'3':[[6,'나중에 어디에 초점을 맞출지 <b>결정</b>(decide)'],[7,'<b>나중에</b>(afterwards) 가능'],[9,'<b>평범한</b>(ordinary) 사진보다 재사용 가능']]
+};
+var REL={
+possible:{bj:'분석을 <b>가능하게</b>(possible) 만들었다',s:[['feasible','실행 가능한'],['doable','할 수 있는']],a:[['impossible','불가능한']],t:'enabled',tr:'possible은 할 수 있는, enabled는 할 수 있게 해 주었다'},
+lost:{bj:'정보가 <b>손실된다</b>(lost)',s:[['missing','빠진'],['gone','사라진']],a:[['kept','보존된']],t:'loses',tr:'lost는 과거분사로 잃어버려진, loses는 잃는다'},
+shortcut:{bj:'좋은 <b>지름길</b>(shortcut)',s:[['quick way','빠른 방법'],['fast track','지름길']],a:[],t:'quick route',tr:'shortcut은 시간을 줄이는 빠른 길'},
+freedom:{bj:'탐색할 더 많은 <b>자유</b>(freedom)',s:[['liberty','자유'],['independence','독립']],a:[['restriction','제한']],t:'flexibility',tr:'freedom은 얽매이지 않는 상태'},
+angle:{bj:'다른 <b>각도</b>(angles)에서 데이터를 보다',s:[['side','측면'],['aspect','측면']],a:[],t:'perspective',tr:'angle은 보는 방향, perspective는 보는 관점'},
+capture:{bj:'모든 빛을 <b>포착한다</b>(captures)',s:[['catch','잡다'],['seize','붙잡다'],['grasp','붙잡다']],a:[['release','놓아주다']],t:'record',tr:'capture는 붙잡아 담아내다'},
+decide:{bj:'나중에 어디에 초점을 맞출지 <b>결정할</b>(decide) 수 있다',s:[['determine','결정하다'],['resolve','결심하다'],['settle','정하다']],a:[],t:'choose',tr:'decide는 어떻게 할지 마음을 정하다'},
+later:{bj:'<b>나중에</b>(later) 그것을 할 수 있다',s:[['afterwards','나중에'],['subsequently','그 후에']],a:[['earlier','이전에'],['previously','이전에']],t:'afterward',tr:'later는 지금보다 뒤에'},
+ordinary:{bj:'<b>평범한</b>(ordinary) 사진',s:[['common','흔한'],['usual','보통의'],['typical','전형적인']],a:[['special','특별한']],t:'regular',tr:'ordinary는 특별하지 않은'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
