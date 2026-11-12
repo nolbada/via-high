@@ -492,8 +492,20 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'생존을 매년 <b>허들</b>(hurdle)을 넘는 경주로 생각할 수 있음'],[2,'초기의 허들은 매우 높아서 많은 사람이 처음 몇 개를 넘기 전에 <b>넘어졌음</b>(fell)']],
+'2':[[3,'자연은 생명을 극도로 <b>낭비함</b>(wasteful)'],[5,'야생 개코원숭이의 거의 4분의 1이 한 살 전에 <b>죽음</b>(die)']],
+'3':[[6,'인간의 유아 <b>사망률</b>(mortality)은 유인원과 <b>비슷했음</b>(similar)'],[8,'그렇지 않았다면 최근의 인구 증가는 훨씬 일찍 <b>일어났을</b>(occurred) 것임']]
+};
+var REL={
+hurdle:{bj:'생존을 매년 <b>허들</b>(hurdle)을 뛰어넘어야 하는 경주라고 생각할지도 모른다',s:[['barrier','장벽'],['block','장애'],['hindrance','방해물']],a:[],t:'obstacle',tr:'hurdle은 육상의 허들, 비유로 넘어야 할 장애물'},
+fall:{bj:'많은 사람들은 처음 몇 개를 넘기 전에 <b>넘어졌다</b>(fell)',s:[['stumble','비틀거리다'],['trip','발이 걸려 넘어지다'],['collapse','쓰러지다']],a:[['clear','넘어서다']],t:'fail',tr:'fall은 떨어지다 · 넘어지다, 여기서는 허들을 못 넘다'},
+wasteful:{bj:'자연은 생명을 극도로 <b>낭비한다</b>(wasteful)',s:[['extravagant','낭비가 심한']],a:[['economical','절약하는'],['thrifty','검소한'],['efficient','효율적인']],t:'careless',tr:'wasteful은 낭비하는, 반대는 아끼는 economical'},
+die:{bj:'야생에서 태어난 개코원숭이의 거의 4분의 1이 한 살이 되기 전에 <b>죽는다</b>(die)',s:[['pass away','세상을 떠나다'],['expire','숨을 거두다']],a:[['survive','살아남다'],['live','살다']],t:'perish',tr:'die는 가장 기본적인 말, perish는 딱딱한 표현'},
+mortality:{bj:'인간의 유아 <b>사망률</b>(mortality)은 유인원의 그것과 비슷했다',s:[['death rate','사망률'],['fatality','사망자']],a:[['survival','생존']],t:'death',tr:'infant mortality는 유아 사망률'},
+similar:{bj:'인간의 유아 사망률은 유인원의 그것과 <b>비슷했다</b>(similar)',s:[['alike','비슷한'],['analogous','유사한'],['equivalent','동등한']],a:[['different','다른']],t:'comparable',tr:'similar to ~는 ~와 비슷한'},
+occur:{bj:'최근의 엄청난 인구 증가는 훨씬 더 일찍 <b>일어났을</b>(occurred) 것이다',s:[['happen','일어나다'],['take place','일어나다'],['arise','생기다']],a:[],t:'come',tr:'occur는 일이 일어나다, 생각이 떠오르다 뜻도 있음'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
