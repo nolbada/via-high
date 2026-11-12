@@ -1,8 +1,9 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" translate="no">
 <head>
 <meta charset="utf-8"><script src="../../common/base.js?v=261105a"></script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="google" content="notranslate">
 <meta name="theme-color" content="#0f766e">
 <title>22년 11월 35번 요약문 연습 </title>
 <style>
@@ -66,6 +67,7 @@ mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
 .fc{display:flex;flex-direction:column;align-items:stretch}
 .fc .c{border-radius:14px;padding:12px 14px;background:var(--bg);border:1px solid var(--line)}
 .fc mark{color:var(--ink)}
+.fc .last mark{background:none;color:inherit;padding:0}
 .fc .c .tg{display:inline-block;font-size:12.5px;font-weight:800;color:var(--pri);background:var(--priL);border-radius:999px;padding:1px 10px;margin-bottom:5px}
 .fc .c .hd{font-size:18px;font-weight:800;line-height:1.4;color:var(--ink)}
 .fc .c .sb2{font-size:14px;color:var(--sub);margin-top:3px}
@@ -90,7 +92,6 @@ mark{background:var(--pi);color:inherit;border-radius:3px;padding:0 2px}
 .acc2 span{font-size:12.5px;color:var(--pri)}
 .swr .story{font-size:16.5px;font-weight:600;line-height:1.6;background:var(--priL);border-radius:12px;padding:10px 13px;margin:0 0 8px}
 .swr .story .wc{color:var(--pri);border-bottom:2px solid var(--pri);font-weight:800}
-.swr .story .wc.me{background:#fff3b0;border-radius:3px}
 .sc .story{font-size:17.5px;font-weight:700;line-height:1.6;margin:2px 0 4px}
 .sc .story .wc{color:var(--pri);border-bottom:2px solid var(--pri)}
 .sc .sen{font-size:16.5px;line-height:1.55}
@@ -154,6 +155,25 @@ details li{font-size:15px;margin:4px 0;list-style:none}
 .tr button.x.on{background:var(--ans);color:#fff;border-color:var(--ans)}
 .sumline{font-size:14.5px;color:var(--sub);margin:4px 0 8px}
 .empty{color:var(--sub);text-align:center;padding:26px 0}
+
+.stb{margin-left:4px}.stb.on{background:#fff6a8;border-color:#e0c200;font-weight:700}.tabs .on{background:#fff6a8;font-weight:700}
+.evn{color:#2f5d50;margin-right:4px}
+.hch{font-size:.8em;color:#888;margin:-2px 0 6px 4px}
+.relx{margin:8px 0 4px}
+.rmap{position:relative;height:215px}
+.rmap svg{position:absolute;left:0;top:0;width:100%;height:100%}
+.rn{position:absolute;transform:translate(-50%,-50%);text-align:center;border-radius:999px;padding:5px 10px;font-size:.92em;line-height:1.25;border:1.5px solid #cfd3c8;background:#fff;max-width:36%}
+.rn small{display:block;font-size:.78em;color:#666;margin-top:1px}
+.rn.c{background:#2f5d50;color:#fff;border-color:#2f5d50;font-weight:700}
+.rn.c small{color:#d6e6df}
+.rn.k,.rn.s{border-color:#2f5d50;border-width:2.5px;font-weight:700}
+.rn.a{border-color:#c0392b;border-width:2.5px;font-weight:700}
+.rleg{font-size:.78em;color:#777;display:flex;gap:10px;flex-wrap:wrap}
+.rleg i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:3px;border:2px solid}
+.pit{margin-top:10px;background:#fff6a8;border-radius:4px;padding:10px 12px;box-shadow:0 2px 6px rgba(0,0,0,.13);font-size:.92em;line-height:1.55}
+.pit div{margin-bottom:4px}.pit div:last-child{margin-bottom:0}
+.pit em{font-style:normal;font-weight:700;display:inline-block;min-width:3.4em;color:#7a6a00}
+.pit .tp em{color:#c0392b}
 </style>
 <script>window.REC_NOGATE=1;(function(){try{if(window.__recl||!/\/h\/(geumcheon|jusung|cheongseok)-(gimal|go1|go2)\//.test(location.pathname))return;window.__recl=1;var s=document.createElement('script');s.src=location.pathname.replace(/\/h\/.*$/,'/h/rec.js')+'?v=2';(document.head||document.documentElement).appendChild(s)}catch(e){}})();</script></head>
 <body>
@@ -235,7 +255,7 @@ function words(t){
   }
   return out+esc(t.slice(last));
 }
-function mk(t){return esc(t).replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
+function mk(t){t=String(t);if(t.indexOf(' = ')>0)t=t.replace(/\}\}, \{\{/g,'}}\n{{');return esc(t).replace(/\n/g,'<br>').replace(/\{\{([^|}]+)\|([^}]+)\}\}/g,function(m,e,k){return '<mark>'+e+'</mark>(<mark>'+k+'</mark>)'})}
 function hlp(t){
   var o=esc(t);
   o=o.replace(/([A-Za-z][A-Za-z' ]*[A-Za-z])\(([가-힣][가-힣 ,·]*)\)/g,'<mark>$1</mark>(<mark>$2</mark>)');
@@ -292,12 +312,9 @@ function sayBtn(){return ''}
 function tapWord(key){
   var g=G[key];if(!g)return;
   var lem=g[0],id=lem.toLowerCase();
-  var n=NOTES[id]||{l:lem,k:g[1],c:0,t:0};
-  n.c=(n.c||0)+1;n.t=Date.now();n.q=curQ;NOTES[id]=n;jset(K_NOTE,NOTES);
-  if(!PUSHED['w:'+id]){PUSHED['w:'+id]=1;jset('vhvs:'+SCH,PUSHED);try{WN.add([{w:lem,m:g[1],src:SRC,how:'탭',ask:true}])}catch(e){}}
   $('sw').textContent=key.toLowerCase()===id?lem:key+'  →  '+lem;
   $('sl').textContent=g[1];
-  $('sn').textContent='단어노트에 담았어요 (지금 '+nNotes()+'개)';
+  $('sn').textContent='';
   $('sheet').className='on';
   document.querySelectorAll('.w[data-k]').forEach(function(e){var gg=G[e.getAttribute('data-k')];if(gg&&gg[0].toLowerCase()===id)e.classList.add('got')});
 }
@@ -321,6 +338,8 @@ document.addEventListener('click',function(e){
   else if(act==='chk'){go('chk')}
   else if(act==='sw'){go('sw')}
   else if(act==='rvall'){var o=v==='open';swList().forEach(function(s){if(o){swOpen[s.id]=true;pushSw(s.id)}else delete swOpen[s.id]});render()}
+  else if(act==='star'){if(STAR[v])delete STAR[v];else STAR[v]=1;jset(K_STAR,STAR);render()}
+  else if(act==='staronly'){swStarOnly=!swStarOnly;render()}
   else if(act==='dt'){swD[v]=!swD[v];render()}
   else if(act==='rv'){swOpen[v]=!swOpen[v];if(swOpen[v])pushSw(v);render()}
   else if(act==='mean'){var m=document.getElementById('m_'+v);if(m)m.style.display=m.style.display==='block'?'none':'block'}
@@ -367,7 +386,9 @@ function swList(){
 }
 function hlWord(t,w){return t.split(new RegExp('(\\b'+w+'\\b)','i')).map(function(x,i){return i%2?'<mark>'+esc(x)+'</mark>':words(x)}).join('')}
 function hlSum(t){return t.split(/(\[\[.*?\]\])/).map(function(x){var m=x.match(/^\[\[(.*)\]\]$/);return m?'<mark>'+words(m[1])+'</mark>':words(x)}).join('')}
-var swOpen={},swD={};
+var swOpen={},swD={},swStarOnly=false;
+var K_STAR='vhsw:'+SCH+':'+(function(){try{return LS.getItem('wn_name')||''}catch(e){return ''}})();
+var STAR=jget(K_STAR,{});
 /* 화면 */
 function render(){
   var h='';
@@ -390,7 +411,7 @@ function vHome(){
   h+='</div>';
   h+=yyLine();
   h+='<button class="btn pri" data-a="resume">'+(d===0?'시작하기':(f<0?'결과 보기':'이어서 풀기 ('+d+' / '+Qs.length+')'))+'</button>';
-  h+='<button class="btn sec" data-a="notes">단어노트 '+nNotes()+'개</button><button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
+  h+='<button class="btn sec" data-a="sw">바꿔 말하기 연습</button>'+(nFlag()?'<button class="btn flagbtn" data-a="chk">선생님 확인 단어 '+nFlag()+'개</button>':'');
   h+='<div class="foot"><button data-a="reset">문제 다시 풀기</button></div>';
   return h;
 }
@@ -412,8 +433,10 @@ function vQ(){
     h+='<div class="card"><p class="lb">보기 뜻</p><ul class="opl">';
     q.opts.forEach(function(o,i){h+='<li class="'+(i===q.ans?'a':'')+'">'+CN[i]+' '+(i===q.ans?'<mark>'+words(o[0])+' – '+words(o[1])+'</mark>':words(o[0])+' – '+words(o[1]))+'<span class="k">'+(i===q.ans?'<mark>'+esc(q.optko[i])+'</mark>  ← 정답':esc(q.optko[i]))+'</span></li>'});
     h+='</ul></div>';
-    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+q.evid_full.map(function(e){return e.n+'번'}).join(', ')+'</p>';
-    q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
+    h+='<div class="card"><p class="lb">정답의 근거 · 본문 '+(EVK[String(q.id)]||q.evid_full.map(function(e){return [e.n]})).map(function(e){return e[0]+'번'}).join(', ')+'</p>';
+    var EVS=EVK[String(q.id)];
+    if(EVS)EVS.forEach(function(e){h+='<div class="ev"><div class="kk"><b class="evn">'+e[0]+'번</b> '+e[1]+'</div></div>'});
+    else q.evid_full.forEach(function(e){h+='<div class="ev"><div class="en">'+rich(e.en,e.hl)+'</div><div class="kk">'+richKo(e.ko,e.hlko)+'</div></div>'});
     h+='</div>';
     h+='<div class="card"><p class="lb">이 단어, 이렇게 바뀌었어요</p>';
     q.swaps.forEach(function(s){h+='<div class="swap"><span class="a">'+words(s[0])+'</span><span class="arr">→</span><span class="b">'+words(s[1])+'</span><span class="ds">'+esc(s[2])+(/\s/.test(s[0])||/\s/.test(s[1])?'':' '+sayBtn(s[0],'듣기')+' '+sayBtn(s[1],'듣기'))+'</span></div>'});
@@ -425,7 +448,7 @@ function vQ(){
     h+='<div class="card"><details><summary>다른 보기는 왜 아닐까요</summary><ul style="padding:0;margin:6px 0 0">';
     q.wrong.forEach(function(w,i){if(w)h+='<li><b>'+CN[i]+'</b> '+hlp(w)+'</li>'});
     h+='</ul></details></div>';
-    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button></div>';
+    h+='<button class="btn pri" data-a="next">'+(cur<Qs.length-1?'다음 문제':'결과 보기')+'</button><button class="btn sec" data-a="home">목록으로</button></div>';
   }
   return h;
 }
@@ -433,8 +456,8 @@ function vRes(){
   var h='<div class="top"><button class="back" data-a="home">목록</button><button class="back" data-a="sw">바꿔 말하기</button></div><h1>'+Qs.length+'문제 중 '+okCount()+'문제 맞았어요</h1>';
   h+='<div class="nums">';
   Qs.forEach(function(q,i){var a=PR.a[q.id];h+='<button class="nb '+(a===undefined?'':(a===q.ans?'o':'x'))+'" data-a="q" data-v="'+i+'">'+(i+1)+'</button>'});
-  h+='</div><p class="sub">단어노트에 '+nNotes()+'개가 쌓였어요.</p>';
-  h+='<button class="btn pri" data-a="notes">단어노트 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
+  h+='</div>';
+  h+='<button class="btn pri" data-a="sw">바꿔 말하기 보기</button><button class="btn sec" data-a="reset">문제 다시 풀기</button><button class="btn sec" data-a="home">목록으로</button>';
   return h;
 }
 function sortedNotes(){return Object.keys(NOTES).map(function(k){return NOTES[k]}).sort(function(a,b){return b.t-a.t})}
@@ -469,19 +492,41 @@ function vChk(){
   return h+'</div><a class="btn sec" style="display:block;text-align:center;text-decoration:none" href="https://nolbada.github.io/via/wn/">H로드맵 오답노트 열기</a>';
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
+
+var EVK={};
+var REL={};
+function relBox(s){
+  var r=REL[String(s.a).toLowerCase()];if(!r)return '';
+  var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
+  r.s.forEach(function(x){it.push({t:x[0],k:x[1],c:'s'})});
+  r.a.forEach(function(x){it.push({t:x[0],k:x[1],c:'a'})});
+  var P={1:[[50,80]],2:[[26,78],[74,78]],3:[[16,70],[50,86],[84,70]],4:[[14,62],[36,86],[64,86],[86,62]],5:[[12,56],[28,86],[50,92],[72,86],[88,56]]}[it.length],svg='',nd='';
+  it.forEach(function(x,j){
+    svg+='<line x1="50%" y1="26%" x2="'+P[j][0]+'%" y2="'+(P[j][1]-7)+'%" stroke="'+(x.c=='a'?'#c0392b':'#2f5d50')+'" stroke-width="2"/>';
+    nd+='<div class="rn '+x.c+'" style="left:'+P[j][0]+'%;top:'+P[j][1]+'%">'+esc(x.t)+(x.k?'<small>'+esc(x.k)+'</small>':'')+'</div>';
+  });
+  var left=String(s.k).split(' → ')[0];
+  var h='<div class="relx"><div class="rmap"><svg>'+svg+'</svg><div class="rn c" style="left:50%;top:26%">'+esc(s.a)+'<small>'+esc(left)+'</small></div>'+nd+'</div>'
+   +'<div class="rleg"><span><i style="border-color:#2f5d50"></i>바꿔 쓸 수 있는 말</span>'+(r.a.length?'<span><i style="border-color:#c0392b"></i>반대말</span>':'')+'</div>'
+   +'<div class="pit"><div><em>본문</em>'+r.bj+'</div><div><em>요약문</em><b>'+esc(s.b)+'</b>('+esc(String(s.k).split(' → ')[1]||'')+')로 바뀜</div>'+(r.tr?'<div class="tp"><em>함정</em>'+esc(r.tr)+'</div>':'')+'</div></div>';
+  return h;
+}
 function vSw(){
   var L=swList(),sc={};
   (DATA.scenes||[]).forEach(function(c){(c.line.match(/\[\[\w+\|/g)||[]).forEach(function(m){sc[m.slice(2,-1).toLowerCase()]=c})});
   var h='<div class="top"><button class="back" data-a="home">목록</button><span class="cnt">바꿔 말하기 '+L.length+'개</span></div>';
   h+='<p class="hint">왼쪽 단어가 요약문에서 어떤 말로 바뀔까요? <b>소리 내어 말해 본 뒤</b> 확인을 눌러요.</p>';
-  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button></div><div class="card">';
+  h+='<div class="tabs"><button data-a="rvall" data-v="open">모두 열기</button><button data-a="rvall" data-v="hide">모두 가리기</button><button data-a="staronly" class="'+(swStarOnly?'on':'')+'">별표만 '+Object.keys(STAR).length+'</button></div><div class="card">';
+  if(swStarOnly)L=L.filter(function(s){return STAR[s.id]});
+  if(!L.length)h+='<div class="empty">별표 친 단어가 없어요. 안 외워지는 단어에 별표를 눌러 두세요.</div>';
   L.forEach(function(s){
     var o=swOpen[s.id],c=sc[s.form.toLowerCase()],on=swD['s'+s.id],fl=wrongOf(s.id);
-    h+='<div class="swr"><div class="swq"><span class="qn">'+s.sq+'번</span><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button></div>';
-    if(c)h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
+    h+='<div class="swr"><div class="swq"><span class="qn">'+s.sq+'번</span><span class="sa">'+words(s.a)+(fl?'<small class="flag">'+fl+'번 틀림</small>':'')+'</span><span class="sb">'+(o?'<em>'+words(s.b)+'</em>'+esc(s.k):'→ ?')+'</span>'+sayBtn(s.a,'듣기')+(o?sayBtn(s.b,'정답 듣기'):'')+'<button data-a="rv" data-v="'+esc(s.id)+'">'+(o?'가리기':'확인')+'</button><button data-a="star" data-v="'+esc(s.id)+'" class="stb'+(STAR[s.id]?' on':'')+'">별표</button></div>';
+    if(o)h+=relBox(s);else if(REL[String(s.a).toLowerCase()]){var rr=REL[String(s.a).toLowerCase()];h+='<div class="hch">유 '+(1+rr.s.length)+(rr.a.length?' · 반 '+rr.a.length:'')+'</div>'}
+    if(c&&!REL[String(s.a).toLowerCase()])h+='<button class="acc2" data-a="dt" data-v="s'+esc(s.id)+'">'+esc(c.tag)+' 줄거리<span>'+(on?'접기':'펼치기')+'</span></button>'+(on?'<div class="story">'+sceneLine(c.line,s.form)+'</div>':'');
     h+='</div>';
   });
-  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p>';
+  return h+'</div><p class="sumline">시험에서는 본문 단어가 뜻이 같은 다른 단어로 바뀌어 나와요.</p><button class="btn sec" data-a="home">목록으로</button>';
 }
 /* 자동 새로고침(기록 연동)이 일어나도 보던 문제로 되돌린다 */
 try{var sv=JSON.parse(sessionStorage.getItem('vhyv')||'null');if(sv&&sv.p===location.pathname&&Date.now()-sv.t<600000&&sv.v&&sv.v!=='home'){view=sv.v;cur=sv.c||0;try{history.pushState({v:view},'');histPushed=true}catch(e){}}}catch(e){}
