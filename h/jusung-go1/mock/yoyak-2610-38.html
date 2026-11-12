@@ -492,8 +492,19 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'대학생들에게 상식 퀴즈 진술 60개가 참인지 거짓인지 얼마나 <b>확신하는지</b>(certain) 물음'],[2,'2주 간격으로 세 번 진술을 <b>평가하게</b>(evaluate) 함']],
+'2':[[3,'진술 중 20개만 매번 <b>반복되었고</b>(repeated) 나머지 40개는 새 진술'],[5,'연구자들이 발견한 것은 <b>놀라웠음</b>(astonishing)']],
+'3':[[6,'참인지 거짓인지와 상관없이 주장의 진실성에 대한 <b>믿음</b>(belief)이 반복에 따라 커짐'],[7,'진술을 <b>더 자주</b>(often) 들을수록 더 ‘참’처럼 들림'],[8,'이를 착각적 진실 효과라고 부름']]
+};
+var REL={
+certain:{bj:'진술이 참인지 거짓인지 얼마나 <b>확신하는지</b>(certain) 물음',s:[['confident','자신 있는'],['positive','확신하는']],a:[['uncertain','확신이 없는'],['doubtful','의심스러운']],tr:'certain은 어떤(특정한) 뜻도 있는 다의어, 여기서는 확신하는'},
+evaluate:{bj:'세 번에 걸쳐 진술을 <b>평가하게</b>(evaluate) 함',s:[['assess','평가하다'],['rate','등급을 매기다'],['appraise','감정하다']],a:[],tr:'evaluate는 가치를 따지다, 단순히 읽다(read)와 구분'},
+repeat:{bj:'20개의 진술만 매번 <b>반복되었음</b>(repeated)',s:[['recur','되풀이되다'],['duplicate','복제하다']],a:[],tr:'repeat는 반복하다. 나머지 40개는 새 진술이라 repeated와 반대 구도'},
+astonishing:{bj:'연구자들이 발견한 것은 <b>놀라웠음</b>(astonishing)',s:[['amazing','놀라운'],['astounding','경악스러운'],['incredible','믿기 어려운']],a:[],tr:'astonishing은 놀라운. 실망스러운(disappointing)은 오답'},
+belief:{bj:'주장의 진실성에 대한 <b>믿음</b>(belief)이 반복에 따라 커짐',s:[['faith','믿음'],['conviction','확신']],a:[['doubt','의심'],['disbelief','불신']],tr:'belief는 명사 믿음, trust는 동사 믿다로 쓰임'},
+often:{bj:'진술을 <b>더 자주</b>(often) 들을수록 더 ‘참’처럼 들림',s:[['regularly','규칙적으로']],a:[['rarely','드물게']],tr:'the more often ~, the more ~는 ~할수록 더 ~'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
