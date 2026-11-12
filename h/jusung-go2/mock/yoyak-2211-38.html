@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'동물이 <b>몸이 안 좋게</b>(unwell) 하는 항영양소 식물을 먹으면 다시 먹지 않음'],[2,'<b>직관적으로</b>(intuitively) 그런 식물을 멀리할 줄 앎'],[3,'오랜 진화가 이 <b>타고난</b>(innate) 지능을 만듦']],
+'2':[[4,'이 <b>직관</b>(intuition)은 동물에게만 있지 않음'],[5,'아이들은 대부분 야채를 <b>싫어함</b>(hate)'],[6,'Gundry는 이것을 유전적 프로그래밍으로 <b>정당화함</b>(justify)']],
+'3':[[7,'야채는 항영양소로 가득해 몸이 아직 연약할 때 멀리하게 함'],[8,'미뢰가 이 맛을 나쁘고 <b>역겹게</b>(disgusting) <b>인식하게</b>(perceive) 만들어서 그렇게 함'],[9,'성장해서 몸이 강해지면 더 이상 그렇게 나쁘게 느껴지지 않음']]
+};
+var REL={
+unwell:{bj:'동물이 <b>몸이 안 좋게</b>(unwell) 느낀다',s:[['sick','아픈'],['ailing','병든']],a:[['healthy','건강한'],['well','건강한']],t:'ill',tr:'unwell은 well(건강한)의 반대, 몸이 안 좋은'},
+intuitively:{bj:'<b>직관적으로</b>(intuitively) 멀리할 줄 안다',s:[['automatically','저절로'],['spontaneously','자발적으로']],a:[['deliberately','의도적으로']],t:'instinctively',tr:'intuitively는 배우지 않고도 느낌으로 아는'},
+innate:{bj:'이 <b>타고난</b>(innate) 지능',s:[['inherent','내재된'],['natural','타고난'],['intrinsic','본질적인']],a:[['acquired','후천적인']],t:'inborn',tr:'innate는 태어날 때부터 가지고 있는'},
+intuition:{bj:'이 <b>직관</b>(intuition)은 동물에게만 있지 않다',s:[['hunch','예감'],['sixth sense','육감']],a:[['reasoning','추론'],['logic','논리']],t:'instinct',tr:'intuition은 근거 없이도 바로 아는 느낌'},
+hate:{bj:'아이들은 야채를 <b>싫어한다</b>(hate)',s:[['detest','몹시 싫어하다'],['loathe','혐오하다']],a:[['adore','매우 좋아하다'],['love','사랑하다']],t:'dislike',tr:'hate는 dislike보다 훨씬 강한 싫음'},
+justify:{bj:'이것을 유전적 프로그래밍의 일부로 <b>정당화한다</b>(justifies)',s:[['defend','옹호하다'],['validate','타당하다고 입증하다'],['vindicate','정당함을 입증하다']],a:[],t:'explain',tr:'justify는 옳은 이유를 대다'},
+disgusting:{bj:'나쁘고 심지어 <b>역겹게</b>(disgusting)',s:[['revolting','역겨운'],['repulsive','혐오스러운'],['loathsome','혐오스러운']],a:[['delightful','즐거운']],t:'unpleasant',tr:'disgusting은 disgust(역겨움)에서 나온 형용사'},
+antinutrients:{bj:'<b>항영양소</b>(antinutrients)로 가득한 야채',s:[],a:[],t:'harmful substances',tr:'anti-는 반대, nutrient는 영양소: 영양 흡수를 방해하는 물질'},
+perceive:{bj:'이러한 맛을 나쁘다고 <b>인식하게</b>(perceive)',s:[['sense','감지하다'],['detect','알아내다'],['notice','알아차리다']],a:[['overlook','간과하다']],t:'seem',tr:'perceive A as B는 A를 B로 인식하다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
