@@ -492,8 +492,23 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[2,'경제학은 모든 것이 충분하지 않다는 <b>개념</b>(notion)에서 출발'],[3,'그래서 시장과 <b>가격 책정</b>(pricing)으로 자원을 가장 이익이 큰 곳에 <b>배분</b>(allocate)']],
+'2':[[4,'Star Trek 세계는 부족함(희소성)이 거의 없음'],[5,'기술이 음식 <b>복제</b>(reproduce), 먼 거리 <b>의사소통</b>(communicate)을 가능하게 <b>해 주었다</b>(allowed)']],
+'3':[[6,'모든 인류가 이 <b>풍요</b>(prosperity)에 <b>참여</b>(participate)하도록 교육받음'],[8,'생성형 AI로 사회의 많은 <b>측면</b>(dimensions)이 <b>풍요로워질</b>(abundant) 수 있음']]
+};
+var REL={
+notion:{bj:'경제학은 모든 것이 충분하지 않다는 <b>개념</b>(notion)에서 출발',s:[['concept','개념, 관념'],['belief','신념, 확신']],a:[],t:'idea'},
+pricing:{bj:'자원을 배분하려고 시장과 <b>가격 책정</b>(pricing)을 이용',s:[],a:[],t:'price'},
+allocate:{bj:'자원을 이익이 큰 곳에 <b>배분</b>(allocate)하려고 시장과 가격을 이용',s:[['assign','할당하다, 배정하다'],['dispense','나누어 주다']],a:[['collect','모으다, 수집하다']],t:'distribute',tr:'collect는 방향이 반대, 나누어 주는 말이 아니라 모으는 말'},
+allow:{bj:'기술이 음식 복제, 먼 거리 소통 등을 가능하게 <b>해 주었다</b>(allowed)',s:[['permit','허용하다'],['grant','승인하다']],a:[['forbid','금지하다']],t:'let',tr:'forbid는 방향이 반대, 본문 단어 allow 그대로 찾기도 오답'},
+reproduce:{bj:'원하는 어떤 음식이든 <b>복제하고</b>(reproduce)',s:[['duplicate','복사하다'],['replicate','모사하다, 재현하다']],a:[],t:'copy',tr:'reproduce는 번식하다 · 재생하다 뜻도 있는 다의어, 이 문장에서는 복제하다'},
+communicate:{bj:'수 광년 너머로 <b>의사소통하게</b>(communicate) 해 주었다',s:[['convey','전하다']],a:[],t:'talk',tr:'communicate는 전달하다 뜻도 있음, 이 문장에서는 의사소통하다'},
+participate:{bj:'모든 인류가 이러한 풍요에 <b>참여할</b>(participate) 수 있도록 교육받았다',s:[['take part','참여하다']],a:[],t:'share',tr:'share는 지분(명사)도 되는 다의어, 이 문장에서는 함께 누리다(동사)'},
+prosperity:{bj:'모든 인류가 이러한 <b>풍요</b>(prosperity)에 참여할 수 있도록 교육받았다',s:[],a:[['poverty','빈곤, 가난']],t:'wealth',tr:'poverty는 정반대 뜻, 풍요를 가난으로 읽으면 요약문이 뒤집힘'},
+dimension:{bj:'생성형 AI로 사회의 많은 <b>측면</b>(dimensions)이 풍요로워질 수 있다',s:[['aspect','양상, 측면'],['sector','부문, 분야']],a:[],t:'area',tr:'dimension은 차원으로만 외우면 놓침, 이 문장에서는 측면 · 분야'},
+abundant:{bj:'사회의 많은 측면이 마찬가지로 매우 <b>풍요로워질</b>(abundant) 수 있다',s:[['ample','충분한, 풍부한'],['rich','풍부한']],a:[['scarce','부족한, 드문']],t:'plentiful',tr:'scarce는 정반대 뜻, 풍요를 부족으로 읽으면 요약문이 뒤집힘'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
