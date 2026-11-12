@@ -493,8 +493,27 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'일부 경우에, 음성 콘텐츠는 <b>접근되거나</b>(accessed) 이해될 수 없다.'],[2,'어떤 사람들은 청각 <b>장애를</b>(disabilities) 가지고 있을 수도 있는데 반하여,…']],
+'2':[[3,'…정보에 접근할 수 있는 다른 방법들을 <b>제공한다</b>(offer).'],[5,'대본은 <b>전체</b>(entire) 음성 콘텐츠의 텍스트 버전인 반면,…']],
+'3':[[8,'…This makes it <b>difficult</b> for them to read.'],[9,'…있는 웹 사이트는 텍스트 색과 대조를 <b>이루는</b>(contrasts) 배경 색을 지니고 있다.'],[10,'This makes the text <b>clear</b> enough for most…']],
+'4':[[11,'…웹 사이트는 사용자가 배경음의 음량을 <b>조절하거나</b>(adjust) 완전히 끌 수 있도록 해준다.'],[12,'이는 청각 장애가 있는 사용자와 없는 사용자 모두에게 그들이 사이트를 사용하는 …']]
+};
+var REL={
+access:{bj:'일부 경우에, 음성 콘텐츠는 <b>접근되거나</b>(accessed) 이해될 수 없다.',s:[['entry','접근'],['reach','도달']],a:[['exclusion','배제']],t:'inaccessible',tr:'접근하다 → 접근할 수 없는'},
+disability:{bj:'어떤 사람들은 청각 <b>장애를</b>(disabilities) 가지고 있을 수도 있는데…',s:[['handicap','장애']],a:[['ability','능력']],t:'impairment',tr:'장애 → 장애'},
+'cannot be accessed or understood':{bj:'<b>In</b> some cases, audio content cannot …',s:[],a:[],t:'can be inaccessible',tr:'접근되거나 이해될 수 없다 → 접근할 수 없는 것이 될 수 있다'},
+offer:{bj:'…수 있는 다른 방법들을 <b>제공한다</b>(offer).',s:[['provide','제공하다'],['give','주다']],a:[['withhold','주지 않다'],['refuse','거절하다']],t:'supply',tr:'제공하다 → 공급하다, 제공하다'},
+entire:{bj:'대본은 <b>전체</b>(entire) 음성 콘텐츠의 텍스트…',s:[['whole','전체의'],['total','전체의']],a:[['partial','부분적인']],t:'complete',tr:'전체의 → 완전한, 전체의'},
+transcripts:{bj:'<b>대본은</b>(Transcripts) 전체 음성 콘텐츠의 텍스트…',s:[],a:[],t:'text versions of audio',tr:'대본 → 음성의 텍스트 버전'},
+difficult:{bj:'… poor eyesight. This makes it <b>difficult</b> for them to read.',s:[['challenging','어려운'],['hard','힘든']],a:[['easy','쉬운']],t:'tough',tr:'어려운 → 힘든'},
+clear:{bj:'This makes the text <b>clear</b> enough for most people to …',s:[['obvious','분명한'],['plain','뚜렷한']],a:[['vague','모호한'],['unclear','불분명한']],t:'visible',tr:'또렷한 → 눈에 보이는'},
+contrasts:{bj:'…텍스트 색과 대조를 <b>이루는</b>(contrasts) 배경 색을 지니고 있다.',s:[],a:[],t:'contrasting',tr:'대조를 이루다 → 대비되는'},
+adjust:{bj:'…사용자가 배경음의 음량을 <b>조절하거나</b>(adjust) 완전히 끌 수 있도록…',s:[['adapt','맞추다'],['alter','바꾸다']],a:[],t:'regulate',tr:'조절하다 → 조절하다'},
+altogether:{bj:'…배경음의 음량을 조절하거나 <b>완전히</b>(altogether) 끌 수 있도록 해준다.',s:[['entirely','완전히'],['totally','전적으로']],a:[['partly','부분적으로']],t:'completely',tr:'완전히 → 완전히'},
+control:{bj:'As for audio <b>content,</b> accessible websites allow users to …',s:[['manage','관리하다'],['command','지휘하다']],a:[],t:'influence',tr:'통제권 → 영향력'},
+volume:{bj:'…사이트는 사용자가 배경음의 <b>음량을</b>(volume) 조절하거나 완전히 끌 수…',s:[['sound level','음량'],['intensity','세기']],a:[],t:'loudness',tr:'음량 → 소리 크기'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
