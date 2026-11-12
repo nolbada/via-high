@@ -493,8 +493,27 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[4,'…시각적 정보가 텍스트를 이해하는 데 <b>중요하다</b>(important). 이는 시각 장애를 가진 사용자에게…'],[5,'…called “screen <b>readers,”</b> which read online…']],
+'2':[[6,'…대체 텍스트를 제공함으로써 이 문제를 <b>해결한다</b>(solve).'],[7,'대체 텍스트는 비문자 정보에 대한 <b>간단한</b>(brief) 설명이다.']],
+'3':[[8,'…있으며 그들이 무엇을 하고 있는지 <b>설명할</b>(explain) 것이다.'],[9,'스크린 리더는 이 대체 텍스트를 <b>감지하고</b>(detect) 소리 내어 읽어 줄 수 있다.']],
+'4':[[10,'…더 많은 정보에 접근할 수 있도록 <b>보장한다</b>(ensures).']]
+};
+var REL={
+important:{bj:'…텍스트를 이해하는 데 <b>중요하다</b>(important). 이는 시각 장애를 가진…',s:[['significant','중대한'],['major','주요한']],a:[['trivial','사소한'],['minor','하찮은']],t:'crucial',tr:'중요한 → 매우 중요한'},
+read:{bj:'… often use programs called “screen <b>readers,”</b> which read online text aloud. …',s:[['understand','이해하다'],['decode','해독하다']],a:[['misread','잘못 읽다']],t:'interpret',tr:'읽다 → 해석하다'},
+images:{bj:'…그러나 이러한 프로그램들은 <b>이미지를</b>(images) ‘읽을’ 수 없다.',s:[['pictures','그림'],['photos','사진']],a:[],t:'visual information',tr:'이미지 → 시각 정보'},
+solve:{bj:'…제공함으로써 이 문제를 <b>해결한다</b>(solve).',s:[['figure out','알아내다'],['work out','해결하다']],a:[],t:'resolve',tr:'해결하다 → 해결하다'},
+brief:{bj:'…비문자 정보에 대한 <b>간단한</b>(brief) 설명이다.',s:[['momentary','잠깐의'],['concise','간결한']],a:[['long','긴'],['lengthy','장황한']],t:'short',tr:'간단한 → 짧은'},
+description:{bj:'…비문자 정보에 대한 간단한 <b>설명이다</b>(description).',s:[['account','설명'],['portrayal','묘사']],a:[],t:'explanation',tr:'설명 → 설명'},
+'non-textual':{bj:'… is a brief description of <b>non-textual</b> information.',s:[],a:[],t:'not text',tr:'글자가 아닌 → 글자가 아닌'},
+explain:{bj:'…그들이 무엇을 하고 있는지 <b>설명할</b>(explain) 것이다.',s:[['clarify','명확히 하다'],['illustrate','예를 들어 설명하다']],a:[['confuse','혼란시키다']],t:'describe',tr:'설명하다 → 묘사하다'},
+detect:{bj:'…리더는 이 대체 텍스트를 <b>감지하고</b>(detect) 소리 내어 읽어 줄 수…',s:[['discover','발견하다'],['notice','알아차리다']],a:[['overlook','간과하다'],['miss','놓치다']],t:'recognize',tr:'감지하다 → 인식하다'},
+group:{bj:'…들어, 만약 이미지가 한 <b>무리의</b>(group) 학생들을 보여 준다면,…',s:[['categorize','분류하다'],['classify','분류하다']],a:[],t:'picture',tr:'한 무리 → 사진'},
+ensure:{bj:'…정보에 접근할 수 있도록 <b>보장한다</b>(ensures).',s:[['make sure','확실히 하다'],['secure','확보하다']],a:[],t:'guarantee',tr:'보장하다 → 보장하다'},
+access:{bj:'…사이트에서 더 많은 정보에 <b>접근할</b>(access) 수 있도록 보장한다.',s:[['entry','접근'],['admission','입장']],a:[['denial','거부']],t:'obtain',tr:'접근하다 → 얻다'},
+website:{bj:'…장애를 가진 사람들이 웹 <b>사이트에서</b>(website) 더 많은 정보에 접근할 수…',s:[],a:[],t:'website',tr:'웹 사이트 → 웹 사이트'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
