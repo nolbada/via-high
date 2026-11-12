@@ -493,8 +493,21 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'볼링공의 질량은 알려진 질량과 <b>비교</b>(compare)'],[2,'먼 별의 질량은 훨씬 더 <b>복잡함</b>(complicated)']],
+'2':[[4,'별의 질량을 재려면 여러 이론이 <b>필요함</b>(involves)'],[5,'질량 중심을 먼저 <b>구하고</b>(determine) 거리를 <b>계산함</b>(calculate)']],
+'3':[[6,'다른 <b>수치</b>(quantities)를 재서 질량을 계산함'],[7,'측정은 <b>매개 없는</b>(unmediated) 단순 추정이 아님']]
+};
+var REL={
+compare:{bj:'알려진 질량과 <b>비교한다</b>(compare)',s:[['contrast','대조하다'],['match','맞대어 보다']],a:[],t:'check',tr:'compare A with B는 A를 B와 견주어 보다'},
+complicated:{bj:'훨씬 더 <b>복잡해진다</b>(complicated)',s:[['complex','복잡한'],['intricate','얽히고설킨'],['elaborate','정교한']],a:[['simple','간단한']],t:'hard',tr:'complicated는 여러 부분이 얽혀 어려운'},
+distant:{bj:'<b>먼</b>(distant) 별의 질량',s:[['remote','외딴'],['far','먼']],a:[['near','가까운'],['close','가까운']],t:'faraway',tr:'distant는 멀리 떨어진'},
+involve:{bj:'여러 이론이 <b>필요하다</b>(involves)',s:[['entail','수반하다'],['include','포함하다'],['engage','관련시키다']],a:[['exclude','제외하다']],t:'require',tr:'involve는 어떤 일에 포함되거나 따르다'},
+determine:{bj:'질량 중심을 먼저 <b>구한다</b>(determine)',s:[['establish','확정하다'],['figure out','알아내다'],['resolve','결정하다']],a:[],t:'find',tr:'determine은 계산이나 조사로 알아내다'},
+calculate:{bj:'거리를 <b>계산한다</b>(calculate)',s:[['work out','풀어내다'],['figure out','계산해 내다'],['estimate','추정하다']],a:[],t:'compute',tr:'calculate는 수를 따져 답을 얻다'},
+quantity:{bj:'다른 <b>수치</b>(quantities)를 측정한다',s:[['amount','양'],['volume','부피']],a:[['quality','질']],t:'value',tr:'quantity는 재거나 셀 수 있는 양'},
+unmediated:{bj:'<b>매개 없는</b>(unmediated) 단순 추정',s:[['direct','직접적인'],['immediate','즉각적인']],a:[['mediated','매개된']],t:'indirectly',tr:'unmediated는 중간 단계 없이. 요약문에서는 반대인 indirectly로 바꿔 씀'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
