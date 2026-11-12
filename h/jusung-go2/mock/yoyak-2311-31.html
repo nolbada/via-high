@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'통계적으로 불가능한 우연을 <b>비이성적인</b>(irrational) 사건으로 봄'],[2,'기적의 <b>기원</b>(origin)은 우리의 <b>무지</b>(ignorance)에 있음']],
+'2':[[3,'기적이 나중에 자연 법칙임이 <b>밝혀짐</b>(discovered)'],[5,'기적은 "더 높은 힘"의 <b>개입</b>(intervention)을 <b>가정함</b>(assumes)']],
+'3':[[7,'사건을 <b>확인하고</b>(checking) 조사하는 대신 기적이라 부름'],[6,'<b>신성한</b>(divine) 계시 없이도 방법이 있음'],[8,'기적은 생각하기 귀찮은 사람들의 <b>변명</b>(excuse)']]
+};
+var REL={
+irrational:{bj:'통계적으로 불가능한 우연은 <b>비이성적인</b>(irrational) 일로 보인다',s:[['unreasonable','이치에 안 맞는'],['absurd','터무니없는']],a:[['rational','이성적인'],['logical','논리적인']],t:'illogical',tr:'irrational은 이성으로 설명이 안 되는'},
+origin:{bj:'기적의 <b>기원</b>(origin)은 우리의 무지에 있다',s:[['root','뿌리'],['beginning','시작']],a:[['result','결과']],t:'source',tr:'origin은 어떤 일이 처음 비롯된 곳'},
+ignorance:{bj:'우리의 <b>무지</b>(ignorance)',s:[['unawareness','모름'],['naivety','순진함']],a:[['awareness','인식'],['knowledge','지식']],t:'lack',tr:'ignorance는 알지 못하는 상태'},
+assume:{bj:'"더 높은 힘"의 개입을 <b>가정한다</b>(assumes)',s:[['presume','추정하다'],['presuppose','전제하다']],a:[],t:'suppose',tr:'assume은 증거 없이 그렇다고 치다'},
+intervention:{bj:'"더 높은 힘"의 <b>개입</b>(intervention)',s:[['interference','간섭'],['meddling','참견']],a:[['absence','없음']],t:'involvement',tr:'intervention은 일에 끼어드는 것'},
+discover:{bj:'기적이 법칙임이 나중에 <b>밝혀졌다</b>(discovered)',s:[['detect','알아내다'],['find','찾다'],['identify','확인하다']],a:[['overlook','간과하다']],t:'explain',tr:'discover는 몰랐던 것을 알게 되다. explain은 설명하다라서 뜻이 다르고 문맥상 연결됨'},
+check:{bj:'사건을 <b>확인하는</b>(checking) 대신',s:[['verify','확인하다'],['inspect','점검하다']],a:[['overlook','간과하다']],t:'examine',tr:'check it out은 직접 확인해 보다'},
+excuse:{bj:'기적은 생각하기 귀찮은 사람들의 <b>변명</b>(excuse)',s:[['justification','정당화'],['alibi','알리바이']],a:[],t:'pretext',tr:'excuse는 잘못을 덮으려는 이유, pretext는 속셈을 감춘 핑계'},
+divine:{bj:'<b>신성한</b>(divine) 계시',s:[['sacred','신성한'],['holy','성스러운']],a:[['mortal','죽을 운명의'],['earthly','세속의']],t:'godly',tr:'divine은 신에게서 온'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
