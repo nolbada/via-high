@@ -492,8 +492,27 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'재평가는 감정을 근본에서 <b>변화시키기</b>(transforms) 때문에 감정을 <b>조절하는</b>(regulating) 데 <b>효과적인</b>(effective) 방법이 될 수 있음']],
+'2':[[3,'이것은 보통 <b>부정적인</b>(adverse) 사건이지만 다른 방식으로 <b>해석될</b>(construed) 수 있음'],[4,'어떤 사람은 그것을 평생 흔적을 남길 <b>강렬한</b>(overpowering) 상실로 여김'],[5,'장기적으로 긍정적인 <b>결과</b>(outcomes)로 이어질 수도 있음']],
+'3':[[7,'첫 번째 해석은 <b>강렬한</b>(intense) 슬픔과 분노를 불러올 수 있음'],[9,'<b>긍정적인</b>(positive) 감정, 곧 희망, 강인함, <b>감사함</b>(gratitude)도 불러올 수 있음']],
+'4':[[11,'재평가의 단기적 결과가 오랫동안 반복되면 <b>축적되어</b>(accumulate) 심리적 건강을 형성함'],[12,'재평가는 회복 탄력성의 <b>열쇠</b>(key)가 될 수 있음']]
+};
+var REL={
+effective:{bj:'감정을 조절하는 데 특히 <b>효과적인</b>(effective) 방법',s:[['successful','성공적인'],['potent','강력한'],['efficient','효율적인']],a:[['ineffective','효과 없는']],t:'powerful',tr:'effective는 목표한 결과를 내는'},
+regulate:{bj:'감정을 <b>조절하는</b>(regulating) 데',s:[['adjust','조절하다'],['govern','다스리다'],['moderate','조절하다']],a:[['deregulate','규제를 풀다']],t:'control',tr:'regulate는 일정한 상태로 맞추다'},
+transform:{bj:'감정을 본질적으로 <b>변화시키기</b>(transforms) 때문에',s:[['alter','바꾸다'],['convert','전환하다'],['reshape','재구성하다']],a:[['preserve','보존하다']],t:'change',tr:'transform은 모양이나 성질을 완전히 바꾸다'},
+root:{bj:'그것은 감정을 그 <b>뿌리</b>(root)에서 변화시킨다',s:[['origin','기원'],['cause','원인'],['foundation','토대']],a:[['effect','결과']],t:'source',tr:'root는 식물의 뿌리, 여기서는 감정이 생기는 근본 원인'},
+adverse:{bj:'이것은 보통 <b>부정적인</b>(adverse) 사건이다',s:[['unfavorable','불리한'],['negative','부정적인'],['detrimental','해로운']],a:[['favorable','유리한']],t:'harmful',tr:'adverse는 좋지 않은 영향을 주는'},
+overpowering:{bj:'평생 흔적을 남길 <b>강렬한</b>(overpowering) 상실',s:[['overwhelming','압도적인'],['intense','강렬한'],['irresistible','저항할 수 없는']],a:[['mild','온화한']],t:'crushing',tr:'overpowering은 너무 강해서 견디기 어려운'},
+construe:{bj:'다른 방식들로 <b>해석될</b>(construed) 수 있다',s:[['interpret','해석하다'],['understand','이해하다'],['read','해석하다']],a:[['misinterpret','잘못 해석하다']],t:'regard',tr:'construe는 construe A as B, A를 B로 해석하다'},
+outcome:{bj:'장기적으로 긍정적인 <b>결과</b>(outcomes)로 이어질 수 있다',s:[['consequence','결과'],['effect','영향, 결과'],['upshot','결말']],a:[['cause','원인']],t:'result',tr:'outcome은 어떤 일의 최종 결과'},
+intense:{bj:'<b>강렬한</b>(intense) 슬픔과 분노를 불러올 수 있다',s:[['extreme','극심한'],['fierce','격렬한'],['severe','심한']],a:[['mild','온화한']],t:'strong',tr:'intense는 정도가 아주 센'},
+positive:{bj:'희망, 강인함 또는 감사함과 같은 <b>긍정적인</b>(positive) 감정',s:[['optimistic','낙관적인'],['favorable','유리한'],['constructive','건설적인']],a:[['negative','부정적인']],t:'uplifting',tr:'positive는 긍정적인, 반대는 부정적인 negative'},
+gratitude:{bj:'희망, 강인함 또는 <b>감사함</b>(gratitude)',s:[['appreciation','감사'],['gratefulness','고마움']],a:[['ingratitude','배은망덕']],t:'thankfulness',tr:'gratitude는 grateful(고마워하는)의 명사형'},
+accumulate:{bj:'단기적 결과들이 <b>축적되어</b>(accumulate) 심리적 건강을 형성한다',s:[['amass','모으다'],['pile up','쌓이다'],['build up','쌓아 올리다']],a:[['deplete','고갈시키다']],t:'gather',tr:'accumulate는 조금씩 모여 늘어나다'},
+key:{bj:'재평가는 회복 탄력성의 <b>열쇠</b>(key)가 될지도 모른다',s:[['solution','해결책'],['answer','해답'],['clue','단서']],a:[],t:'secret',tr:'key는 열쇠 뜻이 먼저, 여기서는 해결의 열쇠'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
