@@ -492,8 +492,20 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[2,'사회사는 엘리트보다 <b>평범한</b>(ordinary) 사람들을 강조함'],[3,'엘리트가 아닌 사람들은 <b>교육</b>(education)에 대한 접근이 부족해 <b>문서로 된 기록</b>(documentation)을 많이 남기지 못함']],
+'2':[[4,'이런 자료는 <b>보존될</b>(preserved) 수 있는 기록 보관소에 거의 닿지 못함'],[5,'기록의 편향 때문에 사회사학자는 매우 <b>창의적이어야</b>(creative) 함']],
+'3':[[7,'자료를 액면 그대로 <b>받아들이기</b>(take)보다 일반적인 방식과 다르게 해석함'],[8,'법적 문서의 공백, 소문 등에서 노예의 태도에 대한 <b>힌트</b>(hints)를 찾음']]
+};
+var REL={
+ordinary:{bj:'엘리트보다 <b>평범한</b>(ordinary) 사람들을 강조한다',s:[['average','평균의, 보통의'],['usual','평소의']],a:[['extraordinary','비범한'],['special','특별한']],t:'common',tr:'ordinary는 특별하지 않고 평범한'},
+education:{bj:'<b>교육</b>(education)에 대한 접근이 부족했다',s:[['instruction','교육'],['teaching','가르침'],['learning','배움']],a:[],t:'schooling',tr:'education은 학교 교육과 배움 전체를 가리키는 말'},
+documentation:{bj:'<b>문서로 된 기록</b>(documentation)을 많이 남기지 못했다',s:[['document','문서'],['paperwork','서류'],['evidence','증거']],a:[],t:'records',tr:'documentation은 document(문서)의 집합적인 말'},
+preserve:{bj:'자료가 <b>보존될</b>(preserved) 수 있는 기록 보관소',s:[['conserve','보존하다'],['protect','보호하다']],a:[['destroy','파괴하다'],['spoil','망치다']],t:'save',tr:'preserve는 원래 상태로 간직하다'},
+creative:{bj:'작업에서 매우 <b>창의적이어야</b>(creative) 한다',s:[['imaginative','상상력 있는'],['original','독창적인'],['innovative','혁신적인']],a:[['ordinary','평범한']],t:'inventive',tr:'creative는 create(만들다)의 형용사형'},
+take:{bj:'자료를 액면 그대로 <b>받아들이다</b>(take)',s:[['receive','받다'],['believe','믿다']],a:[['reject','거부하다']],t:'accept',tr:'take A at face value는 겉으로 드러난 그대로 받아들이다'},
+hint:{bj:'태도에 대한 <b>힌트</b>(hints)를 제공하는 세부 사항',s:[['suggestion','암시'],['tip','귀띔'],['indication','조짐']],a:[],t:'clue',tr:'hint는 슬쩍 알려 주는 단서'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
