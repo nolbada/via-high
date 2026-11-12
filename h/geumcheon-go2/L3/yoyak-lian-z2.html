@@ -493,8 +493,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'…처한 아이들을 위해 모금할 방법을 <b>결정해야</b>(decide) 했다.'],[2,'…바자회, 그리고 자선 콘서트였지만, <b>상충되는</b>(conflicting) 의견들이 있었다.']],
+'2':[[4,'…말고, 대신 다른 것을 시도해 보라고 <b>권장했다</b>(encouraged).']],
+'3':[[5,'약간의 <b>조사를</b>(research) 한 후, 자치회 구성원들은 단순…'],[6,'…methods would <b>yield</b> different results.']]
+};
+var REL={
+decide:{bj:'…위해 모금할 방법을 <b>결정해야</b>(decide) 했다.',s:[['settle','확정하다'],['conclude','결론짓다']],a:[['hesitate','망설이다']],t:'determine',tr:'결정하다 → 확정하다, 결정하다'},
+conflicting:{bj:'…그리고 자선 콘서트였지만, <b>상충되는</b>(conflicting) 의견들이 있었다.',s:[['contradictory','모순되는'],['clashing','충돌하는']],a:[['consistent','일관된'],['matching','일치하는']],t:'opposing',tr:'상충하는 → 대립하는'},
+'needed to':{bj:'<b>The</b> members of the Greenville High …',s:[['must','~해야 한다'],['were obliged to','~해야 했다']],a:[],t:'had to',tr:'~해야 했다'},
+encouraged:{bj:'…다른 것을 시도해 보라고 <b>권장했다</b>(encouraged).',s:[['advised','권고했다'],['pushed','밀어붙였다']],a:[['discouraged','말렸다']],t:'urged',tr:'권장했다 → 촉구했다'},
+familiar:{bj:'…조언을 구했을 때, 그녀는 <b>익숙한</b>(familiar) 투표 방법을 사용하지…',s:[['common','흔한'],['traditional','전통적인']],a:[['unfamiliar','낯선'],['new','새로운']],t:'conventional',tr:'익숙한 → 기존의, 관습적인'},
+'something different':{bj:'<b>When</b> they asked for advice from …',s:[['another option','다른 선택지'],['an alternative','대안']],a:[],t:'a different voting method',tr:'다른 것 → 다른 투표 방법'},
+research:{bj:'약간의 <b>조사를</b>(research) 한 후, 자치회 구성원들은…',s:[['study','연구'],['inquiry','탐구']],a:[],t:'investigation',tr:'조사 → 조사, 탐구'},
+yield:{bj:'… if the different methods would <b>yield</b> different results.',s:[['generate','만들어 내다'],['bring','가져오다']],a:[],t:'produce',tr:'내다 → 만들어 내다'},
+curious:{bj:'…서로 다른 결과를 낼지 <b>궁금해했다</b>(curious).',s:[['interested','관심 있는'],['eager','열망하는']],a:[['indifferent','무관심한']],t:'wondering',tr:'궁금한 → 궁금해하는'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
