@@ -493,8 +493,25 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'선매 행위는 경쟁자가 어떤 활동을 시작하는 것을 <b>방지하기</b>(prevent) 위한 전략'],[2,'경쟁자가 같은 행동을 하는 것을 <b>단념시킬</b>(discourage) 수 있는 의도의 공표일 수도 있음']],
+'2':[[3,'선매 행위에서는 <b>타이밍</b>(timing)이 중요함'],[4,'새 <b>진입자</b>(entrant)가 시장에 들어올 때 광고의 가중치를 <b>높일</b>(up-weighting) 수 있음'],[5,'목적은 신규 진입자의 광고가 구매자에게 <b>인상을 남기기</b>(make an impression on) <b>더 어렵게</b>(difficult) 만드는 것']],
+'3':[[7,'다양한 제품 변형을 <b>출시해서</b>(launch) 충족되지 않는 수요가 거의 없게 함'],[8,'시장이 이미 제품 변형으로 차 있으면 경쟁자가 손대지 않은(<b>untapped</b>) 수요를 찾기 어려움']]
+};
+var REL={
+prevent:{bj:'경쟁자가 활동을 시작하는 것을 <b>방지하기</b>(prevent) 위해',s:[['avoid','피하다'],['hinder','방해하다'],['stop','막다']],a:[],t:'block',tr:'prevent A from -ing는 A가 ~하지 못하게 막다'},
+discourage:{bj:'경쟁자들이 같은 행동을 하는 것을 <b>단념시킬</b>(discourage)',s:[['demoralize','사기를 꺾다'],['dishearten','낙담시키다']],a:[['encourage','격려하다'],['motivate','동기를 부여하다']],t:'weaken',tr:'discourage는 용기(courage)를 없애다'},
+'a rival from starting':{bj:'<b>경쟁자가 시작하는 것을</b>(a rival from starting) 막는다',s:[],a:[],t:"a rival's start",tr:'prevent A from -ing 구조를 명사구로 바꿔 쓴 표현'},
+timing:{bj:'<b>타이밍</b>(timing)이 때로 매우 중요하다',s:[['schedule','일정'],['occasion','시기']],a:[],t:'moment',tr:'timing은 일이 일어나는 시기를 고르는 것'},
+'up-weighting':{bj:'광고의 가중치를 <b>높이는 것</b>(up-weighting)',s:[],a:[],t:'increase',tr:'up은 올리다, weighting은 비중 두기'},
+entrant:{bj:'새로운 <b>진입자</b>(entrant)',s:[['participant','참가자'],['contender','경쟁자']],a:[],t:'newcomer',tr:'entrant는 enter(들어가다)에서 나온 말'},
+difficult:{bj:'광고가 인상을 남기는 것을 <b>더 어렵게</b>(difficult) 만든다',s:[['tough','힘든'],['challenging','어려운']],a:[['easy','쉬운']],t:'hard',tr:'make it more difficult는 ~을 더 어렵게 만들다'},
+'make an impression on':{bj:'구매자들에게 <b>인상을 남기다</b>(make an impression on)',s:[],a:[],t:'influence',tr:'make an impression on은 ~의 마음에 인상을 주다'},
+launch:{bj:'다양한 제품 변형을 <b>출시하는</b>(launch) 것',s:[['introduce','소개하다'],['roll out','출시하다'],['begin','시작하다']],a:[],t:'release',tr:'launch는 새 제품을 시장에 내놓다'},
+variety:{bj:'<b>다양한</b>(a large variety of) 제품 변형',s:[['diversity','다양성'],['assortment','모음']],a:[['uniformity','획일성']],t:'range',tr:'a variety of는 여러 가지의'},
+variant:{bj:'제품 <b>변형</b>(variants)',s:[['variation','변형'],['alternative','대안']],a:[],t:'version',tr:'variant는 기본형에서 조금 바뀐 것'},
+untapped:{bj:'<b>손대지 않은</b>(untapped) 시장 수요',s:[['unexploited','개발되지 않은'],['unused','쓰이지 않은']],a:[],t:'unmet',tr:'untapped는 아직 이용하지 않은'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
