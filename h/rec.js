@@ -38,7 +38,7 @@
   }
   function merge(loc,rem){try{return JSON.stringify(dm(JSON.parse(loc),JSON.parse(rem)))}catch(e){return rem}}
   /* go1·go2: 서버가 "명단에 없는 이름"이라고 하면 이 기기의 이름 등록과 기록을 풀어 잠금 화면으로 돌린다 */
-  function deny(){if(KIND==='gimal'||!g(NK))return;wipe();d(NK);d(UK);d(MK);reloadOnce()}
+  function deny(){if(KIND==='gimal'||!g(NK))return;wipe();d(NK);d(UK);d(MK);reloadOnce(true)}
   function post(body,keep){
     return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(body),keepalive:!!keep})
       .then(function(r){return r.json()}).then(function(r){if(!r||!r.ok){var e=new Error('rec');e.code=r&&r.err;if(e.code==='noname')deny();throw e}return r});
@@ -98,7 +98,8 @@
     },function(e){busy=false;throw e});
   }
   function wipe(){keys().forEach(d);d(MK)}
-  function reloadOnce(){
+  var TCH=0;try{['click','touchstart','keydown'].forEach(function(ev){W.addEventListener(ev,function(){TCH=1},true)})}catch(e){}
+  function reloadOnce(force){if(!force&&TCH&&!/-(go1|go2)\/(index\.html|tth\.html)?$/.test(P))return;
     try{var t=Number(sessionStorage.getItem('rec_rl')||0);if(Date.now()-t>20000){sessionStorage.setItem('rec_rl',String(Date.now()));location.reload()}}catch(e){}
   }
   var timer=null;
@@ -120,7 +121,7 @@
     };
     if(prev&&prev!==id){
       /* 공용 기기에서 다른 학생이 들어옴: 이전 학생 기록을 올리고 지운 뒤 새 학생 기록을 받는다 */
-      push(prev,false).catch(function(){}).then(function(){wipe();return first()}).then(function(){reloadOnce()});
+      push(prev,false).catch(function(){}).then(function(){wipe();return first()}).then(function(){reloadOnce(true)});
       return;
     }
     if(!prev){first();return}
