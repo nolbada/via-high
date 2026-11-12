@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'예술과 미학은 인간 경험의 전 <b>범위</b>(range)에 대한 정서적인 <b>연결</b>(connection)을 <b>제공함</b>(offer)']],
+'2':[[3,'불편함을 마주하면 변화의 가능성을 <b>제공함</b>(offers)'],[5,'예술은 어려운 개념과 <b>싸우는</b>(contend) <b>매개체</b>(vehicles)가 됨']],
+'3':[[6,'Guernica는 <b>가슴 아픈</b>(heartbreaking) 전쟁의 본질을 포착함'],[7,'<b>감동적인</b>(touching) 가족의 <b>초상</b>(portrait)을 제공함']]
+};
+var REL={
+offer:{bj:'예술은 정서적 연결을 <b>제공한다</b>(offer)',s:[['furnish','갖추어 주다'],['propose','제안하다'],['present','제시하다']],a:[],t:'provide',tr:'offer는 무언가를 내놓다, 주다'},
+range:{bj:'인간 경험의 전 <b>범위</b>(range)',s:[['scope','범위'],['variety','다양성']],a:[],t:'spectrum',tr:'range는 어디서 어디까지 걸치는 폭'},
+connection:{bj:'인간 경험에 대한 정서적인 <b>연결</b>(connection)',s:[['relationship','관계'],['link','연결 고리']],a:[['separation','분리']],t:'ties',tr:'connection은 서로 이어진 관계'},
+uncomfortable:{bj:'무언가 도전적이고 <b>불편할</b>(uncomfortable) 수 있다',s:[['awkward','어색한'],['uneasy','마음이 불편한']],a:[['comfortable','편안한'],['at ease','편안한']],t:'unsettling',tr:'uncomfortable은 몸이나 마음이 편하지 않은'},
+vehicle:{bj:'아이디어와 싸우는 <b>매개체</b>(vehicles)',s:[['medium','매개체'],['channel','통로']],a:[],t:'means',tr:'vehicle은 탈것, 여기서는 무언가를 전하는 수단'},
+contend:{bj:'어려운 아이디어와 <b>싸우는</b>(contend)',s:[['struggle','분투하다'],['battle','싸우다'],['wrestle','씨름하다']],a:[['cooperate','협력하다']],t:'confront',tr:'contend with는 어려움과 맞붙어 싸우다'},
+heartbreaking:{bj:'<b>가슴 아프고</b>(heartbreaking) 잔인한 전쟁의 본질',s:[['tragic','비극적인'],['sad','슬픈']],a:[['joyful','기쁜']],t:'painful',tr:'heartbreaking은 마음이 찢어질 듯 슬픈'},
+touching:{bj:'<b>감동적인</b>(touching) 가족생활의 초상',s:[['emotional','감정적인'],['heartwarming','마음이 따뜻해지는']],a:[['indifferent','무관심한']],t:'moving',tr:'touching은 마음을 건드리는, 감동적인'},
+portrait:{bj:'가족생활에 대한 <b>초상</b>(portrait)',s:[['depiction','묘사'],['representation','표현'],['image','이미지']],a:[],t:'picture',tr:'portrait는 사람이나 모습을 그린 그림, 여기서는 묘사'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
