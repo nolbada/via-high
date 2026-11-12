@@ -493,8 +493,23 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'모든 감정 중 질투보다 까다롭고 <b>이해하기 어려운</b>(elusive) 것은 없음'],[2,'사람들의 행동을 <b>자극하는</b>(motivate) 질투를 <b>알아차리는</b>(discern) 것은 매우 어려움']],
+'2':[[3,'질투를 직접 <b>표현하는</b>(express) 일이 거의 없음'],[4,'질투는 어떤 면에서 다른 사람보다 <b>열등하다는</b>(inferior) 인정(admission)을 수반함, 우리가 <b>가치 있게 여기는</b>(value) 것에서']],
+'3':[[5,'이 열등감을 인정하는 것은 <b>고통스러움</b>(painful), 다른 사람이 <b>보는</b>(see) 것은 더 나쁨'],[6,'그래서 질투를 느끼면 곧바로 불공평함이나 분노로 <b>감추려</b>(disguise) 함']]
+};
+var REL={
+elusive:{bj:'질투보다 더 <b>이해하기 어려운</b>(elusive) 것은 없다',s:[['slippery','잡히지 않는'],['baffling','당황스럽게 하는']],a:[['obvious','분명한'],['clear','명확한']],t:'puzzling',tr:'elusive는 붙잡거나 이해하기 어려운'},
+discern:{bj:'질투를 실제로 <b>알아차리는</b>(discern) 것',s:[['distinguish','구별하다'],['make out','알아보다'],['perceive','인지하다']],a:[['overlook','간과하다']],t:'recognize',tr:'discern은 분명하지 않은 것을 구별해 알아내다'},
+motivate:{bj:'사람들의 행동을 <b>자극하는</b>(motivate) 질투',s:[['inspire','고무하다'],['stimulate','자극하다']],a:[['discourage','단념시키다'],['deter','막다']],t:'drive',tr:'motivate는 동기를 부여해 행동하게 하다'},
+express:{bj:'질투를 직접 <b>표현하는</b>(express) 일',s:[['convey','전달하다'],['articulate','분명히 말하다']],a:[['suppress','억누르다'],['restrain','억제하다']],t:'show',tr:'express는 생각이나 감정을 겉으로 나타내다'},
+admission:{bj:'스스로에 대한 <b>인정</b>(admission)',s:[['confession','고백'],['acknowledgment','인정']],a:[['denial','부인']],t:'recognition',tr:'admission은 admit(인정하다)의 명사형, 입장이라는 뜻도 있음'},
+inferior:{bj:'다른 사람보다 <b>열등한</b>(inferior)',s:[['lower','낮은'],['subordinate','하위의']],a:[['superior','우월한']],t:'weaker',tr:'inferior to는 ~보다 열등한, than을 쓰지 않음'},
+value:{bj:'우리가 <b>가치 있게 여기는</b>(value) 무언가',s:[['appreciate','소중히 여기다'],['esteem','존중하다'],['treasure','소중히 하다']],a:[['neglect','소홀히 하다']],t:'care',tr:'value는 명사 가치와 동사 소중히 여기다'},
+painful:{bj:'이 열등감을 인정하는 것은 <b>고통스럽다</b>(painful)',s:[['agonizing','괴로운'],['bitter','쓰라린'],['sore','아픈']],a:[['painless','고통 없는']],t:'distressing',tr:'painful은 pain(고통)+ful'},
+disguise:{bj:'그것을 자신에게 <b>감추려는</b>(disguise)',s:[['conceal','숨기다'],['camouflage','위장하다']],a:[['reveal','드러내다'],['expose','폭로하다']],t:'mask',tr:'disguise는 변장하다, 정체를 숨기다'},
+see:{bj:'다른 사람들이 우리가 느끼는 것을 <b>보는</b>(see) 것',s:[['witness','목격하다'],['observe','관찰하다'],['spot','발견하다']],a:[['overlook','간과하다']],t:'notice',tr:'see는 눈으로 보다 외에 알아차리다, 이해하다 뜻도 있음'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
