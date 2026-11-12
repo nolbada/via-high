@@ -492,8 +492,21 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'연주자는 "하는 사람", 청중은 <b>수동적인</b>(passive) 사람으로 <b>구분</b>(distinction)'],[2,'공연장 공간이 그 구분을 더 <b>강화함</b>(reinforce)']],
+'2':[[3,'청중은 연주자에 대한 특별한 <b>접근</b>(access)을 <b>크게</b>(greatly) 중요하게 여김'],[5,'청중을 참여시키면 참여 수준을 <b>높일</b>(boost) 수 있음']],
+'3':[[9,'연주자가 왜 그 곡을 <b>골랐는지</b>(chosen)에 대한 배경'],[11,'이 연결은 표현적 경험을 <b>향상시킬</b>(enhance) 것']]
+};
+var REL={
+passive:{bj:'청중은 <b>수동적인</b>(passive) 사람이다',s:[['submissive','순종적인'],['docile','유순한']],a:[['active','능동적인']],t:'inactive',tr:'passive는 스스로 움직이지 않는'},
+reinforce:{bj:'공간이 그 구분을 더욱 <b>강화한다</b>(reinforce)',s:[['fortify','튼튼히 하다'],['consolidate','굳히다'],['boost','북돋우다']],a:[['weaken','약화시키다']],t:'strengthen',tr:'reinforce는 더 단단하게 받쳐 주다'},
+distinction:{bj:'연주자와 청중의 <b>구분</b>(distinction)',s:[['difference','차이'],['separation','분리']],a:[],t:'division',tr:'distinction은 둘을 가르는 차이'},
+greatly:{bj:'특별한 접근을 <b>크게</b>(greatly) 중요하게 여긴다',s:[['considerably','상당히'],['immensely','엄청나게']],a:[['slightly','약간']],t:'highly',tr:'greatly는 정도가 아주 크게'},
+access:{bj:'연주자에 대한 특별한 <b>접근</b>(access)',s:[['entry','입장'],['admission','입장']],a:[],t:'contact',tr:'access는 다가가 만날 수 있는 기회'},
+boost:{bj:'참여 수준을 <b>높일</b>(boost) 수 있다',s:[['enhance','높이다'],['promote','촉진하다'],['encourage','북돋우다']],a:[['discourage','낙담시키다']],t:'raise',tr:'boost는 힘을 주어 끌어올리다'},
+choose:{bj:'연주자가 왜 그 곡을 <b>골랐는지</b>(chosen)',s:[['select','선택하다'],['go for','선택하다']],a:[['reject','거부하다']],t:'pick',tr:'choose는 여럿 중에서 고르다'},
+enhance:{bj:'표현적 경험을 <b>향상시킬</b>(enhance) 것이다',s:[['enrich','풍부하게 하다'],['elevate','높이다'],['boost','높이다']],a:[['worsen','악화시키다']],t:'improve',tr:'enhance는 질이나 가치를 더 높이다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
