@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'외향형이 더 <b>효과적인</b>(effective) 리더라는 문화적 <b>억측</b>(presumption)'],[3,'임원 65%가 내향성을 리더십의 <b>장벽</b>(barrier)으로 봄']],
+'2':[[4,'이 고정관념을 <b>재검토해야</b>(reexamine) 함'],[5,'남을 돕고 성장시키려는 <b>열망</b>(desire)이 핵심 <b>요인</b>(factor)']],
+'3':[[6,'서번트 리더십은 일꾼과 고객을 <b>도움</b>(helping)'],[7,'<b>관심</b>(attention)을 구하지 않음, 겸손은 <b>궁극적으로</b>(ultimately) 이득']]
+};
+var REL={
+presumption:{bj:'강한 문화적 <b>억측</b>(presumption)',s:[['supposition','추측'],['belief','믿음']],a:[],t:'assumption',tr:'presumption은 근거 없이 그렇다고 믿는 생각'},
+barrier:{bj:'리더십의 <b>장벽</b>(barrier)',s:[['hurdle','장애물'],['hindrance','방해']],a:[['aid','도움']],t:'obstacle',tr:'barrier는 길을 막는 벽'},
+effective:{bj:'더 <b>효과적인</b>(effective) 리더',s:[['successful','성공적인'],['productive','생산적인']],a:[['ineffective','효과 없는']],t:'capable',tr:'effective는 목표한 결과를 내는'},
+reexamine:{bj:'이 고정관념을 <b>재검토해야</b>(reexamine) 한다',s:[['review','다시 검토하다'],['revisit','다시 살펴보다']],a:[],t:'reconsider',tr:'re-는 다시, examine은 자세히 살피다'},
+factor:{bj:'핵심 <b>요인</b>(factor)',s:[['component','구성 요소'],['ingredient','성분']],a:[],t:'element',tr:'factor는 결과에 영향을 주는 것'},
+desire:{bj:'성장시키려는 <b>열망</b>(desire)',s:[['longing','갈망'],['yearning','열망'],['craving','간절한 바람']],a:[],t:'wish',tr:'desire는 강하게 바라는 마음'},
+help:{bj:'일꾼이나 고객을 <b>도움</b>(helping)으로써',s:[['assist','돕다'],['aid','도움을 주다'],['back up','뒷받침하다']],a:[['hinder','방해하다']],t:'support',tr:'help는 도와주다'},
+attention:{bj:'<b>관심</b>(attention)을 구하지 않는다',s:[['focus','집중'],['spotlight','주목']],a:[['neglect','무시']],t:'recognition',tr:'attention은 쏠리는 시선과 관심'},
+ultimately:{bj:'겸손은 <b>궁극적으로</b>(ultimately) 이득이 된다',s:[['finally','마침내'],['in the end','결국']],a:[],t:'eventually',tr:'ultimately는 따지고 보면 최종적으로'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
