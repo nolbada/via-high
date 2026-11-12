@@ -493,8 +493,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'음수는 양수보다 훨씬 더 <b>추상적</b>(abstract)이지만 일상에서 생각해야 함'],[2,'많은 사람이 음수와 아직 <b>화해하지 못함</b>(made peace with)']],
+'2':[[3,'사람들은 음수 기호를 <b>피하려는</b>(sidestep) <b>우스꽝스럽고 사소한</b>(funny little) 전략을 만들어 냄'],[4,'펀드 명세서의 손실은 빨간색이나 괄호로 표시됨'],[6,'주차장 지하층은 B1, B2 같은 이름을 씀']],
+'3':[[7,'기온은 예외지만 많은 사람은 영하 5도라고 말하기를 <b>선호함</b>(prefer)'],[8,'음수 기호는 정말 <b>불쾌하게</b>(unpleasant) 보임']]
+};
+var REL={
+abstract:{bj:'음수는 양수보다 훨씬 더 <b>추상적</b>(abstract)이다',s:[['conceptual','개념적인'],['theoretical','이론적인']],a:[['concrete','구체적인'],['tangible','만질 수 있는']],t:'intangible',tr:'abstract는 눈에 보이지 않는 개념적인, 반대는 concrete'},
+'made peace with':{bj:'음수와 <b>화해하지</b>(made peace with) 못했다',s:[],a:[],t:'feel comfortable about',tr:'make peace with는 ~와 화해하다, 받아들이다'},
+'negative numbers':{bj:'<b>음수</b>(negative numbers)와 잘 지내지 못했다',s:[],a:[],t:'negative numbers',tr:'0보다 작은 수'},
+sidestep:{bj:'음수 기호를 <b>피하려는</b>(sidestep) 전략',s:[['evade','피하다'],['dodge','피하다'],['bypass','우회하다']],a:[['confront','맞서다']],t:'avoid',tr:'sidestep은 옆걸음질로 비켜서다'},
+strategies:{bj:'우스꽝스럽고 사소한 정신적 <b>전략</b>(strategies)',s:[['tactic','전술'],['approach','접근법'],['method','방법']],a:[],t:'ways',tr:'strategy는 목표를 이루려는 계획'},
+'funny little':{bj:'<b>우스꽝스럽고 사소한</b>(funny little) 정신적 전략',s:[],a:[],t:'creative',tr:'funny little은 귀엽고 사소한 정도의 가벼운 느낌'},
+prefer:{bj:'영하 5도라고 말하길 <b>선호한다</b>(prefer)',s:[['choose','선택하다'],['like better','더 좋아하다']],a:[['dislike','싫어하다']],t:'favor',tr:'prefer A to B는 B보다 A를 더 좋아하다'},
+unpleasant:{bj:'정말 <b>불쾌하게</b>(unpleasant) 보인다',s:[['disagreeable','불쾌한'],['distasteful','불쾌한']],a:[['agreeable','기분 좋은'],['pleasant','즐거운']],t:'unattractive',tr:'unpleasant는 pleasant의 반대'},
+say:{bj:'영하 5도라고 <b>말하길</b>(say) 선호한다',s:[['state','말하다'],['tell','말하다']],a:[],t:'saying',tr:'prefer to say를 prefer saying으로 바꿔 쓸 수 있음'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
