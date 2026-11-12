@@ -493,8 +493,27 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'…제품에 발생하는 대부분의 손상을 직접 <b>수리할</b>(repair) 수 있다.']],
+'2':[[3,'…고칠 수 있는 자유로운 만남의 <b>장소이다</b>(meeting places).'],[4,'…고치는 방법을 가르쳐 줄 수 있는 <b>자원봉사자</b>(volunteer) 전문가들을 직원으로 두고 있다.']],
+'3':[[6,'그것은 너무 <b>성공적이어서</b>(success) 그 아이디어가 곧 이웃 나라들로…']],
+'4':[[8,'…기술들과 지식을 공유할 수 있도록 <b>장려한다</b>(encourage).']]
+};
+var REL={
+repair:{bj:'…대부분의 손상을 직접 <b>수리할</b>(repair) 수 있다.',s:[['mend','고치다'],['restore','복원하다']],a:[['break','부수다'],['damage','손상시키다']],t:'fix',tr:'수리하다 → 고치다'},
+given:{bj:'…함께 알맞은 도구와 재료가 <b>주어지면</b>(given), 그들은 전자 제품에…',s:[['offered','제공된'],['supplied','공급된']],a:[],t:'provided',tr:'주어진 → 제공받은'},
+consumers:{bj:'<b>소비자들에게</b>(consumers) 유용한 조언과 함께 알맞은…',s:[['customers','고객'],['buyers','구매자'],['shoppers','쇼핑객']],a:[['producers','생산자']],t:'people',tr:'소비자 → 사람들'},
+'by themselves':{bj:'<b>When</b> consumers are given the right …',s:[['on their own','스스로'],['alone','혼자']],a:[['together','함께']],t:'independently',tr:'직접, 스스로 → 혼자 힘으로'},
+volunteer:{bj:'…방법을 가르쳐 줄 수 있는 <b>자원봉사자</b>(volunteer) 전문가들을 직원으로 두고…',s:[['voluntary','자발적인'],['free','무보수의']],a:[['paid','유급의']],t:'unpaid',tr:'자원봉사의 → 무보수의'},
+'meeting places':{bj:'…수 있는 자유로운 만남의 <b>장소이다</b>(meeting places).',s:[],a:[],t:'venues',tr:'만남의 장소 → 행사 장소'},
+'teach people how to fix things':{bj:'…물건을 고치는 방법을 <b>가르쳐</b>(teach people how to fix things) 줄 수 있는 자원봉사자…',s:[],a:[],t:'teach repair skills',tr:'물건 고치는 법을 가르치다 → 수리 기술을 가르치다'},
+success:{bj:'그것은 너무 <b>성공적이어서</b>(success) 그 아이디어가 곧 이웃…',s:[['achievement','성취'],['victory','승리']],a:[['failure','실패'],['collapse','붕괴']],t:'triumph',tr:'성공 → 대성공'},
+spread:{bj:'… success that the idea soon <b>spread</b> to neighboring countries.',s:[['circulate','퍼지다'],['extend','넓히다'],['diffuse','확산시키다']],a:[],t:'expand',tr:'퍼지다 → 확장되다'},
+neighboring:{bj:'…그 아이디어가 곧 <b>이웃</b>(neighboring) 나라들로 확산되었다.',s:[['adjacent','인접한'],['adjoining','맞닿은'],['surrounding','주변의']],a:[['distant','먼']],t:'nearby',tr:'이웃한 → 가까운'},
+encourage:{bj:'…지식을 공유할 수 있도록 <b>장려한다</b>(encourage).',s:[['inspire','고무하다'],['stimulate','자극하다'],['urge','촉구하다']],a:[['discourage','낙담시키다']],t:'motivate',tr:'장려하다 → 동기를 부여하다'},
+invaluable:{bj:'… encourage people to share their <b>invaluable</b> skills and knowledge about the …',s:[['precious','귀중한'],['essential','없어서는 안 될']],a:[['worthless','가치 없는']],t:'priceless',tr:'매우 귀중한 → 값을 매길 수 없는'},
+preventing:{bj:'Along with <b>preventing</b> damaged items from becoming e-waste, …',s:[['stopping','막는'],['blocking','막는'],['hindering','방해하는']],a:[['allowing','허용하는']],t:'keep',tr:'막는 것 → ~하지 못하게 하다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
