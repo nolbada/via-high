@@ -492,8 +492,20 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'대중문화는 사람들을 전통에 <b>결속시키는</b>(unite) 문화적 유대를 <b>약화시키고</b>(weaken), 사회 기관의 역할을 <b>축소시킴</b>(diminish)']],
+'2':[[2,'법정은 집단 생활의 조화로운 기능에 <b>중요한</b>(important) 전통적 기관'],[3,'사람들이 소셜 네트워크로 사법적 결정에 압박을 가하는 관행은 <b>해로움</b>(harmful)']],
+'3':[[4,'재판은 대중 광장에서 <b>행해져서는</b>(done) 안 됨'],[5,'법정은 대중의 압박에 <b>영향을 받지 않는</b>(immune) 방식이어야 함']]
+};
+var REL={
+weaken:{bj:'대중문화는 문화적 유대감을 <b>약화시키는</b>(weaken) 요인이다',s:[['erode','침식하다'],['undermine','훼손하다'],['impair','손상시키다']],a:[['strengthen','강화하다']],t:'loosen',tr:'weaken은 weak(약한)에 -en이 붙은 동사, 약하게 만들다'},
+unite:{bj:'전통들에 사람들을 <b>결속시키는</b>(unite) 문화적 유대감',s:[['combine','결합시키다'],['unify','통합하다'],['bind','묶다']],a:[['divide','나누다']],t:'connect',tr:'unite는 하나로 묶다, 반대는 갈라놓는 divide'},
+diminish:{bj:'사회 기관의 역할을 <b>축소시키고</b>(diminishing)',s:[['lessen','줄이다'],['decrease','감소시키다'],['shrink','줄어들다']],a:[['increase','늘리다']],t:'reduce',tr:'diminish는 작아지게 하다, 타동사 · 자동사 모두 씀'},
+important:{bj:'법정은 정상적이고 조화로운 집단 생활을 위해 <b>중요하다</b>(important)',s:[['crucial','중대한'],['vital','필수적인'],['significant','의미 있는']],a:[['trivial','사소한']],t:'essential',tr:'important는 중요한, 반대는 사소한 trivial'},
+harmful:{bj:'이러한 관행은 습관적인 문화의 형태가 되어 <b>해롭다</b>(harmful)',s:[['toxic','유독한'],['adverse','불리한'],['destructive','파괴적인']],a:[['beneficial','이로운']],t:'damaging',tr:'harmful은 harm(해)에 -ful이 붙은 형용사'},
+done:{bj:'재판은 대중 광장에서 <b>행해져서는</b>(done) 안 된다',s:[['carried out','수행된'],['performed','수행된'],['executed','집행된']],a:[],t:'delivered',tr:'justice be done은 정의가 실현되다, do의 과거분사 done'},
+immune:{bj:'법정은 대중의 압박에 <b>영향을 받지 않는</b>(immune) 방식이어야 한다',s:[['resistant','저항력 있는'],['exempt','면제된'],['unaffected','영향받지 않는']],a:[['vulnerable','취약한']],t:'protected',tr:'immune은 면역이 있는 뜻이 먼저, 여기서는 압박에 흔들리지 않는'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
