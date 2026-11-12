@@ -492,8 +492,21 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'2019년 WHO가 번아웃을 직업 현상으로 <b>인정한</b>(recognition) 것은 중요한 순간'],[2,'이 지정은 임상 평가와 조직의 책임을 다시 보고 관심을 체계적 예방 쪽으로 <b>옮김</b>(shifting)']],
+'2':[[3,'고용주가 개인 차원의 <b>해결책</b>(remedies)보다 구조적 개입을 하도록 <b>권함</b>(invites)'],[4,'임상의는 직업보건·경영진과 <b>협력해</b>(collaborate) 근본 원인을 <b>다뤄야</b>(address) 함']],
+'3':[[5,'번아웃을 개인의 <b>결점</b>(failing)이 아니라 구조적 문제로 보게 됨'],[6,'이 재구성은 <b>필수적</b>(essential)이며 체계적 개입과 정책 변화의 문을 엶']]
+};
+var REL={
+recognition:{bj:'WHO가 번아웃을 직업 현상으로 <b>인정함</b>(recognition)',s:[['acknowledgment','인정'],['acceptance','수용']],a:[['denial','부인']],tr:'recognition은 알아봄 외에 공식 인정, 동사 recognize와 연결'},
+shift:{bj:'관심을 체계적 예방 쪽으로 <b>옮김</b>(shifting)',s:[['transfer','옮기다'],['move','이동하다'],['switch','전환하다']],a:[],tr:'shift는 교대 근무 뜻도 있지만 여기서는 관심을 옮기다'},
+invite:{bj:'고용주가 구조적 개입을 하도록 <b>권함</b>(invites)',s:[['urge','촉구하다']],a:[['discourage','단념시키다']],tr:'invite는 초대하다가 먼저지만 여기서는 ~하도록 권하다'},
+remedy:{bj:'개인 차원의 <b>해결책</b>(remedies)에만 의존하지 않음',s:[['solution','해결책'],['cure','치료법'],['treatment','치료']],a:[['problem','문제']],tr:'remedy는 약, 치료법도 되지만 여기서는 해결책'},
+collaborate:{bj:'임상의는 직업보건·경영진과 <b>협력해야</b>(collaborate) 함',s:[],a:[],tr:'collaborate with는 ~와 협력하다, 전치사 with와 함께 외우기'},
+address:{bj:'근본 원인을 <b>다뤄야</b>(address) 함',s:[['deal with','처리하다'],['manage','처리하다']],a:[],tr:'address는 주소, 연설 뜻도 있지만 여기서는 문제를 다루다'},
+failing:{bj:'번아웃을 개인의 <b>결점</b>(failing)으로 보던 관점에서 벗어남',s:[['flaw','결점']],a:[['strength','강점']],tr:'failing은 실패하는 동사로 읽으면 놓침, 여기서는 명사 결점'},
+essential:{bj:'이 재구성은 <b>필수적</b>(essential)임',s:[['vital','필수적인'],['crucial','결정적인']],a:[['unnecessary','불필요한'],['optional','선택적인']],tr:'essential은 필수적인, optional(선택적인)과 반대'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
