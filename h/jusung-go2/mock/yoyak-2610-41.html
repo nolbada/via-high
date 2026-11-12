@@ -492,8 +492,20 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'무료함이 <b>적절하게</b>(adequately) <b>다뤄지지</b>(addressed) 않으면 우울, 낙담, 짜증 같은 해로운 감정이 생길 수 있음'],[2,'재미있는 활동을 찾는 것이 행복의 유일한 길이라 믿으면 그 활동에 <b>의존하게</b>(dependent) 됨']],
+'2':[[3,'너무 많은 시간을 가진 사람은 그 시간을 <b>문제를 일으키는</b>(troubling) 생각과 행동으로 채울 수 있음'],[4,'무료한 시간을 자기 <b>개선</b>(improvement)과 성찰의 시간으로 봐야 함']],
+'3':[[7,'무료함은 안전한 상황에서 나타나는 <b>사치</b>(luxury)로 인식될 수 있음'],[11,'무료함은 개인적 <b>발달</b>(development)과 건설적 사유의 기회로 여겨져야 함']]
+};
+var REL={
+adequately:{bj:'무료함이 <b>적절하게</b>(adequately) 다뤄지지 않는다면',s:[['sufficiently','충분히'],['satisfactorily','만족스럽게'],['suitably','알맞게']],a:[['inadequately','불충분하게']],t:'properly',tr:'adequately는 필요한 만큼 충분히'},
+address:{bj:'무료함이 적절하게 <b>다뤄지지</b>(addressed) 않는다면',s:[['tackle','다루다'],['confront','맞서다']],a:[['ignore','무시하다'],['neglect','방치하다']],t:'handle',tr:'address는 명사 주소가 먼저, 여기서는 문제를 다루다'},
+dependent:{bj:'그 활동들에 <b>의존하게</b>(dependent) 된다',s:[['contingent','달린']],a:[['independent','독립적인'],['self-reliant','자립적인']],t:'reliant',tr:'dependent on은 ~에 의존하는'},
+troubling:{bj:'<b>문제를 일으키는</b>(troubling) 생각과 행동',s:[['disturbing','불안하게 하는'],['upsetting','속상하게 하는'],['distressing','괴로운']],a:[['reassuring','안심시키는']],t:'worrying',tr:'troubling은 걱정거리가 되는, trouble(문제)의 분사형'},
+improvement:{bj:'자기 <b>개선</b>(improvement)을 위한 시간',s:[['enhancement','향상'],['betterment','개선']],a:[['decline','쇠퇴'],['deterioration','악화']],t:'growth',tr:'improvement는 improve(개선하다)의 명사형'},
+luxury:{bj:'안전한 상황에서 나타나는 <b>사치</b>(luxury)',s:[['extravagance','사치'],['indulgence','탐닉'],['comfort','안락']],a:[['necessity','필수품']],t:'privilege',tr:'luxury는 없어도 되는 호사, 반대는 necessity'},
+development:{bj:'개인적 <b>발달</b>(development)과 건설적 사유',s:[['growth','성장'],['advancement','진보'],['evolution','진화']],a:[['decline','쇠퇴']],t:'progress',tr:'development는 develop(발달하다)의 명사형'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
