@@ -493,8 +493,25 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'…about their products <b>available</b> to everyone.'],[2,'…should be able to <b>obtain</b> the parts and tools…']],
+'2':[[3,'…설치하지 못하게 하는 행위는 법으로 <b>금지되어야</b>(prohibited) 한다.'],[4,'…makes repairs as <b>easy</b> as possible.']],
+'3':[[5,'…accomplished, far <b>less</b> e-waste will be…'],[6,'그들의 노력 덕분에 미국 40개 이상의 주에서 수리할 권리 법률 제정을 위해 노력하기 시작했다.'],[7,'…그 대의에 동참하면서 유럽에서도 <b>영향력이</b>(influence) 커지고 있다.']]
+};
+var REL={
+available:{bj:'… make information about their products <b>available</b> to everyone.',s:[['obtainable','구할 수 있는'],['open','개방된'],['reachable','접근 가능한']],a:[['unavailable','이용할 수 없는']],t:'accessible',tr:'이용할 수 있는 → 접근 가능한'},
+obtain:{bj:'… individuals, should be able to <b>obtain</b> the parts and tools required …',s:[['get','얻다'],['gain','얻다'],['secure','확보하다']],a:[['lose','잃다']],t:'acquire',tr:'구하다 → 얻다, 입수하다'},
+required:{bj:'…제삼자가 수리를 하기 위해 <b>필요한</b>(required) 부품들과 도구들을 구할 수…',s:[['necessary','필요한'],['mandatory','의무적인']],a:[['optional','선택적인']],t:'needed',tr:'필요한 → 필요한'},
+everyone:{bj:'…그들의 제품에 대한 정보를 <b>모두가</b>(everyone) 이용할 수 있게 해야 한다.',s:[],a:[],t:'the public',tr:'모두 → 대중'},
+prohibited:{bj:'…못하게 하는 행위는 법으로 <b>금지되어야</b>(prohibited) 한다.',s:[['forbidden','금지된'],['barred','막힌'],['outlawed','불법화된']],a:[['permitted','허용된']],t:'banned',tr:'금지된 → 금지된'},
+easy:{bj:'… way that makes repairs as <b>easy</b> as possible.',s:[['simple','간단한'],['effortless','힘들지 않은']],a:[['difficult','어려운'],['tough','힘든']],t:'straightforward',tr:'쉬운 → 간단한, 명료한'},
+preventing:{bj:'Third, the practice of <b>preventing</b> consumers from installing custom software …',s:[['blocking','막는'],['hindering','방해하는']],a:[['allowing','허용하는']],t:'stopping',tr:'막는 → 막는'},
+install:{bj:'…소프트웨어를 자신의 장치에 <b>설치하지</b>(installing) 못하게 하는 행위는 법으로…',s:[['set up','설치하다'],['fit','설치하다']],a:[['remove','제거하다']],t:'installing',tr:'설치하다 → 설치하는'},
+influence:{bj:'…동참하면서 유럽에서도 <b>영향력이</b>(influence) 커지고 있다.',s:[['affect','영향을 주다'],['sway','좌우하다']],a:[],t:'impact',tr:'영향력 → 영향, 파급력'},
+less:{bj:'… these goals are accomplished, far <b>less</b> e-waste will be generated.',s:[['lower','낮은'],['smaller','더 작은']],a:[['more','더 많은']],t:'diminish',tr:'훨씬 적게 나오다 → 줄이다'},
+advocates:{bj:'이 운동의 <b>지지자들은</b>(Advocates) 만약 이 모든 목표가…',s:[['champions','옹호자'],['backers','후원자'],['proponents','지지자']],a:[['opponents','반대자']],t:'supporters',tr:'지지자들 → 지지자들'},
+accomplished:{bj:'…만약 이 모든 목표가 <b>이루어진다면</b>(accomplished), 훨씬 적은 전자 쓰레기가…',s:[['completed','완수된'],['fulfilled','이뤄진'],['attained','달성된']],a:[['failed','실패한']],t:'achieving',tr:'이루어진 → 달성하는'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
