@@ -493,8 +493,35 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'…같은 그림에서 딕비의 풍경을 자주 <b>묘사했다</b>(depicted).'],[3,'비록 신체적 <b>제약들은</b>(limitations) 그녀를 작은 오두막집에 가두었지만…']],
+'2':[[2,'…혼합과 단순한 형태를 사용하여 <b>독창적이고</b>(original) 혁신적인 스타일을 만들어 냈다.'],[5,'…그림은 마치 동화의 그것과 <b>같은</b>(magical), 마법 같은 특성을 만들어 낸다.']],
+'3':[[6,'그녀의 그림이 점차 <b>인기를</b>(popularity) 얻으면서 그녀의 이야기는 많은…']],
+'4':[[11,'…했는데, 그것은 당시 여성들에게 <b>드문</b>(unusual) 일이었다.'],[12,'어머니의 <b>격려</b>(encouragement) 덕분에 그녀는 이러한 기회를 활용할…']],
+'5':[[9,'그녀의 그림을 보면 여러분은 공통적인 <b>주제를</b>(theme) 알아차릴지도 모르는데, 그건 바로…'],[13,'…in painting, <b>objecting</b> to the social…']]
+};
+var REL={
+depict:{bj:'…딕비의 풍경을 자주 <b>묘사했다</b>(depicted).',s:[['describe','묘사하다'],['illustrate','삽화로 보여 주다']],a:[],t:'portray',tr:'묘사하다 → 묘사하다, 그리다'},
+limitation:{bj:'비록 신체적 <b>제약들은</b>(limitations) 그녀를 작은 오두막집에…',s:[['restraint','제한'],['boundary','경계']],a:[['freedom','자유']],t:'restriction',tr:'제약 → 제약, 한계'},
+landscape:{bj:'…같은 그림에서 딕비의 <b>풍경을</b>(landscapes) 자주 묘사했다.',s:[['view','경관'],['countryside','시골 풍경']],a:[],t:'scenery',tr:'풍경 → 경치, 풍경'},
+confine:{bj:'…그녀를 작은 오두막집에 <b>가두었지만</b>(confined) 그녀의 재능과 상상력은 둘…',s:[['restrict','제한하다'],['trap','가두다']],a:[['free','자유롭게 하다'],['release','풀어 주다']],t:'keep',tr:'가두다 → 머물게 하다'},
+original:{bj:'…단순한 형태를 사용하여 <b>독창적이고</b>(original) 혁신적인 스타일을 만들어…',s:[['creative','창의적인'],['innovative','혁신적인']],a:[['copied','모방한'],['ordinary','평범한']],t:'unique',tr:'독창적인 → 독특한'},
+magical:{bj:'…그림은 마치 동화의 그것과 <b>같은</b>(magical), 마법 같은 특성을 만들어…',s:[['charming','매력적인'],['mysterious','신비로운']],a:[['dull','따분한']],t:'enchanting',tr:'마법 같은 → 마음을 사로잡는, 매혹적인'},
+mixture:{bj:'…밝고 선명한 유화물감의 <b>혼합과</b>(mixture) 단순한 형태를 사용하여…',s:[['blend','혼합'],['mix','섞음']],a:[],t:'combination',tr:'혼합 → 결합'},
+generate:{bj:'… oil paints and simple forms, <b>generating</b> an original, innovative style.',s:[['produce','만들어 내다'],['form','형성하다']],a:[],t:'create',tr:'만들어 내다 → 만들다'},
+popularity:{bj:'그녀의 그림이 점차 <b>인기를</b>(popularity) 얻으면서 그녀의 이야기는…',s:[['celebrity','명성'],['recognition','인정']],a:[['obscurity','무명']],t:'fame',tr:'인기 → 명성'},
+inspire:{bj:'… gradually gained popularity, her story <b>inspired</b> many people and was later …',s:[['encourage','격려하다'],['stimulate','자극하다']],a:[['discourage','낙담시키다']],t:'motivate',tr:'영감을 주다 → 동기를 주다'},
+gradually:{bj:'그녀의 그림이 <b>점차</b>(gradually) 인기를 얻으면서 그녀의…',s:[['little by little','조금씩'],['step by step','차근차근']],a:[['suddenly','갑자기']],t:'slowly',tr:'점차 → 서서히'},
+later:{bj:'…사람에게 영감을 주었고 <b>나중에</b>(later) 책과 영화로 만들어졌다.',s:[['subsequently','그 후에'],['afterwards','나중에']],a:[['earlier','이전에']],t:'afterward',tr:'나중에 → 그 후에'},
+encouragement:{bj:'어머니의 <b>격려</b>(encouragement) 덕분에 그녀는 이러한…',s:[['cheering','응원'],['backing','후원']],a:[['discouragement','낙담']],t:'support',tr:'격려 → 지지'},
+unusual:{bj:'…그것은 당시 여성들에게 <b>드문</b>(unusual) 일이었다.',s:[['uncommon','드문'],['exceptional','이례적인']],a:[['usual','흔한'],['common','흔한']],t:'rare',tr:'드문 → 드문, 흔치 않은'},
+abroad:{bj:'After that, she even studied <b>abroad</b> in Paris, which was unusual …',s:[['in foreign countries','외국에서'],['in other lands','다른 나라에서']],a:[['at home','국내에서']],t:'overseas',tr:'해외에서 → 해외에서'},
+opportunity:{bj:'…격려 덕분에 그녀는 이러한 <b>기회를</b>(opportunities) 활용할 수 있었다.',s:[['possibility','가능성'],['break','좋은 기회']],a:[],t:'chance',tr:'기회 → 기회'},
+theme:{bj:'…보면 여러분은 공통적인 <b>주제를</b>(theme) 알아차릴지도 모르는데,…',s:[['topic','화제'],['motif','모티프']],a:[],t:'subject',tr:'주제 → 주제, 소재'},
+object:{bj:'… married, Ancher persisted in painting, <b>objecting</b> to the social pressure that …',s:[['protest','항의하다'],['oppose','반대하다']],a:[['agree','동의하다']],t:'resist',tr:'반대하다 → 맞서다, 저항하다'},
+feature:{bj:'… a common theme —they all <b>feature</b> female figures.',s:[['include','포함하다'],['present','보여 주다']],a:[],t:'show',tr:'~을 특징으로 하다 → 보여 주다'},
+persist:{bj:'…압력에 저항하며 그림을 <b>계속</b>(persisted) 그렸다.',s:[['continue','계속하다'],['persevere','끈질기게 해내다']],a:[['give up','포기하다']],t:'keep',tr:'끈기 있게 계속하다 → 계속하다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
