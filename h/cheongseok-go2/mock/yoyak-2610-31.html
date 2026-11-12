@@ -492,8 +492,23 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'행동의 압도적인 <b>대다수</b>(majority)는 오래전에 정해진 설정에 따라 <b>작동함</b>(runs)'],[3,'어떤 관점에서 그것은 설계의 <b>승리</b>(triumph)']],
+'2':[[4,'<b>신중한</b>(deliberate) 사고는 너무 느리고 <b>대가가 커서</b>(costly) 삶 전체를 감당하지 못함'],[5,'자동화 덕에 선장은 <b>실제로</b>(actually) 그를 <b>필요로 하는</b>(require) 문제에만 신경 씀']],
+'3':[[6,'기본 설정은 인간 설계의 결함이 아님'],[7,'그것은 <b>핵심적인</b>(central) 특징으로 <b>복잡한</b>(complex) 삶을 <b>감당할 수 있게</b>(affordable) 만듦']]
+};
+var REL={
+majority:{bj:'그 속에 든 행동의 압도적인 <b>다수</b>(majority)는 설정에 따라 작동한다',s:[['bulk','대부분'],['greater part','대부분']],a:[['minority','소수']],t:'most',tr:'majority는 다수, 반대는 소수 minority'},
+run:{bj:'행동의 대부분이 정해진 설정에 따라 <b>작동한다</b>(runs)',s:[['function','기능하다'],['work','작동하다'],['manage','운영하다']],a:[['stop','멈추다']],t:'operate',tr:'run은 달리다가 먼저, 여기서는 작동하다'},
+triumph:{bj:'어떤 관점에서 그것은 설계의 <b>승리</b>(triumph)이다',s:[['success','성공'],['conquest','정복']],a:[['defeat','패배'],['failure','실패']],t:'victory',tr:'triumph는 큰 성공, 반대는 패배 defeat'},
+deliberate:{bj:'<b>신중한</b>(deliberate) 사고는 삶 전체를 감당하기엔 너무 느리다',s:[['intentional','의도적인'],['purposeful','목적 있는'],['conscious','의식적인']],a:[['automatic','자동적인']],t:'careful',tr:'deliberate는 형용사 신중한 · 의도적인, 동사 숙고하다도 됨'},
+costly:{bj:'신중한 사고는 너무 느리고 <b>대가가 커서</b>(costly) 삶 전체를 감당하지 못한다',s:[['pricey','값비싼'],['dear','비싼']],a:[['cheap','싼'],['inexpensive','저렴한']],t:'expensive',tr:'costly는 돈뿐 아니라 시간 · 노력의 대가가 큰'},
+actually:{bj:'선장을 <b>정말로</b>(actually) 필요로 하는 몇 안 되는 문제들',s:[['really','정말로'],['genuinely','진정으로'],['in fact','사실은']],a:[],t:'truly',tr:'actually는 실제로 · 사실은, 강조할 때 씀'},
+require:{bj:'선장을 정말로 <b>필요로 하는</b>(require) 몇 안 되는 문제들',s:[['demand','요구하다'],['call for','필요로 하다']],a:[],t:'need',tr:'require는 need보다 딱딱한 말'},
+central:{bj:'그것은 거의 틀림없이 <b>핵심적인</b>(central) 특징이다',s:[['core','핵심의'],['key','핵심적인'],['principal','주요한']],a:[['minor','부수적인']],t:'main',tr:'central은 중심 · 핵심이 되는'},
+complex:{bj:'<b>복잡한</b>(complex) 삶을 조금이라도 감당할 수 있게 만드는 것',s:[['intricate','복잡한'],['sophisticated','정교한'],['elaborate','정교한']],a:[['simple','단순한']],t:'complicated',tr:'complex는 명사 복합체도 되지만 여기서는 형용사 복잡한'},
+affordable:{bj:'복잡한 삶을 조금이라도 <b>감당할 수 있게</b>(affordable) 만드는 것',s:[['reasonable','알맞은'],['feasible','실행 가능한']],a:[['unaffordable','감당할 수 없는']],t:'manageable',tr:'affordable은 가격이 알맞은 · 감당할 수 있는'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
