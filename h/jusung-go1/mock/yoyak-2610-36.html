@@ -492,8 +492,21 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'모든 소리는 공기, 물, 강철 등의 분자를 <b>교란하는</b>(disturbs) 어떤 <b>운동</b>(motion)에서 시작함']],
+'2':[[2,'색의 <b>인식</b>(perception)은 생물의 뇌에서만 <b>일어남</b>(occurs)'],[4,'소리의 인식은 고막에서 시작되며 고막에 <b>닿기</b>(hits) 전에는 분자의 교란일 뿐'],[5,'뇌에 닿기 전에는 소리가 아님']],
+'3':[[6,'숲에서 쓰러지는 나무에 관한 오래된 철학적 수수께끼'],[7,'소리는 <b>심리적인</b>(psychological) <b>개념</b>(concept)이자 뇌의 <b>산물</b>(product)'],[8,'듣는 생물이 없으면 소리를 만든 것이 아님']]
+};
+var REL={
+motion:{bj:'모든 소리는 분자를 교란하는 어떤 <b>운동</b>(motion)에서 시작함',s:[['gesture','몸짓']],a:[['stillness','정지']],tr:'motion은 동작, 움직임. 감정(emotion)과 헷갈리지 않기'},
+disturb:{bj:'공기, 물 등의 분자를 <b>교란하는</b>(disturbs) 운동',s:[['disrupt','방해하다'],['interrupt','가로막다']],a:[['calm','진정시키다'],['soothe','달래다']],tr:'disturb는 방해하다가 먼저지만 여기서는 분자를 흔들어 놓다'},
+perception:{bj:'색의 <b>인식</b>(perception)은 생물의 뇌에서만 일어남',s:[['sensation','감각'],['insight','통찰']],a:[],tr:'perception은 지각, 인식. 동사 perceive와 연결'},
+occur:{bj:'색의 인식은 생물의 뇌에서만 <b>일어남</b>(occurs)',s:[['arise','생기다'],['take place','일어나다'],['come about','생기다']],a:[],tr:'occur는 happen과 같은 뜻, 생각이 떠오르다 뜻도 있음'},
+hit:{bj:'소리 자극이 고막에 <b>닿기</b>(hits) 전에는 분자의 교란일 뿐',s:[['strike','부딪히다'],['beat','치다']],a:[],tr:'hit은 치다가 먼저지만 여기서는 부딪혀서 닿다'},
+psychological:{bj:'소리는 <b>심리적인</b>(psychological) 개념, 뇌의 산물',s:[],a:[['physical','물리적인']],tr:'physical(물리적인)과 반대, 소리는 물리 현상이 아니라 뇌의 결과'},
+concept:{bj:'소리는 심리적인 <b>개념</b>(concept)',s:[['notion','관념'],['belief','믿음'],['view','견해']],a:[],tr:'concept는 개념. 명사이며 idea와 비슷하지만 더 체계적임'},
+product:{bj:'소리는 뇌의 <b>산물</b>(product)',s:[['commodity','상품']],a:[],tr:'product는 상품이 먼저지만 여기서는 결과로 나온 산물'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
