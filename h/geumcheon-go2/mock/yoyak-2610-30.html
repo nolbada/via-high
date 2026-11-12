@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'Eva McMahan의 연구는 비언어적 신호의 우위를 <b>확인함</b>(confirmed)'],[2,'모순되는 메시지(<b>conflicting</b>) 상황에서 그 현상이 특히 <b>두드러졌음</b>(pronounced)']],
+'2':[[3,'다른 사람을 언어적으로 <b>조종하려는</b>(manipulate) <b>시도</b>(attempts)는 실패하기 쉬움'],[4,'사람들은 비언어적 메시지를 더 <b>신뢰함</b>(trust)']],
+'3':[[5,'눈길을 돌리고 <b>억지</b>(forcing) 웃음을 짓는 모습에는 말을 덜 믿게 됨'],[6,'<b>동료</b>(colleague)가 <b>언짢은</b>(displeased) 표정으로 즐거웠다고 말하는 경우도 마찬가지']]
+};
+var REL={
+confirm:{bj:'Eva McMahan의 한 연구는 비언어적 신호들의 우위를 <b>확인했다</b>(confirmed)',s:[['verify','확인하다'],['validate','입증하다'],['affirm','확언하다']],a:[['contradict','반박하다']],t:'prove',tr:'confirm은 이미 있던 추측을 확인해 주다'},
+pronounced:{bj:'그 현상은 특히 <b>두드러졌다</b>(pronounced)',s:[['marked','뚜렷한'],['striking','두드러진'],['evident','분명한']],a:[['slight','미미한']],t:'noticeable',tr:'pronounced는 발음된 · 선언된 뜻도 있음, 여기서는 두드러진'},
+conflict:{bj:'<b>모순되는</b>(conflicting) 메시지들이 있는 상황',s:[['contradict','모순되다'],['disagree','일치하지 않다'],['differ','다르다']],a:[['agree','일치하다']],t:'clash',tr:'conflict는 갈등(명사)이 먼저, 여기서는 (메시지가) 서로 어긋나다'},
+attempt:{bj:'다른 사람을 언어적으로 조종하려는 <b>시도</b>(attempts)는 실패할 가능성이 있다',s:[['effort','노력'],['endeavor','노력, 시도'],['bid','시도']],a:[],t:'try',tr:'attempt는 명사로 시도, 동사로 시도하다'},
+manipulate:{bj:'다른 사람을 언어적으로 <b>조종하려는</b>(manipulate) 시도',s:[['handle','다루다'],['operate','조종하다'],['influence','영향을 주다']],a:[],t:'control',tr:'manipulate는 사람을 교묘하게 움직이다, 기계를 다루다 뜻도 있음'},
+trust:{bj:'사람들은 비언어적 메시지들을 언어적인 것들보다 더 많이 <b>신뢰한다</b>(trust)',s:[['rely on','의지하다'],['have faith in','신뢰하다']],a:[['doubt','의심하다'],['distrust','불신하다']],t:'believe',tr:'trust는 명사 신뢰도 되고 동사 신뢰하다도 됨'},
+force:{bj:'눈길을 돌리고 <b>억지</b>(forcing) 웃음을 짓고 있는 모습',s:[['compel','강요하다'],['strain','무리하게 하다']],a:[],t:'fake',tr:'force a smile은 억지로 웃음을 짓다'},
+colleague:{bj:'여러분의 <b>동료</b>(colleague)가 언짢은 표정으로 말할 때',s:[['associate','동료'],['teammate','팀 동료']],a:[],t:'coworker',tr:'colleague는 같은 일터의 동료'},
+displeased:{bj:'<b>언짢은</b>(displeased) 표정으로 즐거웠다고 말할 때',s:[['annoyed','짜증난'],['dissatisfied','불만스러운'],['upset','언짢은']],a:[['pleased','기쁜']],t:'unhappy',tr:'displeased는 pleased의 반대, 기분이 좋지 않은'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
