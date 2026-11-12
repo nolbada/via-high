@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'도덕적 탁월함은 습관과 <b>반복</b>(repetition)의 결과이며 <b>타고난</b>(innate) <b>요소</b>(component)도 있음']],
+'2':[[3,'성격은 5세 이후 크게 안 변한다는 Freud는 틀림'],[4,'성격 특성은 서른 즈음 <b>안정됨</b>(stabilize), 뇌는 계속 <b>발달함</b>(develop)'],[4,'<b>최근의</b>(recent) 심리학 연구']],
+'3':[[5,'이 <b>이해</b>(understanding)의 <b>이점</b>(advantage)은 도덕적 탁월함을 가르치는 데 더 <b>낙관적</b>(optimistic)일 수 있다는 것']]
+};
+var REL={
+repetition:{bj:'습관과 <b>반복</b>(repetition)의 결과',s:[['recurrence','되풀이'],['routine','일상적 반복']],a:[],t:'practice',tr:'repetition은 같은 일을 되풀이함'},
+innate:{bj:'<b>타고난</b>(innate) 유전적 요소',s:[['inherent','내재된'],['natural','타고난'],['intrinsic','본질적인']],a:[['acquired','후천적인']],t:'inborn',tr:'innate는 태어날 때부터 가진'},
+component:{bj:'유전적 <b>요소</b>(component)',s:[['element','요소'],['ingredient','성분']],a:[['whole','전체']],t:'part',tr:'component는 전체를 이루는 한 요소'},
+stabilize:{bj:'성격 특성이 서른 즈음 <b>안정된다</b>(stabilize)',s:[['steady','안정되다'],['level off','안정 단계에 들다']],a:[['fluctuate','오르내리다']],t:'settle',tr:'stabilize는 흔들리지 않게 자리 잡다'},
+develop:{bj:'뇌가 계속 <b>발달한다</b>(develop)',s:[['advance','나아가다'],['evolve','진화하다'],['progress','진전하다']],a:[],t:'mature',tr:'develop은 점점 자라다'},
+recent:{bj:'<b>최근의</b>(recent) 심리학 연구',s:[['latest','가장 최근의'],['current','현재의']],a:[['old','오래된']],t:'new',tr:'recent는 얼마 전에 있었던'},
+advantage:{bj:'이 새로운 이해의 <b>이점</b>(advantage)',s:[['merit','장점'],['edge','우위']],a:[['drawback','단점']],t:'benefit',tr:'advantage는 남보다 나은 점'},
+optimistic:{bj:'더 <b>낙관적</b>(optimistic)일 수 있다',s:[['positive','긍정적인'],['upbeat','낙관적인']],a:[['pessimistic','비관적인']],t:'hopeful',tr:'optimistic은 잘될 거라고 내다보는'},
+understanding:{bj:'이 새로운 <b>이해</b>(understanding)',s:[['grasp','파악'],['insight','통찰']],a:[['misconception','오해']],t:'knowledge',tr:'understanding은 이치를 깨달아 아는 것'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
