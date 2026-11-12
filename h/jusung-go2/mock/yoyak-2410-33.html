@@ -493,8 +493,23 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'독서가 하나의 일관된 개념이라고 <b>주장</b>(argue)하는 사람들'],[3,'가족 <b>유사성</b>(resemblances)으로 묶인 행동 집합으로 생각함']],
+'2':[[4,'독서와 비독서를 구분하려는 노력은 <b>실패할 수밖에</b>(destined) 없음'],[4,'무엇이 독서로 <b>인정되는지</b>(qualifies) 합의가 없음'],[5,'<b>가장자리</b>(edge) 사례가 계속 나옴']],
+'3':[[6,'<b>예외적인</b>(exceptional) 독서 형태를 한곳에 모음'],[7,'독서를 <b>스펙트럼</b>(spectrum)으로 이해, 다양한 활동을 <b>수용할</b>(accommodate) 만큼 <b>넓음</b>(expansive)']]
+};
+var REL={
+argue:{bj:'독서가 하나의 개념이라고 <b>주장한다</b>(argue)',s:[['contend','주장하다'],['assert','단언하다'],['maintain','주장하다']],a:[['deny','부인하다']],t:'claim',tr:'argue는 이유를 대며 주장하다'},
+resemblance:{bj:'가족 <b>유사성</b>(resemblances)',s:[['likeness','닮음'],['correspondence','일치']],a:[['difference','차이']],t:'similarity',tr:'resemblance는 겉이나 성질이 닮은 것'},
+defining:{bj:'독서의 <b>결정적인</b>(defining) 특징',s:[['characteristic','특유의'],['distinguishing','구별 짓는']],a:[],t:'essential',tr:'defining은 무엇인지 규정짓는'},
+destined:{bj:'<b>실패할 수밖에</b>(destined) 없다',s:[['fated','운명 지어진'],['doomed','불운한']],a:[],t:'bound',tr:'destined to는 반드시 그렇게 될 운명인'},
+qualify:{bj:'독서로 <b>인정되는</b>(qualifies) 것',s:[['entitle','자격을 주다'],['certify','증명하다']],a:[['disqualify','자격을 박탈하다']],t:'count',tr:'qualify as는 어떤 것으로 인정받다'},
+edge:{bj:'<b>가장자리</b>(edge) 사례',s:[['rim','가장자리'],['margin','여백'],['border','경계']],a:[['center','중심']],t:'borderline',tr:'edge는 경계에 있는 끝부분'},
+exceptional:{bj:'<b>예외적인</b>(exceptional) 독서 형태',s:[['extraordinary','비범한'],['unique','독특한'],['outstanding','뛰어난']],a:[['ordinary','평범한']],t:'unusual',tr:'exceptional은 평소와 다르게 특별한'},
+spectrum:{bj:'독서를 <b>스펙트럼</b>(spectrum)으로 이해',s:[['variety','다양성'],['scale','척도']],a:[],t:'range',tr:'spectrum은 양쪽 끝 사이의 연속된 범위'},
+expansive:{bj:'충분히 <b>넓은</b>(expansive) 범위',s:[['extensive','광범위한'],['wide','넓은'],['sweeping','광범위한']],a:[['narrow','좁은']],t:'broad',tr:'expansive는 넓게 펼쳐진'},
+accommodate:{bj:'다양한 활동을 <b>수용한다</b>(accommodate)',s:[['hold','담다'],['house','수용하다'],['lodge','숙박시키다']],a:[],t:'include',tr:'accommodate는 공간이나 범위 안에 받아들이다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
