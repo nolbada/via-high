@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'19세기 프랑스는 <b>정밀하게</b>(precisely) 정의된 단위 체계를 발전시킴'],[2,'양자역학이 <b>포괄적인</b>(comprehensive) 완벽한 측정의 꿈을 <b>깨뜨림</b>(destroyed)']],
+'2':[[3,'완벽하게 측정하려는 사고방식이 공학자와 과학자에게 <b>이어짐</b>(continued)'],[4,'사업 세계에서는 오히려 <b>확장됨</b>(expanded), <b>정밀 지향</b>(precision-oriented) 과학이 영향']],
+'3':[[5,'<b>부정확함</b>(imprecision)을 허용하는 것이 낫다'],[6,'허용 오차를 느슨하게 하는 <b>대가</b>(tradeoff)로 더 많은 데이터를 얻음']]
+};
+var REL={
+precisely:{bj:'<b>정밀하게</b>(precisely) 정의된 측정 단위',s:[['accurately','정확하게'],['strictly','엄밀하게']],a:[['roughly','대략']],t:'exactly',tr:'precisely는 조금도 틀리지 않게'},
+destroy:{bj:'완벽한 측정의 꿈을 영원히 <b>깨뜨렸다</b>(destroyed)',s:[['ruin','망치다'],['demolish','허물다'],['wreck','파괴하다']],a:[['build','세우다']],t:'shatter',tr:'destroy는 완전히 없애다'},
+comprehensive:{bj:'<b>포괄적인</b>(comprehensive) 측정',s:[['broad','폭넓은'],['extensive','광범위한'],['thorough','철저한']],a:[['partial','부분적인']],t:'complete',tr:'comprehensive는 모든 것을 빠짐없이 아우르는'},
+continue:{bj:'사고방식이 계속 <b>이어졌다</b>(continued)',s:[['carry on','계속하다'],['go on','계속되다'],['proceed','나아가다']],a:[['cease','그치다']],t:'persist',tr:'continue는 끊기지 않고 이어지다'},
+expand:{bj:'사업 세계에서는 오히려 <b>확장되었다</b>(expanded)',s:[['enlarge','넓히다'],['extend','늘리다']],a:[['shrink','줄다'],['contract','줄어들다']],t:'grow',tr:'expand는 범위가 넓어지다'},
+'precision-oriented':{bj:'<b>정밀 지향</b>(precision-oriented) 과학',s:[],a:[],t:'exact',tr:'precision-oriented는 정밀함에 중점을 두는. 복합어라서 하나씩 쪼개어 이해'},
+imprecision:{bj:'<b>부정확함</b>(imprecision)을 허용하는 것',s:[['vagueness','모호함'],['looseness','느슨함']],a:[['precision','정밀']],t:'inaccuracy',tr:'imprecision은 정밀하지 않음'},
+shortcoming:{bj:'기준을 완화하는 것의 <b>단점</b>(shortcoming)',s:[['defect','결함'],['drawback','단점'],['flaw','흠']],a:[],t:'weakness',tr:'shortcoming은 부족하거나 모자란 점'},
+tradeoff:{bj:'허용 오차를 느슨하게 하는 <b>대가</b>(tradeoff)로',s:[['compromise','타협'],['balance','균형']],a:[],t:'exchange',tr:'tradeoff는 하나를 얻으려고 다른 하나를 포기하는 것'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
