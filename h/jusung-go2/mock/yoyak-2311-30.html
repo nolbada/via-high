@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[2,'새 능력(<b>ability</b>)이 있다고 해서 <b>정당화되지</b>(justify) 않음'],[3,'사생활 보호가 어떻게 <b>확장되어야</b>(expanded) 하는지 고려']],
+'2':[[4,'카메라 법을 두고 국가와 시민이 <b>씨름함</b>(struggled)'],[5,'공사 공간의 <b>구별</b>(distinction)을 <b>재확인함</b>(re-affirmed)']],
+'3':[[6,'공공장소에 들어서면 <b>동의</b>(consent)한 것으로 봄'],[7,'시민들은 <b>적응했고</b>(adjusted) 관찰되는(<b>observed</b>) 것에 익숙해짐']]
+};
+var REL={
+justify:{bj:'새로운 능력이 그렇게 하는 것을 <b>정당화하지</b>(justify) 않는다',s:[['defend','옹호하다'],['validate','타당하다고 입증하다']],a:[],t:'reason',tr:'justify는 옳다고 이유를 대다'},
+expand:{bj:'사생활 보호가 어떻게 <b>확장되어야</b>(expanded) 하는지',s:[['enlarge','넓히다'],['extend','확대하다']],a:[['contract','줄다'],['shrink','줄어들다']],t:'broader',tr:'expand는 범위를 넓히다'},
+ability:{bj:'정보에 접근하는 새로운 <b>능력</b>(ability)',s:[['capability','능력'],['capacity','수용력'],['skill','기술']],a:[['inability','무능']],t:'power',tr:'ability는 무언가를 할 수 있는 힘'},
+struggle:{bj:'새 법을 두고 <b>씨름했다</b>(struggled)',s:[['strive','애쓰다'],['wrestle','씨름하다'],['battle','다투다']],a:[],t:'debate',tr:'struggle over는 어떤 문제를 두고 다투다'},
+distinction:{bj:'사적/공적 공간의 <b>구별</b>(distinction)',s:[['difference','차이'],['contrast','대조']],a:[['similarity','유사성']],t:'line',tr:'distinction은 둘을 가르는 차이'},
+reaffirm:{bj:'구별을 <b>재확인했다</b>(re-affirmed)',s:[['reassert','다시 주장하다'],['restate','다시 말하다']],a:[['deny','부인하다']],t:'confirm',tr:'re-는 다시, affirm은 단언하다'},
+consent:{bj:'보여지는 것에 <b>동의</b>(consent)를 준다',s:[['assent','찬성'],['approval','승인']],a:[['refusal','거부']],t:'agreement',tr:'consent는 허락, agreement는 의견이 맞는 것'},
+adjust:{bj:'시민들은 그 사실에 <b>적응했다</b>(adjusted)',s:[['accommodate','맞추다'],['modify','수정하다'],['alter','바꾸다']],a:[],t:'adapt',tr:'adjust to는 새 환경에 맞추어 가다'},
+observed:{bj:'<b>관찰되지</b>(observed) 않을 권리',s:[['monitor','감시하다'],['notice','알아차리다'],['witness','목격하다']],a:[['ignore','무시하다']],t:'watched',tr:'observed는 지켜보여지는, 여기서는 감시받는'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
