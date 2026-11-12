@@ -493,8 +493,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'…이름의 친구를 만나서 그 상황에 대해 <b>불평했다</b>(complained).'],[2,'…요청하기 위해 인터넷에 의지할 것을 <b>제안했다</b>(suggested).'],[3,'결국, 그 두 남자는 Galaxy Zoo라고 알려진 대중을 참여시키는(= 크라우…']],
+'2':[[4,'…사용하기 쉬운 인터페이스로 최대한 <b>단순하게</b>(simple) 유지되었다.'],[5,'…참여하기를 원하는 사람들이 빠르게 <b>시작할</b>(started) 수 있게 했다.']],
+'3':[[6,'New visitors were <b>greeted</b> with a brief…'],[7,'그런 다음 그들에게 은하 이미지가 보여졌고, 그것의 특징을 설명하는 버튼을 클릭하도록 요청받았다.'],[8,'은하가 매끄럽고 둥근가? 그것의 모양은 타원형인가 아니면 나선형인가?']],
+'4':[[9,'사용 지침의 <b>완료와</b>(completion) 약간의 연습 후에, 참가자들은…']]
+};
+var REL={
+complain:{bj:'…만나서 그 상황에 대해 <b>불평했다</b>(complained).',s:[['protest','항의하다'],['whine','투덜대다']],a:[['praise','칭찬하다'],['approve','인정하다']],t:'grumble',tr:'불평하다 → 투덜대다'},
+suggest:{bj:'…위해 인터넷에 의지할 것을 <b>제안했다</b>(suggested).',s:[['recommend','권하다'],['advise','조언하다']],a:[],t:'propose',tr:'제안하다 → 제의하다'},
+simple:{bj:'…쉬운 인터페이스로 최대한 <b>단순하게</b>(simple) 유지되었다.',s:[['basic','기본적인'],['easy','쉬운'],['modest','소박한']],a:[['complex','복잡한']],t:'plain',tr:'단순한 → 꾸밈없는'},
+start:{bj:'…원하는 사람들이 빠르게 <b>시작할</b>(started) 수 있게 했다.',s:[['commence','시작하다'],['launch','착수하다']],a:[['finish','끝내다'],['stop','멈추다']],t:'begin',tr:'시작하다 → 시작하다'},
+greet:{bj:'New visitors were <b>greeted</b> with a brief tutorial that …',s:[['receive','맞이하다'],['salute','인사하다']],a:[['ignore','무시하다']],t:'welcome',tr:'맞이하다 → 환영하다'},
+brief:{bj:'…프로젝트에 대해 설명하는 <b>간단한</b>(brief) 사용 지침과 함께…',s:[['concise','간결한'],['quick','빠른']],a:[['lengthy','긴'],['detailed','상세한']],t:'short',tr:'간단한 → 짧은'},
+completion:{bj:'사용 지침의 <b>완료와</b>(completion) 약간의 연습 후에,…',s:[['finish','끝냄'],['end','끝']],a:[['beginning','시작']],t:'completed',tr:'완료 → 완료된'},
+effectively:{bj:'…연습 후에, 참가자들은 <b>효과적으로</b>(effectively) 은하를 분류할 수 있었다.',s:[['successfully','성공적으로'],['productively','생산적으로']],a:[['uselessly','쓸모없이'],['inefficiently','비효율적으로']],t:'efficiently',tr:'효과적으로 → 효율적으로'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
