@@ -493,8 +493,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[3,'물체의 색은 맨 아래로 갈수록 점차 어둡게 <b>음영이 짐</b>'],[4,'이 음영이 <b>깊이감</b>(depth)을 주고 보는 사람이 모양을 <b>구별하게</b>(distinguish) 해 줌']],
+'2':[[5,'밑바탕과 똑같이 균일한 색이어도 빛이 비추면 쉽게 눈에 띔(<b>visible</b>)'],[6,'대부분의 동물은 <b>위쪽</b>(above)이 <b>아래쪽</b>(below)보다 어두움']],
+'3':[[7,'위에서 빛을 받으면 어두운 등은 <b>밝아지고</b>(lightened) 밝은 배는 음영이 짐'],[8,'동물은 <b>한 가지 색</b>(a single color)처럼 보이고 밑바탕과 쉽게 <b>섞임</b>(blend)']]
+};
+var REL={
+depth:{bj:'물체에 <b>깊이감</b>(depth)을 준다',s:[['deepness','깊이'],['profundity','깊음']],a:[['shallowness','얕음']],t:'dimension',tr:'depth는 deep(깊은)의 명사형'},
+distinguish:{bj:'보는 사람이 모양을 <b>구별하게</b>(distinguish) 해 준다',s:[['differentiate','구별하다'],['discern','분간하다'],['discriminate','식별하다']],a:[['confuse','혼동하다']],t:'recognize',tr:'distinguish A from B는 A와 B를 구별하다'},
+'the viewer':{bj:'<b>보는 사람</b>(the viewer)이 모양을 구별한다',s:[],a:[],t:'viewers',tr:'단수 the viewer를 복수 viewers로 바꿔 쓴 표현'},
+visible:{bj:'쉽게 <b>눈에 띈다</b>(visible)',s:[['observable','관찰할 수 있는'],['apparent','분명한'],['evident','명백한']],a:[['invisible','보이지 않는']],t:'noticeable',tr:'visible은 눈으로 볼 수 있는'},
+'the substrate':{bj:'<b>밑바탕</b>(the substrate)과 같은 색',s:[],a:[],t:'its background',tr:'substrate는 동물이 놓인 바탕이 되는 표면'},
+'above ... below':{bj:'<b>위쪽 ... 아래쪽</b>(above ... below)',s:[],a:[],t:'upper side ... lower side',tr:'above는 위, below는 아래'},
+lighten:{bj:'어두운 등은 <b>밝아진다</b>(lightened)',s:[['whiten','희게 하다']],a:[['darken','어둡게 하다']],t:'brighten',tr:'lighten은 light(밝은)에서 나온 동사, 무겁지 않게 하다는 뜻도 있음'},
+blend:{bj:'밑바탕과 쉽게 <b>섞인다</b>(blend in)',s:[['mix','섞다'],['mingle','어우러지다'],['fuse','융합하다']],a:[['separate','분리하다']],t:'merge',tr:'blend in with는 ~에 섞여 눈에 띄지 않다'},
+'a single color':{bj:'<b>하나의 색</b>(a single color)처럼 보인다',s:[],a:[],t:'one color',tr:'single은 단 하나의'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
