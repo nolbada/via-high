@@ -493,8 +493,26 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'…risked everything to <b>protect</b> priceless works of…'],[2,'…14 different Allied <b>nations</b> came together to…']],
+'2':[[3,'…건축가와 같은 다양한 분야의 학자들과 <b>전문가들이었다</b>(experts).'],[4,'…brave men and women <b>volunteered</b> to protect Europe’s…']],
+'3':[[5,'…its main goal was to <b>prevent</b> the destruction of…'],[6,'…건물들이 있는 지역을 폭격하지 않도록 <b>설득했다</b>(persuaded).']],
+'4':[[7,'…또한 훼손된 건축물과 예술 작품을 <b>복원하고자</b>(restore) 이미 파괴된 지역을 방문했다.'],[8,'머지않아 그들의 역할은 <b>확대되었다</b>(expanded).']]
+};
+var REL={
+nation:{bj:'… people from 14 different Allied <b>nations</b> came together to form the …',s:[['state','국가'],['land','나라']],a:[],t:'country',tr:'나라 → 국가, 나라'},
+protect:{bj:'… people who risked everything to <b>protect</b> priceless works of art from …',s:[['defend','방어하다'],['guard','지키다']],a:[['harm','해치다'],['endanger','위태롭게 하다']],t:'safeguard',tr:'보호하다 → 지키다'},
+ruin:{bj:'…귀중한 예술 작품들을 <b>파괴로부터</b>(ruin) 지키기 위해 모든 것을 건…',s:[['wreck','망가뜨리다'],['devastate','황폐화하다']],a:[['build','세우다']],t:'destruction',tr:'파괴 → 파괴, 파멸'},
+expert:{bj:'…다양한 분야의 학자들과 <b>전문가들이었다</b>(experts).',s:[['professional','전문가'],['authority','권위자']],a:[['amateur','아마추어']],t:'specialist',tr:'전문가 → 전문가'},
+volunteer:{bj:'These brave men and women <b>volunteered</b> to protect Europe’s cultural heritage …',s:[['step forward','자원하여 나서다'],['come forward','나서다']],a:[['refuse','거절하다']],t:'offer',tr:'자원하다 → 나서다, 제안하다'},
+scholars:{bj:'…같은 다양한 분야의 <b>학자들과</b>(scholars) 전문가들이었다.',s:[['academics','학자'],['researchers','연구자']],a:[],t:'professors',tr:'학자들 → 교수들(예시)'},
+prevent:{bj:'… its main goal was to <b>prevent</b> the destruction of cultural landmarks.',s:[['avoid','피하다'],['block','막다']],a:[['allow','허락하다'],['cause','일으키다']],t:'stop',tr:'막다 → 막다, 멈추다'},
+persuade:{bj:'…지역을 폭격하지 않도록 <b>설득했다</b>(persuaded).',s:[['induce','설득해 ~하게 하다'],['urge','촉구하다']],a:[['dissuade','단념시키다']],t:'convince',tr:'설득하다 → 납득시키다, 설득하다'},
+culturally:{bj:'…때, 그것의 주된 목표는 <b>문화적</b>(cultural) 랜드마크의 파괴를 막는…',s:[],a:[],t:'cultural',tr:'문화적으로 → 문화의'},
+restore:{bj:'…건축물과 예술 작품을 <b>복원하고자</b>(restore) 이미 파괴된 지역을…',s:[['revive','되살리다'],['recover','되찾다']],a:[['destroy','파괴하다'],['damage','손상시키다']],t:'repair',tr:'복원하다 → 수리하다'},
+expand:{bj:'머지않아 그들의 역할은 <b>확대되었다</b>(expanded).',s:[['enlarge','확대하다'],['extend','넓히다']],a:[['shrink','줄어들다'],['contract','수축하다']],t:'grow',tr:'확대되다 → 커지다'},
+architecture:{bj:'그들은 또한 훼손된 <b>건축물과</b>(architecture) 예술 작품을 복원하고자…',s:[],a:[],t:'buildings',tr:'건축물 → 건물들'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
