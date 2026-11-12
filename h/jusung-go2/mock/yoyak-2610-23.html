@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'문어는 <b>대략</b>(roughly) 5억 개의 뉴런을 <b>가지고 있음</b>(possesses)'],[3,'절반 이상은 팔 전체에 <b>분포되어</b>(distributed) 있음']],
+'2':[[4,'각 팔의 신경망이 움직임을 통제하고 감각 입력에 <b>그 자리에서</b>(locally) 반응함'],[5,'많은 행동이 뇌의 <b>상세한</b>(detailed) <b>지시</b>(instructions)를 <b>필요로 하지</b>(require) 않음']],
+'3':[[8,'빨판은 표면의 화학적 신호를 <b>탐지함</b>(detect)'],[10,'문어는 <b>사실상</b>(effectively) 접촉하는 것을 맛볼 수 있음']]
+};
+var REL={
+possess:{bj:'문어가 대략 5억 개의 뉴런을 <b>가지고 있다</b>(possesses)',s:[['own','소유하다'],['hold','가지다']],a:[['lack','부족하다']],t:'have',tr:'possess는 소유하다, 사로잡다 뜻도 있음, 여기서는 가지고 있다'},
+roughly:{bj:'문어가 <b>대략</b>(roughly) 5억 개의 뉴런을 가지고 있다',s:[['approximately','대략'],['around','약'],['nearly','거의']],a:[['exactly','정확히']],t:'about',tr:'roughly는 거칠게 뜻도 있음, 여기서는 대략'},
+distribute:{bj:'팔들 전체에 걸쳐 <b>분포되어</b>(distributed) 있다',s:[['scatter','흩뿌리다'],['disperse','흩어지게 하다'],['allocate','배분하다']],a:[['concentrate','집중시키다']],t:'spread',tr:'distribute는 나눠 주다 뜻도 있음, 여기서는 퍼져 있다'},
+locally:{bj:'감각적 입력에 <b>그 자리에서</b>(locally) 반응할 수 있다',s:[['on the spot','그 자리에서'],['regionally','지역적으로']],a:[['centrally','중앙에서']],t:'independently',tr:'locally는 팔 자체에서 처리한다는 뜻, 뇌까지 가지 않음'},
+detailed:{bj:'뇌로부터 <b>상세한</b>(detailed) 지시들을 필요로 하지 않는다',s:[['specific','구체적인'],['thorough','철저한'],['elaborate','정교한']],a:[['vague','모호한']],t:'precise',tr:'detailed는 detail의 형용사, 자세한'},
+instruction:{bj:'뇌 자체로부터 상세한 <b>지시</b>(instructions)들을 필요로 하지 않는다',s:[['direction','지시'],['command','명령'],['guidance','안내']],a:[],t:'order',tr:'instruction은 보통 복수 instructions로 지시 · 설명서'},
+require:{bj:'상세한 지시들을 <b>필요로 하지</b>(require) 않는다',s:[['demand','요구하다'],['call for','필요로 하다']],a:[],t:'need',tr:'require는 need보다 딱딱한 말, 요구 · 필요'},
+detect:{bj:'접촉하는 표면의 화학적 신호들도 <b>탐지한다</b>(detect)',s:[['notice','알아차리다'],['discover','발견하다'],['identify','확인하다']],a:[['overlook','못 보고 넘기다']],t:'sense',tr:'detect는 숨은 것을 알아내다'},
+effectively:{bj:'문어는 <b>사실상</b>(effectively) 접촉하는 것을 맛볼 수 있다',s:[['in effect','사실상'],['virtually','사실상']],a:[['theoretically','이론상']],t:'practically',tr:'effectively는 효과적으로가 먼저, 여기서는 사실상'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
