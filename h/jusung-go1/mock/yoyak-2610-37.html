@@ -492,8 +492,23 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'대면 협업 시 사람들은 서로와 다양한 의사소통 <b>단서</b>(cues)를 <b>쉽게</b>(easily) 볼 수 있어 작업 공간이 의사소통 공간의 부분집합'],[2,'Ishii는 작업과 의사소통 공간의 기능적 분리가 없어 이를 <b>매끄러운</b>(seamless) 의사소통이라고 부름']],
+'2':[[3,'원격 작업에서는 작업 공간이 의사소통 공간과 자주 <b>분리됨</b>(separated)'],[4,'화상회의에서 한 화면엔 <b>협업자</b>(collaborator)의 얼굴, 다른 화면엔 공유 문서'],[5,'작업 공간을 보면서 원격 협업자의 의사소통 단서를 보는 것은 <b>불가능함</b>(impossible)']],
+'3':[[6,'의사소통 공간과 작업 공간 사이에 <b>인위적인</b>(artificial) <b>틈</b>(seam)이 생김'],[7,'원격 기술이 미치는 <b>영향</b>(impact)은 의사소통 모델로 <b>예측해야</b>(predicted) 함']]
+};
+var REL={
+easily:{bj:'서로와 의사소통 단서를 <b>쉽게</b>(easily) 볼 수 있음',s:[['effortlessly','힘들이지 않고']],a:[],tr:'easily는 쉽게. 어려움 없이 보이는 상황'},
+cue:{bj:'다양한 의사소통 <b>단서</b>(cues)를 볼 수 있음',s:[['sign','표시'],['indication','징후']],a:[],tr:'cue는 신호, 단서. 당구 큐대 뜻도 있는 다의어'},
+seamless:{bj:'작업과 의사소통의 분리가 없는 <b>매끄러운</b>(seamless) 의사소통',s:[['fluid','유동적인']],a:[['rough','거친']],tr:'어려운 단어라 seam(이음매)에 -less가 붙어 틈이 없다로 이해'},
+separate:{bj:'작업 공간이 의사소통 공간과 <b>분리됨</b>(separated)',s:[['divide','나누다'],['isolate','고립시키다']],a:[['unite','결합하다'],['integrate','통합하다']],tr:'separate는 형용사 분리된, 동사 분리하다 두 가지 쓰임'},
+collaborator:{bj:'한 화면엔 <b>협업자</b>(collaborator)의 얼굴이 있음',s:[['associate','동료'],['ally','협력자']],a:[],tr:'어려운 단어라 collaborate(협력하다)에서 협력하는 사람으로 이해'},
+impossible:{bj:'동시에 원격 협업자의 단서를 보는 것은 <b>불가능함</b>(impossible)',s:[],a:[['possible','가능한']],tr:'unable은 사람이 주어일 때 쓰고, impossible은 일이 주어일 때 쓰임'},
+artificial:{bj:'의사소통 공간과 작업 공간 사이의 <b>인위적인</b>(artificial) 틈',s:[['fake','가짜의'],['synthetic','합성의'],['man-made','인공의']],a:[['natural','자연스러운']],tr:'artificial은 인위적인. natural과 반대'},
+seam:{bj:'의사소통 공간과 작업 공간 사이의 <b>틈</b>(seam)',s:[],a:[],tr:'seam은 이음매. 앞의 seamless(틈이 없는)의 어근'},
+predict:{bj:'원격 기술의 영향을 의사소통 모델로 <b>예측해야</b>(predicted) 함',s:[['anticipate','예상하다'],['foresee','예견하다'],['foretell','예언하다']],a:[],tr:'predict는 예측하다. forecast는 날씨 예보에서 흔함'},
+impact:{bj:'원격 기술이 미치는 <b>영향</b>(impact)',s:[['influence','영향'],['consequence','결과']],a:[],tr:'impact는 충격, 영향. 뒤에 on이 올 때가 많음'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
