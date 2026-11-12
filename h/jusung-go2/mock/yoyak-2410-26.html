@@ -493,8 +493,20 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[2,'유대인 <b>이민자</b>(immigrant) 부모에게서 태어남'],[1,'아파르트헤이트에 반대한 <b>활동가</b>(activist)']],
+'2':[[4,'통합당이 더 <b>온건한</b>(moderate) 태도를 취하자 <b>진보적인</b>(progressive) 의원들과 <b>떠남</b>(leave)']],
+'3':[[5,'<b>지칠 줄 모르고</b>(tirelessly) 싸움'],[6,'은퇴 후에도 다민족 민주주의를 <b>지지함</b>(advocate)'],[7,'죽을 때까지 인권을 위한 목소리를 냄']]
+};
+var REL={
+immigrant:{bj:'유대인 <b>이민자</b>(immigrant) 부모',s:[['newcomer','새로 온 사람'],['settler','정착민']],a:[['emigrant','이민 나가는 사람']],t:'migrant',tr:'immigrant는 들어온 이민자, emigrant는 나가는 이민자'},
+activist:{bj:'아파르트헤이트에 반대한 <b>활동가</b>(activist)',s:[['crusader','개혁 운동가'],['protester','시위자']],a:[['bystander','방관자']],t:'campaigner',tr:'activist는 사회 변화를 위해 행동하는 사람'},
+moderate:{bj:'더 <b>온건한</b>(moderate) 태도',s:[['modest','적당한'],['reasonable','합리적인']],a:[['extreme','극단적인'],['radical','급진적인']],t:'mild',tr:'moderate는 지나치지 않은'},
+progressive:{bj:'<b>진보적인</b>(progressive) 의원들',s:[['liberal','진보적인'],['forward-thinking','앞서가는']],a:[['conservative','보수적인']],t:'reform-minded',tr:'progressive는 변화를 앞서 이끄는'},
+leave:{bj:'당을 <b>떠났다</b>(leave)',s:[['depart','떠나다'],['resign','사임하다']],a:[['stay','남다']],t:'quit',tr:'leave는 어떤 곳이나 조직에서 나오다'},
+tirelessly:{bj:'<b>지칠 줄 모르고</b>(tirelessly) 싸웠다',s:[['untiringly','지치지 않고'],['diligently','부지런히']],a:[['lazily','게으르게']],t:'relentlessly',tr:'tirelessly는 피곤해하지 않고 계속'},
+advocate:{bj:'다민족 민주주의를 계속 <b>지지했다</b>(advocate)',s:[['support','지지하다'],['champion','옹호하다'],['endorse','승인하다']],a:[['oppose','반대하다']],t:'campaign',tr:'advocate for는 어떤 주장을 편들어 지지하다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
