@@ -492,8 +492,23 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'최근 기업 차원의 불법 행위가 늘었거나 <b>드러난</b>(came to light) 사례가 늘어남'],[2,'<b>용기 있는</b>(brave) 내부 고발자들이 큰 위험을 감수해 <b>위법 행위</b>(misconduct)가 <b>드러남</b>(exposed)']],
+'2':[[4,'직원이 보복이 <b>두려워서</b>(fear) 불법을 신고하지 못하면 <b>적발되지 않은</b>(undetected) 채 이어짐'],[5,'회사와 제3자, 경제, 대중에 <b>해를 끼칠</b>(harm) 수 있음']],
+'3':[[6,'불법 행위를 <b>줄이는</b>(reducing) 일을 돕는 사람의 보호에는 두 가지 <b>기능</b>(functions)'],[7,'균형 잡힌 보호는 양쪽에 긍정적 효과']]
+};
+var REL={
+expose:{bj:'<b>위법 행위</b>가 용기 있는 내부 고발자들 덕에 <b>드러남</b>(exposed)',s:[['reveal','드러내다'],['uncover','밝혀내다'],['disclose','공개하다']],a:[['conceal','숨기다'],['hide','감추다']],tr:'expose는 노출시키다 뜻이 먼저지만 여기서는 비리를 폭로하다'},
+brave:{bj:'<b>용기 있는</b>(brave) 내부 고발자가 큰 위험을 감수',s:[['courageous','용감한'],['bold','대담한']],a:[['cowardly','겁 많은']],tr:'reckless(무모한)는 위험을 감수한 이유가 아니라 오답'},
+misconduct:{bj:'이런 <b>위법 행위</b>(misconduct)는 내부 고발자 덕에 드러남',s:[['wrongdoing','나쁜 행위'],['misdeed','악행']],a:[],tr:'어려운 단어라 앞의 illegal actions(불법 행위)와 이어 읽기'},
+fear:{bj:'직원이 보복이 <b>두려워</b>(fear) 불법을 신고하지 못함',s:[['dread','몹시 두려워하다']],a:[],tr:'fear to report는 신고하기 두려워하다, fear for는 걱정하다'},
+harm:{bj:'회사와 제3자 등에 <b>해를 끼칠</b>(harm) 수 있음',s:[['damage','손상을 주다'],['injure','해치다'],['impair','손상시키다']],a:[['benefit','이롭게 하다']],tr:'benefit은 정반대, 부정적 효과 문맥이라 오답'},
+reprisal:{bj:'<b>보복</b>(reprisals)이나 결과가 두려워서 신고하지 못함',s:[['retaliation','보복']],a:[],tr:'어려운 단어, 뒤의 consequences(결과)와 함께 보복으로 이해'},
+undetected:{bj:'법 위반이 수년간 <b>적발되지 않은</b>(undetected) 채 처벌도 없음',s:[['hidden','숨겨진']],a:[],tr:'뒤의 unpunished(처벌받지 않은)와 짝으로 외우기'},
+reduce:{bj:'불법 행위를 <b>줄이는</b>(reducing) 일을 돕는 사람',s:[['decrease','줄이다'],['lessen','덜다'],['diminish','감소시키다']],a:[['increase','늘리다']],tr:'increase는 문장 첫머리의 grown과 같은 방향이라 반대'},
+function:{bj:'보호에는 두 가지 주요 <b>기능</b>(functions)이 있음',s:[['role','역할'],['part','역할, 몫']],a:[],tr:'function은 기능이 먼저지만 다의어(작동하다), 여기서는 역할'},
+assist:{bj:'불법 행위를 줄이도록 <b>돕는</b>(assist) 사람을 보호',s:[['help','돕다'],['aid','돕다'],['support','지원하다']],a:[['hinder','방해하다'],['obstruct','가로막다']],tr:'hinder는 정반대, 보호 대상이 아니라 오답'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
