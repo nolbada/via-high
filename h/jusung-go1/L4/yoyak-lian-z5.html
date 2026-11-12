@@ -493,8 +493,26 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'…websites don’t just <b>help</b> people with…'],[2,'…easier for <b>everyone,</b> regardless of…']],
+'2':[[3,'When websites are <b>easy</b> to navigate and…']],
+'3':[[4,'읽기와 쓰기 <b>체계는</b>(systems) 문화마다 다르다.'],[5,'서양 문화 출신의 사람들은 왼쪽에서 오른쪽으로 읽고 쓰는 반면, 일부 중동 문화…'],[6,'일본과 같은 일부 동양 문화 출신 사람들은 위에서 아래로 읽고 쓴다.']],
+'4':[[7,'…세계적인 웹 사이트는 이러한 차이를 <b>고려하고</b>(consideration) 다른 지역의 사람들을 위해 그들의 웹…'],[9,'<b>If</b> you visit the same…']]
+};
+var REL={
+help:{bj:'… features of websites don’t just <b>help</b> people with disabilities.',s:[['assist','돕다'],['support','지원하다']],a:[['hinder','방해하다']],t:'limit',tr:'돕다 → 한정하다 (not just help = not limited)'},
+everyone:{bj:'… make online experiences easier for <b>everyone,</b> regardless of abilities or situations.',s:[],a:[],t:'everybody',tr:'모든 사람 → 모든 사람'},
+'regardless of':{bj:'그것들은 능력이나 상황과 <b>상관없이</b>(regardless of) 모두에게 온라인 경험을 더…',s:[],a:[],t:'whatever',tr:'~와 상관없이 → ~이든 상관없이'},
+easy:{bj:'When websites are <b>easy</b> to navigate and understand, we …',s:[['effortless','수월한'],['painless','힘들지 않은']],a:[['tough','힘든'],['awkward','어색한']],t:'simple',tr:'쉬운 → 간단한'},
+benefit:{bj:'… and understand, we can all <b>benefit</b> from a more inclusive online …',s:[['advantage','이점'],['merit','장점']],a:[['disadvantage','불리한 점']],t:'profit',tr:'득을 보다 → 이익을 얻다'},
+we:{bj:'…이해하기에 더 쉬울 때, <b>우리는</b>(websites) 더 차별 없는 온라인…',s:[],a:[],t:'everyone',tr:'우리 → 모든 사람'},
+system:{bj:'읽기와 쓰기 <b>체계는</b>(systems) 문화마다 다르다.',s:[['structure','체계'],['framework','틀']],a:[],t:'method',tr:'체계 → 방식'},
+different:{bj:'Reading and writing systems are <b>different</b> across cultures.',s:[['separate','별개의'],['distinct','뚜렷이 다른']],a:[['similar','비슷한'],['identical','동일한']],t:'vary',tr:'다른 → 다르다, 달라지다'},
+'across cultures':{bj:'읽기와 쓰기 체계는 <b>문화마다</b>(across cultures) 다르다.',s:[],a:[],t:'from culture to culture',tr:'문화마다 → 문화에 따라'},
+consideration:{bj:'…웹 사이트는 이러한 차이를 <b>고려하고</b>(consideration) 다른 지역의 사람들을 위해…',s:[['regard','배려'],['thought','숙고']],a:[['neglect','무시']],t:'consider',tr:'고려 → 고려하다'},
+adjust:{bj:'…위해 그들의 웹 사이트를 <b>조정한다</b>(adjust).',s:[['alter','바꾸다'],['modify','수정하다']],a:[],t:'adapt',tr:'조정하다 → 맞추다'},
+'see a different format':{bj:'<b>If</b> you visit the same websites …',s:[],a:[],t:'looks different',tr:'다른 구성 방식을 보다 → 다르게 보이다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
