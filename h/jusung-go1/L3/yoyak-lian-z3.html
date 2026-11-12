@@ -493,8 +493,28 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'…of stolen items was <b>hidden</b> in the salt mines of…'],[2,'…of the Monuments Men <b>rushed</b> to the mines.'],[3,'그들은 너무 늦기 전에 모든 것을 <b>되찾기를</b>(recover) 희망했다.']],
+'2':[[4,'…대형 폭발물을 터뜨려 모든 것을 <b>파괴하려고</b>(destroy) 했다.']],
+'3':[[7,'그들은 몰래 대형 폭발물을 <b>제거했고</b>(removed) 입구에 더 작은 폭발물을 놓았다.'],[9,'그러나 작은 폭발들이 입구를 <b>봉쇄시키긴</b>(sealed) 했지만, 그것들은 광산의 나머지…']],
+'4':[[10,'…they must have been <b>amazed</b> to see what was…'],[11,'…were thousands of <b>priceless</b> objects, including…']]
+};
+var REL={
+hide:{bj:'… collections of stolen items was <b>hidden</b> in the salt mines of …',s:[['cover up','감추다'],['disguise','위장하다']],a:[['reveal','드러내다'],['disclose','공개하다']],t:'conceal',tr:'숨기다 → 숨기다, 감추다'},
+rush:{bj:'… some of the Monuments Men <b>rushed</b> to the mines.',s:[['dash','돌진하다'],['race','서두르다']],a:[['delay','늦추다'],['dawdle','꾸물거리다']],t:'hurry',tr:'급히 가다 → 서두르다'},
+recover:{bj:'…너무 늦기 전에 모든 것을 <b>되찾기를</b>(recover) 희망했다.',s:[['regain','되찾다'],['get back','되찾다']],a:[['lose','잃다']],t:'retrieve',tr:'되찾다 → 되찾아 오다'},
+'discovering its location':{bj:'그것의 위치를 <b>알아내자마자</b>(discovering its location), 모뉴먼츠 맨 중 일부가…',s:[],a:[],t:'learned where they were',tr:'그 위치를 알아내다 → 그것들이 어디 있는지 알게 되다'},
+destroy:{bj:'…폭발물을 터뜨려 모든 것을 <b>파괴하려고</b>(destroy) 했다.',s:[['demolish','부수다'],['wreck','망가뜨리다']],a:[['build','짓다']],t:'ruin',tr:'파괴하다 → 망가뜨리다'},
+explosive:{bj:'…지도자는 광산 내부에 대형 <b>폭발물을</b>(explosives) 터뜨려 모든 것을…',s:[],a:[],t:'bomb',tr:'폭발물 → 폭탄'},
+'the nazi leader who was in charge of the area':{bj:'…그 지역을 담당하던 나치 <b>지도자는</b>(the Nazi leader who was in charge of the area) 광산 내부에 대형 폭발물을…',s:[],a:[],t:'A Nazi leader in charge of the area',tr:'그 지역을 담당하던 나치 지도자'},
+remove:{bj:'그들은 몰래 대형 폭발물을 <b>제거했고</b>(removed) 입구에 더 작은 폭발물을…',s:[['erase','지우다'],['get rid of','없애다']],a:[['add','더하다'],['install','설치하다']],t:'eliminate',tr:'제거하다 → 없애다, 제거하다'},
+seal:{bj:'그러나 작은 폭발들이 입구를 <b>봉쇄시키긴</b>(sealed) 했지만, 그것들은 광산의…',s:[['shut','닫다'],['plug','틀어막다']],a:[['open','열다']],t:'block',tr:'봉쇄하다 → 막다'},
+unharmed:{bj:'…예술 작품들을 손상되지 <b>않은</b>(unharmed) 채로 남아 있게 했다.',s:[['intact','온전한'],['safe','무사한']],a:[['damaged','손상된'],['injured','다친']],t:'undamaged',tr:'다치지 않은 → 손상되지 않은'},
+secretly:{bj:'그들은 <b>몰래</b>(secretly) 대형 폭발물을 제거했고…',s:[],a:[],t:'secretly',tr:'몰래 → 몰래'},
+amaze:{bj:'… mines, they must have been <b>amazed</b> to see what was inside.',s:[['astound','경악하게 하다'],['surprise','놀라게 하다']],a:[['bore','지루하게 하다']],t:'astonish',tr:'놀라게 하다 → 깜짝 놀라게 하다'},
+priceless:{bj:'There were thousands of <b>priceless</b> objects, including paintings, statues, books, …',s:[['precious','귀중한'],['valuable','값진']],a:[['worthless','가치 없는']],t:'invaluable',tr:'값을 매길 수 없는 → 매우 귀중한'},
+'squeezed their way into':{bj:'…도착해 광산 안으로 비집고 <b>들어갔을</b>(squeezed their way into) 때, 그들은 내부에 있던…',s:[],a:[],t:'squeezed into',tr:'비집고 들어가다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
