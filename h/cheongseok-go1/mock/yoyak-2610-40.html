@@ -492,8 +492,24 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'포식자 위협이 적은 <b>평화로운</b>(peaceful) 지역의 미역취는 가까운 <b>친족</b>(kin)만 알아듣는 아주 구체적인 화학 경보를 <b>내보냄</b>(issue)']],
+'2':[[2,'더 <b>적대적인</b>(hostile) 지역의 미역취는 친족뿐 아니라 그 지역 모든 미역취가 이해하는 화학 표현으로 이웃에 신호함'],[3,'<b>암호화된</b>(coded) 속삭임 대신 위협을 확성기로 <b>널리 알리듯</b>(broadcast) 함']],
+'3':[[4,'이런 화학 <b>교신</b>(communications)이 받는 식물뿐 아니라 보내는 쪽에도 <b>이롭다는</b>(beneficial) 것을 처음 <b>확인함</b>(confirmed)'],[5,'정말 <b>힘든</b>(tough) 때 들판에 <b>홀로</b>(alone) 남고 싶지 않음'],[6,'짝짓기할 상대도, 꽃가루 매개자를 데려올 도움도 없음']]
+};
+var REL={
+peaceful:{bj:'포식자 위협이 적은 <b>평화로운</b>(peaceful) 지역',s:[['serene','고요한']],a:[['violent','폭력적인']],tr:'hostile(적대적인) 지역과 대비되는 곳'},
+issue:{bj:'화학 경보를 <b>내보냄</b>(issue)',s:[['announce','알리다'],['publish','발표하다'],['declare','선언하다']],a:[],tr:'issue는 문제도 되는 다의어, 여기서는 경보를 내다'},
+kin:{bj:'가까운 <b>친족</b>(kin)만 알아듣는 경보',s:[],a:[],tr:'어려운 단어라 close kin과 biological kin의 쓰임으로 가족 관계로 이해'},
+hostile:{bj:'더 <b>적대적인</b>(hostile) 지역의 미역취',s:[['aggressive','공격적인'],['unfriendly','비우호적인']],a:[['friendly','우호적인'],['hospitable','살기 좋은']],tr:'dangerous는 오답 후보, hostile은 위협이 많은 환경'},
+coded:{bj:'<b>암호화된</b>(coded) 속삭임 네트워크',s:[['confidential','기밀의']],a:[],tr:'어려운 단어라 속삭임(whisper)과 이어 비밀스럽다로 이해'},
+broadcast:{bj:'위협을 확성기로 <b>널리 알림</b>(broadcast)',s:[['declare','선언하다'],['proclaim','공표하다']],a:[],tr:'broadcast는 방송하다, 모두에게 널리 알린다는 느낌'},
+confirm:{bj:'화학 교신이 이롭다는 것을 처음 <b>확인함</b>(confirmed)',s:[['verify','확인하다'],['validate','입증하다'],['affirm','확언하다']],a:[['contradict','반박하다']],tr:'confirm은 확인하다, 확정하다(결정)와 구분'},
+communication:{bj:'이런 화학적 <b>교신</b>(communications)이 이롭다는 것',s:[],a:[],tr:'communication은 의사소통, 여기서는 식물이 보내는 화학 신호'},
+beneficial:{bj:'받는 식물뿐 아니라 보내는 쪽에도 <b>이로움</b>(beneficial)',s:[['conducive','도움이 되는'],['useful','유용한']],a:[['harmful','해로운'],['adverse','불리한']],tr:'beneficial은 이로운, harmful과 반대'},
+tough:{bj:'정말 <b>힘든</b>(tough) 때',s:[['difficult','어려운'],['harsh','가혹한']],a:[['easy','쉬운']],tr:'tough는 질긴, 강인한 뜻도 있지만 여기서는 힘든'},
+alone:{bj:'들판에 <b>홀로</b>(alone) 남고 싶지 않음',s:[['solitary','고독한']],a:[],tr:'alone은 형용사, 부사로도 쓰이며 lonely(외로운 기분)와 구분'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
