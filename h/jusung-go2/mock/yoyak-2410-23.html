@@ -493,8 +493,20 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[2,'몸은 항상성을 얻으려고 늘 <b>애씀</b>(strive)'],[3,'보상 기전이 높고 낮음을 <b>완화함</b>(cushion)']],
+'2':[[4,'쾌락과 고통은 서로 의존하며 <b>균형</b>(balance)을 유지'],[5,'한쪽이 오르면 다른 쪽도 <b>그에 맞게</b>(correspondingly) 움직임']],
+'3':[[8,'비참해지지(<b>miserable</b>) 않으려는 시도가 오히려 더 비참하게 함'],[9,'고통은 중립 상태를 유지하는 데 <b>필수적</b>(essential)이고 <b>허용하면</b>(allowing) 재설정됨']]
+};
+var REL={
+strive:{bj:'몸은 항상성을 얻으려고 늘 <b>애쓴다</b>(strive)',s:[['attempt','시도하다'],['endeavor','노력하다'],['struggle','분투하다']],a:[],t:'seek',tr:'strive for는 목표를 이루려고 애쓰다'},
+cushion:{bj:'높고 낮음을 <b>완화한다</b>(cushion)',s:[['buffer','완충하다'],['absorb','흡수하다']],a:[['worsen','악화시키다']],t:'soften',tr:'cushion은 쿠션처럼 충격을 줄여 주다'},
+balance:{bj:'서로 의존하며 <b>균형</b>(balance)을 유지한다',s:[['proportion','균형'],['harmony','조화']],a:[['imbalance','불균형']],t:'equilibrium',tr:'balance는 한쪽으로 기울지 않은 상태'},
+correspondingly:{bj:'다른 쪽도 <b>그에 맞게</b>(correspondingly) 움직인다',s:[['similarly','마찬가지로'],['proportionally','비례하여']],a:[['differently','다르게']],t:'accordingly',tr:'correspondingly는 앞의 변화에 맞추어'},
+miserable:{bj:'<b>비참해지지</b>(miserable) 않으려는 시도',s:[['wretched','비참한'],['pitiful','가련한'],['dreadful','끔찍한']],a:[['cheerful','쾌활한']],t:'unhappy',tr:'miserable은 아주 불행하고 비참한'},
+essential:{bj:'고통은 <b>필수적인</b>(essential) 요소다',s:[['necessary','필요한'],['fundamental','근본적인'],['crucial','결정적인']],a:[['optional','선택적인']],t:'vital',tr:'essential은 없어서는 안 되는'},
+allow:{bj:'고통을 <b>허용하면</b>(allowing)',s:[['permit','허락하다'],['let','허락하다'],['grant','허락하다']],a:[['forbid','금지하다']],t:'accept',tr:'allow는 막지 않고 두다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
