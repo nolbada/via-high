@@ -493,8 +493,28 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'…20시간의 빛과 4시간의 어둠에 매일 <b>노출되면</b>(exposed), 그들은 마침내 양질의 바이오 연료를…']],
+'2':[[2,'이 바이오 연료는 재생 <b>가능하고</b>(renewable) 지속 가능하며, 적은 양의 배출물만…']],
+'3':[[3,'…우리가 자연에서 찾을 수 있는 소수의 <b>해결책들에</b>(solutions) 불과하다.'],[4,'…현재 직면한 문제들에 대해 가능성 <b>있는</b>(possible) 훨씬 더 많은 해결책들이 있을 수…']],
+'4':[[5,'대자연은 우리에게 또 한 번의 <b>기회를</b>(chance) 준 것처럼 보인다.'],[6,'<b>보답으로</b>(return), 우리는 환경을 건강하고 깨끗하게…'],[7,'우리가 그렇게 한다면, 우리 지구의 <b>미래는</b>(planet) 결국 밝을지도 모른다.']]
+};
+var REL={
+expose:{bj:'…빛과 4시간의 어둠에 매일 <b>노출되면</b>(exposed), 그들은 마침내 양질의…',s:[['reveal','드러내다'],['uncover','노출시키다']],a:[['protect','보호하다'],['hide','숨기다']],t:'subject',tr:'노출시키다 → 노출시키다, 받게 하다'},
+produce:{bj:'…양질의 바이오 연료를 <b>생산한다</b>(produce).',s:[['make','만들다'],['yield','낳다']],a:[['consume','소비하다']],t:'generate',tr:'생산하다 → 만들어 내다'},
+'twenty hours':{bj:'만약 이 조류가 <b>20시간의</b>(twenty hours) 빛과 4시간의 어둠에 매일…',s:[],a:[],t:'long hours',tr:'20시간 → 오랜 시간'},
+renewable:{bj:'이 바이오 연료는 재생 <b>가능하고</b>(renewable) 지속 가능하며, 적은 양의…',s:[['sustainable','지속 가능한'],['reusable','재사용 가능한']],a:[['limited','제한된']],t:'used again',tr:'재생 가능한 → 다시 쓰일 수 있는'},
+create:{bj:'… renewable and sustainable, and it <b>creates</b> only a small amount of …',s:[['make','만들다'],['generate','만들어 내다']],a:[['destroy','파괴하다']],t:'release',tr:'만들어 내다 → 내보내다'},
+emission:{bj:'…지속 가능하며, 적은 양의 <b>배출물만</b>(emissions) 나온다.',s:[['discharge','배출'],['leak','유출']],a:[],t:'pollution',tr:'배출물 → 오염 물질'},
+solution:{bj:'…찾을 수 있는 소수의 <b>해결책들에</b>(solutions) 불과하다.',s:[['remedy','해결책'],['fix','해결책']],a:[['problem','문제']],t:'answer',tr:'해결책 → 해답'},
+possible:{bj:'…문제들에 대해 가능성 <b>있는</b>(possible) 훨씬 더 많은 해결책들이…',s:[['likely','가능성 있는'],['probable','있음 직한']],a:[['impossible','불가능한']],t:'potential',tr:'가능성 있는 → 잠재적인, 가능성 있는'},
+currently:{bj:'우리가 <b>현재</b>(currently) 직면한 문제들에 대해…',s:[['now','지금'],['presently','현재']],a:[['formerly','이전에']],t:'at present',tr:'현재 → 지금'},
+just:{bj:'These are <b>just</b> a few solutions we can …',s:[['only','오직'],['simply','단지']],a:[],t:'merely',tr:'단지 → 단지'},
+chance:{bj:'…우리에게 또 한 번의 <b>기회를</b>(chance) 준 것처럼 보인다.',s:[['opening','기회'],['possibility','가능성']],a:[],t:'opportunity',tr:'기회 → 기회'},
+return:{bj:'<b>보답으로</b>(return), 우리는 환경을 건강하고…',s:[['repayment','갚음'],['reward','보상']],a:[],t:'exchange',tr:'보답 → 교환, 보답'},
+'healthy and clean':{bj:'…우리는 환경을 건강하고 <b>깨끗하게</b>(healthy and clean) 지킬 더 많은 방법을 찾을…',s:[],a:[],t:'clean',tr:'건강하고 깨끗한 → 깨끗한'},
+planet:{bj:'…한다면, 우리 지구의 <b>미래는</b>(planet) 결국 밝을지도 모른다.',s:[['Earth','지구'],['world','세계']],a:[],t:'future',tr:'지구의 미래 → 우리의 미래'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
