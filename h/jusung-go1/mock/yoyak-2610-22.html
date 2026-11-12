@@ -492,8 +492,21 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'시간 인식은 자연의 기본 <b>속성</b>(properties)도, 개인 심리 현상도 아님'],[2,'시간 이해 방식은 <b>전통</b>(tradition)과 문화적 기준이 <b>형성</b>(shaped)']],
+'2':[[3,'일주일은 시간의 <b>기본</b>(fundamental) 단위이자 문화마다 <b>다른</b>(varies) 사회적 발명품']],
+'3':[[4,'9시~5시 직업을 일상으로 여기는 이유'],[7,'은퇴 연령이 65세인 이유'],[8,'이 숫자와 <b>양식</b>(patterns)은 사회적 창조물, 우리가 <b>내면화</b>(internalize)해 ‘정상’으로 받아들임']]
+};
+var REL={
+shape:{bj:'시간을 이해하는 방식은 전통과 문화적 기준에 의해 <b>형성</b>(shaped)',s:[['mold','틀을 만들다']],a:[],tr:'shape를 모양으로만 외우면 놓침, 여기서는 동사 형성하다'},
+tradition:{bj:'<b>전통</b>(tradition)과 문화적 기준이 시간 이해 방식을 만듦',s:[['convention','관습']],a:[],tr:'habit(개인의 습관)은 사회적 관습이 아니라 오답'},
+property:{bj:'자연의 기본 <b>속성</b>(properties)도 아님',s:[['attribute','속성'],['characteristic','특성']],a:[],tr:'property는 재산이 먼저 떠오르지만 여기서는 속성'},
+fundamental:{bj:'시간의 <b>기본</b>(fundamental) 단위인 일주일',s:[['basic','기본의'],['essential','필수적인']],a:[['superficial','피상적인']],tr:'core(핵심의)와 같은 계열, 기본의 뜻으로 연결'},
+vary:{bj:'일주일은 문화마다 <b>서로 다른</b>(varies) 사회적 발명품',s:[['differ','서로 다르다']],a:[],tr:'vary는 변하다보다 서로 다르다에 가까움'},
+demonstrate:{bj:'일주일이 사회적 발명품임을 <b>보여 줌</b>(demonstrates)',s:[['illustrate','보여 주다'],['prove','증명하다']],a:[['disprove','반증하다']],tr:'demonstrate는 시위하다 뜻도 있는 다의어, 여기서는 보여 주다'},
+internalize:{bj:'우리가 <b>내면화</b>(internalize)해 ‘정상’으로 받아들임',s:[['take in','받아들이다']],a:[],tr:'어려운 단어라 뒤의 accept(받아들이다)로 뜻을 잡음'},
+pattern:{bj:'이 숫자와 <b>양식</b>(patterns)은 사회적 창조물',s:[],a:[],tr:'pattern은 무늬보다 여기서는 생활 양식, practice는 관행'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
