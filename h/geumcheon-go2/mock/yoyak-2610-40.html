@@ -492,8 +492,21 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'돌고래의 뇌는 반향 정위용 <b>특화된</b>(specialized) 구역을 발달시켜 <b>음향</b>(acoustic) 정보를 더 빠르고 적은 에너지로 <b>처리함</b>(process)']],
+'2':[[3,'귀의 신호는 <b>빠르게</b>(rapidly) 청각 피질로 전달됨'],[4,'돌고래의 청각 피질에는 신호의 서로 다른 <b>측면</b>(aspects)을 처리하는 <b>개별</b>(distinct) 구역이 있음'],[5,'어떤 구역은 반사파의 타이밍, 다른 구역은 주파수나 강도에 초점을 맞춤']],
+'3':[[6,'이 특화 덕분에 뇌는 반사파 정보를 순차적이 아니라 <b>병렬로</b>(in parallel) 처리함'],[8,'업무를 나누면 정보를 훨씬 빠르고 더 <b>효율적으로</b>(efficiently) 처리할 수 있음']]
+};
+var REL={
+specialized:{bj:'반향 정위에 쓰이는 <b>특화된</b>(specialized) 구역들',s:[['expert','전문적인'],['technical','기술적인'],['particular','특정한']],a:[['general','일반적인']],t:'special',tr:'specialized는 특정 기능에 맞춘, special(특별한)과 뜻이 다름'},
+process:{bj:'음향 정보를 더 빠르게 <b>처리한다</b>(process)',s:[['deal with','다루다'],['treat','처리하다'],['manage','관리하다']],a:[],t:'handle',tr:'process는 명사 과정이 먼저, 여기서는 정보를 처리하다'},
+acoustic:{bj:'<b>음향</b>(acoustic) 정보',s:[['auditory','청각의'],['sonic','소리의'],['audio','음성의']],a:[],t:'sound',tr:'acoustic은 소리에 관한, 명사 acoustics는 음향학'},
+rapidly:{bj:'신호가 <b>빠르게</b>(rapidly) 전달된다',s:[['swiftly','재빨리'],['speedily','신속히']],a:[['slowly','느리게'],['gradually','점차']],t:'quickly',tr:'rapidly는 속도가 빠르게, rapid의 부사형'},
+distinct:{bj:'<b>개별</b>(distinct) 구역들',s:[['discrete','분리된'],['individual','개별의']],a:[['similar','비슷한'],['identical','똑같은']],t:'separate',tr:'distinct는 다른 것과 구별되는, 또 뚜렷한 뜻도 있음'},
+aspect:{bj:'신호의 서로 다른 <b>측면</b>(aspects)',s:[['dimension','측면'],['feature','특징'],['facet','측면']],a:[],t:'part',tr:'aspect는 어떤 것의 한 면'},
+parallel:{bj:'정보를 <b>병렬로</b>(in parallel) 처리한다',s:[['concurrent','동시에 일어나는'],['side by side','나란히']],a:[['sequential','순차적인'],['serial','연속의']],t:'simultaneously',tr:'in parallel은 동시에, 반대는 sequentially'},
+efficiently:{bj:'훨씬 더 <b>효율적으로</b>(efficiently) 처리한다',s:[['productively','생산적으로'],['economically','경제적으로'],['skillfully','능숙하게']],a:[['wastefully','낭비하며']],t:'effectively',tr:'efficiently는 낭비 없이, effectively는 결과를 내며'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
