@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'사건 후 접한 정보가 기억에 <b>영향을 줌</b>(influence)'],[2,'시간과 망각이 기억을 <b>저하시킴</b>(degraded)']],
+'2':[[3,'잘못된 정보의 <b>유효성</b>(validity)을 확인할 정보가 줄어 <b>거부</b>(rejected)되기 어려움'],[4,'이야기에 맞으면 원래 경험의 일부로 <b>통합됨</b>(integrated)']],
+'3':[[5,'이 과정은 <b>무의식적</b>(unconscious)인 경우가 많음'],[7,'목격자는 정보의 <b>출처</b>(source)조차 모를 수 있음'],[8,'다른 목격자와의 <b>토론</b>(discussions) 등 어디서나 <b>마주칠</b>(encountered) 수 있음']]
+};
+var REL={
+influence:{bj:'사건 후의 정보가 기억에 <b>영향을 줄</b>(influence) 수 있다',s:[['impact','영향을 주다'],['sway','좌우하다']],a:[],t:'affect',tr:'influence는 무언가에 힘을 미치다'},
+degrade:{bj:'시간과 망각이 기억을 <b>저하시켰다</b>(degraded)',s:[['deteriorate','악화되다'],['impair','손상시키다'],['weaken','약화시키다']],a:[['enhance','높이다']],t:'fade',tr:'degrade는 질을 떨어뜨리다. fade는 점점 흐려지다'},
+encounter:{bj:'사건 후 <b>접한</b>(encountered) 정보',s:[['come across','우연히 만나다'],['run into','마주치다']],a:[['avoid','피하다']],t:'meet',tr:'encounter는 우연히 마주치다'},
+reject:{bj:'새 정보가 <b>거부될</b>(rejected) 가능성이 낮다',s:[['decline','거절하다'],['refuse','거부하다'],['turn down','거절하다']],a:[['accept','받아들이다']],t:'dismiss',tr:'reject는 받아들이지 않고 물리치다'},
+integrate:{bj:'원래 경험의 일부로 <b>통합될</b>(integrated) 수 있다',s:[['combine','결합하다'],['unify','통합하다'],['incorporate','포함시키다']],a:[['separate','분리하다']],t:'merge',tr:'integrate는 여러 부분을 하나로 묶다'},
+validity:{bj:'잘못된 정보의 <b>유효성</b>(validity)',s:[['legitimacy','정당성'],['reliability','신뢰성']],a:[],t:'accuracy',tr:'validity는 타당하고 믿을 만한 정도'},
+unconscious:{bj:'이 과정은 <b>무의식적</b>(unconscious)일 때가 많다',s:[['automatic','자동적인'],['unaware','알지 못하는']],a:[['conscious','의식적인']],t:'unnoticed',tr:'unconscious는 의식하지 못하는'},
+discussion:{bj:'다른 목격자와의 <b>토론</b>(discussions)',s:[['debate','토론'],['discourse','담론']],a:[],t:'conversation',tr:'discussion은 의견을 나누는 이야기'},
+source:{bj:'정보의 <b>출처</b>(source)',s:[['root','근원'],['basis','근거']],a:[['outcome','결과']],t:'origin',tr:'source는 정보나 물건이 나온 곳'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
