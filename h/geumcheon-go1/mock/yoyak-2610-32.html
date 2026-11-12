@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'고객이든 누구든 사람들은 자신의 말이 <b>경청되기를</b> 바람'],[2,'매니저와 통화하거나 사무실을 <b>찾아온</b>(comes into) 사람은 자신의 <b>우려</b>(concerns)를 누군가 듣고 <b>해결해</b>(address) 주기를 바람']],
+'2':[[4,'첫째, 상대가 자신의 말에 주의를 기울였다고 느껴야 함'],[5,'둘째, 상대가 자신의 말을 <b>이해했다고</b>(understood) 느껴야 함'],[6,'셋째, 상대가 들었다는 것을 <b>보여 주어야</b>(demonstrate) 함']],
+'3':[[7,'이 마지막 부분이 <b>핵심</b>(key)'],[8,'아무 반응이 없는 사람과 대화한다고 상상해 보기'],[11,'들었다는 <b>눈에 보이는</b>(outward) <b>신호</b>(signal)가 없으면 <b>실제로</b>(actually) 들었는지 알 수 없음']]
+};
+var REL={
+come:{bj:'사무실에 무언가 고민을 안고 <b>찾아오는</b>(comes into) 사람',s:[],a:[],tr:'come은 오다가 기본, 여기서는 사무실을 찾아오다'},
+concern:{bj:'누군가 자신의 <b>우려</b>(concerns)를 들어주기를 바람',s:[['anxiety','불안']],a:[['apathy','무관심']],tr:'concern은 걱정 외에 관심, 관련되다 뜻도 있는 다의어'},
+address:{bj:'듣고 그 우려를 <b>해결해</b>(address) 주기를 바람',s:[['deal with','처리하다'],['manage','처리하다']],a:[],tr:'address는 주소, 연설하다 뜻도 있지만 여기서는 문제를 다루다'},
+understand:{bj:'상대가 자신의 말을 <b>이해했다고</b>(understood) 느껴야 함',s:[['comprehend','이해하다']],a:[['misunderstand','오해하다']],tr:'hear(듣다)와 구분, 들은 것과 이해한 것은 별개의 단계'},
+demonstrate:{bj:'상대가 들었다는 것을 <b>보여 주어야</b>(demonstrate) 함',s:[['illustrate','보여 주다'],['prove','입증하다']],a:[['disprove','반증하다']],tr:'demonstrate는 시위하다 뜻도 있는 다의어, 여기서는 보여 주다'},
+key:{bj:'이 마지막 부분이 <b>핵심</b>(key)',s:[['crucial','결정적인'],['vital','필수적인']],a:[],tr:'key는 열쇠가 먼저지만 여기서는 핵심적인(형용사)'},
+outward:{bj:'들었다는 <b>눈에 보이는</b>(outward) 신호가 필요함',s:[['external','외부의']],a:[['inward','내적인'],['invisible','보이지 않는']],tr:'inward는 정반대, 마음속에서만 듣는 것은 신호가 아님'},
+signal:{bj:'들었다는 겉으로 드러나는 <b>신호</b>(signal)',s:[['cue','신호']],a:[],tr:'signal은 동사 신호를 보내다도 되지만 여기서는 명사'},
+actually:{bj:'<b>실제로</b>(actually) 들었는지 알 수 없음',s:[],a:[],tr:'actually는 사실은, 실제로. 지금은(currently)이 아님'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
