@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'상관관계가 주는 통찰은 <b>비교적</b>(relatively) 명확함'],[2,'<b>인과 관계</b>(causality)를 끌어오면 통찰이 <b>가려짐</b>(covered)']],
+'2':[[4,'주황색 차에 <b>결함</b>(defects)이 훨씬 적음'],[5,'이유를 이미 <b>생각함</b>(think)'],[6,'주황색 차는 도로에서 더 <b>눈에 띔</b>(noticeable)']],
+'3':[[8,'이렇게 <b>밝히려는</b>(illuminate) 시도가 더 <b>흐리게</b>(cloudier) 만듦'],[9,'상관관계는 <b>수학적으로</b>(mathematically) 보일 수 있음']]
+};
+var REL={
+relatively:{bj:'통찰이 <b>비교적</b>(relatively) 명확하다',s:[['comparatively','비교적'],['somewhat','다소']],a:[['absolutely','절대적으로']],t:'fairly',tr:'relatively는 다른 것과 견주어 볼 때'},
+cover:{bj:'통찰이 <b>가려진다</b>(covered up)',s:[['conceal','숨기다'],['mask','가리다'],['obscure','흐릿하게 하다']],a:[['reveal','드러내다']],t:'hide',tr:'cover up은 덮어 안 보이게 하다'},
+causality:{bj:'<b>인과 관계</b>(causality)를 다시 끌어오다',s:[['causation','인과 관계']],a:[['coincidence','우연의 일치']],t:'cause-and-effect',tr:'causality는 원인이 결과를 낳는 관계'},
+defect:{bj:'<b>결함</b>(defects)이 있을 가능성이 훨씬 적다',s:[['flaw','결함'],['imperfection','불완전함'],['deficiency','결함']],a:[['merit','장점']],t:'fault',tr:'defect는 제품의 고장이나 흠'},
+think:{bj:'왜 그럴지 이미 <b>생각한다</b>(think)',s:[['suppose','생각하다'],['assume','가정하다'],['guess','짐작하다']],a:[],t:'speculate',tr:'think는 생각하다, speculate는 근거 없이 추측하다'},
+noticeable:{bj:'도로에서 더 <b>눈에 띈다</b>(noticeable)',s:[['prominent','두드러진'],['conspicuous','눈에 잘 띄는'],['obvious','분명한']],a:[['hidden','숨겨진']],t:'visible',tr:'noticeable은 알아차리기 쉬운'},
+cloudier:{bj:'더 <b>흐리게</b>(cloudier) 만들 뿐이다',s:[['murkier','더 탁한'],['vaguer','더 모호한'],['blurrier','더 흐릿한']],a:[['clearer','더 분명한']],t:'confuses',tr:'cloudier는 흐려서 잘 안 보이는'},
+mathematically:{bj:'<b>수학적으로</b>(mathematically) 보여 줄 수 있다',s:[['statistically','통계적으로'],['quantitatively','수량적으로']],a:[['qualitatively','질적으로']],t:'numerically',tr:'mathematically는 수학을 이용해'},
+illuminate:{bj:'이렇게 <b>밝히려는</b>(illuminate) 시도',s:[['clarify','분명히 하다'],['enlighten','깨우치다']],a:[['obscure','흐릿하게 하다']],t:'explain',tr:'illuminate는 빛을 비추어 환히 밝히다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
