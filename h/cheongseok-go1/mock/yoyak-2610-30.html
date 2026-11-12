@@ -492,8 +492,23 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'보조금, 세금, <b>규제</b>(regulations)는 모두 발전소가 석탄에서 <b>전환하도록</b>(switching) 이끎'],[2,'전환하면 <b>이익</b>(profits)이 더 높을 수 있음'],[3,'발전소는 규제나 세금보다 보조금을 <b>선호함</b>(prefer)'],[5,'정부에서 돈을 받는 쪽을 선호']],
+'2':[[6,'보조금으로 기회의 <b>확대</b>(expansion)는 다른 사람들의 기회의 <b>축소</b>(contraction)와 맞물림'],[7,'전기회사의 자유가 늘수록 보조금을 내야 하는 평범한 <b>개인</b>(individual)이 <b>세금</b>(taxation) 부담을 짐']],
+'3':[[8,'보조금은 효율성 면에서 경제를 <b>왜곡함</b>(distorts)'],[9,'전기 가격은 낮아지고 <b>소비</b>(consumption)는 늘어 지구온난화가 악화될 수 있음']]
+};
+var REL={
+regulation:{bj:'보조금, 세금과 함께 석탄에서 벗어나게 하는 <b>규제</b>(regulations)',s:[['control','통제'],['order','명령']],a:[],tr:'regulation은 규칙 하나가 아니라 제도적 규제, 세금과 짝으로 나옴'},
+switch:{bj:'발전소가 석탄에서 다른 방식으로 <b>전환함</b>(switching)',s:[['change','바꾸다'],['shift','전환하다'],['convert','전환하다']],a:[],tr:'switch는 스위치가 먼저지만 여기서는 방식을 바꾸다, move는 오답 후보'},
+profit:{bj:'전환하면 <b>이익</b>(profits)이 더 높을 수 있음',s:[['earnings','수익'],['benefit','이득']],a:[['loss','손실']],tr:'related costs(관련 비용)를 감안해도 이익, loss는 정반대'},
+prefer:{bj:'발전소는 규제나 세금보다 보조금을 <b>선호함</b>(prefer)',s:[],a:[['dislike','싫어하다']],tr:'prefer A over B는 B보다 A를 좋아하다, 방향 주의'},
+expansion:{bj:'보조금으로 기회의 <b>확대</b>(expansion)',s:[['increase','증가']],a:[['contraction','축소']],tr:'뒤의 contraction(축소)과 쌍으로 나와 서로 반대말'},
+contraction:{bj:'다른 사람들의 기회의 <b>축소</b>(contraction)',s:[],a:[['expansion','확대']],tr:'어려운 단어라 앞의 expansion의 반대로 뜻을 잡음'},
+individual:{bj:'보조금 비용을 부담하는 평범한 <b>개인</b>(individual)',s:[['person','사람']],a:[['collective','집단의'],['group','집단']],tr:'individual은 개개의(형용사)도 되지만 여기서는 명사 개인'},
+taxation:{bj:'보조금을 내기 위한 <b>과세</b>(taxation) 증가로 고통받음',s:[],a:[],tr:'taxation은 세금을 매기는 일, tax와 같은 계열'},
+distort:{bj:'보조금이 경제를 <b>왜곡함</b>(distorts)',s:[['twist','비틀다'],['misrepresent','왜곡하다'],['deform','변형시키다']],a:[['straighten','바로잡다']],tr:'disrupt(어지럽히다)로 바뀌어 질서를 흐트러뜨린다는 느낌으로 이해'},
+consumption:{bj:'전기 <b>소비</b>(consumption)가 늘어 지구온난화가 악화됨',s:[],a:[['production','생산']],tr:'소비를 먹는 것으로만 보면 놓침, 여기서는 전기 사용량'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
