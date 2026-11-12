@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[2,'쇼핑객이 쉽게 사게 해 주는 훌륭한 <b>장치</b>(device)'],[3,'<b>광고</b>(advertisements)에도 쇼핑객을 <b>설득할</b>(persuade) 수 없음']],
+'2':[[4,'남성들은 약해 보일까 <b>꺼렸음</b>(reluctant)'],[5,'여성들은 카트가 유모차를 <b>연상시켜</b>(reminded) 손대지 않음'],[6,'카트를 쓴 사람은 몇몇 <b>나이 든</b>(elderly) 쇼핑객뿐']],
+'3':[[9,'모델들을 <b>고용해</b>(hired) 카트를 밀게 함'],[12,'바람잡이들이 쉽게 해냄(그 <b>아이디어</b>(idea))'],[13,'몇 주 만에 쇼핑객들이 <b>기꺼이</b>(readily) 받아들임']]
+};
+var REL={
+device:{bj:'훌륭한 <b>장치</b>(device)',s:[['gadget','기기'],['apparatus','장치'],['equipment','장비']],a:[],t:'tool',tr:'device는 목적을 위해 만든 기계나 도구'},
+persuade:{bj:'쇼핑객을 <b>설득할</b>(persuade) 수 없었다',s:[['induce','유도하다'],['urge','재촉하다']],a:[['dissuade','단념시키다']],t:'convince',tr:'persuade A to B는 A를 설득해 B하게 하다'},
+advertisement:{bj:'반복적인 <b>광고</b>(advertisements)',s:[['promotion','홍보'],['commercial','상업 광고']],a:[],t:'ad',tr:'advertisement를 줄여 쓴 말이 ad'},
+reluctant:{bj:'남성들은 <b>꺼렸다</b>(reluctant)',s:[['hesitant','망설이는'],['averse','싫어하는']],a:[['willing','기꺼이 하는'],['eager','열심인']],t:'unwilling',tr:'reluctant는 내키지 않아 망설이는'},
+remind:{bj:'유모차를 <b>떠올리게</b>(reminded) 했다',s:[['evoke','불러일으키다'],['suggest','연상시키다']],a:[],t:'resemble',tr:'remind A of B는 B를 떠올리게 하다. resemble은 닮다라서 뜻이 다름'},
+elderly:{bj:'몇 명의 <b>나이 든</b>(elderly) 쇼핑객',s:[['aged','나이 든'],['senior','연장자의']],a:[['young','젊은'],['youthful','젊은']],t:'older',tr:'elderly는 나이가 많은 사람을 점잖게 부르는 말'},
+idea:{bj:'이 <b>아이디어</b>(idea)',s:[['concept','개념'],['notion','생각']],a:[],t:'trick',tr:'idea는 생각, 여기서는 바람잡이를 쓴 방법'},
+readily:{bj:'쇼핑객들이 <b>기꺼이</b>(readily) 받아들였다',s:[['easily','쉽게'],['gladly','기쁘게']],a:[['reluctantly','마지못해'],['unwillingly','내키지 않게']],t:'willingly',tr:'readily는 망설임 없이 선뜻'},
+hire:{bj:'여러 모델을 <b>고용했다</b>(hired)',s:[['engage','고용하다'],['recruit','모집하다']],a:[['fire','해고하다'],['dismiss','해고하다']],t:'employ',tr:'hire는 사람을 일에 쓰려고 고용하다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
