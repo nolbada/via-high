@@ -352,7 +352,7 @@ function jdHtml(q){
   });
   return h+'</div>';
 }
-function pushSw(id){
+function pushSw(id){return; /* 바꿔 말하기 단어는 선생님 질문 목록에 따로 올리지 않는다: 학생 목록 = 선생님 열람 목록 */
   if(String(id).indexOf('c')===0&&!/^sw:/.test(id))return;
   var s=swList().filter(function(x){return x.id===id})[0];if(!s||PUSHED[id])return;
   PUSHED[id]=1;jset('vhvs:'+SCH,PUSHED);
