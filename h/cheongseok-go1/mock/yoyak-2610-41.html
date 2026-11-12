@@ -492,8 +492,23 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'무한 스크롤, 자동 재생, 구매 시 계정 요구는 사용자의 통제를 <b>방해함</b>(interfere)'],[2,'지속가능성 관점에서 이런 패턴은 데이터와 주의의 과소비를 <b>부추김</b>(encourage)']],
+'2':[[3,'무한 스크롤은 원치 않아도 콘텐츠를 불러와 데이터 사용을 <b>늘림</b>(increasing)'],[5,'이런 선택은 기기와 서버에서 더 많은 에너지를 <b>소비함</b>(consume)']],
+'3':[[6,'음악 스트리밍 플랫폼이 <b>정지된</b>(static) 앨범 아트를 짧은 영상 반복으로 바꾸기로 한 결정'],[7,'이를 끄는 선택지는 설정 깊숙이 <b>묻혀</b>(buried) 있음']],
+'4':[[9,'웹 디자인은 언제나 어떤 식으로든 행동을 <b>살짝 유도함</b>(nudges)'],[12,'가장 책임 있는 접근은 영향이 작은 선택지를 기본값으로 하는 것'],[13,'기본값은 사용자의 <b>주체성</b>(agency)을 없애지 않으면서 환경 영향을 <b>줄일</b>(reduce) 수 있음']]
+};
+var REL={
+interfere:{bj:'사용자의 통제를 <b>방해함</b>(interfere)',s:[['impede','방해하다'],['obstruct','가로막다'],['intervene','간섭하다']],a:[['facilitate','촉진하다']],tr:'interfere with는 ~을 방해하다, 전치사 with와 함께 외우기'},
+encourage:{bj:'데이터와 주의의 과소비를 <b>부추김</b>(encourage)',s:[['promote','촉진하다'],['foster','조장하다'],['motivate','동기를 주다']],a:[['discourage','막다']],tr:'encourage는 격려하다가 먼저지만 여기서는 부추기다'},
+increase:{bj:'데이터 사용과 기기 처리를 <b>늘림</b>(increasing)',s:[['boost','끌어올리다'],['expand','확대하다'],['amplify','증폭시키다']],a:[['decrease','줄이다']],tr:'increase는 증가시키다. 줄인다는 문맥의 reduce와 반대'},
+consume:{bj:'기기와 서버에서 더 많은 에너지를 <b>소비함</b>(consume)',s:[['expend','쓰다'],['use up','다 쓰다']],a:[['conserve','아끼다'],['save','절약하다']],tr:'consume은 먹다, 마시다 뜻도 있지만 여기서는 에너지를 쓰다'},
+static:{bj:'<b>정지된</b>(static) 앨범 아트를 짧은 영상 반복으로 바꿈',s:[['stationary','정지된'],['fixed','고정된']],a:[['dynamic','역동적인']],tr:'static은 정적인, 영상(video loop)과 반대'},
+bury:{bj:'끄는 선택지가 설정 깊숙이 <b>묻혀</b>(buried) 있음',s:[['conceal','숨기다'],['cover up','덮어 가리다'],['obscure','가리다']],a:[['reveal','드러내다']],tr:'bury는 땅에 묻다가 먼저지만 여기서는 찾기 어렵게 숨기다'},
+nudge:{bj:'웹 디자인은 언제나 어떤 식으로든 행동을 <b>살짝 유도함</b>(nudges)',s:[['steer','이끌다'],['direct','이끌다']],a:[],tr:'어려운 단어라 default(기본값)와 이어 슬며시 유도로 이해'},
+reduce:{bj:'기본값은 환경 영향을 <b>줄일</b>(reduce) 수 있음',s:[['decrease','줄이다'],['lessen','덜다'],['diminish','감소시키다']],a:[['increase','늘리다']],tr:'increase와 반대, 문장 3의 increasing과 방향 대비'},
+agency:{bj:'사용자의 <b>주체성</b>(agency)을 없애지 않음',s:[['independence','독립'],['liberty','자유']],a:[],tr:'agency는 대행사 뜻도 있지만 여기서는 주체성, 스스로 선택하는 힘'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
