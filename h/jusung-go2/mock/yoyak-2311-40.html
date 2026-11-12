@@ -492,8 +492,22 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'<b>협력적인</b>(cooperative) 사람은 사회적 <b>이점</b>(advantages)을 얻음'],[2,'이를 <b>보여 주는</b>(demonstrate) 한 방법']],
+'2':[[3,'참가자들이 공동 기금에 돈을 <b>기부함</b>(contribute)'],[4,'더 낸 사람이 더 많은 돈의 <b>책임</b>(responsibility)을 맡음']],
+'3':[[6,'기여하는 사람은 더 <b>믿을 만하다고</b>(trustworthy) <b>여겨짐</b>(perceived)'],[7,'비협력적인 사람은 더 <b>심한</b>(severe) 처벌을 받음']]
+};
+var REL={
+cooperative:{bj:'<b>협력적인</b>(cooperative) 사람',s:[['helpful','협조적인'],['supportive','도와주는']],a:[['uncooperative','비협조적인']],t:'collaborative',tr:'cooperative는 남과 힘을 합치려는'},
+advantage:{bj:'사회적 <b>이점</b>(advantages)',s:[['merit','장점'],['edge','우위'],['privilege','특권']],a:[['drawback','단점']],t:'benefit',tr:'advantage는 남보다 나은 점'},
+demonstrate:{bj:'이를 <b>보여 주는</b>(demonstrate) 한 방법',s:[['prove','증명하다'],['illustrate','예를 들어 보이다'],['exhibit','드러내 보이다']],a:[],t:'show',tr:'demonstrate는 증거나 예로 분명히 보이다'},
+contribute:{bj:'공동 기금에 돈을 <b>기부할</b>(contribute) 수 있다',s:[['chip in','보태다'],['give','주다']],a:[['take','가져가다']],t:'donate',tr:'contribute는 공동의 일에 보태다'},
+responsibility:{bj:'더 많은 돈에 대한 <b>책임</b>(responsibility)',s:[['duty','의무'],['obligation','의무'],['accountability','책임']],a:[],t:'entrust',tr:'responsibility는 맡은 일. entrust는 맡기다라서 맡는 쪽과 맡기는 쪽이 다름'},
+participant:{bj:'<b>참가자</b>(participants)',s:[['attendee','참석자'],['contestant','경쟁자']],a:[],t:'player',tr:'participant는 어떤 활동에 참여하는 사람'},
+trustworthy:{bj:'<b>믿을 만한</b>(trustworthy) 파트너',s:[['dependable','믿을 수 있는'],['honest','정직한']],a:[['suspicious','수상한']],t:'reliable',tr:'trustworthy는 믿어도 되는'},
+severe:{bj:'더 <b>심한</b>(severe) 처벌',s:[['serious','심각한'],['grave','중대한'],['intense','강렬한']],a:[['mild','가벼운']],t:'harsh',tr:'severe는 정도가 아주 심한'},
+perceive:{bj:'더 믿을 만하다고 <b>인식된다</b>(perceived)',s:[['notice','알아차리다'],['recognize','알아보다'],['sense','감지하다']],a:[],t:'see',tr:'perceive A as B는 A를 B로 여기다'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
