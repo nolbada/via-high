@@ -492,8 +492,19 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'어떤 체계를 정하든 새 아이디어가 특정한 시점에 <b>생겨난다</b>(emerge)는 사실처럼 모형이 그냥 받아들여야 할 것이 있음'],[2,'모든 모형은 이런 단순화 가정을 해야 함']],
+'2':[[5,'가장 <b>미세한</b>(finest) 수준에서도 단순화 가정이 필요'],[6,'물리학자는 <b>기본</b>(fundamental) 입자의 질량과 전하를 주어진 것으로 받아들임'],[7,'전자가 왜 그런 질량과 전하를 갖는지 설명하지 않고 측정값을 받아들임']],
+'3':[[8,'<b>핵심</b>(key)은 다른 모든 수준을 다 설명하지 않아도 한 수준에서 <b>유용한</b>(useful) 모형을 만들 수 있다는 것']]
+};
+var REL={
+emerge:{bj:'새 아이디어가 특정한 시점에 <b>생겨남</b>(emerge)',s:[['arise','생기다'],['surface','드러나다']],a:[['vanish','사라지다'],['disappear','사라지다']],tr:'vanish는 정반대, 아이디어가 나타나는 문맥이라 오답'},
+particular:{bj:'새 아이디어가 <b>특정한</b>(particular) 시점에 생겨남',s:[['specific','구체적인'],['special','특별한']],a:[['general','일반적인']],tr:'particular는 까다로운 뜻도 있지만 여기서는 특정한, general과 반대'},
+fine:{bj:'가장 <b>미세한</b>(finest) 수준에서도 단순화 가정이 필요',s:[['delicate','섬세한']],a:[],tr:'fine은 좋은이 먼저지만 여기서는 미세한, 벌금 뜻도 있는 다의어'},
+fundamental:{bj:'물리학자는 <b>기본</b>(fundamental) 입자의 질량과 전하를 주어진 것으로 받아들임',s:[['essential','필수적인'],['underlying','근본적인']],a:[['superficial','피상적인'],['secondary','부차적인']],tr:'fundamental은 기본적인, 근본적인. secondary(부차적인)와 반대'},
+key:{bj:'<b>핵심</b>(key)은 한 수준에서 유용한 모형을 만들 수 있다는 것',s:[['chief','주요한'],['crucial','결정적인']],a:[],tr:'key는 열쇠가 먼저지만 여기서는 핵심적인'},
+useful:{bj:'한 수준에서도 <b>유용한</b>(useful) 모형을 만들 수 있음',s:[['beneficial','이로운']],a:[['useless','쓸모없는']],tr:'useful은 use(사용하다)와 묶어 외우기'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
