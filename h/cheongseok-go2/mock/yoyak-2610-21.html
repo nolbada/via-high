@@ -492,8 +492,21 @@ function vChk(){
 }
 function sceneLine(t,cur){return esc(t).replace(/\[\[(\w+)\|([^\]]+)\]\]/g,function(m,w,k){return '<b class="wc'+(w.toLowerCase()===String(cur).toLowerCase()?' me':'')+'">'+w+'</b>('+k+')'})}
 
-var EVK={};
-var REL={};
+var EVK={
+'1':[[1,'이자율이 시간에 대한 사람들의 <b>인식</b>(perception)에 무슨 일을 하는지 생각해 보라'],[3,'빌려준 돈의 대가는 상환받지 못할 <b>위험</b>(risk)과 기회비용을 반영함']],
+'2':[[4,'대출 기간이 길수록 상환을 못 받을 <b>가능성</b>(chance)이 <b>더 높아짐</b>(higher)'],[5,'돈을 빌려준 사람에게 <b>가치 있게</b>(worthwhile) 만들려면 돈에 <b>대가</b>(price)가 있어야 함']],
+'3':[[6,'이 비용은 시간의 가치를 <b>감안함</b>(factors in)'],[7,'손 안의 새 한 마리가 덤불 속 두 마리만큼 <b>가치가 있음</b>(is worth)']]
+};
+var REL={
+perception:{bj:'이자율이 시간에 대한 사람들의 <b>인식</b>(perception)에 무슨 일을 하는지 생각해 보라',s:[['awareness','자각, 인식'],['understanding','이해'],['impression','인상']],a:[],t:'view',tr:'perception은 지각(눈으로 느끼는 것)으로만 외우면 놓침, 여기서는 사물을 보는 시각'},
+risk:{bj:'빌려준 돈은 상환받지 못할 <b>위험</b>(risk)을 반영하는 대가를 가짐',s:[['hazard','위험 요소'],['peril','위험']],a:[['safety','안전']],t:'danger',tr:'risk는 위험을 무릅쓰다(동사) 뜻도 있음, 여기서는 명사 위험'},
+cost:{bj:'빌려준 돈이 가진 <b>대가</b>(cost)',s:[['expense','비용'],['charge','요금']],a:[],t:'price',tr:'cost는 비용이 먼저, 여기서는 돈을 빌리는 대가'},
+chance:{bj:'상환을 못 받을 <b>가능성</b>(chance)이 더 높아짐',s:[['possibility','가능성'],['probability','확률'],['odds','승산, 가능성']],a:[],t:'risk',tr:'chance는 기회가 먼저, 여기서는 가능성'},
+higher:{bj:'상환을 못 받을 가능성이 <b>더 높아짐</b>(higher)',s:[['larger','더 큰']],a:[['lower','더 낮은']],t:'greater',tr:'higher는 높이뿐 아니라 정도가 크다는 뜻으로도 씀'},
+worthwhile:{bj:'돈을 빌려준 사람에게 이것을 <b>가치 있게</b>(worthwhile) 만들기 위해서',s:[['valuable','가치 있는'],['desirable','바람직한']],a:[['worthless','가치 없는'],['pointless','무의미한']],t:'rewarding',tr:'worthwhile은 해 볼 만한, rewarding은 득이 되는, 둘은 같은 방향'},
+factor:{bj:'이 비용은 시간의 가치를 <b>감안한다</b>(factors in)',s:[['consider','고려하다'],['take into account','고려하다']],a:[['ignore','무시하다']],t:'include',tr:'factor in은 고려에 넣다, factor는 요인(명사)이 먼저'},
+worth:{bj:'손 안의 새 한 마리가 덤불 속 두 마리만큼 <b>가치가 있다</b>(is worth)',s:[],a:[['worthless','가치 없는']],t:'better',tr:'worth는 ~만큼의 가치가 있는, 형용사지만 뒤에 명사가 바로 옴'}
+};
 function relBox(s){
   var r=REL[String(s.a).toLowerCase()];if(!r)return '';
   var it=[{t:s.b,k:String(s.k).split(' → ')[1]||'',c:'k'}];
