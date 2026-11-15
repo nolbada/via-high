@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ko" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<script src="../common/base.js?v=261105a"></script>
+<title>어휘특훈 · 공통영어2 미래엔(김) 3과</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f3f5f7; --card:#ffffff; --ink:#1b2430; --sub:#5b6776; --line:#d9dee5;
+  --accent:#0e6a6a; --accent-soft:#e1f1f0;
+  --ok:#1f7a4d; --ok-soft:#e3f4ea; --bad:#b3372f; --bad-soft:#fbe6e4;
+  --note:#fff1a6; --note-ink:#4a3d00;
+  --font:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.7;color-scheme:light}
+.wrap{max-width:720px;margin:0 auto;padding:14px 16px 56px;display:flex;flex-direction:column;gap:14px}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.top h1{font-size:1.05rem;margin:0;font-weight:700;text-wrap:balance}
+.top span{color:var(--sub);font-size:.9rem;white-space:nowrap}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);transition:width .25s}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.q{font-weight:700;margin:0 0 12px;text-wrap:balance}
+.passage{font-size:1.02rem;line-height:2.15;word-break:keep-all;overflow-wrap:break-word}
+.passage .fn{display:block;font-size:.82rem;line-height:1.5;color:var(--sub);margin-top:10px}
+button{font:inherit;color:inherit}
+button.u{background:none;border:0;border-bottom:2px solid var(--ink);padding:0 3px;margin:0 1px;cursor:pointer;border-radius:2px}
+button.u b{font-size:.72em;color:var(--accent);margin-right:3px;font-weight:700}
+button.u:focus-visible,.opt:focus-visible,.btn:focus-visible,.ck:focus-visible,.setbtn:focus-visible,.tapq:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+button.u.right{background:var(--ok-soft);border-color:var(--ok)}
+button.u.wrong{background:var(--bad-soft);border-color:var(--bad)}
+button.u:disabled{cursor:default}
+.opts{display:grid;gap:8px;grid-template-columns:1fr 1fr}
+@media (max-width:480px){.opts{grid-template-columns:1fr}}
+.opt,.ck{text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer;display:flex;gap:8px;align-items:baseline;justify-content:space-between}
+.opt b{color:var(--accent);font-weight:700}
+.opt.right,.ck.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong,.ck.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.ck.on{border-color:var(--accent);background:var(--accent-soft)}
+.ck small,.opt small{color:var(--sub);font-size:.82rem}
+.ck .tag{font-size:.78rem;font-weight:700;color:var(--sub)}
+.ck.right .tag{color:var(--ok)}
+.ck.wrong .tag{color:var(--bad)}
+.opt:disabled,.ck:disabled{cursor:default}
+.btn{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:11px 18px;font-weight:700;cursor:pointer;align-self:flex-start}
+.btn.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+.badge{display:inline-block;font-weight:700;border-radius:6px;padding:2px 10px;font-size:.9rem}
+.badge.ok{background:var(--ok-soft);color:var(--ok)}
+.badge.no{background:var(--bad-soft);color:var(--bad)}
+.exp{display:flex;flex-direction:column;gap:16px}
+.exp h3{margin:0 0 4px;font-size:.92rem;color:var(--accent);font-weight:700}
+.exp p{margin:0}
+.lines p+p{margin-top:2px}
+.words{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px;font-size:.95rem}
+.words li span{color:var(--sub)}
+.words li.sw{color:var(--bad)}
+.words li.sy b{color:var(--ok)}
+.evi .en{font-weight:500}
+mark{background:#ffe45c;color:inherit;border-radius:3px;padding:0 2px}
+mark.k{font-weight:700}
+.evi .ko{color:var(--sub);font-size:.95rem}
+.flow{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
+.flow li{padding:6px 10px;border-left:3px solid var(--line);color:var(--sub)}
+.flow li.at{border-left-color:var(--accent);background:var(--accent-soft);color:var(--ink);font-weight:700}
+.pairs{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.pairs li .e{font-weight:500}
+.pairs li .k{color:var(--sub);font-size:.95rem;display:block}
+.tapq{width:100%;text-align:left;background:var(--accent-soft);border:1.5px dashed var(--accent);border-radius:8px;padding:10px 12px;cursor:pointer;font-weight:700}
+.tapa{margin-top:8px;padding-left:12px;border-left:3px solid var(--accent)}
+.postit{background:var(--note);color:var(--note-ink);padding:12px 14px;border-radius:4px;box-shadow:0 2px 0 rgba(0,0,0,.12);font-weight:500;transform:rotate(-.6deg)}
+.postit p+p{margin-top:2px}
+.stamps{display:flex;gap:10px}
+.stamp{flex:1;border:2px dashed var(--line);border-radius:10px;text-align:center;padding:14px 4px;color:var(--sub);font-weight:700}
+.stamp.done{border:3px solid var(--accent);color:var(--accent);background:var(--accent-soft);transform:rotate(-2deg)}
+.setlist{display:flex;flex-direction:column;gap:10px}
+.setbtn{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:16px;cursor:pointer;font-weight:700}
+.setbtn small{color:var(--sub);font-weight:500}
+.setbtn.done{border-color:var(--accent)}
+.setbtn.done small{color:var(--accent);font-weight:700}
+.recap{display:flex;flex-direction:column;gap:8px}
+.foot{margin-top:6px;display:flex;justify-content:center}
+.sub{color:var(--sub);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.board h2{font-size:.95rem;margin:4px 0 8px;color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.tile{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:12px 6px;text-align:center;cursor:pointer;font-weight:700;line-height:1.3}
+.tile small{display:block;font-weight:500;color:var(--sub);font-size:.72rem;margin-top:2px}
+.tile.done{border:2.5px solid var(--accent);background:var(--accent-soft);color:var(--accent)}
+.tile.done small{color:var(--accent)}
+.tile:disabled{opacity:.45;cursor:default}
+.lock{color:var(--sub);font-size:.85rem;margin:0 0 8px}
+.pt{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;border-radius:6px;padding:2px 10px;font-size:.9rem}
+.gs{font-size:1.05rem;line-height:1.9}
+.chk li.bad{color:var(--bad)}
+.chk li span{color:var(--sub)}
+.nobadge{font-size:.8rem;color:var(--sub);font-weight:700}
+.neg{background:linear-gradient(transparent 45%,#f6e27a 45%)}
+mark{background:linear-gradient(transparent 45%,#f6e27a 45%)!important;padding:0}
+.band{border-radius:10px;background:var(--bad-soft);border:1.5px solid var(--bad);padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.band b{color:var(--bad);font-size:1rem}
+.band span{font-weight:700}
+.band small{color:var(--sub);font-size:.85rem}
+.chs{display:flex;flex-direction:column;gap:10px}
+.ch{border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;background:#f8f9fb}
+.ch.ok{border-color:var(--ok);background:linear-gradient(90deg,#e3f4ea,#fff)}
+.ch.me{border-color:var(--bad);background:linear-gradient(90deg,#fbe6e4,#fff)}
+.chtop{display:flex;gap:10px;align-items:flex-start}
+.chn{color:var(--sub);min-width:1.4em}
+.chw{flex:1;display:flex;flex-direction:column;font-size:1.08rem;font-weight:500}
+.chw small{font-size:.85rem;color:var(--sub);font-weight:400}
+.chtag{font-size:.82rem;font-weight:700;border-radius:999px;padding:2px 10px;border:1.5px solid;white-space:nowrap}
+.chtag.ok{color:var(--ok);border-color:var(--ok);background:#fff}
+.chtag.me{color:var(--bad);border-color:var(--bad);background:#fff}
+.chr{margin:8px 0 0;padding-left:10px;border-left:3px solid var(--line);color:#3a4654;font-size:.95rem}
+.ch.ok .chr{border-left-color:var(--ok)}
+.ch.me .chr{border-left-color:var(--bad)}
+.note{background:#fff8d6;border:1.5px solid #f0d36a;border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:3px}
+.note .nt{font-weight:700;color:#7a5d00;font-size:.9rem;margin-bottom:4px}
+.note .nko{color:var(--sub);font-size:.92rem}
+.ck.miss{border-color:var(--ok);border-style:dashed}
+.top .back{padding:6px 12px;font-size:.85rem;align-self:center}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script id="data" type="application/json">{"kind":"v","id":"c2miraeL3","title":"어휘특훈","sub":"공통영어2 미래엔(김) 3과","nums":[{"id":"gc1-L3-3a","title":"어휘특훈 · 공통영어2 3과 본문 ①+②","sub":"도슨트의 인사 + Bill Traylor","tpl":"Welcome to the Dream Art Gallery! I'm Isabel Williams, the docent for the From Shadows to Spotlights exhibit. Today, you're going to meet three {amazing} artists who never {gave_up_on} their art, despite {challenges} in their lives. Each artist has a {unique} painting style and story that has made their work highly {valued}. Let's explore each artist's life and artwork. The first artist we're going to examine is Bill Traylor. Traylor was born into slavery in the U.S. in 1853 and spent his early life working on a cotton farm in Alabama. Although he became a free man after the American Civil War, he still had to {face} racial discrimination, working for very {low} wages on the farm. Later, when he was around 70 years old, Traylor moved to the city of Montgomery, Alabama, where he found a job in a factory. It wasn't until he was 85 years old and became too {ill} to work that he {turned_to} drawing to {express} his life experiences. Now, we're going to look at some of his paintings, starting with Mean Dog and Man and Large Dog. Traylor had a strong fear of dogs because they had often been used on farms to watch and hunt slaves. His fear of dogs is expressed {strongly} in these pieces. {In_contrast}, Woman with Purse and Man with Umbrella {portrays} the {free} lives of African Americans that he {observed} on the streets of Montgomery. Using {simple} shapes and colors, Traylor {captured} complex moments in American history from slavery to freedom. As a result, he's now considered an {important} figure in American folk art.","fn":["*docent: (미술관 등의) 안내원, 도슨트","*slavery: 노예 (신분), 노예 제도","*racial discrimination: 인종 차별","*wage: 임금, 급여","*folk art: 민속 예술"],"mean":{"amazing":"놀라운","remarkable":"놀라운, 주목할 만한","gave up on":"동사구 give up on(~을 포기하다, 단념하다)의 과거형","stuck with":"동사구 stick with(~을 계속하다, 고수하다)의 과거형","abandoned":"동사 abandon(버리다, 포기하다)의 과거형","challenges":"명사 challenge(역경, 시련)의 복수형","advantages":"명사 advantage(이점, 유리한 점)의 복수형","unique":"독특한, 특별한","distinctive":"독특한, 특색 있는","valued":"동사 value(높이 평가하다)의 과거분사형. made their work highly valued = 작품을 높이 평가받게 만들었다","regarded":"동사 regard(여기다, 평가하다)의 과거분사형. highly regarded = 높이 평가받는","undervalued":"동사 undervalue(과소평가하다)의 과거분사형","face":"(어려움 등)에 직면하다","confront":"~에 맞서다, 직면하다","encounter":"(어려움 등을) 맞닥뜨리다, 겪다","low":"낮은, 적은","high":"높은","ill":"아픈","sick":"아픈","healthy":"건강한","turned to":"동사구 turn to(~로 눈을 돌리다, ~을 시작하다)의 과거형","turned away from":"동사구 turn away from(~에 등을 돌리다, 외면하다)의 과거형","express":"표현하다, 나타내다","conceal":"숨기다, 감추다","strongly":"강하게","weakly":"약하게","In contrast":"이와 대조적으로, 그에 반해서","By contrast":"그에 반해서, 대조적으로","Similarly":"비슷하게, 마찬가지로","portrays":"동사 portray(묘사하다)의 3인칭 단수형","depicts":"동사 depict(묘사하다)의 3인칭 단수형","free":"자유로운","enslaved":"노예가 된, 노예 상태의","observed":"동사 observe(관찰하다)의 과거형","watched":"동사 watch(지켜보다)의 과거형","simple":"단순한","basic":"기본적인, 단순한","captured":"동사 capture(포착하다, 담아내다)의 과거형","recorded":"동사 record(기록하다)의 과거형","overlooked":"동사 overlook(간과하다, 못 보고 넘어가다)의 과거형","important":"중요한","insignificant":"하찮은, 중요하지 않은"},"comp":[{"no":"본문 ①②","slots":[["amazing"],["valued","undervalued","a"],["face","encounter","s"],["express"],["In_contrast"]],"opts":["valued","ignored","disliked","rejected"],"or":["valued(높이 평가받는): highly(높이)와 짝을 이뤄 '작품을 높이 평가받게 만든 이야기'가 되어 맞음.","ignored(무시당한): 전시회에 걸릴 만큼 인정받은 작품이라 무시당했다는 말과 맞지 않음.","disliked(미움받는): 놀라운 예술가로 소개하면서 작품이 미움받게 됐다고 하면 모순임.","rejected(거부당한): 독특한 화풍이 작품을 거부당하게 만들었다면 이 전시를 열 이유가 없음."],"om":["높이 평가받는","무시당한","미움받는","거부당한"],"en":"Today, you're going to meet three amazing artists who never gave up on their art, despite challenges in their lives. Each artist has a unique painting style and story that has made their work highly valued.","ko":"오늘 여러분은 인생의 역경에도 불구하고 자신의 예술을 결코 포기하지 않았던 세 명의 놀라운 예술가들을 만나게 될 것이다. 각 예술가에게는 자신의 작품을 높이 평가받게 만들어 온 독특한 화풍과 이야기가 있다.","hl":["highly valued","three amazing artists"],"khl":["높이 평가받게","놀라운 예술가들"],"blocks":[{"t":"p","h":"도슨트의 소개 말투","x":["도슨트는 세 사람을 amazing(놀라운) 예술가라고 소개한다.","이어서 각자의 화풍과 이야기가 작품을 빛나게 했다고 덧붙인다.","undervalued(과소평가받는)를 넣으면 칭찬하다가 갑자기 작품을 깎아내리는 말이 된다.","전시회의 첫인사로는 앞뒤가 맞지 않는다."]},{"t":"p","h":"함정","x":["encounter(맞닥뜨리다)는 face(직면하다) 자리에서 '차별을 겪다'로 그대로 통한다."]}],"post":["valued(높이 평가받는) ↔ undervalued(과소평가받는)","독특한 화풍과 이야기 = 높이 평가받는 작품"]},{"no":"본문 ①②","slots":[["low"],["strongly"],["In_contrast","By contrast","s"],["free","enslaved","a"],["observed"]],"opts":["free","painful","hidden","hopeless"],"or":["free(자유로운): In contrast(이와 대조적으로)로 노예 시절의 공포를 담은 개 그림과 맞서는 내용이라 맞음.","painful(고통스러운): 고통을 그렸다면 개 그림의 두려움과 같은 쪽이라 대조가 되지 않음.","hidden(숨겨진): 거리에서 직접 보고 그린 삶이라 '숨겨진 삶'과 맞지 않음.","hopeless(희망 없는): 희망 없는 삶은 개 그림의 두려움과 같은 분위기라 대조 연결어와 어긋남."],"om":["자유로운","고통스러운","숨겨진","희망 없는"],"en":"In contrast, Woman with Purse and Man with Umbrella portrays the free lives of African Americans that he observed on the streets of Montgomery.","ko":"이와 대조적으로 〈핸드백을 든 여인과 우산을 든 남자〉는 그가 몽고메리 거리에서 관찰한 아프리카계 미국인의 자유로운 삶을 묘사한다.","hl":["the free lives of African Americans","on the streets of Montgomery"],"khl":["자유로운 삶","몽고메리 거리에서"],"blocks":[{"t":"flow","h":"트레일러 인생의 흐름","x":["1853년 노예로 태어남","남북전쟁 후 자유의 몸, 그러나 차별","70세 무렵 몽고메리로 이주","85세에 그림 시작","그림: 노예 시절의 공포 ↔ 거리의 자유"],"at":4},{"t":"p","h":"enslaved(노예가 된)가 틀린 이유","x":["몽고메리는 그가 자유의 몸이 된 뒤 이사 간 도시다.","그 거리에서 본 아프리카계 미국인은 이미 노예가 아니었다.","게다가 In contrast(이와 대조적으로)가 앞의 공포와 반대편 그림임을 알려 준다.","노예의 삶을 그렸다면 앞의 개 그림과 같은 쪽이라 대조가 깨진다."]},{"t":"p","h":"함정","x":["By contrast(그에 반해서)는 In contrast(이와 대조적으로)와 같은 말이다."]}],"post":["free(자유로운) ↔ enslaved(노예가 된)","몽고메리 거리 = 자유를 얻은 사람들의 삶"]}],"compquiz":[{"w":"value","m":"높이 평가하다, 소중히 여기다","it":[["deliver","배달하다","n"],["appreciate","진가를 알아보다","s"],["disregard","무시하다","a"],["translate","번역하다","n"],["treasure","소중히 여기다","s"],["undervalue","과소평가하다","a"],["stretch","늘이다","n"]]},{"w":"free","m":"자유로운","it":[["independent","독립한","s"],["salty","짠","n"],["enslaved","노예가 된","a"],["tiny","아주 작은","n"],["liberated","해방된","s"],["captive","사로잡힌, 갇힌","a"],["modern","현대의","n"]]}],"sets":[{"items":[{"slots":[["amazing"],["gave_up_on","stuck with","a"],["unique"],["face"],["ill"]],"opts":["gave_up_on","cared_about","worked_on","believed_in"],"or":["gave up on(~을 포기했다): never(결코 ~않다)와 만나 '역경에도 끝까지 붙든'이 되어 despite(~에도 불구하고)와 맞음.","cared about(~을 아꼈다): '예술을 결코 아끼지 않았다'가 되어 놀라운 예술가 소개와 정반대임.","worked on(~에 공을 들였다): '예술에 한 번도 공을 들이지 않았다'가 되어 그림을 계속 그린 세 사람의 이야기와 부딪침.","believed in(~을 믿었다): 자기 예술을 결코 믿지 않았다는 말이 되어 역경 속에서도 버틴 이야기와 안 맞음."],"om":["~을 포기했다","~을 아꼈다","~에 공을 들였다","~을 믿었다"],"en":"Today, you're going to meet three amazing artists who never gave up on their art, despite challenges in their lives.","ko":"오늘 여러분은 인생의 역경에도 불구하고 자신의 예술을 결코 포기하지 않았던 세 명의 놀라운 예술가들을 만나게 될 것이다.","hl":["never gave up on their art","despite challenges"],"khl":["결코 포기하지 않았던","역경에도 불구하고"],"blocks":[{"t":"flow","h":"이 전시의 큰 그림","x":["전시 제목: 그림자에서 빛으로","세 예술가: 역경 속에서도 예술을 놓지 않음","트레일러: 노예로 태어나 85세에 그림 시작","루이스: 몸의 장애를 딛고 밝은 그림","앵커: 사회적 압력에 맞서 일하는 여성을 그림"],"at":1},{"t":"p","h":"despite(~에도 불구하고)가 정하는 방향","x":["despite(~에도 불구하고)는 '그런데도'를 만드는 말이다.","역경이 있었다. 그런데도 예술을 포기하지 않았다. 이게 자연스러운 짝이다.","stuck with(~을 계속했다)를 넣으면 '역경에도 불구하고 예술을 결코 계속하지 않았다'가 된다.","그런 사람을 놀라운 예술가로 소개하는 도슨트는 없다."]}],"post":["give up on(~을 포기하다) ↔ stick with(~을 계속하다)","역경에도 예술을 놓지 않은 세 예술가"]},{"slots":[["challenges"],["face","confront","s"],["low","high","a"],["ill","sick","s"],["express"]],"opts":["low","fair","generous","decent"],"or":["low(낮은): racial discrimination(인종차별)의 구체적인 모습이라 '매우 낮은 임금'이 맞음.","fair(공정한): 차별을 받으면서 공정한 임금을 받는다는 건 모순임.","generous(넉넉한): 넉넉한 임금은 차별이 아니라 좋은 대우라서 흐름과 반대임.","decent(괜찮은): 괜찮은 보수였다면 차별에 직면해야 했다는 말과 이어지지 않음."],"om":["낮은","공정한","넉넉한","괜찮은"],"en":"Although he became a free man after the American Civil War, he still had to face racial discrimination, working for very low wages on the farm.","ko":"그는 미국 남북전쟁 이후 자유의 몸이 되었지만, 농장에서 매우 낮은 임금을 받고 일하며 여전히 인종차별에 직면해야 했다.","hl":["very low wages","racial discrimination"],"khl":["매우 낮은 임금","인종차별"],"blocks":[{"t":"p","h":"뒷부분이 앞말을 풀어 준다","x":["working(일하며)으로 시작하는 뒷부분은 앞의 racial discrimination(인종차별)을 구체적으로 보여 준다.","자유의 몸이 됐다. 그래도 여전히 차별을 받았다.","그 차별의 모습 = 아주 낮은 임금을 받고 일하기.","high(높은)를 넣으면 차별받는 모습이 '좋은 대우'로 바뀌어 버린다."]},{"t":"p","h":"함정 둘","x":["confront(맞서다, 직면하다)는 face(직면하다)와 같은 뜻이다.","sick(아픈)은 ill(아픈)과 같은 말이다.","철자가 달라도 문장 뜻이 그대로면 고칠 곳이 아니다."]}],"post":["low(낮은) ↔ high(높은)","자유의 몸이 된 뒤에도 차별 = 아주 낮은 임금"]},{"slots":[["valued","regarded","s"],["low"],["turned_to","turned away from","a"],["strongly"],["observed"]],"opts":["turned_to","gave_up","stopped","objected_to"],"or":["turned to(~로 눈을 돌렸다): 일을 못 하게 된 뒤 그림을 시작했다는 뜻이라 뒤에 그림 감상이 이어지는 흐름과 맞음.","gave up(그만뒀다): 그림을 그만뒀다면 바로 다음에 그의 그림 몇 점을 살펴볼 수 없음.","stopped(멈췄다): 85세에 그림을 멈췄다는 말이 되어 그때 그림을 시작했다는 이야기와 반대임.","objected to(~에 반대했다): 그림에 반대했다는 말이라 인생 경험을 표현하려고 그렸다는 목적과 부딪침."],"om":["~로 눈을 돌렸다","그만뒀다","멈췄다","~에 반대했다"],"en":"It wasn't until he was 85 years old and became too ill to work that he turned to drawing to express his life experiences. Now, we're going to look at some of his paintings, starting with Mean Dog and Man and Large Dog.","ko":"85세가 되고 몸이 너무 아파 일할 수 없게 되고 나서야 그는 자신의 인생 경험을 표현하기 위해 그림으로 눈을 돌렸다. 이제 〈비열한 개〉와 〈남자와 큰 개〉를 시작으로 그의 그림 몇 점을 살펴보겠다.","hl":["turned to drawing","look at some of his paintings"],"khl":["그림으로 눈을 돌렸다","그의 그림 몇 점을 살펴보겠다"],"blocks":[{"t":"tap","h":"질문 하나","q":"그림을 외면한 사람의 그림을 우리가 감상할 수 있을까?","a":["감상할 수 없다.","바로 다음 문장에서 도슨트는 그의 그림 몇 점을 보자고 한다.","turned away from(~에 등을 돌렸다)을 넣으면 뒤의 그림 감상이 통째로 사라진다."]},{"t":"p","h":"늦게 시작한 화가","x":["It wasn't until(~하고 나서야) ~ that(비로소) 틀은 '그제야'를 강조하는 틀이다.","85세, 몸이 아파 일을 못 하게 되고 나서야 그림을 시작했다.","인생 경험을 표현하려고 그림 쪽으로 향한 것이다.","방향이 '그림 쪽으로'여야 to express(표현하기 위해)라는 목적과 맞는다."]},{"t":"p","h":"함정","x":["regarded(평가받는)는 valued(평가받는) 자리에 그대로 들어간다.","highly regarded(높이 평가받는)는 실제로 자주 쓰는 짝이다."]}],"post":["turn to(~로 눈을 돌리다) ↔ turn away from(~에 등을 돌리다)","85세에야 시작한 그림 = 인생 경험의 기록"]},{"slots":[["unique"],["ill"],["strongly","weakly","a"],["free"],["simple"]],"opts":["strongly","rarely","barely","mildly"],"or":["strongly(강하게): 앞 문장의 a strong fear(강한 두려움)를 그대로 받아 맞음.","rarely(드물게): 이 개 그림 두 점의 주제가 바로 그 두려움이라 '드물게 표현'과 안 맞음.","barely(거의 ~않게): 두려움이 거의 안 드러난다면 이 그림을 두려움의 예로 들 이유가 없음.","mildly(약하게, 부드럽게): 강한 두려움을 부드럽게 표현했다는 말이 되어 앞 문장과 어긋남."],"om":["강하게","드물게","거의 ~않게","약하게, 부드럽게"],"en":"Traylor had a strong fear of dogs because they had often been used on farms to watch and hunt slaves. His fear of dogs is expressed strongly in these pieces.","ko":"Traylor는 개에 대한 강한 두려움이 있었다. 개가 농장에서 노예를 감시하고 사냥하는 데 자주 이용되었기 때문이다. 개에 대한 그의 두려움은 이 작품들에 강하게 표현되어 있다.","hl":["is expressed strongly","a strong fear of dogs"],"khl":["강하게 표현되어 있다","강한 두려움"],"blocks":[{"t":"pair","h":"앞뒤 문장 나란히","x":[["a strong fear of dogs","개에 대한 강한 두려움 (마음)"],["is expressed strongly in these pieces","이 작품들에 강하게 표현됨 (그림)"]]},{"t":"p","h":"왜 개가 무서웠나","x":["농장에서 개는 노예를 감시하고 사냥하는 데 쓰였다.","노예로 태어난 트레일러에게 개는 공포 그 자체였다.","그 공포가 〈비열한 개〉와 〈남자와 큰 개〉에 담겼다.","weakly(약하게)를 넣으면 마음속 두려움은 강한데 그림에는 약하게 나온다는 엇박자가 된다."]}],"post":["strongly(강하게) ↔ weakly(약하게)","노예 사냥에 쓰인 개 = 강한 두려움의 그림"]},{"slots":[["challenges"],["express"],["portrays","depicts","s"],["captured","recorded","s"],["important","insignificant","a"]],"opts":["important","unknown","ordinary","outdated"],"or":["important(중요한): As a result(그 결과)가 앞의 업적을 받아 '그래서 중요한 인물'로 이어져 맞음.","unknown(알려지지 않은): 지금 전시회에서 소개되는 화가라 '알려지지 않은 인물'은 흐름과 다름.","ordinary(평범한): 미국 역사의 복잡한 순간을 담아낸 결과가 '평범한 인물'이 될 수는 없음.","outdated(시대에 뒤떨어진): now(지금)도 높이 평가받는 화가라 '구식 인물'과 맞지 않음."],"om":["중요한","알려지지 않은","평범한","시대에 뒤떨어진"],"en":"Using simple shapes and colors, Traylor captured complex moments in American history from slavery to freedom. As a result, he's now considered an important figure in American folk art.","ko":"단순한 형태와 색채를 사용하여 Traylor는 노예 제도에서 자유에 이르기까지 미국 역사의 복잡한 순간들을 포착했다. 그 결과 그는 현재 미국 민속 예술에서 중요한 인물로 여겨지고 있다.","hl":["an important figure","As a result"],"khl":["중요한 인물","그 결과"],"blocks":[{"t":"flow","h":"원인에서 결과로","x":["단순한 형태와 색채를 씀","노예 제도에서 자유까지, 미국 역사의 복잡한 순간을 담음","As a result(그 결과)","미국 민속 예술의 중요한 인물"],"at":3},{"t":"p","h":"insignificant(하찮은)가 틀린 이유","x":["As a result(그 결과)는 앞의 업적이 낳은 결과를 말한다.","역사를 담아낸 업적의 결과가 '하찮은 인물'일 수는 없다.","게다가 이 화가는 지금 전시회에서 소개되는 중이다."]},{"t":"p","h":"함정 둘","x":["depicts(묘사하다)는 portrays(묘사하다)와 같은 뜻이다.","recorded(기록했다)도 captured(포착했다) 자리에서 '역사의 순간을 담았다'로 통한다.","고칠 곳은 마지막 하나뿐."]}],"post":["important(중요한) ↔ insignificant(하찮은)","단순한 그림 + 복잡한 역사 = 민속 예술의 중요한 인물"]}],"quiz":[{"w":"give up on","m":"~을 포기하다, 단념하다","it":[["look after","돌보다","n"],["abandon","버리다, 포기하다","s"],["persist in","~을 끈질기게 계속하다","a"],["put on","입다","n"],["quit","그만두다","s"],["stick with","~을 계속하다","a"],["take after","닮다","n"]]},{"w":"low","m":"낮은, 적은","it":[["meager","빈약한, 적은","s"],["sour","신","n"],["high","높은","a"],["curious","호기심 많은","n"],["minimal","아주 적은, 최소의","s"],["substantial","상당한","a"],["rural","시골의","n"]]},{"w":"turn to","m":"~로 눈을 돌리다, ~을 시작하다","it":[["get along with","~와 잘 지내다","n"],["take up","(취미 등을) 시작하다","s"],["turn away from","~에 등을 돌리다","a"],["look into","조사하다","n"],["resort to","~에 의지하다","s"],["give up","그만두다","a"],["show off","자랑하다","n"]]},{"w":"strongly","m":"강하게","it":[["lately","최근에","n"],["powerfully","강력하게","s"],["weakly","약하게","a"],["abroad","해외에서","n"],["intensely","강렬하게","s"],["faintly","희미하게","a"],["yearly","해마다","n"]]},{"w":"important","m":"중요한","it":[["significant","중요한","s"],["narrow","좁은","n"],["insignificant","하찮은","a"],["frozen","얼어붙은","n"],["crucial","결정적인, 아주 중요한","s"],["trivial","사소한","a"],["hungry","배고픈","n"]]}]},{"items":[{"slots":[["amazing"],["challenges","advantages","a"],["valued"],["turned_to"],["In_contrast"]],"opts":["challenges","comforts","privileges","successes"],"or":["challenges(역경): despite(~에도 불구하고) 뒤라서 '힘든 일이 있었는데도 포기하지 않았다'가 되어 맞음.","comforts(편안함): 편안한 삶이 있었는데도 포기하지 않았다는 말은 '그런데도'가 성립하지 않음.","privileges(특권): 특권 덕을 보면서도 포기하지 않았다는 말은 이상하고, 노예로 태어난 화가의 삶과도 반대임.","successes(성공): 성공에도 불구하고 포기하지 않았다는 말이 되어 역경을 이겨 낸 세 예술가 이야기와 안 맞음."],"om":["역경","편안함","특권","성공"],"en":"Today, you're going to meet three amazing artists who never gave up on their art, despite challenges in their lives.","ko":"오늘 여러분은 인생의 역경에도 불구하고 자신의 예술을 결코 포기하지 않았던 세 명의 놀라운 예술가들을 만나게 될 것이다.","hl":["despite challenges in their lives","never gave up"],"khl":["인생의 역경에도 불구하고","결코 포기하지 않았던"],"blocks":[{"t":"p","h":"despite(~에도 불구하고) 뒤에 올 말","x":["despite(~에도 불구하고) 뒤에는 방해가 되는 것이 와야 한다.","방해물이 있었다. 그런데도 포기하지 않았다.","advantages(이점)는 방해물이 아니라 도움이다.","도움을 받았는데도 포기하지 않았다는 말은 어색하다."]},{"t":"tap","h":"전시 제목에서 답 찾기","q":"전시 제목 From Shadows to Spotlights(그림자에서 빛으로)의 '그림자'는 무엇일까?","a":["세 예술가가 겪은 인생의 역경이다.","노예 생활, 몸의 장애, 사회적 압력.","그 그림자를 지나 빛을 받았기에 challenges(역경)가 맞다."]}],"post":["challenge(역경) ↔ advantage(이점)","그림자 = 세 예술가가 겪은 역경"]},{"slots":[["amazing","remarkable","s"],["low"],["In_contrast","Similarly","a"],["observed","watched","s"],["important"]],"opts":["In_contrast","Likewise","As_a_result","For_example"],"or":["In contrast(이와 대조적으로): 두려움을 담은 개 그림과 자유로운 삶을 담은 거리 그림을 맞세워 맞음.","Likewise(마찬가지로): 두려움과 자유로운 삶은 같은 쪽 내용이 아니라서 '마찬가지로'로 이을 수 없음.","As a result(그 결과): 개에 대한 두려움 때문에 자유로운 삶을 그렸다는 인과가 성립하지 않음.","For example(예를 들어): 거리 그림은 개에 대한 두려움의 예가 아니라 그 반대편 그림임."],"om":["이와 대조적으로","마찬가지로","그 결과","예를 들어"],"en":"His fear of dogs is expressed strongly in these pieces. In contrast, Woman with Purse and Man with Umbrella portrays the free lives of African Americans that he observed on the streets of Montgomery.","ko":"개에 대한 그의 두려움은 이 작품들에 강하게 표현되어 있다. 이와 대조적으로 〈핸드백을 든 여인과 우산을 든 남자〉는 그가 몽고메리 거리에서 관찰한 아프리카계 미국인의 자유로운 삶을 묘사한다.","hl":["In contrast","the free lives"],"khl":["이와 대조적으로","자유로운 삶"],"blocks":[{"t":"pair","h":"두 그림 묶음 맞세우기","x":[["Mean Dog / Man and Large Dog","〈비열한 개〉·〈남자와 큰 개〉: 노예 시절의 두려움"],["Woman with Purse and Man with Umbrella","〈핸드백을 든 여인과 우산을 든 남자〉: 거리에서 본 자유로운 삶"]]},{"t":"p","h":"연결어가 방향을 정한다","x":["앞: 노예 시절의 공포.","뒤: 자유를 얻은 사람들의 거리 풍경.","방향이 정반대라 연결어도 '대조'여야 한다.","Similarly(비슷하게)는 같은 방향의 내용을 이을 때 쓰는 말이다."]},{"t":"p","h":"함정","x":["remarkable(놀라운)은 amazing(놀라운)과, watched(지켜봤다)는 observed(관찰했다)와 같은 뜻이다.","둘 다 문장 뜻을 바꾸지 않는다."]}],"post":["In contrast(이와 대조적으로) ↔ Similarly(비슷하게)","개 그림 = 두려움, 거리 그림 = 자유"]},{"slots":[["unique","distinctive","s"],["face"],["express","conceal","a"],["portrays"],["captured"]],"opts":["express","deny","waste","doubt"],"or":["express(표현하다): 노예 시절의 두려움과 거리의 자유를 그림에 담았으니 '표현하려고 그렸다'가 맞음.","deny(부인하다): 자기 삶을 부인하려고 그렸다면 노예 시절의 공포가 그림에 강하게 드러날 리 없음.","waste(낭비하다): 인생 경험을 낭비하려고 그림을 시작한다는 말은 뜻이 통하지 않음.","doubt(의심하다): 자기 경험을 의심하려고 그렸다는 말이 되어 경험을 담아낸 그림들과 맞지 않음."],"om":["표현하다","부인하다","낭비하다","의심하다"],"en":"It wasn't until he was 85 years old and became too ill to work that he turned to drawing to express his life experiences.","ko":"85세가 되고 몸이 너무 아파 일할 수 없게 되고 나서야 그는 자신의 인생 경험을 표현하기 위해 그림으로 눈을 돌렸다.","hl":["to express his life experiences","turned to drawing"],"khl":["자신의 인생 경험을 표현하기 위해","그림으로 눈을 돌렸다"],"blocks":[{"t":"p","h":"conceal(숨기다)을 넣고 다시 읽기","x":["'인생 경험을 숨기려고 그림을 시작했다'가 된다.","그런데 조금 뒤에 개에 대한 두려움이 그림에 강하게 표현되어 있다고 한다.","숨기려던 것이 오히려 가장 강하게 드러난 셈이다.","앞뒤가 맞지 않는다."]},{"t":"p","h":"본문이 다시 쓴 같은 단어","x":["express(표현하다)는 몇 문장 뒤에 다시 나온다.","His fear of dogs is expressed strongly(개에 대한 그의 두려움은 강하게 표현되어 있다).","같은 단어가 두 번 나와 '표현'이 이 화가의 핵심임을 보여 준다."]},{"t":"p","h":"함정","x":["distinctive(독특한)는 unique(독특한) 자리에 그대로 들어간다.","앞의 a도 그대로 둘 수 있다."]}],"post":["express(표현하다) ↔ conceal(숨기다)","그림으로 꺼낸 인생 경험 = 두려움과 자유"]},{"slots":[["gave_up_on"],["ill"],["strongly"],["captured","overlooked","a"],["important"]],"opts":["captured","erased","avoided","hid"],"or":["captured(포착했다): 단순한 형태로 복잡한 역사를 담아냈다는 뜻이라 뒤의 '그 결과 중요한 인물'과 이어짐.","erased(지웠다): 역사의 순간을 지운 화가가 그 결과로 중요한 인물이 될 수는 없음.","avoided(피했다): 노예 시절의 공포를 그대로 그린 화가라 역사를 피했다는 말과 반대임.","hid(숨겼다): 숨겼다면 그림 속에서 노예 제도에서 자유까지의 흐름을 볼 수 없음."],"om":["포착했다","지웠다","피했다","숨겼다"],"en":"Using simple shapes and colors, Traylor captured complex moments in American history from slavery to freedom. As a result, he's now considered an important figure in American folk art.","ko":"단순한 형태와 색채를 사용하여 Traylor는 노예 제도에서 자유에 이르기까지 미국 역사의 복잡한 순간들을 포착했다. 그 결과 그는 현재 미국 민속 예술에서 중요한 인물로 여겨지고 있다.","hl":["captured complex moments","an important figure"],"khl":["포착했다","중요한 인물"],"blocks":[{"t":"p","h":"단순한 것으로 복잡한 것을","x":["트레일러의 그림은 모양도 색도 단순하다.","그런데 그 안에 담긴 건 노예 제도에서 자유까지의 복잡한 역사다.","단순한 도구로 복잡한 순간을 붙잡아 낸 것, 그게 이 화가의 힘이다.","overlooked(간과했다)를 넣으면 그 힘이 사라지고 '중요한 인물'이 될 이유도 없어진다."]},{"t":"tap","h":"한 줄 요약 복원","q":"트레일러의 그림을 한 줄로 줄이면?","a":["단순한 형태 + 복잡한 역사.","그래서 결과가 '미국 민속 예술의 중요한 인물'이다."]}],"post":["capture(포착하다) ↔ overlook(간과하다)","단순한 모양으로 붙잡은 복잡한 역사"]},{"slots":[["gave_up_on","abandoned","s"],["ill","healthy","a"],["turned_to"],["free"],["simple","basic","s"]],"opts":["ill","strong","young","eager"],"or":["ill(아픈): too(너무) ~ to work(일할 수 없는) 틀에 들어가 '아파서 일을 못 하게 되자 그림을 시작'이 되어 맞음.","strong(튼튼한): 너무 튼튼해서 일할 수 없다는 말은 뜻이 통하지 않음.","young(어린): 85세 노인이 너무 어려서 일할 수 없다는 건 사실과 정반대임.","eager(열심인): 너무 열심이라 일할 수 없다는 말은 앞뒤가 맞지 않음."],"om":["아픈","튼튼한","어린","열심인"],"en":"It wasn't until he was 85 years old and became too ill to work that he turned to drawing to express his life experiences.","ko":"85세가 되고 몸이 너무 아파 일할 수 없게 되고 나서야 그는 자신의 인생 경험을 표현하기 위해 그림으로 눈을 돌렸다.","hl":["too ill to work","85 years old"],"khl":["몸이 너무 아파 일할 수 없게","85세"],"blocks":[{"t":"p","h":"too ~ to(너무 ~해서 …할 수 없다)의 빈자리","x":["too(너무) ~ to(…할 수 없다) 틀에는 '못 하게 만드는 이유'가 들어간다.","85세 노인이 일을 못 하게 되는 이유 = 몸이 아파서.","healthy(건강한)는 일을 못 할 이유가 될 수 없다.","너무 건강해서 일을 못 했다는 말은 성립하지 않는다."]},{"t":"p","h":"함정 둘","x":["abandoned(버렸다)는 gave up on(~을 포기했다) 자리에서 같은 뜻이다.","basic(기본적인) shapes(형태)도 simple(단순한) shapes(형태)와 통한다.","본문 철자만 외웠다면 이 둘을 고치고 싶어진다."]}],"post":["ill(아픈) ↔ healthy(건강한)","일할 수 없게 된 85세 = 그림의 시작"]}],"quiz":[{"w":"challenge","m":"역경, 시련","it":[["harvest","수확","n"],["difficulty","어려움","s"],["ease","쉬움, 편안함","a"],["rumor","소문","n"],["hardship","고난","s"],["comfort","편안함, 안락","a"],["ladder","사다리","n"]]},{"w":"in contrast","m":"이와 대조적으로, 그에 반해서","it":[["by contrast","그에 반해서","s"],["at once","즉시","n"],["similarly","비슷하게","a"],["by chance","우연히","n"],["on the other hand","반면에","s"],["likewise","마찬가지로","a"],["in time","제때에","n"]]},{"w":"express","m":"표현하다, 나타내다","it":[["bake","굽다","n"],["convey","전달하다","s"],["conceal","숨기다","a"],["rent","빌리다","n"],["voice","(말로) 표현하다","s"],["suppress","억누르다","a"],["fold","접다","n"]]},{"w":"capture","m":"포착하다, 담아내다; 붙잡다","it":[["catch","잡다, 포착하다","s"],["sweep","쓸다","n"],["miss","놓치다","a"],["pour","붓다","n"],["seize","붙잡다","s"],["release","풀어 주다","a"],["knit","뜨개질하다","n"]]},{"w":"ill","m":"아픈","it":[["tidy","깔끔한","n"],["sick","아픈","s"],["healthy","건강한","a"],["empty","빈","n"],["unwell","몸이 안 좋은","s"],["well","건강한","a"],["loud","시끄러운","n"]]}]}],"no":"본문 ①②"},{"id":"gc1-L3-3c","title":"어휘특훈 · 공통영어2 3과 본문 ③","sub":"Maud Lewis","tpl":"Next, we have Maud Lewis, a {renowned} artist known for her heart-warming paintings. Born in a small Canadian town in 1903, Lewis suffered from physical {weaknesses} such as {distorted} shoulders and fingers. This {limited} her mobility and caused her to {drop_out_of} school. To {make_a_living}, she began to paint and sell Christmas cards. When her parents passed away, Lewis went to live with her aunt in Digby, Nova Scotia, where she met her future husband, Everett Lewis. After marrying, the couple spent the rest of their lives there, and Lewis {continued} to paint. She often {depicted} the Digby landscapes in paintings such as Edge of Digby Harbor. Her artwork used a mixture of bright and {vivid} oil paints and simple forms, generating an {original}, {innovative} style. Although her physical limitations {confined} her to a small cottage, her talent and imagination were both {limitless}. In Red Sleigh, red maple leaves appear on a special winter landscape, and Pair of Oxen shows decorated cows standing in a flower field. With these features, Lewis' paintings create a {magical} quality, like that of a fairy tale. As her paintings gradually {gained} popularity, her story {inspired} many people and was later made into books and movies. Maud Lewis {expressed} her love for the world through her paintings and became an {iconic} figure in Canadian folk art.","fn":["*mobility: 이동성, 움직일 수 있는 능력","*oil paint: 유화물감","*cottage: (시골의) 작은 집, 오두막집","*sleigh: 썰매","*oxen: 황소들(ox의 복수형)"],"mean":{"renowned":"유명한","famous":"유명한","forgotten":"동사 forget(잊다)의 과거분사형. 잊힌","weaknesses":"명사 weakness(약점)의 복수형","strengths":"명사 strength(강점)의 복수형","distorted":"(이상하게) 변형된, 뒤틀린","deformed":"기형의, 변형된","limited":"동사 limit(제한하다)의 과거형","reduced":"동사 reduce(줄이다)의 과거형","expanded":"동사 expand(넓히다, 확장하다)의 과거형","drop out of":"(학교)를 중퇴하다","leave":"떠나다, 그만두다","make a living":"생계를 꾸리다","earn a living":"생활비를 벌다, 생계를 꾸리다","continued":"동사 continue(계속하다)의 과거형","ceased":"동사 cease(그만두다, 중단하다)의 과거형","depicted":"동사 depict(묘사하다)의 과거형","portrayed":"동사 portray(묘사하다)의 과거형","vivid":"선명한, 매우 밝은","vibrant":"선명한, 강렬한","conventional":"관습적인, 전통적인","original":"독창적인","ordinary":"평범한","innovative":"혁신적인","groundbreaking":"획기적인","confined":"동사 confine(가두다, 한정하다)의 과거형","restricted":"제한된","limitless":"무한한, 끝없는","magical":"마법 같은, 아주 멋진","dreamlike":"꿈같은","realistic":"사실적인, 현실적인","gained":"동사 gain(얻다)의 과거형","won":"동사 win(얻다, 따내다)의 과거형","lost":"동사 lose(잃다)의 과거형","inspired":"동사 inspire(영감을 주다)의 과거형","moved":"동사 move(감동시키다)의 과거형","disappointed":"동사 disappoint(실망시키다)의 과거형","expressed":"동사 express(표현하다)의 과거형","showed":"동사 show(보여 주다)의 과거형","hid":"동사 hide(숨기다)의 과거형","iconic":"상징이 되는, 상징적인","obscure":"무명의, 잘 알려지지 않은"},"comp":[{"no":"본문 ③","slots":[["renowned"],["limited","expanded","a"],["drop_out_of","leave","s"],["make_a_living"],["depicted"]],"opts":["limited","improved","boosted","restored"],"or":["limited(제한했다): 뒤틀린 어깨와 손가락 때문에 움직이기 힘들어져 학교까지 그만둔 흐름과 맞음.","improved(향상시켰다): 몸의 약점이 이동성을 높였다면 학교를 그만둘 이유가 없음.","boosted(끌어올렸다): 약점이 움직임을 끌어올렸다는 말은 suffered from(~로 고통받았다)과 부딪침.","restored(되찾아 주었다): 약점이 이동성을 되찾아 주었다는 건 앞뒤가 뒤집힌 말임."],"om":["제한했다","향상시켰다","끌어올렸다","되찾아 주었다"],"en":"Born in a small Canadian town in 1903, Lewis suffered from physical weaknesses such as distorted shoulders and fingers. This limited her mobility and caused her to drop out of school.","ko":"1903년 캐나다의 작은 마을에서 태어난 Lewis는 기형적인 어깨와 손가락 같은 신체적 약점으로 고통받았다. 이것은 그녀의 이동성을 제한했고 그녀가 학교를 중퇴하게 만들었다.","hl":["This limited her mobility","drop out of school"],"khl":["이동성을 제한했고","학교를 중퇴하게"],"blocks":[{"t":"flow","h":"원인과 결과의 사슬","x":["뒤틀린 어깨와 손가락","움직이기 어려워짐","학교를 그만둠","생계를 위해 카드를 그려 팖"],"at":1},{"t":"p","h":"expanded(넓혔다)가 틀린 이유","x":["This(이것)는 앞 문장의 신체적 약점을 가리킨다.","약점이 움직임을 넓혀 줄 수는 없다.","게다가 같은 문장 뒤쪽에서 학교를 그만두게 됐다고 한다.","움직임이 좋아졌다면 학교를 그만둘 이유가 없다."]},{"t":"p","h":"함정","x":["leave(그만두다) school(학교)은 drop out of(~을 중퇴하다) school(학교)과 같은 말이 된다."]}],"post":["limit(제한하다) ↔ expand(넓히다)","뒤틀린 몸 → 좁아진 움직임 → 학교 중퇴"]},{"no":"본문 ③","slots":[["vivid","vibrant","s"],["limitless"],["magical"],["gained"],["expressed","hid","a"]],"opts":["expressed","denied","forgot","doubted"],"or":["expressed(표현했다): 따뜻한 그림 속에 세상에 대한 사랑을 담아냈다는 뜻이라 맞음.","denied(부인했다): 세상에 대한 사랑을 부인했다면 heart-warming(마음이 따뜻해지는) 그림이 나올 수 없음.","forgot(잊었다): 그림을 통해 사랑을 잊었다는 말은 뜻이 통하지 않음.","doubted(의심했다): 사랑을 의심한 화가가 동화 같은 꽃밭과 장식된 소를 그렸다는 건 어울리지 않음."],"om":["표현했다","부인했다","잊었다","의심했다"],"en":"Maud Lewis expressed her love for the world through her paintings and became an iconic figure in Canadian folk art.","ko":"Maud Lewis는 그림을 통해 세상에 대한 사랑을 표현했고 캐나다 민속 예술에서 상징적인 인물이 되었다.","hl":["expressed her love for the world","through her paintings"],"khl":["세상에 대한 사랑을 표현했고","그림을 통해"],"blocks":[{"t":"p","h":"through(~을 통해)가 붙잡는 말","x":["through her paintings(그녀의 그림을 통해)는 무언가를 밖으로 꺼내 보이는 통로다.","hid(숨겼다)를 넣으면 '그림을 통해 사랑을 숨겼다'가 된다.","그림은 숨기는 곳이 아니라 보여 주는 곳이다.","그녀의 그림을 본 사람들이 마음이 따뜻해졌다는 첫 문장과도 부딪친다."]},{"t":"tap","h":"루이스 이야기를 한 줄로","q":"작은 오두막에 갇혀 살던 화가가 세상에 남긴 것은?","a":["밝은 색으로 그린 세상에 대한 사랑.","그래서 캐나다 민속 예술의 상징이 되었다."]},{"t":"p","h":"함정","x":["vibrant(선명한, 강렬한)는 vivid(선명한) 자리에 들어가도 '밝고 선명한 물감'이 그대로 산다."]}],"post":["express(표현하다) ↔ hide(숨기다)","작은 오두막에서 그린 세상에 대한 사랑"]}],"compquiz":[{"w":"limit","m":"제한하다","it":[["whistle","휘파람 불다","n"],["restrict","제한하다","s"],["expand","넓히다, 확장하다","a"],["sneeze","재채기하다","n"],["confine","가두다, 한정하다","s"],["extend","늘리다, 확장하다","a"],["polish","닦다, 윤을 내다","n"]]},{"w":"express","m":"표현하다, 나타내다","it":[["convey","전달하다","s"],["plant","심다","n"],["conceal","숨기다","a"],["tease","놀리다","n"],["show","보여 주다","s"],["hide","숨기다","a"],["sweep","쓸다","n"]]}],"sets":[{"items":[{"slots":[["renowned"],["weaknesses","strengths","a"],["distorted"],["make_a_living"],["depicted"]],"opts":["weaknesses","talents","benefits","skills"],"or":["weaknesses(약점): suffered from(~로 고통받았다)과 짝을 이루고, 뒤틀린 어깨와 손가락의 예와 맞음.","talents(재능): 재능 때문에 고통받았다는 말은 어색하고, 뒤틀린 어깨는 재능의 예가 아님.","benefits(이점): 이점으로 고통받는 사람은 없고, 뒤의 예시와도 반대임.","skills(기술): 뒤틀린 어깨와 손가락은 기술이 아니라 몸의 어려움임."],"om":["약점","재능","이점","기술"],"en":"Born in a small Canadian town in 1903, Lewis suffered from physical weaknesses such as distorted shoulders and fingers.","ko":"1903년 캐나다의 작은 마을에서 태어난 Lewis는 기형적인 어깨와 손가락 같은 신체적 약점으로 고통받았다.","hl":["physical weaknesses","such as distorted shoulders and fingers"],"khl":["신체적 약점","기형적인 어깨와 손가락 같은"],"blocks":[{"t":"p","h":"such as(~ 같은) 뒤의 예시가 정답지","x":["such as(~ 같은) 뒤에는 앞말의 예가 온다.","예: distorted shoulders and fingers(뒤틀린 어깨와 손가락).","이건 강점이 아니라 몸의 어려움이다.","strengths(강점)를 넣으면 예시와 정면으로 부딪친다."]},{"t":"p","h":"suffered from(~로 고통받았다)도 한몫","x":["suffered from(~로 고통받았다) 뒤에는 힘든 것이 온다.","강점 때문에 고통받는 사람은 없다.","이 그림자에서 루이스의 이야기가 시작된다."]}],"post":["weakness(약점) ↔ strength(강점)","뒤틀린 어깨와 손가락 = 루이스가 안고 태어난 그림자"]},{"slots":[["distorted","deformed","s"],["limited","reduced","s"],["continued","ceased","a"],["vivid"],["confined"]],"opts":["continued","refused","forgot","pretended"],"or":["continued(계속했다): 결혼 뒤에도 그림을 이어 갔기에 바로 다음 문장에서 딕비 풍경을 자주 그렸다는 말이 나와 맞음.","refused(거부했다): 그림을 거부했다면 다음 문장의 딕비 풍경 그림들이 나올 수 없음.","forgot(잊었다): 그리는 것을 잊었다는 말은 그 뒤에 소개되는 많은 작품과 맞지 않음.","pretended(~하는 척했다): 그리는 척만 했다면 책과 영화로 만들어질 작품이 남을 수 없음."],"om":["계속했다","거부했다","잊었다","~하는 척했다"],"en":"After marrying, the couple spent the rest of their lives there, and Lewis continued to paint. She often depicted the Digby landscapes in paintings such as Edge of Digby Harbor.","ko":"결혼 후 부부는 그곳에서 여생을 보냈고, Lewis는 계속 그림을 그렸다. 그녀는 〈딕비 항구의 가장자리〉 같은 그림에서 딕비의 풍경을 자주 묘사했다.","hl":["Lewis continued to paint","often depicted"],"khl":["계속 그림을 그렸다","자주 묘사했다"],"blocks":[{"t":"pair","h":"앞뒤 문장 나란히","x":[["Lewis continued to paint","루이스는 계속 그림을 그렸다"],["She often depicted the Digby landscapes","그녀는 딕비의 풍경을 자주 묘사했다"]]},{"t":"p","h":"ceased(그만뒀다)를 넣으면","x":["'결혼 후 그림을 그만뒀다'가 된다.","그런데 바로 다음 문장이 딕비 풍경을 자주 그렸다는 이야기다.","그만둔 사람이 자주 그릴 수는 없다."]},{"t":"p","h":"함정 둘","x":["deformed(기형의)는 distorted(뒤틀린) 자리에 들어가도 같은 뜻이다.","reduced(줄였다) her mobility(그녀의 이동성)도 limited(제한했다)와 같은 방향이다.","둘 다 몸의 어려움을 그대로 말한다."]}],"post":["continue(계속하다) ↔ cease(그만두다)","결혼 후에도 이어 간 그림 = 딕비 풍경"]},{"slots":[["drop_out_of"],["depicted","portrayed","s"],["vivid"],["innovative","conventional","a"],["gained"]],"opts":["innovative","old-fashioned","predictable","commonplace"],"or":["innovative(혁신적인): original(독창적인)과 쉼표로 나란히 서서 '새롭고 남다른 스타일'이 되어 맞음.","old-fashioned(구식의): 독창적이면서 구식인 스타일은 한 줄 안에서 서로 부딪침.","predictable(뻔한): 뻔한 스타일은 original(독창적인)과 정반대라 함께 쓸 수 없음.","commonplace(아주 흔한): 흔해 빠진 스타일이라면 사람들에게 영감을 주고 책·영화가 될 만큼 특별할 수 없음."],"om":["혁신적인","구식의","뻔한","아주 흔한"],"en":"Her artwork used a mixture of bright and vivid oil paints and simple forms, generating an original, innovative style.","ko":"그녀의 작품은 밝고 선명한 유화물감의 혼합과 단순한 형태를 사용하여 독창적이고 혁신적인 스타일을 만들어 냈다.","hl":["an original, innovative style","bright and vivid oil paints"],"khl":["독창적이고 혁신적인 스타일","밝고 선명한 유화물감"],"blocks":[{"t":"p","h":"쉼표로 나란히 선 두 형용사","x":["an original(독창적인), ___ style(스타일).","쉼표로 나란히 선 두 형용사는 같은 방향으로 style(스타일)을 꾸민다.","conventional(관습적인)을 넣으면 '독창적이면서 관습적인 스타일'이 된다.","남과 다르다는 말과 남들 하던 대로라는 말이 한 줄 안에서 부딪친다."]},{"t":"p","h":"루이스 스타일의 재료","x":["밝고 선명한 물감 + 단순한 형태.","이 두 재료를 섞어 루이스만의 새로운 화풍을 만들었다.","빨간 단풍잎, 꽃밭의 소, 동화 같은 분위기가 그 결과다."]},{"t":"p","h":"함정","x":["portrayed(묘사했다)는 depicted(묘사했다)와 같은 뜻이라 그대로 둔다."]}],"post":["innovative(혁신적인) ↔ conventional(관습적인)","밝고 선명한 물감 + 단순한 형태 = 루이스만의 새 화풍"]},{"slots":[["weaknesses"],["original"],["confined"],["limitless","restricted","a"],["iconic"]],"opts":["limitless","fragile","modest","narrow"],"or":["limitless(무한한): Although(비록 ~이지만)가 '몸은 갇혔지만 재능은 끝이 없었다'는 대조를 만들어 맞음.","fragile(연약한): 재능이 연약했다면 대조가 깨지고 상징적인 인물이 된 결말과도 안 맞음.","modest(보잘것없는): 재능과 상상력이 보잘것없었다는 말은 Although(비록 ~이지만)의 대조를 무너뜨림.","narrow(좁은): 몸이 오두막에 갇혔고 상상력도 좁았다면 '~이지만'으로 이을 수 없음."],"om":["무한한","연약한","보잘것없는","좁은"],"en":"Although her physical limitations confined her to a small cottage, her talent and imagination were both limitless.","ko":"비록 신체적 제약이 그녀를 작은 오두막집에 가두었지만, 그녀의 재능과 상상력은 둘 다 무한했다.","hl":["were both limitless","confined her to a small cottage"],"khl":["둘 다 무한했다","작은 오두막집에 가두었지만"],"blocks":[{"t":"pair","h":"Although(비록 ~이지만)가 맞세운 두 쪽","x":[["her physical limitations confined her to a small cottage","몸: 작은 오두막에 갇힘"],["her talent and imagination were both limitless","재능과 상상력: 끝이 없음"]]},{"t":"p","h":"restricted(제한된)를 넣으면","x":["'몸도 갇혔고, 재능과 상상력도 제한됐다'가 된다.","두 쪽이 같은 방향이 되어 Although(비록 ~이지만)를 쓸 이유가 사라진다.","좁은 집 ↔ 끝없는 상상력, 이 대비가 루이스 이야기의 핵심이다."]}],"post":["limitless(무한한) ↔ restricted(제한된)","작은 오두막 ↔ 끝없는 상상력"]},{"slots":[["continued"],["magical","dreamlike","s"],["gained","won","s"],["inspired","disappointed","a"],["expressed"]],"opts":["inspired","bored","confused","angered"],"or":["inspired(영감을 주었다): 인기를 얻은 그림과 이야기가 사람들의 마음을 움직여 책과 영화로까지 이어져 맞음.","bored(지루하게 했다): 사람들을 지루하게 한 이야기가 책과 영화로 만들어질 리 없음.","confused(혼란스럽게 했다): 혼란을 준 이야기라면 인기를 얻은 흐름과 맞지 않음.","angered(화나게 했다): 사람들을 화나게 했다면 마음이 따뜻해지는 화가라는 소개와 반대임."],"om":["영감을 주었다","지루하게 했다","혼란스럽게 했다","화나게 했다"],"en":"As her paintings gradually gained popularity, her story inspired many people and was later made into books and movies.","ko":"그녀의 그림이 점차 인기를 얻으면서, 그녀의 이야기는 많은 사람에게 영감을 주었고 나중에 책과 영화로 만들어졌다.","hl":["her story inspired many people","made into books and movies"],"khl":["많은 사람에게 영감을 주었고","책과 영화로 만들어졌다"],"blocks":[{"t":"flow","h":"인기가 퍼져 나간 길","x":["그림이 점점 인기를 얻음","이야기가 많은 사람에게 영감을 줌","책과 영화로 만들어짐","캐나다 민속 예술의 상징"],"at":1},{"t":"p","h":"disappointed(실망시켰다)가 틀린 이유","x":["사람들을 실망시킨 이야기를 누가 책과 영화로 만들까.","인기 → 감동 → 책과 영화, 이 흐름이 한 방향이다.","실망은 그 흐름을 중간에서 끊어 버린다."]},{"t":"p","h":"함정 둘","x":["dreamlike(꿈같은)는 magical(마법 같은) 자리에서 '동화 같은'과 잘 어울린다.","won(얻었다) popularity(인기)도 gained(얻었다) popularity(인기)와 같은 뜻이다."]}],"post":["inspire(영감을 주다) ↔ disappoint(실망시키다)","인기 → 감동 → 책과 영화"]}],"quiz":[{"w":"weakness","m":"약점","it":[["receipt","영수증","n"],["flaw","결점","s"],["strength","강점","a"],["journey","여행","n"],["shortcoming","단점","s"],["merit","장점","a"],["blanket","담요","n"]]},{"w":"continue","m":"계속하다","it":[["carry on","계속하다","s"],["chew","씹다","n"],["stop","멈추다","a"],["hire","고용하다","n"],["keep on","계속하다","s"],["cease","그만두다, 중단하다","a"],["melt","녹다","n"]]},{"w":"innovative","m":"혁신적인","it":[["thirsty","목마른","n"],["groundbreaking","획기적인","s"],["conventional","관습적인, 전통적인","a"],["weekly","매주의","n"],["pioneering","선구적인","s"],["traditional","전통적인","a"],["legal","합법적인","n"]]},{"w":"limitless","m":"무한한, 끝없는","it":[["boundless","무한한","s"],["sleepy","졸린","n"],["limited","제한된","a"],["brave","용감한","n"],["endless","끝없는","s"],["restricted","제한된","a"],["salty","짠","n"]]},{"w":"inspire","m":"영감을 주다, 고무하다","it":[["spill","엎지르다","n"],["motivate","동기를 부여하다","s"],["discourage","낙담시키다","a"],["dig","파다","n"],["encourage","격려하다","s"],["dishearten","낙담시키다","a"],["arrest","체포하다","n"]]}]},{"items":[{"slots":[["renowned","forgotten","a"],["limited"],["make_a_living"],["original"],["magical"]],"opts":["renowned","nameless","failed","mediocre"],"or":["renowned(유명한): known for(~로 알려진)와 같은 방향이고, 책과 영화로까지 만들어진 화가라 맞음.","nameless(이름 없는): 이름 없는 화가인데 따뜻한 그림으로 알려졌다는 말은 앞뒤가 부딪침.","failed(실패한): 상징적인 인물이 된 결말과 정반대임.","mediocre(그저 그런): 독창적이고 혁신적인 스타일을 만든 화가라 '그저 그런'과 맞지 않음."],"om":["유명한","이름 없는","실패한","그저 그런"],"en":"Next, we have Maud Lewis, a renowned artist known for her heart-warming paintings.","ko":"다음은 마음이 따뜻해지는 그림으로 알려진 유명한 예술가 Maud Lewis이다.","hl":["a renowned artist","known for her heart-warming paintings"],"khl":["유명한 예술가","마음이 따뜻해지는 그림으로 알려진"],"blocks":[{"t":"p","h":"한 문장 안의 짝","x":["renowned(유명한)와 known for(~로 알려진)는 같은 쪽을 가리킨다.","forgotten(잊힌)을 넣으면 '잊힌 화가인데 따뜻한 그림으로 알려졌다'가 된다.","잊혔는데 알려졌다는 건 한 문장 안에서 모순이다."]},{"t":"tap","h":"마지막 문장과 맞춰 보기","q":"이 화가는 결국 어떻게 되었나?","a":["캐나다 민속 예술의 상징적인 인물이 되었다.","이야기는 책과 영화로도 만들어졌다.","잊힌 화가와는 거리가 멀다."]}],"post":["renowned(유명한) ↔ forgotten(잊힌)","마음이 따뜻해지는 그림으로 알려진 화가"]},{"slots":[["weaknesses"],["make_a_living","earn a living","s"],["vivid"],["original","ordinary","a"],["innovative","groundbreaking","s"]],"opts":["original","outdated","imitative","uninspired"],"or":["original(독창적인): 바로 뒤 innovative(혁신적인)와 나란히 서서 새롭고 남다른 스타일을 말해 맞음.","outdated(시대에 뒤떨어진): 뒤떨어졌으면서 혁신적이라는 말은 한 줄 안에서 부딪침.","imitative(모방한): 남을 따라 한 스타일이면 혁신적이라고 할 수 없음.","uninspired(밋밋한): 밋밋한 스타일은 밝고 선명한 색, 동화 같은 분위기와 맞지 않음."],"om":["독창적인","시대에 뒤떨어진","모방한","밋밋한"],"en":"Her artwork used a mixture of bright and vivid oil paints and simple forms, generating an original, innovative style.","ko":"그녀의 작품은 밝고 선명한 유화물감의 혼합과 단순한 형태를 사용하여 독창적이고 혁신적인 스타일을 만들어 냈다.","hl":["an original, innovative style","generating"],"khl":["독창적이고 혁신적인 스타일","만들어 냈다"],"blocks":[{"t":"p","h":"쉼표로 나란히 선 두 형용사","x":["an ___, innovative style(혁신적인 스타일).","쉼표로 나란히 선 두 형용사는 같은 쪽을 말한다.","ordinary(평범한)를 넣으면 '평범하고 혁신적인 스타일'이 된다.","평범하면서 혁신적일 수는 없다."]},{"t":"p","h":"함정 둘","x":["earn a living(생활비를 벌다)은 make a living(생계를 꾸리다)과 같은 뜻이다.","groundbreaking(획기적인)은 innovative(혁신적인)와 같은 방향이다.","둘 다 루이스 이야기의 뜻을 바꾸지 않는다."]}],"post":["original(독창적인) ↔ ordinary(평범한)","밝은 물감 + 단순한 형태 = 독창적이고 혁신적인 스타일"]},{"slots":[["depicted"],["confined"],["limitless"],["magical","realistic","a"],["inspired","moved","s"]],"opts":["magical","boring","harsh","gloomy"],"or":["magical(마법 같은): like that of a fairy tale(동화의 그것처럼)이 바로 뒤에서 풀어 주어 맞음.","boring(지루한): 빨간 단풍잎이 겨울 풍경에 나오고 꽃밭에 장식된 소가 서 있는 그림이라 지루함과 거리가 멂.","harsh(거친, 가혹한): 마음이 따뜻해지는 그림이라 거친 분위기와 반대임.","gloomy(우울한): 밝고 선명한 물감으로 그린 동화 같은 장면이라 우울함과 맞지 않음."],"om":["마법 같은","지루한","거친, 가혹한","우울한"],"en":"With these features, Lewis' paintings create a magical quality, like that of a fairy tale.","ko":"이러한 특징들로 Lewis의 그림은 마치 동화 같은 마법 같은 특성을 만들어 낸다.","hl":["a magical quality","like that of a fairy tale"],"khl":["마법 같은 특성","동화 같은"],"blocks":[{"t":"p","h":"like(~처럼)가 풀어 주는 말","x":["like that of a fairy tale(동화의 그것처럼)은 앞의 quality(특성)를 다시 풀어 쓴 말이다.","동화 같은 특성 = 현실에선 볼 수 없는 신비로운 느낌.","realistic(사실적인)을 넣으면 '사실적인 특성, 동화처럼'이 된다.","동화는 사실적인 것의 대표가 아니다."]},{"t":"pair","h":"these features(이러한 특징들)가 가리키는 것","x":[["red maple leaves on a special winter landscape","겨울 풍경 위의 빨간 단풍잎"],["decorated cows standing in a flower field","꽃밭에 서 있는 장식된 소들"]]},{"t":"p","h":"함정","x":["moved(감동시켰다) many people(많은 사람들)은 inspired(영감을 주었다)와 같은 방향이라 고치지 않는다."]}],"post":["magical(마법 같은) ↔ realistic(사실적인)","겨울의 빨간 단풍잎, 꽃밭의 장식된 소 = 동화 같은 그림"]},{"slots":[["distorted"],["continued"],["innovative"],["gained","lost","a"],["iconic"]],"opts":["gained","lacked","rejected","wasted"],"or":["gained(얻었다): gradually(점차)와 함께 인기가 쌓여 가는 모습이라 뒤의 '영감, 책과 영화'와 이어져 맞음.","lacked(부족했다): 인기가 없었다면 이야기가 책과 영화로 만들어질 리 없음.","rejected(거부했다): 그림이 인기를 거부한다는 말은 뜻이 통하지 않음.","wasted(낭비했다): 인기를 낭비했다면 상징적인 인물이 된 결말과 맞지 않음."],"om":["얻었다","부족했다","거부했다","낭비했다"],"en":"As her paintings gradually gained popularity, her story inspired many people and was later made into books and movies.","ko":"그녀의 그림이 점차 인기를 얻으면서, 그녀의 이야기는 많은 사람에게 영감을 주었고 나중에 책과 영화로 만들어졌다.","hl":["gradually gained popularity","made into books and movies"],"khl":["점차 인기를 얻으면서","책과 영화로 만들어졌다"],"blocks":[{"t":"p","h":"lost(잃었다)를 넣고 다시 읽기","x":["'그림이 점점 인기를 잃으면서, 이야기는 많은 사람에게 영감을 주었다'가 된다.","인기가 떨어지는데 책과 영화로 만들어진다?","원인과 결과가 거꾸로 엉킨다."]},{"t":"p","h":"그림자에서 빛으로","x":["작은 마을, 뒤틀린 몸, 작은 오두막. 루이스의 그림자다.","점점 커진 인기, 책과 영화, 상징적인 인물. 루이스의 빛이다.","gained(얻었다)는 그림자에서 빛으로 넘어가는 바로 그 지점이다."]}],"post":["gain(얻다) ↔ lose(잃다)","점점 커진 인기 → 책과 영화"]},{"slots":[["renowned","famous","s"],["drop_out_of"],["limitless"],["expressed","showed","s"],["iconic","obscure","a"]],"opts":["iconic","unknown","unpopular","invisible"],"or":["iconic(상징적인): 인기를 얻고 책과 영화로 만들어진 화가의 마지막 모습이라 맞음.","unknown(알려지지 않은): 첫 문장에서 유명한 화가로 소개되었으니 앞뒤가 맞지 않음.","unpopular(인기 없는): 바로 앞 문장에서 그림이 점차 인기를 얻었다고 했으니 반대임.","invisible(눈에 띄지 않는): 책과 영화로까지 알려진 화가라 눈에 띄지 않는 인물과 거리가 멂."],"om":["상징적인","알려지지 않은","인기 없는","눈에 띄지 않는"],"en":"As her paintings gradually gained popularity, her story inspired many people and was later made into books and movies. Maud Lewis expressed her love for the world through her paintings and became an iconic figure in Canadian folk art.","ko":"그녀의 그림이 점차 인기를 얻으면서, 그녀의 이야기는 많은 사람에게 영감을 주었고 나중에 책과 영화로 만들어졌다. Maud Lewis는 그림을 통해 세상에 대한 사랑을 표현했고 캐나다 민속 예술에서 상징적인 인물이 되었다.","hl":["an iconic figure","gained popularity"],"khl":["상징적인 인물","인기를 얻으면서"],"blocks":[{"t":"flow","h":"첫 문장과 끝 문장이 만나는 자리","x":["첫 문장: 유명한 예술가","가운데: 몸의 장애, 작은 오두막","인기, 영감, 책과 영화","끝 문장: 캐나다 민속 예술의 상징적인 인물"],"at":3},{"t":"p","h":"obscure(무명의)가 틀린 이유","x":["obscure(무명의)는 거의 알려지지 않은 사람을 말한다.","책과 영화로 만들어진 화가가 무명일 수는 없다.","단락의 처음과 끝이 모두 '유명함'으로 묶여 있다."]},{"t":"p","h":"함정 둘","x":["famous(유명한)는 renowned(유명한)와 같은 뜻이다.","showed(보여 주었다)도 expressed(표현했다) 자리에서 '사랑을 보여 주었다'로 통한다."]}],"post":["iconic(상징적인) ↔ obscure(무명의)","오두막의 화가 → 캐나다 민속 예술의 상징"]}],"quiz":[{"w":"renowned","m":"유명한","it":[["famous","유명한","s"],["damp","축축한","n"],["unknown","알려지지 않은","a"],["spicy","매운","n"],["celebrated","유명한, 이름난","s"],["obscure","무명의","a"],["steep","가파른","n"]]},{"w":"original","m":"독창적인","it":[["rapid","빠른","n"],["creative","창의적인","s"],["unoriginal","독창적이지 않은","a"],["sour","신","n"],["inventive","창의적인, 독창적인","s"],["imitative","모방한","a"],["hollow","속이 빈","n"]]},{"w":"magical","m":"마법 같은, 아주 멋진","it":[["enchanting","매혹적인","s"],["oily","기름진","n"],["ordinary","평범한","a"],["frozen","얼어붙은","n"],["charming","매력적인","s"],["mundane","평범한, 일상적인","a"],["noisy","시끄러운","n"]]},{"w":"gain","m":"얻다","it":[["obtain","얻다","s"],["fold","접다","n"],["lose","잃다","a"],["knock","두드리다","n"],["acquire","얻다, 획득하다","s"],["forfeit","(권리 등을) 잃다, 빼앗기다","a"],["bathe","목욕하다","n"]]},{"w":"iconic","m":"상징이 되는, 상징적인","it":[["symbolic","상징적인","s"],["tight","꽉 끼는","n"],["obscure","무명의","a"],["muddy","진흙투성이의","n"],["legendary","전설적인","s"],["unknown","알려지지 않은","a"],["chilly","쌀쌀한","n"]]}]}],"no":"본문 ③"},{"id":"gc1-L3-3d","title":"어휘특훈 · 공통영어2 3과 본문 ④","sub":"Anna Ancher","tpl":"Now let's take a look at the final artist of this exhibition: Anna Ancher, a {famous} painter from Denmark. When observing her paintings, you may notice a {common} theme —they all feature female figures. Born in Skagen, Denmark, in 1859, she later moved to Copenhagen to attend a private painting school. After that, she even studied abroad in Paris, which was {unusual} for women at the time. Thanks to her mother's {encouragement}, she was able to take advantage of these {opportunities}. Even after getting married, Ancher {persisted_in} painting, {objecting_to} the social pressure that married women were to {solely} focus on household duties. Ancher {differed_from} other artists of that era, who depicted women as still life subjects. In contrast, she showcased them as {active} participants in everyday tasks, as seen in her works The Maid in the Kitchen and Sewing Fisherman's Wife. She also {skillfully} explored light and color, {contributing_to} the rich Impressionist movement in Denmark. In her painting Sunlight in the Blue Room, the reflection of the sunlight on the blue wall is {stunningly} portrayed. Ancher {challenged} the {conventional} roles of women in the 20th century and displayed her {exceptional} artistic talent. Her paintings continue to {amaze} us to this day. Thank you for joining this guided tour, and I hope my explanations have {aided} you in appreciating these paintings. Please take some time to further explore the exhibition.","fn":["*private: 사립의","*household duties: 가사, 집안일","*still life: 정물화","*Impressionist: 인상주의의, 인상파의","*reflection: (빛의) 반사"],"mean":{"famous":"유명한","well-known":"잘 알려진, 유명한","common":"공통의","shared":"공유된, 공통의","unusual":"흔하지 않은, 특이한","usual":"흔한, 보통의","encouragement":"격려","support":"지지, 응원","discouragement":"낙담시킴, 기를 꺾음","opportunities":"명사 opportunity(기회)의 복수형","chances":"명사 chance(기회)의 복수형","persisted in":"동사구 persist in(~을 끈질기게 계속하다)의 과거형","kept on":"동사구 keep on(~을 계속하다)의 과거형","gave up":"동사구 give up(포기하다, 그만두다)의 과거형","objecting to":"동사구 object to(~에 반대하다)의 -ing형. ~에 반대하며(분사구문)","opposing":"동사 oppose(반대하다)의 -ing형","accepting":"동사 accept(받아들이다)의 -ing형. ~을 받아들이며(분사구문)","solely":"오로지, 오직","only":"오직, 오로지","differed from":"동사구 differ from(~와 다르다)의 과거형","was different from":"~와 달랐다(be different from의 과거형)","resembled":"동사 resemble(닮다)의 과거형","active":"적극적인, 활동적인","passive":"수동적인, 소극적인","skillfully":"능숙하게, 솜씨 있게","expertly":"전문가답게, 능숙하게","clumsily":"서투르게","contributing to":"동사구 contribute to(~에 기여하다)의 -ing형. ~에 기여하며(분사구문)","adding to":"동사구 add to(~을 더 풍성하게 하다, ~에 보태다)의 -ing형","stunningly":"굉장히 아름답게, 눈부시게","beautifully":"아름답게","poorly":"서툴게, 형편없이","challenged":"동사 challenge(이의를 제기하다)의 과거형","questioned":"동사 question(의문을 제기하다)의 과거형","embraced":"동사 embrace(기꺼이 받아들이다)의 과거형","conventional":"관습적인, 전통적인","traditional":"전통적인","unconventional":"관습에 얽매이지 않는, 색다른","exceptional":"특출한, 뛰어난","mediocre":"평범한, 그저 그런","amaze":"깜짝 놀라게 하다","astonish":"깜짝 놀라게 하다","aided":"동사 aid(돕다)의 과거분사형. have aided = 도움이 되었다(현재완료)","helped":"동사 help(돕다)의 과거분사형","hindered":"동사 hinder(방해하다)의 과거분사형"},"comp":[{"no":"본문 ④","slots":[["encouragement"],["opportunities","chances","s"],["persisted_in","gave up","a"],["objecting_to"],["solely"]],"opts":["persisted_in","failed_at","quit","lost_interest_in"],"or":["persisted in(~을 끈질기게 계속했다): 압력에 반대하며 그림을 놓지 않았다는 뜻이라 objecting to(~에 반대하며)와 같은 방향임.","failed at(~에 실패했다): 그림에 실패했다면 뒤에 이어지는 뛰어난 재능, 인상주의 기여와 맞지 않음.","quit(그만두었다): 압력에 반대하면서 그림을 그만뒀다는 건 앞뒤가 엇갈림.","lost interest in(~에 흥미를 잃었다): 결혼 후 그림에 흥미를 잃었다면 그 뒤의 작품 소개가 나올 수 없음."],"om":["~을 끈질기게 계속했다","~에 실패했다","그만두었다","~에 흥미를 잃었다"],"en":"Even after getting married, Ancher persisted in painting, objecting to the social pressure that married women were to solely focus on household duties.","ko":"결혼 후에도 Ancher는 기혼 여성은 오로지 가사에만 집중해야 한다는 사회적 압력에 반대하며 그림을 계속 그렸다.","hl":["persisted in painting","objecting to the social pressure"],"khl":["그림을 계속 그렸다","사회적 압력에 반대하며"],"blocks":[{"t":"p","h":"Even after(~ 후에도)가 주는 신호","x":["Even after getting married(결혼한 후에도)는 '그런데도 멈추지 않았다'를 예고한다.","당시 기혼 여성에게는 집안일만 하라는 압력이 있었다.","앵커는 그 압력에 반대했다.","gave up(그만뒀다)을 넣으면 반대하면서 그만뒀다는 엇갈린 말이 된다."]},{"t":"p","h":"함정","x":["chances(기회)는 opportunities(기회)와 같은 말이라 그대로 둔다."]}],"post":["persist in(~을 끈질기게 계속하다) ↔ give up(포기하다)","결혼 후에도 놓지 않은 붓"]},{"no":"본문 ④","slots":[["active"],["contributing_to","adding to","s"],["challenged","embraced","a"],["exceptional"],["aided"]],"opts":["challenged","respected","obeyed","praised"],"or":["challenged(이의를 제기했다): 집안일만 하라는 압력에 반대하고 여성을 적극적인 참여자로 그린 화가라 맞음.","respected(존중했다): 전통적인 역할을 존중했다면 사회적 압력에 반대한 앞 내용과 부딪침.","obeyed(따랐다): 전통적인 역할을 따랐다면 결혼 후에도 그림을 계속한 이야기와 반대임.","praised(칭찬했다): 그 역할을 칭찬했다면 여성을 정물처럼 그린 다른 화가들과 달랐다는 말이 무너짐."],"om":["이의를 제기했다","존중했다","따랐다","칭찬했다"],"en":"Ancher challenged the conventional roles of women in the 20th century and displayed her exceptional artistic talent.","ko":"Ancher는 20세기 여성의 전통적인 역할에 이의를 제기했고 뛰어난 예술적 재능을 보여 주었다.","hl":["challenged the conventional roles of women","exceptional artistic talent"],"khl":["전통적인 역할에 이의를 제기했고","뛰어난 예술적 재능"],"blocks":[{"t":"flow","h":"앵커가 맞선 것들","x":["여성의 파리 유학이 드물던 시대","기혼 여성은 집안일만 하라는 압력","여성을 정물처럼 그리던 다른 화가들","앵커: 여성의 전통적인 역할에 이의 제기"],"at":3},{"t":"p","h":"embraced(기꺼이 받아들였다)가 틀린 이유","x":["앵커는 결혼 후에도 압력에 반대하며 그림을 그렸다.","그런 사람이 전통적인 여성 역할을 기꺼이 받아들였다고 할 수는 없다.","이 문장은 앞에서 한 이야기를 한 줄로 묶은 결론이다."]},{"t":"p","h":"함정","x":["adding to(~을 더 풍성하게 하며)는 contributing to(~에 기여하며) 자리에서 '인상주의 운동에 보탬이 됐다'로 통한다."]}],"post":["challenge(이의를 제기하다) ↔ embrace(기꺼이 받아들이다)","전통적인 여성 역할에 맞선 화가"]}],"compquiz":[{"w":"persist in","m":"~을 끈질기게 계속하다","it":[["pick up","줍다","n"],["keep on","계속하다","s"],["give up","포기하다","a"],["look up","찾아보다","n"],["continue","계속하다","s"],["quit","그만두다","a"],["turn off","끄다","n"]]},{"w":"challenge","m":"이의를 제기하다","it":[["question","의문을 제기하다","s"],["boil","끓이다","n"],["accept","받아들이다","a"],["wrap","싸다, 포장하다","n"],["dispute","이의를 제기하다","s"],["embrace","기꺼이 받아들이다","a"],["carve","조각하다","n"]]}],"sets":[{"items":[{"slots":[["famous"],["common"],["unusual","usual","a"],["opportunities"],["solely"]],"opts":["unusual","natural","expected","required"],"or":["unusual(흔하지 않은): even(~까지)이 '여성으로서 파리 유학까지'라는 특별함을 강조해 맞음.","natural(당연한): 당연한 일이었다면 even(~까지)으로 강조할 이유가 없음.","expected(기대되는): 여성에게 기대되는 일이었다면 어머니의 격려 덕분이라는 말이 필요 없음.","required(필수인): 당시 여성에게 파리 유학이 필수였다는 건 사실과 맞지 않고 흐름도 어색함."],"om":["흔하지 않은","당연한","기대되는","필수인"],"en":"After that, she even studied abroad in Paris, which was unusual for women at the time. Thanks to her mother's encouragement, she was able to take advantage of these opportunities.","ko":"그 후 그녀는 파리에서 유학까지 했는데, 그것은 당시 여성들에게 드문 일이었다. 어머니의 격려 덕분에 그녀는 이러한 기회들을 활용할 수 있었다.","hl":["which was unusual for women at the time","she even studied abroad"],"khl":["당시 여성들에게 드문 일이었다","유학까지 했는데"],"blocks":[{"t":"p","h":"even(~까지)이 붙은 이유","x":["she even studied abroad(그녀는 유학까지 했다).","even(~까지)은 '여기까지 갔다니 놀랍다'는 느낌을 준다.","놀라운 이유 = 당시 여성에게는 드문 일이었기 때문.","usual(흔한)을 넣으면 even(~까지)이 붙을 이유가 사라진다."]},{"t":"tap","h":"질문 하나","q":"흔한 일이었다면 어머니의 격려가 꼭 필요했을까?","a":["필요 없었을 것이다.","드문 일이라서 어머니의 격려가 기회를 잡게 해 준 열쇠가 된다."]}],"post":["unusual(흔하지 않은) ↔ usual(흔한)","여성의 파리 유학 = 그 시대엔 드문 일"]},{"slots":[["encouragement","support","s"],["persisted_in"],["objecting_to","accepting","a"],["solely","only","s"],["active"]],"opts":["objecting_to","agreeing_to","listening_to","adapting_to"],"or":["objecting to(~에 반대하며): 결혼 후에도 그림을 끈질기게 계속한 이유가 압력에 맞섰기 때문이라 맞음.","agreeing to(~에 동의하며): 집안일만 하라는 압력에 동의했다면 그림을 계속할 수 없음.","listening to(~에 귀 기울이며): 압력에 귀 기울였다면 그림보다 집안일을 택했어야 함.","adapting to(~에 맞춰 가며): 압력에 맞춰 갔다면 persisted in(~을 끈질기게 계속했다)과 정반대가 됨."],"om":["~에 반대하며","~에 동의하며","~에 귀 기울이며","~에 맞춰 가며"],"en":"Even after getting married, Ancher persisted in painting, objecting to the social pressure that married women were to solely focus on household duties.","ko":"결혼 후에도 Ancher는 기혼 여성은 오로지 가사에만 집중해야 한다는 사회적 압력에 반대하며 그림을 계속 그렸다.","hl":["objecting to the social pressure","persisted in painting"],"khl":["사회적 압력에 반대하며","그림을 계속 그렸다"],"blocks":[{"t":"pair","h":"같은 문장 속 두 행동","x":[["persisted in painting","그림을 끈질기게 계속했다"],["objecting to the social pressure","사회적 압력에 반대하며"]]},{"t":"p","h":"accepting(받아들이며)을 넣으면","x":["'집안일만 하라는 압력을 받아들이며 그림을 끈질기게 계속했다'가 된다.","압력을 받아들였다면 붓을 내려놓아야 맞다.","두 행동이 서로 반대 방향으로 갈라진다."]},{"t":"p","h":"함정 둘","x":["support(지지)는 encouragement(격려) 자리에서 '어머니의 응원'으로 통한다.","only(오직)는 solely(오로지)와 같은 뜻이다."]}],"post":["object to(~에 반대하다) ↔ accept(받아들이다)","집안일만 하라는 압력에 맞선 붓"]},{"slots":[["differed_from","was different from","s"],["active","passive","a"],["skillfully"],["stunningly"],["exceptional"]],"opts":["active","idle","lifeless","decorative"],"or":["active(적극적인): In contrast(이와 대조적으로)로 정물처럼 그려진 여성과 맞서는 모습이라 맞음.","idle(놀고 있는): 놀고 있는 참여자는 everyday tasks(일상 작업)를 하는 여성과 맞지 않음.","lifeless(생기 없는): 생기 없는 모습은 정물화 속 여성과 같은 쪽이라 대조가 깨짐.","decorative(장식용의): 장식품처럼 그렸다면 다른 화가들과 다를 게 없음."],"om":["적극적인","놀고 있는","생기 없는","장식용의"],"en":"Ancher differed from other artists of that era, who depicted women as still life subjects. In contrast, she showcased them as active participants in everyday tasks, as seen in her works The Maid in the Kitchen and Sewing Fisherman's Wife.","ko":"Ancher는 여성을 정물화 소재로 묘사했던 당시의 다른 예술가들과 달랐다. 이와 대조적으로, 그녀는 〈부엌의 하녀〉와 〈바느질하는 어부의 아내〉라는 작품에서 볼 수 있듯이 여성을 일상 작업의 적극적인 참여자로 보여 주었다.","hl":["active participants in everyday tasks","still life subjects"],"khl":["일상 작업의 적극적인 참여자","정물화 소재"],"blocks":[{"t":"pair","h":"다른 화가들 ↔ 앵커","x":[["women as still life subjects","다른 화가들: 여성 = 꽃병처럼 가만히 놓인 정물"],["active participants in everyday tasks","앵커: 여성 = 일상 작업을 직접 하는 사람"]]},{"t":"p","h":"passive(수동적인)가 틀린 이유","x":["still life(정물화)는 움직이지 않는 물건을 그린 그림이다.","다른 화가들은 여성을 그런 물건처럼 그렸다.","In contrast(이와 대조적으로) 뒤에는 그 반대가 와야 한다.","passive(수동적인)를 넣으면 다른 화가들과 같은 쪽이 되어 대조가 사라진다."]},{"t":"p","h":"함정","x":["was different from(~와 달랐다)은 differed from(~와 달랐다)과 똑같은 뜻이다."]}],"post":["active(적극적인) ↔ passive(수동적인)","부엌의 하녀, 바느질하는 아내 = 직접 일하는 여성"]},{"slots":[["opportunities"],["skillfully"],["contributing_to"],["stunningly","poorly","a"],["amaze"]],"opts":["stunningly","carelessly","roughly","dully"],"or":["stunningly(굉장히 아름답게): 앞 문장의 skillfully(능숙하게) 탐구한 빛과 색의 예라서 맞음.","carelessly(대충): 빛을 능숙하게 다룬 화가의 대표작이 대충 그려졌다는 건 모순임.","roughly(거칠게): 거칠게 그린 그림이 인상주의에 기여한 예로 나올 수는 없음.","dully(칙칙하게): 푸른 벽에 비친 햇빛을 칙칙하게 그렸다면 오늘날까지 우리를 놀라게 할 수 없음."],"om":["굉장히 아름답게","대충","거칠게","칙칙하게"],"en":"She also skillfully explored light and color, contributing to the rich Impressionist movement in Denmark. In her painting Sunlight in the Blue Room, the reflection of the sunlight on the blue wall is stunningly portrayed.","ko":"그녀는 또한 빛과 색채를 능숙하게 탐구하여 덴마크의 풍부한 인상주의 운동에 기여했다. 그녀의 작품 〈푸른 방의 햇빛〉에서는 푸른 벽에 반사되는 햇빛이 굉장히 아름답게 묘사되어 있다.","hl":["is stunningly portrayed","skillfully explored light and color"],"khl":["굉장히 아름답게 묘사되어 있다","빛과 색채를 능숙하게 탐구하여"],"blocks":[{"t":"p","h":"주장 다음엔 예시","x":["앞 문장: 빛과 색을 능숙하게 다뤘다.","뒷문장: 그 예가 〈푸른 방의 햇빛〉이다.","예시는 주장을 받쳐 줘야 한다.","poorly(서툴게)를 넣으면 '능숙했다'는 주장을 예시가 오히려 깎아 먹는다."]},{"t":"tap","h":"그림 떠올리기","q":"〈푸른 방의 햇빛〉에서 가장 눈에 띄는 것은?","a":["푸른 벽에 비친 햇빛.","빛을 그리는 솜씨가 인상주의 화가로서 앵커의 힘이다."]}],"post":["stunningly(굉장히 아름답게) ↔ poorly(서툴게)","푸른 벽에 비친 햇빛 = 빛을 그린 솜씨"]},{"slots":[["challenged"],["conventional","traditional","s"],["exceptional"],["amaze","astonish","s"],["aided","hindered","a"]],"opts":["aided","prevented","delayed","bothered"],"or":["aided(도움이 되었다): 투어를 마치며 도슨트가 자기 설명이 감상에 도움이 되었길 바라는 인사라 맞음.","prevented(막았다): 자기 설명이 감상을 막았길 바라는 도슨트는 없음.","delayed(늦췄다): 감상을 늦췄길 바란다는 인사는 뜻이 통하지 않음.","bothered(귀찮게 했다): 관람객을 귀찮게 했길 바란다는 말은 감사 인사와 어울리지 않음."],"om":["도움이 되었다","막았다","늦췄다","귀찮게 했다"],"en":"Thank you for joining this guided tour, and I hope my explanations have aided you in appreciating these paintings.","ko":"이번 가이드 투어에 참여해 주셔서 감사하며, 나의 설명이 여러분이 이 그림들을 감상하는 데 도움이 되었기를 바란다.","hl":["I hope my explanations have aided you","Thank you for joining"],"khl":["도움이 되었기를 바란다","참여해 주셔서 감사하며"],"blocks":[{"t":"p","h":"도슨트의 마무리 인사","x":["투어 끝, 도슨트가 관람객에게 감사 인사를 한다.","I hope(나는 ~를 바란다) 뒤에는 좋은 일이 와야 자연스럽다.","hindered(방해했다)를 넣으면 '내 설명이 감상을 방해했길 바란다'가 된다.","감사 인사 바로 뒤에 올 말이 아니다."]},{"t":"flow","h":"투어 전체 되짚기","x":["인사: 역경을 이겨 낸 세 예술가","트레일러: 노예 시절의 두려움과 자유","루이스: 작은 오두막의 끝없는 상상력","앵커: 전통적인 여성 역할에 맞섬","마무리: 설명이 감상에 도움이 되었길"],"at":4},{"t":"p","h":"함정 둘","x":["traditional(전통적인)은 conventional(관습적인, 전통적인)과 같은 뜻이다.","astonish(깜짝 놀라게 하다)는 amaze(깜짝 놀라게 하다)와 같은 말이다."]}],"post":["aid(돕다) ↔ hinder(방해하다)","투어의 마지막 인사 = 감상에 도움이 되었길"]}],"quiz":[{"w":"unusual","m":"흔하지 않은, 특이한","it":[["wet","젖은","n"],["uncommon","흔하지 않은","s"],["common","흔한","a"],["cheap","값싼","n"],["rare","드문","s"],["usual","흔한, 보통의","a"],["bitter","쓴","n"]]},{"w":"object to","m":"~에 반대하다","it":[["oppose","반대하다","s"],["run out of","~을 다 써 버리다","n"],["accept","받아들이다","a"],["go over","검토하다","n"],["protest","항의하다, 반대하다","s"],["agree to","~에 동의하다","a"],["put up","세우다, 게시하다","n"]]},{"w":"active","m":"적극적인, 활동적인","it":[["humid","습한","n"],["energetic","활동적인, 활기찬","s"],["passive","수동적인","a"],["silver","은빛의","n"],["dynamic","역동적인","s"],["inactive","활동하지 않는","a"],["square","정사각형의","n"]]},{"w":"stunningly","m":"굉장히 아름답게, 눈부시게","it":[["beautifully","아름답게","s"],["early","일찍","n"],["strikingly","놀랍도록, 눈에 띄게","s"],["upstairs","위층에","n"],["poorly","형편없이","a"],["unimpressively","인상적이지 않게","a"],["nearby","근처에","n"]]},{"w":"aid","m":"돕다","it":[["bury","묻다","n"],["help","돕다","s"],["hinder","방해하다","a"],["bounce","튀다","n"],["assist","돕다","s"],["obstruct","방해하다","a"],["weigh","무게를 달다","n"]]}]},{"items":[{"slots":[["common"],["encouragement","discouragement","a"],["opportunities"],["persisted_in"],["differed_from"]],"opts":["encouragement","illness","absence","objection"],"or":["encouragement(격려): Thanks to(~ 덕분에)와 이어져 어머니의 응원이 기회를 잡게 해 줬다는 뜻이라 맞음.","illness(병): 어머니의 병 덕분에 유학을 했다는 말은 뜻이 통하지 않음.","absence(부재): 어머니가 없어서 기회를 잡았다는 건 Thanks to(~ 덕분에)와 어울리지 않음.","objection(반대): 어머니의 반대 덕분에 기회를 활용했다는 말은 앞뒤가 뒤집힘."],"om":["격려","병","부재","반대"],"en":"Thanks to her mother's encouragement, she was able to take advantage of these opportunities.","ko":"어머니의 격려 덕분에 그녀는 이러한 기회들을 활용할 수 있었다.","hl":["Thanks to her mother's encouragement","take advantage of these opportunities"],"khl":["어머니의 격려 덕분에","이러한 기회들을 활용할 수 있었다"],"blocks":[{"t":"p","h":"Thanks to(~ 덕분에) 뒤에 올 말","x":["Thanks to(~ 덕분에) 뒤에는 도움이 된 것이 온다.","덕분에 = 좋은 결과를 낳은 원인.","discouragement(기를 꺾음)는 도움이 아니라 방해다.","기를 꺾었는데 그 덕분에 기회를 잡았다는 건 말이 안 된다."]},{"t":"pair","h":"these opportunities(이러한 기회들)가 가리키는 것","x":[["attend a private painting school","사립 회화 학교 다니기"],["studied abroad in Paris","파리 유학"]]}],"post":["encouragement(격려) ↔ discouragement(기를 꺾음)","어머니의 격려 → 사립 학교와 파리 유학"]},{"slots":[["famous","well-known","s"],["solely"],["differed_from","resembled","a"],["active"],["skillfully","expertly","s"]],"opts":["differed_from","copied","followed","learned_from"],"or":["differed from(~와 달랐다): 바로 뒤 In contrast(이와 대조적으로)가 다른 화가들과 반대로 그렸다는 내용을 이어 맞음.","copied(모방했다): 다른 화가들을 따라 그렸다면 In contrast(이와 대조적으로)로 반대 내용을 이을 수 없음.","followed(따랐다): 여성을 정물처럼 그리는 방식을 따랐다면 적극적인 여성을 그린 다음 문장과 부딪침.","learned from(~에게서 배웠다): 배운 대로 그렸다면 '대조적으로'라는 다음 문장과 연결되지 않음."],"om":["~와 달랐다","모방했다","따랐다","~에게서 배웠다"],"en":"Ancher differed from other artists of that era, who depicted women as still life subjects. In contrast, she showcased them as active participants in everyday tasks, as seen in her works The Maid in the Kitchen and Sewing Fisherman's Wife.","ko":"Ancher는 여성을 정물화 소재로 묘사했던 당시의 다른 예술가들과 달랐다. 이와 대조적으로, 그녀는 〈부엌의 하녀〉와 〈바느질하는 어부의 아내〉라는 작품에서 볼 수 있듯이 여성을 일상 작업의 적극적인 참여자로 보여 주었다.","hl":["differed from other artists of that era","In contrast"],"khl":["당시의 다른 예술가들과 달랐다","이와 대조적으로"],"blocks":[{"t":"p","h":"다음 문장의 연결어가 알려 준다","x":["바로 다음 문장이 In contrast(이와 대조적으로)로 시작한다.","대조는 앞과 뒤가 달라야 쓸 수 있다.","resembled(닮았다)를 넣으면 '다른 화가들과 닮았다. 대조적으로 그녀는…'이 된다.","닮았다고 해 놓고 바로 대조하는 셈이다."]},{"t":"p","h":"함정 둘","x":["well-known(잘 알려진)은 famous(유명한)와 같은 뜻이다.","expertly(능숙하게)도 skillfully(능숙하게)와 같은 말이다.","철자는 낯설어도 뜻이 같으면 맞는 표현."]}],"post":["differ from(~와 다르다) ↔ resemble(닮다)","정물 같은 여성 ↔ 일하는 여성"]},{"slots":[["objecting_to"],["active"],["skillfully","clumsily","a"],["contributing_to"],["stunningly","beautifully","s"]],"opts":["skillfully","rarely","briefly","nervously"],"or":["skillfully(능숙하게): 인상주의 운동에 기여했고 햇빛을 굉장히 아름답게 그렸다는 뒷이야기와 맞음.","rarely(드물게): 빛과 색을 드물게 탐구한 화가가 인상주의 운동에 기여했다고 보기는 어려움.","briefly(잠깐): 잠깐 탐구한 것으로는 빛을 그린 대표작과 기여를 설명할 수 없음.","nervously(초조하게): 초조하게 탐구했다는 말은 빛과 색을 다룬 솜씨 이야기와 맞지 않음."],"om":["능숙하게","드물게","잠깐","초조하게"],"en":"She also skillfully explored light and color, contributing to the rich Impressionist movement in Denmark.","ko":"그녀는 또한 빛과 색채를 능숙하게 탐구하여 덴마크의 풍부한 인상주의 운동에 기여했다.","hl":["skillfully explored light and color","contributing to"],"khl":["빛과 색채를 능숙하게 탐구하여","기여했다"],"blocks":[{"t":"p","h":"clumsily(서투르게)를 넣고 다시 읽기","x":["'빛과 색을 서투르게 탐구하여 인상주의 운동에 기여했다'가 된다.","서투른 솜씨로 미술 운동에 기여할 수는 없다.","게다가 바로 뒤에서 햇빛이 굉장히 아름답게 그려졌다고 한다."]},{"t":"p","h":"인상주의는 빛의 그림","x":["인상주의 화가들은 빛이 사물에 닿아 바뀌는 순간을 그렸다.","앵커는 그 빛을 능숙하게 다뤘다.","그래서 덴마크 인상주의 운동에 기여한 화가가 되었다."]},{"t":"p","h":"함정","x":["beautifully(아름답게)는 stunningly(굉장히 아름답게) 자리에 그대로 들어간다."]}],"post":["skillfully(능숙하게) ↔ clumsily(서투르게)","빛을 다룬 솜씨 → 덴마크 인상주의에 기여"]},{"slots":[["unusual"],["persisted_in"],["challenged"],["exceptional","mediocre","a"],["amaze"]],"opts":["exceptional","limited","average","modest"],"or":["exceptional(특출한): 바로 뒤 '오늘날까지도 우리를 놀라게 한다'와 이어져 맞음.","limited(제한된): 재능이 제한적이었다면 오늘날까지 사람들을 놀라게 할 수 없음.","average(보통의): 보통 재능으로는 인상주의 운동에 기여하고 지금까지 감탄을 받기 어려움.","modest(보잘것없는): 보잘것없는 재능은 마지막 화가로 소개되는 이 사람의 업적과 반대임."],"om":["특출한","제한된","보통의","보잘것없는"],"en":"Ancher challenged the conventional roles of women in the 20th century and displayed her exceptional artistic talent. Her paintings continue to amaze us to this day.","ko":"Ancher는 20세기 여성의 전통적인 역할에 이의를 제기했고 뛰어난 예술적 재능을 보여 주었다. 그녀의 그림은 오늘날까지도 우리를 놀라게 한다.","hl":["her exceptional artistic talent","continue to amaze us to this day"],"khl":["뛰어난 예술적 재능","오늘날까지도 우리를 놀라게 한다"],"blocks":[{"t":"pair","h":"원인과 결과 나란히","x":[["displayed her exceptional artistic talent","특출한 예술적 재능을 보여 주었다"],["Her paintings continue to amaze us to this day","그 그림들은 오늘날까지도 우리를 놀라게 한다"]]},{"t":"p","h":"mediocre(그저 그런)가 틀린 이유","x":["그저 그런 재능의 그림이 100년 넘게 사람들을 놀라게 할 수는 없다.","오늘날까지 감탄을 받는다는 건 그만큼 특출했다는 증거다."]}],"post":["exceptional(특출한) ↔ mediocre(그저 그런)","특출한 재능 → 지금까지도 감탄"]},{"slots":[["common","shared","s"],["objecting_to"],["contributing_to"],["challenged","questioned","s"],["conventional","unconventional","a"]],"opts":["conventional","modern","equal","creative"],"or":["conventional(관습적인): 집안일만 하라는 옛 틀, 즉 전통적인 여성 역할에 이의를 제기한 것이라 맞음.","modern(현대적인): 앵커가 맞선 건 새로운 역할이 아니라 오래된 압력이라 맞지 않음.","equal(평등한): 평등한 역할에 이의를 제기했다면 여성을 적극적인 참여자로 그린 화가와 반대임.","creative(창의적인): 창의적인 역할에 맞섰다는 건 그녀가 해 온 일과 정반대임."],"om":["관습적인","현대적인","평등한","창의적인"],"en":"Ancher challenged the conventional roles of women in the 20th century and displayed her exceptional artistic talent.","ko":"Ancher는 20세기 여성의 전통적인 역할에 이의를 제기했고 뛰어난 예술적 재능을 보여 주었다.","hl":["the conventional roles of women","challenged"],"khl":["여성의 전통적인 역할","이의를 제기했고"],"blocks":[{"t":"tap","h":"질문 하나","q":"앵커가 맞서 싸운 '여성의 역할'은 어떤 모습이었나?","a":["기혼 여성은 오로지 집안일에만 집중해야 한다는 것.","그림 속 여성은 가만히 놓인 정물 같아야 한다는 것.","둘 다 옛날부터 내려온 관습, 즉 conventional(관습적인) 역할이다."]},{"t":"p","h":"unconventional(색다른)이 틀린 이유","x":["unconventional(관습에 얽매이지 않는) 역할은 앵커가 오히려 보여 준 모습이다.","자기가 보여 준 모습에 스스로 이의를 제기할 수는 없다."]},{"t":"p","h":"함정 둘","x":["shared(공통의) theme(주제)는 common(공통의) theme(주제)와 같은 뜻이다.","questioned(의문을 제기했다)도 challenged(이의를 제기했다)와 같은 방향이다."]}],"post":["conventional(관습적인) ↔ unconventional(관습에 얽매이지 않는)","집안일만 하라는 옛 틀에 맞선 화가"]}],"quiz":[{"w":"encouragement","m":"격려","it":[["ceiling","천장","n"],["support","지지, 응원","s"],["discouragement","낙담시킴","a"],["thunder","천둥","n"],["backing","후원, 지지","s"],["opposition","반대","a"],["recipe","요리법","n"]]},{"w":"differ from","m":"~와 다르다","it":[["be different from","~와 다르다","s"],["depend on","~에 의존하다","n"],["resemble","닮다","a"],["take care of","돌보다","n"],["contrast with","~와 대조를 이루다","s"],["be similar to","~와 비슷하다","a"],["come up with","생각해 내다","n"]]},{"w":"skillfully","m":"능숙하게, 솜씨 있게","it":[["overseas","해외로","n"],["expertly","능숙하게","s"],["clumsily","서투르게","a"],["twice","두 번","n"],["masterfully","훌륭한 솜씨로","s"],["awkwardly","어설프게","a"],["downstairs","아래층에","n"]]},{"w":"exceptional","m":"특출한, 뛰어난","it":[["remarkable","주목할 만한, 놀라운","s"],["rainy","비 오는","n"],["ordinary","평범한","a"],["plastic","플라스틱의","n"],["outstanding","뛰어난","s"],["mediocre","평범한, 그저 그런","a"],["elderly","나이 든","n"]]},{"w":"conventional","m":"관습적인, 전통적인","it":[["sticky","끈적한","n"],["traditional","전통적인","s"],["unconventional","관습에 얽매이지 않는","a"],["lazy","게으른","n"],["customary","관습적인","s"],["nontraditional","비전통적인","a"],["golden","금빛의","n"]]}]}],"no":"본문 ④"}],"unit":""}</script>
+<script>
+(function(){
+var D=JSON.parse(document.getElementById('data').textContent);
+(function(){var m=/[?&]n=([\d,_-]+)/.exec(location.search);if(m){var W=m[1].replace(/-/g,'_').split(',');D.nums=D.nums.filter(function(n){return W.indexOf(String(n.no).replace(/-/g,'_'))>=0;});}})();
+var G=D.kind==='g';
+var CIR=['①','②','③','④','⑤'];
+var TEACH=/[?&]t=1/.test(location.search);
+var KEY='teukhun-'+D.kind+'-'+D.id;
+var app=document.getElementById('app');
+var st;
+function loadDone(){try{return JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){return {};}}
+function saveDone(o){try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function en(s){return '<span lang="en" translate="no">'+esc(s)+'</span>';}
+function mix(s){return esc(s).replace(/[A-Za-z][A-Za-z'’\-]*(?:[ ,]+[A-Za-z][A-Za-z'’\-]*)*/g,function(m){return '<span lang="en" translate="no">'+m+'</span>';});}
+function disp(k){return k.replace(/_/g,' ');}
+function hlt(t,ph){var h=esc(t);(ph||[]).forEach(function(p,j){var e=esc(p);h=h.replace(e,'<mark'+(j===0?' class="k"':'')+'>'+e+'</mark>');});return h;}
+function lines(a){return '<div class="lines">'+a.map(function(x){return '<p>'+mix(x)+'</p>';}).join('')+'</div>';}
+function hk(x){var i=x.indexOf(':');if(i<0)return '<mark>'+mix(x)+'</mark>';return '<mark>'+mix(x.slice(0,i))+'</mark>'+mix(x.slice(i));}
+function hw(x){var i=x.indexOf(' : ');if(i<0)return '<mark>'+mix(x)+'</mark>';return mix(x.slice(0,i+3))+'<mark>'+mix(x.slice(i+3))+'</mark>';}
+function postit(p){return '<div class="postit">'+p.map(function(x){return '<p>'+mix(x)+'</p>';}).join('')+'</div>';}
+
+/* ---------- runs ---------- */
+var N=D.nums.length;
+function runList(){
+  var r=[];
+  D.nums.forEach(function(n,i){r.push({key:'r1-'+n.no,label:n.no,round:1,n:i});});
+  D.nums.forEach(function(n,i){r.push({key:'r2-'+n.no,label:n.no,round:2,n:i});});
+  r.push({key:'c1',label:'종합 1',round:3});
+  r.push({key:'c2',label:'종합 2',round:4});
+  return r;
+}
+function buildRun(run){
+  var items=[],quiz=[];
+  if(run.round<=2){
+    var S=D.nums[run.n].sets[run.round-1];
+    S.items.forEach(function(it){items.push({it:it,n:run.n});});
+    S.quiz.forEach(function(q){q._m=D.nums[run.n].mean;quiz.push(q);});
+  }else{
+    var c=run.round-3;
+    D.nums.forEach(function(n,i){items.push({it:n.comp[c],n:i});});
+    var pool=D.nums.map(function(n){var q=n.compquiz[c];q._m=n.mean;return q;}),used={},want=Math.min(5,pool.length);
+    for(var k=0;k<want;k++){var x=(Math.round(k*(pool.length-1)/Math.max(1,want-1))+c*2)%pool.length;while(used[x])x=(x+1)%pool.length;used[x]=1;}
+    Object.keys(used).map(Number).sort(function(a,b){return a-b;}).forEach(function(x){quiz.push(pool[x]);});
+  }
+  return {items:items,quiz:quiz};
+}
+function roundDone(round,done){
+  return D.nums.every(function(n){return done[(round===1?'r1-':'r2-')+n.no];});
+}
+function unlocked(run,done){
+  return true;
+  if(run.round===1)return true;
+  if(run.round===2)return roundDone(1,done);
+  if(run.round===3)return roundDone(2,done);
+  return !!done.c1;
+}
+
+/* ---------- views ---------- */
+function home(){st={screen:'home'};render();window.scrollTo(0,0);}
+function start(run){
+  var b=buildRun(run);
+  st={screen:'item',run:run,items:b.items,quiz:b.quiz,i:0,pick:null,fixPick:null,wrong:false,s1:[],s2:[],qj:0,qsel:{},qdone:false,qres:[],qpick:null,tap:{}};
+  render();window.scrollTo(0,0);
+}
+function homeView(){
+  var done=loadDone(),runs=runList();
+  var h='<div class="top"><button class="btn ghost back" id="toapp">‹ 앱으로</button><h1>'+esc(D.title)+'</h1><span>'+esc(D.sub||'')+'</span></div>';
+  [[1,'1라운드'],[2,'2라운드']].forEach(function(r){
+    var ok=runs.filter(function(x){return x.round===r[0];});
+    var cnt=ok.filter(function(x){return done[x.key];}).length;
+    var open=unlocked(ok[0],done);
+    h+='<div class="card board"><h2>'+r[1]+' <span class="sub">'+cnt+' / '+ok.length+'</span></h2>';
+    h+='<div class="grid">';
+    ok.forEach(function(x){
+      var d=done[x.key];
+      h+='<button class="tile'+(d?' done':'')+'" data-run="'+x.key+'"'+(open?'':' disabled')+'>'+esc(x.label)+(D.unit==null?'번':D.unit)+'<small>'+(d?'완료':esc(D.nums[x.n].sub||''))+'</small></button>';
+    });
+    h+='</div></div>';
+  });
+  h+='<div class="card board"><h2>종합</h2>';
+  var c1=runs[runs.length-2],c2=runs[runs.length-1];
+  h+='<div class="grid">';
+  [c1,c2].forEach(function(x){
+    var d=done[x.key],open=unlocked(x,done);
+    h+='<button class="tile'+(d?' done':'')+'" data-run="'+x.key+'"'+(open?'':' disabled')+'>'+x.label+'<small>'+(d?'완료':N+'문제')+'</small></button>';
+  });
+  h+='</div></div>';
+  return h;
+}
+function runTitle(){var r=st.run;return r.round<=2?(r.label+(D.unit==null?'번':D.unit)+' · '+r.round+'라운드'):r.label;}
+function header(){
+  var I=st.items.length,Q=st.quiz.length,total=I+Q;
+  var done=st.screen==='item'?st.i:st.screen==='quiz'?I+st.qj:total;
+  var label=st.screen==='item'?('문제 '+(st.i+1)+' / '+I):st.screen==='quiz'?('마무리 '+(st.qj+1)+' / '+Q):'완료';
+  return '<div class="top"><h1>'+esc(D.title)+' · '+esc(runTitle())+'</h1><span>'+label+'</span></div><div class="bar"><i style="width:'+Math.round(done/total*100)+'%"></i></div>';
+}
+function footer(confirm){return '<div class="foot"><button class="btn ghost" id="home" data-confirm="'+(confirm?'1':'0')+'">목록으로</button></div>';}
+var homeT=null;
+function wireHome(){
+  var b=document.getElementById('home');
+  if(!b)return;
+  b.onclick=function(){
+    if(b.dataset.confirm!=='1'||b.dataset.arm==='1'){clearTimeout(homeT);home();return;}
+    b.dataset.arm='1';b.textContent='한 번 더 누르면 목록으로';
+    homeT=setTimeout(function(){b.dataset.arm='0';b.textContent='목록으로';},3000);
+  };
+}
+function cur(){return st.items[st.i];}
+function num(){return D.nums[cur().n];}
+function slotOf(k,it){for(var i=0;i<it.slots.length;i++)if(it.slots[i][0]===k)return i;return -1;}
+function ansIdx(it){for(var i=0;i<it.slots.length;i++)if(it.slots[i][2]==='a')return i;return -1;}
+function shown(s,orig){return (s[1]?s[1]:orig);}
+function passage(){
+  var it=cur().it,nm=num();
+  var html=esc(nm.tpl).replace(/\{(\w+)(?:\|([^}]*))?\}/g,function(_,k,txt){
+    var orig=txt!==undefined?txt:disp(k);
+    var n=slotOf(k,it);
+    if(n<0)return orig;
+    var cls='u',dis='';
+    if(st.pick!==null){
+      dis=' disabled';
+      if(n===ansIdx(it))cls+=' right';
+      else if(n===st.pick)cls+=' wrong';
+    }
+    return '<button class="'+cls+'" data-n="'+n+'"'+dis+'><b>'+CIR[n]+'</b>'+shown(it.slots[n],orig)+'</button>';
+  });
+  var fn=nm.fn&&nm.fn.length?'<span class="fn">'+nm.fn.map(esc).join('<br>')+'</span>':'';
+  return '<div class="passage" lang="en" translate="no">'+html+fn+'</div>';
+}
+function origText(k){
+  var m=num().tpl.match(new RegExp('\\{'+k+'(?:\\|([^}]*))?\\}'));
+  return m&&m[1]!==undefined?m[1]:disp(k);
+}
+function block(b,bi){
+  var h='<div>'+(b.h?'<h3>'+esc(b.h)+'</h3>':'');
+  if(b.t==='p')h+=lines(b.x);
+  else if(b.t==='flow'){h+='<ol class="flow">'+b.x.map(function(x,j){return '<li class="'+(j===b.at?'at':'')+'">'+mix(x)+'</li>';}).join('')+'</ol>';}
+  else if(b.t==='pair'){h+='<ul class="pairs">'+b.x.map(function(x){return '<li><span class="e" lang="en" translate="no">'+esc(x[0])+'</span><span class="k">'+mix(x[1])+'</span></li>';}).join('')+'</ul>';}
+  else if(b.t==='tap'){
+    var open=st.tap[st.i+'-'+bi];
+    h+='<button class="tapq" data-tap="'+bi+'">'+mix(b.q)+'</button>';
+    if(open)h+='<div class="tapa">'+lines(b.a)+'</div>';
+  }
+  return h+'</div>';
+}
+function negQ(t){return t.replace(/(적절하지 않은|틀린)/g,'<span class="neg">$1</span>');}
+function M(w){var mm=st.screen==='quiz'&&st.quiz[st.qj]&&st.quiz[st.qj]._m?st.quiz[st.qj]._m:(st.screen==='item'?num().mean:{});return (mm||{})[w]||'';}
+function SM(w){var m=M(w);if(!m)return '';var x=m.match(/^(?:동사|명사|형용사|부사)?\s*[A-Za-z][A-Za-z ’'\-]*\(([^)]+)\)/);if(x)return x[1].split(',')[0].trim();return m.split(/[.,]/)[0].trim();}
+function wm(w){var m=G?M(w):SM(w);return m?w+'('+m+')':w;}
+function itemView(){
+  var it=cur().it,a=ansIdx(it),nm=num();
+  var h=header();
+  var noTag=st.run.round>2?'<p class="nobadge">'+esc(nm.no)+(D.unit==null?'번 지문':'')+'</p>':'';
+  h+='<div class="card">'+noTag+'<p class="q">'+negQ('윗글의 밑줄 친 ①~⑤ 중, '+(G?'어법상 틀린':'문맥상 쓰임이 적절하지 않은')+' 것은?')+'</p>'+passage()+'</div>';
+  var right=G?origText(it.slots[a][0]):it.slots[a][0];
+  var aw=shown(it.slots[a],G?origText(it.slots[a][0]):disp(it.slots[a][0]));
+  if(st.pick!==null&&st.s1[st.i]){
+    var answered=st.s2[st.i]!==undefined;
+    h+='<div class="card" id="fix"><p class="q">'+CIR[a]+' '+en(aw)+(G?' 를 바르게 고치면?':' 의 본문 속 원래 단어는?')+'</p><div class="opts">';
+    it.opts.forEach(function(o,j){
+      var cls='opt',dis='';
+      if(answered){dis=' disabled';if(o===right)cls+=' right';else if(j===st.fixPick)cls+=' wrong';}
+      h+='<button class="'+cls+'" data-o="'+j+'"'+dis+'><span><b>'+CIR[j]+'</b> '+en(disp(o))+'</span></button>';
+    });
+    h+='</div></div>';
+  }
+  if(st.wrong)h+=wrongCard(it,a,aw,right);
+  return h+footer(true);
+}
+function slotReason(it,s,n,a){
+  if(G){return s[3]||'';}
+  var w=s[1]||disp(s[0]),o=disp(s[0]);
+  if(s[2]==='a')return '본문은 '+wm(o)+'. '+wm(w)+'는 반대 방향이라 문맥에 맞지 않음.';
+  if(s[2]==='s')return '본문은 '+wm(o)+'. '+wm(w)+'도 같은 뜻이라 맞는 표현.';
+  return '본문 그대로라 맞는 표현.';
+}
+function slotKo(s){
+  if(G)return M(s[2]==='a'?s[1]:origText(s[0]));
+  var w=s[1]||disp(s[0]);return M(w);
+}
+function chCard(num,big,ko,reason,kind){
+  var tag=kind==='ok'?'<span class="chtag ok">정답</span>':kind==='me'?'<span class="chtag me">내가 고름</span>':'';
+  return '<div class="ch '+(kind||'')+'"><div class="chtop"><span class="chn">'+num+'</span><div class="chw"><span lang="en" translate="no">'+esc(big)+'</span>'+(ko?'<small>'+esc(ko)+'</small>':'')+'</div>'+tag+'</div>'+(reason?'<p class="chr">'+mix(reason)+'</p>':'')+'</div>';
+}
+function wrongCard(it,a,aw,right){
+  var h='<div class="card exp" id="exp">';
+  var sa=it.slots[a];
+  var bandKo=G?esc(it.point):esc(disp(sa[0])+' '+M(disp(sa[0])));
+  h+='<div class="band"><b>오답</b><span>정답 '+CIR[a]+' '+en(aw)+' → '+en(disp(right))+'</span><small>'+bandKo+'</small></div>';
+  h+='<div class="evi"><p class="en" lang="en" translate="no">'+hlt(it.en,it.hl)+'</p><p class="ko">'+hlt(it.ko,it.khl)+'</p></div>';
+  h+='<div><h3>밑줄 풀이</h3><div class="chs">';
+  it.slots.forEach(function(s,n){
+    var w=G?(s[2]==='a'?s[1]:origText(s[0])):(s[1]||disp(s[0]));
+    var kind=n===a?'ok':(n===st.pick&&!st.s1[st.i])?'me':'';
+    h+=chCard(CIR[n],w,slotKo(s),slotReason(it,s,n,a),kind);
+  });
+  h+='</div></div>';
+  if(st.s1[st.i]&&st.s2[st.i]===false){
+    h+='<div><h3>'+(G?'고치기 보기 풀이':'원래 단어 보기 풀이')+'</h3><div class="chs">';
+    it.opts.forEach(function(o,j){
+      var ok=o===right,me=j===st.fixPick;
+      var ko=G?M(o):(it.om?it.om[j]:'');
+      var r=it.or&&it.or[j]?it.or[j]:ok?(G?'이 자리에 맞는 형태. '+(sa[3]||''):'본문 원래 단어.'):(G?disp(o)+'는 이 자리에 맞지 않는 형태.':'본문 단어가 아님. 본문은 '+disp(right)+'('+M(disp(right))+').');
+      h+=chCard(CIR[j],disp(o),ko,r,ok?'ok':me?'me':'');
+    });
+    h+='</div></div>';
+  }
+  it.blocks.forEach(function(b,bi){h+=block(b,bi);});
+  h+='<div class="note"><p class="nt">이것만은 노트에 쓰자 1 · 정답의 근거</p><p lang="en" translate="no">'+(G?hlt(it.en,it.hl):esc(it.en))+'</p><p class="nko">'+(G?hlt(it.ko,it.khl):esc(it.ko))+'</p>'+it.post.map(function(p){return '<p>'+(G?hk(p):mix(p))+'</p>';}).join('')+'</div>';
+  var why;
+  if(!st.s1[st.i]){
+    var ps=it.slots[st.pick],pw=G?origText(ps[0]):(ps[1]||disp(ps[0]));
+    why=CIR[st.pick]+' '+pw+(slotKo(ps)?' = '+slotKo(ps):'')+' : '+slotReason(it,ps,st.pick,a)+' 틀린 곳은 '+CIR[a]+' '+aw+'.';
+  }else{
+    var po=it.opts[st.fixPick];
+    var pko=G?M(po):(it.om?it.om[st.fixPick]:'');
+    why=disp(po)+(pko?' = '+pko:'')+' : '+(it.or&&it.or[st.fixPick]?it.or[st.fixPick]:G?'이 자리에 맞지 않는 형태. 바른 형태는 '+disp(right)+'. '+(sa[3]||''):'본문 원래 단어가 아님. 본문은 '+disp(right)+'('+M(disp(right))+').');
+  }
+  h+='<div class="note"><p class="nt">이것만은 노트에 쓰자 2 · 내가 고른 답이 틀린 이유</p><p>'+(G?hw(why):mix(why))+'</p></div>';
+  h+='<button class="btn" id="next">'+(st.i<st.items.length-1?'다음 문제':'마무리')+'</button></div>';
+  return h;
+}
+var TAG={s:'비슷',a:'반대',n:'관계없음'};
+function quizView(){
+  var q=st.quiz[st.qj],h=header();
+  if(G){
+    h+='<div class="card"><p class="q">빈칸에 알맞은 것은?</p><p class="gs" lang="en" translate="no">'+esc(q.s).replace('___','<b>_____</b>')+'</p><div class="opts">';
+    q.o.forEach(function(o,j){
+      var cls='opt',dis='';
+      if(st.qdone){dis=' disabled';if(j===q.a)cls+=' right';else if(j===st.qpick)cls+=' wrong';}
+      h+='<button class="'+cls+'" data-g="'+j+'"'+dis+'><span>'+en(o)+'</span></button>';
+    });
+    h+='</div></div>';
+    if(st.qdone&&!st.qres[st.qj]){
+      var full=q.s.replace('___',q.o[q.a]);
+      h+='<div class="card exp" id="exp"><div class="band"><b>오답</b><span>정답 '+en(q.o[q.a])+'</span><small>'+esc(q.ko)+'</small></div>';
+      h+='<div class="chs">'+q.o.map(function(o,j){return chCard(j===0?'A':'B',o,M(o),j===q.a?q.why:(q.wy||'이 빈칸에는 맞지 않는 형태.'),j===q.a?'ok':j===st.qpick?'me':'');}).join('')+'</div>';
+      h+='<div class="note"><p class="nt">이것만은 노트에 쓰자</p><p lang="en" translate="no">'+esc(q.s).replace('___','<mark>'+esc(q.o[q.a])+'</mark>')+'</p><p class="nko">'+esc(q.ko)+'</p><p><mark>'+mix(q.why)+'</mark></p></div>';
+      h+='<button class="btn" id="qnext">'+(st.qj<st.quiz.length-1?'다음':'결과 보기')+'</button></div>';
+    }
+    return h+footer(true);
+  }
+  var T=vq(q,st.qj);
+  h+='<div class="card"><p class="q">'+en(q.w)+' ('+esc(q.m)+') 와 뜻이 '+(T.ant?'<span class="neg">반대인</span>':'비슷한')+' 말은?</p><div class="opts">';
+  T.o.forEach(function(x,j){
+    var cls='opt',dis='';
+    if(st.qdone){dis=' disabled';if(j===T.a)cls+=' right';else if(j===st.qpick)cls+=' wrong';}
+    h+='<button class="'+cls+'" data-g="'+j+'"'+dis+'><span><b>'+CIR[j]+'</b> '+en(x[0])+'</span></button>';
+  });
+  h+='</div></div>';
+  if(st.qdone&&!st.qres[st.qj]){
+    var R={s:'비슷한 말',a:'반대말',n:'관계없는 단어'};
+    h+='<div class="card exp" id="exp"><div class="band"><b>오답</b><span>정답 '+CIR[T.a]+' '+en(T.o[T.a][0])+'</span><small>'+esc(T.o[T.a][1])+'</small></div>';
+    h+='<div class="chs">'+T.o.map(function(x,j){return chCard(CIR[j],x[0],x[1],q.w+'의 '+R[x[2]]+'.',j===T.a?'ok':j===st.qpick?'me':'');}).join('')+'</div>';
+    var l1=q.it.filter(function(x){return x[2]==='s';}).map(function(x){return q.w+' = '+x[0]+' ('+x[1]+')';});
+    var l2=q.it.filter(function(x){return x[2]==='a';}).map(function(x){return q.w+' ↔ '+x[0]+' ('+x[1]+')';});
+    h+='<div class="note"><p class="nt">이것만은 노트에 쓰자 1 · 정답</p>'+l1.concat(l2).map(function(l){return '<p>'+mix(l)+'</p>';}).join('')+'</div>';
+    var me=T.o[st.qpick];
+    h+='<div class="note"><p class="nt">이것만은 노트에 쓰자 2 · 내가 고른 답이 틀린 이유</p><p>'+mix(me[0]+' ('+me[1]+') : '+q.w+'의 '+R[me[2]]+'.')+'</p></div>';
+    h+='<button class="btn" id="qnext">'+(st.qj<st.quiz.length-1?'다음 단어':'결과 보기')+'</button></div>';
+  }
+  return h+footer(true);
+}
+/* vocab quiz as one-tap tiles: odd turns ask antonym when one exists */
+function vq(q,k){
+  var S=q.it.filter(function(x){return x[2]==='s';}),A=q.it.filter(function(x){return x[2]==='a';}),Nn=q.it.filter(function(x){return x[2]==='n';});
+  var ant=(k%2===1)&&A.length>0;
+  var ans=ant?A[0]:S[0];
+  var d=[ant?S[0]:(A[0]||Nn[2]),Nn[0],Nn[1]];
+  var o=[ans].concat(d);
+  var r=(q.w.length+k)%4;
+  o=o.slice(4-r).concat(o.slice(0,4-r));
+  return {o:o,a:o.indexOf(ans),ant:ant};
+}
+function resultView(){
+  var I=st.items.length,Q=st.quiz.length;
+  var a=st.s1.filter(Boolean).length,b=st.s2.filter(Boolean).length,c=st.qres.filter(Boolean).length;
+  var h=header();
+  h+='<div class="card exp"><div><h3>이번 세트</h3><p>'+(G?'틀린 곳 찾기 ':'어색한 단어 찾기 ')+a+' / '+I+'</p><p>'+(G?'바르게 고치기 ':'원래 단어 고르기 ')+b+' / '+I+'</p><p>마무리 '+c+' / '+Q+'</p></div>';
+  h+='<div class="stamps"><div class="stamp done">'+esc(runTitle())+'<br>완료</div></div></div>';
+  h+='<div class="card exp"><h3>이 세트의 포스트잇</h3><div class="recap">';
+  st.items.forEach(function(x){h+=postit(x.it.post);});
+  h+='</div></div>';
+  return h+footer(false);
+}
+function render(){
+  app.innerHTML=st.screen==='home'?homeView():st.screen==='item'?itemView():st.screen==='quiz'?quizView():resultView();
+  wireHome();
+}
+function findRun(k){var r=runList();for(var i=0;i<r.length;i++)if(r[i].key===k)return r[i];}
+function finish(){var d=loadDone();d[st.run.key]=1;saveDone(d);st.screen='result';}
+function goNext(){
+  if(st.i<st.items.length-1){st.i++;st.pick=null;st.fixPick=null;st.wrong=false;}
+  else if(!st.quiz.length){finish();}
+  else{st.screen='quiz';st.qj=0;st.qsel={};st.qdone=false;st.qpick=null;}
+  render();window.scrollTo(0,0);
+}
+function qNext(){
+  if(st.qj<st.quiz.length-1){st.qj++;st.qsel={};st.qdone=false;st.qpick=null;}
+  else finish();
+  render();window.scrollTo(0,0);
+}
+var busy=false;
+function later(f){busy=true;setTimeout(function(){busy=false;f();},700);}
+function toExp(){var x=document.getElementById('exp');if(x)x.scrollIntoView({behavior:'smooth',block:'start'});}
+app.addEventListener('click',function(e){
+  var t=e.target.closest('button');
+  if(!t||busy)return;
+  if(t.dataset.run!==undefined){start(findRun(t.dataset.run));return;}
+  if(t.id==='toapp'){if(history.length>1)history.back();else location.href='../';return;}
+  if(st.screen==='item'){
+    var it=cur().it,a=ansIdx(it);
+    if(t.classList.contains('u')&&st.pick===null){
+      var n=+t.dataset.n;st.pick=n;st.s1[st.i]=(n===a);
+      if(!st.s1[st.i]){st.s2[st.i]=false;st.wrong=true;render();toExp();return;}
+      render();var f=document.getElementById('fix');if(f)f.scrollIntoView({behavior:'smooth',block:'center'});return;
+    }
+    if(t.dataset.o!==undefined&&st.s2[st.i]===undefined){
+      var j=+t.dataset.o,right=G?origText(it.slots[a][0]):it.slots[a][0];
+      st.fixPick=j;st.s2[st.i]=(it.opts[j]===right);
+      if(st.s2[st.i]){render();later(goNext);return;}
+      st.wrong=true;render();toExp();return;
+    }
+    if(t.dataset.tap!==undefined){var k=st.i+'-'+t.dataset.tap;st.tap[k]=!st.tap[k];var y=window.scrollY;render();window.scrollTo(0,y);return;}
+    if(t.id==='next'){goNext();return;}
+  }
+  if(st.screen==='quiz'){
+    var q=st.quiz[st.qj];
+    if(t.dataset.g!==undefined&&!st.qdone){var g=+t.dataset.g;st.qpick=g;st.qres[st.qj]=(g===(G?q.a:vq(q,st.qj).a));st.qdone=true;render();if(st.qres[st.qj])later(qNext);else toExp();return;}
+    if(t.dataset.c!==undefined&&!st.qdone){var c=+t.dataset.c;st.qsel[c]=!st.qsel[c];render();return;}
+    if(t.id==='confirm'){var ok=true;q.it.forEach(function(x,j){if((x[2]!=='n')!==!!st.qsel[j])ok=false;});st.qres[st.qj]=ok;st.qdone=true;render();if(ok)later(qNext);else toExp();return;}
+    if(t.id==='qnext'){qNext();return;}
+  }
+});
+home();
+})();
+
+</script>
+</body>
+</html>
