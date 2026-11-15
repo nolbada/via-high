@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ko" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<script src="../common/base.js?v=261105a"></script>
+<title>어법특훈 · 공통영어2 능률(민) 3과</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f3f5f7; --card:#ffffff; --ink:#1b2430; --sub:#5b6776; --line:#d9dee5;
+  --accent:#0e6a6a; --accent-soft:#e1f1f0;
+  --ok:#1f7a4d; --ok-soft:#e3f4ea; --bad:#b3372f; --bad-soft:#fbe6e4;
+  --note:#fff1a6; --note-ink:#4a3d00;
+  --font:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.7;color-scheme:light}
+.wrap{max-width:720px;margin:0 auto;padding:14px 16px 56px;display:flex;flex-direction:column;gap:14px}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.top h1{font-size:1.05rem;margin:0;font-weight:700;text-wrap:balance}
+.top span{color:var(--sub);font-size:.9rem;white-space:nowrap}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);transition:width .25s}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.q{font-weight:700;margin:0 0 12px;text-wrap:balance}
+.passage{font-size:1.02rem;line-height:2.15;word-break:keep-all;overflow-wrap:break-word}
+.passage .fn{display:block;font-size:.82rem;line-height:1.5;color:var(--sub);margin-top:10px}
+button{font:inherit;color:inherit}
+button.u{background:none;border:0;border-bottom:2px solid var(--ink);padding:0 3px;margin:0 1px;cursor:pointer;border-radius:2px}
+button.u b{font-size:.72em;color:var(--accent);margin-right:3px;font-weight:700}
+button.u:focus-visible,.opt:focus-visible,.btn:focus-visible,.ck:focus-visible,.setbtn:focus-visible,.tapq:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+button.u.right{background:var(--ok-soft);border-color:var(--ok)}
+button.u.wrong{background:var(--bad-soft);border-color:var(--bad)}
+button.u:disabled{cursor:default}
+.opts{display:grid;gap:8px;grid-template-columns:1fr 1fr}
+@media (max-width:480px){.opts{grid-template-columns:1fr}}
+.opt,.ck{text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer;display:flex;gap:8px;align-items:baseline;justify-content:space-between}
+.opt b{color:var(--accent);font-weight:700}
+.opt.right,.ck.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong,.ck.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.ck.on{border-color:var(--accent);background:var(--accent-soft)}
+.ck small,.opt small{color:var(--sub);font-size:.82rem}
+.ck .tag{font-size:.78rem;font-weight:700;color:var(--sub)}
+.ck.right .tag{color:var(--ok)}
+.ck.wrong .tag{color:var(--bad)}
+.opt:disabled,.ck:disabled{cursor:default}
+.btn{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:11px 18px;font-weight:700;cursor:pointer;align-self:flex-start}
+.btn.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+.badge{display:inline-block;font-weight:700;border-radius:6px;padding:2px 10px;font-size:.9rem}
+.badge.ok{background:var(--ok-soft);color:var(--ok)}
+.badge.no{background:var(--bad-soft);color:var(--bad)}
+.exp{display:flex;flex-direction:column;gap:16px}
+.exp h3{margin:0 0 4px;font-size:.92rem;color:var(--accent);font-weight:700}
+.exp p{margin:0}
+.lines p+p{margin-top:2px}
+.words{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px;font-size:.95rem}
+.words li span{color:var(--sub)}
+.words li.sw{color:var(--bad)}
+.words li.sy b{color:var(--ok)}
+.evi .en{font-weight:500}
+mark{background:#ffe45c;color:inherit;border-radius:3px;padding:0 2px}
+mark.k{font-weight:700}
+.evi .ko{color:var(--sub);font-size:.95rem}
+.flow{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
+.flow li{padding:6px 10px;border-left:3px solid var(--line);color:var(--sub)}
+.flow li.at{border-left-color:var(--accent);background:var(--accent-soft);color:var(--ink);font-weight:700}
+.pairs{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.pairs li .e{font-weight:500}
+.pairs li .k{color:var(--sub);font-size:.95rem;display:block}
+.tapq{width:100%;text-align:left;background:var(--accent-soft);border:1.5px dashed var(--accent);border-radius:8px;padding:10px 12px;cursor:pointer;font-weight:700}
+.tapa{margin-top:8px;padding-left:12px;border-left:3px solid var(--accent)}
+.postit{background:var(--note);color:var(--note-ink);padding:12px 14px;border-radius:4px;box-shadow:0 2px 0 rgba(0,0,0,.12);font-weight:500;transform:rotate(-.6deg)}
+.postit p+p{margin-top:2px}
+.stamps{display:flex;gap:10px}
+.stamp{flex:1;border:2px dashed var(--line);border-radius:10px;text-align:center;padding:14px 4px;color:var(--sub);font-weight:700}
+.stamp.done{border:3px solid var(--accent);color:var(--accent);background:var(--accent-soft);transform:rotate(-2deg)}
+.setlist{display:flex;flex-direction:column;gap:10px}
+.setbtn{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:16px;cursor:pointer;font-weight:700}
+.setbtn small{color:var(--sub);font-weight:500}
+.setbtn.done{border-color:var(--accent)}
+.setbtn.done small{color:var(--accent);font-weight:700}
+.recap{display:flex;flex-direction:column;gap:8px}
+.foot{margin-top:6px;display:flex;justify-content:center}
+.sub{color:var(--sub);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.board h2{font-size:.95rem;margin:4px 0 8px;color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.tile{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:12px 6px;text-align:center;cursor:pointer;font-weight:700;line-height:1.3}
+.tile small{display:block;font-weight:500;color:var(--sub);font-size:.72rem;margin-top:2px}
+.tile.done{border:2.5px solid var(--accent);background:var(--accent-soft);color:var(--accent)}
+.tile.done small{color:var(--accent)}
+.tile:disabled{opacity:.45;cursor:default}
+.lock{color:var(--sub);font-size:.85rem;margin:0 0 8px}
+.pt{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;border-radius:6px;padding:2px 10px;font-size:.9rem}
+.gs{font-size:1.05rem;line-height:1.9}
+.chk li.bad{color:var(--bad)}
+.chk li span{color:var(--sub)}
+.nobadge{font-size:.8rem;color:var(--sub);font-weight:700}
+.neg{background:linear-gradient(transparent 45%,#f6e27a 45%)}
+mark{background:linear-gradient(transparent 45%,#f6e27a 45%)!important;padding:0}
+.band{border-radius:10px;background:var(--bad-soft);border:1.5px solid var(--bad);padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.band b{color:var(--bad);font-size:1rem}
+.band span{font-weight:700}
+.band small{color:var(--sub);font-size:.85rem}
+.chs{display:flex;flex-direction:column;gap:10px}
+.ch{border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;background:#f8f9fb}
+.ch.ok{border-color:var(--ok);background:linear-gradient(90deg,#e3f4ea,#fff)}
+.ch.me{border-color:var(--bad);background:linear-gradient(90deg,#fbe6e4,#fff)}
+.chtop{display:flex;gap:10px;align-items:flex-start}
+.chn{color:var(--sub);min-width:1.4em}
+.chw{flex:1;display:flex;flex-direction:column;font-size:1.08rem;font-weight:500}
+.chw small{font-size:.85rem;color:var(--sub);font-weight:400}
+.chtag{font-size:.82rem;font-weight:700;border-radius:999px;padding:2px 10px;border:1.5px solid;white-space:nowrap}
+.chtag.ok{color:var(--ok);border-color:var(--ok);background:#fff}
+.chtag.me{color:var(--bad);border-color:var(--bad);background:#fff}
+.chr{margin:8px 0 0;padding-left:10px;border-left:3px solid var(--line);color:#3a4654;font-size:.95rem}
+.ch.ok .chr{border-left-color:var(--ok)}
+.ch.me .chr{border-left-color:var(--bad)}
+.note{background:#fff8d6;border:1.5px solid #f0d36a;border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:3px}
+.note .nt{font-weight:700;color:#7a5d00;font-size:.9rem;margin-bottom:4px}
+.note .nko{color:var(--sub);font-size:.92rem}
+.ck.miss{border-color:var(--ok);border-style:dashed}
+.top .back{padding:6px 12px;font-size:.85rem;align-self:center}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script id="data" type="application/json">{"kind":"g","id":"c2neminL3","title":"어법특훈","sub":"공통영어2 능률(민) 3과","nums":[{"id":"csg1-3a","no":"본문 ①②","title":"어법특훈 · 공통영어2 3과 본문 ①+②","sub":"책이 된 호랑이 이야기 + 한국 문화 속 호랑이","tpl":"Children around the world {learned|learned} a bit more about Korean culture when writer Tae Keller published her book When You Trap a Tiger in 2020. Its story starts with a girl {who|who} {meets|meets} a tiger. Her grandmother {knows|knows} the tiger as well. When her grandmother gets sick, the girl makes a deal with the tiger. Keller’s inspiration for her award-winning book {was|was} an old folktale {that_tale|that} her halmoni (grandmother) used to {tell|tell} her. It {is_called|is called} “The Sun and the Moon,” and it is about a brother, a sister, and a tiger. Keller wanted {to_revive|to revive} the public’s interest in tigers by {writing|writing} her own book. How {is_how|is} the tiger related to Korean culture? Long ago, tigers were so abundant in Korea {that_so|that} people often called the country the “Land of Tigers.” It is estimated that tigers lived in Korea for at least 100,000 years. The first appearance of a tiger in Korean culture {dates|dates} back to the rock art of the Bronze Age. It {depicts|depicts} people {hunting|hunting} various animals, including tigers. Since then, tigers have {appeared|appeared} in many aspects of Korean culture, from legends to art and musical instruments. Some of you may have {heard|heard} Korean folktales {featuring|featuring} tigers. In fact, approximately forty percent of Korean folktales about animals {include|include} a tiger. Tigers in Korean folktales are sometimes shown in a positive light and sometimes as foolish creatures. For example, in one story, a tiger helps a human {become|become} rich after the human saves the tiger’s life.","fn":["*folktale: 설화, 옛이야기","*depict: 묘사하다"],"mean":{"learned":"알게 되었다, 배웠다(learn의 과거형·과거분사형)","learning":"배우는 것, 배우는(learn의 -ing형)","to learn":"배우는 것, 배우기 위해(learn의 to부정사)","learns":"배우다(learn의 3인칭 단수 현재형)","being learned":"배워지는(learn의 수동 -ing형)","who":"~하는(사람을 받는 주격 관계대명사)","what":"~하는 것(선행사를 품은 관계대명사)","whose":"~의(소유격 관계대명사)","whom":"~을(목적격 관계대명사)","where":"~하는 곳(장소를 받는 관계부사)","which":"~하는(사물을 받는 관계대명사)","meets":"만나다(meet의 3인칭 단수 현재형)","knows":"알다(know의 3인칭 단수 현재형)","was":"~였다(be의 과거형, 단수 주어)","were":"~였다(be의 과거형, 복수 주어)","being":"~인 것, ~인(be의 -ing형)","to be":"~인 것, ~이 되는 것(be의 to부정사)","been":"~였던(be의 과거분사형)","that":"~하는(관계대명사) / 그래서(so ~ that 구문의 접속사)","tell":"말해 주다(동사원형)","telling":"말해 주는 것(tell의 -ing형)","told":"말해 주었다(tell의 과거형·과거분사형)","tells":"말해 주다(tell의 3인칭 단수 현재형)","to tell":"말해 주는 것(tell의 to부정사)","is called":"~라고 불린다(call의 현재 수동태)","to revive":"되살리는 것(revive의 to부정사)","reviving":"되살리는 것(revive의 -ing형)","revive":"되살리다(동사원형)","revived":"되살렸다(revive의 과거형·과거분사형)","to be revived":"되살려지는 것(revive의 수동 to부정사)","writing":"쓰는 것(write의 -ing형, 동명사)","write":"쓰다(동사원형)","wrote":"썼다(write의 과거형)","written":"쓰인(write의 과거분사형)","to write":"쓰는 것(write의 to부정사)","is":"~이다(be의 현재형, 단수 주어)","are":"~이다(be의 현재형, 복수 주어)","dates":"(시기가) 거슬러 올라가다(date의 3인칭 단수 현재형)","depicts":"묘사하다(depict의 3인칭 단수 현재형)","is depicted":"묘사된다(depict의 현재 수동태)","depicting":"묘사하는(depict의 -ing형)","to depict":"묘사하는 것(depict의 to부정사)","depict":"묘사하다(동사원형·현재형)","hunting":"사냥하는(hunt의 -ing형)","hunted":"사냥당한(hunt의 과거분사형)","hunts":"사냥하다(hunt의 3인칭 단수 현재형)","hunt":"사냥하다(동사원형)","being hunted":"사냥당하는(hunt의 수동 -ing형)","appeared":"나타난(appear의 과거형·과거분사형)","been appeared":"(쓸 수 없는 형태) appear는 수동이 없음","appear":"나타나다(동사원형)","appearing":"나타나는(appear의 -ing형)","to appear":"나타나는 것(appear의 to부정사)","heard":"들은, 들었다(hear의 과거형·과거분사형)","featuring":"등장시키는, ~가 나오는(feature의 -ing형)","include":"포함하다(동사원형·현재형)","includes":"포함하다(include의 3인칭 단수 현재형)","including":"포함하는, ~을 포함하여(include의 -ing형)","to include":"포함하는 것(include의 to부정사)","are included":"포함된다(include의 현재 수동태)","become":"~이 되다(동사원형)","becoming":"~이 되는 것(become의 -ing형)","becomes":"~이 되다(become의 3인칭 단수 현재형)","became":"~이 되었다(become의 과거형)","has become":"~이 되었다(become의 현재완료형)","flying":"날리는(fly의 -ing형)","flown":"날려진(fly의 과거분사형)","to buy":"사는 것(buy의 to부정사)","buying":"사는 것(buy의 -ing형)","go":"가다(동사원형)","going":"가는 것(go의 -ing형)","shows":"보여 주다(show의 3인칭 단수 현재형)","is shown":"보여진다(show의 현재 수동태)","was appeared":"(쓸 수 없는 형태) appear는 수동이 없음","wear":"쓰다, 입다(동사원형·현재형)","wears":"쓰다, 입다(wear의 3인칭 단수 현재형)","reading":"읽는 것(read의 -ing형, 동명사)","read":"읽다(동사원형)","finish":"끝내다(동사원형)","finishing":"끝내는 것(finish의 -ing형)"},"sets":[{"items":[{"slots":[["learned","learning","a","주어 Children(아이들) 뒤에 진짜 동사가 필요하다. learning(배우는)은 -ing라 혼자 동사가 될 수 없다."],["meets","","","who(~하는)가 받는 a girl(한 소녀)이 한 명이라 meets(만나다)가 맞다."],["knows","","","할머니가 호랑이를 아는 쪽이고 뒤에 목적어 the tiger(그 호랑이)가 있어 능동 knows(알다)가 맞다."],["is_called","","","설화가 ‘해님 달님’이라고 불리는 쪽이라 수동 is called(~라고 불린다)가 맞다."],["writing","","","전치사 by(~함으로써) 뒤라 동명사 writing(쓰는 것)이 맞다."]],"opts":["learned","to learn","learns","being learned"],"or":["learned(알게 되었다): 주어 Children(아이들)의 진짜 동사이고, when(~할 때) 절의 2020년 일과도 맞음.","to learn(배우는 것, 배우기 위해): to부정사는 동사 자리에 못 와서 문장에 동사가 없어짐.","learns(배우다, 3인칭 단수형): 주어 Children(아이들)이 복수라 s가 붙으면 안 되고, 2020년 과거 일과도 시제가 안 맞음.","being learned(배워지는): -ing형이라 혼자 동사가 못 되고, 아이들은 배우는 쪽이라 수동도 안 맞음."],"point":"정동사 vs. 준동사","en":"Children around the world learned a bit more about Korean culture when writer Tae Keller published her book When You Trap a Tiger in 2020.","ko":"전 세계의 아이들은 작가 Tae Keller가 2020년에 그녀의 책 When You Trap a Tiger를 출판했을 때 한국 문화에 대해 조금 더 알게 되었다.","hl":["learned","published"],"khl":["알게 되었다","출판했을 때"],"blocks":[{"t":"p","h":"문장의 기둥 찾기","x":["이야기의 시작: 한국계 작가 Tae Keller(태 켈러)가 호랑이 책을 냈다.","그 책 덕분에 전 세계 아이들이 한국 문화를 알게 되었다.","주어는 Children around the world(전 세계 아이들).","when(~할 때) 앞쪽이 큰 문장이라 여기에도 진짜 동사가 하나 있어야 한다.","그 기둥이 learned(알게 되었다).","learning(배우는)을 넣으면 기둥이 빠져 문장이 무너진다."]},{"t":"pair","h":"쉬운 예시","x":[["My brother learned Chinese when he lived in Beijing.","내 동생은 베이징에 살 때 중국어를 배웠다. (주어 My brother(내 동생) → 진짜 동사 learned(배웠다))"],["Students learning Chinese are in Room 3.","중국어를 배우는 학생들은 3번 교실에 있다. (learning(배우는)은 꾸밈말, 진짜 동사는 are(있다))"]]}],"post":["주어 Children(아이들) 뒤 기둥 동사 = learned(알게 되었다), -ing 불가"]},{"slots":[["who","what","a","앞에 사람 a girl(한 소녀)이 있다. what(~하는 것)은 앞에 명사를 둘 수 없다."],["knows","","","할머니가 호랑이를 아는 쪽이고 뒤에 목적어 the tiger(그 호랑이)가 있어 능동 knows(알다)가 맞다."],["that_tale","","","앞의 an old folktale(옛 설화)을 받고 tell(말해 주다)의 목적어가 빠져 있어 목적격 관계대명사 that(~하는)이 맞다."],["is_called","","","설화가 ‘해님 달님’이라고 불리는 쪽이라 수동 is called(~라고 불린다)가 맞다."],["writing","","","전치사 by(~함으로써) 뒤라 동명사 writing(쓰는 것)이 맞다."]],"opts":["who","whose","whom","where"],"or":["who(~하는): 사람 a girl(한 소녀)을 받고 뒤에 주어가 빠진 meets a tiger(호랑이를 만나다)가 와서 맞음.","whose(~의): 소유격이라 바로 뒤에 명사가 와야 하는데 동사 meets(만나다)가 옴.","whom(~을): 목적격이라 뒤에 주어가 있어야 하는데 주어 없이 동사 meets(만나다)가 바로 옴.","where(~하는 곳): 장소를 받는 관계부사라 사람 a girl(한 소녀)을 받을 수 없고 뒤 문장도 완전해야 함."],"point":"관계대명사 who vs. what","en":"Its story starts with a girl who meets a tiger.","ko":"그것의(=책의) 이야기는 호랑이를 만나는 한 소녀로부터 시작된다.","hl":["a girl who meets"],"khl":["호랑이를 만나는 한 소녀"],"blocks":[{"t":"p","h":"what(~하는 것)은 명사를 품고 다닌다","x":["책의 주인공은 호랑이를 만나는 한 소녀.","a girl(한 소녀)이라는 명사가 이미 앞에 있다.","what(~하는 것)은 속에 \"것\"이라는 명사를 품고 있다.","a girl what(한 소녀 ~하는 것)이면 명사가 두 번 나오는 꼴이 된다.","사람 명사 뒤에서 주어 자리를 채우는 건 who(~하는)."]},{"t":"pair","h":"쉬운 예시","x":[["I know a boy who plays the drums.","나는 드럼을 치는 소년을 안다. (사람 a boy(소년) + who(~하는))"],["What he said made me happy.","그가 한 말이 나를 기쁘게 했다. (앞에 명사 없이 what(~하는 것))"]]}],"post":["사람 명사 a girl(한 소녀) + who(~하는) + 동사, what(~하는 것) 불가"]},{"slots":[["meets","","","who(~하는)가 받는 a girl(한 소녀)이 한 명이라 meets(만나다)가 맞다."],["was","","","주어 Keller’s inspiration(Keller의 영감)이 하나라 was(~였다)가 맞다."],["tell","","","used to(~하곤 했다) 뒤라 동사원형 tell(말해 주다)이 맞다."],["to_revive","reviving","a","want(원하다)는 뒤에 to부정사를 받는 동사다. -ing를 목적어로 받지 않는다."],["is_how","","","의문문의 주어 the tiger(그 호랑이)가 하나라 is(~이다)가 맞다."]],"opts":["to revive","revive","revived","to be revived"],"or":["to revive(되살리는 것): want(원하다)는 to부정사를 목적어로 받아서 맞음.","revive(되살리다): wanted(원했다) 뒤에 동사원형이 바로 오면 동사가 두 개 겹침.","revived(되살렸다): 과거형이라 wanted(원했다)와 동사가 겹침.","to be revived(되살려지는 것): 수동이라 뒤에 목적어 the public’s interest(대중의 흥미)를 받을 수 없음. Keller(켈러)는 되살리는 쪽."],"point":"동명사 vs. to부정사 목적어","en":"Keller wanted to revive the public’s interest in tigers by writing her own book.","ko":"Keller는 그녀 자신의 책을 씀으로써 호랑이에 대한 대중의 흥미를 되살리고 싶어 했다.","hl":["wanted to revive"],"khl":["되살리고 싶어 했다"],"blocks":[{"t":"p","h":"앞을 내다보는 동사는 to를 좋아한다","x":["Keller(켈러)가 책을 쓴 이유: 사람들이 잊은 호랑이를 다시 떠올리게 하려고.","아직 일어나지 않은 일을 바라는 동사는 to부정사를 받는다.","want(원하다), hope(바라다), decide(결심하다), plan(계획하다).","그래서 wanted to revive(되살리고 싶어 했다).","reviving(되살리는 것)은 이 자리에 못 온다."]},{"t":"pair","h":"쉬운 예시","x":[["I want to eat pizza tonight.","나는 오늘 밤 피자를 먹고 싶다. (want(원하다) + to eat(먹는 것))"],["She decided to join the club.","그녀는 그 동아리에 들어가기로 결심했다. (decide(결심하다) + to join(들어가는 것))"]]}],"post":["want(원하다) + to 동사원형: wanted to revive(되살리고 싶어 했다)"]},{"slots":[["is_how","","","의문문의 주어 the tiger(그 호랑이)가 하나라 is(~이다)가 맞다."],["that_so","what","a","so abundant(매우 많은)와 짝을 이루는 말은 that(그래서)이다. what(~하는 것)은 이 짝 자리에 못 온다."],["depicts","","","바위 그림이 사람들을 묘사하는 쪽이고 목적어 people(사람들)이 있어 능동 depicts(묘사하다)가 맞다."],["heard","","","may have(~했을지도 모른다) 뒤라 과거분사 heard(들은)가 맞다."],["include","","","forty percent of(~의 40%) 뒤 명사 Korean folktales(한국 설화)가 복수라 include(포함하다)가 맞다."]],"opts":["that","which","whose","whom"],"or":["that(그래서): so abundant(매우 많은) ~ that(그래서) …은 \"너무 ~해서 …하다\"의 짝이라 맞음.","which(~하는): 관계대명사라 앞 명사를 받고 뒤에 빈자리가 있어야 하는데 뒤 문장이 완전함.","whose(~의): 바로 뒤에 꾸밀 명사가 와야 하는데 people often called(사람들은 종종 불렀다)라는 완전한 문장이 옴.","whom(~을): 목적어가 빠진 문장을 이끌어야 하는데 called the country(그 나라를 불렀다)에 목적어가 다 있음."],"point":"so ~ that 구문","en":"Long ago, tigers were so abundant in Korea that people often called the country the “Land of Tigers.”","ko":"오래 전 한국에는 호랑이가 매우 많아서 사람들은 종종 그 나라를 ‘호랑이의 땅’이라고 불렀다.","hl":["so abundant","that people often called"],"khl":["매우 많아서","사람들은 종종"],"blocks":[{"t":"p","h":"so(너무)가 보이면 that(그래서)을 찾아라","x":["옛날 한국은 호랑이가 너무 많았다.","그래서 ‘호랑이의 땅’이라는 별명까지 붙었다.","원인(너무 많다) → 결과(별명이 붙었다)를 잇는 고리가 so(너무) ~ that(그래서).","so(너무)와 that(그래서)은 한 세트로 움직인다.","what(~하는 것)은 이 세트의 짝이 아니다."]},{"t":"pair","h":"쉬운 예시","x":[["The soup was so hot that I couldn’t eat it.","수프가 너무 뜨거워서 나는 먹을 수 없었다. (so hot(너무 뜨거운) → that(그래서))"],["He was so tired that he fell asleep.","그는 너무 피곤해서 잠들어 버렸다. (so tired(너무 피곤한) → that(그래서))"]]},{"t":"tap","h":"확인 질문","q":"that(그래서) 뒤 people often called the country the “Land of Tigers.”(사람들은 종종 그 나라를 ‘호랑이의 땅’이라고 불렀다)는 빠진 것 없는 문장인가?","a":["완전하다. 주어 people(사람들), 동사 called(불렀다), 목적어 the country(그 나라)가 다 있다.","완전한 결과 문장을 so(너무)와 이어 주는 건 that(그래서)."]}],"post":["so(너무) + 형용사 + that(그래서) + 완전한 문장: so abundant that(너무 많아서)"]},{"slots":[["that_so","","","so abundant(매우 많은) ~ that(그래서) …: \"너무 ~해서 …하다\"의 짝 that이 맞다."],["dates","","","주어 The first appearance(첫 등장)가 하나라 dates(거슬러 올라가다)가 맞다."],["hunting","hunted","a","사람들이 동물을 직접 사냥하는 쪽이다. 뒤에 목적어 various animals(다양한 동물)도 있어 수동 hunted(사냥당한)는 못 온다."],["featuring","","","설화가 호랑이를 등장시키는 쪽이고 목적어 tigers(호랑이)가 있어 featuring(등장시키는)이 맞다."],["become","","","help(돕다) + 사람 + 동사원형이라 become(~이 되다)이 맞다."]],"opts":["hunting","hunts","hunt","being hunted"],"or":["hunting(사냥하는): 사람들이 직접 사냥하는 능동이고 뒤에 목적어 various animals(다양한 동물)가 있어 맞음.","hunts(사냥하다): 이미 동사 depicts(묘사하다)가 있어 접속사 없이 동사가 또 올 수 없음.","hunt(사냥하다): depict(묘사하다)는 지각·사역동사가 아니라 목적어 뒤에 동사원형을 받지 않음.","being hunted(사냥당하는): 수동이라 뒤에 목적어 various animals(다양한 동물)를 받을 수 없음."],"point":"능동 v-ing vs. 수동 p.p.","en":"It depicts people hunting various animals, including tigers.","ko":"그것은(=바위 그림) 호랑이를 포함하여 다양한 동물을 사냥하는 사람들을 묘사한다.","hl":["people hunting various animals"],"khl":["다양한 동물을 사냥하는 사람들"],"blocks":[{"t":"p","h":"누가 누구를 사냥하나","x":["청동기 시대 바위 그림: 한국 문화 속 호랑이의 첫 등장.","그림 속 사람들이 호랑이 같은 동물을 사냥하고 있다.","사람 = 사냥하는 쪽(능동) → hunting(사냥하는).","동물 = 사냥당하는 쪽(수동) → hunted(사냥당한).","뒤에 목적어 various animals(다양한 동물)가 있으면 능동 -ing."]},{"t":"pair","h":"쉬운 예시","x":[["Look at the boys playing soccer.","축구를 하고 있는 소년들을 봐라. (소년들이 직접 함 → playing(하고 있는))"],["I found a wallet lost in the park.","나는 공원에서 잃어버린 지갑을 찾았다. (지갑은 잃어버려진 쪽 → lost(잃어버려진))"]]}],"post":["사람이 직접 하면 -ing + 목적어: people hunting animals(동물을 사냥하는 사람들)"]}],"quiz":[{"s":"My sister ___ to swim last summer.","o":["learned","learning"],"a":0,"ko":"내 여동생은 지난여름에 수영을 배웠다.","why":"주어 My sister(내 여동생) 뒤 진짜 동사 자리라 learned(배웠다).","wy":"learning(배우는): -ing는 혼자 동사 자리에 못 옴."},{"s":"I have a friend ___ lives in Busan.","o":["what","who"],"a":1,"ko":"나에게는 부산에 사는 친구가 있다.","why":"사람 a friend(친구) 뒤, 주어가 빠진 자리라 who(~하는).","wy":"what(~하는 것): 앞에 명사 a friend(친구)가 있으면 못 옴."},{"s":"We decided ___ a new bike.","o":["to buy","buying"],"a":0,"ko":"우리는 새 자전거를 사기로 결심했다.","why":"decide(결심하다)는 to부정사를 목적어로 받음.","wy":"buying(사는 것): decide(결심하다)는 -ing를 목적어로 받지 않음."},{"s":"The box was so heavy ___ I couldn’t lift it.","o":["that","what"],"a":0,"ko":"그 상자는 너무 무거워서 나는 들 수 없었다.","why":"so heavy(너무 무거운) ~ that(그래서) 짝.","wy":"what(~하는 것): so(너무)의 짝이 아니고 뒤 문장도 완전함."},{"s":"Look at the girl ___ a kite.","o":["flying","flown"],"a":0,"ko":"연을 날리고 있는 소녀를 봐라.","why":"소녀가 직접 날리고 뒤에 목적어 a kite(연)가 있어 -ing.","wy":"flown(날려진): 수동이라 뒤에 목적어 a kite(연)를 받을 수 없음."}]},{"items":[{"slots":[["learned","","","주어 Children(아이들) 뒤 진짜 동사 자리. 과거형 learned(알게 되었다)가 맞다."],["who","","","앞의 사람 a girl(한 소녀)을 받고 뒤에 주어가 빠져 있어 주격 관계대명사 who(~하는)가 맞다."],["was","were","a","주어는 Keller’s inspiration(Keller의 영감) 하나다. for her award-winning book(그녀의 수상 도서에 대한)은 꼬리표일 뿐이다."],["is_called","","","설화가 ‘해님 달님’이라고 불리는 쪽이라 수동 is called(~라고 불린다)가 맞다."],["writing","","","전치사 by(~함으로써) 뒤라 동명사 writing(쓰는 것)이 맞다."]],"opts":["was","being","to be","been"],"or":["was(~였다): 주어 inspiration(영감)이 하나라 단수 동사가 맞음.","being(~인 것): -ing형이라 혼자 동사 자리에 못 와서 문장에 동사가 없어짐.","to be(~이 되는 것): to부정사는 동사 자리에 못 옴.","been(~였던): 과거분사라 have(~해 왔다) 없이 혼자 동사가 될 수 없음."],"point":"수식받는 주어의 수일치","en":"Keller’s inspiration for her award-winning book was an old folktale that her halmoni (grandmother) used to tell her.","ko":"Keller의 수상 도서에 대한 영감은 그녀의 할머니가 그녀에게 이야기해 주던 옛 설화였다.","hl":["Keller’s inspiration","was"],"khl":["영감은","옛 설화였다"],"blocks":[{"t":"p","h":"꼬리표 떼고 주인 찾기","x":["Keller(켈러)의 책은 상까지 받았다.","그 책의 씨앗은 할머니가 들려주던 옛이야기.","주인(주어): inspiration(영감) 하나.","꼬리표: for her award-winning book(그녀의 수상 도서에 대한).","동사 바로 앞 book(책)도 하나라 헷갈리기 쉽지만, 기준은 언제나 맨 앞 주인.","주인이 하나니까 was(~였다)."]},{"t":"pair","h":"쉬운 예시","x":[["The reason for his tears was a sad movie.","그가 운 이유는 슬픈 영화였다. (주인 The reason(이유) → was(~였다))"],["The pictures on the wall are mine.","벽에 걸린 그림들은 내 것이다. (주인 The pictures(그림들) → are(~이다))"]]}],"post":["꼬리표 for her award-winning book(그녀의 수상 도서에 대한) 떼고 주인 inspiration(영감) 하나 → was(~였다)"]},{"slots":[["knows","","","할머니가 호랑이를 아는 쪽이고 뒤에 목적어 the tiger(그 호랑이)가 있어 능동 knows(알다)가 맞다."],["that_tale","","","앞의 an old folktale(옛 설화)을 받고 tell(말해 주다)의 목적어가 빠져 있어 목적격 관계대명사 that(~하는)이 맞다."],["tell","telling","a","used to(~하곤 했다)는 조동사처럼 뒤에 동사원형을 받는다. -ing는 못 온다."],["to_revive","","","want(원하다)는 to부정사를 목적어로 받아 to revive(되살리는 것)가 맞다."],["dates","","","주어 The first appearance(첫 등장)가 하나라 dates(거슬러 올라가다)가 맞다."]],"opts":["tell","told","tells","to tell"],"or":["tell(말해 주다): used to(~하곤 했다) 뒤는 동사원형이라 맞음.","told(말해 주었다): used to(~하곤 했다) 뒤에 과거형은 못 옴.","tells(말해 주다, 3인칭 단수형): used to(~하곤 했다) 뒤는 원형이라 s가 붙으면 안 됨.","to tell(말해 주는 것): used to(~하곤 했다)에 이미 to가 있어 to가 겹침."],"point":"조동사 used to + 동사원형","en":"Keller’s inspiration for her award-winning book was an old folktale that her halmoni (grandmother) used to tell her.","ko":"Keller의 수상 도서에 대한 영감은 그녀의 할머니가 그녀에게 이야기해 주던 옛 설화였다.","hl":["used to tell"],"khl":["이야기해 주던"],"blocks":[{"t":"p","h":"예전엔 했지만 지금은 아닌 일","x":["어린 Keller(켈러)에게 할머니가 옛이야기를 들려주곤 했다.","\"(예전에) ~하곤 했다\" = used to(~하곤 했다) + 동사원형.","to가 보여도 뒤는 동사원형 tell(말해 주다).","telling(말해 주는 것)을 쓰면 다른 표현과 섞인다."]},{"t":"pair","h":"쉬운 예시","x":[["My grandpa used to read me stories.","할아버지는 나에게 이야기를 읽어 주시곤 했다. (used to + read(읽어 주다))"],["I am used to getting up early.","나는 일찍 일어나는 데 익숙하다. (be used to(~하는 데 익숙하다) + -ing)"]]},{"t":"p","h":"헷갈리는 쌍둥이","x":["used to(~하곤 했다) + 동사원형.","be used to(~하는 데 익숙하다) + -ing.","본문은 be동사가 없으니 used to(~하곤 했다) + 동사원형."]}],"post":["used to(~하곤 했다) + 동사원형: used to tell(이야기해 주던)"]},{"slots":[["is_how","","","의문문의 주어 the tiger(그 호랑이)가 하나라 is(~이다)가 맞다."],["dates","","","주어 The first appearance(첫 등장)가 하나라 dates(거슬러 올라가다)가 맞다."],["depicts","is depicted","a","바위 그림이 사람들을 묘사하는 쪽이고, 뒤에 목적어 people(사람들)이 바로 있다. 수동 is depicted(묘사된다)는 목적어를 받을 수 없다."],["appeared","","","appear(나타나다)는 수동이 없는 동사라 have appeared(등장해 왔다)가 맞다."],["featuring","","","설화가 호랑이를 등장시키는 쪽이고 목적어 tigers(호랑이)가 있어 featuring(등장시키는)이 맞다."]],"opts":["depicts","depicting","to depict","depict"],"or":["depicts(묘사하다): 주어 It(그것 = 바위 그림)이 사람들을 묘사하는 능동이고 단수라 맞음.","depicting(묘사하는): -ing형이라 혼자 동사 자리에 못 와서 문장에 동사가 없어짐.","to depict(묘사하는 것): to부정사는 동사 자리에 못 옴.","depict(묘사하다): 주어 It(그것 = 바위 그림)이 단수라 s 없는 형태는 안 맞음."],"point":"능동태 vs. 수동태","en":"It depicts people hunting various animals, including tigers.","ko":"그것은(=바위 그림) 호랑이를 포함하여 다양한 동물을 사냥하는 사람들을 묘사한다.","hl":["It depicts people"],"khl":["사람들을 묘사한다"],"blocks":[{"t":"p","h":"주어가 하는 쪽인가, 당하는 쪽인가","x":["It(그것)은 앞 문장의 the rock art(바위 그림).","바위 그림이 사냥하는 사람들의 모습을 담아 보여 준다.","그림이 직접 묘사하는 쪽 → 능동 depicts(묘사하다).","뒤에 목적어 people(사람들)이 바로 붙어 있다는 것이 결정적 단서.","수동(be + p.p.) 뒤에는 목적어가 바로 오지 않는다."]},{"t":"pair","h":"쉬운 예시","x":[["This painting shows a busy market.","이 그림은 붐비는 시장을 보여 준다. (그림이 보여 줌 → 능동 + 목적어)"],["The market is shown in this painting.","그 시장은 이 그림에 나타나 있다. (시장이 보여짐 → 수동, 목적어 없음)"]]}],"post":["동사 뒤에 목적어 people(사람들)가 바로 있으면 능동: depicts(묘사하다)"]},{"slots":[["that_so","","","so abundant(매우 많은) ~ that(그래서) …: \"너무 ~해서 …하다\"의 짝 that이 맞다."],["hunting","","","사람들이 직접 사냥하는 쪽이고 목적어 various animals(다양한 동물)가 있어 hunting(사냥하는)이 맞다."],["appeared","been appeared","a","appear(나타나다)는 목적어가 없는 동사라 수동(be + p.p.)이 될 수 없다."],["heard","","","may have(~했을지도 모른다) 뒤라 과거분사 heard(들은)가 맞다."],["become","","","help(돕다) + 사람 + 동사원형이라 become(~이 되다)이 맞다."]],"opts":["appeared","appear","appearing","to appear"],"or":["appeared(나타난, appear의 과거분사): have(~해 왔다) + p.p.의 현재완료라 맞음.","appear(나타나다): have(~해 왔다) 뒤에 동사원형은 못 옴.","appearing(나타나는): have(~해 왔다) 뒤에 -ing는 못 옴.","to appear(나타나는 것): have(~해 왔다) 뒤에 to부정사가 오면 현재완료가 깨짐."],"point":"수동태가 안 되는 자동사","en":"Since then, tigers have appeared in many aspects of Korean culture, from legends to art and musical instruments.","ko":"그때부터 호랑이는 전설에서부터 미술과 악기에 이르기까지 한국 문화의 많은 측면에 등장해 왔다.","hl":["have appeared"],"khl":["등장해 왔다"],"blocks":[{"t":"p","h":"목적어 없는 동사는 수동이 없다","x":["바위 그림 이후 호랑이는 전설, 그림, 악기에 계속 나타났다.","appear(나타나다)는 스스로 나타나는 동사다.","누군가가 호랑이를 \"나타나게 당하게\" 하는 게 아니다.","목적어를 받지 않는 동사는 수동태(be + p.p.)로 못 바꾼다.","같은 무리: happen(일어나다), disappear(사라지다), arrive(도착하다)."]},{"t":"pair","h":"쉬운 예시","x":[["A cat appeared at the door.","고양이 한 마리가 문 앞에 나타났다. (was appeared(나타나게 되었다) 불가)"],["The accident happened last night.","그 사고는 어젯밤에 일어났다. (was happened(일어나게 되었다) 불가)"]]}],"post":["appear(나타나다)는 수동 불가: have appeared(등장해 왔다) O, been appeared(나타나게 되었다) X"]},{"slots":[["dates","","","주어 The first appearance(첫 등장)가 하나라 dates(거슬러 올라가다)가 맞다."],["depicts","","","바위 그림이 사람들을 묘사하는 쪽이고 목적어 people(사람들)이 있어 능동 depicts(묘사하다)가 맞다."],["featuring","","","설화가 호랑이를 등장시키는 쪽이고 목적어 tigers(호랑이)가 있어 featuring(등장시키는)이 맞다."],["include","includes","a","〈forty percent of(~의 40%) + 명사〉는 of(~의) 뒤 명사에 수를 맞춘다. Korean folktales(한국 설화)가 복수라 s를 붙이면 안 된다."],["become","","","help(돕다) + 사람 + 동사원형이라 become(~이 되다)이 맞다."]],"opts":["include","including","to include","are included"],"or":["include(포함하다): of(~의) 뒤 Korean folktales(한국 설화)가 복수라 s 없는 동사가 맞음.","including(포함하는): -ing형이라 혼자 동사 자리에 못 와서 문장에 동사가 없어짐.","to include(포함하는 것): to부정사는 동사 자리에 못 옴.","are included(포함된다): 수동이라 뒤에 목적어 a tiger(호랑이)를 받을 수 없음. 설화가 호랑이를 포함하는 능동."],"point":"부분 표현(percent of)의 수일치","en":"In fact, approximately forty percent of Korean folktales about animals include a tiger.","ko":"사실 동물에 대한 한국 설화의 약 40%가 호랑이를 포함한다.","hl":["forty percent of Korean folktales","include"],"khl":["한국 설화의 약 40%가","포함한다"],"blocks":[{"t":"p","h":"percent(퍼센트)는 of(~의) 뒤를 본다","x":["동물 설화 10개 중 4개쯤에 호랑이가 나온다.","그만큼 호랑이는 옛이야기의 단골 주인공이었다.","percent(퍼센트), half(절반), most(대부분), some(일부)는 스스로 수가 없다.","그래서 of(~의) 뒤 명사를 보고 동사를 정한다.","of(~의) 뒤 Korean folktales(한국 설화)는 여러 개 → include(포함하다).","about animals(동물에 대한)는 folktales(설화)에 붙은 꼬리표일 뿐."]},{"t":"pair","h":"쉬운 예시","x":[["Half of the students like pizza.","학생들의 절반은 피자를 좋아한다. (of(~의) 뒤 students(학생들) 복수 → like(좋아하다))"],["Half of the cake is gone.","케이크의 절반이 없어졌다. (of(~의) 뒤 the cake(케이크) 단수 → is(~이다))"]]}],"post":["percent of(~의 퍼센트) + 복수명사 → 복수 동사: forty percent of folktales include(설화의 40%가 포함한다)"]}],"quiz":[{"s":"The key to the doors ___ on the table.","o":["is","are"],"a":0,"ko":"그 문들의 열쇠는 탁자 위에 있다.","why":"주인은 The key(열쇠) 하나. to the doors(그 문들의)는 꼬리표.","wy":"are(있다): 복수 동사라 단수 주어 The key(열쇠)와 안 맞음."},{"s":"My grandpa used to ___ fishing on Sundays.","o":["go","going"],"a":0,"ko":"할아버지는 일요일마다 낚시하러 가시곤 했다.","why":"used to(~하곤 했다) 뒤는 동사원형.","wy":"going(가는 것): used to(~하곤 했다) 뒤에 -ing는 못 옴."},{"s":"This picture ___ a small village.","o":["shows","is shown"],"a":0,"ko":"이 그림은 작은 마을을 보여 준다.","why":"그림이 보여 주는 쪽이고 뒤에 목적어 a small village(작은 마을)가 있어 능동.","wy":"is shown(보여진다): 수동이라 뒤에 목적어가 바로 올 수 없음."},{"s":"A rainbow ___ after the rain.","o":["appeared","was appeared"],"a":0,"ko":"비가 온 뒤에 무지개가 나타났다.","why":"appear(나타나다)는 수동이 없는 동사.","wy":"was appeared(나타나게 되었다): appear(나타나다)는 목적어가 없는 동사라 수동이 안 됨."},{"s":"Half of the students ___ glasses.","o":["wear","wears"],"a":0,"ko":"학생들의 절반은 안경을 쓴다.","why":"of(~의) 뒤 the students(학생들)가 복수라 wear(쓰다).","wy":"wears(쓰다, 3인칭 단수형): of(~의) 뒤 명사가 복수라 s를 붙이면 안 됨."}]}],"comp":[{"slots":[["meets","","","who(~하는)가 받는 a girl(한 소녀)이 한 명이라 meets(만나다)가 맞다."],["that_tale","","","앞의 an old folktale(옛 설화)을 받고 tell(말해 주다)의 목적어가 빠져 있어 목적격 관계대명사 that(~하는)이 맞다."],["to_revive","","","want(원하다)는 to부정사를 목적어로 받아 to revive(되살리는 것)가 맞다."],["writing","write","a","by(~함으로써)는 전치사다. 전치사 뒤에 동사가 오려면 -ing 옷을 입어야 한다."],["include","","","forty percent of(~의 40%) 뒤 명사 Korean folktales(한국 설화)가 복수라 include(포함하다)가 맞다."]],"opts":["writing","wrote","written","to write"],"or":["writing(쓰는 것): 전치사 by(~함으로써) 뒤라 동명사가 맞음.","wrote(썼다): 과거형 동사라 전치사 by(~함으로써) 뒤에 못 옴.","written(쓰인): 과거분사라 by(~에 의해) 뒤에 혼자 올 수 없고, 뒤 목적어 her own book(그녀 자신의 책)도 못 받음.","to write(쓰는 것): 전치사 by(~함으로써) 뒤에 to부정사는 못 옴."],"point":"전치사 + 동명사","en":"Keller wanted to revive the public’s interest in tigers by writing her own book.","ko":"Keller는 그녀 자신의 책을 씀으로써 호랑이에 대한 대중의 흥미를 되살리고 싶어 했다.","hl":["by writing her own book"],"khl":["그녀 자신의 책을 씀으로써"],"blocks":[{"t":"p","h":"by(~함으로써)는 방법을 알려 준다","x":["Keller(켈러)가 고른 방법: 직접 책을 쓰는 것.","\"무엇을 해서?\"에 대한 답이 by(~함으로써) + -ing.","by(~함으로써)는 전치사라 뒤에 명사나 동명사만 온다.","동사 write(쓰다)는 -ing 옷을 입고 writing(쓰는 것)이 된다."]},{"t":"pair","h":"쉬운 예시","x":[["You can learn words by reading books.","너는 책을 읽음으로써 단어를 배울 수 있다. (by + reading(읽는 것))"],["Thank you for helping me.","도와줘서 고마워. (전치사 for(~에 대해) + helping(돕는 것))"]]}],"post":["전치사 by(~함으로써) + -ing: by writing(씀으로써)"],"no":"본문 ①②"},{"slots":[["learned","","","주어 Children(아이들) 뒤 진짜 동사 자리. 과거형 learned(알게 되었다)가 맞다."],["knows","","","할머니가 호랑이를 아는 쪽이고 뒤에 목적어 the tiger(그 호랑이)가 있어 능동 knows(알다)가 맞다."],["hunting","","","사람들이 직접 사냥하는 쪽이고 목적어 various animals(다양한 동물)가 있어 hunting(사냥하는)이 맞다."],["appeared","","","appear(나타나다)는 수동이 없는 동사라 have appeared(등장해 왔다)가 맞다."],["become","becoming","a","help(돕다) + 사람 + 동사원형(또는 to부정사)이다. -ing는 이 자리에 못 온다."]],"opts":["become","becomes","became","has become"],"or":["become(~이 되다): help(돕다) + 사람 a human(한 인간) 뒤 목적격보어로 동사원형이 맞음.","becomes(~이 되다, 3인칭 단수형): 목적격보어 자리는 원형이라 s가 붙으면 안 됨.","became(~이 되었다): 과거형 동사라 helps(돕는다)와 동사가 겹침.","has become(~이 되었다): 동사 덩어리라 helps(돕는다)와 동사가 겹치고, 목적격보어 자리에 못 옴."],"point":"목적격보어(준동사)","en":"For example, in one story, a tiger helps a human become rich after the human saves the tiger’s life.","ko":"예를 들어 한 이야기에서 호랑이는 한 인간이 그 호랑이의 생명을 구해 준 이후 그 인간이 부유해지도록 돕는다.","hl":["helps a human become rich"],"khl":["부유해지도록 돕는다"],"blocks":[{"t":"p","h":"help(돕다)는 두 길을 허락한다","x":["착한 호랑이 이야기: 목숨을 구해 준 사람에게 은혜를 갚는다.","호랑이가 그 사람이 부자가 되도록 돕는다.","help(돕다) + 사람 + 동사원형: helps a human become(사람이 ~이 되도록 돕는다).","help(돕다) + 사람 + to부정사도 맞다.","하지만 -ing는 어느 길에도 없다."]},{"t":"pair","h":"쉬운 예시","x":[["My dad helps me clean my room.","아빠는 내가 방 청소하는 것을 도와주신다. (help + me(나) + clean(청소하다))"],["She helped me to carry the box.","그녀는 내가 상자를 나르는 것을 도와주었다. (help + me(나) + to carry(나르는 것))"]]}],"post":["help(돕다) + 사람 + 동사원형/to부정사, -ing 불가: helps a human become(사람이 ~되도록 돕는다)"],"no":"본문 ①②"}],"compquiz":[{"s":"She got better at English by ___ every day.","o":["reading","read"],"a":0,"ko":"그녀는 매일 읽음으로써 영어 실력이 늘었다.","why":"전치사 by(~함으로써) 뒤는 -ing.","wy":"read(읽다): 전치사 by(~함으로써) 뒤에 동사원형은 못 옴."},{"s":"My dad helped me ___ my homework.","o":["finish","finishing"],"a":0,"ko":"아빠는 내가 숙제를 끝내도록 도와주셨다.","why":"help(돕다) + 사람 + 동사원형.","wy":"finishing(끝내는 것): help(돕다)의 목적격보어 자리에 -ing는 못 옴."}]},{"id":"csg1-3c","no":"본문 ③④","title":"어법특훈 · 공통영어2 3과 본문 ③+④","sub":"엇갈린 감정과 되살아난 상징 + 오늘날의 호랑이","tpl":"In another story, a tiger hears a mother {tell|tell} her crying baby, “Don’t cry. Here’s a gotgam.” {because|Because} the baby stops crying, the tiger mistakenly thinks the gotgam is a very scary creature and {runs|runs} away. It seems {that_seems|that} people at the time had conflicting feelings about tigers. They had respect for tigers’ power and courage. However, they were also scared of tigers because {being_injured|being injured} or even killed by tigers {was_common|was} common in the past. They may have {made|made} tigers into foolish characters in order {to_be|to be} less scared of them. Tigers in Korea faced a decline in population due to hunting during the Joseon period and nearly {went|went} extinct during the Japanese colonial era. With the disappearance of tigers in Korea, their use as a symbol of the nation {faded|faded} away. However, their symbolism was revived in modern times through their selection as the mascot for both Olympics {hosted|hosted} by Korea. Hodori was the mascot for the Seoul Summer Olympics in 1988. It was a Siberian tiger, {which_rep|which} represents courage. The PyeongChang Winter Olympics in 2018 created Soohorang, a white tiger, as its mascot. White tigers {are_considered|are considered} sacred guardians. Tigers are also mentioned in the K-pop song “Tiger is Coming.” One verse of the song {is_verse|is} a reinterpreted version of “Sugungga,” {which_sug|which} is a traditional Korean song. The song drew worldwide attention, and its video {was_viewed|was viewed} millions of times online. These days, only a few wild tigers have {been_reported|been reported} to be living in North Korea. However, the history, stories, and cultural meaning of tigers still {have|have} a place among modern Korean people. Who can deny that the tiger is a symbol of Korea? In 2021, the National Folk Museum of Korea published a book that {collects|collects} all the stories about tigers in Korea. How about {looking|looking} for tigers around you now?","fn":["*gotgam: 곶감","*sacred guardian: 신성한 수호자"],"mean":{"tell":"말하다(동사원형)","to tell":"말하는 것(tell의 to부정사)","told":"말했다, 말을 들은(tell의 과거형·과거분사형)","being told":"말을 듣는(tell의 수동 -ing형)","to be told":"말을 듣는 것(tell의 수동 to부정사)","Because":"~ 때문에(접속사, 뒤에 주어 + 동사)","Because of":"~ 때문에(전치사, 뒤에 명사)","Despite":"~에도 불구하고(전치사)","In spite of":"~에도 불구하고(전치사구)","Due to":"~ 때문에(전치사구)","runs":"달리다, 달아나다(run의 3인칭 단수 현재형)","run":"달리다(동사원형)","to run":"달리는 것(run의 to부정사)","having run":"달리고 나서(run의 완료 -ing형)","is run":"(쓸 수 없는 형태) run away(달아나다)는 수동이 없음","that":"~라는 것(접속사) / ~하는(관계대명사)","being injured":"상처를 입는 것(injure의 수동 동명사)","was":"~였다(be의 과거형, 단수 주어)","were":"~였다(be의 과거형, 복수 주어)","being":"~인 것, ~인(be의 -ing형)","been":"~였던(be의 과거분사형)","to be":"~인 것, ~이 되는 것(be의 to부정사)","made":"만든, 만들었다(make의 과거형·과거분사형)","went":"갔다, ~이 되었다(go의 과거형)","faded":"희미해졌다(fade의 과거형·과거분사형)","hosted":"개최된, 개최했다(host의 과거형·과거분사형)","hosting":"개최하는(host의 -ing형)","host":"개최하다(동사원형)","hosts":"개최하다(host의 3인칭 단수 현재형)","to host":"개최하는 것, 개최하기 위한(host의 to부정사)","which":"그것은, ~하는(사물을 받는 관계대명사)","what":"~하는 것(선행사를 품은 관계대명사)","whom":"~을(목적격 관계대명사)","whose":"~의(소유격 관계대명사)","where":"~하는 곳(장소를 받는 관계부사)","are considered":"~로 여겨진다(consider의 현재 수동태)","is":"~이다(be의 현재형, 단수 주어)","are":"~이다(be의 현재형, 복수 주어)","was viewed":"시청되었다(view의 과거 수동태)","viewed":"시청했다, 시청된(view의 과거형·과거분사형)","viewing":"시청하는(view의 -ing형)","to be viewed":"시청되는 것(view의 수동 to부정사)","has viewed":"시청해 왔다(view의 현재완료형)","been reported":"보고된(have와 함께 현재완료 수동)","reported":"보고했다, 보고된(report의 과거형·과거분사형)","reporting":"보고하는(report의 -ing형)","been reporting":"보고해 오고 있는(have와 함께 현재완료진행)","report":"보고하다(동사원형)","have":"가지다(동사원형·현재형, 복수 주어)","has":"가지다(have의 3인칭 단수 현재형)","having":"가지는 것(have의 -ing형)","to have":"가지는 것(have의 to부정사)","is having":"가지고 있는 중이다(have의 현재진행형, 단수 주어)","collects":"모으다(collect의 3인칭 단수 현재형)","looking":"찾는 것, 보는 것(look의 -ing형, 동명사)","look":"보다, 찾다(동사원형)","to look":"보는 것(look의 to부정사)","looked":"보았다(look의 과거형·과거분사형)","looks":"보다(look의 3인칭 단수 현재형)","sing":"노래하다(동사원형)","to sing":"노래하는 것(sing의 to부정사)","finds":"발견하다(find의 3인칭 단수 현재형)","find":"발견하다(동사원형)","making":"만드는(make의 -ing형)","been sent":"보내진(have와 함께 현재완료 수동)","sent":"보냈다, 보내진(send의 과거형·과거분사형)","watching":"보는 것(watch의 -ing형, 동명사)","watch":"보다(동사원형)","was loved":"사랑받았다(love의 과거 수동태)","loved":"사랑했다(love의 과거형·과거분사형)"},"sets":[{"items":[{"slots":[["tell","to tell","a","hear(듣다)는 지각동사다. 지각동사 + 목적어 뒤에는 to 없이 동사원형이나 -ing가 온다."],["runs","","","주어 the tiger(호랑이)의 동사 thinks(생각하다)와 and(그리고)로 나란한 runs(달아나다)가 맞다."],["that_seems","","","It seems(~인 것 같다) 뒤 완전한 문장을 이끄는 접속사 that(~라는 것)이 맞다."],["made","","","may have(~했을지도 모른다) 뒤라 과거분사 made(만든)가 맞다."],["to_be","","","in order to(~하기 위해) + 동사원형이라 to be(~이 되기 위해)가 맞다."]],"opts":["tell","told","being told","to be told"],"or":["tell(말하다): 지각동사 hears(듣는다) + 목적어 a mother(어머니) 뒤 동사원형이라 맞음.","told(말해진): 과거분사는 목적어가 당하는 쪽일 때 쓰는데, 어머니는 아기에게 말하는 쪽(능동)임.","being told(말을 듣는): 수동이라 어머니가 말을 듣는 쪽이 되어 뒤 her crying baby(울고 있는 아기)와 이어지지 않음.","to be told(말을 듣는 것): 지각동사 뒤에는 to부정사가 못 오고, 수동이라 뜻도 반대임."],"point":"지각동사 + 목적격보어","en":"In another story, a tiger hears a mother tell her crying baby, “Don’t cry. Here’s a gotgam.”","ko":"또 다른 이야기에서 호랑이는 한 어머니가 울고 있는 자신의 아기에게 “울지 마. 여기 곶감이 있단다.”라고 말하는 것을 듣는다.","hl":["hears a mother tell"],"khl":["말하는 것을 듣는다"],"blocks":[{"t":"p","h":"귀로 듣는 동사는 to를 버린다","x":["곶감 이야기의 시작: 호랑이가 엿듣는다.","엄마가 우는 아기에게 \"곶감 줄게\" 하고 달래는 소리.","hear(듣다), see(보다), watch(지켜보다), feel(느끼다)는 지각동사.","지각동사 + 사람 + 동사원형(또는 -ing).","to tell(말하는 것)처럼 to가 붙으면 틀린다."]},{"t":"pair","h":"쉬운 예시","x":[["I heard him sing a song.","나는 그가 노래하는 것을 들었다. (heard(들었다) + him(그) + sing(노래하다))"],["She saw her dog running in the park.","그녀는 자기 개가 공원에서 달리고 있는 것을 보았다. (saw(보았다) + 개 + running(달리고 있는))"]]}],"post":["hear(듣다) + 사람 + 동사원형, to 불가: hears a mother tell(어머니가 말하는 것을 듣는다)"]},{"slots":[["tell","","","지각동사 hear(듣다) + 목적어 a mother(어머니) + 동사원형이라 tell(말하다)이 맞다."],["because","Because of","a","뒤에 the baby stops crying(아기가 울음을 멈춘다)처럼 주어 + 동사가 온다. Because of(~ 때문에)는 전치사라 명사만 받는다."],["being_injured","","","사람이 호랑이에게 상처를 입는 쪽이고 주어 자리라 동명사 수동 being injured(상처 입는 것)가 맞다."],["went","","","faced(직면했다)와 and(그리고)로 나란한 과거형 went(~이 되었다)가 맞다."],["faded","","","주어 their use(그들의 용도)의 진짜 동사 자리라 과거형 faded(희미해졌다)가 맞다."]],"opts":["Because","Despite","In spite of","Due to"],"or":["Because(~ 때문에): 접속사라 뒤에 주어 + 동사 the baby stops(아기가 멈춘다)가 와서 맞음.","Despite(~에도 불구하고): 전치사라 뒤에 주어 + 동사가 올 수 없고 뜻도 반대임.","In spite of(~에도 불구하고): 전치사구라 뒤에 문장이 못 오고 뜻도 반대임.","Due to(~ 때문에): 뜻은 같지만 전치사라 뒤에 주어 + 동사가 올 수 없음."],"point":"접속사 vs. 전치사","en":"Because the baby stops crying, the tiger mistakenly thinks the gotgam is a very scary creature and runs away.","ko":"그 아기가 울기를 멈추기 때문에 호랑이는 그 곶감이 매우 무서운 생명체라고 잘못 생각하고 달아난다.","hl":["Because the baby stops crying"],"khl":["그 아기가 울기를 멈추기 때문에"],"blocks":[{"t":"p","h":"뒤에 문장이 오나, 명사가 오나","x":["호랑이 앞에서도 그치지 않던 울음이 곶감 한마디에 뚝 그쳤다.","호랑이는 \"곶감은 나보다 무서운 놈\"이라고 착각해 도망친다.","Because(~ 때문에) + 주어 + 동사: 접속사.","Because of(~ 때문에) + 명사: 전치사.","뒤에 the baby stops(아기가 멈춘다)라는 문장이 있으니 Because(~ 때문에)."]},{"t":"pair","h":"쉬운 예시","x":[["Because it rained, we stayed home.","비가 와서 우리는 집에 있었다. (Because + it rained(비가 왔다))"],["Because of the rain, we stayed home.","비 때문에 우리는 집에 있었다. (Because of + the rain(비))"]]}],"post":["Because(~ 때문에) + 주어 + 동사 / Because of(~ 때문에) + 명사"]},{"slots":[["runs","","","주어 the tiger(호랑이)의 동사 thinks(생각하다)와 and(그리고)로 나란한 runs(달아나다)가 맞다."],["being_injured","","","사람이 호랑이에게 상처를 입는 쪽이고 주어 자리라 동명사 수동 being injured(상처 입는 것)가 맞다."],["was_common","were","a","주어는 being injured or even killed by tigers(호랑이에게 상처 입거나 죽임을 당하는 것)라는 동명사 덩어리다. 동명사 주어는 단수다."],["to_be","","","in order to(~하기 위해) + 동사원형이라 to be(~이 되기 위해)가 맞다."],["hosted","","","올림픽이 한국에 의해 개최된 쪽이라 과거분사 hosted(개최된)가 맞다."]],"opts":["was","being","been","to be"],"or":["was(~였다): 동명사 덩어리 주어는 단수이고, in the past(과거에)라 과거형이 맞음.","being(~인 것): -ing형이라 혼자 동사 자리에 못 와서 because(~ 때문에) 절에 동사가 없어짐.","been(~였던): 과거분사라 have(~해 왔다) 없이 혼자 동사가 될 수 없음.","to be(~인 것): to부정사는 동사 자리에 못 옴."],"point":"동명사 주어의 수일치","en":"However, they were also scared of tigers because being injured or even killed by tigers was common in the past.","ko":"그러나 호랑이에게 상처를 입거나 심지어 죽임을 당하는 일이 과거에는 흔했기 때문에 그들은 호랑이를 무서워하기도 했다.","hl":["being injured or even killed by tigers","was common"],"khl":["호랑이에게 상처를 입거나","흔했기 때문에"],"blocks":[{"t":"p","h":"tigers(호랑이들)에 속지 말기","x":["옛사람들의 마음은 둘로 갈렸다. 호랑이의 힘은 존경했지만 무서웠다.","무서운 이유: 호랑이에게 다치거나 죽는 일이 흔했으니까.","주어는 \"상처 입거나 죽임을 당하는 것\"이라는 하나의 일.","동사 바로 앞 tigers(호랑이들)는 by(~에 의해)에 딸린 꼬리표.","동명사(-ing) 주어는 단수 → was(~였다)."]},{"t":"pair","h":"쉬운 예시","x":[["Playing games with friends is fun.","친구들과 게임하는 것은 재미있다. (주어 Playing games(게임하는 것) → is(~이다))"],["Being laughed at by others is not fun.","남들에게 비웃음을 당하는 것은 재미없다. (주어 Being laughed at(비웃음 당하는 것) → is(~이다))"]]}],"post":["동명사(-ing) 주어 = 단수: being injured ... was(상처 입는 것이 ~였다)"]},{"slots":[["which_rep","","","콤마 뒤에서 a Siberian tiger(시베리아 호랑이)를 덧붙여 설명하니 which(그것은)가 맞다."],["are_considered","","","백호가 수호자로 여겨지는 쪽이라 수동 are considered(여겨진다)가 맞다."],["is_verse","are","a","주어는 One verse(한 구절) 하나다. of the song(그 노래의)은 꼬리표일 뿐이다."],["was_viewed","","","영상이 시청되는 쪽이라 수동 was viewed(시청되었다)가 맞다."],["looking","","","How about(~하는 게 어때)의 about(~에 대해)은 전치사라 동명사 looking(찾는 것)이 맞다."]],"opts":["is","being","to be","been"],"or":["is(~이다): 주어 One verse(한 구절)가 하나라 단수 동사가 맞음.","being(~인 것): -ing형이라 혼자 동사 자리에 못 와서 문장에 동사가 없어짐.","to be(~인 것): to부정사는 동사 자리에 못 옴.","been(~였던): 과거분사라 have(~해 왔다) 없이 혼자 동사가 될 수 없음."],"point":"수식받는 주어의 수일치","en":"One verse of the song is a reinterpreted version of “Sugungga,” which is a traditional Korean song.","ko":"이 노래의 한 구절(가사)은 한국의 전통 가곡인 ‘수궁가’의 재해석판이다.","hl":["One verse of the song","is"],"khl":["이 노래의 한 구절(가사)은","재해석판이다"],"blocks":[{"t":"p","h":"One(하나)이 보이면 단수","x":["케이팝 노래 ‘범 내려온다’에도 호랑이가 나온다.","그 노래 가사 한 구절은 옛 판소리 ‘수궁가’를 새롭게 고친 것.","주인은 One verse(한 구절).","of the song(그 노래의)은 꼬리표.","주인이 하나니까 is(~이다)."]},{"t":"pair","h":"쉬운 예시","x":[["One of my friends is a singer.","내 친구 중 한 명은 가수다. (주인 One(한 명) → is(~이다))"],["The windows of the house are big.","그 집의 창문들은 크다. (주인 The windows(창문들) → are(~이다))"]]}],"post":["꼬리표 of the song(그 노래의) 떼고 주인 One verse(한 구절) → is(~이다)"]},{"slots":[["is_verse","","","주어 One verse(한 구절)가 하나라 is(~이다)가 맞다."],["which_sug","","","콤마 앞 “Sugungga”(수궁가)를 받고 뒤에 주어가 빠져 있어 which(그것은)가 맞다."],["been_reported","","","호랑이가 보고되는 쪽이라 현재완료 수동 have been reported(보고되어 왔다)가 맞다."],["have","has","a","주어가 the history, stories, and cultural meaning(역사, 이야기, 문화적 의미)처럼 and(그리고)로 셋이 묶였다. 묶이면 복수다."],["collects","","","that(~하는)이 받는 a book(책)이 한 권이라 collects(모으다)가 맞다."]],"opts":["have","having","to have","is having"],"or":["have(가지다): A, B, and C(A, B, 그리고 C)로 묶인 주어는 복수라 맞음.","having(가지는 것): -ing형이라 혼자 동사 자리에 못 와서 문장에 동사가 없어짐.","to have(가지는 것): to부정사는 동사 자리에 못 옴.","is having(가지고 있는 중이다): is(~이다)는 단수 주어용이라 history, stories, and meaning(역사, 이야기, 의미) 셋이 묶인 복수 주어와 수가 안 맞음."],"point":"A, B, and C 주어의 수일치","en":"However, the history, stories, and cultural meaning of tigers still have a place among modern Korean people.","ko":"그러나 호랑이의 역사, 이야기, 그리고 문화적 의미는 현대 한국 사람들 사이에 여전히 자리하고 있다.","hl":["the history, stories, and cultural meaning","have a place"],"khl":["역사, 이야기, 그리고 문화적 의미는","자리하고 있다"],"blocks":[{"t":"p","h":"and(그리고)로 묶으면 여럿이다","x":["야생 호랑이는 거의 사라졌다.","그래도 호랑이의 역사, 이야기, 의미는 아직 우리 곁에 있다.","주인: history(역사) + stories(이야기) + meaning(의미) = 셋.","동사 바로 앞 meaning(의미)이 하나라고 속으면 안 된다.","셋이 함께 주인이니 have(가지다)."]},{"t":"pair","h":"쉬운 예시","x":[["My mom and dad have a car.","엄마와 아빠는 차가 있다. (mom and dad(엄마와 아빠) → have(가지다))"],["Tom, Mike, and I are friends.","톰, 마이크, 그리고 나는 친구다. (셋이 묶임 → are(~이다))"]]}],"post":["A, B, and C(A, B, 그리고 C) 주어 = 복수: history, stories, and meaning have(역사, 이야기, 의미가 가지고 있다)"]}],"quiz":[{"s":"I heard my brother ___ in his room.","o":["sing","to sing"],"a":0,"ko":"나는 남동생이 자기 방에서 노래하는 것을 들었다.","why":"지각동사 hear(듣다) + 사람 + 동사원형.","wy":"to sing(노래하는 것): 지각동사 뒤에는 to가 붙지 않음."},{"s":"___ it was cold, we wore jackets.","o":["Because","Because of"],"a":0,"ko":"추워서 우리는 재킷을 입었다.","why":"뒤에 주어 it + 동사 was(~였다)가 와서 접속사.","wy":"Because of(~ 때문에): 전치사라 뒤에 문장이 못 옴."},{"s":"Reading comic books ___ fun.","o":["is","are"],"a":0,"ko":"만화책을 읽는 것은 재미있다.","why":"동명사 주어 Reading comic books(만화책 읽기)는 단수.","wy":"are(~이다): books(책들)는 주어가 아니라 꼬리표, 동명사 주어는 단수."},{"s":"The color of the leaves ___ red.","o":["is","are"],"a":0,"ko":"그 잎들의 색깔은 빨갛다.","why":"주인은 The color(색깔) 하나.","wy":"are(~이다): of the leaves(그 잎들의)는 꼬리표라 복수 동사가 안 맞음."},{"s":"Tom and his sister ___ a dog.","o":["have","has"],"a":0,"ko":"톰과 그의 여동생은 개를 키운다.","why":"and(그리고)로 묶인 주어는 복수.","wy":"has(가지다, 3인칭 단수형): 두 사람이 묶인 복수 주어라 안 맞음."}]},{"items":[{"slots":[["because","","","뒤에 주어 the baby(아기) + 동사 stops(멈추다)가 오니 접속사 Because(~ 때문에)가 맞다."],["runs","run","a","and(그리고)는 thinks(생각한다)와 runs(달아난다)를 잇는다. 주어 the tiger(호랑이)는 하나라 thinks처럼 s가 붙어야 한다."],["that_seems","","","It seems(~인 것 같다) 뒤 완전한 문장을 이끄는 접속사 that(~라는 것)이 맞다."],["made","","","may have(~했을지도 모른다) 뒤라 과거분사 made(만든)가 맞다."],["went","","","faced(직면했다)와 and(그리고)로 나란한 과거형 went(~이 되었다)가 맞다."]],"opts":["runs","to run","having run","is run"],"or":["runs(달아나다): 주어 the tiger(호랑이)의 동사 thinks(생각하다)와 and(그리고)로 나란하고 단수라 맞음.","to run(달아나는 것): thinks(생각한다)는 동사인데 and(그리고) 뒤만 to부정사라 짝이 안 맞음.","having run(달아나고 나서): -ing형이라 동사 thinks(생각한다)와 짝을 이룰 수 없음.","is run(달아나지다): run away(달아나다)는 목적어가 없는 동사라 수동(be + p.p.)이 안 됨."],"point":"병렬구조","en":"Because the baby stops crying, the tiger mistakenly thinks the gotgam is a very scary creature and runs away.","ko":"그 아기가 울기를 멈추기 때문에 호랑이는 그 곶감이 매우 무서운 생명체라고 잘못 생각하고 달아난다.","hl":["thinks","runs away"],"khl":["잘못 생각하고","달아난다"],"blocks":[{"t":"p","h":"and(그리고)는 저울이다","x":["호랑이의 행동은 두 가지: 착각한다, 그리고 도망친다.","왼쪽 접시: the tiger thinks(호랑이가 생각한다).","오른쪽 접시: runs away(달아난다).","같은 주인 the tiger(호랑이)의 동사라 둘 다 s가 붙는다.","run(달아나다)만 올리면 저울이 기운다."]},{"t":"pair","h":"쉬운 예시","x":[["She opens the door and walks in.","그녀는 문을 열고 걸어 들어온다. (opens and walks = 열고 걸어 들어온다)"],["He gets up early and runs in the park.","그는 일찍 일어나서 공원에서 달린다. (gets and runs = 일어나서 달린다)"]]},{"t":"tap","h":"확인 질문","q":"and(그리고) 앞 짝은 is(~이다)일까, thinks(생각한다)일까?","a":["thinks(생각한다).","곶감이 달아나는 게 아니라 호랑이가 달아나니까 주인 the tiger(호랑이)의 동사 thinks(생각한다)와 짝."]}],"post":["and(그리고) 앞뒤 같은 주인, 같은 모양: thinks and runs(생각하고 달아난다)"]},{"slots":[["being_injured","","","사람이 호랑이에게 상처를 입는 쪽이고 주어 자리라 동명사 수동 being injured(상처 입는 것)가 맞다."],["faded","","","주어 their use(그들의 용도)의 진짜 동사 자리라 과거형 faded(희미해졌다)가 맞다."],["hosted","hosting","a","올림픽은 한국에 의해 개최된 쪽이다. 뒤의 by Korea(한국에 의해)가 수동의 표시다."],["are_considered","","","백호가 수호자로 여겨지는 쪽이라 수동 are considered(여겨진다)가 맞다."],["which_sug","","","콤마 앞 “Sugungga”(수궁가)를 받고 뒤에 주어가 빠져 있어 which(그것은)가 맞다."]],"opts":["hosted","host","hosts","to host"],"or":["hosted(개최된): 올림픽이 한국에 의해 개최된 수동이라 과거분사가 맞음.","host(개최하다): 동사원형이라 명사 Olympics(올림픽)를 뒤에서 꾸밀 수 없음.","hosts(개최하다, 3인칭 단수형): 이미 동사 was revived(되살아났다)가 있어 동사가 또 올 수 없음.","to host(개최하기 위한): 올림픽이 직접 개최하는 능동 뜻이 되고, 뒤 by Korea(한국에 의해)와 안 맞음."],"point":"능동 v-ing vs. 수동 p.p.","en":"However, their symbolism was revived in modern times through their selection as the mascot for both Olympics hosted by Korea.","ko":"그러나 한국에서 열린 두 올림픽의 마스코트로 선정되면서 그들의 상징성은 현대에 되살아났다.","hl":["both Olympics hosted by Korea"],"khl":["한국에서 열린 두 올림픽"],"blocks":[{"t":"p","h":"올림픽은 여는 쪽인가, 열리는 쪽인가","x":["사냥으로 줄고 거의 사라진 호랑이, 상징의 의미도 희미해졌다.","그런데 한국이 연 두 올림픽에서 호랑이가 마스코트로 부활했다.","올림픽을 여는 건 한국, 올림픽은 열리는 쪽.","열리는 쪽 → 수동 p.p. hosted(개최된).","by Korea(한국에 의해)가 보이면 수동을 의심하라."]},{"t":"pair","h":"쉬운 예시","x":[["I went to a concert held by our school.","나는 우리 학교가 연 콘서트에 갔다. (콘서트는 열리는 쪽 → held(열린))"],["Look at the girl holding a flag.","깃발을 들고 있는 소녀를 봐라. (소녀가 직접 듦 → holding(들고 있는))"]]}],"post":["명사가 당하는 쪽이면 p.p.: Olympics hosted by Korea(한국에서 열린 올림픽)"]},{"slots":[["which_rep","","","콤마 뒤에서 a Siberian tiger(시베리아 호랑이)를 덧붙여 설명하니 which(그것은)가 맞다."],["is_verse","","","주어 One verse(한 구절)가 하나라 is(~이다)가 맞다."],["which_sug","what","a","앞에 “Sugungga”(수궁가)라는 명사가 있다. what(~하는 것)은 앞 명사를 받을 수 없다."],["have","","","주어 the history, stories, and cultural meaning(역사, 이야기, 문화적 의미)이 and(그리고)로 묶인 복수라 have(가지다)가 맞다."],["looking","","","How about(~하는 게 어때)의 about(~에 대해)은 전치사라 동명사 looking(찾는 것)이 맞다."]],"opts":["which","whom","whose","where"],"or":["which(그것은): 콤마 앞 “Sugungga”(수궁가)를 받고 뒤에 주어가 빠진 is a traditional Korean song(전통 가곡이다)이 와서 맞음.","whom(~을): 사람을 받는 목적격이라 노래를 받을 수 없고, 뒤에 주어가 빠져 있어 맞지 않음.","whose(~의): 바로 뒤에 명사가 와야 하는데 동사 is(~이다)가 옴.","where(~하는 곳): 장소를 받는 관계부사라 노래를 받을 수 없고 뒤 문장도 완전해야 함."],"point":"관계대명사 which vs. what","en":"One verse of the song is a reinterpreted version of “Sugungga,” which is a traditional Korean song.","ko":"이 노래의 한 구절(가사)은 ‘수궁가’의 재해석판인데, 그것은(=수궁가) 한국의 전통 가곡이다.","hl":["“Sugungga,” which is"],"khl":["그것은(=수궁가)"],"blocks":[{"t":"p","h":"콤마 뒤 which(그것은) = 덧붙임 설명","x":["‘범 내려온다’의 뿌리는 옛 판소리 ‘수궁가’.","수궁가가 뭔지 콤마 뒤에서 덧붙여 설명한다.","which(그것은)는 바로 앞 명사 “Sugungga”(수궁가)를 받는다.","what(~하는 것)은 앞 명사 없이 홀로 쓰는 말이라 이 자리에 못 온다."]},{"t":"pair","h":"쉬운 예시","x":[["I read Harry Potter, which is a fantasy novel.","나는 해리 포터를 읽었는데, 그것은 판타지 소설이다. (앞 명사 + , which(그것은))"],["What I need is a pen.","내가 필요한 것은 펜이다. (앞 명사 없이 what(~하는 것))"]]}],"post":["명사 + 콤마 + which(그것은) + 동사, what(~하는 것) 불가"]},{"slots":[["are_considered","","","백호가 수호자로 여겨지는 쪽이라 수동 are considered(여겨진다)가 맞다."],["was_viewed","","","영상이 시청되는 쪽이라 수동 was viewed(시청되었다)가 맞다."],["been_reported","reported","a","호랑이는 보고하는 쪽이 아니라 보고되는 쪽이다. have reported(보고해 왔다)는 능동이라 뒤에 보고할 내용(목적어)이 필요하다."],["collects","","","that(~하는)이 받는 a book(책)이 한 권이라 collects(모으다)가 맞다."],["looking","","","How about(~하는 게 어때)의 about(~에 대해)은 전치사라 동명사 looking(찾는 것)이 맞다."]],"opts":["been reported","reporting","been reporting","report"],"or":["been reported(보고된): have been reported(보고되어 왔다)라는 현재완료 수동이라 맞음.","reporting(보고하는): have(~해 왔다) 뒤에 -ing는 못 옴.","been reporting(보고해 오고 있는): 능동 진행이라 호랑이가 무언가를 보고하는 뜻이 되고 목적어도 없음.","report(보고하다): have(~해 왔다) 뒤에 동사원형은 못 옴."],"point":"능동태 vs. 수동태","en":"These days, only a few wild tigers have been reported to be living in North Korea.","ko":"오늘날 단지 소수의 야생 호랑이만이 북한에 살고 있다고 보고되어 왔다.","hl":["have been reported"],"khl":["보고되어 왔다"],"blocks":[{"t":"p","h":"호랑이가 보고를 하나?","x":["지금 남은 야생 호랑이는 북한에 몇 마리뿐이라는 소식.","보고를 하는 건 사람, 호랑이는 보고되는 쪽.","현재완료 have(~해 왔다) + p.p.에 수동 be + p.p.가 합쳐지면 have been(~되어 왔다) + p.p.","have reported(보고해 왔다)는 호랑이가 직접 보고했다는 말이 된다."]},{"t":"pair","h":"쉬운 예시","x":[["The news has been reported on TV.","그 소식은 텔레비전에 보도되어 왔다. (소식은 보도되는 쪽 → has been reported(보도되어 왔다))"],["The reporter has reported the news.","그 기자는 그 소식을 보도해 왔다. (기자가 보도함 → has reported(보도해 왔다) + 목적어)"]]}],"post":["당하는 쪽 + 현재완료 = have been p.p.: have been reported(보고되어 왔다)"]},{"slots":[["to_be","","","in order to(~하기 위해) + 동사원형이라 to be(~이 되기 위해)가 맞다."],["hosted","","","올림픽이 한국에 의해 개최된 쪽이라 과거분사 hosted(개최된)가 맞다."],["was_viewed","","","영상이 시청되는 쪽이라 수동 was viewed(시청되었다)가 맞다."],["have","","","주어 the history, stories, and cultural meaning(역사, 이야기, 문화적 의미)이 and(그리고)로 묶인 복수라 have(가지다)가 맞다."],["looking","look","a","How about(~하는 게 어때)의 about(~에 대해)은 전치사다. 전치사 뒤에 동사원형은 못 온다."]],"opts":["looking","to look","looked","looks"],"or":["looking(찾는 것): How about(~하는 게 어때) 뒤 동명사라 맞음.","to look(찾는 것): 전치사 about(~에 대해) 뒤에 to부정사는 못 옴.","looked(찾았다): 과거형 동사라 전치사 about(~에 대해) 뒤에 못 옴.","looks(찾다, 3인칭 단수형): 동사라 전치사 about(~에 대해) 뒤에 못 옴."],"point":"전치사 + 동명사","en":"How about looking for tigers around you now?","ko":"이제 여러분 주변에서 호랑이를 찾아보는 것은 어떨까?","hl":["How about looking for tigers"],"khl":["호랑이를 찾아보는 것은 어떨까"],"blocks":[{"t":"p","h":"마지막 한마디는 제안","x":["글의 마무리: 호랑이는 여전히 한국의 상징이다.","그러니 내 주변의 호랑이(그림, 마스코트, 노래)를 찾아보자는 제안.","How about(~하는 게 어때) + -ing.","about(~에 대해)은 전치사라 동사는 -ing 옷을 입는다."]},{"t":"pair","h":"쉬운 예시","x":[["How about going to the park?","공원에 가는 게 어때? (How about + going(가는 것))"],["What about eating pizza tonight?","오늘 밤 피자 먹는 게 어때? (What about + eating(먹는 것))"]]}],"post":["How about(~하는 게 어때) + -ing: How about looking for(찾아보는 게 어때)"]}],"quiz":[{"s":"He opens the box and ___ a gift.","o":["finds","find"],"a":0,"ko":"그는 상자를 열고 선물을 발견한다.","why":"opens(연다)와 and(그리고)로 나란하고 주어 He(그)가 하나라 finds(발견하다).","wy":"find(발견하다): 주어 He(그)가 하나라 opens(연다)처럼 s가 붙어야 함."},{"s":"I ate a cake ___ by my mom.","o":["made","making"],"a":0,"ko":"나는 엄마가 만든 케이크를 먹었다.","why":"케이크는 만들어진 쪽이라 made(만들어진).","wy":"making(만드는): 케이크가 직접 만드는 뜻이 되고 by my mom(엄마에 의해)과 안 맞음."},{"s":"I visited Gyeongju, ___ is an old city.","o":["what","which"],"a":1,"ko":"나는 경주를 방문했는데, 그곳은 오래된 도시다.","why":"앞 명사 Gyeongju(경주)를 콤마 뒤에서 받는 which(그것은).","wy":"what(~하는 것): 앞에 명사 Gyeongju(경주)가 있으면 못 옴."},{"s":"The letter has ___ to many people.","o":["been sent","sent"],"a":0,"ko":"그 편지는 많은 사람들에게 보내져 왔다.","why":"편지는 보내지는 쪽이라 has been sent(보내져 왔다).","wy":"sent(보낸): has sent(보내 왔다)는 편지가 직접 보냈다는 뜻이고 목적어도 없음."},{"s":"How about ___ a movie tonight?","o":["watching","watch"],"a":0,"ko":"오늘 밤 영화 보는 게 어때?","why":"How about(~하는 게 어때) 뒤는 -ing.","wy":"watch(보다): 전치사 about(~에 대해) 뒤에 동사원형은 못 옴."}]}],"comp":[{"slots":[["that_seems","","","It seems(~인 것 같다) 뒤 완전한 문장을 이끄는 접속사 that(~라는 것)이 맞다."],["faded","","","주어 their use(그들의 용도)의 진짜 동사 자리라 과거형 faded(희미해졌다)가 맞다."],["which_rep","that","a","콤마 뒤에서 앞 명사를 덧붙여 설명하는 자리(계속적 용법)에는 that을 쓸 수 없다."],["is_verse","","","주어 One verse(한 구절)가 하나라 is(~이다)가 맞다."],["collects","","","that(~하는)이 받는 a book(책)이 한 권이라 collects(모으다)가 맞다."]],"opts":["which","what","whom","whose"],"or":["which(그것은): 콤마 뒤에서 a Siberian tiger(시베리아 호랑이)를 받고 뒤에 주어가 빠져 있어 맞음.","what(~하는 것): 앞 명사 a Siberian tiger(시베리아 호랑이)가 있어 못 옴.","whom(~을): 사람을 받는 목적격이라 호랑이를 받을 수 없고 뒤에 주어가 빠져 있음.","whose(~의): 바로 뒤에 명사가 와야 하는데 동사 represents(상징하다)가 옴."],"point":"계속적 용법 which (that 불가)","en":"It was a Siberian tiger, which represents courage.","ko":"그것은(=호돌이) 시베리아 호랑이였는데, 그것은 용기를 상징한다.","hl":["a Siberian tiger, which represents courage"],"khl":["용기를 상징한다"],"blocks":[{"t":"p","h":"콤마 뒤에서는 that이 퇴장","x":["1988 서울 올림픽 마스코트 호돌이.","호돌이의 모델은 시베리아 호랑이, 그리고 그 호랑이는 용기를 뜻한다.","콤마 + which(그것은): 앞 명사에 설명을 덧붙인다.","that(~하는)은 콤마 바로 뒤에 올 수 없다. 시험 단골 함정."]},{"t":"pair","h":"쉬운 예시","x":[["I have a dog, which is very small.","나는 개가 한 마리 있는데, 그 개는 아주 작다. (콤마 + which(그것은))"],["I have a dog that is very small.","나는 아주 작은 개가 있다. (콤마 없으면 that(~하는)도 가능)"]]}],"post":["콤마 + which(그것은) O, 콤마 + that(~하는) X: a Siberian tiger, which(시베리아 호랑이, 그것은)"],"no":"본문 ③④"},{"slots":[["tell","","","지각동사 hear(듣다) + 목적어 a mother(어머니) + 동사원형이라 tell(말하다)이 맞다."],["went","","","faced(직면했다)와 and(그리고)로 나란한 과거형 went(~이 되었다)가 맞다."],["are_considered","","","백호가 수호자로 여겨지는 쪽이라 수동 are considered(여겨진다)가 맞다."],["was_viewed","viewed","a","영상은 사람들에게 시청되는 쪽이다. viewed(시청했다)만 쓰면 영상이 무언가를 본 셈이 되고 목적어도 없다."],["been_reported","","","호랑이가 보고되는 쪽이라 현재완료 수동 have been reported(보고되어 왔다)가 맞다."]],"opts":["was viewed","viewing","to be viewed","has viewed"],"or":["was viewed(시청되었다): 영상이 시청되는 수동이고 drew(끌었다)와 같은 과거라 맞음.","viewing(시청하는): -ing형이라 혼자 동사 자리에 못 와서 and(그리고) 뒤 절에 동사가 없어짐.","to be viewed(시청되는 것): to부정사는 동사 자리에 못 옴.","has viewed(시청해 왔다): 능동이라 영상이 무언가를 본 뜻이 되고 뒤에 목적어도 없음."],"point":"능동태 vs. 수동태","en":"The song drew worldwide attention, and its video was viewed millions of times online.","ko":"그 노래는 세계적인 주목을 끌었고, 그것의 영상은 온라인에서 수백만 회 시청되었다.","hl":["its video was viewed"],"khl":["수백만 회 시청되었다"],"blocks":[{"t":"p","h":"영상은 보는 쪽이 아니다","x":["‘범 내려온다’는 전 세계의 관심을 받았다.","영상 조회 수가 수백만 회.","보는 건 사람, 영상은 보여지는 쪽 → was viewed(시청되었다).","뒤에 목적어 없이 millions of times(수백만 번)만 오는 것도 수동의 단서."]},{"t":"pair","h":"쉬운 예시","x":[["The movie was watched by many people.","그 영화는 많은 사람들에게 시청되었다. (영화는 보여지는 쪽 → 수동)"],["Many people watched the movie.","많은 사람들이 그 영화를 보았다. (사람이 봄 → 능동 + 목적어)"]]}],"post":["보여지는 쪽은 be + p.p.: its video was viewed(그 영상이 시청되었다)"],"no":"본문 ③④"}],"compquiz":[{"s":"I have a cat, ___ sleeps all day.","o":["that","which"],"a":1,"ko":"나는 고양이가 한 마리 있는데, 그 고양이는 하루 종일 잔다.","why":"콤마 뒤 덧붙임 설명은 which(그것은).","wy":"that(~하는): 콤마 바로 뒤에는 that을 쓸 수 없음."},{"s":"The song ___ by many people last year.","o":["was loved","loved"],"a":0,"ko":"그 노래는 작년에 많은 사람들에게 사랑받았다.","why":"노래는 사랑받는 쪽이라 was loved(사랑받았다).","wy":"loved(사랑했다): 노래가 사랑했다는 뜻이 되고 by many people(많은 사람들에게)과 안 맞음."}]}],"unit":""}</script>
+<script>
+(function(){
+var D=JSON.parse(document.getElementById('data').textContent);
+(function(){var m=/[?&]n=([\d,_-]+)/.exec(location.search);if(m){var W=m[1].replace(/-/g,'_').split(',');D.nums=D.nums.filter(function(n){return W.indexOf(String(n.no).replace(/-/g,'_'))>=0;});}})();
+var G=D.kind==='g';
+var CIR=['①','②','③','④','⑤'];
+var TEACH=/[?&]t=1/.test(location.search);
+var KEY='teukhun-'+D.kind+'-'+D.id;
+var app=document.getElementById('app');
+var st;
+function loadDone(){try{return JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){return {};}}
+function saveDone(o){try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function en(s){return '<span lang="en" translate="no">'+esc(s)+'</span>';}
+function mix(s){return esc(s).replace(/[A-Za-z][A-Za-z'’\-]*(?:[ ,]+[A-Za-z][A-Za-z'’\-]*)*/g,function(m){return '<span lang="en" translate="no">'+m+'</span>';});}
+function disp(k){return k.replace(/_/g,' ');}
+function hlt(t,ph){var h=esc(t);(ph||[]).forEach(function(p,j){var e=esc(p);h=h.replace(e,'<mark'+(j===0?' class="k"':'')+'>'+e+'</mark>');});return h;}
+function lines(a){return '<div class="lines">'+a.map(function(x){return '<p>'+mix(x)+'</p>';}).join('')+'</div>';}
+function hk(x){var i=x.indexOf(':');if(i<0)return '<mark>'+mix(x)+'</mark>';return '<mark>'+mix(x.slice(0,i))+'</mark>'+mix(x.slice(i));}
+function hw(x){var i=x.indexOf(' : ');if(i<0)return '<mark>'+mix(x)+'</mark>';return mix(x.slice(0,i+3))+'<mark>'+mix(x.slice(i+3))+'</mark>';}
+function postit(p){return '<div class="postit">'+p.map(function(x){return '<p>'+mix(x)+'</p>';}).join('')+'</div>';}
+
+/* ---------- runs ---------- */
+var N=D.nums.length;
+function runList(){
+  var r=[];
+  D.nums.forEach(function(n,i){r.push({key:'r1-'+n.no,label:n.no,round:1,n:i});});
+  D.nums.forEach(function(n,i){r.push({key:'r2-'+n.no,label:n.no,round:2,n:i});});
+  r.push({key:'c1',label:'종합 1',round:3});
+  r.push({key:'c2',label:'종합 2',round:4});
+  return r;
+}
+function buildRun(run){
+  var items=[],quiz=[];
+  if(run.round<=2){
+    var S=D.nums[run.n].sets[run.round-1];
+    S.items.forEach(function(it){items.push({it:it,n:run.n});});
+    S.quiz.forEach(function(q){q._m=D.nums[run.n].mean;quiz.push(q);});
+  }else{
+    var c=run.round-3;
+    D.nums.forEach(function(n,i){items.push({it:n.comp[c],n:i});});
+    var pool=D.nums.map(function(n){var q=n.compquiz[c];q._m=n.mean;return q;}),used={},want=Math.min(5,pool.length);
+    for(var k=0;k<want;k++){var x=(Math.round(k*(pool.length-1)/Math.max(1,want-1))+c*2)%pool.length;while(used[x])x=(x+1)%pool.length;used[x]=1;}
+    Object.keys(used).map(Number).sort(function(a,b){return a-b;}).forEach(function(x){quiz.push(pool[x]);});
+  }
+  return {items:items,quiz:quiz};
+}
+function roundDone(round,done){
+  return D.nums.every(function(n){return done[(round===1?'r1-':'r2-')+n.no];});
+}
+function unlocked(run,done){
+  return true;
+  if(run.round===1)return true;
+  if(run.round===2)return roundDone(1,done);
+  if(run.round===3)return roundDone(2,done);
+  return !!done.c1;
+}
+
+/* ---------- views ---------- */
+function home(){st={screen:'home'};render();window.scrollTo(0,0);}
+function start(run){
+  var b=buildRun(run);
+  st={screen:'item',run:run,items:b.items,quiz:b.quiz,i:0,pick:null,fixPick:null,wrong:false,s1:[],s2:[],qj:0,qsel:{},qdone:false,qres:[],qpick:null,tap:{}};
+  render();window.scrollTo(0,0);
+}
+function homeView(){
+  var done=loadDone(),runs=runList();
+  var h='<div class="top"><button class="btn ghost back" id="toapp">‹ 앱으로</button><h1>'+esc(D.title)+'</h1><span>'+esc(D.sub||'')+'</span></div>';
+  [[1,'1라운드'],[2,'2라운드']].forEach(function(r){
+    var ok=runs.filter(function(x){return x.round===r[0];});
+    var cnt=ok.filter(function(x){return done[x.key];}).length;
+    var open=unlocked(ok[0],done);
+    h+='<div class="card board"><h2>'+r[1]+' <span class="sub">'+cnt+' / '+ok.length+'</span></h2>';
+    h+='<div class="grid">';
+    ok.forEach(function(x){
+      var d=done[x.key];
+      h+='<button class="tile'+(d?' done':'')+'" data-run="'+x.key+'"'+(open?'':' disabled')+'>'+esc(x.label)+(D.unit==null?'번':D.unit)+'<small>'+(d?'완료':esc(D.nums[x.n].sub||''))+'</small></button>';
+    });
+    h+='</div></div>';
+  });
+  h+='<div class="card board"><h2>종합</h2>';
+  var c1=runs[runs.length-2],c2=runs[runs.length-1];
+  h+='<div class="grid">';
+  [c1,c2].forEach(function(x){
+    var d=done[x.key],open=unlocked(x,done);
+    h+='<button class="tile'+(d?' done':'')+'" data-run="'+x.key+'"'+(open?'':' disabled')+'>'+x.label+'<small>'+(d?'완료':N+'문제')+'</small></button>';
+  });
+  h+='</div></div>';
+  return h;
+}
+function runTitle(){var r=st.run;return r.round<=2?(r.label+(D.unit==null?'번':D.unit)+' · '+r.round+'라운드'):r.label;}
+function header(){
+  var I=st.items.length,Q=st.quiz.length,total=I+Q;
+  var done=st.screen==='item'?st.i:st.screen==='quiz'?I+st.qj:total;
+  var label=st.screen==='item'?('문제 '+(st.i+1)+' / '+I):st.screen==='quiz'?('마무리 '+(st.qj+1)+' / '+Q):'완료';
+  return '<div class="top"><h1>'+esc(D.title)+' · '+esc(runTitle())+'</h1><span>'+label+'</span></div><div class="bar"><i style="width:'+Math.round(done/total*100)+'%"></i></div>';
+}
+function footer(confirm){return '<div class="foot"><button class="btn ghost" id="home" data-confirm="'+(confirm?'1':'0')+'">목록으로</button></div>';}
+var homeT=null;
+function wireHome(){
+  var b=document.getElementById('home');
+  if(!b)return;
+  b.onclick=function(){
+    if(b.dataset.confirm!=='1'||b.dataset.arm==='1'){clearTimeout(homeT);home();return;}
+    b.dataset.arm='1';b.textContent='한 번 더 누르면 목록으로';
+    homeT=setTimeout(function(){b.dataset.arm='0';b.textContent='목록으로';},3000);
+  };
+}
+function cur(){return st.items[st.i];}
+function num(){return D.nums[cur().n];}
+function slotOf(k,it){for(var i=0;i<it.slots.length;i++)if(it.slots[i][0]===k)return i;return -1;}
+function ansIdx(it){for(var i=0;i<it.slots.length;i++)if(it.slots[i][2]==='a')return i;return -1;}
+function shown(s,orig){return (s[1]?s[1]:orig);}
+function passage(){
+  var it=cur().it,nm=num();
+  var html=esc(nm.tpl).replace(/\{(\w+)(?:\|([^}]*))?\}/g,function(_,k,txt){
+    var orig=txt!==undefined?txt:disp(k);
+    var n=slotOf(k,it);
+    if(n<0)return orig;
+    var cls='u',dis='';
+    if(st.pick!==null){
+      dis=' disabled';
+      if(n===ansIdx(it))cls+=' right';
+      else if(n===st.pick)cls+=' wrong';
+    }
+    return '<button class="'+cls+'" data-n="'+n+'"'+dis+'><b>'+CIR[n]+'</b>'+shown(it.slots[n],orig)+'</button>';
+  });
+  var fn=nm.fn&&nm.fn.length?'<span class="fn">'+nm.fn.map(esc).join('<br>')+'</span>':'';
+  return '<div class="passage" lang="en" translate="no">'+html+fn+'</div>';
+}
+function origText(k){
+  var m=num().tpl.match(new RegExp('\\{'+k+'(?:\\|([^}]*))?\\}'));
+  return m&&m[1]!==undefined?m[1]:disp(k);
+}
+function block(b,bi){
+  var h='<div>'+(b.h?'<h3>'+esc(b.h)+'</h3>':'');
+  if(b.t==='p')h+=lines(b.x);
+  else if(b.t==='flow'){h+='<ol class="flow">'+b.x.map(function(x,j){return '<li class="'+(j===b.at?'at':'')+'">'+mix(x)+'</li>';}).join('')+'</ol>';}
+  else if(b.t==='pair'){h+='<ul class="pairs">'+b.x.map(function(x){return '<li><span class="e" lang="en" translate="no">'+esc(x[0])+'</span><span class="k">'+mix(x[1])+'</span></li>';}).join('')+'</ul>';}
+  else if(b.t==='tap'){
+    var open=st.tap[st.i+'-'+bi];
+    h+='<button class="tapq" data-tap="'+bi+'">'+mix(b.q)+'</button>';
+    if(open)h+='<div class="tapa">'+lines(b.a)+'</div>';
+  }
+  return h+'</div>';
+}
+function negQ(t){return t.replace(/(적절하지 않은|틀린)/g,'<span class="neg">$1</span>');}
+function M(w){var mm=st.screen==='quiz'&&st.quiz[st.qj]&&st.quiz[st.qj]._m?st.quiz[st.qj]._m:(st.screen==='item'?num().mean:{});return (mm||{})[w]||'';}
+function SM(w){var m=M(w);if(!m)return '';var x=m.match(/^(?:동사|명사|형용사|부사)?\s*[A-Za-z][A-Za-z ’'\-]*\(([^)]+)\)/);if(x)return x[1].split(',')[0].trim();return m.split(/[.,]/)[0].trim();}
+function wm(w){var m=G?M(w):SM(w);return m?w+'('+m+')':w;}
+function itemView(){
+  var it=cur().it,a=ansIdx(it),nm=num();
+  var h=header();
+  var noTag=st.run.round>2?'<p class="nobadge">'+esc(nm.no)+(D.unit==null?'번 지문':'')+'</p>':'';
+  h+='<div class="card">'+noTag+'<p class="q">'+negQ('윗글의 밑줄 친 ①~⑤ 중, '+(G?'어법상 틀린':'문맥상 쓰임이 적절하지 않은')+' 것은?')+'</p>'+passage()+'</div>';
+  var right=G?origText(it.slots[a][0]):it.slots[a][0];
+  var aw=shown(it.slots[a],G?origText(it.slots[a][0]):disp(it.slots[a][0]));
+  if(st.pick!==null&&st.s1[st.i]){
+    var answered=st.s2[st.i]!==undefined;
+    h+='<div class="card" id="fix"><p class="q">'+CIR[a]+' '+en(aw)+(G?' 를 바르게 고치면?':' 의 본문 속 원래 단어는?')+'</p><div class="opts">';
+    it.opts.forEach(function(o,j){
+      var cls='opt',dis='';
+      if(answered){dis=' disabled';if(o===right)cls+=' right';else if(j===st.fixPick)cls+=' wrong';}
+      h+='<button class="'+cls+'" data-o="'+j+'"'+dis+'><span><b>'+CIR[j]+'</b> '+en(disp(o))+'</span></button>';
+    });
+    h+='</div></div>';
+  }
+  if(st.wrong)h+=wrongCard(it,a,aw,right);
+  return h+footer(true);
+}
+function slotReason(it,s,n,a){
+  if(G){return s[3]||'';}
+  var w=s[1]||disp(s[0]),o=disp(s[0]);
+  if(s[2]==='a')return '본문은 '+wm(o)+'. '+wm(w)+'는 반대 방향이라 문맥에 맞지 않음.';
+  if(s[2]==='s')return '본문은 '+wm(o)+'. '+wm(w)+'도 같은 뜻이라 맞는 표현.';
+  return '본문 그대로라 맞는 표현.';
+}
+function slotKo(s){
+  if(G)return M(s[2]==='a'?s[1]:origText(s[0]));
+  var w=s[1]||disp(s[0]);return M(w);
+}
+function chCard(num,big,ko,reason,kind){
+  var tag=kind==='ok'?'<span class="chtag ok">정답</span>':kind==='me'?'<span class="chtag me">내가 고름</span>':'';
+  return '<div class="ch '+(kind||'')+'"><div class="chtop"><span class="chn">'+num+'</span><div class="chw"><span lang="en" translate="no">'+esc(big)+'</span>'+(ko?'<small>'+esc(ko)+'</small>':'')+'</div>'+tag+'</div>'+(reason?'<p class="chr">'+mix(reason)+'</p>':'')+'</div>';
+}
+function wrongCard(it,a,aw,right){
+  var h='<div class="card exp" id="exp">';
+  var sa=it.slots[a];
+  var bandKo=G?esc(it.point):esc(disp(sa[0])+' '+M(disp(sa[0])));
+  h+='<div class="band"><b>오답</b><span>정답 '+CIR[a]+' '+en(aw)+' → '+en(disp(right))+'</span><small>'+bandKo+'</small></div>';
+  h+='<div class="evi"><p class="en" lang="en" translate="no">'+hlt(it.en,it.hl)+'</p><p class="ko">'+hlt(it.ko,it.khl)+'</p></div>';
+  h+='<div><h3>밑줄 풀이</h3><div class="chs">';
+  it.slots.forEach(function(s,n){
+    var w=G?(s[2]==='a'?s[1]:origText(s[0])):(s[1]||disp(s[0]));
+    var kind=n===a?'ok':(n===st.pick&&!st.s1[st.i])?'me':'';
+    h+=chCard(CIR[n],w,slotKo(s),slotReason(it,s,n,a),kind);
+  });
+  h+='</div></div>';
+  if(st.s1[st.i]&&st.s2[st.i]===false){
+    h+='<div><h3>'+(G?'고치기 보기 풀이':'원래 단어 보기 풀이')+'</h3><div class="chs">';
+    it.opts.forEach(function(o,j){
+      var ok=o===right,me=j===st.fixPick;
+      var ko=G?M(o):(it.om?it.om[j]:'');
+      var r=it.or&&it.or[j]?it.or[j]:ok?(G?'이 자리에 맞는 형태. '+(sa[3]||''):'본문 원래 단어.'):(G?disp(o)+'는 이 자리에 맞지 않는 형태.':'본문 단어가 아님. 본문은 '+disp(right)+'('+M(disp(right))+').');
+      h+=chCard(CIR[j],disp(o),ko,r,ok?'ok':me?'me':'');
+    });
+    h+='</div></div>';
+  }
+  it.blocks.forEach(function(b,bi){h+=block(b,bi);});
+  h+='<div class="note"><p class="nt">이것만은 노트에 쓰자 1 · 정답의 근거</p><p lang="en" translate="no">'+(G?hlt(it.en,it.hl):esc(it.en))+'</p><p class="nko">'+(G?hlt(it.ko,it.khl):esc(it.ko))+'</p>'+it.post.map(function(p){return '<p>'+(G?hk(p):mix(p))+'</p>';}).join('')+'</div>';
+  var why;
+  if(!st.s1[st.i]){
+    var ps=it.slots[st.pick],pw=G?origText(ps[0]):(ps[1]||disp(ps[0]));
+    why=CIR[st.pick]+' '+pw+(slotKo(ps)?' = '+slotKo(ps):'')+' : '+slotReason(it,ps,st.pick,a)+' 틀린 곳은 '+CIR[a]+' '+aw+'.';
+  }else{
+    var po=it.opts[st.fixPick];
+    var pko=G?M(po):(it.om?it.om[st.fixPick]:'');
+    why=disp(po)+(pko?' = '+pko:'')+' : '+(it.or&&it.or[st.fixPick]?it.or[st.fixPick]:G?'이 자리에 맞지 않는 형태. 바른 형태는 '+disp(right)+'. '+(sa[3]||''):'본문 원래 단어가 아님. 본문은 '+disp(right)+'('+M(disp(right))+').');
+  }
+  h+='<div class="note"><p class="nt">이것만은 노트에 쓰자 2 · 내가 고른 답이 틀린 이유</p><p>'+(G?hw(why):mix(why))+'</p></div>';
+  h+='<button class="btn" id="next">'+(st.i<st.items.length-1?'다음 문제':'마무리')+'</button></div>';
+  return h;
+}
+var TAG={s:'비슷',a:'반대',n:'관계없음'};
+function quizView(){
+  var q=st.quiz[st.qj],h=header();
+  if(G){
+    h+='<div class="card"><p class="q">빈칸에 알맞은 것은?</p><p class="gs" lang="en" translate="no">'+esc(q.s).replace('___','<b>_____</b>')+'</p><div class="opts">';
+    q.o.forEach(function(o,j){
+      var cls='opt',dis='';
+      if(st.qdone){dis=' disabled';if(j===q.a)cls+=' right';else if(j===st.qpick)cls+=' wrong';}
+      h+='<button class="'+cls+'" data-g="'+j+'"'+dis+'><span>'+en(o)+'</span></button>';
+    });
+    h+='</div></div>';
+    if(st.qdone&&!st.qres[st.qj]){
+      var full=q.s.replace('___',q.o[q.a]);
+      h+='<div class="card exp" id="exp"><div class="band"><b>오답</b><span>정답 '+en(q.o[q.a])+'</span><small>'+esc(q.ko)+'</small></div>';
+      h+='<div class="chs">'+q.o.map(function(o,j){return chCard(j===0?'A':'B',o,M(o),j===q.a?q.why:(q.wy||'이 빈칸에는 맞지 않는 형태.'),j===q.a?'ok':j===st.qpick?'me':'');}).join('')+'</div>';
+      h+='<div class="note"><p class="nt">이것만은 노트에 쓰자</p><p lang="en" translate="no">'+esc(q.s).replace('___','<mark>'+esc(q.o[q.a])+'</mark>')+'</p><p class="nko">'+esc(q.ko)+'</p><p><mark>'+mix(q.why)+'</mark></p></div>';
+      h+='<button class="btn" id="qnext">'+(st.qj<st.quiz.length-1?'다음':'결과 보기')+'</button></div>';
+    }
+    return h+footer(true);
+  }
+  var T=vq(q,st.qj);
+  h+='<div class="card"><p class="q">'+en(q.w)+' ('+esc(q.m)+') 와 뜻이 '+(T.ant?'<span class="neg">반대인</span>':'비슷한')+' 말은?</p><div class="opts">';
+  T.o.forEach(function(x,j){
+    var cls='opt',dis='';
+    if(st.qdone){dis=' disabled';if(j===T.a)cls+=' right';else if(j===st.qpick)cls+=' wrong';}
+    h+='<button class="'+cls+'" data-g="'+j+'"'+dis+'><span><b>'+CIR[j]+'</b> '+en(x[0])+'</span></button>';
+  });
+  h+='</div></div>';
+  if(st.qdone&&!st.qres[st.qj]){
+    var R={s:'비슷한 말',a:'반대말',n:'관계없는 단어'};
+    h+='<div class="card exp" id="exp"><div class="band"><b>오답</b><span>정답 '+CIR[T.a]+' '+en(T.o[T.a][0])+'</span><small>'+esc(T.o[T.a][1])+'</small></div>';
+    h+='<div class="chs">'+T.o.map(function(x,j){return chCard(CIR[j],x[0],x[1],q.w+'의 '+R[x[2]]+'.',j===T.a?'ok':j===st.qpick?'me':'');}).join('')+'</div>';
+    var l1=q.it.filter(function(x){return x[2]==='s';}).map(function(x){return q.w+' = '+x[0]+' ('+x[1]+')';});
+    var l2=q.it.filter(function(x){return x[2]==='a';}).map(function(x){return q.w+' ↔ '+x[0]+' ('+x[1]+')';});
+    h+='<div class="note"><p class="nt">이것만은 노트에 쓰자 1 · 정답</p>'+l1.concat(l2).map(function(l){return '<p>'+mix(l)+'</p>';}).join('')+'</div>';
+    var me=T.o[st.qpick];
+    h+='<div class="note"><p class="nt">이것만은 노트에 쓰자 2 · 내가 고른 답이 틀린 이유</p><p>'+mix(me[0]+' ('+me[1]+') : '+q.w+'의 '+R[me[2]]+'.')+'</p></div>';
+    h+='<button class="btn" id="qnext">'+(st.qj<st.quiz.length-1?'다음 단어':'결과 보기')+'</button></div>';
+  }
+  return h+footer(true);
+}
+/* vocab quiz as one-tap tiles: odd turns ask antonym when one exists */
+function vq(q,k){
+  var S=q.it.filter(function(x){return x[2]==='s';}),A=q.it.filter(function(x){return x[2]==='a';}),Nn=q.it.filter(function(x){return x[2]==='n';});
+  var ant=(k%2===1)&&A.length>0;
+  var ans=ant?A[0]:S[0];
+  var d=[ant?S[0]:(A[0]||Nn[2]),Nn[0],Nn[1]];
+  var o=[ans].concat(d);
+  var r=(q.w.length+k)%4;
+  o=o.slice(4-r).concat(o.slice(0,4-r));
+  return {o:o,a:o.indexOf(ans),ant:ant};
+}
+function resultView(){
+  var I=st.items.length,Q=st.quiz.length;
+  var a=st.s1.filter(Boolean).length,b=st.s2.filter(Boolean).length,c=st.qres.filter(Boolean).length;
+  var h=header();
+  h+='<div class="card exp"><div><h3>이번 세트</h3><p>'+(G?'틀린 곳 찾기 ':'어색한 단어 찾기 ')+a+' / '+I+'</p><p>'+(G?'바르게 고치기 ':'원래 단어 고르기 ')+b+' / '+I+'</p><p>마무리 '+c+' / '+Q+'</p></div>';
+  h+='<div class="stamps"><div class="stamp done">'+esc(runTitle())+'<br>완료</div></div></div>';
+  h+='<div class="card exp"><h3>이 세트의 포스트잇</h3><div class="recap">';
+  st.items.forEach(function(x){h+=postit(x.it.post);});
+  h+='</div></div>';
+  return h+footer(false);
+}
+function render(){
+  app.innerHTML=st.screen==='home'?homeView():st.screen==='item'?itemView():st.screen==='quiz'?quizView():resultView();
+  wireHome();
+}
+function findRun(k){var r=runList();for(var i=0;i<r.length;i++)if(r[i].key===k)return r[i];}
+function finish(){var d=loadDone();d[st.run.key]=1;saveDone(d);st.screen='result';}
+function goNext(){
+  if(st.i<st.items.length-1){st.i++;st.pick=null;st.fixPick=null;st.wrong=false;}
+  else if(!st.quiz.length){finish();}
+  else{st.screen='quiz';st.qj=0;st.qsel={};st.qdone=false;st.qpick=null;}
+  render();window.scrollTo(0,0);
+}
+function qNext(){
+  if(st.qj<st.quiz.length-1){st.qj++;st.qsel={};st.qdone=false;st.qpick=null;}
+  else finish();
+  render();window.scrollTo(0,0);
+}
+var busy=false;
+function later(f){busy=true;setTimeout(function(){busy=false;f();},700);}
+function toExp(){var x=document.getElementById('exp');if(x)x.scrollIntoView({behavior:'smooth',block:'start'});}
+app.addEventListener('click',function(e){
+  var t=e.target.closest('button');
+  if(!t||busy)return;
+  if(t.dataset.run!==undefined){start(findRun(t.dataset.run));return;}
+  if(t.id==='toapp'){if(history.length>1)history.back();else location.href='../';return;}
+  if(st.screen==='item'){
+    var it=cur().it,a=ansIdx(it);
+    if(t.classList.contains('u')&&st.pick===null){
+      var n=+t.dataset.n;st.pick=n;st.s1[st.i]=(n===a);
+      if(!st.s1[st.i]){st.s2[st.i]=false;st.wrong=true;render();toExp();return;}
+      render();var f=document.getElementById('fix');if(f)f.scrollIntoView({behavior:'smooth',block:'center'});return;
+    }
+    if(t.dataset.o!==undefined&&st.s2[st.i]===undefined){
+      var j=+t.dataset.o,right=G?origText(it.slots[a][0]):it.slots[a][0];
+      st.fixPick=j;st.s2[st.i]=(it.opts[j]===right);
+      if(st.s2[st.i]){render();later(goNext);return;}
+      st.wrong=true;render();toExp();return;
+    }
+    if(t.dataset.tap!==undefined){var k=st.i+'-'+t.dataset.tap;st.tap[k]=!st.tap[k];var y=window.scrollY;render();window.scrollTo(0,y);return;}
+    if(t.id==='next'){goNext();return;}
+  }
+  if(st.screen==='quiz'){
+    var q=st.quiz[st.qj];
+    if(t.dataset.g!==undefined&&!st.qdone){var g=+t.dataset.g;st.qpick=g;st.qres[st.qj]=(g===(G?q.a:vq(q,st.qj).a));st.qdone=true;render();if(st.qres[st.qj])later(qNext);else toExp();return;}
+    if(t.dataset.c!==undefined&&!st.qdone){var c=+t.dataset.c;st.qsel[c]=!st.qsel[c];render();return;}
+    if(t.id==='confirm'){var ok=true;q.it.forEach(function(x,j){if((x[2]!=='n')!==!!st.qsel[j])ok=false;});st.qres[st.qj]=ok;st.qdone=true;render();if(ok)later(qNext);else toExp();return;}
+    if(t.id==='qnext'){qNext();return;}
+  }
+});
+home();
+})();
+
+</script>
+</body>
+</html>

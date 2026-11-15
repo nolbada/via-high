@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ko" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<script src="../common/base.js?v=261105a"></script>
+<title>어휘특훈 · 공통영어2 능률(민) 3과</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#f3f5f7; --card:#ffffff; --ink:#1b2430; --sub:#5b6776; --line:#d9dee5;
+  --accent:#0e6a6a; --accent-soft:#e1f1f0;
+  --ok:#1f7a4d; --ok-soft:#e3f4ea; --bad:#b3372f; --bad-soft:#fbe6e4;
+  --note:#fff1a6; --note-ink:#4a3d00;
+  --font:"Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.7;color-scheme:light}
+.wrap{max-width:720px;margin:0 auto;padding:14px 16px 56px;display:flex;flex-direction:column;gap:14px}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.top h1{font-size:1.05rem;margin:0;font-weight:700;text-wrap:balance}
+.top span{color:var(--sub);font-size:.9rem;white-space:nowrap}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);transition:width .25s}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.q{font-weight:700;margin:0 0 12px;text-wrap:balance}
+.passage{font-size:1.02rem;line-height:2.15;word-break:keep-all;overflow-wrap:break-word}
+.passage .fn{display:block;font-size:.82rem;line-height:1.5;color:var(--sub);margin-top:10px}
+button{font:inherit;color:inherit}
+button.u{background:none;border:0;border-bottom:2px solid var(--ink);padding:0 3px;margin:0 1px;cursor:pointer;border-radius:2px}
+button.u b{font-size:.72em;color:var(--accent);margin-right:3px;font-weight:700}
+button.u:focus-visible,.opt:focus-visible,.btn:focus-visible,.ck:focus-visible,.setbtn:focus-visible,.tapq:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+button.u.right{background:var(--ok-soft);border-color:var(--ok)}
+button.u.wrong{background:var(--bad-soft);border-color:var(--bad)}
+button.u:disabled{cursor:default}
+.opts{display:grid;gap:8px;grid-template-columns:1fr 1fr}
+@media (max-width:480px){.opts{grid-template-columns:1fr}}
+.opt,.ck{text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer;display:flex;gap:8px;align-items:baseline;justify-content:space-between}
+.opt b{color:var(--accent);font-weight:700}
+.opt.right,.ck.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong,.ck.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.ck.on{border-color:var(--accent);background:var(--accent-soft)}
+.ck small,.opt small{color:var(--sub);font-size:.82rem}
+.ck .tag{font-size:.78rem;font-weight:700;color:var(--sub)}
+.ck.right .tag{color:var(--ok)}
+.ck.wrong .tag{color:var(--bad)}
+.opt:disabled,.ck:disabled{cursor:default}
+.btn{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:11px 18px;font-weight:700;cursor:pointer;align-self:flex-start}
+.btn.ghost{background:var(--card);color:var(--ink);border:1.5px solid var(--line)}
+.badge{display:inline-block;font-weight:700;border-radius:6px;padding:2px 10px;font-size:.9rem}
+.badge.ok{background:var(--ok-soft);color:var(--ok)}
+.badge.no{background:var(--bad-soft);color:var(--bad)}
+.exp{display:flex;flex-direction:column;gap:16px}
+.exp h3{margin:0 0 4px;font-size:.92rem;color:var(--accent);font-weight:700}
+.exp p{margin:0}
+.lines p+p{margin-top:2px}
+.words{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px;font-size:.95rem}
+.words li span{color:var(--sub)}
+.words li.sw{color:var(--bad)}
+.words li.sy b{color:var(--ok)}
+.evi .en{font-weight:500}
+mark{background:#ffe45c;color:inherit;border-radius:3px;padding:0 2px}
+mark.k{font-weight:700}
+.evi .ko{color:var(--sub);font-size:.95rem}
+.flow{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:4px}
+.flow li{padding:6px 10px;border-left:3px solid var(--line);color:var(--sub)}
+.flow li.at{border-left-color:var(--accent);background:var(--accent-soft);color:var(--ink);font-weight:700}
+.pairs{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.pairs li .e{font-weight:500}
+.pairs li .k{color:var(--sub);font-size:.95rem;display:block}
+.tapq{width:100%;text-align:left;background:var(--accent-soft);border:1.5px dashed var(--accent);border-radius:8px;padding:10px 12px;cursor:pointer;font-weight:700}
+.tapa{margin-top:8px;padding-left:12px;border-left:3px solid var(--accent)}
+.postit{background:var(--note);color:var(--note-ink);padding:12px 14px;border-radius:4px;box-shadow:0 2px 0 rgba(0,0,0,.12);font-weight:500;transform:rotate(-.6deg)}
+.postit p+p{margin-top:2px}
+.stamps{display:flex;gap:10px}
+.stamp{flex:1;border:2px dashed var(--line);border-radius:10px;text-align:center;padding:14px 4px;color:var(--sub);font-weight:700}
+.stamp.done{border:3px solid var(--accent);color:var(--accent);background:var(--accent-soft);transform:rotate(-2deg)}
+.setlist{display:flex;flex-direction:column;gap:10px}
+.setbtn{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:16px;cursor:pointer;font-weight:700}
+.setbtn small{color:var(--sub);font-weight:500}
+.setbtn.done{border-color:var(--accent)}
+.setbtn.done small{color:var(--accent);font-weight:700}
+.recap{display:flex;flex-direction:column;gap:8px}
+.foot{margin-top:6px;display:flex;justify-content:center}
+.sub{color:var(--sub);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.board h2{font-size:.95rem;margin:4px 0 8px;color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.tile{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:12px 6px;text-align:center;cursor:pointer;font-weight:700;line-height:1.3}
+.tile small{display:block;font-weight:500;color:var(--sub);font-size:.72rem;margin-top:2px}
+.tile.done{border:2.5px solid var(--accent);background:var(--accent-soft);color:var(--accent)}
+.tile.done small{color:var(--accent)}
+.tile:disabled{opacity:.45;cursor:default}
+.lock{color:var(--sub);font-size:.85rem;margin:0 0 8px}
+.pt{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;border-radius:6px;padding:2px 10px;font-size:.9rem}
+.gs{font-size:1.05rem;line-height:1.9}
+.chk li.bad{color:var(--bad)}
+.chk li span{color:var(--sub)}
+.nobadge{font-size:.8rem;color:var(--sub);font-weight:700}
+.neg{background:linear-gradient(transparent 45%,#f6e27a 45%)}
+mark{background:linear-gradient(transparent 45%,#f6e27a 45%)!important;padding:0}
+.band{border-radius:10px;background:var(--bad-soft);border:1.5px solid var(--bad);padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.band b{color:var(--bad);font-size:1rem}
+.band span{font-weight:700}
+.band small{color:var(--sub);font-size:.85rem}
+.chs{display:flex;flex-direction:column;gap:10px}
+.ch{border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;background:#f8f9fb}
+.ch.ok{border-color:var(--ok);background:linear-gradient(90deg,#e3f4ea,#fff)}
+.ch.me{border-color:var(--bad);background:linear-gradient(90deg,#fbe6e4,#fff)}
+.chtop{display:flex;gap:10px;align-items:flex-start}
+.chn{color:var(--sub);min-width:1.4em}
+.chw{flex:1;display:flex;flex-direction:column;font-size:1.08rem;font-weight:500}
+.chw small{font-size:.85rem;color:var(--sub);font-weight:400}
+.chtag{font-size:.82rem;font-weight:700;border-radius:999px;padding:2px 10px;border:1.5px solid;white-space:nowrap}
+.chtag.ok{color:var(--ok);border-color:var(--ok);background:#fff}
+.chtag.me{color:var(--bad);border-color:var(--bad);background:#fff}
+.chr{margin:8px 0 0;padding-left:10px;border-left:3px solid var(--line);color:#3a4654;font-size:.95rem}
+.ch.ok .chr{border-left-color:var(--ok)}
+.ch.me .chr{border-left-color:var(--bad)}
+.note{background:#fff8d6;border:1.5px solid #f0d36a;border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:3px}
+.note .nt{font-weight:700;color:#7a5d00;font-size:.9rem;margin-bottom:4px}
+.note .nko{color:var(--sub);font-size:.92rem}
+.ck.miss{border-color:var(--ok);border-style:dashed}
+.top .back{padding:6px 12px;font-size:.85rem;align-self:center}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script id="data" type="application/json">{"kind":"v","id":"c2neminL3","title":"어휘특훈","sub":"공통영어2 능률(민) 3과","nums":[{"id":"cs1-L3-3a","title":"어휘특훈 · 공통영어2 3과 본문 ①+②","sub":"책이 된 호랑이 이야기 + 한국 문화 속 호랑이","tpl":"Children around the world {learned} {a_bit_more} about Korean culture when writer Tae Keller published her book When You Trap a Tiger in 2020. Its story starts with a girl who meets a tiger. Her grandmother knows the tiger as well. When her grandmother gets {sick}, the girl makes a deal with the tiger. Keller’s {inspiration} for her award-winning book was an {old} folktale that her halmoni (grandmother) used to tell her. It is called “The Sun and the Moon,” and it is about a brother, a sister, and a tiger. Keller wanted to {revive} the public’s {interest} in tigers by writing her own book. How is the tiger {related} to Korean culture? Long ago, tigers were so {abundant} in Korea that people often called the country the “Land of Tigers.” It is estimated that tigers lived in Korea for at least 100,000 years. The {first} {appearance} of a tiger in Korean culture dates back to the rock art of the Bronze Age. It {depicts} people hunting {various} animals, including tigers. Since then, tigers have appeared in {many} aspects of Korean culture, from legends to art and musical instruments. Some of you may have heard Korean folktales featuring tigers. In fact, {approximately} forty percent of Korean folktales about animals include a tiger. Tigers in Korean folktales are sometimes shown in a {positive} light and sometimes as {foolish} creatures. For example, in one story, a tiger helps a human become {rich} after the human saves the tiger’s life.","fn":["*folktale: 설화, 민간 이야기","*award-winning: 상을 받은","*estimate: 추정하다","*date back to: ~로 거슬러 올라가다","*the Bronze Age: 청동기 시대","*feature: 특별히 포함하다, 등장시키다","*in a ~ light: ~한 관점으로","*creature: 생물, 존재"],"mean":{"learned":"동사 learn(배우다, 알게 되다)의 과거형","forgot":"동사 forget(잊다)의 과거형","a bit more":"조금 더 (많이)","sick":"아픈","ill":"아픈","inspiration":"영감","discouragement":"낙담, 의욕을 꺾음","old":"옛날의, 오래된","ancient":"아주 오래된, 고대의","revive":"되살리다, 부활시키다","rekindle":"(관심·감정을) 다시 불러일으키다","suppress":"억누르다, 억압하다","interest":"관심, 흥미","indifference":"무관심","related":"관련된 (be related to = ~와 관련이 있다)","connected":"연관된, 연결된","unrelated":"관련 없는","abundant":"풍부한, 아주 많은","plentiful":"풍부한, 많은","scarce":"드문, 부족한","first":"첫 번째의, 처음의","last":"마지막의","appearance":"등장, 출현","disappearance":"사라짐, 소멸","depicts":"동사 depict(묘사하다)의 3인칭 단수 현재형","portrays":"동사 portray(묘사하다, 그리다)의 3인칭 단수 현재형","various":"다양한","diverse":"다양한","many":"많은","few":"거의 없는, 수가 적은","numerous":"수많은","approximately":"대략, 약","roughly":"대략","positive":"긍정적인","negative":"부정적인","favorable":"호의적인, 좋은","foolish":"어리석은","silly":"어리석은, 바보 같은","wise":"현명한","rich":"부유한","poor":"가난한","wealthy":"부유한"},"comp":[{"no":"본문 ①②","slots":[["learned"],["interest","indifference","a"],["abundant"],["depicts"],["foolish","silly","s"]],"opts":["interest","hatred","doubt","anger"],"or":["interest(관심): 호랑이 이야기를 다시 세상에 알리려는 목적이라 되살릴 대상은 관심이 맞음.","hatred(증오): 할머니의 옛이야기로 쓴 책이 호랑이에 대한 증오를 되살리려 했다는 건 맞지 않음.","doubt(의심): 호랑이에 대한 의심을 되살린다는 건 책을 쓴 이유가 되지 못함.","anger(분노): 호랑이에 대한 분노를 되살리려고 상 받은 소설을 썼다는 건 흐름과 무관함."],"om":["관심","증오","의심","분노"],"en":"Keller wanted to revive the public’s interest in tigers by writing her own book.","ko":"켈러는 자기만의 책을 씀으로써 호랑이에 대한 대중의 관심을 되살리고 싶어 했다.","hl":["the public’s interest in tigers","revive"],"khl":["호랑이에 대한 대중의 관심","되살리고"],"blocks":[{"t":"p","h":"되살릴 수 있는 것","x":["revive(되살리다)는 시들었던 좋은 것을 다시 살린다는 말이다.","켈러가 살리고 싶었던 건 호랑이를 향한 사람들의 관심이다.","indifference(무관심)를 넣으면 무관심을 되살리려고 책을 쓴 셈이 된다.","그러면 굳이 호랑이 책을 쓸 이유가 없다."]},{"t":"p","h":"silly(어리석은)는 그대로","x":["silly(어리석은)는 foolish(어리석은)와 같은 말이다.","설화 속 바보 같은 호랑이 모습이 그대로 남는다."]}],"post":["interest(관심) ↔ indifference(무관심)","책을 쓴 이유 = 잊혀 가던 호랑이에 대한 관심"]},{"no":"본문 ①②","slots":[["sick"],["revive"],["first","last","a"],["various"],["rich","wealthy","s"]],"opts":["first","recent","modern","only"],"or":["first(첫 번째의): 청동기 시대의 바위 그림은 아주 먼 옛날이라 첫 등장이라는 말과 맞음.","recent(최근의): 청동기 시대는 수천 년 전이라 최근이라 부를 수 없음.","modern(현대의): 청동기 바위 그림을 현대의 등장이라 할 수는 없음.","only(유일한): 바로 뒤에서 그때부터 여러 곳에 나타났다고 하니 유일한 등장이 아님."],"om":["첫 번째의","최근의","현대의","유일한"],"en":"The first appearance of a tiger in Korean culture dates back to the rock art of the Bronze Age. … Since then, tigers have appeared in many aspects of Korean culture","ko":"한국 문화에서 호랑이의 첫 등장은 청동기 시대의 바위 그림으로 거슬러 올라간다. … 그때부터 호랑이는 한국 문화의 많은 측면에 등장해 왔다","hl":["The first appearance","Since then"],"khl":["첫 등장","그때부터"],"blocks":[{"t":"pair","h":"시작과 그 뒤","x":[["The first appearance ... dates back to the rock art","첫 등장은 바위 그림으로 거슬러 올라간다 (시작)"],["Since then, tigers have appeared in many aspects","그때부터 많은 측면에 등장해 왔다 (그 뒤)"]]},{"t":"p","h":"Since then(그때부터)이 잡아 주는 순서","x":["Since then(그때부터)은 출발점이 있어야 쓸 수 있는 말이다.","출발점이 바로 바위 그림 속 첫 등장이다.","last(마지막의)를 넣으면 청동기 시대가 마지막 등장이 된다.","그런데 그 뒤로도 호랑이는 계속 나타났다."]},{"t":"p","h":"함정","x":["wealthy(부유한)는 rich(부유한)와 같은 뜻이라 은혜 갚는 호랑이 이야기가 그대로다."]}],"post":["first(첫 번째의) ↔ last(마지막의)","청동기 바위 그림 = 시작, 그 뒤로 계속 등장"]}],"compquiz":[{"w":"interest","m":"관심, 흥미","it":[["concern","관심, 걱정","s"],["pillow","베개","n"],["indifference","무관심","a"],["thunder","천둥","n"],["enthusiasm","열정, 열의","s"],["boredom","지루함","a"],["receipt","영수증","n"]]},{"w":"first","m":"첫 번째의, 처음의","it":[["muddy","진흙투성이의","n"],["initial","처음의","s"],["last","마지막의","a"],["bitter","쓴","n"],["earliest","가장 이른","s"],["final","마지막의","a"],["humid","습한","n"]]}],"sets":[{"items":[{"slots":[["learned","forgot","a"],["old"],["related"],["various"],["positive"]],"opts":["learned","worried","complained","joked"],"or":["learned(알게 되었다): 책 한 권이 전 세계 아이들에게 한국 문화를 알려 준 결과라 맞음.","worried(걱정했다): 호랑이 이야기책이 나왔다고 아이들이 한국 문화를 걱정할 이유가 없음.","complained(불평했다): 상까지 받은 책이 아이들의 불평을 불렀다는 말이 되어 흐름과 안 맞음.","joked(농담했다): 책 출판과 한국 문화를 두고 농담하는 일은 아무 관련이 없음."],"om":["알게 되었다","걱정했다","불평했다","농담했다"],"en":"Children around the world learned a bit more about Korean culture when writer Tae Keller published her book When You Trap a Tiger in 2020.","ko":"작가 태 켈러가 2020년에 자신의 책 〈When You Trap a Tiger〉를 출판했을 때, 전 세계 아이들은 한국 문화에 대해 조금 더 알게 되었다.","hl":["learned a bit more about Korean culture","published her book"],"khl":["조금 더 알게 되었다","출판했을 때"],"blocks":[{"t":"flow","h":"본문 ①·② 이야기 지도","x":["책: 켈러의 호랑이 소설이 세계 아이들에게 한국 문화를 알림","영감: 할머니가 들려준 옛 설화 해님 달님","목표: 호랑이에 대한 대중의 관심 되살리기","역사: 호랑이가 넘쳐 호랑이의 땅이라 불림","설화: 동물 설화의 약 40%에 호랑이 등장"],"at":0},{"t":"p","h":"책이 한 일","x":["첫 문장은 책 한 권이 낳은 결과를 말한다.","책이 나왔고, 전 세계 아이들이 한국 문화를 조금 더 알게 되었다.","forgot(잊었다)을 넣으면 책이 나오자 아이들이 한국 문화를 잊어버린 셈이다.","한국 호랑이 이야기를 담은 책이 한국 문화를 지우는 일은 없다."]}],"post":["learn(배우다, 알게 되다) ↔ forget(잊다)","호랑이 소설 한 권 = 세계 아이들의 한국 문화 입문"]},{"slots":[["sick","ill","s"],["abundant","scarce","a"],["depicts","portrays","s"],["many"],["rich"]],"opts":["abundant","endangered","silent","gentle"],"or":["abundant(아주 많은): 호랑이가 너무 많아서 ‘호랑이의 땅’이라 불렀다는 so ~ that(너무 ~해서 …하다) 구조와 딱 맞음.","endangered(멸종 위기의): 멸종 위기라면 나라 별명에 호랑이를 붙일 만큼 흔할 수 없음.","silent(조용한): 호랑이가 조용하다는 것은 나라를 ‘호랑이의 땅’이라 부를 이유가 되지 못함.","gentle(온순한): 온순함은 숫자와 상관없어 ‘호랑이의 땅’이라는 별명의 근거가 안 됨."],"om":["아주 많은","멸종 위기의","조용한","온순한"],"en":"Long ago, tigers were so abundant in Korea that people often called the country the “Land of Tigers.”","ko":"오래전 한국에는 호랑이가 아주 많아서 사람들은 종종 그 나라를 ‘호랑이의 땅’이라고 불렀다.","hl":["so abundant","Land of Tigers"],"khl":["아주 많아서","호랑이의 땅"],"blocks":[{"t":"p","h":"so ~ that(너무 ~해서 …하다)이 정하는 방향","x":["so ~ that(너무 ~해서 …하다)은 원인과 결과를 한 문장에 묶는다.","원인: 호랑이가 아주 많았다.","결과: 나라를 ‘호랑이의 땅’이라 불렀다.","scarce(드문, 부족한)를 넣으면 호랑이가 드물어서 호랑이의 땅이라 불렀다는 말이 된다.","원인과 결과가 거꾸로 맞물린다."]},{"t":"p","h":"고치면 안 되는 두 단어","x":["ill(아픈)은 sick(아픈)과 같은 말이라 할머니가 아프다는 내용 그대로다.","portrays(묘사하다)는 depicts(묘사하다)와 뜻이 같아 바위 그림이 사냥 장면을 그린다는 내용이 살아 있다."]}],"post":["abundant(아주 많은) ↔ scarce(드문, 부족한)","호랑이가 넘쳐서 붙은 별명 = 호랑이의 땅"]},{"slots":[["inspiration","discouragement","a"],["interest"],["first"],["approximately","roughly","s"],["foolish"]],"opts":["inspiration","criticism","regret","rival"],"or":["inspiration(영감): 할머니가 들려준 옛 설화가 책의 씨앗이 되었다는 내용이라 맞음.","criticism(비판): 할머니의 옛이야기가 켈러의 책에 대한 비판이었다는 말은 성립하지 않음.","regret(후회): 상을 받은 책에 대한 후회가 할머니의 설화였다는 건 흐름과 무관함.","rival(경쟁자): 옛 설화가 책의 경쟁자였다면 그 설화를 바탕으로 책을 쓸 이유가 없음."],"om":["영감","비판","후회","경쟁자"],"en":"Keller’s inspiration for her award-winning book was an old folktale that her halmoni (grandmother) used to tell her.","ko":"켈러가 상을 받은 자신의 책을 쓰게 된 영감은 할머니가 들려주곤 하던 옛 설화였다.","hl":["inspiration for her award-winning book","used to tell her"],"khl":["영감","들려주곤 하던"],"blocks":[{"t":"tap","h":"질문 하나","q":"켈러는 왜 호랑이 이야기를 쓰게 되었을까?","a":["어릴 때 할머니가 들려주던 해님 달님 이야기 덕분이다.","그 이야기가 책을 쓰게 만든 불씨, 곧 inspiration(영감)이다.","discouragement(낙담)를 넣으면 할머니의 이야기가 책 쓸 마음을 꺾었다는 말이 된다.","그런데 켈러는 바로 그 이야기를 바탕으로 책을 썼다."]},{"t":"p","h":"roughly(대략)는 그대로","x":["roughly(대략)는 approximately(대략)와 같은 뜻이다.","약 40%라는 숫자의 느낌도 그대로 남는다."]}],"post":["inspiration(영감) ↔ discouragement(낙담)","할머니의 해님 달님 = 책의 불씨"]},{"slots":[["a_bit_more"],["revive"],["appearance"],["many","few","a"],["positive"]],"opts":["many","no","two","rare"],"or":["many(많은): 전설부터 미술, 악기까지 이어지는 넓은 목록과 맞음.","no(어떤 ~도 없는): 호랑이가 어떤 측면에도 안 나왔다면 전설·미술·악기 목록을 댈 수 없음.","two(두 가지의): 바로 뒤 목록만 해도 전설, 미술, 악기로 세 가지임.","rare(드문): 전설과 미술은 한국 문화의 드문 구석이 아니라 큰 줄기라 맞지 않음."],"om":["많은","어떤 ~도 없는","두 가지의","드문"],"en":"Since then, tigers have appeared in many aspects of Korean culture, from legends to art and musical instruments.","ko":"그때부터 호랑이는 전설에서부터 미술과 악기에 이르기까지 한국 문화의 많은 측면에 등장해 왔다.","hl":["many aspects","from legends to art and musical instruments"],"khl":["많은 측면","전설에서부터 미술과 악기에 이르기까지"],"blocks":[{"t":"pair","h":"뒤따르는 목록 세어 보기","x":[["legends","전설 (이야기)"],["art","미술 (그림)"],["musical instruments","악기 (소리)"]]},{"t":"p","h":"few(거의 없는)가 틀린 이유","x":["from A to B(A에서 B까지)는 범위가 넓다는 걸 보여 주는 표현이다.","이야기에서 그림, 소리 내는 악기까지 갈래가 제각각이다.","few(거의 없는)를 넣으면 호랑이가 거의 안 나왔다는 말이 된다.","바로 뒤에 펼쳐진 넓은 목록과 정면으로 부딪친다."]}],"post":["many(많은) ↔ few(거의 없는)","전설 + 미술 + 악기 = 곳곳에 등장한 호랑이"]},{"slots":[["old","ancient","s"],["related","connected","s"],["various"],["positive","negative","a"],["rich"]],"opts":["positive","frightening","cruel","dangerous"],"or":["positive(긍정적인): 바로 뒤 예시가 은혜 갚는 호랑이라 좋은 모습으로 그려진 경우와 맞음.","frightening(무서운): 사람을 부자로 만들어 주는 호랑이는 무서운 모습이 아님.","cruel(잔인한): 목숨을 구해 준 사람에게 보답하는 호랑이는 잔인함과 정반대임.","dangerous(위험한): 예시 속 호랑이는 사람을 해치지 않고 도와줌."],"om":["긍정적인","무서운","잔인한","위험한"],"en":"Tigers in Korean folktales are sometimes shown in a positive light and sometimes as foolish creatures. For example, in one story, a tiger helps a human become rich after the human saves the tiger’s life.","ko":"한국 설화 속 호랑이는 때로는 긍정적인 시각으로, 때로는 어리석은 존재로 그려진다. 예를 들어, 한 이야기에서 호랑이는 사람이 자기 목숨을 구해 준 뒤 그 사람이 부자가 되도록 돕는다.","hl":["in a positive light","For example"],"khl":["긍정적인 시각으로","예를 들어"],"blocks":[{"t":"pair","h":"말과 예시 나란히","x":[["sometimes shown in a positive light","때로는 긍정적인 시각으로 그려진다 (말)"],["a tiger helps a human become rich","호랑이가 사람을 부자가 되게 돕는다 (예시)"]]},{"t":"p","h":"For example(예를 들어)이 증거","x":["For example(예를 들어) 뒤에는 앞말을 보여 주는 장면이 온다.","목숨을 구해 준 사람에게 은혜를 갚는 호랑이.","이건 좋은 쪽 모습이다.","negative(부정적인)를 넣으면 말과 예시가 따로 논다."]},{"t":"p","h":"함정","x":["바뀐 단어가 셋이다.","ancient(아주 오래된)는 old(옛날의) 자리에, connected(연관된)는 related(관련된) 자리에 그대로 들어간다.","an ancient(아주 오래된)로 관사까지 자연스럽다."]}],"post":["positive(긍정적인) ↔ negative(부정적인)","은혜 갚는 호랑이 = 긍정적인 모습"]}],"quiz":[{"w":"learn","m":"배우다, 알게 되다","it":[["master","익히다, 숙달하다","s"],["borrow","빌리다","n"],["forget","잊다","a"],["pick up","(지식을) 익히다, 알게 되다","s"],["deliver","배달하다","n"],["ignore","무시하다","a"],["paint","칠하다","n"]]},{"w":"abundant","m":"풍부한, 아주 많은","it":[["plentiful","풍부한","s"],["scarce","드문, 부족한","a"],["noisy","시끄러운","n"],["ample","충분한, 넉넉한","s"],["meager","빈약한, 불충분한","a"],["honest","정직한","n"],["sudden","갑작스러운","n"]]},{"w":"inspiration","m":"영감","it":[["motivation","동기 부여","s"],["furniture","가구","n"],["discouragement","낙담","a"],["stimulus","자극","s"],["disincentive","의욕을 꺾는 것, 저해 요인","a"],["vacation","휴가","n"],["harvest","수확","n"]]},{"w":"many","m":"많은","it":[["wooden","나무로 된","n"],["numerous","수많은","s"],["few","거의 없는","a"],["polite","공손한","n"],["countless","셀 수 없이 많은","s"],["limited","한정된, 제한된","a"],["fragile","깨지기 쉬운","n"]]},{"w":"positive","m":"긍정적인","it":[["favorable","호의적인","s"],["hollow","속이 빈","n"],["negative","부정적인","a"],["approving","찬성하는, 좋게 보는","s"],["frozen","얼어붙은","n"],["unfavorable","호의적이지 않은","a"],["narrow","좁은","n"]]}]},{"items":[{"slots":[["learned"],["revive","suppress","a"],["abundant","plentiful","s"],["many"],["foolish"]],"opts":["revive","end","hide","limit"],"or":["revive(되살리다): 시들해진 호랑이에 대한 관심을 책으로 다시 불붙이려 했다는 목적과 맞음.","end(끝내다): 호랑이 책을 써서 호랑이에 대한 관심을 끝내려 했다는 건 앞뒤가 안 맞음.","hide(숨기다): 책은 관심을 드러내고 퍼뜨리는 수단이지 숨기는 수단이 아님.","limit(제한하다): 전 세계 아이들이 읽은 책의 목적이 관심 줄이기일 수 없음."],"om":["되살리다","끝내다","숨기다","제한하다"],"en":"Keller wanted to revive the public’s interest in tigers by writing her own book.","ko":"켈러는 자기만의 책을 씀으로써 호랑이에 대한 대중의 관심을 되살리고 싶어 했다.","hl":["revive the public’s interest","by writing her own book"],"khl":["관심을 되살리고","책을 씀으로써"],"blocks":[{"t":"p","h":"수단과 목적","x":["by writing her own book(자기만의 책을 써서)은 수단이다.","revive the public’s interest(대중의 관심을 되살리다)는 목적이다.","호랑이 이야기책을 쓰는 건 호랑이를 알리는 일이다.","suppress(억누르다)를 넣으면 호랑이 책을 써서 호랑이에 대한 관심을 눌러 버리려 한 셈이다."]},{"t":"p","h":"plentiful(풍부한)은 그대로","x":["plentiful(풍부한)은 abundant(아주 많은)와 같은 뜻이다.","호랑이가 넘쳐 호랑이의 땅이라 불렸다는 문장이 그대로 산다."]}],"post":["revive(되살리다) ↔ suppress(억누르다)","호랑이 책을 쓴 목적 = 사람들의 관심 되살리기"]},{"slots":[["sick"],["interest"],["appearance","disappearance","a"],["depicts"],["approximately"]],"opts":["appearance","extinction","absence","decline"],"or":["appearance(등장): 바위 그림이 호랑이를 그렸으니 한국 문화에 호랑이가 처음 나타난 순간이라 맞음.","extinction(멸종): 청동기 바위 그림은 호랑이가 사라진 기록이 아니라 그려진 기록임.","absence(부재): 그림 속에 호랑이가 있으니 없었다는 말과 반대임.","decline(감소): 바위 그림은 호랑이 수가 줄어든 증거가 아니라 처음 등장한 증거임."],"om":["등장","멸종","부재","감소"],"en":"The first appearance of a tiger in Korean culture dates back to the rock art of the Bronze Age. It depicts people hunting various animals, including tigers.","ko":"한국 문화에서 호랑이의 첫 등장은 청동기 시대의 바위 그림으로 거슬러 올라간다. 그것은 호랑이를 포함한 다양한 동물을 사냥하는 사람들을 묘사한다.","hl":["The first appearance","including tigers"],"khl":["첫 등장","호랑이를 포함한"],"blocks":[{"t":"p","h":"바위 그림 속을 들여다보기","x":["청동기 시대 바위 그림에는 동물을 사냥하는 사람들이 새겨져 있다.","그 동물 가운데 호랑이가 있다.","그러니 이 그림은 호랑이가 처음 모습을 드러낸 기록이다.","disappearance(사라짐)를 넣으면 호랑이가 그려진 그림이 호랑이가 사라진 기록이 된다."]},{"t":"flow","h":"호랑이가 걸어온 길","x":["청동기 바위 그림: 첫 등장","전설·미술·악기: 곳곳에 등장","동물 설화: 약 40%에 등장"],"at":0}],"post":["appearance(등장) ↔ disappearance(사라짐)","청동기 바위 그림 = 호랑이의 첫 등장"]},{"slots":[["old"],["various","diverse","s"],["many","numerous","s"],["foolish","wise","a"],["rich"]],"opts":["foolish","noble","brave","generous"],"or":["foolish(어리석은): sometimes A and sometimes B(때로는 A, 때로는 B)가 좋은 모습과 반대 모습을 나란히 놓으니 positive(긍정적인)의 반대쪽인 어리석은 모습이 맞음.","noble(고귀한): 고귀함도 좋은 모습이라 앞의 positive light(긍정적인 시각)와 대비가 생기지 않음.","brave(용감한): 용감함 역시 좋은 모습이라 때로는 좋게, 때로는 또 좋게 그렸다는 맥 빠진 말이 됨.","generous(너그러운): 너그러움도 좋은 쪽이라 두 번째 sometimes(때로는)가 반대 모습을 꺼내는 자리와 안 맞음."],"om":["어리석은","고귀한","용감한","너그러운"],"en":"Tigers in Korean folktales are sometimes shown in a positive light and sometimes as foolish creatures.","ko":"한국 설화 속 호랑이는 때로는 긍정적인 시각으로, 때로는 어리석은 존재로 그려진다.","hl":["sometimes as foolish creatures","in a positive light"],"khl":["때로는 어리석은 존재로","긍정적인 시각으로"],"blocks":[{"t":"pair","h":"두 얼굴의 호랑이","x":[["sometimes shown in a positive light","때로는 긍정적인 시각으로 (좋은 얼굴)"],["sometimes as foolish creatures","때로는 어리석은 존재로 (우스운 얼굴)"]]},{"t":"p","h":"wise(현명한)가 틀린 이유","x":["sometimes A and sometimes B(때로는 A, 때로는 B)는 서로 다른 두 모습을 보여 준다.","A가 positive(긍정적인)이니 B는 그 반대쪽이어야 한다.","wise(현명한)를 넣으면 좋은 모습, 또 좋은 모습이 되어 대비가 사라진다.","게다가 본문 ③에서 호랑이는 곶감을 괴물로 착각하고 도망친다.","바로 그 어리석은 호랑이다."]},{"t":"p","h":"함정","x":["이번엔 바뀐 단어가 셋이다.","diverse(다양한)는 various(다양한)와, numerous(수많은)는 many(많은)와 같은 뜻이다.","둘 다 호랑이가 여러 곳에 나온다는 내용을 그대로 지킨다."]}],"post":["foolish(어리석은) ↔ wise(현명한)","좋은 호랑이 + 어리석은 호랑이 = 설화 속 두 얼굴"]},{"slots":[["inspiration"],["interest"],["first"],["approximately"],["rich","poor","a"]],"opts":["rich","lonely","lost","weak"],"or":["rich(부유한): 목숨을 구해 준 사람에게 복을 주는 은혜 갚기 이야기라 맞음.","lonely(외로운): 은혜를 갚는 호랑이가 사람을 외롭게 만든다는 건 긍정적인 모습이 아님.","lost(길을 잃은): helps(돕다)와 길을 잃게 만든다는 말이 서로 안 맞음.","weak(약한): 생명의 은인을 약하게 만드는 걸 돕는다고 하지 않음."],"om":["부유한","외로운","길을 잃은","약한"],"en":"For example, in one story, a tiger helps a human become rich after the human saves the tiger’s life.","ko":"예를 들어, 한 이야기에서 호랑이는 사람이 자기 목숨을 구해 준 뒤 그 사람이 부자가 되도록 돕는다.","hl":["become rich","saves the tiger’s life"],"khl":["부자가 되도록","목숨을 구해 준"],"blocks":[{"t":"p","h":"은혜 갚는 이야기의 순서","x":["먼저 사람이 호랑이의 목숨을 구한다.","그다음 호랑이가 그 사람을 돕는다.","도움의 결과가 rich(부유한)다.","poor(가난한)를 넣으면 은혜를 갚는다며 사람을 가난하게 만든 셈이다."]},{"t":"p","h":"앞 문장과 이어 보기","x":["바로 앞에서 호랑이가 positive light(긍정적인 시각)로 그려지기도 한다고 했다.","이 이야기는 그 말의 예시다.","좋은 호랑이가 은인을 가난하게 만들 리 없다."]}],"post":["rich(부유한) ↔ poor(가난한)","목숨을 구해 준 사람 = 부자로 만들어 준 호랑이"]},{"slots":[["revive","rekindle","s"],["related","unrelated","a"],["appearance"],["positive","favorable","s"],["foolish"]],"opts":["related","opposed","harmful","foreign"],"or":["related(관련된): 이어지는 글 전체가 호랑이와 한국 문화의 연결 고리를 하나씩 보여 줘서 맞음.","opposed(반대하는): 호랑이가 한국 문화에 맞섰다는 내용은 본문 어디에도 없음.","harmful(해로운): 뒤 내용은 호랑이가 문화에 해를 끼친 이야기가 아니라 문화 곳곳에 담긴 이야기임.","foreign(낯선, 이질적인): ‘호랑이의 땅’이라 불릴 만큼 가까웠으니 낯설다는 말과 반대임."],"om":["관련된","반대하는","해로운","낯선"],"en":"How is the tiger related to Korean culture? Long ago, tigers were so abundant in Korea that people often called the country the “Land of Tigers.”","ko":"호랑이는 한국 문화와 어떻게 관련되어 있을까? 오래전 한국에는 호랑이가 아주 많아서 사람들은 종종 그 나라를 ‘호랑이의 땅’이라고 불렀다.","hl":["How is the tiger related to Korean culture?","Land of Tigers"],"khl":["어떻게 관련되어 있을까","호랑이의 땅"],"blocks":[{"t":"flow","h":"질문이 여는 문","x":["질문: 호랑이와 한국 문화는 어떻게 이어져 있나","답 1: 호랑이의 땅이라는 별명","답 2: 청동기 바위 그림","답 3: 전설·미술·악기","답 4: 동물 설화의 약 40%"],"at":0},{"t":"p","h":"unrelated(관련 없는)가 틀린 이유","x":["질문 뒤에 오는 문장들은 전부 연결 고리다.","unrelated(관련 없는)를 넣으면 어떻게 관련이 없냐고 물어 놓고 관련된 증거만 줄줄이 대는 꼴이 된다.","rekindle(다시 불러일으키다)은 revive(되살리다)와, favorable(호의적인)은 positive(긍정적인)와 같은 방향이라 고치지 않는다."]}],"post":["related(관련된) ↔ unrelated(관련 없는)","질문 하나 → 연결 고리 넷"]}],"quiz":[{"w":"revive","m":"되살리다, 부활시키다","it":[["renew","되살리다, 새롭게 하다","s"],["measure","측정하다","n"],["suppress","억누르다","a"],["restore","회복시키다, 되살리다","s"],["whisper","속삭이다","n"],["extinguish","(불을) 끄다, 없애다","a"],["invite","초대하다","n"]]},{"w":"appearance","m":"등장, 출현","it":[["ladder","사다리","n"],["arrival","도착, 출현","s"],["disappearance","사라짐","a"],["blanket","담요","n"],["advent","출현, 도래","s"],["departure","떠남","a"],["recipe","조리법","n"]]},{"w":"foolish","m":"어리석은","it":[["silly","어리석은, 바보 같은","s"],["purple","보라색의","n"],["wise","현명한","a"],["unwise","현명하지 못한, 어리석은","s"],["salty","짠","n"],["sensible","분별 있는, 현명한","a"],["sticky","끈적끈적한","n"]]},{"w":"rich","m":"부유한","it":[["curly","곱슬곱슬한","n"],["wealthy","부유한","s"],["poor","가난한","a"],["affluent","부유한","s"],["rusty","녹슨","n"],["needy","가난한, 궁핍한","a"],["steep","가파른","n"]]},{"w":"related","m":"관련된","it":[["connected","연관된","s"],["hungry","배고픈","n"],["unrelated","관련 없는","a"],["associated","관련된","s"],["loud","시끄러운","n"],["unconnected","연관 없는","a"],["wet","젖은","n"]]}]}],"no":"본문 ①②"},{"id":"cs1-L3-3c","title":"어휘특훈 · 공통영어2 3과 본문 ③+④","sub":"엇갈린 감정과 되살아난 상징 + 오늘날의 호랑이","tpl":"In another story, a tiger hears a mother tell her crying baby, “Don’t cry. Here’s a gotgam.” Because the baby stops crying, the tiger {mistakenly} thinks the gotgam is a very {scary} creature and runs away. It seems that people at the time had {conflicting} feelings about tigers. They had {respect} for tigers’ power and courage. However, they were also scared of tigers because being {injured} or even killed by tigers was {common} in the past. They may have made tigers into foolish characters in order to be less scared of them. Tigers in Korea faced a {decline} in population due to hunting during the Joseon period and nearly went extinct during the Japanese colonial era. With the disappearance of tigers in Korea, their use as a symbol of the nation {faded_away}. However, their symbolism was {revived} in modern times through their selection as the mascot for both Olympics hosted by Korea. Hodori was the mascot for the Seoul Summer Olympics in 1988. It was a Siberian tiger, which represents {courage}. The PyeongChang Winter Olympics in 2018 created Soohorang, a white tiger, as its mascot. White tigers are considered {sacred} guardians. Tigers are also {mentioned} in the K-pop song “Tiger is Coming.” One verse of the song is a reinterpreted version of “Sugungga,” which is a traditional Korean song. The song {drew} {worldwide} attention, and its video was viewed millions of times online. These days, {only_a_few} wild tigers have been reported to be living in North Korea. However, the history, stories, and cultural meaning of tigers still have a place among modern Korean people. Who can {deny} that the tiger is a symbol of Korea? In 2021, the National Folk Museum of Korea published a book that {collects} all the stories about tigers in Korea. How about {looking_for} tigers around you now?","fn":["*gotgam: 곶감(말린 감)","*creature: 생물, 존재","*extinct: 멸종된","*colonial era: 식민지 시대(여기서는 일제 강점기)","*symbolism: 상징성","*mascot: 마스코트, 상징 캐릭터","*guardian: 수호자","*verse: (노래의) 절, 구절","*reinterpret: 재해석하다"],"mean":{"mistakenly":"잘못, 오해하여","correctly":"올바르게","wrongly":"잘못","scary":"무서운","frightening":"무서운, 겁나게 하는","reassuring":"안심시키는, 마음을 놓이게 하는","conflicting":"상충되는, 모순되는","mixed":"뒤섞인, 엇갈린 (mixed feelings = 복잡한 감정)","consistent":"한결같은, 일관된","respect":"존경(심)","admiration":"감탄, 존경","contempt":"경멸","injured":"동사 injure(부상을 입히다)의 과거분사형. being injured = 다치는 것","hurt":"동사 hurt(다치게 하다)의 과거분사형(원형과 모양이 같음). being hurt = 다치는 것","common":"흔한","rare":"드문","decline":"감소","drop":"감소, 하락","rise":"증가, 상승","faded away":"동사구 fade away(희미해지다, 서서히 사라지다)의 과거형","disappeared":"동사 disappear(사라지다)의 과거형","revived":"동사 revive(되살리다)의 과거분사형. was revived = 되살아났다","restored":"동사 restore(회복시키다, 되살리다)의 과거분사형. was restored = 회복되었다","courage":"용기","bravery":"용기","cowardice":"비겁함","sacred":"신성한","holy":"신성한, 성스러운","mentioned":"동사 mention(언급하다)의 과거분사형. are mentioned = 언급된다","referred to":"동사구 refer to(~을 언급하다)의 과거분사형. are referred to = 언급된다","overlooked":"동사 overlook(간과하다, 못 보고 넘어가다)의 과거분사형","drew":"동사 draw((관심을) 끌다)의 과거형","attracted":"동사 attract(끌다)의 과거형","worldwide":"전 세계적인","global":"세계적인","local":"지역의, 현지의","only a few":"소수의 ~만, 몇 안 되는","countless":"셀 수 없이 많은","deny":"부인하다, 부정하다","admit":"인정하다","collects":"동사 collect(모으다)의 3인칭 단수 현재형","looking for":"동사구 look for(~을 찾다)의 -ing형. How about(~는 어때?) 뒤에 오는 동명사","ignoring":"동사 ignore(무시하다)의 -ing형. 동명사"},"comp":[{"no":"본문 ③④","slots":[["scary","reassuring","a"],["common"],["revived","restored","s"],["drew","attracted","s"],["collects"]],"opts":["scary","cute","friendly","tiny"],"or":["scary(무서운): 곶감을 무서운 존재로 착각해서 runs away(달아나다)한 것이라 맞음.","cute(귀여운): 귀여운 생물이라고 여겼다면 달아날 이유가 없음.","friendly(친근한): 친근한 존재를 피해 도망치지는 않음.","tiny(아주 작은): 작다는 이유로 호랑이가 도망친다는 건 말이 안 됨."],"om":["무서운","귀여운","친근한","아주 작은"],"en":"Because the baby stops crying, the tiger mistakenly thinks the gotgam is a very scary creature and runs away.","ko":"아기가 울음을 그치자, 호랑이는 곶감이 아주 무서운 생물이라고 잘못 생각하고 달아난다.","hl":["a very scary creature","runs away"],"khl":["아주 무서운 생물","달아난다"],"blocks":[{"t":"p","h":"호랑이의 계산","x":["엄마가 곶감을 꺼내자 우는 아기가 뚝 그친다.","호랑이는 아기를 단번에 조용하게 만든 곶감이 대단한 존재라고 여긴다.","그래서 무서워서 runs away(달아나다).","reassuring(안심시키는)을 넣으면 마음을 놓이게 하는 존재를 보고 도망친 셈이다.","생각과 행동이 따로 논다."]},{"t":"p","h":"고치면 안 되는 두 단어","x":["restored(회복된)는 revived(되살아난)와 같은 뜻이라 올림픽으로 상징이 다시 살아났다는 내용 그대로다.","attracted(끌었다)도 drew(끌었다)와 같아 attracted worldwide attention(세계적 주목을 끌었다)으로 자연스럽다."]}],"post":["scary(무서운) ↔ reassuring(안심시키는)","곶감 = 호랑이가 착각한 괴물"]},{"no":"본문 ③④","slots":[["conflicting"],["decline"],["worldwide","global","s"],["deny"],["looking_for","ignoring","a"]],"opts":["looking_for","laughing_at","getting_rid_of","giving_up_on"],"or":["looking for(~을 찾다): 호랑이가 지금도 우리 곁에 있다는 글의 끝맺음으로 주변의 호랑이를 찾아보자는 권유라 맞음.","laughing at(~을 비웃다): 호랑이를 한국의 상징이라 높인 뒤 비웃자고 권할 리 없음.","getting rid of(~을 없애다): 상징을 지키자는 글이 호랑이를 없애자고 끝날 수 없음.","giving up on(~을 포기하다): 호랑이의 의미가 여전히 살아 있다는 내용과 반대 방향임."],"om":["~을 찾다","~을 비웃다","~을 없애다","~을 포기하다"],"en":"Who can deny that the tiger is a symbol of Korea? In 2021, the National Folk Museum of Korea published a book that collects all the stories about tigers in Korea. How about looking for tigers around you now?","ko":"누가 호랑이가 한국의 상징이라는 것을 부인할 수 있을까? 2021년에 국립 민속 박물관은 한국의 호랑이에 관한 모든 이야기를 모은 책을 펴냈다. 이제 여러분 주변에서 호랑이를 찾아보는 것은 어떨까?","hl":["How about looking for tigers around you now?","a symbol of Korea"],"khl":["호랑이를 찾아보는 것은 어떨까","한국의 상징"],"blocks":[{"t":"flow","h":"글의 마지막 계단","x":["야생 호랑이는 몇 마리뿐","그래도 의미는 한국인 곁에 남아 있음","호랑이 = 한국의 상징","박물관이 호랑이 이야기를 모음","이제 주변의 호랑이를 찾아보자"],"at":4},{"t":"p","h":"How about ~ing?(~하는 게 어때?)","x":["How about ~ing?(~하는 게 어때?)는 무언가를 권하는 말이다.","글 전체가 호랑이는 지금도 우리 곁에 있다고 말했다.","그러니 권할 일은 주변에서 호랑이 찾기.","ignoring(무시하기)을 넣으면 글을 다 읽고 나서 호랑이를 무시하자고 권하는 꼴이다.","global(세계적인)은 worldwide(전 세계적인)와 같은 뜻이라 노래가 받은 주목 그대로다."]}],"post":["look for(~을 찾다) ↔ ignore(무시하다)","글의 마지막 = 내 주변의 호랑이 찾기"]}],"compquiz":[{"w":"scary","m":"무서운","it":[["frightening","무서운","s"],["salty","짠","n"],["reassuring","안심시키는","a"],["terrifying","겁나게 하는","s"],["square","정사각형의","n"],["comforting","위로가 되는","a"],["annual","해마다의","n"]]},{"w":"look for","m":"~을 찾다","it":[["take after","닮다","n"],["seek","찾다","s"],["neglect","소홀히 하다","a"],["put on","입다","n"],["pursue","추구하다, 뒤쫓다","s"],["lose","잃어버리다","a"],["give in","굴복하다","n"]]}],"sets":[{"items":[{"slots":[["mistakenly","correctly","a"],["conflicting"],["injured"],["revived"],["mentioned"]],"opts":["mistakenly","wisely","calmly","happily"],"or":["mistakenly(잘못): 곶감은 먹는 간식인데 무서운 생물로 착각했으니 잘못 생각한 것이 맞음.","wisely(현명하게): 간식을 괴물로 여기고 도망친 호랑이를 현명하다고 할 수 없음.","calmly(침착하게): 겁을 먹고 runs away(달아나다)하는 장면과 침착함은 반대임.","happily(기쁘게): 겁을 먹고 달아나는 호랑이의 마음과 기쁨은 어울리지 않음."],"om":["잘못","현명하게","침착하게","기쁘게"],"en":"Because the baby stops crying, the tiger mistakenly thinks the gotgam is a very scary creature and runs away.","ko":"아기가 울음을 그치자, 호랑이는 곶감이 아주 무서운 생물이라고 잘못 생각하고 달아난다.","hl":["mistakenly thinks","a very scary creature"],"khl":["잘못 생각하고","아주 무서운 생물"],"blocks":[{"t":"flow","h":"곶감 이야기 장면 순서","x":["엄마: 울지 마, 여기 곶감 있다","아기: 울음을 뚝 그침","호랑이: 곶감이 무서운 놈이구나","결과: 호랑이가 줄행랑"],"at":2},{"t":"p","h":"곶감의 정체","x":["곶감은 말린 감, 그냥 먹는 간식이다.","생물도 아니고 무섭지도 않다.","그러니 호랑이의 생각은 틀린 생각, 곧 mistakenly(잘못)다.","correctly(올바르게)를 넣으면 곶감이 정말 무서운 괴물이라는 말이 된다."]}],"post":["mistakenly(잘못) ↔ correctly(올바르게)","곶감 = 간식, 호랑이 눈엔 괴물"]},{"slots":[["respect","admiration","s"],["injured","hurt","s"],["common","rare","a"],["sacred"],["deny"]],"opts":["common","impossible","unknown","illegal"],"or":["common(흔한): 호랑이에게 다치는 일이 흔했으니 사람들이 호랑이를 무서워했다는 because(~ 때문에)와 맞음.","impossible(불가능한): 다치는 일이 불가능했다면 두려워할 이유가 사라짐.","unknown(알려지지 않은): 아무도 모르는 일이 두려움의 이유가 될 수 없음.","illegal(불법인): 호랑이에게 다치는 일을 법으로 따질 수는 없어 문장이 성립하지 않음."],"om":["흔한","불가능한","알려지지 않은","불법인"],"en":"However, they were also scared of tigers because being injured or even killed by tigers was common in the past.","ko":"하지만 그들은 호랑이를 무서워하기도 했는데, 과거에는 호랑이에게 다치거나 심지어 죽임을 당하는 일이 흔했기 때문이다.","hl":["was common in the past","scared of tigers because"],"khl":["흔했기 때문이다","무서워하기도 했는데"],"blocks":[{"t":"p","h":"두려움의 이유 따져 보기","x":["because(~ 때문에) 뒤는 무서워한 이유다.","이유가 되려면 호랑이에게 다치는 일이 자주 있어야 한다.","rare(드문)를 넣으면 거의 일어나지 않는 일 때문에 벌벌 떨었다는 말이 된다.","이유와 결과가 따로 논다."]},{"t":"p","h":"함정","x":["바뀐 단어가 셋이다.","admiration(감탄, 존경)은 respect(존경) 자리에 넣어도 호랑이의 힘을 우러러본 마음 그대로다.","hurt(다치게 하다)도 injured(부상을 입은)와 같은 뜻이라 being hurt(다치는 것)로 자연스럽다."]}],"post":["common(흔한) ↔ rare(드문)","호랑이에게 다치는 일이 흔함 = 두려움의 이유"]},{"slots":[["decline"],["courage","bravery","s"],["drew"],["only_a_few","countless","a"],["collects"]],"opts":["only_a_few","millions_of","more_and_more","thousands_of"],"or":["only a few(소수의 ~만): 바로 뒤 However(하지만)가 수는 적어도 의미는 남아 있다는 대비를 만들어 맞음.","millions of(수백만의): 거의 멸종했다는 본문 ③ 내용과 정면으로 부딪침.","more and more(점점 더 많은): 수가 늘어난다면 However(하지만)로 이어지는 대비가 사라짐.","thousands of(수천의): 한국 호랑이가 거의 멸종했다는 본문 ③과 맞지 않음."],"om":["소수의 ~만","수백만의","점점 더 많은","수천의"],"en":"These days, only a few wild tigers have been reported to be living in North Korea. However, the history, stories, and cultural meaning of tigers still have a place among modern Korean people.","ko":"오늘날 북한에 살고 있다고 보고된 야생 호랑이는 몇 마리뿐이다. 하지만 호랑이의 역사, 이야기, 문화적 의미는 여전히 현대 한국인들 사이에 자리하고 있다.","hl":["only a few wild tigers","However"],"khl":["몇 마리뿐이다","하지만"],"blocks":[{"t":"pair","h":"However(하지만) 앞뒤 나란히","x":[["only a few wild tigers","야생 호랑이는 몇 마리뿐 (몸은 거의 사라짐)"],["still have a place among modern Korean people","여전히 한국인들 사이에 자리함 (의미는 남음)"]]},{"t":"p","h":"countless(셀 수 없이 많은)가 틀린 이유","x":["However(하지만)는 앞뒤가 반대일 때 쓴다.","앞: 숫자는 거의 없다. 뒤: 그래도 의미는 남았다.","countless(셀 수 없이 많은)를 넣으면 앞뒤가 모두 좋은 소식이라 However(하지만)가 설 자리가 없다.","게다가 본문 ③에서 호랑이는 거의 멸종했다."]},{"t":"p","h":"bravery(용기)는 그대로","x":["bravery(용기)는 courage(용기)와 같은 말이라 호돌이가 상징하는 뜻이 그대로다."]}],"post":["only a few(소수의) ↔ countless(셀 수 없이 많은)","야생 호랑이는 몇 마리, 의미는 그대로"]},{"slots":[["scary"],["common"],["decline","rise","a"],["sacred"],["worldwide"]],"opts":["decline","recovery","boom","surplus"],"or":["decline(감소): 사냥 때문에 수가 줄다가 거의 멸종했다는 흐름과 딱 맞음.","recovery(회복): 사냥은 수를 회복시키는 원인이 될 수 없음.","boom(급증): 사냥 때문에 수가 급증했다는 건 원인과 결과가 거꾸로임.","surplus(과잉): 거의 멸종한 동물에게 개체 수 과잉이라는 말은 맞지 않음."],"om":["감소","회복","급증","과잉"],"en":"Tigers in Korea faced a decline in population due to hunting during the Joseon period and nearly went extinct during the Japanese colonial era.","ko":"한국의 호랑이는 조선 시대에 사냥으로 개체 수 감소를 겪었고, 일제 강점기에는 거의 멸종에 이르렀다.","hl":["a decline in population due to hunting","nearly went extinct"],"khl":["개체 수 감소","거의 멸종에 이르렀다"],"blocks":[{"t":"flow","h":"호랑이 수의 변화","x":["옛날: 호랑이의 땅이라 불릴 만큼 많음","조선 시대: 사냥으로 감소","일제 강점기: 거의 멸종","오늘날: 북한에 몇 마리뿐"],"at":1},{"t":"p","h":"원인과 결과","x":["due to hunting(사냥 때문에)이 원인이다.","사냥하면 수는 줄어든다.","rise(증가)를 넣으면 사냥 덕분에 수가 늘었다는 말이 된다.","같은 문장 뒤쪽 nearly went extinct(거의 멸종했다)와도 부딪친다."]}],"post":["decline(감소) ↔ rise(증가)","사냥 → 감소 → 거의 멸종"]},{"slots":[["conflicting","mixed","s"],["faded_away"],["mentioned","referred to","s"],["deny","admit","a"],["looking_for"]],"opts":["deny","believe","prove","guarantee"],"or":["deny(부인하다): 누가 부인할 수 있겠냐는 말은 아무도 부인 못 한다는 뜻이라 호랑이가 한국의 상징이라는 결론을 굳혀 맞음.","believe(믿다): 누가 믿을 수 있겠냐는 말이 되어 호랑이가 상징이라는 말을 의심하는 꼴임.","prove(증명하다): 누가 증명할 수 있겠냐는 말은 아무도 증명 못 한다는 뜻이라 앞의 증거들과 어긋남.","guarantee(보장하다): 누가 보장할 수 있겠냐는 말은 상징이라는 사실을 흔들어 흐름과 반대임."],"om":["부인하다","믿다","증명하다","보장하다"],"en":"However, the history, stories, and cultural meaning of tigers still have a place among modern Korean people. Who can deny that the tiger is a symbol of Korea?","ko":"하지만 호랑이의 역사, 이야기, 문화적 의미는 여전히 현대 한국인들 사이에 자리하고 있다. 누가 호랑이가 한국의 상징이라는 것을 부인할 수 있을까?","hl":["Who can deny","still have a place"],"khl":["부인할 수 있을까","여전히"],"blocks":[{"t":"tap","h":"질문 하나","q":"누가 부인할 수 있을까? 이건 정말 답을 묻는 질문일까?","a":["아니다.","아무도 부인할 수 없다는 말을 질문 모양으로 힘주어 말한 것이다.","admit(인정하다)을 넣으면 아무도 인정할 수 없다는 말이 되어 글 전체 결론을 뒤집는다."]},{"t":"p","h":"함정","x":["바뀐 단어가 셋이다.","mixed(뒤섞인)는 conflicting(상충되는)과 같은 쪽이다.","mixed feelings(복잡한 감정)는 아주 흔한 짝이다.","referred to(언급된)도 mentioned(언급된)와 뜻이 같다."]}],"post":["deny(부인하다) ↔ admit(인정하다)","누가 부인할까? = 아무도 부인 못 함"]}],"quiz":[{"w":"mistakenly","m":"잘못, 오해하여","it":[["wrongly","잘못","s"],["loudly","큰 소리로","n"],["correctly","올바르게","a"],["erroneously","잘못하여, 틀리게","s"],["weekly","매주","n"],["rightly","옳게","a"],["gently","부드럽게","n"]]},{"w":"common","m":"흔한","it":[["sour","신","n"],["frequent","잦은, 빈번한","s"],["rare","드문","a"],["usual","보통의, 흔한","s"],["wooden","나무로 된","n"],["uncommon","흔하지 않은","a"],["sleepy","졸린","n"]]},{"w":"few","m":"(수가) 적은, 몇 안 되는","it":[["sparse","드문드문한, 희박한","s"],["sharp","날카로운","n"],["many","많은","a"],["limited","한정된, 적은","s"],["tidy","깔끔한","n"],["numerous","수많은","a"],["bright","밝은","n"]]},{"w":"decline","m":"감소","it":[["decrease","감소","s"],["rise","증가","a"],["ceiling","천장","n"],["reduction","축소, 감소","s"],["costume","의상","n"],["increase","증가","a"],["puzzle","퍼즐","n"]]},{"w":"deny","m":"부인하다, 부정하다","it":[["swim","수영하다","n"],["contradict","반박하다, 부정하다","s"],["admit","인정하다","a"],["decorate","장식하다","n"],["dispute","반박하다, 이의를 제기하다","s"],["acknowledge","인정하다","a"],["sneeze","재채기하다","n"]]}]},{"items":[{"slots":[["scary","frightening","s"],["respect","contempt","a"],["faded_away"],["courage"],["only_a_few"]],"opts":["respect","disgust","pity","boredom"],"or":["respect(존경): 호랑이의 power and courage(힘과 용기)를 우러러본 마음이고, 바로 뒤 However(하지만)가 무서움이라는 반대 마음을 꺼내서 맞음.","disgust(혐오): 힘과 용기는 혐오할 대상이 아니고, 혐오와 두려움은 서로 부딪치는 마음도 아님.","pity(동정): 힘세고 용감한 호랑이를 불쌍히 여긴다는 건 말이 안 됨.","boredom(지루함): 힘과 용기를 보고 지루해했다면 conflicting feelings(상충되는 감정)의 한쪽이 될 수 없음."],"om":["존경","혐오","동정","지루함"],"en":"It seems that people at the time had conflicting feelings about tigers. They had respect for tigers’ power and courage. However, they were also scared of tigers","ko":"그 당시 사람들은 호랑이에 대해 상충되는 감정을 가졌던 것 같다. 그들은 호랑이의 힘과 용기를 존경했다. 하지만 호랑이를 무서워하기도 했다","hl":["They had respect for tigers’ power and courage.","However, they were also scared of tigers"],"khl":["호랑이의 힘과 용기를 존경했다","하지만 호랑이를 무서워하기도 했다"],"blocks":[{"t":"flow","h":"엇갈린 마음 세 칸","x":["예고: conflicting feelings(상충되는 감정)","마음 1: 힘과 용기를 존경","However(하지만)","마음 2: 다칠까 봐 무서움"],"at":1},{"t":"p","h":"contempt(경멸)가 틀린 이유","x":["conflicting(상충되는)은 두 마음이 서로 부딪친다는 뜻이다.","무서움과 부딪치려면 첫 마음은 좋은 쪽이어야 한다.","contempt(경멸)를 넣으면 깔보는 마음과 무서운 마음이 나란히 선다.","둘 다 호랑이를 좋게 보지 않는 마음이라 However(하지만)로 맞설 게 없다.","게다가 power and courage(힘과 용기)는 깔볼 대상이 아니다."]},{"t":"p","h":"frightening(무서운)은 그대로","x":["frightening(무서운)은 scary(무서운)와 같은 뜻이라 곶감 장면이 그대로다."]}],"post":["respect(존경) ↔ contempt(경멸)","힘과 용기에 대한 존경 + 다칠까 봐 무서움 = 엇갈린 마음"]},{"slots":[["mistakenly"],["injured"],["revived"],["drew"],["worldwide","local","a"]],"opts":["worldwide","slight","private","minimal"],"or":["worldwide(전 세계적인): 영상이 온라인에서 millions of times(수백만 번) 재생됐다는 뒤 내용과 맞음.","slight(약간의): 약간의 주목만 받은 노래의 영상이 수백만 번 재생됐다는 건 앞뒤가 안 맞음.","private(사적인): 수백만 명이 본 영상의 주목을 사적인 주목이라 할 수 없음.","minimal(아주 적은): 아주 적은 주목과 수백만 회 재생은 정면으로 부딪침."],"om":["전 세계적인","약간의","사적인","아주 적은"],"en":"The song drew worldwide attention, and its video was viewed millions of times online.","ko":"그 노래는 세계적인 주목을 끌었고, 그 영상은 온라인에서 수백만 번 시청되었다.","hl":["drew worldwide attention","viewed millions of times online"],"khl":["세계적인 주목을 끌었고","수백만 번 시청되었다"],"blocks":[{"t":"pair","h":"and(그리고) 앞뒤 나란히","x":[["The song drew worldwide attention","노래가 세계적인 주목을 끌었다 (말)"],["its video was viewed millions of times online","영상이 온라인에서 수백만 번 시청되었다 (숫자 증거)"]]},{"t":"p","h":"local(지역의)이 틀린 이유","x":["범 내려온다는 판소리 수궁가를 새로 해석한 노래다.","이 노래는 한국을 넘어 세계로 퍼졌다.","그 증거가 online(온라인) 수백만 번 재생이다.","local(지역의)을 넣으면 한 동네에서만 주목받은 노래가 된다.","수백만 번 재생이라는 숫자와 맞지 않는다."]}],"post":["worldwide(전 세계적인) ↔ local(지역의)","범 내려온다 = 수백만 번 재생된 세계적 호랑이 노래"]},{"slots":[["mistakenly","wrongly","s"],["conflicting","consistent","a"],["decline","drop","s"],["sacred"],["worldwide"]],"opts":["conflicting","calm","simple","friendly"],"or":["conflicting(상충되는): 존경과 두려움이라는 서로 부딪치는 두 마음이 바로 뒤에 나와서 맞음.","calm(차분한): 호랑이를 무서워했다는 뒤 내용과 차분한 감정은 안 맞음.","simple(단순한): 존경과 두려움 두 갈래가 나오니 단순한 감정이 아님.","friendly(우호적인): 다치고 죽임을 당할까 겁낸 마음을 우호적이라 할 수 없음."],"om":["상충되는","차분한","단순한","우호적인"],"en":"It seems that people at the time had conflicting feelings about tigers. They had respect for tigers’ power and courage. However, they were also scared of tigers","ko":"그 당시 사람들은 호랑이에 대해 상충되는 감정을 가졌던 것 같다. 그들은 호랑이의 힘과 용기를 존경했다. 하지만 호랑이를 무서워하기도 했다","hl":["conflicting feelings","However, they were also scared of tigers"],"khl":["상충되는 감정","하지만 호랑이를 무서워하기도 했다"],"blocks":[{"t":"pair","h":"두 마음 나란히","x":[["They had respect for tigers’ power and courage.","호랑이의 힘과 용기를 존경했다. (우러러봄)"],["they were also scared of tigers","호랑이를 무서워하기도 했다. (두려움)"]]},{"t":"p","h":"consistent(한결같은)가 틀린 이유","x":["존경과 두려움은 서로 부딪치는 두 마음이다.","그래서 사이에 However(하지만)가 끼어 있다.","consistent(한결같은)를 넣으면 한 가지 마음뿐이었다는 말이 된다.","바로 뒤 두 문장이 그 말을 무너뜨린다."]},{"t":"p","h":"함정","x":["바뀐 단어가 셋이다.","wrongly(잘못)는 mistakenly(잘못)와, drop(감소)은 decline(감소)과 같은 뜻이라 고치지 않는다."]}],"post":["conflicting(상충되는) ↔ consistent(한결같은)","존경 + 두려움 = 엇갈린 마음"]},{"slots":[["respect"],["common"],["revived"],["mentioned","overlooked","a"],["deny"]],"opts":["mentioned","banned","hidden","forgotten"],"or":["mentioned(언급된): 노래 제목부터 범 내려온다라 호랑이가 노래에 나온다는 내용이라 맞음.","banned(금지된): 노래가 세계적 주목을 받았다는 뒤 내용과 호랑이가 금지됐다는 말은 이어지지 않음.","hidden(숨겨진): 제목에 버젓이 호랑이가 있으니 숨겨졌다고 할 수 없음.","forgotten(잊힌): 영상이 수백만 번 재생된 호랑이 노래에서 호랑이가 잊혔다는 건 사실과 반대임."],"om":["언급된","금지된","숨겨진","잊힌"],"en":"Tigers are also mentioned in the K-pop song “Tiger is Coming.” One verse of the song is a reinterpreted version of “Sugungga,” which is a traditional Korean song.","ko":"호랑이는 한국 대중가요 ‘범 내려온다’에도 언급된다. 그 노래의 한 구절은 한국 전통 노래인 ‘수궁가’를 재해석한 것이다.","hl":["also mentioned","Tiger is Coming"],"khl":["언급된다","범 내려온다"],"blocks":[{"t":"p","h":"제목이 이미 답","x":["노래 제목이 범 내려온다, 곧 호랑이가 내려온다는 뜻이다.","제목부터 호랑이가 주인공이다.","overlooked(간과된)를 넣으면 호랑이 노래에서 호랑이가 빠졌다는 말이 된다."]},{"t":"p","h":"also(또한)가 잇는 줄","x":["also(또한)는 앞에서 말한 것에 하나를 더 보탤 때 쓴다.","앞: 올림픽 마스코트 호돌이와 수호랑.","뒤: 대중가요 범 내려온다.","호랑이가 등장하는 현대의 예가 하나 더 붙는 자리다."]}],"post":["mention(언급하다) ↔ overlook(간과하다)","올림픽 마스코트 + 대중가요 = 현대에 살아난 호랑이"]},{"slots":[["faded_away","disappeared","s"],["courage","cowardice","a"],["sacred","holy","s"],["drew"],["worldwide"]],"opts":["courage","laziness","greed","sadness"],"or":["courage(용기): 서울 올림픽 마스코트로 고른 시베리아 호랑이가 상징하는 좋은 뜻이라 맞음.","laziness(게으름): 선수들의 축제를 대표하는 마스코트가 게으름을 상징할 리 없음.","greed(탐욕): 나라의 상징을 되살린 마스코트에 나쁜 뜻을 붙일 이유가 없음.","sadness(슬픔): 축제의 마스코트가 슬픔을 상징한다는 건 흐름과 맞지 않음."],"om":["용기","게으름","탐욕","슬픔"],"en":"Hodori was the mascot for the Seoul Summer Olympics in 1988. It was a Siberian tiger, which represents courage.","ko":"호돌이는 1988년 서울 하계 올림픽의 마스코트였다. 그것은 용기를 상징하는 시베리아 호랑이였다.","hl":["which represents courage","the mascot"],"khl":["용기를 상징하는","마스코트"],"blocks":[{"t":"p","h":"마스코트는 자랑할 뜻을 고른다","x":["올림픽 마스코트는 나라가 세계에 내보이는 얼굴이다.","그래서 좋은 뜻을 담는다.","호돌이는 용기, 수호랑은 신성한 수호자.","cowardice(비겁함)를 넣으면 나라가 비겁함을 세계에 자랑한 셈이다."]},{"t":"p","h":"본문 앞쪽과 연결","x":["앞에서 사람들은 호랑이의 power and courage(힘과 용기)를 존경했다고 했다.","호돌이가 상징하는 뜻도 바로 그 용기다.","disappeared(사라졌다)는 faded away(희미해졌다)와, holy(신성한)는 sacred(신성한)와 같은 방향이라 고치지 않는다."]}],"post":["courage(용기) ↔ cowardice(비겁함)","호돌이 = 용기, 수호랑 = 신성한 수호자"]}],"quiz":[{"w":"respect","m":"존경(심)","it":[["admiration","감탄, 존경","s"],["cabbage","양배추","n"],["contempt","경멸","a"],["esteem","존경, 존중","s"],["envelope","봉투","n"],["disdain","경멸, 무시","a"],["chimney","굴뚝","n"]]},{"w":"worldwide","m":"전 세계적인","it":[["chilly","쌀쌀한","n"],["global","세계적인","s"],["local","지역의, 현지의","a"],["universal","보편적인, 전 세계의","s"],["leafy","잎이 무성한","n"],["regional","지역의, 지방의","a"],["hollow","속이 빈","n"]]},{"w":"conflicting","m":"상충되는, 모순되는","it":[["contradictory","모순되는","s"],["edible","먹을 수 있는","n"],["consistent","한결같은, 일관된","a"],["clashing","충돌하는","s"],["rusty","녹슨","n"],["compatible","양립할 수 있는","a"],["fluffy","솜털 같은","n"]]},{"w":"mention","m":"언급하다","it":[["kneel","무릎 꿇다","n"],["cite","언급하다, 인용하다","s"],["ignore","무시하다","a"],["refer to","언급하다","s"],["fry","튀기다","n"],["disregard","무시하다","a"],["yawn","하품하다","n"]]},{"w":"courage","m":"용기","it":[["bravery","용기","s"],["pottery","도자기","n"],["cowardice","비겁함","a"],["valor","용맹","s"],["luggage","짐, 수하물","n"],["timidity","소심함","a"],["grammar","문법","n"]]}]}],"no":"본문 ③④"}],"unit":""}</script>
+<script>
+(function(){
+var D=JSON.parse(document.getElementById('data').textContent);
+(function(){var m=/[?&]n=([\d,_-]+)/.exec(location.search);if(m){var W=m[1].replace(/-/g,'_').split(',');D.nums=D.nums.filter(function(n){return W.indexOf(String(n.no).replace(/-/g,'_'))>=0;});}})();
+var G=D.kind==='g';
+var CIR=['①','②','③','④','⑤'];
+var TEACH=/[?&]t=1/.test(location.search);
+var KEY='teukhun-'+D.kind+'-'+D.id;
+var app=document.getElementById('app');
+var st;
+function loadDone(){try{return JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){return {};}}
+function saveDone(o){try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function en(s){return '<span lang="en" translate="no">'+esc(s)+'</span>';}
+function mix(s){return esc(s).replace(/[A-Za-z][A-Za-z'’\-]*(?:[ ,]+[A-Za-z][A-Za-z'’\-]*)*/g,function(m){return '<span lang="en" translate="no">'+m+'</span>';});}
+function disp(k){return k.replace(/_/g,' ');}
+function hlt(t,ph){var h=esc(t);(ph||[]).forEach(function(p,j){var e=esc(p);h=h.replace(e,'<mark'+(j===0?' class="k"':'')+'>'+e+'</mark>');});return h;}
+function lines(a){return '<div class="lines">'+a.map(function(x){return '<p>'+mix(x)+'</p>';}).join('')+'</div>';}
+function hk(x){var i=x.indexOf(':');if(i<0)return '<mark>'+mix(x)+'</mark>';return '<mark>'+mix(x.slice(0,i))+'</mark>'+mix(x.slice(i));}
+function hw(x){var i=x.indexOf(' : ');if(i<0)return '<mark>'+mix(x)+'</mark>';return mix(x.slice(0,i+3))+'<mark>'+mix(x.slice(i+3))+'</mark>';}
+function postit(p){return '<div class="postit">'+p.map(function(x){return '<p>'+mix(x)+'</p>';}).join('')+'</div>';}
+
+/* ---------- runs ---------- */
+var N=D.nums.length;
+function runList(){
+  var r=[];
+  D.nums.forEach(function(n,i){r.push({key:'r1-'+n.no,label:n.no,round:1,n:i});});
+  D.nums.forEach(function(n,i){r.push({key:'r2-'+n.no,label:n.no,round:2,n:i});});
+  r.push({key:'c1',label:'종합 1',round:3});
+  r.push({key:'c2',label:'종합 2',round:4});
+  return r;
+}
+function buildRun(run){
+  var items=[],quiz=[];
+  if(run.round<=2){
+    var S=D.nums[run.n].sets[run.round-1];
+    S.items.forEach(function(it){items.push({it:it,n:run.n});});
+    S.quiz.forEach(function(q){q._m=D.nums[run.n].mean;quiz.push(q);});
+  }else{
+    var c=run.round-3;
+    D.nums.forEach(function(n,i){items.push({it:n.comp[c],n:i});});
+    var pool=D.nums.map(function(n){var q=n.compquiz[c];q._m=n.mean;return q;}),used={},want=Math.min(5,pool.length);
+    for(var k=0;k<want;k++){var x=(Math.round(k*(pool.length-1)/Math.max(1,want-1))+c*2)%pool.length;while(used[x])x=(x+1)%pool.length;used[x]=1;}
+    Object.keys(used).map(Number).sort(function(a,b){return a-b;}).forEach(function(x){quiz.push(pool[x]);});
+  }
+  return {items:items,quiz:quiz};
+}
+function roundDone(round,done){
+  return D.nums.every(function(n){return done[(round===1?'r1-':'r2-')+n.no];});
+}
+function unlocked(run,done){
+  return true;
+  if(run.round===1)return true;
+  if(run.round===2)return roundDone(1,done);
+  if(run.round===3)return roundDone(2,done);
+  return !!done.c1;
+}
+
+/* ---------- views ---------- */
+function home(){st={screen:'home'};render();window.scrollTo(0,0);}
+function start(run){
+  var b=buildRun(run);
+  st={screen:'item',run:run,items:b.items,quiz:b.quiz,i:0,pick:null,fixPick:null,wrong:false,s1:[],s2:[],qj:0,qsel:{},qdone:false,qres:[],qpick:null,tap:{}};
+  render();window.scrollTo(0,0);
+}
+function homeView(){
+  var done=loadDone(),runs=runList();
+  var h='<div class="top"><button class="btn ghost back" id="toapp">‹ 앱으로</button><h1>'+esc(D.title)+'</h1><span>'+esc(D.sub||'')+'</span></div>';
+  [[1,'1라운드'],[2,'2라운드']].forEach(function(r){
+    var ok=runs.filter(function(x){return x.round===r[0];});
+    var cnt=ok.filter(function(x){return done[x.key];}).length;
+    var open=unlocked(ok[0],done);
+    h+='<div class="card board"><h2>'+r[1]+' <span class="sub">'+cnt+' / '+ok.length+'</span></h2>';
+    h+='<div class="grid">';
+    ok.forEach(function(x){
+      var d=done[x.key];
+      h+='<button class="tile'+(d?' done':'')+'" data-run="'+x.key+'"'+(open?'':' disabled')+'>'+esc(x.label)+(D.unit==null?'번':D.unit)+'<small>'+(d?'완료':esc(D.nums[x.n].sub||''))+'</small></button>';
+    });
+    h+='</div></div>';
+  });
+  h+='<div class="card board"><h2>종합</h2>';
+  var c1=runs[runs.length-2],c2=runs[runs.length-1];
+  h+='<div class="grid">';
+  [c1,c2].forEach(function(x){
+    var d=done[x.key],open=unlocked(x,done);
+    h+='<button class="tile'+(d?' done':'')+'" data-run="'+x.key+'"'+(open?'':' disabled')+'>'+x.label+'<small>'+(d?'완료':N+'문제')+'</small></button>';
+  });
+  h+='</div></div>';
+  return h;
+}
+function runTitle(){var r=st.run;return r.round<=2?(r.label+(D.unit==null?'번':D.unit)+' · '+r.round+'라운드'):r.label;}
+function header(){
+  var I=st.items.length,Q=st.quiz.length,total=I+Q;
+  var done=st.screen==='item'?st.i:st.screen==='quiz'?I+st.qj:total;
+  var label=st.screen==='item'?('문제 '+(st.i+1)+' / '+I):st.screen==='quiz'?('마무리 '+(st.qj+1)+' / '+Q):'완료';
+  return '<div class="top"><h1>'+esc(D.title)+' · '+esc(runTitle())+'</h1><span>'+label+'</span></div><div class="bar"><i style="width:'+Math.round(done/total*100)+'%"></i></div>';
+}
+function footer(confirm){return '<div class="foot"><button class="btn ghost" id="home" data-confirm="'+(confirm?'1':'0')+'">목록으로</button></div>';}
+var homeT=null;
+function wireHome(){
+  var b=document.getElementById('home');
+  if(!b)return;
+  b.onclick=function(){
+    if(b.dataset.confirm!=='1'||b.dataset.arm==='1'){clearTimeout(homeT);home();return;}
+    b.dataset.arm='1';b.textContent='한 번 더 누르면 목록으로';
+    homeT=setTimeout(function(){b.dataset.arm='0';b.textContent='목록으로';},3000);
+  };
+}
+function cur(){return st.items[st.i];}
+function num(){return D.nums[cur().n];}
+function slotOf(k,it){for(var i=0;i<it.slots.length;i++)if(it.slots[i][0]===k)return i;return -1;}
+function ansIdx(it){for(var i=0;i<it.slots.length;i++)if(it.slots[i][2]==='a')return i;return -1;}
+function shown(s,orig){return (s[1]?s[1]:orig);}
+function passage(){
+  var it=cur().it,nm=num();
+  var html=esc(nm.tpl).replace(/\{(\w+)(?:\|([^}]*))?\}/g,function(_,k,txt){
+    var orig=txt!==undefined?txt:disp(k);
+    var n=slotOf(k,it);
+    if(n<0)return orig;
+    var cls='u',dis='';
+    if(st.pick!==null){
+      dis=' disabled';
+      if(n===ansIdx(it))cls+=' right';
+      else if(n===st.pick)cls+=' wrong';
+    }
+    return '<button class="'+cls+'" data-n="'+n+'"'+dis+'><b>'+CIR[n]+'</b>'+shown(it.slots[n],orig)+'</button>';
+  });
+  var fn=nm.fn&&nm.fn.length?'<span class="fn">'+nm.fn.map(esc).join('<br>')+'</span>':'';
+  return '<div class="passage" lang="en" translate="no">'+html+fn+'</div>';
+}
+function origText(k){
+  var m=num().tpl.match(new RegExp('\\{'+k+'(?:\\|([^}]*))?\\}'));
+  return m&&m[1]!==undefined?m[1]:disp(k);
+}
+function block(b,bi){
+  var h='<div>'+(b.h?'<h3>'+esc(b.h)+'</h3>':'');
+  if(b.t==='p')h+=lines(b.x);
+  else if(b.t==='flow'){h+='<ol class="flow">'+b.x.map(function(x,j){return '<li class="'+(j===b.at?'at':'')+'">'+mix(x)+'</li>';}).join('')+'</ol>';}
+  else if(b.t==='pair'){h+='<ul class="pairs">'+b.x.map(function(x){return '<li><span class="e" lang="en" translate="no">'+esc(x[0])+'</span><span class="k">'+mix(x[1])+'</span></li>';}).join('')+'</ul>';}
+  else if(b.t==='tap'){
+    var open=st.tap[st.i+'-'+bi];
+    h+='<button class="tapq" data-tap="'+bi+'">'+mix(b.q)+'</button>';
+    if(open)h+='<div class="tapa">'+lines(b.a)+'</div>';
+  }
+  return h+'</div>';
+}
+function negQ(t){return t.replace(/(적절하지 않은|틀린)/g,'<span class="neg">$1</span>');}
+function M(w){var mm=st.screen==='quiz'&&st.quiz[st.qj]&&st.quiz[st.qj]._m?st.quiz[st.qj]._m:(st.screen==='item'?num().mean:{});return (mm||{})[w]||'';}
+function SM(w){var m=M(w);if(!m)return '';var x=m.match(/^(?:동사|명사|형용사|부사)?\s*[A-Za-z][A-Za-z ’'\-]*\(([^)]+)\)/);if(x)return x[1].split(',')[0].trim();return m.split(/[.,]/)[0].trim();}
+function wm(w){var m=G?M(w):SM(w);return m?w+'('+m+')':w;}
+function itemView(){
+  var it=cur().it,a=ansIdx(it),nm=num();
+  var h=header();
+  var noTag=st.run.round>2?'<p class="nobadge">'+esc(nm.no)+(D.unit==null?'번 지문':'')+'</p>':'';
+  h+='<div class="card">'+noTag+'<p class="q">'+negQ('윗글의 밑줄 친 ①~⑤ 중, '+(G?'어법상 틀린':'문맥상 쓰임이 적절하지 않은')+' 것은?')+'</p>'+passage()+'</div>';
+  var right=G?origText(it.slots[a][0]):it.slots[a][0];
+  var aw=shown(it.slots[a],G?origText(it.slots[a][0]):disp(it.slots[a][0]));
+  if(st.pick!==null&&st.s1[st.i]){
+    var answered=st.s2[st.i]!==undefined;
+    h+='<div class="card" id="fix"><p class="q">'+CIR[a]+' '+en(aw)+(G?' 를 바르게 고치면?':' 의 본문 속 원래 단어는?')+'</p><div class="opts">';
+    it.opts.forEach(function(o,j){
+      var cls='opt',dis='';
+      if(answered){dis=' disabled';if(o===right)cls+=' right';else if(j===st.fixPick)cls+=' wrong';}
+      h+='<button class="'+cls+'" data-o="'+j+'"'+dis+'><span><b>'+CIR[j]+'</b> '+en(disp(o))+'</span></button>';
+    });
+    h+='</div></div>';
+  }
+  if(st.wrong)h+=wrongCard(it,a,aw,right);
+  return h+footer(true);
+}
+function slotReason(it,s,n,a){
+  if(G){return s[3]||'';}
+  var w=s[1]||disp(s[0]),o=disp(s[0]);
+  if(s[2]==='a')return '본문은 '+wm(o)+'. '+wm(w)+'는 반대 방향이라 문맥에 맞지 않음.';
+  if(s[2]==='s')return '본문은 '+wm(o)+'. '+wm(w)+'도 같은 뜻이라 맞는 표현.';
+  return '본문 그대로라 맞는 표현.';
+}
+function slotKo(s){
+  if(G)return M(s[2]==='a'?s[1]:origText(s[0]));
+  var w=s[1]||disp(s[0]);return M(w);
+}
+function chCard(num,big,ko,reason,kind){
+  var tag=kind==='ok'?'<span class="chtag ok">정답</span>':kind==='me'?'<span class="chtag me">내가 고름</span>':'';
+  return '<div class="ch '+(kind||'')+'"><div class="chtop"><span class="chn">'+num+'</span><div class="chw"><span lang="en" translate="no">'+esc(big)+'</span>'+(ko?'<small>'+esc(ko)+'</small>':'')+'</div>'+tag+'</div>'+(reason?'<p class="chr">'+mix(reason)+'</p>':'')+'</div>';
+}
+function wrongCard(it,a,aw,right){
+  var h='<div class="card exp" id="exp">';
+  var sa=it.slots[a];
+  var bandKo=G?esc(it.point):esc(disp(sa[0])+' '+M(disp(sa[0])));
+  h+='<div class="band"><b>오답</b><span>정답 '+CIR[a]+' '+en(aw)+' → '+en(disp(right))+'</span><small>'+bandKo+'</small></div>';
+  h+='<div class="evi"><p class="en" lang="en" translate="no">'+hlt(it.en,it.hl)+'</p><p class="ko">'+hlt(it.ko,it.khl)+'</p></div>';
+  h+='<div><h3>밑줄 풀이</h3><div class="chs">';
+  it.slots.forEach(function(s,n){
+    var w=G?(s[2]==='a'?s[1]:origText(s[0])):(s[1]||disp(s[0]));
+    var kind=n===a?'ok':(n===st.pick&&!st.s1[st.i])?'me':'';
+    h+=chCard(CIR[n],w,slotKo(s),slotReason(it,s,n,a),kind);
+  });
+  h+='</div></div>';
+  if(st.s1[st.i]&&st.s2[st.i]===false){
+    h+='<div><h3>'+(G?'고치기 보기 풀이':'원래 단어 보기 풀이')+'</h3><div class="chs">';
+    it.opts.forEach(function(o,j){
+      var ok=o===right,me=j===st.fixPick;
+      var ko=G?M(o):(it.om?it.om[j]:'');
+      var r=it.or&&it.or[j]?it.or[j]:ok?(G?'이 자리에 맞는 형태. '+(sa[3]||''):'본문 원래 단어.'):(G?disp(o)+'는 이 자리에 맞지 않는 형태.':'본문 단어가 아님. 본문은 '+disp(right)+'('+M(disp(right))+').');
+      h+=chCard(CIR[j],disp(o),ko,r,ok?'ok':me?'me':'');
+    });
+    h+='</div></div>';
+  }
+  it.blocks.forEach(function(b,bi){h+=block(b,bi);});
+  h+='<div class="note"><p class="nt">이것만은 노트에 쓰자 1 · 정답의 근거</p><p lang="en" translate="no">'+(G?hlt(it.en,it.hl):esc(it.en))+'</p><p class="nko">'+(G?hlt(it.ko,it.khl):esc(it.ko))+'</p>'+it.post.map(function(p){return '<p>'+(G?hk(p):mix(p))+'</p>';}).join('')+'</div>';
+  var why;
+  if(!st.s1[st.i]){
+    var ps=it.slots[st.pick],pw=G?origText(ps[0]):(ps[1]||disp(ps[0]));
+    why=CIR[st.pick]+' '+pw+(slotKo(ps)?' = '+slotKo(ps):'')+' : '+slotReason(it,ps,st.pick,a)+' 틀린 곳은 '+CIR[a]+' '+aw+'.';
+  }else{
+    var po=it.opts[st.fixPick];
+    var pko=G?M(po):(it.om?it.om[st.fixPick]:'');
+    why=disp(po)+(pko?' = '+pko:'')+' : '+(it.or&&it.or[st.fixPick]?it.or[st.fixPick]:G?'이 자리에 맞지 않는 형태. 바른 형태는 '+disp(right)+'. '+(sa[3]||''):'본문 원래 단어가 아님. 본문은 '+disp(right)+'('+M(disp(right))+').');
+  }
+  h+='<div class="note"><p class="nt">이것만은 노트에 쓰자 2 · 내가 고른 답이 틀린 이유</p><p>'+(G?hw(why):mix(why))+'</p></div>';
+  h+='<button class="btn" id="next">'+(st.i<st.items.length-1?'다음 문제':'마무리')+'</button></div>';
+  return h;
+}
+var TAG={s:'비슷',a:'반대',n:'관계없음'};
+function quizView(){
+  var q=st.quiz[st.qj],h=header();
+  if(G){
+    h+='<div class="card"><p class="q">빈칸에 알맞은 것은?</p><p class="gs" lang="en" translate="no">'+esc(q.s).replace('___','<b>_____</b>')+'</p><div class="opts">';
+    q.o.forEach(function(o,j){
+      var cls='opt',dis='';
+      if(st.qdone){dis=' disabled';if(j===q.a)cls+=' right';else if(j===st.qpick)cls+=' wrong';}
+      h+='<button class="'+cls+'" data-g="'+j+'"'+dis+'><span>'+en(o)+'</span></button>';
+    });
+    h+='</div></div>';
+    if(st.qdone&&!st.qres[st.qj]){
+      var full=q.s.replace('___',q.o[q.a]);
+      h+='<div class="card exp" id="exp"><div class="band"><b>오답</b><span>정답 '+en(q.o[q.a])+'</span><small>'+esc(q.ko)+'</small></div>';
+      h+='<div class="chs">'+q.o.map(function(o,j){return chCard(j===0?'A':'B',o,M(o),j===q.a?q.why:(q.wy||'이 빈칸에는 맞지 않는 형태.'),j===q.a?'ok':j===st.qpick?'me':'');}).join('')+'</div>';
+      h+='<div class="note"><p class="nt">이것만은 노트에 쓰자</p><p lang="en" translate="no">'+esc(q.s).replace('___','<mark>'+esc(q.o[q.a])+'</mark>')+'</p><p class="nko">'+esc(q.ko)+'</p><p><mark>'+mix(q.why)+'</mark></p></div>';
+      h+='<button class="btn" id="qnext">'+(st.qj<st.quiz.length-1?'다음':'결과 보기')+'</button></div>';
+    }
+    return h+footer(true);
+  }
+  var T=vq(q,st.qj);
+  h+='<div class="card"><p class="q">'+en(q.w)+' ('+esc(q.m)+') 와 뜻이 '+(T.ant?'<span class="neg">반대인</span>':'비슷한')+' 말은?</p><div class="opts">';
+  T.o.forEach(function(x,j){
+    var cls='opt',dis='';
+    if(st.qdone){dis=' disabled';if(j===T.a)cls+=' right';else if(j===st.qpick)cls+=' wrong';}
+    h+='<button class="'+cls+'" data-g="'+j+'"'+dis+'><span><b>'+CIR[j]+'</b> '+en(x[0])+'</span></button>';
+  });
+  h+='</div></div>';
+  if(st.qdone&&!st.qres[st.qj]){
+    var R={s:'비슷한 말',a:'반대말',n:'관계없는 단어'};
+    h+='<div class="card exp" id="exp"><div class="band"><b>오답</b><span>정답 '+CIR[T.a]+' '+en(T.o[T.a][0])+'</span><small>'+esc(T.o[T.a][1])+'</small></div>';
+    h+='<div class="chs">'+T.o.map(function(x,j){return chCard(CIR[j],x[0],x[1],q.w+'의 '+R[x[2]]+'.',j===T.a?'ok':j===st.qpick?'me':'');}).join('')+'</div>';
+    var l1=q.it.filter(function(x){return x[2]==='s';}).map(function(x){return q.w+' = '+x[0]+' ('+x[1]+')';});
+    var l2=q.it.filter(function(x){return x[2]==='a';}).map(function(x){return q.w+' ↔ '+x[0]+' ('+x[1]+')';});
+    h+='<div class="note"><p class="nt">이것만은 노트에 쓰자 1 · 정답</p>'+l1.concat(l2).map(function(l){return '<p>'+mix(l)+'</p>';}).join('')+'</div>';
+    var me=T.o[st.qpick];
+    h+='<div class="note"><p class="nt">이것만은 노트에 쓰자 2 · 내가 고른 답이 틀린 이유</p><p>'+mix(me[0]+' ('+me[1]+') : '+q.w+'의 '+R[me[2]]+'.')+'</p></div>';
+    h+='<button class="btn" id="qnext">'+(st.qj<st.quiz.length-1?'다음 단어':'결과 보기')+'</button></div>';
+  }
+  return h+footer(true);
+}
+/* vocab quiz as one-tap tiles: odd turns ask antonym when one exists */
+function vq(q,k){
+  var S=q.it.filter(function(x){return x[2]==='s';}),A=q.it.filter(function(x){return x[2]==='a';}),Nn=q.it.filter(function(x){return x[2]==='n';});
+  var ant=(k%2===1)&&A.length>0;
+  var ans=ant?A[0]:S[0];
+  var d=[ant?S[0]:(A[0]||Nn[2]),Nn[0],Nn[1]];
+  var o=[ans].concat(d);
+  var r=(q.w.length+k)%4;
+  o=o.slice(4-r).concat(o.slice(0,4-r));
+  return {o:o,a:o.indexOf(ans),ant:ant};
+}
+function resultView(){
+  var I=st.items.length,Q=st.quiz.length;
+  var a=st.s1.filter(Boolean).length,b=st.s2.filter(Boolean).length,c=st.qres.filter(Boolean).length;
+  var h=header();
+  h+='<div class="card exp"><div><h3>이번 세트</h3><p>'+(G?'틀린 곳 찾기 ':'어색한 단어 찾기 ')+a+' / '+I+'</p><p>'+(G?'바르게 고치기 ':'원래 단어 고르기 ')+b+' / '+I+'</p><p>마무리 '+c+' / '+Q+'</p></div>';
+  h+='<div class="stamps"><div class="stamp done">'+esc(runTitle())+'<br>완료</div></div></div>';
+  h+='<div class="card exp"><h3>이 세트의 포스트잇</h3><div class="recap">';
+  st.items.forEach(function(x){h+=postit(x.it.post);});
+  h+='</div></div>';
+  return h+footer(false);
+}
+function render(){
+  app.innerHTML=st.screen==='home'?homeView():st.screen==='item'?itemView():st.screen==='quiz'?quizView():resultView();
+  wireHome();
+}
+function findRun(k){var r=runList();for(var i=0;i<r.length;i++)if(r[i].key===k)return r[i];}
+function finish(){var d=loadDone();d[st.run.key]=1;saveDone(d);st.screen='result';}
+function goNext(){
+  if(st.i<st.items.length-1){st.i++;st.pick=null;st.fixPick=null;st.wrong=false;}
+  else if(!st.quiz.length){finish();}
+  else{st.screen='quiz';st.qj=0;st.qsel={};st.qdone=false;st.qpick=null;}
+  render();window.scrollTo(0,0);
+}
+function qNext(){
+  if(st.qj<st.quiz.length-1){st.qj++;st.qsel={};st.qdone=false;st.qpick=null;}
+  else finish();
+  render();window.scrollTo(0,0);
+}
+var busy=false;
+function later(f){busy=true;setTimeout(function(){busy=false;f();},700);}
+function toExp(){var x=document.getElementById('exp');if(x)x.scrollIntoView({behavior:'smooth',block:'start'});}
+app.addEventListener('click',function(e){
+  var t=e.target.closest('button');
+  if(!t||busy)return;
+  if(t.dataset.run!==undefined){start(findRun(t.dataset.run));return;}
+  if(t.id==='toapp'){if(history.length>1)history.back();else location.href='../';return;}
+  if(st.screen==='item'){
+    var it=cur().it,a=ansIdx(it);
+    if(t.classList.contains('u')&&st.pick===null){
+      var n=+t.dataset.n;st.pick=n;st.s1[st.i]=(n===a);
+      if(!st.s1[st.i]){st.s2[st.i]=false;st.wrong=true;render();toExp();return;}
+      render();var f=document.getElementById('fix');if(f)f.scrollIntoView({behavior:'smooth',block:'center'});return;
+    }
+    if(t.dataset.o!==undefined&&st.s2[st.i]===undefined){
+      var j=+t.dataset.o,right=G?origText(it.slots[a][0]):it.slots[a][0];
+      st.fixPick=j;st.s2[st.i]=(it.opts[j]===right);
+      if(st.s2[st.i]){render();later(goNext);return;}
+      st.wrong=true;render();toExp();return;
+    }
+    if(t.dataset.tap!==undefined){var k=st.i+'-'+t.dataset.tap;st.tap[k]=!st.tap[k];var y=window.scrollY;render();window.scrollTo(0,y);return;}
+    if(t.id==='next'){goNext();return;}
+  }
+  if(st.screen==='quiz'){
+    var q=st.quiz[st.qj];
+    if(t.dataset.g!==undefined&&!st.qdone){var g=+t.dataset.g;st.qpick=g;st.qres[st.qj]=(g===(G?q.a:vq(q,st.qj).a));st.qdone=true;render();if(st.qres[st.qj])later(qNext);else toExp();return;}
+    if(t.dataset.c!==undefined&&!st.qdone){var c=+t.dataset.c;st.qsel[c]=!st.qsel[c];render();return;}
+    if(t.id==='confirm'){var ok=true;q.it.forEach(function(x,j){if((x[2]!=='n')!==!!st.qsel[j])ok=false;});st.qres[st.qj]=ok;st.qdone=true;render();if(ok)later(qNext);else toExp();return;}
+    if(t.id==='qnext'){qNext();return;}
+  }
+});
+home();
+})();
+
+</script>
+</body>
+</html>
