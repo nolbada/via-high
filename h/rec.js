@@ -31,12 +31,24 @@
     var ta=typeof a,tb=typeof b,o,k;
     if(ta==='number'&&tb==='number')return Math.max(a,b);
     if(ta==='boolean'&&tb==='boolean')return a||b;
-    if(Array.isArray(a)&&Array.isArray(b)){var seen={};o=[];a.concat(b).forEach(function(x){var t=JSON.stringify(x);if(!seen[t]){seen[t]=1;o.push(x)}});return o}
+    if(Array.isArray(a)&&Array.isArray(b)){
+      /* 261116: 같은 값을 지우지 않는다. 한쪽이 다른 쪽의 앞부분이면 긴 쪽, 낱개 목록(글자·묶음)이면 이 기기 것에 저쪽에만 있는 것을 붙인다.
+         순서가 뜻인 숫자 배열(문제 번호·풀이 상태)이 서로 다르면 합칠 수 없으므로 NOMERGE 로 알린다(merge 가 이 기기 값을 그대로 둔다) */
+      var ja=a.map(function(x){return JSON.stringify(x)}),jb=b.map(function(x){return JSON.stringify(x)}),i,n=Math.min(ja.length,jb.length),pre=true;
+      for(i=0;i<n;i++){if(ja[i]!==jb[i]){pre=false;break}}
+      if(pre)return ja.length>=jb.length?a:b;
+      var prim=function(x){return x===null||typeof x==='number'||typeof x==='boolean'};
+      if(a.some(prim)||b.some(prim))throw NOMERGE;
+      var cnt={};o=a.slice();ja.forEach(function(t){cnt[t]=(cnt[t]||0)+1});b.forEach(function(x,j){var t=jb[j];if(cnt[t]>0)cnt[t]--;else o.push(x)});return o}
     if(a&&b&&ta==='object'&&tb==='object'&&!Array.isArray(a)&&!Array.isArray(b)){
       o={};for(k in a)o[k]=(k in b)?dm(a[k],b[k]):a[k];for(k in b)if(!(k in a))o[k]=b[k];return o}
     return b;
   }
-  function merge(loc,rem){try{return JSON.stringify(dm(JSON.parse(loc),JSON.parse(rem)))}catch(e){return rem}}
+  var NOMERGE={nomerge:1};
+  /* 261116: 두 값이 통째로 찍은 기록(맨 위에 시각 t 가 있음)이면 더 나중 것을 쓴다. 합칠 수 없는 값은 지금 쓰는 이 기기 값을 둔다 */
+  function merge(loc,rem){var a,b;try{a=JSON.parse(loc);b=JSON.parse(rem)}catch(e){return rem}
+    try{if(a&&b&&typeof a==='object'&&typeof b==='object'&&!Array.isArray(a)&&!Array.isArray(b)&&typeof a.t==='number'&&typeof b.t==='number'&&a.t!==b.t)return a.t>b.t?loc:rem;
+      return JSON.stringify(dm(a,b))}catch(e){return loc}}
   /* go1·go2: 서버가 "명단에 없는 이름"이라고 하면 이 기기의 이름 등록과 기록을 풀어 잠금 화면으로 돌린다 */
   function deny(){if(KIND==='gimal'||!g(NK))return;wipe();d(NK);d(UK);d(MK);reloadOnce(true)}
   function post(body,keep){
@@ -90,7 +102,7 @@
         var lchg=meta[k]!==lv;
         if(!lchg){if(apply){s(k,rs);meta[k]=rs;rl=true}}
         else if(meta[k]!==rs){
-          s(k,merge(lv,rs));rl=true;
+          var mg=merge(lv,rs);if(mg!==lv){s(k,mg);rl=true}
         }
       }
       s(MK,JSON.stringify(meta));s(AK,String(Date.now()));
@@ -110,7 +122,8 @@
   /* 저장이 일어나면 잠시 뒤 올림 */
   try{
     var sp=W.Storage.prototype,os=sp.setItem;
-    sp.setItem=function(k){os.apply(this,arguments);if(this===LS&&mirrored(k))sched()};
+    /* 261116: 이용 시간(vhts:)은 5초마다 저장되므로 그때마다 서버에 올리지 않는다. 다른 기록이 올라갈 때·1분마다·화면을 나갈 때 함께 올라간다 */
+    sp.setItem=function(k){os.apply(this,arguments);if(this===LS&&mirrored(k)&&String(k).indexOf('vhts:')!==0)sched()};
   }catch(e){}
   function start(){
     var id=ident();if(!id)return;
