@@ -372,6 +372,7 @@ function text(){
     var k=g[1];
     h+='<details class="acc"'+(cu[k]?' open':'')+'><summary>'+g[0]+'</summary><div class="in">';
     h+=lrow(k+'/jwa.html','좌본문 우해석');
+    h+=lrow('sd/'+k+'.html','순서 다지기','본문 파트별');
     h+=lrow(k+'/gram/','문법 분석');
     h+=lrow('../c2-neungryul-oh-34/?hub='+k.slice(1),'동사형 말하기');
     h+=lrow(k+'/hk/','문장 성분 연습','기본')+lrow(k+'/hs/','문장 성분 연습','심화');
@@ -379,7 +380,7 @@ function text(){
     h+=yoyakRows(k);
     h+='</div></details>';
   });
-  h+='<details class="acc"'+(cu.mock?' open':'')+'><summary>모의고사</summary><div class="in">'+lrow('jwa-mogo/','모의고사 좌본문 우해석','26년 10월 · 지문 17개')+lrow('jwa-mogo/voca.html','어휘 다지기','26년 10월 · 지문 17개')+lrow('jwa-mogo/naeyong.html','내용 다지기','26년 10월 · 지문 17개')+lrow('../teukhun/2610g1-voca.html','어휘특훈','26년 10월 · 17개 번호')+lrow('../teukhun/2610g1-gram.html','어법특훈','26년 10월 · 17개 번호')+(YM.length?'<details class="acc sub"><summary>요약문 연습</summary><div class="in">'+YM.map(function(m){return lrow(m[1],m[0])}).join('')+'</div></details>':'')+'</div></details>';
+  h+='<details class="acc"'+(cu.mock?' open':'')+'><summary>모의고사</summary><div class="in">'+lrow('jwa-mogo/','모의고사 좌본문 우해석','26년 10월 · 지문 17개')+lrow('jwa-mogo/voca.html','어휘 다지기','26년 10월 · 지문 17개')+lrow('jwa-mogo/naeyong.html','내용 다지기','26년 10월 · 지문 17개')+lrow('sd/mock.html','순서 다지기','26년 10월 · 지문 17개')+lrow('../teukhun/2610g1-voca.html','어휘특훈','26년 10월 · 17개 번호')+lrow('../teukhun/2610g1-gram.html','어법특훈','26년 10월 · 17개 번호')+(YM.length?'<details class="acc sub"><summary>요약문 연습</summary><div class="in">'+YM.map(function(m){return lrow(m[1],m[0])}).join('')+'</div></details>':'')+'</div></details>';
   document.getElementById('text').innerHTML=h;
 }
 document.getElementById('text').addEventListener('click',function(e){if(e.target.id==='hide15'){hide15=!hide15;text();}});
