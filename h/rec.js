@@ -8,10 +8,12 @@
   var URL_=W.REC_URL||'https://script.google.com/macros/s/AKfycbw1YQfKsgAXNk8NYoxOfz4bsCSy66fiim7HoFAUk162ksxrEbmspMs2UifNZ-93sdf05A/exec';
   var KIND=m[2],SCH=m[1],NUM='6900';
   var CODEKEY={geumcheon:'gk26-code',jusung:'js26-code',cheongseok:'cs26-code'}[SCH];
-  var UK='rec_uid',MK='rec_meta',NK='rec_name',AK='rec_at',MAXV=45000;
+  var UK='rec_uid',MK='rec_meta',NK='rec_name',AK='rec_at',LTK='rec_lt',MAXV=45000;
   var LS=null;try{LS=W.localStorage;LS.getItem('x')}catch(e){return}
   function g(k){try{return LS.getItem(k)}catch(e){return null}}
-  function s(k,v){try{LS.setItem(k,v)}catch(e){}}
+  /* 261116d: 이 스크립트가 직접 쓰는 것(inS)과 앱이 쓰는 것을 구분한다 */
+  var inS=0;
+  function s(k,v){inS++;try{LS.setItem(k,v)}catch(e){}inS--}
   function d(k){try{LS.removeItem(k)}catch(e){}}
   function jg(k){try{return JSON.parse(g(k)||'null')}catch(e){return null}}
   function mirrored(k){
@@ -73,6 +75,8 @@
   }
   function unwrap(v){return(v&&typeof v==='object'&&typeof v.s==='string')?v.s:null}
   var busy=false,again=false,recent={};
+  /* 261116d: 기록마다 '이 기기에서 마지막으로 바뀐 시각'을 적어 둔다. 서버에서 받은 값이 그보다 옛것이면 받지 않는다(옛 값이 새 값을 덮어쓰지 못하게) */
+  function stamp(k){var o=jg(LTK)||{};o[k]=Date.now();s(LTK,JSON.stringify(o))}
   /* 바뀐 키만 올림 */
   function pending(skip){
     var meta=jg(MK)||{},ch={},sent={};
@@ -94,7 +98,7 @@
     if(busy){again=true;return Promise.resolve(false)}busy=true;
     var t0=Date.now();
     return post({act:'put',id:id,data:{}}).then(function(r){
-      var rem=r.data||{},meta=jg(MK)||{},rl=false,skip={},tomb={},k;
+      var rem=r.data||{},meta=jg(MK)||{},rl=false,skip={},tomb={},k,lt=jg(LTK)||{};
       for(k in rem){
         if(!mirrored(k))continue;
         var rs=unwrap(rem[k].v);if(rs===null)continue;
@@ -103,16 +107,23 @@
         if(lv===null){if(meta[k]!==undefined&&meta[k]===rs){tomb[k]=1;continue}if(apply){s(k,rs);meta[k]=rs;rl=true}continue}
         var lchg=meta[k]!==lv;
         /* 261116c: 이 받기를 보내기 직전(15초 안)이나 기다리는 동안 이 기기가 올린 키는, 서버의 옛 값으로 되돌리지 않는다 */
-        if(!lchg){if(apply&&!(recent[k]&&recent[k]>t0-15000)){s(k,rs);meta[k]=rs;rl=true}}
+        if(!lchg){
+          var rt=Number(rem[k].t||0);
+          /* 261116d: 서버 값이 이 기기에서 바꾼 시각보다 옛것이면 받지 않고, 이 기기 값을 다시 올린다 */
+          if(lt[k]&&rt&&rt<lt[k]){delete meta[k]}
+          else if(apply&&!(recent[k]&&recent[k]>t0-15000)){s(k,rs);meta[k]=rs;if(rt)lt[k]=rt;rl=true}
+        }
         else if(meta[k]!==rs){
           var mg=merge(lv,rs);if(mg!==lv){s(k,mg);rl=true}
         }
       }
+      for(k in lt){if(g(k)===null)delete lt[k]}
+      s(LTK,JSON.stringify(lt));
       s(MK,JSON.stringify(meta));s(AK,String(Date.now()));
       return push(id,false,skip,tomb).then(function(){busy=false;if(again){again=false;sched()}return rl},function(){busy=false;return rl});
     },function(e){busy=false;throw e});
   }
-  function wipe(){keys().forEach(d);d(MK)}
+  function wipe(){keys().forEach(d);d(MK);d(LTK)}
   var TCH=0;try{['click','touchstart','keydown'].forEach(function(ev){W.addEventListener(ev,function(){TCH=1},true)})}catch(e){}
   /* 261116c: 학생이 화면을 한 번이라도 누른 뒤에는(첫 화면 포함) 받은 기록 때문에 화면을 다시 띄우지 않는다. 받은 기록은 다음에 화면을 열 때 보인다 */
   function reloadOnce(force){if(!force&&TCH)return;
@@ -121,20 +132,27 @@
   /* 261116c: 저장이 일어날 때마다 서버와 맞추지 않는다. 마지막 저장 뒤 5초 조용하면(계속 풀고 있으면 늦어도 15초마다) 바뀐 것만 한 번 올린다.
      기록은 누르는 순간 이 기기에 남아 있으므로 잃지 않는다. 받기는 화면을 열 때·1분마다·돌아올 때 한다 */
   var timer=null,firstAt=0;
+  function pushNow(){
+    var id=ident();if(!id||id!==g(UK))return;
+    if(busy){again=true;return}
+    busy=true;push(id,false).catch(function(){}).then(function(){busy=false;if(again){again=false;sched()}});
+  }
   function sched(){
     var now=Date.now();if(!firstAt)firstAt=now;
     if(timer)clearTimeout(timer);
-    timer=setTimeout(function(){
-      timer=null;firstAt=0;var id=ident();if(!id||id!==g(UK))return;
-      if(busy){again=true;return}
-      busy=true;push(id,false).catch(function(){}).then(function(){busy=false;if(again){again=false;sched()}});
-    },Math.max(0,Math.min(5000,firstAt+15000-now)));
+    timer=setTimeout(function(){timer=null;firstAt=0;pushNow()},Math.max(0,Math.min(5000,firstAt+15000-now)));
   }
   /* 저장이 일어나면 잠시 뒤 올림 */
   try{
     var sp=W.Storage.prototype,os=sp.setItem;
     /* 261116: 이용 시간(vhts:)은 5초마다 저장되므로 그때마다 서버에 올리지 않는다. 다른 기록이 올라갈 때·1분마다·화면을 나갈 때 함께 올라간다 */
-    sp.setItem=function(k){os.apply(this,arguments);if(this===LS&&mirrored(k)&&String(k).indexOf('vhts:')!==0)sched()};
+    /* 261116d: 앱이 값을 실제로 바꿨을 때만 시각을 적는다(같은 값을 다시 저장한 것은 바뀐 것이 아니다) */
+    sp.setItem=function(k,v){
+      var mine=this===LS&&!inS&&mirrored(k),old;
+      if(mine){try{old=LS.getItem(k)}catch(e){}}
+      os.apply(this,arguments);
+      if(mine){if(old!==String(v))stamp(k);if(String(k).indexOf('vhts:')!==0)sched()}
+    };
   }catch(e){}
   function start(){
     var id=ident();if(!id)return;
@@ -151,8 +169,9 @@
     if(!prev){first();return}
     var last=Number(g(AK)||0);
     if(Date.now()-last>45000)sync(id,true).then(function(rl){if(rl)reloadOnce()}).catch(function(){});
-    else sync(id,false).then(function(rl){if(rl)reloadOnce()}).catch(function(){});
-    setInterval(function(){if(!D.hidden)sync(id,false).then(function(rl){if(rl)reloadOnce()}).catch(function(){})},60000);
+    /* 261116d: 45초 안에 이미 맞췄으면(앱 안에서 화면을 옮길 때) 다시 받지 않고, 올릴 것이 있을 때만 올린다. 1분마다도 올리기만 한다 */
+    else if(pending().n)sched();
+    setInterval(function(){if(!D.hidden&&pending().n)pushNow()},60000);
     var hid=0;
     D.addEventListener('visibilitychange',function(){
       if(D.hidden){hid=Date.now();push(id,true).catch(function(){})}
@@ -270,4 +289,4 @@
   document.addEventListener('visibilitychange',function(){if(document.visibilityState!=='visible')flush();else{last=Date.now();act=Date.now()}});
   addEventListener('pagehide',flush);
 }catch(e){}})();
-/* rec 261116c */
+/* rec 261116d */
