@@ -90,7 +90,8 @@
     var c=pending(skip),tk=Object.keys(tomb||{});if(!c.n&&!tk.length)return Promise.resolve(false);
     tk.forEach(function(k){c.ch[k]={v:{d:1},t:Date.now()}});
     var k0;for(k0 in c.sent)recent[k0]=Date.now();
-    return post({act:'put',id:id,data:c.ch},keep).then(function(){
+    /* 261116e: 올리기만 할 때는 서버가 기록을 돌려주지 않게 한다(nr:1) */
+    return post({act:'put',id:id,nr:1,data:c.ch},keep).then(function(){
       var meta=jg(MK)||{},k;for(k in c.sent)meta[k]=c.sent[k];tk.forEach(function(k){delete meta[k]});s(MK,JSON.stringify(meta));return true});
   }
   /* 받아서 반영(apply) 후 올림 */
@@ -242,7 +243,7 @@
     if(fl)return;
     var q=outq().filter(function(x){return !x.dead});if(!q.length)return;
     fl=true;var x=q[0];
-    tpost({act:'put',id:x.id,data:x.ch||{}}).then(function(r){
+    tpost({act:'put',id:x.id,nr:1,data:x.ch||{}}).then(function(r){
       if(!r||!r.ok){var e=new Error('out');e.code=r&&r.err;throw e}
       return tpost({act:'put',id:x.id,data:{}});
     }).then(function(r){
@@ -289,4 +290,4 @@
   document.addEventListener('visibilitychange',function(){if(document.visibilityState!=='visible')flush();else{last=Date.now();act=Date.now()}});
   addEventListener('pagehide',flush);
 }catch(e){}})();
-/* rec 261116d */
+/* rec 261116e */
