@@ -259,3 +259,4 @@
   document.addEventListener('visibilitychange',function(){if(document.visibilityState!=='visible')flush();else{last=Date.now();act=Date.now()}});
   addEventListener('pagehide',flush);
 }catch(e){}})();
+/* rec 261116b */
