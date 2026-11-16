@@ -52,7 +52,14 @@
     try{if(a&&b&&typeof a==='object'&&typeof b==='object'&&!Array.isArray(a)&&!Array.isArray(b)&&typeof a.t==='number'&&typeof b.t==='number'&&a.t!==b.t)return a.t>b.t?loc:rem;
       return JSON.stringify(dm(a,b))}catch(e){return loc}}
   /* go1·go2: 서버가 "명단에 없는 이름"이라고 하면 이 기기의 이름 등록과 기록을 풀어 잠금 화면으로 돌린다 */
-  function deny(){if(KIND==='gimal'||!g(NK))return;wipe();d(NK);d(UK);d(MK);reloadOnce(true)}
+  /* 261117: 서버 답 한 번으로는 풀지 않는다. 8초 뒤 다시 물어서 또 "명단에 없음"일 때만 푼다(서버가 잠깐 잘못 답해도 이 기기의 기록이 지워지지 않게). 중등 연동과 같은 방식 */
+  var dn=0;
+  function deny(){
+    if(KIND==='gimal'||!g(NK)||dn)return;dn=1;var id=ident();
+    setTimeout(function(){
+      chk(id).then(function(r){dn=0;if(r&&!r.ok&&r.err==='noname'&&ident()===id){wipe();d(NK);d(UK);d(MK);reloadOnce(true)}},function(){dn=0});
+    },8000);
+  }
   function post(body,keep){
     return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(body),keepalive:!!keep})
       .then(function(r){return r.json()}).then(function(r){if(!r||!r.ok){var e=new Error('rec');e.code=r&&r.err;if(e.code==='noname')deny();throw e}return r});
@@ -95,10 +102,11 @@
       var meta=jg(MK)||{},k;for(k in c.sent)meta[k]=c.sent[k];tk.forEach(function(k){delete meta[k]});s(MK,JSON.stringify(meta));return true});
   }
   /* 받아서 반영(apply) 후 올림 */
-  function sync(id,apply){
+  /* 261117: 이름을 등록할 때는 방금 확인하며 받은 답(pre)을 그대로 써서 같은 기록을 한 번 더 받지 않는다 */
+  function sync(id,apply,pre){
     if(busy){again=true;return Promise.resolve(false)}busy=true;
     var t0=Date.now();
-    return post({act:'put',id:id,data:{}}).then(function(r){
+    return (pre?Promise.resolve(pre):post({act:'put',id:id,data:{}})).then(function(r){
       var rem=r.data||{},meta=jg(MK)||{},rl=false,skip={},tomb={},k,lt=jg(LTK)||{};
       for(k in rem){
         if(!mirrored(k))continue;
@@ -199,16 +207,16 @@
         var prevId=g(UK),newId='REC|'+KIND+'|'+v+'|'+NUM;
         var fail=function(t){b.disabled=false;D.getElementById('rec-m').textContent=t};
         var net='연결이 안 됐어요. 인터넷을 확인하고 다시 눌러 주세요.';
-        var go=function(){
+        var go=function(pre){
           D.getElementById('rec-m').textContent='기록을 불러오는 중...';
           s(NK,v);var id=ident();
           if(prevId&&prevId!==id){wipe()}
           s(UK,id);d(MK);
-          sync(id,true).then(function(){location.reload()},function(){d(NK);d(UK);fail(net)});
+          sync(id,true,pre).then(function(){location.reload()},function(){d(NK);d(UK);fail(net)});
         };
         chk(newId).then(function(r){
           if(!r.ok){fail(r.err==='noname'?'등록된 학생 이름이 아니에요. 이름을 다시 확인하거나 선생님께 알려 주세요.':net);return}
-          if(prevId&&prevId!==newId)push(prevId,false).catch(function(){}).then(go);else go();
+          if(prevId&&prevId!==newId)push(prevId,false).catch(function(){}).then(function(){go(r)});else go(r);
         },function(){fail(net)});
       };
     }else{
@@ -290,4 +298,4 @@
   document.addEventListener('visibilitychange',function(){if(document.visibilityState!=='visible')flush();else{last=Date.now();act=Date.now()}});
   addEventListener('pagehide',flush);
 }catch(e){}})();
-/* rec 261116e */
+/* rec 261117a */
