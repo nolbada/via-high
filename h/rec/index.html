@@ -89,7 +89,10 @@ var CK='rec_adm_c',STALE=false;
 function cSig(){var s=String(pw||''),x=5381,i;for(i=0;i<s.length;i++)x=((x<<5)+x+s.charCodeAt(i))|0;return s.length+':'+x}
 function cGet(){try{var c=JSON.parse(localStorage.getItem(CK)||'null');return(c&&c.p===cSig()&&c.t&&Date.now()-c.t<7*86400000&&c.all)?c:null}catch(e){return null}}
 function cDel(){try{localStorage.removeItem(CK)}catch(e){}}
-function cPut(){try{var sub={},k;for(k in ALL){if(k.indexOf('REC|')===0)sub[k]=ALL[k]}var s=JSON.stringify({t:Date.now(),p:cSig(),all:sub});if(s.length>1500000){cDel();return}localStorage.setItem(CK,s)}catch(e){cDel()}}
+/* 261117b: 이 화면이 숫자 셀 때 쓰는 항목만 통째로 남기고, 나머지(단어 풀이 기록 등 무거운 것)는 시각만 남겨 가볍게 보관한다. 보관본은 화면 먼저 띄우기 전용 */
+var CKEEP=/^(vh:days:|vhp:|vhts:|vhd:|vhc:|vhdj:|vhy:|(gk|js|cs)26-|map$)/;
+function cSlim(d){var o={},k,e,w;for(k in d){e=d[k];if(CKEEP.test(k))o[k]=e;else if(k.indexOf('vhw:')===0){w=val(e);o[k]={v:Array.isArray(w)?w.map(function(){return 0}):0,t:e&&e.t}}else o[k]={t:e&&e.t}}return o}
+function cPut(){try{var sub={},k;for(k in ALL){if(k.indexOf('REC|')===0)sub[k]=cSlim(ALL[k])}var s=JSON.stringify({t:Date.now(),p:cSig(),all:sub});if(s.length>1500000){cDel();return}localStorage.setItem(CK,s)}catch(e){cDel()}}
 function load(){
   if(pw&&!Object.keys(ALL).length){var c0=cGet();if(c0){ALL=c0.all;STALE=true;readNames();draw()}}
   /* 261117: 저장된 비밀번호로 바로 열 때는 안내 칸(#m)이 아직 없어 화면이 비어 있었다. 받는 동안 '불러오는 중'을 보여 준다 */
