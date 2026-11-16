@@ -72,7 +72,7 @@
     (D.body||D.documentElement).appendChild(o);return o;
   }
   function unwrap(v){return(v&&typeof v==='object'&&typeof v.s==='string')?v.s:null}
-  var busy=false,again=false;
+  var busy=false,again=false,recent={};
   /* 바뀐 키만 올림 */
   function pending(skip){
     var meta=jg(MK)||{},ch={},sent={};
@@ -85,12 +85,14 @@
   function push(id,keep,skip,tomb){
     var c=pending(skip),tk=Object.keys(tomb||{});if(!c.n&&!tk.length)return Promise.resolve(false);
     tk.forEach(function(k){c.ch[k]={v:{d:1},t:Date.now()}});
+    var k0;for(k0 in c.sent)recent[k0]=Date.now();
     return post({act:'put',id:id,data:c.ch},keep).then(function(){
       var meta=jg(MK)||{},k;for(k in c.sent)meta[k]=c.sent[k];tk.forEach(function(k){delete meta[k]});s(MK,JSON.stringify(meta));return true});
   }
   /* 받아서 반영(apply) 후 올림 */
   function sync(id,apply){
     if(busy){again=true;return Promise.resolve(false)}busy=true;
+    var t0=Date.now();
     return post({act:'put',id:id,data:{}}).then(function(r){
       var rem=r.data||{},meta=jg(MK)||{},rl=false,skip={},tomb={},k;
       for(k in rem){
@@ -100,7 +102,8 @@
         if(lv===rs){meta[k]=rs;continue}
         if(lv===null){if(meta[k]!==undefined&&meta[k]===rs){tomb[k]=1;continue}if(apply){s(k,rs);meta[k]=rs;rl=true}continue}
         var lchg=meta[k]!==lv;
-        if(!lchg){if(apply){s(k,rs);meta[k]=rs;rl=true}}
+        /* 261116c: 이 받기를 보내기 직전(15초 안)이나 기다리는 동안 이 기기가 올린 키는, 서버의 옛 값으로 되돌리지 않는다 */
+        if(!lchg){if(apply&&!(recent[k]&&recent[k]>t0-15000)){s(k,rs);meta[k]=rs;rl=true}}
         else if(meta[k]!==rs){
           var mg=merge(lv,rs);if(mg!==lv){s(k,mg);rl=true}
         }
@@ -111,13 +114,21 @@
   }
   function wipe(){keys().forEach(d);d(MK)}
   var TCH=0;try{['click','touchstart','keydown'].forEach(function(ev){W.addEventListener(ev,function(){TCH=1},true)})}catch(e){}
-  function reloadOnce(force){if(!force&&TCH&&!/-(go1|go2)\/(index\.html|tth\.html)?$/.test(P))return;
+  /* 261116c: 학생이 화면을 한 번이라도 누른 뒤에는(첫 화면 포함) 받은 기록 때문에 화면을 다시 띄우지 않는다. 받은 기록은 다음에 화면을 열 때 보인다 */
+  function reloadOnce(force){if(!force&&TCH)return;
     try{var t=Number(sessionStorage.getItem('rec_rl')||0);if(Date.now()-t>20000){sessionStorage.setItem('rec_rl',String(Date.now()));location.reload()}}catch(e){}
   }
-  var timer=null;
+  /* 261116c: 저장이 일어날 때마다 서버와 맞추지 않는다. 마지막 저장 뒤 5초 조용하면(계속 풀고 있으면 늦어도 15초마다) 바뀐 것만 한 번 올린다.
+     기록은 누르는 순간 이 기기에 남아 있으므로 잃지 않는다. 받기는 화면을 열 때·1분마다·돌아올 때 한다 */
+  var timer=null,firstAt=0;
   function sched(){
-    if(timer)return;
-    timer=setTimeout(function(){timer=null;var id=ident();if(id&&id===g(UK))sync(id,false).then(function(rl){if(rl)reloadOnce()}).catch(function(){})},4000);
+    var now=Date.now();if(!firstAt)firstAt=now;
+    if(timer)clearTimeout(timer);
+    timer=setTimeout(function(){
+      timer=null;firstAt=0;var id=ident();if(!id||id!==g(UK))return;
+      if(busy){again=true;return}
+      busy=true;push(id,false).catch(function(){}).then(function(){busy=false;if(again){again=false;sched()}});
+    },Math.max(0,Math.min(5000,firstAt+15000-now)));
   }
   /* 저장이 일어나면 잠시 뒤 올림 */
   try{
@@ -259,4 +270,4 @@
   document.addEventListener('visibilitychange',function(){if(document.visibilityState!=='visible')flush();else{last=Date.now();act=Date.now()}});
   addEventListener('pagehide',flush);
 }catch(e){}})();
-/* rec 261116b */
+/* rec 261116c */
