@@ -57,7 +57,7 @@
   function deny(){
     if(KIND==='gimal'||!g(NK)||dn)return;dn=1;var id=ident();
     setTimeout(function(){
-      chk(id).then(function(r){dn=0;if(r&&!r.ok&&r.err==='noname'&&ident()===id){wipe();d(NK);d(UK);d(MK);reloadOnce(true)}},function(){dn=0});
+      chkSrv(id).then(function(r){dn=0;if(r&&!r.ok&&r.err==='noname'&&ident()===id){wipe();d(NK);d(UK);d(MK);reloadOnce(true)}},function(){dn=0});
     },8000);
   }
   function post(body,keep){
@@ -65,10 +65,32 @@
       .then(function(r){return r.json()}).then(function(r){if(!r||!r.ok){var e=new Error('rec');e.code=r&&r.err;if(e.code==='noname')deny();throw e}return r});
   }
   /* 이름 등록 전 확인(기존 등록을 건드리지 않는다) */
-  function chk(id){
+  function chkSrv(id){
     return fetch(URL_,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify({act:'put',id:id,data:{}})})
       .then(function(r){return r.json()}).then(function(r){if(!r)throw new Error('rec');return r});
   }
+  /* 261117f: 기록 받기는 Firebase 에서 바로 한다(서버를 거치지 않는다). 한 사람 기록은 8조각이라 한 번에 받는다.
+     조각이 하나도 없거나(처음 온 학생 - 명단 확인이 필요) 실패하거나 2.5초를 넘기면 null 을 돌려주고, 그때는 예전처럼 서버에 묻는다 */
+  function fsRead(id){
+    try{
+      var smp=/(^|[|:])샘플\d*([|:]|$)/.test(id),base='projects/h-roadmap/databases/(default)/documents/'+(smp?'rec_s':'rec')+'/'+String(id).replace(/%/g,'%25').replace(/\//g,'%2F')+'~',names=[],i;
+      for(i=0;i<8;i++)names.push(base+i);
+      var ac=W.AbortController?new AbortController():null,tm=ac?setTimeout(function(){ac.abort()},2500):0;
+      return fetch('https://firestore.googleapis.com/v1/projects/h-roadmap/databases/(default)/documents:batchGet',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({documents:names}),signal:ac?ac.signal:undefined})
+        .then(function(r){clearTimeout(tm);return r.ok?r.json():null})
+        .then(function(a){
+          if(!Array.isArray(a)||a.length!==8)return null;
+          var data={},found=0,j,o,k,x;
+          for(j=0;j<a.length;j++){
+            x=a[j];if(x.missing)continue;if(!x.found)return null;found++;
+            o=x.found.fields&&x.found.fields.j&&x.found.fields.j.stringValue;if(!o)continue;o=JSON.parse(o);
+            for(k in o){try{data[k]={v:JSON.parse(String(o[k][0])),t:Number(o[k][1])}}catch(e){}}
+          }
+          return found?{ok:1,data:data,fs:1}:null;
+        }).catch(function(){clearTimeout(tm);return null});
+    }catch(e){return Promise.resolve(null)}
+  }
+  function chk(id){return fsRead(id).then(function(r){return r||chkSrv(id)})}
   /* 공폰 모드(?shared=1)와 내신 테스트(exit)는 이름 없이도 연다 */
   function exempt(){
     try{if(sessionStorage.getItem('vhshared')==='1')return true}catch(e){}
@@ -106,7 +128,7 @@
   function sync(id,apply,pre){
     if(busy){again=true;return Promise.resolve(false)}busy=true;
     var t0=Date.now();
-    return (pre?Promise.resolve(pre):post({act:'put',id:id,data:{}})).then(function(r){
+    return (pre?Promise.resolve(pre):fsRead(id).then(function(r){return r||post({act:'put',id:id,data:{}})})).then(function(r){
       var rem=r.data||{},meta=jg(MK)||{},rl=false,skip={},tomb={},k,lt=jg(LTK)||{};
       for(k in rem){
         if(!mirrored(k))continue;
@@ -298,4 +320,4 @@
   document.addEventListener('visibilitychange',function(){if(document.visibilityState!=='visible')flush();else{last=Date.now();act=Date.now()}});
   addEventListener('pagehide',flush);
 }catch(e){}})();
-/* rec 261117a */
+/* rec 261117f */
