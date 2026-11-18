@@ -146,7 +146,7 @@ function info(id){
         if(sn){yy.n+=sn;yy.r+=sr;yy.w+=sw;yy.sets.push({pg:pg,n:sn,r:sr,w:sw,t:lt})}})});
     o.yy=yy;
     var tt=tm.q+tm.w+tm.h+pre;
-    o.stats=[['누적 이용시간',dur(tt)],['오늘 이용시간',dur(tm.t)],['누적 풀코스',qf+'문제'],['마지막 회차',lc?lastR(lc):'없음'],['누적 채점',qg+'문제'],['오답노트',wrong+'개'],['요약문 정답',yy.n?yy.r+'/'+yy.n:'기록 없음']];if(djt)o.stats.push(['풀코스 추가문제',djn+' / '+djt+'문항']);
+    o.stats=[['누적 이용시간',dur(tt)],['오늘 이용시간',dur(tm.t)],['누적 풀코스',qf+'문제'],['마지막 회차',lc?lastR(lc):'없음'],['누적 채점',qg+'문제'],['오답노트',wrong+'개'],['요약문 정답',yy.n?yy.r+'/'+yy.n:'기록 없음']];if(djt)o.stats.push(['풀코스 추가문제',djn+' / '+djt+'문항']); var KQ=[];ks.forEach(function(k){if(k.indexOf('vhp:')!==0)return;var o3=val(d[k]);if(!o3||typeof o3!=='object')return;Object.keys(o3).forEach(function(q){var e=o3[q];if(q.indexOf('key:')===0&&e&&e.n)KQ.push([q,e.n,e.t||0])})});if(KQ.length){KQ.sort(function(x,y){return y[2]-x[2]});var NM={hangeul:'빈칸 우리말',eobeop:'어법선택',dongsa:'동사형',check:'Check',yeongeo:'빈칸 영어',hk:'핵심문장 기본',hs:'핵심문장 심화'};var lb=function(q){var p=q.slice(4).split(':'),m;if(/^L\d$/.test(p[0])){m=/^yesang(\d)$/.exec(p[1]||'');return p[0].slice(1)+'과 '+(NM[p[1]]||(m?'예상문제 '+m[1]+'회':p[1]))}if(p[0]==='mock')return '모고 '+p.slice(1).join(' ');return p.join(' ')};var dt=new Date(KQ[0][2]);o.stats.push(['답 확인',KQ.length+'곳 · 마지막 '+lb(KQ[0][0])+(KQ[0][1]>1?' '+KQ[0][1]+'번':'')+(KQ[0][2]?' ('+(dt.getMonth()+1)+'/'+dt.getDate()+')':'')])}
     var X={sp:0,spl:0,inn:0,inl:0,xvq:0,xvp:0,ykx:[],ykw:0,bfn:0,bfc:0,bfs:[],ss:0,ssd:0,ssq:0};
     ks.forEach(function(k){var v=val(d[k]),e,c;
       if(/^sp:/.test(k)&&v&&typeof v==='object'){Object.keys(v).forEach(function(p){e=v[p];if(e&&typeof e==='object'){c=Object.keys(e).length;if(c){X.sp++;X.spl+=c}}})}
