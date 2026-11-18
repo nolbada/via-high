@@ -147,6 +147,22 @@ function info(id){
     o.yy=yy;
     var tt=tm.q+tm.w+tm.h+pre;
     o.stats=[['누적 이용시간',dur(tt)],['오늘 이용시간',dur(tm.t)],['누적 풀코스',qf+'문제'],['마지막 회차',lc?lastR(lc):'없음'],['누적 채점',qg+'문제'],['오답노트',wrong+'개'],['요약문 정답',yy.n?yy.r+'/'+yy.n:'기록 없음']];if(djt)o.stats.push(['풀코스 추가문제',djn+' / '+djt+'문항']);
+    var X={sp:0,spl:0,inn:0,inl:0,xvq:0,xvp:0,ykx:[],ykw:0,bfn:0,bfc:0,bfs:[],ss:0,ssd:0,ssq:0};
+    ks.forEach(function(k){var v=val(d[k]),e,c;
+      if(/^sp:/.test(k)&&v&&typeof v==='object'){Object.keys(v).forEach(function(p){e=v[p];if(e&&typeof e==='object'){c=Object.keys(e).length;if(c){X.sp++;X.spl+=c}}})}
+      else if(/^in:/.test(k)&&v&&typeof v==='object'){Object.keys(v).forEach(function(p){e=v[p];if(e&&typeof e==='object'){c=Object.keys(e).length;if(c){X.inn++;X.inl+=c}}})}
+      else if(/^vhxv:/.test(k)&&v&&typeof v==='object'){c=Object.keys(v).length;if(c){X.xvp++;X.xvq+=c}}
+      else if(/^yk:/.test(k)&&v){var ym=/:(exam|wrong)$/.exec(k);if(ym){if(ym[1]==='exam'&&v.done&&v.q)X.ykx.push(v.score+'/'+v.q.length);else if(ym[1]==='wrong'&&Array.isArray(v))X.ykw+=v.length}}
+      else if(/^bf:[^:]*$/.test(k)&&v&&v.q){(v.a||[]).forEach(function(x,i){if(x!=null){X.bfn++;if(v.o&&v.o[i])X.bfc++}})}
+      else if(/^bfh:[^:]*$/.test(k)&&Array.isArray(v)){v.slice(-3).forEach(function(x){X.bfs.push(x[1]+'/'+x[2])})}
+      else if(/^gc1-ssam-/.test(k)&&v&&typeof v==='object'){Object.keys(v).forEach(function(p){e=v[p];if(e&&typeof e==='object'){c=e.pick?Object.keys(e.pick).length:0;if(c||e.done){X.ss++;X.ssq+=c;if(e.done)X.ssd++}}})}
+    });
+    if(X.sp)o.stats.push(['순서 다지기',X.sp+'개 지문 · '+X.spl+'단계']);
+    if(X.inn)o.stats.push(['삽입 다지기',X.inn+'문장 · '+X.inl+'단계']);
+    if(X.xvq)o.stats.push(['어휘·내용 다지기',X.xvq+'문제 · '+X.xvp+'지문']);
+    if(X.ykx.length||X.ykw)o.stats.push(['유의어 꽉잡기',(X.ykx.length?'시험 '+X.ykx.join(', ')+' · ':'')+'틀린 단어 '+X.ykw+'개']);
+    if(X.bfn||X.bfs.length)o.stats.push(['바꿔치기 감별',(X.bfs.length?'지난 판 '+X.bfs.join(', ')+' · ':'')+'푼 '+X.bfn+'문제'+(X.bfc?' · 정답 '+X.bfc:'')]);
+    if(X.ss)o.stats.push(['학교쌤 수업노트',X.ss+'세트 시작 · '+X.ssd+'세트 완료 · '+X.ssq+'문제']);
   }else{
     o.code=id.split('|')[1];o.grade='고1';
     var done=0,today=0,rep=0,sum=0,hw=0,t0=day0(Date.now());
