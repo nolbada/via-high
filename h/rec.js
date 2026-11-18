@@ -21,7 +21,7 @@
     if(k.indexOf('rec_')===0||k.indexOf('hub_')===0||k.indexOf('mogo')===0)return false;
     if(/-code$/.test(k)||/teacher/i.test(k))return false;
     /* 고등 앱 폴더가 쓰는 기록만 연동. 같은 주소의 다른 앱(V시그널·M1·워마2000 등) 기록은 건드리지 않는다 */
-    return /^(vh[a-z]*:|vq:|nd:|vsig-tb-|vsig-g1|vsig-e-wq|vsig-y-wb|xray-v1|mock|gk-|gk26-|gm2-|sx-|cs-|kc-find-|jusung-find-|voca:|verb_study_)/.test(k);
+    return /^(vh[a-z]*:|vq:|nd:|vsig-tb-|vsig-g1|vsig-e-wq|vsig-y-wb|xray-v1|mock|gk-|gk26-|gm2-|sx-|cs-|kc-find-|jusung-find-|voca:|verb_study_|(?:sp|in|yk):(?:geumcheon|jusung|cheongseok)-|bf:)/.test(k);
   }
   function keys(){var o=[],i,k;for(i=0;i<LS.length;i++){k=LS.key(i);if(mirrored(k))o.push(k)}return o}
   function ident(){
