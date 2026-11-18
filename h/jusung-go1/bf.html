@@ -1,0 +1,187 @@
+<!doctype html><html lang="ko" translate="no"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="google" content="notranslate"><script src="../common/base.js?v=261105a"></script><meta name="theme-color" content="#1d4ed8"><meta name="robots" content="noindex"><title>바꿔치기 감별</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg"><link rel="apple-touch-icon" href="icon-180.png">
+<link rel="stylesheet" href="../common/sx.css?v=261019">
+<style>
+:root{--ng:#c0262d;--h0:#fde68a;--h1:#bfdbfe;--h2:#bbf7d0;--h3:#fbcfe8;--hx:#fecaca}
+@media(prefers-color-scheme:dark){:root{--ng:#ff8a80;--h0:#5c4a12;--h1:#1e3a66;--h2:#14532d;--h3:#5b2147;--hx:#6b1f1f}}
+.bfh{display:flex;align-items:baseline;gap:8px;margin:4px 0 0}
+.bfh b{font-size:18px}.bfh small{font-size:13px;color:var(--sub);font-weight:700}
+.bfc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin:12px 0}
+.tag{display:inline-flex;gap:6px;align-items:center;font-size:13px;font-weight:800;color:var(--sub);margin-bottom:6px;word-break:keep-all}
+.tag i{font-style:normal;flex-shrink:0;white-space:nowrap;padding:1px 8px;border-radius:999px;background:var(--priL);color:var(--pri)}
+.lb{font-size:13px;font-weight:800;color:var(--sub);margin:10px 0 3px}
+.en{font-size:17px;line-height:1.65;font-weight:600;white-space:pre-line;overflow-wrap:break-word}
+.en.org{padding:10px 12px;background:var(--bg);border-radius:10px}
+.en.rw{padding:10px 12px;border:1.5px dashed var(--pri);border-radius:10px;font-weight:700}
+.kr{font-size:15px;color:var(--sub);white-space:pre-line;margin:3px 2px 0;line-height:1.55}
+.qa{font-size:15px;font-weight:800;margin:12px 0 0;text-align:center}
+.two{display:flex;gap:10px;margin:8px 0 2px}
+.two button{position:relative;flex:1;padding:14px 6px;border:1.5px solid var(--line);border-radius:13px;background:var(--card);color:var(--ink);font-weight:800;font-size:18px;cursor:pointer}
+.two button.cor{border-color:var(--ok);background:linear-gradient(135deg,var(--okBg),var(--card) 75%);color:var(--ok)}
+.two button.me{border-color:var(--ng);background:linear-gradient(135deg,var(--ngBg),var(--card) 75%);color:var(--ng)}
+.two button em{position:absolute;top:-9px;right:8px;font-style:normal;font-size:12px;font-weight:800;padding:0 8px;border-radius:999px;background:var(--card);border:1.5px solid}
+.done .two button{pointer-events:none}
+.rs{font-weight:800;font-size:15.5px;margin:12px 0 2px}.rs.o{color:var(--ok)}.rs.x{color:var(--ng)}
+mark{color:inherit;border-radius:4px;padding:0 2px}
+mark.c0{background:var(--h0)}mark.c1{background:var(--h1)}mark.c2{background:var(--h2)}mark.c3{background:var(--h3)}
+mark.cx{background:var(--hx);box-shadow:inset 0 -2px 0 var(--ng)}
+.sws{margin:10px 0 0;display:flex;flex-direction:column;gap:6px}
+.swr{font-size:15px;line-height:1.6;padding:7px 10px;border-left:3px solid var(--ok);border-radius:0 9px 9px 0;background:linear-gradient(90deg,var(--okBg),transparent 85%)}
+.swr.x{border-left-color:var(--ng);background:linear-gradient(90deg,var(--ngBg),transparent 85%)}
+.swr b{font-weight:800}.swr .k{display:block;color:var(--sub);font-size:14px}.swr .ln{display:block}
+.swr .y{display:block;margin-top:5px;font-weight:700;white-space:pre-line}
+mark.sm{background:var(--bg);border:1px dashed var(--line)}
+.swr.nt{border-left-color:var(--pri);background:linear-gradient(90deg,var(--priL),transparent 85%);font-size:14px;color:var(--sub);font-weight:700}
+.nx{display:block;width:100%;margin:14px 0 4px;padding:14px;border:0;border-radius:12px;background:var(--pri);color:#fff;font-weight:800;font-size:16.5px;cursor:pointer}
+@media(prefers-color-scheme:dark){.nx,.lk2 .pr{color:#0b1220}}
+.end{background:var(--card);border:1.5px solid var(--pri);border-radius:16px;padding:16px 14px;margin:14px 0;text-align:center}
+.end .sc{font-size:34px;font-weight:800;color:var(--pri);line-height:1.2}.end .sc small{font-size:18px;color:var(--sub)}
+.end p{margin:4px 0 0;font-size:14.5px;color:var(--sub);font-weight:700}
+.end .cl{margin-top:10px;font-size:14px;color:var(--sub);font-weight:700}
+.lk2{display:flex;gap:8px;margin:10px 0}.lk2 a,.lk2 button{flex:1;text-align:center;padding:12px 6px;border:1.5px solid var(--pri);border-radius:12px;font-weight:800;font-size:15.5px;color:var(--pri);background:var(--card);cursor:pointer}
+.lk2 .pr{background:var(--pri);color:#fff}
+.stp{display:flex;gap:6px;margin:8px 2px 2px}.stp i{flex:1;height:8px;border-radius:99px;background:var(--line)}.stp i.on{background:var(--pri)}
+.pill{display:inline-block;padding:6px 13px;border:1px solid var(--line);border-radius:999px;font-size:14px;color:var(--sub);background:var(--card);cursor:pointer}
+.ch{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:14px;margin:10px 0;color:var(--ink);cursor:pointer}
+.ch b{font-size:18px}.ch small{display:block;color:var(--sub);font-size:14px;margin-top:2px}
+.ch .pb{height:8px;border-radius:99px;background:var(--line);margin-top:9px;overflow:hidden}.ch .pb i{display:block;height:100%;background:var(--pri)}
+.ch.dn{border-color:var(--ok)}
+</style></head><body data-page="bf"><div class="wrap" id="app"></div>
+<script src="bf3.js?v=2611182001"></script><script src="bf4.js?v=2611182001"></script>
+<script>(function(){
+var SCHOOL='주성고1',SEG=20;
+var seg=location.pathname.split('/'),si=seg.indexOf('h'),SCH=(si>=0&&seg[si+1])||'x';
+var UN=['3','4'],U=(/[?&]u=(\d+)/.exec(location.search)||[0,''])[1];
+if(UN.indexOf(U)<0)U='';
+var BFD=window.BF||{},ALL=U?(BFD[U]||[]):[];
+var app=document.getElementById('app');
+function jg(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function js(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function byId(id){for(var i=0;i<ALL.length;i++)if(ALL[i].id===id)return ALL[i];return null}
+function rex(q){var e=q.replace(/[.*+?^$\{\}()|[\]\\]/g,'\\$&');return new RegExp((/^\w/.test(q)?'\\b':'')+e+(/\w$/.test(q)?'\\b':''))}
+function hl(text,marks){
+ var R=[];
+ marks.forEach(function(m){String(m[0]).split(' … ').forEach(function(p){var r=rex(p).exec(text);if(!r)return;var s=r.index,e=s+p.length;
+  for(var i=0;i<R.length;i++)if(s<R[i][1]&&e>R[i][0])return;R.push([s,e,m[1]])})});
+ R.sort(function(a,b){return a[0]-b[0]});
+ var o='',p=0;R.forEach(function(r){o+=esc(text.slice(p,r[0]))+'<mark class="'+r[2]+'">'+esc(text.slice(r[0],r[1]))+'</mark>';p=r[1]});
+ return o+esc(text.slice(p))}
+function has(t,q){return String(q).split(' … ').every(function(p){return rex(p).test(t)})}
+function cnt(o){var n=0;for(var x in o)if(o.hasOwnProperty(x))n++;return n}
+function stKey(u){return 'vhbf:'+SCH+':'+u}
+function total(u){var n=0;(BFD[u]||[]).forEach(function(b){n+=b.v.length});return n}
+
+/* 과 고르기 */
+function chooser(){
+ app.innerHTML='<div class="top"><a class="back" href="index.html">← 목록</a></div><h1>바꿔치기 감별</h1>';
+ UN.forEach(function(u){var t=total(u);if(!t)return;var s=jg(stKey(u),null),a=s&&s.a?cnt(s.a):0,nw=s&&s.w?cnt(s.w):0;
+  var b=document.createElement('a');b.className='ch'+(a>=t?' dn':'');b.href='bf.html?u='+u;
+  b.innerHTML='<b>교과서 '+u+'과</b><small>'+t+'문항'+(a?' · '+a+'문항 푸는 중'+(a>=t?' (끝까지 풀었어요)':''):'')+(nw?' · 틀린 문제 '+nw:'')+'</small><div class="pb"><i style="width:'+Math.round(a/t*100)+'%"></i></div>';
+  app.appendChild(b)});
+ foot('index.html')}
+
+if(!U){chooser();return}
+
+/* 고정 순서 */
+function rng(s){return function(){s|=0;s=s+0x6D2B79F5|0;var t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function build(){
+ var it=[];ALL.forEach(function(b){b.v.forEach(function(v,i){it.push({id:b.id,vi:i,s:!!v.same,k:b.id+'.'+i})})});
+ var r=rng(+U*7919+13);
+ for(var i=it.length-1;i>0;i--){var j=Math.floor(r()*(i+1)),t=it[i];it[i]=it[j];it[j]=t}
+ function bad(x,p){if(p>0&&it[p-1].id===x.id)return true;if(p>=3&&it[p-1].s===x.s&&it[p-2].s===x.s&&it[p-3].s===x.s)return true;return false}
+ for(var p=1;p<it.length;p++){if(bad(it[p],p)){for(var q=p+1;q<it.length;q++){if(!bad(it[q],p)){var t2=it[p];it[p]=it[q];it[q]=t2;break}}}}
+ return it}
+var ORD=build(),POS={};ORD.forEach(function(x,i){POS[x.k]=i});
+function item(k){var c=k.lastIndexOf('.'),b=byId(k.slice(0,c)),vi=+k.slice(c+1);return b&&b.v[vi]?{b:b,v:b.v[vi],k:k}:null}
+
+function swRows(b,v){
+ if(v.same)return v.sw.map(function(p,i){var lit=has(b.en,p[0])&&has(v.en,p[1]),c=lit?'c'+(i%4):'sm';
+  return '<div class="swr"><mark class="'+c+'">'+esc(p[0])+'</mark> ↔ <mark class="'+c+'">'+esc(p[1])+'</mark> <span class="k">'+esc(p[2]||'')+'</span></div>'}).join('')+(v.n?'<div class="swr nt">'+esc(v.n)+'</div>':'');
+ var d=v.diff;return '<div class="swr x"><span class="ln">원래 <b>'+esc(d[0])+'</b> <span class="k" style="display:inline">'+esc(d[2])+'</span></span><span class="ln">바뀜 <mark class="cx">'+esc(d[1])+'</mark> <span class="k" style="display:inline">'+esc(d[3])+'</span></span><span class="y">'+esc(v.y)+'</span></div>'}
+function marks(b,v,side){if(v.same)return v.sw.filter(function(p){return has(b.en,p[0])&&has(v.en,p[1])}).map(function(p){return [p[side],'c'+(v.sw.indexOf(p)%4)]});return [[v.diff[side],'cx']]}
+
+var K=stKey(U),st=jg(K,null);if(!st||!st.a)st={a:{},w:{},f:{}};
+var view={mode:'main',res:null,k:null,rv:[],ri:0};
+function save(){js(K,st)}
+function nextMain(){for(var i=0;i<ORD.length;i++)if(st.a[ORD[i].k]==null)return ORD[i].k;return null}
+function nAns(){return cnt(st.a)}
+
+function head(){
+ var bar=document.createElement('div');bar.className='top';
+ var nw=cnt(st.w);
+ bar.innerHTML='<a class="back" href="bf.html">← 과 고르기</a>'+(view.mode==='main'?(nw?'<button type="button" class="pill" id="wr">틀린 문제 '+nw+'</button>':''):'<button type="button" class="pill" id="wr">처음 문제로</button>');
+ app.appendChild(bar);
+ var tot=ORD.length,h=document.createElement('div');h.className='bfh';
+ h.innerHTML='<b>'+U+'과 바꿔치기 감별'+(view.mode==='rv'?' · 틀린 문제':'')+'</b><small>'+(view.mode==='main'?Math.min(nAns()+(view.res!=null?0:1),tot)+' / '+tot:(view.ri+1>view.rv.length?view.rv.length:view.ri+1)+' / '+view.rv.length)+'</small>';
+ app.appendChild(h);
+ if(view.mode==='main'){var ns=Math.ceil(tot/SEG),dn=Math.floor(nAns()/SEG),s='<div class="stp">';for(var i=0;i<ns;i++)s+='<i'+(i<dn?' class="on"':'')+'></i>';s+='</div>';var d=document.createElement('div');d.innerHTML=s;app.appendChild(d.firstChild)}
+ var w=document.getElementById('wr');
+ if(w)w.onclick=function(){if(view.mode==='main'){view.rv=Object.keys(st.w).sort(function(a,b){return POS[a]-POS[b]});view.ri=0;view.mode='rv';view.res=null}else{view.mode='main';view.res=null}render();window.scrollTo(0,0)}}
+
+function card(it,onAns,onNext,nextLabel){
+ var b=it.b,v=it.v,ans=view.res;
+ var c=document.createElement('div');c.className='bfc'+(ans!=null?' done':'');
+ var h='<div class="tag"><i>'+esc(b.src||'본문')+'</i>'+esc(b.where)+'</div>';
+ if(ans==null){
+  h+='<div class="en org">'+esc(b.en)+'</div><div class="lb">바꾼 문장</div><div class="en rw">'+esc(v.en)+'</div>';
+  h+='<div class="qa">위 문장과 뜻이 같을까요?</div><div class="two"><button type="button" data-a="1">같은 말</button><button type="button" data-a="0">다른 말</button></div>';
+  c.innerHTML=h;app.appendChild(c);
+  [].forEach.call(c.querySelectorAll('.two button'),function(btn){btn.onclick=function(){onAns(+btn.getAttribute('data-a'))}});
+ }else{
+  var ok=(!!ans)===(!!v.same);
+  h+='<div class="en org">'+hl(b.en,marks(b,v,0))+'</div><div class="kr">'+esc(b.ko)+'</div>';
+  h+='<div class="lb">바꾼 문장</div><div class="en rw">'+hl(v.en,marks(b,v,1))+'</div><div class="kr">'+esc(v.ko)+'</div>';
+  h+='<div class="two">'+[1,0].map(function(a){var cl=(a===(v.same?1:0))?'cor':(a===ans?'me':'');var bd=cl==='cor'?'<em>정답</em>':(cl==='me'?'<em>내가 고름</em>':'');return '<button type="button" class="'+cl+'">'+(a?'같은 말':'다른 말')+bd+'</button>'}).join('')+'</div>';
+  h+='<div class="rs '+(ok?'o':'x')+'">'+(ok?'맞았어요':'틀렸어요')+' · '+(v.same?'뜻이 같아요':'뜻이 달라져요')+'</div>';
+  h+='<div class="sws">'+swRows(b,v)+'</div>';
+  h+='<button type="button" class="nx">'+nextLabel+'</button>';
+  c.innerHTML=h;app.appendChild(c);
+  c.querySelector('.nx').onclick=function(){onNext();window.scrollTo(0,0)};
+ }}
+
+function render(){
+ app.innerHTML='';head();
+ if(view.mode==='rv')return renderRv();
+ var k=view.k||nextMain();
+ if(k==null)return endMain();
+ view.k=k;var it=item(k);if(!it){st.a[k]=1;save();view.k=null;return render()}
+ var n=nAns();
+ var lab=view.res!=null?((n%SEG===0&&n>0)?('구간 '+(n/SEG)+' 끝 · '+(n>=ORD.length?'결과 보기':'다음 문제')):(n>=ORD.length?'결과 보기':'다음 문제')):'';
+ card(it,function(a){view.res=a;st.a[k]=a;if((!!a)!==(!!it.v.same)){st.w[k]=1;st.f[k]=1}save();render()},function(){view.res=null;view.k=null;render()},lab);
+ foot('bf.html')}
+
+function renderRv(){
+ if(view.ri>=view.rv.length)return endRv();
+ var k=view.rv[view.ri],it=item(k);
+ if(!it){view.ri++;return render()}
+ card(it,function(a){view.res=a;if((!!a)===(!!it.v.same))delete st.w[k];else st.w[k]=1;save();render()},function(){view.res=null;view.ri++;render()},view.ri+1<view.rv.length?'다음 문제':'결과 보기');
+ foot('bf.html')}
+
+function again(){view.rv=Object.keys(st.w).sort(function(a,b){return POS[a]-POS[b]});view.ri=0;view.mode='rv';view.res=null;render();window.scrollTo(0,0)}
+function endMain(){
+ var tot=ORD.length,nf=cnt(st.f),nw=cnt(st.w);
+ var e=document.createElement('div');e.className='end';
+ e.innerHTML='<div class="sc">'+(tot-nf)+' <small>/ '+tot+'</small></div><p>'+(nw?'처음에 맞힌 문제 · 틀린 문제 '+nw+'개가 남았어요':'모든 문제를 맞혔어요')+'</p><div class="cl">열심히 연습해서 본문이 머리에 녹아들도록</div>';
+ app.appendChild(e);
+ var l=document.createElement('div');l.className='lk2';
+ l.innerHTML=(nw?'<button type="button" class="pr" id="go">틀린 것만 모아풀기</button>':'');
+ app.appendChild(l);
+ var g=document.getElementById('go');if(g)g.onclick=again;
+ foot('bf.html')}
+function endRv(){
+ var nw=cnt(st.w);
+ var e=document.createElement('div');e.className='end';
+ e.innerHTML='<div class="sc">'+nw+' <small>개 남음</small></div><p>'+(nw?'아직 틀린 문제가 남아 있어요':'틀린 문제를 모두 맞혔어요')+'</p><div class="cl">열심히 연습해서 본문이 머리에 녹아들도록</div>';
+ app.appendChild(e);
+ var l=document.createElement('div');l.className='lk2';
+ l.innerHTML=(nw?'<button type="button" class="pr" id="go">남은 문제 다시 풀기</button>':'');
+ app.appendChild(l);
+ var g=document.getElementById('go');if(g)g.onclick=again;
+ foot('bf.html')}
+function foot(back){
+ var l=document.createElement('div');l.className='lk2';l.innerHTML='<a href="'+(back||'index.html')+'">목록으로</a>';app.appendChild(l);
+ var f=document.createElement('div');f.className='foot';f.textContent='비타민 영어클리닉 · '+SCHOOL;app.appendChild(f)}
+render();
+})();
+</script></body></html>
