@@ -29,6 +29,8 @@ span.cell.soon{border-style:dashed;color:var(--offInk);background:transparent;fo
 .acc>summary::-webkit-details-marker{display:none}.acc>summary:after{content:"▸";color:var(--sub)}.acc[open]>summary:after{content:"▾";color:var(--pri)}
 .acc .in{padding:0 12px 12px}
 .row{display:flex;justify-content:space-between;align-items:center;gap:8px;border-radius:11px;padding:9px 12px;margin:6px 0;font-size:14.5px;font-weight:700;text-decoration:none;background:var(--off);color:var(--offInk)}
+.row.ssam{margin:4px 0 10px;padding:13px 14px;border:1.5px solid #e8a020;background:linear-gradient(120deg,#fff1d6 0%,#fffaf0 55%,var(--card) 100%);color:var(--ink,#1f2430)}
+@media(prefers-color-scheme:dark){.row.ssam{background:linear-gradient(120deg,#3a2a08 0%,var(--card) 100%);color:var(--ink)}}
 .row small{display:block;font-weight:500;font-size:12px}
 a.row.on{background:var(--pri);color:#fff}@media(prefers-color-scheme:dark){a.row.on{color:#0b1220}}
 .row.soon{background:transparent;border:1px dashed var(--line)}
@@ -416,6 +418,7 @@ var YL={"L3": [1, 2, 3, 4], "L4": [1, 2, 3, 4]},YM=[["26년 10월 21번", "mock/
 function yoyakRows(k){var a=YL[k];if(!a)return '';return '<details class="acc sub"><summary>요약문 연습</summary><div class="in">'+a.map(function(z){return lrow(k+'/yoyak-lian-z'+z+'.html','요약문 연습 '+'❶❷❸❹❺❻❼❽'.charAt(z-1))}).join('')+'</div></details>'}
 function text(){
   var cu=curUnits(),h='';
+  h+='<a class="row ssam" href="ssam/"><span>금천고 학교쌤 수업노트<small>학교 선생님이 수업에서 짚어 준 곳</small></span><span class="go" style="white-space:nowrap">열기</span></a>';
   [['교과서 3과','L3'],['교과서 4과','L4']].forEach(function(g){
     var k=g[1];
     h+='<details class="acc"'+(cu[k]?' open':'')+'><summary>'+g[0]+'</summary><div class="in">';

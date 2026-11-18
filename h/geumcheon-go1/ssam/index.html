@@ -1,0 +1,3812 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<title>금천고 학교쌤 수업노트</title>
+<style>
+:root{--bg:#f4f7f6;--card:#fff;--ink:#17211f;--sub:#5a6b67;--line:#dbe4e1;--pri:#0f766e;--priL:#e3f3f0;--ans:#c0262d;--navy:#1e2a44;
+--g:#b3261e;--gL:#fdecea;--v:#1d4ed8;--vL:#e8effd;--c:#2e6b3a;--cL:#e7f4ea;
+--pi:#fff6b0;--piInk:#4a3f00;--piSub:#8a7a1f;--okBg:#eefaf3;--ngBg:#fdeeee}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1514;--card:#162120;--ink:#e8f0ee;--sub:#9db0ab;--line:#26363a;--pri:#2dd4bf;--priL:#12302d;--ans:#ff8a80;--navy:#e8f0ee;
+--g:#ff8a80;--gL:#3a1d1d;--v:#8ab4ff;--vL:#18243f;--c:#86d39a;--cL:#13301c;
+--pi:#4d4416;--piInk:#fff3b0;--piSub:#d9c76a;--okBg:#12302d;--ngBg:#3a1d1d}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;line-height:1.65;font-size:17px;word-break:keep-all;overflow-wrap:break-word}
+.wrap{max-width:640px;margin:0 auto;padding:max(14px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) 90px max(16px,env(safe-area-inset-left))}
+button{font:inherit;color:inherit;cursor:pointer}
+h1{font-size:21px;margin:4px 0 2px;line-height:1.35}
+.lede{color:var(--sub);font-size:14.5px;margin:0 0 14px}
+.acc{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:10px 0;overflow:hidden}
+.acc>button{display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px;background:none;border:0;padding:14px 16px;text-align:left;min-height:58px}
+.acc .al{font-size:17px;font-weight:800}
+.acc .am{font-size:12.5px;color:var(--sub);display:block;font-weight:400}
+.acc .sign{font-size:22px;color:var(--sub);width:22px;text-align:center;flex:none}
+.rows{border-top:1px solid var(--line)}
+.grp{font-size:12.5px;font-weight:800;color:var(--pri);padding:10px 16px 2px}
+.row{display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px;background:none;border:0;border-top:1px solid var(--line);padding:11px 16px;text-align:left;min-height:56px}
+.rows .row:first-child,.grp+.row{border-top:0}
+.rn{font-size:16px;font-weight:800;display:block}
+.rs{font-size:13px;color:var(--sub);display:block}
+.chips{display:flex;gap:5px;flex:none;flex-wrap:wrap;justify-content:flex-end;max-width:150px}
+.ch{font-size:11.5px;font-weight:800;border-radius:999px;padding:2px 8px;white-space:nowrap}
+.ch.g{color:var(--g);background:var(--gL)}.ch.v{color:var(--v);background:var(--vL)}.ch.c{color:var(--c);background:var(--cL)}
+.row.fin .rn{color:var(--pri)}
+.prog{display:block;height:4px;border-radius:4px;background:var(--line);margin-top:6px;overflow:hidden;width:120px}
+.prog i{display:block;height:100%;background:var(--pri)}
+.top{display:flex;align-items:center;gap:10px;margin:2px 0 6px}
+.top a.back{display:inline-flex;align-items:center;text-decoration:none}
+.back{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 13px;font-size:14px;color:var(--sub);min-height:36px}
+.ut{font-size:18px;font-weight:800;line-height:1.3}
+.us{font-size:13.5px;color:var(--sub)}
+.filt{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 4px}
+.fb{border:1.5px solid var(--line);background:var(--card);border-radius:999px;padding:5px 13px;font-size:13.5px;font-weight:700;min-height:36px}
+.fb.on{background:var(--navy);border-color:var(--navy);color:var(--card)}
+.meta{display:flex;justify-content:space-between;align-items:center;margin:12px 0 6px}
+.tp{font-size:12.5px;font-weight:800;border-radius:999px;padding:2px 10px}
+.tp.g{color:var(--g);background:var(--gL)}.tp.v{color:var(--v);background:var(--vL)}.tp.c{color:var(--c);background:var(--cL)}
+.pos{font-size:13.5px;color:var(--sub)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 15px 13px}
+.where{font-size:12.5px;color:var(--sub);margin-bottom:6px}
+.stem{font-size:17.5px;line-height:1.85;font-weight:500;color:var(--navy)}
+.hl{font-weight:800;border-radius:4px;padding:0 2px}
+.hl.g{color:var(--g);background:var(--gL)}.hl.v{color:var(--v);background:var(--vL)}.hl.c{color:var(--c);background:var(--cL)}
+.blank{display:inline-block;min-width:64px;border-bottom:2.5px solid var(--navy);text-align:center;margin:0 2px;line-height:1.3}
+.blank.fill{border-color:var(--pri);color:var(--pri);font-weight:800}
+.ask{font-size:15.5px;font-weight:800;margin:12px 0 6px;padding-top:10px;border-top:1px dashed var(--line)}
+.ob{display:block;width:100%;text-align:left;font-size:16px;line-height:1.5;background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;margin:7px 0;min-height:46px}
+.ob .k{display:none;color:var(--sub);font-size:13.5px;margin-top:2px;font-weight:400}
+.done .ob{pointer-events:none}.done .ob .k{display:block}
+.ob .wy{display:none;font-size:14px;font-weight:400;line-height:1.6}.done .ob .wy{display:block}
+.wl{font-size:13px;font-weight:800;color:var(--pri);margin:10px 0 2px}.kl{display:block;font-size:12px;font-weight:800;color:var(--pri);margin-bottom:1px}
+.done .ob{position:relative;background:var(--card);padding:12px 14px 12px 14px;border-radius:14px}
+.ob .ot{display:flex;align-items:flex-start;gap:8px;padding-right:74px}
+.ob .on{color:var(--sub);font-weight:400;flex:none}
+.done .ob .ow{font-weight:700;font-size:16.5px}
+.ob .k{padding-left:24px}
+.ob .wy{border-left:3px solid var(--line);padding-left:9px;margin:6px 0 0 24px;color:var(--ink)}
+.ob .bd{display:none;position:absolute;top:10px;right:10px;font-size:12.5px;font-weight:800;border-radius:999px;padding:2px 10px;border:1.5px solid;background:var(--card)}
+.ob.ok{border-color:#1f7a4d;background:linear-gradient(120deg,#e3f5ea 0%,#f4fbf6 45%,var(--card) 100%)}
+.ob.ok .bd.b1{display:inline-block;color:#1f7a4d;border-color:#1f7a4d}
+.ob.ok .wy{border-left-color:#1f7a4d}
+.ob.ng{border-color:var(--ans);background:linear-gradient(120deg,#fde3e3 0%,#fdf1f1 45%,var(--card) 100%)}
+.ob.ng .bd.b2{display:inline-block;color:var(--ans);border-color:var(--ans)}
+.ob.ng .wy{border-left-color:var(--ans)}
+@media(prefers-color-scheme:dark){.ob.ok{background:linear-gradient(120deg,#12302d 0%,var(--card) 100%)}.ob.ng{background:linear-gradient(120deg,#3a1d1d 0%,var(--card) 100%)}}
+.pf{font-size:13.5px;font-weight:800;color:var(--pri);margin:14px 0 2px}
+.ex{display:none;margin-top:10px}
+.done .ex{display:block}
+.res{font-weight:800;font-size:15px;margin-bottom:2px}.res.o{color:var(--pri)}.res.x{color:var(--ans)}
+.why{font-size:15.5px;line-height:1.7}
+.clue{font-size:13px;color:var(--sub);margin-top:8px}.clue b{color:var(--ink)}
+mark.fx{background:linear-gradient(transparent 45%,#ffe066 45%,#ffe066 92%,transparent 92%);color:inherit;font-weight:700;padding:0 1px;border-radius:2px}
+.pit mark.fx{background:linear-gradient(transparent 45%,#ffb84d 45%,#ffb84d 92%,transparent 92%)}
+@media(prefers-color-scheme:dark){mark.fx{background:linear-gradient(transparent 45%,#7a6400 45%,#7a6400 92%,transparent 92%)}.pit mark.fx{background:linear-gradient(transparent 45%,#8a5a00 45%,#8a5a00 92%,transparent 92%)}}
+.kk{border-left:4px solid var(--pri);background:var(--priL);border-radius:0 8px 8px 0;padding:7px 11px;margin:9px 0 4px;font-size:14.5px;line-height:1.65}
+.pit{position:relative;background:var(--pi);color:var(--piInk);margin:14px 4px 4px 2px;padding:13px 14px 11px;border-radius:2px 2px 16px 2px;box-shadow:0 3px 8px rgba(80,60,0,.16);transform:rotate(-.35deg)}
+.pt{display:block;font-size:11.5px;font-weight:800;color:var(--piSub);letter-spacing:.3px;margin-bottom:2px}
+.pit p{margin:0;font-size:15.5px;font-weight:600;line-height:1.6}
+.next{display:block;width:100%;margin:14px 0 0;border:0;border-radius:14px;background:var(--navy);color:var(--card);font-size:16.5px;font-weight:800;padding:14px;min-height:52px}
+.next[hidden]{display:none}
+.wrapup{margin-top:14px}
+.wrapup .pit{padding:18px 18px 16px;transform:rotate(-.25deg)}
+.wrapup ol{margin:6px 0 0;padding-left:20px}
+.wrapup li{font-size:15.5px;font-weight:600;line-height:1.65;margin:5px 0}
+.score{font-size:15px;color:var(--sub);margin:14px 2px 0}
+.btn2{display:block;width:100%;margin:10px 0 0;border:1.5px solid var(--line);background:var(--card);border-radius:14px;font-size:15.5px;font-weight:700;padding:12px;min-height:48px}
+.empty{color:var(--sub);font-size:15px;padding:20px 4px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+window.APP_HOME = "../index.html";
+var DATA = {
+ "version": "261118",
+ "school": "금천고",
+ "title": "금천고 학교쌤 수업노트",
+ "sections": [
+  {
+   "id": "g3",
+   "label": "교과서 3과",
+   "meta": "The True Art Lovers"
+  },
+  {
+   "id": "g4",
+   "label": "교과서 4과",
+   "meta": "AI-Powered Neural Implants"
+  },
+  {
+   "id": "mogo",
+   "label": "모의고사",
+   "meta": "26년 10월 고1 학평"
+  }
+ ],
+ "units": [
+  {
+   "id": "l3-1",
+   "sec": "g3",
+   "name": "3과 (1)",
+   "sub": "도슨트의 인사 · Bill Traylor",
+   "items": [
+    {
+     "t": "g",
+     "w": "4번째 문장 · 노트: 단수 · 단수동사",
+     "s": "{Each artist} ___ a unique painting style and story that has made their work highly valued.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "have",
+       "ko": "복수 동사 have(원형 have: 가지다)",
+       "why": "Each artist(각 예술가)는 예술가 한 명이라 복수 동사 have는 맞지 않아요."
+      },
+      {
+       "t": "has",
+       "ko": "단수 동사 has(원형 have: 가지다)",
+       "why": ""
+      },
+      {
+       "t": "having",
+       "ko": "-ing형 having(가지고 있는)",
+       "why": "having은 진짜 동사가 될 수 없어요. 주어 Each artist 뒤에는 동사 has가 꼭 있어야 해요."
+      }
+     ],
+     "a": 1,
+     "e": "Each(각각의)라는 말 때문에 '예술가가 세 명이니까 복수'라고 착각하기 쉬워서, has/have를 바꿔 내기 딱 좋은 자리예요. Each 뒤에는 ==단수 명사 artist==가 오고 동사도 단수로 맞추니까 ==has(원형 have: 가지다)==가 정답이에요.",
+     "k": "==각 예술가에게는== 독특한 화풍과 그들의 작품을 높이 평가받게 만들어 준 이야기가 있다.",
+     "m": "세 화가 모두 힘든 삶 속에서도 예술을 포기하지 않았고, 저마다 ==독특한 이야기==가 있어요."
+    },
+    {
+     "t": "g",
+     "w": "4번째 문장 · 노트: O.C.(목적격 보어)",
+     "s": "story that has {made their work} highly ___.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "value",
+       "ko": "동사원형 value(높이 평가하다)",
+       "why": "value를 넣으면 작품이 무언가를 '평가하게' 만든다는 뜻이 돼요. 작품은 평가를 받는 쪽이에요."
+      },
+      {
+       "t": "valuing",
+       "ko": "-ing형 valuing(평가하는)",
+       "why": "-ing는 작품이 직접 평가하는 능동이 돼요. 작품은 사람들에게 평가받는 쪽이라 맞지 않아요."
+      },
+      {
+       "t": "valued",
+       "ko": "과거분사 valued(평가받는)",
+       "why": ""
+      }
+     ],
+     "a": 2,
+     "e": "==make + 목적어 + 목적격 보어== 자리라서, 보어를 동사원형·-ing·p.p. 중에 고르게 하는 어법 문제로 나오기 딱 좋아요. 목적어 their work(그들의 작품)는 사람들에게 '평가받는' 쪽이니까 ==과거분사 valued(원형 value: 높이 평가하다)==가 맞아요. has made(원형 make: 만들다)와 함께 '작품을 높이 평가받게 만들어 준 이야기'로 읽어요.",
+     "k": "그들의 ==작품을 높이 평가받게== 만들어 준 이야기",
+     "m": "이야기가 있었기에 작품이 ==높이 평가받아요==. 이 전시는 '사람의 이야기'가 주인공이에요."
+    },
+    {
+     "t": "g",
+     "w": "6번째 문장 · 노트: 괄호 묶기",
+     "s": "{The first artist} (we're going to examine) ___ Bill Traylor.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "is",
+       "ko": "단수 동사 is(원형 be: ~이다)",
+       "why": ""
+      },
+      {
+       "t": "are",
+       "ko": "복수 동사 are(원형 be: ~이다)",
+       "why": "주어는 The first artist(첫 번째 예술가) 한 명이에요. 바로 앞 we(우리)에 끌려 are를 고르면 안 돼요."
+      },
+      {
+       "t": "being",
+       "ko": "-ing형 being(~인 것, ~이면서)",
+       "why": "being은 진짜 동사가 될 수 없어요. 주어 The first artist의 동사가 따로 필요해요."
+      }
+     ],
+     "a": 0,
+     "e": "주어 The first artist(첫 번째 예술가) 뒤에 we're going to examine(우리가 살펴볼)이 끼어 있어서, 바로 앞의 we에 끌려 are를 고르게 만드는 ==수 일치== 문제로 나오기 좋은 자리예요. 괄호 부분을 손으로 가리면 The first artist ___ Bill Traylor라서 ==단수 is(원형 be: ~이다)==가 맞아요.",
+     "k": "==첫 번째로 살펴볼 예술가는== Bill Traylor이다.",
+     "m": "첫 번째 화가는 ==Bill Traylor==예요."
+    },
+    {
+     "t": "g",
+     "w": "10번째 문장 · 노트: 별표, '~해서야 비로소'",
+     "s": "{It wasn't until} he was 85 years old and became too ill to work ___ he turned to drawing to express his life experiences.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "when",
+       "ko": "접속사 when(~할 때)",
+       "why": "It wasn't until A that B는 짝이 정해진 구조라 that 자리에 when을 넣을 수 없어요."
+      },
+      {
+       "t": "that",
+       "ko": "접속사 that(It wasn't until A that B: A하고 나서야 비로소 B)",
+       "why": ""
+      },
+      {
+       "t": "which",
+       "ko": "관계대명사 which(그것은, 그런데 그것은)",
+       "why": "which는 앞의 명사를 받는 말이에요. 여기는 It wasn't until ~ that 짝꿍 자리라 맞지 않아요."
+      }
+     ],
+     "a": 1,
+     "e": "노트에 별표가 있는 ==It wasn't until A that B(A하고 나서야 비로소 B했다)== 구문이라, that 자리를 비우거나 Not until ~(~하고 나서야 비로소) 도치로 바꿔 쓰게 하기 딱 좋은 문장이에요. ==짝꿍은 항상 that==이에요. 85세가 되고 너무 아파 일을 못 하게 된 뒤에야 비로소 turned to(원형 turn to: ~으로 눈을 돌리다) drawing(그림), 그림을 시작했다는 뜻이에요.",
+     "k": "85세가 되고 몸이 너무 아파서 ==일을 할 수 없게 된 후에야== 그는 자신의 인생 경험을 표현하기 위해 그림으로 눈을 돌렸다.",
+     "m": "Traylor는 ==85세==에 몸이 아파 일을 못 하게 되고서야 ==비로소 그림을 시작==했어요."
+    },
+    {
+     "t": "c",
+     "w": "10번째 문장 · 같은 뜻 바꿔 쓰기",
+     "s": "It wasn't until he was 85 years old and became too ill to work that he turned to drawing …",
+     "q": "이 문장과 같은 뜻은?",
+     "o": [
+      {
+       "t": "Not until he was 85 years old and became too ill to work did he turn to drawing.",
+       "ko": "85세가 되고 너무 아파 일을 못 하게 되고서야 비로소 그는 그림으로 눈을 돌렸다.",
+       "why": ""
+      },
+      {
+       "t": "He turned to drawing long before he was 85 years old.",
+       "ko": "그는 85세가 되기 훨씬 전에 그림으로 눈을 돌렸다.",
+       "why": "본문은 85세가 되어서야 그림을 시작했다는 뜻이라, long before(훨씬 전에) 시작했다는 건 정반대예요."
+      },
+      {
+       "t": "He stopped drawing because he became too ill to work at 85.",
+       "ko": "그는 85세에 너무 아파 일을 못 하게 되어 그림을 그만두었다.",
+       "why": "본문은 아파서 일을 못 하게 되자 그림을 '시작했다'는 거예요. stopped(원형 stop: 멈추다) drawing(그림을 그만두었다)은 거꾸로예요."
+      }
+     ],
+     "a": 0,
+     "e": "It wasn't until ~ that(~하고 나서야 비로소) 문장은 서술형으로 ==Not until ~ 도치== 바꿔 쓰기를 시키기 좋은 문장이에요. Not until ~ 이 맨 앞으로 오면 뒤는 ==did he turn(원형 turn: 눈을 돌리다)==처럼 did(원형 do)가 주어 앞으로 와요. 뜻은 똑같이 '85세가 되고 너무 아프게 된 뒤에야 비로소 그림으로 눈을 돌렸다'예요.",
+     "k": "85세가 되고 몸이 너무 아파서 ==일을 할 수 없게 된 후에야== 그는 그림으로 눈을 돌렸다.",
+     "m": "그림은 늦게, 아주 늦게 시작됐어요. ==85세==, 그것도 아파서 일을 못 하게 된 뒤에요."
+    },
+    {
+     "t": "g",
+     "w": "12번째 문장 · 노트: they = dogs",
+     "s": "Traylor had a strong fear of dogs because {they} had often been ___ on farms to watch and hunt slaves.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "use",
+       "ko": "동사원형 use(이용하다)",
+       "why": "had been 뒤에는 동사원형이 올 수 없어요."
+      },
+      {
+       "t": "using",
+       "ko": "-ing형 using(이용하고 있는)",
+       "why": "had been using이면 개들이 무언가를 '이용하고 있었다'는 뜻이 돼요. 개는 사람에게 이용된 쪽이에요."
+      },
+      {
+       "t": "used",
+       "ko": "과거분사 used(이용된)",
+       "why": ""
+      }
+     ],
+     "a": 2,
+     "e": "주어가 they라서 they가 무엇인지(==dogs, 개들==) 묻는 지칭 문제와, had been 뒤 능동/수동을 고르는 어법 문제가 둘 다 나오기 좋은 자리예요. 개들은 노예를 감시하고 사냥하는 데 '이용된' 쪽이라 ==had been used(과거완료 수동, 원형 use: 이용하다)==가 맞아요.",
+     "k": "Traylor는 ==개가 농장에서 노예를 감시하고 사냥하는 데 자주 사용되었기== 때문에 개에 대한 두려움이 컸다.",
+     "m": "개는 농장에서 ==노예를 쫓던 동물==이라 Traylor는 개를 무서워했어요."
+    },
+    {
+     "t": "g",
+     "w": "13번째 문장 · 노트: 수동태",
+     "s": "{His fear} of dogs ___ expressed strongly in these pieces.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "is",
+       "ko": "단수 동사 is(원형 be: ~이다)",
+       "why": ""
+      },
+      {
+       "t": "are",
+       "ko": "복수 동사 are(원형 be: ~이다)",
+       "why": "바로 앞 dogs(개들)에 끌린 답이에요. 주어는 His fear(그의 두려움) 하나라서 are는 안 돼요."
+      }
+     ],
+     "a": 0,
+     "e": "주어 His fear(그의 두려움) 뒤에 of dogs(개에 대한)가 붙어서, 복수 dogs에 끌려 are를 고르게 만드는 ==수 일치== 문제로 딱 좋은 자리예요. ==진짜 주어는 fear 하나라서 is==이고, 두려움이 '표현된' 것이라 ==is expressed(수동, 원형 express: 표현하다)==예요.",
+     "k": "이 작품들에는 ==개에 대한 그의 두려움이== 강하게 표현되어 있다.",
+     "m": "〈비열한 개〉와 〈남자와 큰 개〉에는 ==개에 대한 두려움==이 담겼어요."
+    },
+    {
+     "t": "g",
+     "w": "14번째 문장 · 노트: 묘사V, In contrast",
+     "s": "In contrast, {Woman with Purse and Man with Umbrella} ___ the free lives of African Americans that he observed on the streets of Montgomery.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "portray",
+       "ko": "복수 동사 portray(묘사하다)",
+       "why": "and가 있어 두 개처럼 보이지만 그림 제목 하나예요. 작품 하나가 주어라 복수 동사 portray는 안 돼요."
+      },
+      {
+       "t": "portrays",
+       "ko": "단수 동사 portrays(원형 portray: 묘사하다)",
+       "why": ""
+      },
+      {
+       "t": "portraying",
+       "ko": "-ing형 portraying(묘사하는)",
+       "why": "이 문장엔 진짜 동사가 따로 없어서, -ing형은 동사 자리에 올 수 없어요."
+      }
+     ],
+     "a": 1,
+     "e": "주어 Woman with Purse and Man with Umbrella(핸드백을 든 여인과 우산을 든 남자)에 and가 있어서 복수로 착각하게 만드는 함정 자리예요. 이건 ==그림 제목 하나==라서 ==단수 동사 portrays(원형 portray: 묘사하다)==가 맞아요. 앞의 ==In contrast(이와 대조적으로)==는 두려움을 그린 개 그림과 자유로운 삶을 그린 이 그림을 맞세우는 신호예요.",
+     "k": "이와 대조적으로 ==〈핸드백을 든 여인과 우산을 든 남자〉는== 몽고메리 거리에서 그가 관찰한 아프리카계 미국인의 자유로운 삶을 묘사한다.",
+     "m": "==In contrast(반면에)==, 두려움 그림과 달리 이 그림은 ==자유로운 삶==을 그렸어요."
+    },
+    {
+     "t": "v",
+     "w": "15번째 문장 · 노트: 포착하다",
+     "s": "Using simple shapes and colors, Traylor {captured} complex moments in American history from slavery to freedom.",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "ignored",
+       "ko": "무시했다",
+       "why": "'미국 역사의 순간들을 무시했다'가 되어, 그림에 담아냈다는 본문과 반대예요."
+      },
+      {
+       "t": "depicted",
+       "ko": "묘사했다",
+       "why": ""
+      },
+      {
+       "t": "released",
+       "ko": "풀어 주었다",
+       "why": "capture를 '잡다'로만 생각하면 반대말 '풀어 주다'를 떠올리기 쉬워요. 여기선 순간을 그림에 담았다는 뜻이라 맞지 않아요."
+      },
+      {
+       "t": "avoided",
+       "ko": "피했다",
+       "why": "'역사의 순간들을 피했다'가 되어 본문 내용과 반대예요."
+      }
+     ],
+     "a": 1,
+     "e": "capture는 보통 '붙잡다, 포획하다'로 알고 있어서, 그림에서 쓰인 '==포착하다, 담아내다=='의 뜻을 묻는 어휘 문제로 나오기 좋아요. 단순한 형태와 색으로 노예 제도에서 자유까지의 순간을 그림에 담았다는 뜻이라 ==depicted(원형 depict: 묘사하다)==와 가장 가까워요. captured(원형 capture: 포착하다).",
+     "k": "Traylor는 단순한 형태와 색채를 사용하여 노예 제도에서 자유에 이르는 미국 역사의 복잡한 순간을 ==포착했다==.",
+     "m": "단순한 모양과 색으로 노예에서 자유까지, 미국 역사를 ==담아냈어요==."
+    },
+    {
+     "t": "g",
+     "w": "Note 예문 · 간접의문문",
+     "s": "It was not until brain researchers studied the mechanics of sleep that people began to understand ___ for memory consolidation.",
+     "q": "빈칸에 들어갈 말의 순서로 바른 것은? (how / deep rest / essential / is)",
+     "o": [
+      {
+       "t": "how is deep rest essential",
+       "ko": "의문문 어순(how + 동사 + 주어 + 형용사: 깊은 휴식이 얼마나 필수적인가?)",
+       "why": "문장 속에 들어간 how 절은 의문문처럼 is를 주어 앞에 두지 않아요."
+      },
+      {
+       "t": "how essential deep rest is",
+       "ko": "간접의문문 어순(깊은 휴식이 얼마나 필수적인지)",
+       "why": ""
+      },
+      {
+       "t": "how deep rest essential is",
+       "ko": "틀린 어순(how와 형용사 essential이 떨어져 있음)",
+       "why": "how(얼마나)는 형용사 essential(필수적인)과 붙어 다녀야 해요. how deep rest처럼 떼어 놓으면 틀려요."
+      }
+     ],
+     "a": 1,
+     "e": "Note 예문에 It was not until ~ that(~하고 나서야 비로소)과 ==간접의문문==이 한꺼번에 들어 있어서, 단어 배열 서술형으로 내기 좋은 문장이에요. 문장 안에 들어간 how 절은 ==how + 형용사 + 주어 + 동사== 순서라 ==how essential deep rest is(깊은 휴식이 얼마나 필수적인지)==가 맞아요. studied(원형 study: 연구하다), began(원형 begin: 시작하다).",
+     "k": "뇌 연구자들이 수면의 원리를 연구하고 나서야 비로소 사람들은 ==깊은 휴식이 기억 강화에 얼마나 필수적인지== 이해하기 시작했다.",
+     "m": "선생님 Note에도 ==It was not until ~ that(~하고 나서야 비로소)==이 두 번이나 나와요. 이 단원 핵심 구조예요."
+    },
+    {
+     "t": "g",
+     "w": "Note 예문 · too ~ for ~ to",
+     "s": "Single-use plastic packaging is often {too cheap and convenient for consumers} ___ give up completely in their daily routines.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "that",
+       "ko": "접속사 that(~라는)",
+       "why": "that을 쓰려면 so ~ that 꼴이어야 하고 뒤에 주어 + 동사가 와야 해요. too 뒤에는 that을 쓰지 않아요."
+      },
+      {
+       "t": "to",
+       "ko": "to부정사의 to(~하기에)",
+       "why": ""
+      },
+      {
+       "t": "so",
+       "ko": "so(그래서, 매우)",
+       "why": "too ~ for 누구 뒤에는 to 동사원형이 짝이에요. so는 이 자리에 맞지 않아요."
+      }
+     ],
+     "a": 1,
+     "e": "==too ~ for 누구 to 동사원형(너무 ~해서 누가 …할 수 없다)==은 본문 10번째 문장의 too ill to work(너무 아파서 일할 수 없는)와 같은 구조라, so ~ that ... can't(너무 ~해서 …할 수 없다)로 바꿔 쓰거나 to 자리를 묻기 좋은 구문이에요. too의 짝꿍은 to라서 ==to give up(포기하다)==이 맞아요.",
+     "k": "일회용 플라스틱 포장은 ==너무 싸고 편리해서 소비자들이 일상에서 완전히 포기하지 못하는== 경우가 많다.",
+     "m": "Traylor도 ==too ill to work==, 너무 아파서 일을 못 하게 되었죠."
+    },
+    {
+     "t": "c",
+     "w": "Traylor 정리",
+     "s": "Bill Traylor",
+     "q": "Bill Traylor에 대해 본문과 맞는 것은?",
+     "o": [
+      {
+       "t": "노예로 태어나 젊을 때부터 화가로 이름을 알렸다.",
+       "ko": "",
+       "why": "Traylor는 85세가 되어서야 그림을 시작했어요. 젊을 때부터 화가로 이름을 알린 게 아니에요."
+      },
+      {
+       "t": "85세가 되어서야 그림을 시작했고, 지금은 미국 민속 예술의 중요한 인물이다.",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "개를 좋아해서 개 그림을 많이 그렸다.",
+       "ko": "",
+       "why": "개를 좋아한 게 아니라, 개가 노예를 감시하고 사냥하는 데 쓰여서 강한 두려움이 있었어요. 그 두려움을 그림에 담았어요."
+      }
+     ],
+     "a": 1,
+     "e": "Traylor 부분은 내용 일치 문제로 나오기 좋아서 핵심을 정리해 두신 거예요. 그는 ==85세가 되어서야 그림을 시작==했고, 개 그림은 좋아서가 아니라 ==무서워서== 그렸으며, 그 결과 지금은 ==미국 민속 예술의 중요한 인물==로 여겨져요(is considered, 원형 consider: 여기다).",
+     "k": "그 결과, 그는 현재 ==미국 민속 예술의 중요한 인물==로 여겨지고 있다.",
+     "m": "노예 → ==늦은 그림 시작== → 두려움과 자유를 그림 → ==미국 민속 예술의 중요한 인물==."
+    }
+   ],
+   "wrap": [
+    "드림 아트 갤러리, 역경 속에서도 예술을 포기하지 않은 세 화가를 만나요.",
+    "Bill Traylor는 노예로 태어나 농장과 공장에서 일했어요.",
+    "85세에 아파서 일을 못 하게 되고서야 비로소 그림을 시작했어요. (It wasn't until ~ that)",
+    "〈비열한 개〉·〈남자와 큰 개〉는 개에 대한 두려움, 〈핸드백을 든 여인과 우산을 든 남자〉는 자유로운 삶.",
+    "단순한 모양과 색으로 역사를 담아 미국 민속 예술의 중요한 인물이 되었어요."
+   ]
+  },
+  {
+   "id": "l3-2",
+   "sec": "g3",
+   "name": "3과 (2)",
+   "sub": "Maud Lewis",
+   "items": [
+    {
+     "t": "g",
+     "w": "17번째 문장 · 노트: ~로 알려진",
+     "s": "Next, we have Maud Lewis, a renowned artist ___ for her heart-warming paintings.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "knowing",
+       "ko": "-ing형 knowing(알고 있는)",
+       "why": "-ing면 예술가가 무언가를 '알고 있는'이 돼요. 예술가는 사람들에게 '알려진' 쪽이에요."
+      },
+      {
+       "t": "known",
+       "ko": "과거분사 known(알려진)",
+       "why": ""
+      },
+      {
+       "t": "knew",
+       "ko": "과거 동사 knew(원형 know: 알다)",
+       "why": "이 문장엔 이미 동사 have가 있어요. 여기는 명사 artist를 뒤에서 꾸미는 자리라 동사를 또 넣을 수 없어요."
+      }
+     ],
+     "a": 1,
+     "e": "a renowned artist(유명한 예술가)를 뒤에서 꾸미는 ==분사== 자리라서, knowing/known을 고르게 하는 어법 문제로 나오기 좋아요. 예술가는 마음이 따뜻해지는 그림으로 '알려진' 쪽이라 ==과거분사 known(원형 know: 알다)==이 맞고, ==be known for(~로 알려지다)==도 함께 기억해요.",
+     "k": "다음은 ==마음이 따뜻해지는 그림으로 알려진==, 유명 예술가 Maud Lewis이다.",
+     "m": "두 번째 화가 Maud Lewis는 ==마음이 따뜻해지는 그림==으로 유명해요."
+    },
+    {
+     "t": "v",
+     "w": "17번째 문장 · 노트: 유명한",
+     "s": "a {renowned} artist known for her heart-warming paintings",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "ordinary",
+       "ko": "평범한",
+       "why": "renowned는 이름이 널리 났다는 뜻이에요. '평범한'은 뜻이 달라요."
+      },
+      {
+       "t": "famous",
+       "ko": "유명한",
+       "why": ""
+      },
+      {
+       "t": "unknown",
+       "ko": "알려지지 않은",
+       "why": "'알려지지 않은'은 renowned(유명한)와 정반대 뜻이에요."
+      },
+      {
+       "t": "humble",
+       "ko": "겸손한",
+       "why": "'겸손한'은 성격을 말하는 거라 '이름난'이라는 뜻과 관계없어요."
+      }
+     ],
+     "a": 1,
+     "e": "노트에 '유명한'이라고 적힌 renowned는 고1에게 낯선 단어라, 같은 뜻 famous나 반대말 unknown을 고르는 어휘 문제로 나오기 좋아요. Maud Lewis는 마음이 따뜻해지는 그림으로 알려진(known for) 유명 화가라서 ==famous(유명한)==가 가장 가까워요.",
+     "k": "마음이 따뜻해지는 그림으로 알려진 ==유명 예술가==",
+     "m": "==renowned artist = 유명한 화가==, Maud Lewis."
+    },
+    {
+     "t": "g",
+     "w": "18번째 문장 · 노트: 분사구문",
+     "s": "___ in a small Canadian town in 1903, Lewis suffered from physical weaknesses such as distorted shoulders and fingers.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "Bearing",
+       "ko": "-ing형 Bearing(원형 bear: 낳다 / 낳으면서)",
+       "why": "Bearing이면 Lewis가 누군가를 '낳은' 게 돼요. Lewis는 '태어난' 쪽이라 p.p.가 와야 해요."
+      },
+      {
+       "t": "Born",
+       "ko": "과거분사 Born(원형 bear: 낳다 / 태어난)",
+       "why": ""
+      },
+      {
+       "t": "She born",
+       "ko": "주어 + 과거분사 She born(그녀가 태어난)",
+       "why": "She born은 동사가 없는 틀린 꼴이에요. 주어를 쓰려면 She was born(그녀는 태어났다)처럼 동사가 있어야 하고, 그러면 두 문장을 잇는 접속사도 필요해요."
+      }
+     ],
+     "a": 1,
+     "e": "문장 맨 앞의 ==분사구문== 자리라서 Born/Bearing을 고르거나, 서술형으로 'Lewis was born ~, and she suffered ~(Lewis는 ~에서 태어났고, ~으로 고통받았다)'를 분사구문으로 줄이게 하기 좋은 문장이에요. Lewis는 '태어난' 쪽이라 (Being) born에서 Being(~인 상태로)이 빠진 ==Born(원형 bear: 낳다)==이 맞아요. suffered from(원형 suffer from: ~으로 고통받다).",
+     "k": "==1903년 캐나다의 작은 마을에서 태어난== Lewis는 기형적인 어깨와 손가락과 같은 신체적 약점으로 고통받았다.",
+     "m": "Lewis는 어깨와 손가락이 기형인 ==신체적 약점==으로 고통받았어요."
+    },
+    {
+     "t": "g",
+     "w": "19번째 문장 · 노트: 중퇴하다",
+     "s": "This limited her mobility and {caused her} ___ drop out of school.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "to",
+       "ko": "to부정사의 to(~하게)",
+       "why": ""
+      },
+      {
+       "t": "(아무것도 안 넣음)",
+       "ko": "아무것도 넣지 않음(caused her drop: 바로 동사원형)",
+       "why": "cause는 make, let(~하게 하다)처럼 동사원형을 바로 쓰는 동사가 아니에요. cause + 목적어 + to 동사원형이 짝이에요."
+      },
+      {
+       "t": "for",
+       "ko": "전치사 for(~을 위해)",
+       "why": "for 뒤에는 동사원형 drop이 올 수 없어요. cause 뒤 목적격 보어 자리는 to 동사원형이에요."
+      }
+     ],
+     "a": 0,
+     "e": "cause는 make처럼 '~하게 만들다'라는 뜻인데 동사원형이 아니라 to가 붙어서, to를 빼는 함정 어법 문제로 내기 좋은 자리예요. ==cause + 목적어 + to 동사원형==이라 caused(원형 cause: ~하게 하다) her to ==drop out of(중퇴하다)==가 맞아요. 몸이 불편해 움직이기 어려웠던 것이 학교를 그만두게 한 원인이에요.",
+     "k": "이것은 그녀의 이동성을 제한했고 ==그녀가 학교를 중퇴하도록 만들었다==.",
+     "m": "몸이 불편해 움직이기 힘들었고, 결국 ==학교도 그만두었어요==."
+    },
+    {
+     "t": "v",
+     "w": "20번째 문장 · 노트: 생계를 유지하다",
+     "s": "To {make a living}, she began to paint and sell Christmas cards.",
+     "q": "밑줄 친 말의 뜻은?",
+     "o": [
+      {
+       "t": "생명을 구하다",
+       "ko": "",
+       "why": "living을 '살아 있음, 생명'으로만 보면 이렇게 착각해요. 생명을 구하려고 카드를 팔았다는 건 어색해요."
+      },
+      {
+       "t": "생계를 꾸리다",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "살 집을 짓다",
+       "ko": "",
+       "why": "카드를 그려 판 이유가 집을 짓기 위해서라는 내용은 본문에 없어요. make a living은 돈을 벌어 먹고사는 거예요."
+      }
+     ],
+     "a": 1,
+     "e": "make a living은 낱낱의 단어 뜻(만들다 + 생활)으로는 뜻이 잘 안 잡혀서, 뜻을 묻는 숙어 문제로 나오기 좋아요. 몸이 불편해 학교도 그만둔 Lewis가 먹고살기 위해 크리스마스카드를 그려 팔기 시작했다는 흐름이라 '==생계를 꾸리다=='가 맞아요. began(원형 begin: 시작하다).",
+     "k": "==생계를 위해== 그녀는 크리스마스카드를 그려서 팔기 시작했다.",
+     "m": "==먹고살려고== 크리스마스카드를 그려 팔면서 그림이 시작돼요."
+    },
+    {
+     "t": "v",
+     "w": "25번째 문장 · 노트: 제한시키다, 한정시키다",
+     "s": "Although her physical limitations {confined} her to a small cottage, her talent and imagination were both limitless.",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "freed",
+       "ko": "풀어 주었다",
+       "why": "'풀어 주었다'는 confined(가두었다)와 정반대 뜻이에요."
+      },
+      {
+       "t": "limited",
+       "ko": "제한했다",
+       "why": ""
+      },
+      {
+       "t": "invited",
+       "ko": "초대했다",
+       "why": "신체적 제약이 그녀를 오두막에 '초대했다'는 말은 어색해요. 몸 때문에 갇혀 지냈다는 뜻이에요."
+      },
+      {
+       "t": "encouraged",
+       "ko": "격려했다",
+       "why": "'격려했다'는 좋은 뜻이라, 몸이 그녀를 오두막에 묶어 두었다는 본문 흐름과 맞지 않아요."
+      }
+     ],
+     "a": 1,
+     "e": "노트에 '제한시키다, 한정시키다'로 적힌 confine은 뜻을 묻거나 limited 같은 비슷한 말로 바꿔 내기 좋은 어휘예요. 신체적 제약이 그녀를 작은 오두막에 '가두었다'는 뜻이라 ==limited(원형 limit: 제한하다)==가 가장 가까워요. ==confined(원형 confine: 가두다, 제한하다)==.",
+     "k": "비록 신체적 제약들은 ==그녀를 작은 오두막집에 가두었지만== 그녀의 재능과 상상력은 둘 다 무한했다.",
+     "m": "몸은 작은 ==오두막에 갇혔지만==, 재능과 상상력은 끝이 없었어요."
+    },
+    {
+     "t": "g",
+     "w": "25번째 문장 · 노트: were 동그라미",
+     "s": "her {talent and imagination} ___ both limitless.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "was",
+       "ko": "단수 동사 was(원형 be: ~이다)",
+       "why": "바로 앞 imagination(상상력) 하나만 보고 고르면 틀려요. talent and imagination, 둘이라 복수예요."
+      },
+      {
+       "t": "were",
+       "ko": "복수 동사 were(원형 be: ~이다)",
+       "why": ""
+      }
+     ],
+     "a": 1,
+     "e": "노트에서 were에 동그라미를 친 자리로, ==A and B 주어의 수 일치==를 묻기 좋은 곳이에요. talent(재능)와 imagination(상상력) 두 가지가 주어이고 뒤에 both(둘 다)까지 있으니 ==복수 were(원형 be: ~이다)==가 맞아요. 앞 절의 Although(비록 ~이지만)와 함께 '갇힌 몸 ↔ 무한한 재능' 대비도 챙겨요.",
+     "k": "==그녀의 재능과 상상력은== 둘 다 무한했다.",
+     "m": "==갇힌 몸 ↔ 무한한 재능==, 이 대비가 Lewis 이야기의 중심이에요."
+    },
+    {
+     "t": "g",
+     "w": "27번째 문장 · 노트: that = 마법 같은 분위기",
+     "s": "With these features, Lewis' paintings create {a magical quality}, like ___ of a fairy tale.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "that",
+       "ko": "대명사 that(그것: 앞의 단수 명사를 받음)",
+       "why": ""
+      },
+      {
+       "t": "those",
+       "ko": "대명사 those(그것들: 앞의 복수 명사를 받음)",
+       "why": "받는 말 a magical quality(마법 같은 특성)가 하나라서 복수 those는 안 돼요."
+      },
+      {
+       "t": "it",
+       "ko": "대명사 it(그것)",
+       "why": "it은 뒤에 of a fairy tale(동화의) 같은 꾸밈말을 달고 쓰지 않아요. 같은 종류의 다른 것을 가리킬 땐 that을 써요."
+      }
+     ],
+     "a": 0,
+     "e": "노트에 'that = 마법 같은 분위기'라고 적혀 있듯, 이 that이 무엇을 받는지 묻거나 that/those를 고르게 하기 좋은 자리예요. 앞의 ==a magical quality(마법 같은 특성)== 하나를 다시 받으면서 뒤에 of a fairy tale(동화의)이 붙으니 ==that이 맞아요==. 즉 '동화가 가진 마법 같은 특성처럼'이라는 뜻이에요.",
+     "k": "이러한 특징을 통해 Lewis의 그림은 마치 동화의 그것과 같은, ==마법 같은 특성==을 만들어 낸다.",
+     "m": "붉은 단풍잎, 꽃밭의 장식된 소. 그림이 ==동화처럼 마법 같아요==."
+    },
+    {
+     "t": "g",
+     "w": "28번째 문장 · 노트: ~에 따라서",
+     "s": "As her paintings gradually gained popularity, {her story} inspired many people and ___ later made into books and movies.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "were",
+       "ko": "복수 동사 were(원형 be: ~이다)",
+       "why": "바로 앞 many people(많은 사람들)에 끌린 답이에요. 주어는 her story(그녀의 이야기) 하나라서 were는 안 돼요."
+      },
+      {
+       "t": "was",
+       "ko": "단수 동사 was(원형 be: ~이다)",
+       "why": ""
+      },
+      {
+       "t": "had",
+       "ko": "과거완료 조동사 had(원형 have)",
+       "why": "had made(원형 make: 만들다)면 이야기가 무언가를 '만들었다'는 능동이 돼요. 이야기는 책과 영화로 '만들어진' 쪽이라 was made(만들어졌다)가 맞아요."
+      }
+     ],
+     "a": 1,
+     "e": "and 앞뒤 동사가 같은 주어 her story(그녀의 이야기)를 함께 쓰는데 중간에 many people(많은 사람들)이 끼어 있어서, ==수 일치==와 능동/수동을 한꺼번에 묻기 좋은 자리예요. 이야기 하나가 책과 영화로 '만들어진' 것이라 ==was made into(원형 make: 만들다)==가 맞아요. 노트의 As는 '~함에 따라'라는 뜻이에요.",
+     "k": "그녀의 그림이 점차 인기를 얻으면서 ==그녀의 이야기는== 많은 사람에게 영감을 주었고 나중에 책과 영화로 만들어졌다.",
+     "m": "그림이 인기를 얻고, 그녀의 이야기는 ==책과 영화==가 되었어요."
+    },
+    {
+     "t": "g",
+     "w": "Note 예문 · inspire 목적어 to",
+     "s": "Her quiet resilience through adversity {inspired many artists} ___ reexamine their own creative limits.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "to",
+       "ko": "to부정사의 to(~하도록)",
+       "why": ""
+      },
+      {
+       "t": "(아무것도 안 넣음)",
+       "ko": "아무것도 넣지 않음(inspired many artists reexamine: 바로 동사원형)",
+       "why": "inspire는 동사원형을 바로 쓰는 동사가 아니에요. inspire + 목적어 + to 동사원형이 짝이에요."
+      },
+      {
+       "t": "for",
+       "ko": "전치사 for(~을 위해)",
+       "why": "for 뒤에는 동사원형 reexamine이 올 수 없어요."
+      }
+     ],
+     "a": 0,
+     "e": "본문 28번째 문장 inspired many people(많은 사람에게 영감을 주었다)과 이어지는 Note 예문으로, ==inspire + 목적어 + to 동사원형== 꼴은 to를 빼는 함정으로 내기 좋아요. 그래서 ==inspired(원형 inspire: 영감을 주다) many artists to reexamine(다시 살펴보다)==이 맞아요. resilience(회복력), adversity(역경)도 함께 챙겨요.",
+     "k": "역경 속에서 보여 준 그녀의 조용한 회복력은 많은 예술가들이 자신의 창작의 한계를 ==다시 살펴보도록 영감을 주었다==.",
+     "m": "Lewis의 이야기도 많은 사람에게 영감을 주었죠(==inspired many people==)."
+    },
+    {
+     "t": "v",
+     "w": "Note 예문 · 전복시키다",
+     "s": "Historical evidence suggests that several nobles conspired to {overthrow} the king and seize power.",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "support",
+       "ko": "지지하다",
+       "why": "'지지하다'는 왕을 돕는 쪽이라, 권력을 빼앗으려 했다(seize power)는 내용과 반대예요."
+      },
+      {
+       "t": "serve",
+       "ko": "섬기다",
+       "why": "'섬기다'도 왕을 받드는 뜻이라, 왕을 끌어내리는 overthrow와 반대예요."
+      },
+      {
+       "t": "bring down",
+       "ko": "무너뜨리다",
+       "why": ""
+      },
+      {
+       "t": "crown",
+       "ko": "왕위에 앉히다",
+       "why": "'왕위에 앉히다'는 왕을 세우는 거예요. overthrow는 왕을 끌어내리는 거라 정반대예요."
+      }
+     ],
+     "a": 2,
+     "e": "Note 단어 세트(conspire 공모하다 · overthrow 전복시키다 · seize 장악하다)를 묶어 둔 예문이라, overthrow의 비슷한 말을 고르는 어휘 문제로 나오기 좋아요. 귀족들이 왕을 몰아내고 권력을 장악하려 했다는 흐름이라 ==bring down(무너뜨리다)==이 가장 가까워요. conspired(원형 conspire: 공모하다), suggests(원형 suggest: 보여 주다, 시사하다).",
+     "k": "역사적 증거는 몇몇 귀족들이 ==왕을 몰아내고== 권력을 장악하려고 공모했음을 보여 준다.",
+     "m": "Note 단어 세트: conspire 공모하다 · ==overthrow 전복시키다== · seize 장악하다."
+    },
+    {
+     "t": "g",
+     "w": "Note 예문 · 진짜 동사 찾기",
+     "s": "{Scholars} who aspire to intellectual rigor ___ their own underlying assumptions.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "challenging",
+       "ko": "-ing형 challenging(의문을 제기하는)",
+       "why": "-ing형은 혼자서 진짜 동사가 될 수 없어요. 주어 Scholars(학자들)의 동사가 빠지게 돼요."
+      },
+      {
+       "t": "must challenge",
+       "ko": "조동사 + 동사원형 must challenge(의문을 제기해야 한다)",
+       "why": ""
+      },
+      {
+       "t": "to challenge",
+       "ko": "to부정사(의문을 제기하는 것, 의문을 제기하려고)",
+       "why": "to부정사도 진짜 동사가 될 수 없어요. who절 뒤에 Scholars의 동사가 필요해요."
+      }
+     ],
+     "a": 1,
+     "e": "주어 Scholars(학자들) 뒤에 who aspire to intellectual rigor(지적 엄격함을 열망하는)가 길게 끼어 있어서, ==진짜 동사== 자리를 찾게 하는 문제로 나오기 좋아요. who절의 aspire(열망하다)는 Scholars를 꾸미는 말 속 동사라, 문장의 진짜 동사가 따로 필요해요. 그래서 ==must challenge(의문을 제기해야 한다)==가 맞아요.",
+     "k": "지적 엄격함을 열망하는 학자들은 자신의 근본적인 가정에 ==의문을 제기해야 한다==.",
+     "m": "꾸미는 말을 건너뛰고 ==진짜 동사==를 찾는 연습, 본문에서도 계속 나와요."
+    },
+    {
+     "t": "c",
+     "w": "Maud Lewis 정리",
+     "s": "Maud Lewis",
+     "q": "Maud Lewis에 대해 본문과 맞는 것은?",
+     "o": [
+      {
+       "t": "몸이 불편해 작은 오두막에서 지냈지만, 밝은 색으로 동화 같은 그림을 그렸다.",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "파리에서 유학하며 그림을 배웠다.",
+       "ko": "",
+       "why": "파리 유학은 세 번째 화가 Anna Ancher 이야기예요."
+      },
+      {
+       "t": "노예로 태어나 85세가 되어서야 그림을 시작했다.",
+       "ko": "",
+       "why": "노예로 태어나 85세가 되어서야 그림을 시작한 건 첫 번째 화가 Bill Traylor예요."
+      }
+     ],
+     "a": 0,
+     "e": "세 화가 이야기를 섞어 놓고 맞는 것을 고르게 하는 내용 일치 문제로 나오기 좋아서 정리해 두신 거예요. Lewis는 몸이 불편해 ==작은 오두막에 갇혀 지냈지만==, 밝고 선명한 색과 단순한 형태로 ==동화처럼 마법 같은 그림==을 그렸어요. 파리 유학은 Anna Ancher, 85세에 그림을 시작한 건 Bill Traylor예요.",
+     "k": "Maud Lewis는 그림을 통해 세상에 대한 사랑을 표현했고 ==캐나다 민속 예술의 상징적인 인물==이 되었다.",
+     "m": "Lewis = ==캐나다, 불편한 몸, 오두막, 밝은 색, 동화 같은 그림==."
+    }
+   ],
+   "wrap": [
+    "Maud Lewis는 1903년 캐나다에서 태어나 어깨와 손가락이 불편했어요.",
+    "학교를 그만두고, 생계를 위해 크리스마스카드를 그려 팔았어요.",
+    "딕비에서 남편을 만나 평생 그림을 그렸어요. 딕비 풍경, 밝은 유화 물감, 단순한 형태.",
+    "몸은 작은 오두막에 갇혔지만 재능과 상상력은 끝이 없었어요.",
+    "그림은 동화처럼 마법 같았고, 이야기는 책과 영화가 되어 캐나다 민속 예술의 상징이 되었어요."
+   ]
+  },
+  {
+   "id": "l3-3",
+   "sec": "g3",
+   "name": "3과 (3)",
+   "sub": "Anna Ancher · 마무리 인사",
+   "items": [
+    {
+     "t": "v",
+     "w": "31번째 문장 · 노트: ~을 특징으로 하다(동사)",
+     "s": "When observing her paintings, you may notice a common theme—they all {feature} female figures.",
+     "q": "여기서 feature의 뜻은?",
+     "o": [
+      {
+       "t": "특징(명사)",
+       "ko": "",
+       "why": "they(그림들) 바로 뒤, 동사 자리라 명사 '특징'은 맞지 않아요."
+      },
+      {
+       "t": "~을 주로 등장시키다, 특징으로 하다(동사)",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "미래의(형용사)",
+       "ko": "",
+       "why": "feature에는 '미래의'라는 뜻이 없어요. future(미래의)와 헷갈리면 안 돼요."
+      }
+     ],
+     "a": 1,
+     "e": "feature는 보통 명사 '특징'으로 알고 있어서, ==동사로 쓰인 뜻==을 묻는 문제로 나오기 좋은 자리예요. 주어 they(그녀의 그림들) 바로 뒤 동사 자리라서 '==~을 특징으로 하다, 주로 등장시키다=='예요. 즉 Ancher의 그림에는 모두 여성 인물이 등장한다는 공통 주제를 말해요.",
+     "k": "그녀의 그림을 보면 여러분은 공통적인 주제를 알아차릴지도 모르는데, 그건 바로 그림에 ==모두 여성 인물이 등장한다==는 점이다.",
+     "m": "마지막 화가 Anna Ancher의 그림에는 ==모두 여성==이 나와요."
+    },
+    {
+     "t": "g",
+     "w": "32번째 문장 · 노트: 입학하다, 사립",
+     "s": "Born in Skagen, Denmark, in 1859, she later moved to Copenhagen to ___ a private painting school.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "attend",
+       "ko": "동사 attend(~에 다니다, 출석하다)",
+       "why": ""
+      },
+      {
+       "t": "attend to",
+       "ko": "attend to(~을 돌보다, 처리하다)",
+       "why": "attend to는 '~을 돌보다, 처리하다'라는 뜻이 돼요. 학교에 다닌다는 뜻이 아니에요."
+      },
+      {
+       "t": "attend at",
+       "ko": "attend at(틀린 표현)",
+       "why": "'학교에 다니다'의 attend는 바로 뒤에 목적어가 와요. at을 붙이면 틀려요."
+      }
+     ],
+     "a": 0,
+     "e": "노트에 '입학하다, 사립'이 적힌 자리로, attend 뒤에 ==전치사를 붙이는 함정==(attend to, attend at)을 내기 좋은 곳이에요. '학교에 다니다'의 attend는 ==바로 뒤에 a private painting school(사립 회화 학교)==이 와요. 학교에 다니려고(to attend) 코펜하겐으로 moved(원형 move: 이사하다, 옮기다)했다는 뜻이에요.",
+     "k": "1859년 덴마크 스카겐에서 태어난 그녀는 나중에 ==사립 회화 학교에 다니기 위해== 코펜하겐으로 이주했다.",
+     "m": "덴마크 스카겐 → 코펜하겐의 ==사립 회화 학교==로."
+    },
+    {
+     "t": "g",
+     "w": "33번째 문장 · 노트: 대괄호 묶기",
+     "s": "After that, she even studied abroad in Paris, ___ was unusual for women at the time.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "that",
+       "ko": "관계대명사 that(~하는)",
+       "why": "콤마 뒤 계속적 용법에는 that을 쓸 수 없어요."
+      },
+      {
+       "t": "which",
+       "ko": "관계대명사 which(그런데 그것은)",
+       "why": ""
+      },
+      {
+       "t": "what",
+       "ko": "관계대명사 what(~하는 것)",
+       "why": "what은 앞에 받는 말이 없을 때 써요. 여기는 앞 내용(파리 유학)을 받아야 해서 맞지 않아요."
+      }
+     ],
+     "a": 1,
+     "e": "노트에서 대괄호로 묶은 자리로, ==콤마 뒤 which==를 that이나 what으로 바꿔 내는 어법 문제로 나오기 딱 좋아요. 콤마 뒤에서 앞 내용 전체(파리에서 유학한 것)를 받아 '그런데 그것은 ~였다'로 이어 주니 ==which가 맞아요==. studied(원형 study: 공부하다) abroad = 유학하다.",
+     "k": "그 후 그녀는 파리에서 유학까지 했는데, ==그것은 당시 여성들에게 드문 일이었다==.",
+     "m": "그 시절 여성에게 ==드문 파리 유학==까지 했어요."
+    },
+    {
+     "t": "v",
+     "w": "34번째 문장 · 노트: 이용하다",
+     "s": "Thanks to her mother's encouragement, she was able to {take advantage of} these opportunities.",
+     "q": "밑줄 친 말의 뜻은?",
+     "o": [
+      {
+       "t": "~을 피하다",
+       "ko": "",
+       "why": "기회를 '피한' 게 아니라, 엄마의 격려 덕분에 기회를 잡았어요."
+      },
+      {
+       "t": "~을 이용하다, 활용하다",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "~에게 이점을 주다",
+       "ko": "",
+       "why": "advantage(이점)만 보고 고르면 이렇게 착각해요. take advantage of는 '~을 이용하다'예요."
+      }
+     ],
+     "a": 1,
+     "e": "==take advantage of==는 advantage(이점)라는 단어 때문에 뜻을 헷갈리기 쉬워서 숙어 뜻 문제로 나오기 좋아요. 어머니의 격려 덕분에(Thanks to) 사립 회화 학교와 파리 유학이라는 기회를 '==활용할 수 있었다=='는 뜻이에요. these opportunities(이러한 기회)가 무엇을 가리키는지도 함께 챙겨요.",
+     "k": "어머니의 격려 덕분에 그녀는 ==이러한 기회를 활용할 수 있었다==.",
+     "m": "엄마의 격려 덕분에 ==기회를 잡았어요==."
+    },
+    {
+     "t": "v",
+     "w": "35번째 문장 · 노트: ~을 지속하다",
+     "s": "Even after getting married, Ancher {persisted in} painting, objecting to the social pressure …",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "stopped",
+       "ko": "멈췄다",
+       "why": "결혼 후에도 그림을 '멈추지 않았다'는 내용이라 정반대예요."
+      },
+      {
+       "t": "continued",
+       "ko": "계속했다",
+       "why": ""
+      },
+      {
+       "t": "avoided",
+       "ko": "피했다",
+       "why": "그림을 '피했다'면 본문과 반대예요. 압력에 맞서 계속 그렸어요."
+      },
+      {
+       "t": "doubted",
+       "ko": "의심했다",
+       "why": "'의심했다'는 그림을 계속 그렸다는 본문 내용과 관계없는 뜻이에요."
+      }
+     ],
+     "a": 1,
+     "e": "노트에 '~을 지속하다'로 적힌 ==persist in==은 continued 같은 비슷한 말이나 stopped(원형 stop: 멈추다) 같은 반대말로 바꿔 내기 좋은 어휘예요. 결혼 후에도 사회적 압력에 반대하며(objecting to: ~에 반대하며) 그림을 꿋꿋이 계속했다는 뜻이라 ==continued(원형 continue: 계속하다)==가 맞아요. persisted(원형 persist: 지속하다, 고집하다).",
+     "k": "결혼 후에도 Ancher는 기혼 여성은 가사에만 집중해야 한다는 사회적 압력에 저항하며 ==그림을 계속 그렸다==.",
+     "m": "결혼 후에도 사회의 압력에 맞서 ==그림을 계속 그렸어요==."
+    },
+    {
+     "t": "g",
+     "w": "35번째 문장 · 노트: 사회적 압력",
+     "s": "the social pressure that married women {were to} solely focus on household duties",
+     "q": "were to의 뜻으로 알맞은 것은?",
+     "o": [
+      {
+       "t": "~해야 했다(의무)",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "~할 예정이었다",
+       "ko": "",
+       "why": "be to에 '예정' 뜻도 있지만, 여기는 사회가 기혼 여성에게 집안일에만 집중하라고 압박한 내용이라 '의무'예요."
+      },
+      {
+       "t": "~할 수 있었다",
+       "ko": "",
+       "why": "'가능'의 뜻으로 읽으면 '사회적 압력'이라는 말과 어울리지 않아요."
+      }
+     ],
+     "a": 0,
+     "e": "be to 동사원형은 예정·==의무==·가능 등 뜻이 여러 가지라 뜻을 고르게 하는 문제로 나오기 좋고, 이 that은 pressure(압력)의 내용을 풀어 주는 ==동격 that==이라 함께 묻기 좋아요. 사회가 기혼 여성은 집안일에만 집중'해야 한다'고 압박했다는 뜻이라 were to(원형 be: ~이다)는 의무예요.",
+     "k": "기혼 여성은 ==가사에만 집중해야 한다는== 사회적 압력",
+     "m": "'여자는 집안일만 해야 한다'는 ==압력==, Ancher는 여기에 맞섰어요."
+    },
+    {
+     "t": "g",
+     "w": "36번째 문장 · 노트: 반대, 계속적 용법",
+     "s": "Ancher differed from {other artists of that era}, ___ depicted women as still life subjects.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "which",
+       "ko": "관계대명사 which(그런데 그것은)",
+       "why": "which는 사물을 받아요. 앞이 other artists(다른 화가들), 사람이라 who예요."
+      },
+      {
+       "t": "who",
+       "ko": "관계대명사 who(그런데 그들은)",
+       "why": ""
+      },
+      {
+       "t": "what",
+       "ko": "관계대명사 what(~하는 것)",
+       "why": "what은 앞에 받는 말이 없을 때 써요. 앞에 other artists가 있고 콤마 뒤라 맞지 않아요."
+      }
+     ],
+     "a": 1,
+     "e": "노트에 '반대, 계속적 용법'이 적힌 자리로, 콤마 뒤 관계사를 which/who로 바꿔 내거나 Ancher와 다른 화가들의 차이를 묻기 좋은 문장이에요. 받는 말이 other artists of that era(당시의 다른 화가들), ==사람이라 who가 맞고==, '그런데 그들은 여성을 정물화 소재로 묘사했다'로 이어져요. ==differed from(원형 differ from: ~와 다르다)==, depicted(원형 depict: 묘사하다).",
+     "k": "Ancher는 당시의 다른 예술가들과는 달랐는데, ==그들은 여성을 정물화 소재로 묘사했다==.",
+     "m": "다른 화가들은 여성을 꽃병처럼 가만히 있는 ==정물==로 그렸어요."
+    },
+    {
+     "t": "c",
+     "w": "37번째 문장 · 노트: 능동성을 보여 줌",
+     "s": "In contrast, she showcased them as {active participants} in everyday tasks.",
+     "q": "Ancher가 여성을 그린 방식은?",
+     "o": [
+      {
+       "t": "가만히 놓인 정물화 소재처럼",
+       "ko": "",
+       "why": "정물화 소재처럼 그린 건 당시의 다른 화가들이에요. Ancher는 그 반대예요."
+      },
+      {
+       "t": "일상 일을 적극적으로 하는 사람으로",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "화려한 귀족 부인의 초상화로",
+       "ko": "",
+       "why": "귀족 부인 초상화 이야기는 본문에 없어요. Ancher는 부엌의 하녀, 바느질하는 어부의 아내처럼 일하는 여성을 그렸어요."
+      }
+     ],
+     "a": 1,
+     "e": "==In contrast(이와 대조적으로)==를 사이에 두고 다른 화가들과 Ancher가 맞서는 자리라, 대조 내용을 묻는 내용 일치나 연결어 문제로 나오기 좋아요. 다른 화가 = still life(정물), Ancher = ==active participants(적극적인 참여자)==예요. showcased(원형 showcase: 보여 주다) them에서 them은 women(여성들)이에요.",
+     "k": "이와는 대조적으로, 그녀는 ==일상 작업의 적극적인 참여자==로서의 여성을 보여 주었다.",
+     "m": "〈부엌의 하녀〉·〈바느질하는 어부의 아내〉, ==일하는 여성==을 그렸어요."
+    },
+    {
+     "t": "g",
+     "w": "39번째 문장 · 노트: is 동그라미",
+     "s": "In her painting Sunlight in the Blue Room, {the reflection} of the sunlight on the blue wall ___ stunningly portrayed.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "are",
+       "ko": "복수 동사 are(원형 be: ~이다)",
+       "why": "앞에 sunlight(햇빛), wall(벽)이 이어져 길어 보여도 주어는 the reflection(반사) 하나라서 복수 are는 안 돼요."
+      },
+      {
+       "t": "is",
+       "ko": "단수 동사 is(원형 be: ~이다)",
+       "why": ""
+      }
+     ],
+     "a": 1,
+     "e": "노트에서 is에 동그라미를 친 자리로, 주어 the reflection(반사) 뒤에 of the sunlight on the blue wall(푸른 벽에 비친 햇빛의)이 길게 붙어 is/are를 바꿔 내기 좋은 곳이에요. ==진짜 주어는 reflection 하나라서 is==이고, 반사가 '묘사된' 것이라 ==is portrayed(수동, 원형 portray: 묘사하다)==예요.",
+     "k": "그녀의 작품 〈푸른 방의 햇빛〉에서는 ==푸른 벽에 반사되는 햇빛이== 굉장히 아름답게 묘사되어 있다.",
+     "m": "빛과 색을 능숙하게 다뤄 ==덴마크 인상주의==에 기여했어요."
+    },
+    {
+     "t": "v",
+     "w": "40번째 문장 · 노트: 관습적인 ↔ radical",
+     "s": "Ancher challenged the {conventional} roles of women in the 20th century.",
+     "q": "밑줄 친 말과 뜻이 반대인 것은?",
+     "o": [
+      {
+       "t": "traditional",
+       "ko": "전통적인",
+       "why": "'전통적인'은 conventional(관습적인)과 비슷한 말이라 반대말이 아니에요."
+      },
+      {
+       "t": "typical",
+       "ko": "전형적인",
+       "why": "'전형적인'도 conventional과 비슷한 쪽의 뜻이에요."
+      },
+      {
+       "t": "radical",
+       "ko": "급진적인",
+       "why": ""
+      },
+      {
+       "t": "ordinary",
+       "ko": "평범한",
+       "why": "'평범한'도 관습을 따르는 쪽의 뜻이라 반대말이 아니에요."
+      }
+     ],
+     "a": 2,
+     "e": "노트에 '==conventional(관습적인) ↔ radical(급진적인)=='으로 반대말까지 적혀 있어서, 반의어를 고르거나 문맥에 맞는 어휘를 고르는 문제로 나오기 좋아요. Ancher는 20세기 여성의 '관습적인' 역할에 이의를 제기했다는 뜻이고, 그 반대말은 radical이에요. challenged(원형 challenge: 이의를 제기하다).",
+     "k": "Ancher는 20세기 여성의 ==전통적인 역할==에 이의를 제기하며 뛰어난 예술적 재능을 보여 주었다.",
+     "m": "Ancher는 '여자는 이래야 한다'는 ==관습에 도전==했어요."
+    },
+    {
+     "t": "g",
+     "w": "42번째 문장 · 노트: 감상하다",
+     "s": "I hope my explanations have {aided you in} ___ these paintings.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "appreciate",
+       "ko": "동사원형 appreciate(감상하다)",
+       "why": "전치사 in 뒤에는 동사원형이 올 수 없어요."
+      },
+      {
+       "t": "appreciating",
+       "ko": "동명사 appreciating(감상하는 것)",
+       "why": ""
+      },
+      {
+       "t": "to appreciate",
+       "ko": "to부정사(감상하는 것, 감상하려고)",
+       "why": "전치사 in 뒤에는 to부정사가 올 수 없어요. 동명사가 와야 해요."
+      }
+     ],
+     "a": 1,
+     "e": "노트에 '감상하다'가 적힌 마무리 문장으로, ==aid A in -ing(A가 ~하는 데 도움을 주다)==에서 in 뒤 형태를 묻기 좋은 자리예요. 전치사 in 뒤라서 ==동명사 appreciating(감상하는 것)==이 맞아요. have aided(원형 aid: 돕다)는 '지금까지의 제 설명이 도움이 되었기를' 바란다는 뜻이에요.",
+     "k": "나의 설명이 여러분이 ==그림을 감상하는 데== 도움이 되었기를 바란다.",
+     "m": "도슨트의 마무리 인사. ==그림 감상==에 도움이 되었길 바라요."
+    },
+    {
+     "t": "c",
+     "w": "Note 예문 · 양보(비록 ~이지만)",
+     "s": "{Coward as he was}, John couldn't bear such an insult.",
+     "q": "이 문장과 같은 뜻은?",
+     "o": [
+      {
+       "t": "Though he was a coward, John couldn't bear such an insult.",
+       "ko": "John은 비록 겁쟁이였지만 그런 모욕을 참을 수 없었다.",
+       "why": ""
+      },
+      {
+       "t": "Because he was a coward, John ran away from the insult.",
+       "ko": "John은 겁쟁이였기 때문에 모욕에서 도망쳤다.",
+       "why": "Coward as he was는 '비록 겁쟁이였지만'(양보)이에요. '~였기 때문에'(이유)로 읽으면 뜻이 달라지고, 도망쳤다는 내용도 없어요."
+      },
+      {
+       "t": "As soon as he became a coward, John bore the insult.",
+       "ko": "그는 겁쟁이가 되자마자 모욕을 참았다.",
+       "why": "as를 '~하자마자'로 읽은 답이에요. 원래 문장은 모욕을 참을 수 없었다(couldn't bear)는 뜻인데 참았다고 해서 반대예요."
+      }
+     ],
+     "a": 0,
+     "e": "==명사 + as + 주어 + 동사(비록 ~이지만)== 양보 구문은 Though 문장으로 바꿔 쓰거나 as를 '때문에'로 착각하게 만드는 문제로 나오기 좋아서, 노트에 '양보: 비록 ~이지만'이라고 적혀 있어요. 이때 앞의 명사는 ==a 없이 Coward==로 써요. 그래서 Though he was a coward(비록 그는 겁쟁이였지만)와 같은 뜻이에요.",
+     "k": "John은 ==비록 겁쟁이였지만== 그런 모욕을 참을 수 없었다.",
+     "m": "양보는 본문에도 있어요. ==Although== her physical limitations ~(비록 신체적 제약이 ~했지만, Lewis, 25번째 문장), despite challenges in their lives(인생의 역경에도 불구하고, 3번째 문장)."
+    },
+    {
+     "t": "g",
+     "w": "Note 예문 · 양보 as",
+     "s": "Rich ___ you may be, you can't buy sincere friends.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "as",
+       "ko": "접속사 as(비록 ~이지만: 양보)",
+       "why": ""
+      },
+      {
+       "t": "so",
+       "ko": "so(그래서, 매우)",
+       "why": "Rich so you may be라는 꼴은 없어요. 형용사를 맨 앞에 두는 양보 구문의 짝은 as예요."
+      },
+      {
+       "t": "that",
+       "ko": "접속사 that(~라는)",
+       "why": "형용사 + that + 주어 + 동사로는 '비록 ~일지라도'의 뜻이 되지 않아요."
+      }
+     ],
+     "a": 0,
+     "e": "앞 문제(Coward as he was)와 같은 ==양보 as== 구문을 형용사로 한 번 더 연습시키는 예문이라, 빈칸에 as를 넣거나 Though 문장으로 바꿔 쓰는 문제로 나오기 좋아요. ==Rich as you may be = Though you may be rich(당신이 비록 부자일지라도)==라서 as가 맞아요. can't buy sincere friends(진실한 친구는 살 수 없다)까지 이어 읽어요.",
+     "k": "==당신이 비록 부자일지라도==, 진실한 친구는 살 수 없다.",
+     "m": "==형용사 + as + 주어 + 동사 = 비록 ~일지라도==."
+    }
+   ],
+   "wrap": [
+    "마지막 화가 Anna Ancher, 그림마다 여성 인물이 등장해요(feature).",
+    "코펜하겐 사립 회화 학교 → 당시 여성에게 드문 파리 유학. 엄마의 격려 덕분이었어요.",
+    "결혼 후에도 '기혼 여성은 집안일만 해야 한다'는 압력에 맞서 그림을 계속 그렸어요.",
+    "다른 화가: 여성 = 정물 ↔ Ancher: 일상 일을 하는 적극적인 여성.",
+    "빛과 색을 탐구해 덴마크 인상주의에 기여, 관습적인(conventional) 여성의 역할에 도전했어요."
+   ]
+  },
+  {
+   "id": "l4-1",
+   "sec": "g4",
+   "name": "4과 (1)",
+   "sub": "신경 임플란트와 AI · 의료 분야 활용",
+   "items": [
+    {
+     "t": "g",
+     "w": "2번째 문장 · 노트: 대괄호 묶기",
+     "s": "Traditionally, researchers have studied various functions of {neural implants}, ___ are medical devices like computer chips …",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "that",
+       "ko": "관계대명사 that(~하는)",
+       "why": "콤마(,) 바로 뒤에는 that을 쓸 수 없어요. 사물인 neural implants(신경 임플란트)를 받아 덧붙여 설명할 때는 which를 써요."
+      },
+      {
+       "t": "which",
+       "ko": "관계대명사 which(그런데 그것은)",
+       "why": ""
+      },
+      {
+       "t": "what",
+       "ko": "관계대명사 what(~하는 것)",
+       "why": "what은 앞에 받는 명사가 없을 때 써요. 여기는 neural implants(신경 임플란트)라는 받는 말이 있어서 안 돼요."
+      }
+     ],
+     "a": 1,
+     "e": "==콤마 뒤 관계사== 자리는 that과 which를 바꿔 내기 딱 좋은 어법 자리예요. 앞의 neural implants(신경 임플란트)를 받아 '그런데 그것은 ~이다'로 덧붙여 설명하니 which가 맞고, ==콤마 뒤에는 that을 못 써요==. 받는 말이 복수라 동사도 are(원형 be: ~이다)예요.",
+     "k": "전통적으로 연구자들은 신경 임플란트의 다양한 기능을 연구해 왔고, ==이것은 신경계에 이식될 수 있는 컴퓨터 칩과 같은 의료 기기이다==.",
+     "m": "==신경 임플란트== = 신경계에 심는 컴퓨터 칩 같은 의료 기기."
+    },
+    {
+     "t": "g",
+     "w": "2번째 문장 · 노트: can be implanted",
+     "s": "medical devices like computer chips that can be ___ in the nervous system",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "implant",
+       "ko": "동사원형 implant(이식하다)",
+       "why": "can be 뒤에 동사원형을 쓰면 말이 안 돼요. 칩은 신경계에 심어지는 쪽이라 p.p.가 필요해요."
+      },
+      {
+       "t": "implanting",
+       "ko": "-ing형 implanting(이식하는, 원형 implant: 이식하다)",
+       "why": "can be implanting이면 칩이 직접 무언가를 심는다는 뜻이 돼요. 칩은 몸에 심어지는 쪽이에요."
+      },
+      {
+       "t": "implanted",
+       "ko": "과거분사 implanted(이식된, 원형 implant: 이식하다)",
+       "why": ""
+      }
+     ],
+     "a": 2,
+     "e": "==조동사 + be + p.p.(조동사 수동태)==는 능동과 수동을 바꿔 내기 좋은 자리예요. 컴퓨터 칩 같은 의료 기기는 신경계에 '심어지는' 쪽이라 ==can be implanted(원형 implant: 이식하다)==가 맞아요.",
+     "k": "==신경계에 이식될 수 있는== 컴퓨터 칩과 같은 의료 기기",
+     "m": "칩을 신경계에 ==심어요(implant)==."
+    },
+    {
+     "t": "v",
+     "w": "3번째 문장 · 노트: 통합하다",
+     "s": "with the rapid advancement of artificial intelligence (AI), researchers have begun to {integrate} AI into neural implants.",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "separate",
+       "ko": "분리하다",
+       "why": "separate는 integrate와 정반대 뜻이에요. 임플란트에서 AI를 떼어 낸 게 아니라 합쳤어요."
+      },
+      {
+       "t": "combine",
+       "ko": "결합하다",
+       "why": ""
+      },
+      {
+       "t": "remove",
+       "ko": "제거하다",
+       "why": "AI를 임플란트에서 없앤 게 아니라 넣어서 합쳤으니 반대 뜻이에요."
+      },
+      {
+       "t": "ignore",
+       "ko": "무시하다",
+       "why": "AI를 무시했다면 'AI 기반 신경 임플란트'라는 이 글의 주제가 생길 수 없어요."
+      }
+     ],
+     "a": 1,
+     "e": "integrate는 이 글의 출발점이 되는 핵심 동사라 유의어 ==combine(결합하다)==이나 반의어 separate(분리하다)로 바꿔 묻기 좋은 어휘예요. 연구자들이 AI를 신경 임플란트에 합치기(==integrate A into B: A를 B에 통합하다==) 시작했다는 내용이니, 뜻이 가장 가까운 것은 combine이에요.",
+     "k": "인공지능(AI)의 급속한 발전과 함께 연구자들이 ==신경 임플란트에 AI를 통합하기 시작했다==.",
+     "m": "흥미로운 점: 임플란트 + AI = ==AI 기반 신경 임플란트==."
+    },
+    {
+     "t": "g",
+     "w": "5번째 문장 · 노트: how 이하 괄호",
+     "s": "First, let's explore how this fascinating technology ___.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "has applied",
+       "ko": "현재완료 능동 has applied(적용했다, 원형 apply: 적용하다)",
+       "why": "기술이 직접 무언가를 적용한 게 아니라 사람들에 의해 적용된 쪽이라 능동은 안 돼요. 뒤에 목적어도 없어요."
+      },
+      {
+       "t": "has been applied",
+       "ko": "현재완료 수동 has been applied(적용되어 왔다, 원형 apply: 적용하다)",
+       "why": ""
+      },
+      {
+       "t": "applying",
+       "ko": "-ing형 applying(적용하는, 원형 apply: 적용하다)",
+       "why": "how 뒤에는 '주어 + 동사'가 와야 하는데 applying은 혼자서 동사 역할을 못 해요."
+      }
+     ],
+     "a": 1,
+     "e": "how 뒤 간접의문문 안에서 능동과 수동을 고르게 하는 문제로 내기 좋은 자리예요. 이 매혹적인 기술(this fascinating technology)은 의료 분야에 '적용된' 쪽이라 ==현재완료 수동 has been applied(원형 apply: 적용하다)==가 맞아요. ==how 뒤 어순이 '주어 + 동사'==인 것도 함께 챙겨요.",
+     "k": "먼저 이 매혹적인 기술이 ==어떻게 적용되었는지== 살펴보자.",
+     "m": "이제 ==의료 분야==에서 어떻게 쓰였는지 보여 줘요."
+    },
+    {
+     "t": "v",
+     "w": "6번째 문장 · 노트: 전망, 가능성",
+     "s": "The AI-powered neural implant has shown great {promise} in medical applications.",
+     "q": "여기서 promise의 뜻은?",
+     "o": [
+      {
+       "t": "약속",
+       "ko": "",
+       "why": "'의료 분야에서 큰 약속을 보여 주었다'가 되어 어색해요. show great promise는 '큰 가능성을 보여 주다'예요."
+      },
+      {
+       "t": "가능성, 전망",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "위협",
+       "ko": "",
+       "why": "바로 뒤에서 다양한 문제의 해결책을 제시한다는 좋은 내용이 나오니 '위협'은 반대 분위기예요."
+      }
+     ],
+     "a": 1,
+     "e": "promise를 '약속'으로만 알면 틀리게 만드는 ==다의어 함정== 자리예요. 바로 뒤에서 다양한 문제의 해결책을 제시한다(offering(원형 offer: 제시하다) solutions: 해결책을 제시하며)고 하니, ==show great promise는 '큰 가능성을 보여 주다'==예요. 두 학생 노트에도 '전망, 가능성'으로 적혀 있었어요.",
+     "k": "AI 기반 신경 임플란트는 다양한 문제에 대한 해결책을 제시하며 의료 분야 적용에서 ==큰 가능성을 보여 주었다==.",
+     "m": "의료 분야에서 ==큰 가능성(promise)==을 보여 줬어요."
+    },
+    {
+     "t": "g",
+     "w": "7번째 문장 · 노트: 치료하다",
+     "s": "For instance, neural implants {are used} ___ brain disorders like Parkinson's disease.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "to treat",
+       "ko": "to부정사 to treat(치료하는 데, 치료하기 위해)",
+       "why": ""
+      },
+      {
+       "t": "to treating",
+       "ko": "to + -ing형 to treating(치료하는 것에, 원형 treat: 치료하다)",
+       "why": "be used to -ing는 '~에 익숙하다'라서 '신경 임플란트가 뇌 질환 치료에 익숙하다'가 되어 어색해요."
+      },
+      {
+       "t": "treating",
+       "ko": "-ing형 treating(치료하는, 원형 treat: 치료하다)",
+       "why": "are used 뒤에 treating을 바로 붙이면 '~하는 데 쓰인다'는 목적의 뜻이 살지 않아요."
+      }
+     ],
+     "a": 0,
+     "e": "be used to 뒤에 동사원형이냐 -ing냐는 시험에 단골로 나오는 헷갈리는 짝이에요. 여기는 신경 임플란트가 파킨슨병 같은 뇌 질환을 '치료하는 데 사용된다'라서 ==be used to 동사원형, 즉 to treat==가 맞아요. ==be used to -ing(~에 익숙하다), used to 동사원형(~하곤 했다)==과 구별해요.",
+     "k": "예를 들어, 신경 임플란트는 파킨슨병과 같은 뇌 질환을 ==치료하는 데 사용된다==.",
+     "m": "예 1: ==파킨슨병== 같은 뇌 질환 치료."
+    },
+    {
+     "t": "v",
+     "w": "8번째 문장 · 노트: 자극하다, 회복",
+     "s": "These implants electrically {stimulate} targeted regions of the brain at the right time with the help of AI to restore normal brain activity.",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "calm",
+       "ko": "진정시키다",
+       "why": "뇌를 가라앉히는 게 아니라 전기로 자극해서 움직이게 하는 거라 반대 뜻이에요."
+      },
+      {
+       "t": "damage",
+       "ko": "손상시키다",
+       "why": "목적이 정상적인 뇌 활동을 회복시키는 것(restore: 회복시키다)이라 손상시킨다는 말은 맞지 않아요."
+      },
+      {
+       "t": "activate",
+       "ko": "활성화하다",
+       "why": ""
+      },
+      {
+       "t": "remove",
+       "ko": "제거하다",
+       "why": "뇌의 표적 부위를 없애는 게 아니라 자극하는 거예요."
+      }
+     ],
+     "a": 2,
+     "e": "stimulate는 의료 분야 예시의 핵심 동사라 유의어 ==activate(활성화하다)==로 바꿔 묻기 좋은 어휘예요. 임플란트가 AI의 도움으로 적시에 뇌의 표적 부위를 전기로 자극해서 정상적인 뇌 활동을 회복시킨다(restore: 회복시키다)는 흐름이니, 뜻이 가장 가까운 것은 activate예요.",
+     "k": "이러한 임플란트는 정상적인 뇌 활동을 회복시키기 위해 AI의 도움을 받아 적시에 ==뇌의 표적 부위를 전기로 자극한다==.",
+     "m": "AI가 딱 맞는 때에(at the right time) ==뇌를 전기로 자극해요==."
+    },
+    {
+     "t": "g",
+     "w": "9번째 문장 · 노트: inserted into",
+     "s": "a \"digital bridge\" between {two implants} ___ into their brain and spine",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "inserting",
+       "ko": "-ing형 inserting(삽입하는, 원형 insert: 삽입하다)",
+       "why": "임플란트가 무언가를 삽입하는 게 아니라 뇌와 척추에 삽입된 쪽이에요. 뒤에 목적어도 없어요."
+      },
+      {
+       "t": "inserted",
+       "ko": "과거분사 inserted(삽입된, 원형 insert: 삽입하다)",
+       "why": ""
+      },
+      {
+       "t": "insert",
+       "ko": "동사원형 insert(삽입하다)",
+       "why": "two implants(두 임플란트) 뒤에서 꾸며 주는 자리라 동사원형은 올 수 없어요."
+      }
+     ],
+     "a": 1,
+     "e": "==명사 뒤에서 꾸며 주는 분사==를 -ing와 p.p. 중에 고르게 하기 딱 좋은 자리예요. 두 임플란트(two implants)는 뇌와 척추에 '삽입된' 쪽이라 ==과거분사 inserted(원형 insert: 삽입하다)==가 뒤에서 꾸며 줘요. 바로 뒤의 into(~ 안으로)도 단서예요.",
+     "k": "==뇌와 척추에 삽입된== 두 개의 임플란트 사이에 있는 '디지털 브릿지'",
+     "m": "예 2: 뇌와 척추 사이의 ==디지털 다리==로 마비 환자가 다시 걸어요."
+    },
+    {
+     "t": "g",
+     "w": "10번째 문장 · 노트: 뇌 → AI → 다리",
+     "s": "When they think about moving their legs, {the AI} analyzes the brain signals and ___ them to their legs through the implants.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "send",
+       "ko": "동사원형 send(보내다)",
+       "why": "주어 the AI가 하나라 앞의 analyzes처럼 -s가 붙어야 해요."
+      },
+      {
+       "t": "sends",
+       "ko": "단수 동사 sends(원형 send: 보내다)",
+       "why": ""
+      },
+      {
+       "t": "sending",
+       "ko": "-ing형 sending(보내는, 원형 send: 보내다)",
+       "why": "and 앞의 analyzes와 나란히 서는 동사 자리라 -ing형은 안 돼요."
+      }
+     ],
+     "a": 1,
+     "e": "and로 이어진 두 번째 동사는 ==병렬 구조와 수 일치==를 같이 묻기 좋은 자리예요. 주어 the AI 하나가 analyzes(원형 analyze: 분석하다)와 빈칸 두 동사를 같이 가지니 똑같이 ==단수 동사 sends(원형 send: 보내다)==가 와요. them은 the brain signals(뇌 신호)를 가리켜요.",
+     "k": "환자가 다리를 움직이려고 생각하면 AI가 뇌 신호를 분석하여 임플란트를 통해 ==다리로 신호를 보낸다==.",
+     "m": "생각 → ==AI가 뇌 신호 분석== → 임플란트로 다리에 전달."
+    },
+    {
+     "t": "g",
+     "w": "11번째 문장 · 노트: those who",
+     "s": "Similarly, those who have lost their arms can use {artificial arms} ___ by the same mechanism.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "operating",
+       "ko": "-ing형 operating(작동시키는, 원형 operate: 작동시키다)",
+       "why": "의수가 무언가를 작동시키는 게 아니라 같은 원리에 의해 작동되는 쪽이에요. 뒤의 by(~에 의해)도 수동 단서예요."
+      },
+      {
+       "t": "operated",
+       "ko": "과거분사 operated(작동되는, 원형 operate: 작동시키다)",
+       "why": ""
+      },
+      {
+       "t": "operate",
+       "ko": "동사원형 operate(작동시키다)",
+       "why": "artificial arms(의수) 뒤에서 꾸며 주는 자리라 동사원형은 올 수 없어요."
+      }
+     ],
+     "a": 1,
+     "e": "==명사 뒤 분사 자리==라 -ing와 p.p.를 바꿔 내기 좋은 곳이에요. 의수(artificial arms)는 같은 메커니즘에 '의해(by) 작동되는' 쪽이라 ==operated(원형 operate: 작동시키다)==가 맞아요. those who have lost(원형 lose: 잃다) their arms(팔을 잃은 사람들)도 함께 챙겨요.",
+     "k": "마찬가지로 팔을 잃은 사람들도 ==동일한 메커니즘으로 작동하는== 의수를 사용할 수 있다.",
+     "m": "예 3: ==같은 원리로 움직이는 의수==."
+    },
+    {
+     "t": "v",
+     "w": "Note 예문 · 지칭하다",
+     "s": "Neural plasticity {refers to} the brain's remarkable ability to reorganize its structural connections in response to novel experiences.",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "means",
+       "ko": "의미하다",
+       "why": ""
+      },
+      {
+       "t": "ignores",
+       "ko": "무시하다",
+       "why": "'신경 가소성은 뇌의 능력을 무시한다'가 되어 뜻을 풀어 주는 문장이 말이 안 돼요."
+      },
+      {
+       "t": "reduces",
+       "ko": "줄이다",
+       "why": "'신경 가소성은 뇌의 능력을 줄인다'가 되어 뜻이 거꾸로예요."
+      },
+      {
+       "t": "follows",
+       "ko": "따르다",
+       "why": "'신경 가소성은 뇌의 능력을 따른다'로는 그것이 무엇인지 설명이 안 돼요."
+      }
+     ],
+     "a": 0,
+     "e": "Note 예문은 neural plasticity(신경 가소성)라는 낯선 말이 무슨 뜻인지 풀어 주는 문장이라, refers to(~을 가리키다)를 ==means(의미하다)==로 바꿔 묻기 좋아요. =='A refers to B = A는 B라는 뜻이다'==이니 정답은 means예요. in response to(~에 반응하여), novel(새로운)도 같이 챙겨요.",
+     "k": "신경 가소성은 새로운 경험에 반응하여 뇌가 자신의 구조적 연결을 재조직하는 놀라운 능력을 ==가리킨다==.",
+     "m": "==뇌는 바뀔 수 있다!== 임플란트 이야기의 배경 지식이에요."
+    },
+    {
+     "t": "g",
+     "w": "Note 예문 · 분사구문",
+     "s": "When we acquire new skills, targeted neural pathways are repeatedly activated, gradually ___ the synaptic connections between communicating neurons.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "strengthened",
+       "ko": "과거분사 strengthened(강화된, 원형 strengthen: 강화하다)",
+       "why": "뒤에 목적어 the synaptic connections(시냅스 연결)가 있으니 '강화된'이 아니라 '강화하는' 능동이어야 해요."
+      },
+      {
+       "t": "strengthening",
+       "ko": "-ing형 strengthening(강화하면서, 원형 strengthen: 강화하다)",
+       "why": ""
+      },
+      {
+       "t": "strengthen",
+       "ko": "동사원형 strengthen(강화하다)",
+       "why": "이미 are activated(활성화된다)라는 동사가 있고 접속사도 없어서 동사를 또 쓸 수 없어요."
+      }
+     ],
+     "a": 1,
+     "e": "==콤마 뒤 분사구문==에서 -ing와 p.p.를 고르게 하기 좋은 문장이에요. 신경 경로가 반복해서 활성화되면서 '시냅스 연결을 강화하는' 것이고, 뒤에 목적어 the synaptic connections(시냅스 연결)가 있으니 ==능동 strengthening(원형 strengthen: 강화하다)==이 맞아요. 본문 6번 문장 offering(원형 offer: 제시하다) solutions(해결책을 제시하며)도 같은 꼴이에요.",
+     "k": "우리가 새로운 기술을 익힐 때, 목표가 된 신경 경로가 반복해서 활성화되면서 소통하는 뉴런 사이의 ==시냅스 연결이 점점 강화된다==.",
+     "m": "본문 6번 문장도 ~, ==offering(원형 offer: 제시하다) solutions(해결책을 제시하며)== 꼴이에요."
+    },
+    {
+     "t": "c",
+     "w": "의료 분야 정리",
+     "s": "digital bridge",
+     "q": "마비 환자가 다시 걷게 되는 순서로 맞는 것은?",
+     "o": [
+      {
+       "t": "다리를 움직이려 생각 → AI가 뇌 신호 분석 → 임플란트로 다리에 신호",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "다리 근육이 먼저 움직임 → AI → 뇌로 신호",
+       "ko": "",
+       "why": "본문은 다리 근육이 먼저가 아니라 환자가 다리를 움직이려고 '생각'하는 것에서 시작해요. 신호도 뇌에서 다리로 가요."
+      },
+      {
+       "t": "AI가 먼저 명령 → 뇌 → 다리",
+       "ko": "",
+       "why": "AI가 먼저 명령하는 게 아니라, 환자의 생각에서 나온 뇌 신호를 AI가 분석해서 전달해요."
+      }
+     ],
+     "a": 0,
+     "e": "의료 분야 예시의 순서를 묻는 내용 일치 문제로 나오기 좋은 자리예요. 환자가 다리를 움직이려고 생각하면 AI가 뇌 신호를 분석해서(analyzes, 원형 analyze: 분석하다) 임플란트를 통해 다리로 보내요(sends, 원형 send: 보내다). 그래서 ==출발은 '생각', 그다음이 AI, 마지막이 다리==예요.",
+     "k": "환자가 다리를 움직이려고 생각하면 ==AI가 뇌 신호를 분석하여 임플란트를 통해 다리로 신호를 보낸다==.",
+     "m": "==뇌 → AI → 다리==. 노트에 화살표로 그려져 있던 그 흐름이에요."
+    }
+   ],
+   "wrap": [
+    "신경과학은 뇌와 척수 질환의 치료법을 오래 연구해 왔어요.",
+    "신경 임플란트 = 신경계에 심는 컴퓨터 칩 같은 의료 기기.",
+    "흥미로운 점: 이제 임플란트에 AI를 합치기 시작했어요(integrate).",
+    "의료 활용 3가지: 파킨슨병 치료, 디지털 다리로 다시 걷기, 생각대로 움직이는 의수.",
+    "흐름은 늘 같아요. 생각 → AI가 뇌 신호 분석 → 몸으로 전달."
+   ]
+  },
+  {
+   "id": "l4-2",
+   "sec": "g4",
+   "name": "4과 (2)",
+   "sub": "미래 전망",
+   "items": [
+    {
+     "t": "g",
+     "w": "12번째 문장 · 노트: 주어 대괄호",
+     "s": "{The success} of AI-powered neural implants in health care ___ also expected to spread to other industries.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "are",
+       "ko": "복수 동사 are(원형 be: ~이다)",
+       "why": "가까운 neural implants(신경 임플란트)에 속으면 안 돼요. 진짜 주어는 The success(성공) 하나라 복수 동사는 틀려요."
+      },
+      {
+       "t": "is",
+       "ko": "단수 동사 is(원형 be: ~이다)",
+       "why": ""
+      }
+     ],
+     "a": 1,
+     "e": "주어 The success(성공) 뒤에 of ~ in health care(의료 분야에서의 ~의)가 길게 붙어서, ==가까운 복수 명사 neural implants(신경 임플란트)에 속아== are를 고르게 만들기 딱 좋은 자리예요. 꾸미는 말을 걷어 내면 주어는 The success 하나라 ==is(원형 be: ~이다)==가 맞아요. ==be expected to(~할 것으로 예상되다)==도 같이 챙겨요.",
+     "k": "==의료 분야에서의 AI 기반 신경 임플란트의 성공은== 다른 산업 분야로도 확산될 것으로 예상된다.",
+     "m": "의료에서 성공 → ==다른 산업==으로 퍼질 거예요."
+    },
+    {
+     "t": "v",
+     "w": "13번째 문장 · 노트: 상용화",
+     "s": "Some futurists predict that these implants will become {commercially available} in the next 20 to 30 years.",
+     "q": "밑줄 친 말의 뜻은?",
+     "o": [
+      {
+       "t": "무료로 나눠 주는",
+       "ko": "",
+       "why": "commercially는 '상업적으로'라서 돈을 주고 사고파는 거예요. 무료와는 반대예요."
+      },
+      {
+       "t": "상용화된(돈 주고 살 수 있는)",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "군사용으로만 쓰는",
+       "ko": "",
+       "why": "본문은 우리의 일상(our daily lives)이 크게 바뀐다고 하니 군사용이 아니라 보통 사람들이 쓰는 거예요."
+      }
+     ],
+     "a": 1,
+     "e": "commercially available은 두 단어가 합쳐진 표현이라 뜻을 묻는 어휘 문제로 나오기 좋아요. ==commercially(상업적으로) + available(이용 가능한) = 상용화된==, 즉 돈 주고 살 수 있게 된다는 뜻이에요. 그래서 20~30년 안에 우리의 일상(our daily lives)이 크게 바뀐다는 예측으로 이어져요.",
+     "k": "일부 미래학자들은 이러한 임플란트가 향후 20~30년 이내에 ==상용화되어== 우리의 일상을 크게 변화시킬 것이라고 예측한다.",
+     "m": "미래학자들: ==20~30년 안에 상용화==, 일상이 크게 바뀐다."
+    },
+    {
+     "t": "g",
+     "w": "14번째 문장 · 노트: 가목적어(빨간 글씨)",
+     "s": "advances in neural implant technology will make ___ possible to install in our brains software that can read our minds.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "it",
+       "ko": "가목적어 it(가짜 목적어, 해석하지 않음)",
+       "why": ""
+      },
+      {
+       "t": "that",
+       "ko": "지시대명사·접속사 that(그것, ~라는 것)",
+       "why": "make ___ possible to ~에서 뒤의 to부정사를 대신 받는 가짜 목적어 자리에는 it만 쓸 수 있어요."
+      },
+      {
+       "t": "this",
+       "ko": "지시대명사 this(이것)",
+       "why": "this는 가목적어로 쓸 수 없어요. 진짜 목적어 to install ~(설치하는 것)을 대신하는 자리는 it이에요."
+      }
+     ],
+     "a": 0,
+     "e": "==make it possible to ~(~하는 것을 가능하게 하다)==는 ==가목적어 it==을 빼거나 바꿔서 어법·서술형으로 내기 좋은 구조예요. 노트에도 빨간 글씨로 '가목적어'라고 적혀 있었어요. 진짜 목적어 to install ~(설치하는 것)이 길어서 뒤로 가고, 그 자리에 가짜 목적어 it을 두니 정답은 it이에요.",
+     "k": "예를 들어, 신경 임플란트 기술의 발전으로 우리의 마음을 읽을 수 있는 소프트웨어를 ==뇌에 설치하는 것이 가능해질 것이다==.",
+     "m": "미래 1: ==마음을 읽는 소프트웨어==를 뇌에 설치."
+    },
+    {
+     "t": "g",
+     "w": "14번째 문장 · 노트: 대괄호, 설치V",
+     "s": "to {install} [in our brains] software that can read our minds",
+     "q": "install(설치하다)의 목적어는?",
+     "o": [
+      {
+       "t": "our brains",
+       "ko": "우리의 뇌",
+       "why": "in our brains(우리 뇌에)는 '어디에' 설치하는지 알려 주는 장소 표현이에요. 목적어가 아니에요."
+      },
+      {
+       "t": "software that can read our minds",
+       "ko": "우리의 마음을 읽을 수 있는 소프트웨어",
+       "why": ""
+      },
+      {
+       "t": "our minds",
+       "ko": "우리의 마음",
+       "why": "our minds(우리의 마음)는 read(읽다)의 목적어예요. install의 목적어는 software 덩어리 전체예요."
+      }
+     ],
+     "a": 1,
+     "e": "목적어가 길어서 장소 표현 in our brains(우리 뇌에)가 앞으로 나온 모양이라, 목적어를 찾게 하거나 어순을 묻기 좋은 자리예요. 원래 순서는 install software that can read our minds in our brains(우리 마음을 읽을 수 있는 소프트웨어를 우리 뇌에 설치하다)라서 ==install(설치하다)의 목적어는 software that can read our minds==예요. 모의고사 24번 pushing(원형 push: 밀어내다) out of mind how different ~(얼마나 달라져야 하는지를 생각에서 밀어내기)도 같은 모양이에요.",
+     "k": "==우리의 마음을 읽을 수 있는 소프트웨어를== 뇌에 설치하는 것",
+     "m": "뇌에 '무엇을' 설치? ==마음을 읽는 소프트웨어==."
+    },
+    {
+     "t": "g",
+     "w": "15번째 문장 · 노트: O, O.C.",
+     "s": "This could {enable us} ___ games, type social media messages, and stream music simply by thinking.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "play",
+       "ko": "동사원형 play(하다, 놀다)",
+       "why": "enable은 목적어 뒤에 to 동사원형을 써요. 동사원형만 쓰는 건 make, let(~하게 하다) 같은 사역동사예요."
+      },
+      {
+       "t": "to play",
+       "ko": "to부정사 to play(게임을 하게, 하는 것을)",
+       "why": ""
+      },
+      {
+       "t": "playing",
+       "ko": "-ing형 playing(하는, 원형 play: 하다)",
+       "why": "enable + 목적어 뒤에는 -ing형이 아니라 to 동사원형이 와요."
+      }
+     ],
+     "a": 1,
+     "e": "==enable + 목적어 + to 동사원형((목적어)가 ~할 수 있게 하다)==은 목적격 보어 자리에 동사원형이나 -ing를 넣어 틀리게 만들기 좋은 구조예요. 노트에도 O, O.C.(목적어, 목적격 보어)로 표시되어 있었어요. 그래서 ==to play가== 맞고, 뒤의 type(입력하다)과 stream(스트리밍하다)은 to가 생략된 채 나란히 이어져요.",
+     "k": "이것은 우리가 ==생각만으로 게임을 하고==, 소셜 미디어 메시지를 입력하고, 음악을 스트리밍하는 것이 가능하도록 해 줄 것이다.",
+     "m": "==생각만으로== 게임, 메시지, 음악!"
+    },
+    {
+     "t": "g",
+     "w": "16번째 문장 · 노트: There is",
+     "s": "There ___ also great {potential} for memory-enhancing brain implants, similar to computer memory chips.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "is",
+       "ko": "단수 동사 is(원형 be: 있다)",
+       "why": ""
+      },
+      {
+       "t": "are",
+       "ko": "복수 동사 are(원형 be: 있다)",
+       "why": "진짜 주어는 potential(잠재력) 하나예요. 뒤의 brain implants(뇌 임플란트)는 for에 딸린 말이라 복수 동사는 틀려요."
+      }
+     ],
+     "a": 0,
+     "e": "==There is/are 뒤에서 진짜 주어==를 찾게 하는 수 일치 문제로 내기 좋은 자리예요. 뒤에 brain implants(뇌 임플란트), memory chips(메모리 칩) 같은 복수 명사가 보여서 헷갈리지만, 진짜 주어는 ==great potential(큰 잠재력) 하나라 is(원형 be: 있다)==가 맞아요.",
+     "k": "컴퓨터 메모리 칩과 유사한 기억력 향상 뇌 임플란트도 ==큰 잠재력을== 가지고 있다.",
+     "m": "미래 2: ==기억력을 높이는 임플란트==."
+    },
+    {
+     "t": "v",
+     "w": "17번째 문장 · 노트: 향상",
+     "s": "Such devices would allow us to capture and {enhance} memories, and even upload and download them using the digital cloud.",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "erase",
+       "ko": "지우다",
+       "why": "기억을 지우는 게 아니라 붙잡고 더 좋게 만드는 거라 반대 뜻이에요."
+      },
+      {
+       "t": "improve",
+       "ko": "향상시키다",
+       "why": ""
+      },
+      {
+       "t": "share",
+       "ko": "공유하다",
+       "why": "공유는 다음 문장 share memories with others(다른 사람들과 기억을 공유하다)에 따로 나와요. enhance는 '더 좋게 하다'예요."
+      },
+      {
+       "t": "store",
+       "ko": "저장하다",
+       "why": "저장은 upload(업로드하다)나 back up(백업하다)에 가까워요. enhance는 기억을 더 좋게 만드는 거예요."
+      }
+     ],
+     "a": 1,
+     "e": "enhance는 기억력 향상(memory-enhancing) 임플란트 이야기의 핵심 동사라 유의어 ==improve(향상시키다)==로 바꿔 묻기 좋은 어휘예요. 기억을 붙잡고(capture) 더 좋게 만든다는 뜻이니 improve가 가장 가까워요. ==allow + 목적어 + to 동사원형(~가 …하게 해 주다)==도 같이 챙겨요.",
+     "k": "이러한 장치를 사용하면 기억을 캡처하고 ==향상시킬 수 있으며==, 디지털 클라우드를 사용하여 기억을 업로드 및 다운로드할 수도 있다.",
+     "m": "기억을 붙잡고, ==좋게 만들고==, 클라우드에 올리고 내려받아요."
+    },
+    {
+     "t": "v",
+     "w": "18번째 문장 · 노트: 생생하게",
+     "s": "We could look through our memories like a social media feed, vividly {recall} our favorite life moments …",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "forget",
+       "ko": "잊다",
+       "why": "가장 좋았던 순간을 생생하게(vividly) 떠올린다는 내용이라 '잊다'는 반대 뜻이에요."
+      },
+      {
+       "t": "delete",
+       "ko": "지우다",
+       "why": "오히려 가장 소중한 기억을 백업한다(back up)고 했으니 지운다는 뜻은 맞지 않아요."
+      },
+      {
+       "t": "remember",
+       "ko": "기억해 내다",
+       "why": ""
+      },
+      {
+       "t": "record",
+       "ko": "기록하다",
+       "why": "recall은 지난 순간을 머릿속에 다시 떠올리는 거예요. 무언가에 적어 남기는 '기록'과는 달라요."
+      }
+     ],
+     "a": 2,
+     "e": "recall은 기억 임플란트가 주는 장점을 보여 주는 동사라 유의어 ==remember(기억해 내다)==로 바꿔 묻기 좋은 어휘예요. 인생에서 가장 좋았던 순간을 생생하게(vividly) 다시 떠올린다는 내용이니 remember가 가장 가까워요. look through(훑어보다), share(공유하다), back up(백업하다)까지 동사 네 개가 나란히 오는 것도 함께 봐요.",
+     "k": "우리는 소셜 미디어 피드처럼 기억을 살펴보고, 인생에서 가장 좋았던 순간을 ==생생하게 회상할 수 있을== 것이다.",
+     "m": "기억을 SNS 피드처럼 넘겨 보고, ==생생하게 떠올리고==, 나누고, 백업해요."
+    },
+    {
+     "t": "g",
+     "w": "20번째 문장 · 노트: shift from A to B",
+     "s": "The role of the brain would {shift from} learning and storing information ___ processing the vast amounts of data.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "into",
+       "ko": "전치사 into(~ 안으로)",
+       "why": "shift from A to B로 짝을 맞춰 쓰는 표현이라 into는 답이 아니에요."
+      },
+      {
+       "t": "to",
+       "ko": "전치사 to(~으로)",
+       "why": ""
+      },
+      {
+       "t": "for",
+       "ko": "전치사 for(~을 위해)",
+       "why": "for를 쓰면 '데이터 처리를 위해 바뀐다'가 되어 'A에서 B로 바뀐다'는 흐름이 깨져요."
+      }
+     ],
+     "a": 1,
+     "e": "==shift from A to B(A에서 B로 바뀌다)==는 짝꿍 전치사를 지우고 묻기 좋은 구조예요. 노트 맨 위에도 크게 'from A to B'라고 적혀 있었어요. A는 정보를 배우고 저장하기, B는 방대한 양의 데이터를 처리하기라서 빈칸은 to예요.",
+     "k": "뇌의 역할이 정보를 학습하고 저장하는 것에서 임플란트가 제공하는 방대한 양의 데이터를 ==처리하는 것으로== 바뀌게 될 것이다.",
+     "m": "미래 3: 뇌의 역할이 =='저장'에서 '처리'로== 바뀌어요."
+    },
+    {
+     "t": "g",
+     "w": "20번째 문장 · 노트: provided by",
+     "s": "processing {the vast amounts of data} ___ by the implants",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "providing",
+       "ko": "-ing형 providing(제공하는, 원형 provide: 제공하다)",
+       "why": "데이터가 무언가를 제공하는 게 아니라 임플란트에 의해(by) 제공되는 쪽이에요."
+      },
+      {
+       "t": "provided",
+       "ko": "과거분사 provided(제공된, 원형 provide: 제공하다)",
+       "why": ""
+      },
+      {
+       "t": "provide",
+       "ko": "동사원형 provide(제공하다)",
+       "why": "data(데이터) 뒤에서 꾸며 주는 자리라 동사원형은 올 수 없어요."
+      }
+     ],
+     "a": 1,
+     "e": "==명사 뒤 분사 자리==라 -ing와 p.p.를 바꿔 내기 좋은 곳이에요. 방대한 양의 데이터(the vast amounts of data)는 임플란트에 의해(by) '제공된' 쪽이라 ==provided(원형 provide: 제공하다)==가 맞아요. 뇌는 그 데이터를 처리하는 역할로 바뀌어요.",
+     "k": "==임플란트가 제공하는== 방대한 양의 데이터를 처리하는 것",
+     "m": "임플란트가 데이터를 주고, ==뇌는 그걸 처리해요==."
+    },
+    {
+     "t": "g",
+     "w": "Note 예문 · from A toward B",
+     "s": "Modern businesses are moving away from traditional hierarchical management ___ more collaborative, network-based structures.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "toward",
+       "ko": "전치사 toward(~ 쪽으로)",
+       "why": ""
+      },
+      {
+       "t": "from",
+       "ko": "전치사 from(~에서부터)",
+       "why": "앞에 이미 away from(~에서 벗어나)이 있어서 또 from을 쓰면 어디로 가는지가 나오지 않아요."
+      },
+      {
+       "t": "at",
+       "ko": "전치사 at(~에, ~에서)",
+       "why": "at은 한 지점을 가리켜서 '~ 쪽으로 옮겨 간다'는 방향을 나타내지 못해요."
+      }
+     ],
+     "a": 0,
+     "e": "==move away from A toward B(A에서 벗어나 B 쪽으로 가다)==는 본문 shift from A to B(A에서 B로 바뀌다)와 같은 '바뀜' 구조라서 짝 전치사를 묻기 좋은 Note 예문이에요. 기업들이 전통적인 위계적 관리(A)에서 벗어나 더 협력적인 구조(B) '쪽으로' 옮겨 가는 것이니 toward가 맞아요.",
+     "k": "현대 기업들은 전통적인 위계적 관리에서 벗어나 ==더 협력적이고 네트워크 기반의 구조로== 옮겨 가고 있다.",
+     "m": "Note도 본문도 =='무엇에서 무엇으로'== 바뀌는지가 포인트예요."
+    },
+    {
+     "t": "v",
+     "w": "Note 예문 · 노트: 수직적 관계(빨간 글씨)",
+     "s": "traditional {hierarchical} management",
+     "q": "밑줄 친 말의 뜻은?",
+     "o": [
+      {
+       "t": "협력적인",
+       "ko": "",
+       "why": "'협력적인'은 뒤에 나오는 collaborative의 뜻이에요. hierarchical은 그와 반대되는 전통적인 방식이에요."
+      },
+      {
+       "t": "위계적인(위아래 순서가 있는)",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "역사적인",
+       "ko": "",
+       "why": "철자가 비슷한 historical(역사적인)과 헷갈리게 만든 함정이에요. hierarchical은 위아래 순서가 있는 것을 말해요."
+      }
+     ],
+     "a": 1,
+     "e": "hierarchical은 철자가 historical(역사적인)과 비슷하고, 뒤의 ==collaborative(협력적인)와 반대 짝==이라 뜻을 헷갈리게 내기 좋은 어휘예요. 노트에 빨간 글씨로 '수직적 관계'라고 적혀 있었듯이, 윗사람과 아랫사람 순서가 있는 =='위계적인'==이 정답이에요.",
+     "k": "전통적인 ==위계적== 관리",
+     "m": "==수직(hierarchical)== → 수평·협력(collaborative)."
+    },
+    {
+     "t": "c",
+     "w": "미래 전망 정리",
+     "s": "Instead of simply memorizing information, we would be able to download knowledge, use our creativity to interpret it, and generate new ideas.",
+     "q": "글에서 말한 미래의 뇌가 하는 일로 맞는 것은?",
+     "o": [
+      {
+       "t": "정보를 더 많이 외우고 저장하는 일",
+       "ko": "",
+       "why": "본문은 단순히 정보를 외우는 것 대신에(Instead of) 다른 일을 한다고 했어요. 외우고 저장하는 건 바뀌기 전의 역할이에요."
+      },
+      {
+       "t": "지식을 내려받아 해석하고 새로운 아이디어를 만드는 일",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "임플란트를 직접 만드는 일",
+       "ko": "",
+       "why": "뇌가 임플란트를 직접 만든다는 말은 본문에 없어요. 뇌는 내려받은 지식을 해석하고 새 생각을 만들어요."
+      }
+     ],
+     "a": 1,
+     "e": "==Instead of(~ 대신에)== 앞뒤로 예전 역할과 새 역할이 나뉘어서, 미래의 뇌가 하는 일을 묻는 내용 일치 문제로 내기 좋은 문장이에요. 외우기 대신 ==지식을 내려받고(download), 창의력으로 그것을 해석하고(interpret), 새로운 아이디어를 만든다(generate)==고 했으니 '지식을 내려받아 해석하고 새로운 아이디어를 만드는 일'이 맞아요.",
+     "k": "우리는 단순히 정보를 암기하는 대신 ==지식을 다운로드하고, 창의력을 발휘하여 그 지식을 해석하고, 새로운 아이디어를 창출할== 수 있게 될 것이다.",
+     "m": "외우기 대신: ==내려받기 → 해석하기 → 새 아이디어 만들기==."
+    }
+   ],
+   "wrap": [
+    "의료에서의 성공이 다른 산업으로 퍼질 거예요. 20~30년 안에 상용화 예상.",
+    "미래 1: 마음을 읽는 소프트웨어 → 생각만으로 게임·메시지·음악.",
+    "미래 2: 기억력 향상 임플란트 → 기억을 붙잡고, 높이고, 클라우드에 업로드·다운로드.",
+    "미래 3: 뇌의 역할이 '저장'에서 '처리'로 바뀌어요(shift from A to B).",
+    "외우는 대신 지식을 내려받고, 해석하고, 새 아이디어를 만들어요."
+   ]
+  },
+  {
+   "id": "l4-3",
+   "sec": "g4",
+   "name": "4과 (3)",
+   "sub": "윤리적 문제 · 신경 윤리와 댓글",
+   "items": [
+    {
+     "t": "v",
+     "w": "22번째 문장 · 노트: 받아들이다",
+     "s": "Before we can fully {embrace} the era of AI-powered neural implants, many tricky ethical issues should be addressed.",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "reject",
+       "ko": "거절하다",
+       "why": "reject는 embrace와 반대 뜻이에요. 새 시대를 거절하는 게 아니라 받아들이기 전에 문제를 해결하자는 말이에요."
+      },
+      {
+       "t": "accept",
+       "ko": "받아들이다",
+       "why": ""
+      },
+      {
+       "t": "delay",
+       "ko": "미루다",
+       "why": "'완전히(fully) 받아들이기' 전에 윤리 문제를 해결해야 한다는 뜻이지, 시대를 미룬다는 뜻이 아니에요."
+      },
+      {
+       "t": "avoid",
+       "ko": "피하다",
+       "why": "시대를 피한다는 뜻이 아니라 기꺼이 맞이한다는 뜻이에요."
+      }
+     ],
+     "a": 1,
+     "e": "embrace는 '껴안다'로만 알면 헷갈려서 유의어 ==accept(받아들이다)==로 바꿔 묻기 좋은 어휘예요. AI 기반 신경 임플란트 시대를 완전히(fully) 받아들이기 전에 까다로운(tricky) 윤리 문제를 해결해야 한다는 뜻이니 accept가 가장 가까워요. 반대말 ==reject(거절하다)==도 같이 기억해요.",
+     "k": "우리가 AI 기반 신경 임플란트 시대를 ==완전히 받아들이기 전에==, 여러 가지 까다로운 윤리적 문제들이 해결되어야 한다.",
+     "m": "분위기 전환! 장점 다음은 ==윤리적 문제==예요."
+    },
+    {
+     "t": "g",
+     "w": "22번째 문장 · 노트: should be 동그라미",
+     "s": "many tricky ethical issues {should be} ___.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "address",
+       "ko": "동사원형 address(다루다, 해결하다)",
+       "why": "should be 뒤에 동사원형을 쓰면 말이 안 돼요. 문제는 다뤄지는 쪽이라 p.p.가 필요해요."
+      },
+      {
+       "t": "addressing",
+       "ko": "-ing형 addressing(다루는, 원형 address: 다루다)",
+       "why": "문제들이 무언가를 다루는 게 아니라 사람들에 의해 다뤄지는 쪽이에요. 뒤에 목적어도 없어요."
+      },
+      {
+       "t": "addressed",
+       "ko": "과거분사 addressed(다뤄지는, 원형 address: 다루다, 해결하다)",
+       "why": ""
+      }
+     ],
+     "a": 2,
+     "e": "==조동사 + be + p.p.(조동사 수동태)==에서 능동과 수동을 고르게 하고, address의 뜻까지 묻기 좋은 자리예요. 윤리적 문제들(ethical issues)은 '해결되는' 쪽이라 ==should be addressed(원형 address: 다루다, 해결하다)==가 맞아요. address는 =='주소'가 아니라 '(문제를) 다루다'==이고, 42번 how to address the concerns(우려를 해결하는 방법)에도 같은 뜻으로 나와요.",
+     "k": "여러 가지 까다로운 윤리적 문제들이 ==해결되어야 한다==.",
+     "m": "==address = 다루다==. 윤리 문제 시작(22번)과 마지막 댓글(42번)에 다 나와요."
+    },
+    {
+     "t": "g",
+     "w": "23번째 문장 · 노트: 주어 대괄호",
+     "s": "{The integration} of AI technology with the human brain ___ concerns about what it means to be human.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "raise",
+       "ko": "동사원형 raise(~을 일으키다, 제기하다)",
+       "why": "주어 The integration(통합)이 하나라 -s가 붙어야 해요."
+      },
+      {
+       "t": "raises",
+       "ko": "단수 동사 raises(원형 raise: ~을 일으키다, 제기하다)",
+       "why": ""
+      },
+      {
+       "t": "rises",
+       "ko": "단수 동사 rises(원형 rise: 오르다, 일어나다)",
+       "why": "rise는 뒤에 목적어를 가질 수 없어요. 뒤에 concerns(우려)라는 목적어가 있으니 raise를 써야 해요."
+      }
+     ],
+     "a": 1,
+     "e": "주어 The integration(통합) 뒤에 of AI technology with the human brain(AI 기술과 인간 뇌의)이 길게 붙어서 ==수 일치==를 묻기 좋고, raise와 rise까지 헷갈리게 낼 수 있는 자리예요. 주어가 하나라 -s가 붙고, 뒤에 목적어 concerns(우려)가 있으니 '~을 제기하다'인 ==raises(원형 raise: 일으키다, 제기하다)==가 맞아요. ==rise(오르다)는 목적어를 못 가져요==.",
+     "k": "==AI 기술과 인간의 뇌를 통합하는 것은== 인간이라는 존재가 무엇을 의미하는가에 대한 우려를 제기한다.",
+     "m": "문제 1: ==인간이란 무엇인가?== 정체성의 혼란."
+    },
+    {
+     "t": "g",
+     "w": "24번째 문장 · 노트: ~로 여겨진다",
+     "s": "Our brains {are believed} ___ central to our identity, existence, and value as human beings.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "to be",
+       "ko": "to부정사 to be(~이라고, ~인 것으로)",
+       "why": ""
+      },
+      {
+       "t": "being",
+       "ko": "-ing형 being(~인 것, 원형 be: ~이다)",
+       "why": "be believed 뒤에는 -ing형이 아니라 to 동사원형이 와요."
+      },
+      {
+       "t": "be",
+       "ko": "동사원형 be(~이다)",
+       "why": "are believed 뒤에 동사원형을 바로 붙일 수 없어요. to가 꼭 있어야 해요."
+      }
+     ],
+     "a": 0,
+     "e": "==be believed to 동사원형(~라고 여겨지다)==은 to를 빼거나 -ing로 바꿔서 어법 문제로 내기 좋은 수동태 구조예요. 우리의 두뇌가 정체성·존재·가치의 '중심이라고 여겨진다'는 뜻이니 to be가 맞아요. ==identity(정체성), existence(존재), value(가치)==는 세 개 묶음으로 기억해요.",
+     "k": "우리의 두뇌는 인간으로서의 정체성, 존재, 가치의 ==중심이라고 여겨진다==.",
+     "m": "뇌 = ==정체성·존재·가치의 중심==. 그래서 뇌에 AI를 넣는 게 걱정이에요."
+    },
+    {
+     "t": "g",
+     "w": "25번째 문장 · 노트: 괄호 묶기",
+     "s": "an over-reliance on technology may delay our natural development and create confusion about ___ we are human, AI, or something in between.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "that",
+       "ko": "접속사 that(~라는 것)",
+       "why": "about 같은 전치사 뒤에는 접속사 that을 쓸 수 없어요. 또 '인간인지, AI인지'처럼 고르는 뜻이 안 나와요."
+      },
+      {
+       "t": "whether",
+       "ko": "접속사 whether(~인지 아닌지)",
+       "why": ""
+      },
+      {
+       "t": "what",
+       "ko": "관계대명사·의문사 what(~하는 것, 무엇)",
+       "why": "what 뒤에는 빠진 자리가 있어야 하는데, we are human, AI, or something in between(우리가 인간, AI, 또는 그 중간이다)은 빠진 것이 없어요."
+      }
+     ],
+     "a": 1,
+     "e": "about 뒤에서 '~인지'를 이끄는 자리라 that, what, whether를 바꿔 내기 좋은 곳이에요. 우리가 인간인지, AI인지, 아니면 그 중간(something in between)인지 여러 가지 중 어느 쪽인지 헷갈린다는 뜻이니 ==whether(~인지)==가 맞아요. ==over-reliance(지나친 의존)==도 같이 챙겨요.",
+     "k": "그러나 기술에 대한 지나친 의존은 우리의 자연스러운 발달을 지연시키고 ==우리가 인간인지, AI인지, 아니면 그 중간인지==에 대한 혼란을 야기할 수 있다.",
+     "m": "기술에 너무 기대면 =='나는 사람? AI?'== 헷갈릴 수 있어요."
+    },
+    {
+     "t": "g",
+     "w": "27번째 문장 · 노트: risk 이하 괄호",
+     "s": "There's {a risk} ___ organizations or hackers could access personal data without permission through AI-connected implants.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "which",
+       "ko": "관계대명사 which(그것은, ~하는)",
+       "why": "which 뒤에는 빠진 자리가 있어야 하는데, 뒤 문장이 주어·동사·목적어가 다 있는 완전한 문장이에요."
+      },
+      {
+       "t": "that",
+       "ko": "동격 접속사 that(~라는)",
+       "why": ""
+      },
+      {
+       "t": "what",
+       "ko": "관계대명사 what(~하는 것)",
+       "why": "what은 앞에 받는 명사가 없을 때 쓰고 뒤가 불완전해야 해요. 여기는 앞에 a risk(위험)가 있고 뒤도 완전해요."
+      }
+     ],
+     "a": 1,
+     "e": "a risk(위험) 뒤에서 그 위험의 내용을 풀어 주는 ==동격 that== 자리라, which로 바꿔 틀리게 내기 좋은 곳이에요. 뒤에 organizations or hackers could access personal data(조직이나 해커가 개인 정보에 접근할 수 있다)라는 빠진 것 없는 완전한 문장이 오니 ==which가 아니라 that==이 맞아요. 이것이 두 번째 문제인 프라이버시예요.",
+     "k": "==조직이나 해커가 AI와 연결된 임플란트를 통해 허가 없이 개인 정보에 접근할 수 있는== 위험이 있다.",
+     "m": "문제 2: ==프라이버시==. 해커가 내 정보에, 내 생각에까지."
+    },
+    {
+     "t": "v",
+     "w": "29번째 문장 · 노트: ~을 고려했을 때(빨간 글씨)",
+     "s": "this technology could lead to even greater social inequality, {given that} it may not be available to all due to its high cost.",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "unless",
+       "ko": "~하지 않는다면",
+       "why": "'~하지 않는다면'은 조건이에요. 여기는 비싸서 모두가 못 쓸 수 있다는 점을 근거로 드는 자리라 뜻이 달라요."
+      },
+      {
+       "t": "considering that",
+       "ko": "~을 고려하면",
+       "why": ""
+      },
+      {
+       "t": "although",
+       "ko": "비록 ~이지만",
+       "why": "앞뒤가 반대 관계가 아니에요. 비싸서 모두가 못 쓴다는 점이 불평등의 이유라 '비록 ~이지만'은 어색해요."
+      },
+      {
+       "t": "so that",
+       "ko": "~하도록",
+       "why": "'~하도록'은 목적을 나타내요. 여기는 불평등이 커질 이유를 말하는 자리예요."
+      }
+     ],
+     "a": 1,
+     "e": "given that은 given을 '주어진'으로만 읽으면 헷갈려서 유의어 ==considering that(~을 고려하면)==으로 바꿔 묻기 좋은 표현이에요. 노트에도 빨간 글씨로 'considering(고려하면)'이 적혀 있었어요. 높은 비용 때문에(due to its high cost) 모두가 쓸 수 없을 수도 있다는 점을 '고려하면' 불평등이 커진다는 흐름이라 considering that이 맞아요.",
+     "k": "또한 이 기술은 높은 비용으로 인해 ==모든 사람에게 제공되지 않을 수 있다는 점에서== 사회적 불평등을 더욱 심화시킬 수 있다는 추가적인 위험도 있다.",
+     "m": "문제 3: 비싸서 모두가 못 쓴다 → ==불평등이 커져요==."
+    },
+    {
+     "t": "g",
+     "w": "29번째 문장 · 노트: 비교급 강조",
+     "s": "this technology could lead to ___ greater social inequality",
+     "q": "빈칸에 들어갈 수 없는 것은?",
+     "o": [
+      {
+       "t": "even",
+       "ko": "부사 even(훨씬)",
+       "why": "이건 들어갈 수 있어요: even은 비교급 greater(더 큰)를 '훨씬'으로 꾸며 줘요. 본문에 쓰인 말이에요."
+      },
+      {
+       "t": "much",
+       "ko": "부사 much(훨씬)",
+       "why": "이건 들어갈 수 있어요: much도 비교급 앞에서 '훨씬'으로 꾸밀 수 있어요."
+      },
+      {
+       "t": "very",
+       "ko": "부사 very(매우)",
+       "why": ""
+      }
+     ],
+     "a": 2,
+     "nofill": true,
+     "e": "비교급 greater(더 큰) 앞에서 '훨씬'으로 꾸미는 말을 고르게 하는, ==비교급 강조== 단골 문제 자리예요. ==even, much, still, far, a lot(모두 '훨씬')==은 비교급을 꾸밀 수 있지만 ==very(매우)는 비교급을 꾸미지 못해요==. 그래서 들어갈 수 없는 것은 very예요.",
+     "k": "이 기술은 사회적 불평등을 ==훨씬 더== 심화시킬 수 있다.",
+     "m": "==even greater = 훨씬 더 큰== 불평등."
+    },
+    {
+     "t": "c",
+     "w": "30번째 문장 · 노트: 여유가 있는 사람",
+     "s": "Such unequal access to the technology could intensify the division between those who can {afford} the implants and those who cannot.",
+     "q": "밑줄 친 afford의 뜻은?",
+     "o": [
+      {
+       "t": "~을 거절하다",
+       "ko": "",
+       "why": "'임플란트를 거절할 수 있는 사람과 못하는 사람'은 앞 문장의 높은 비용(high cost) 이야기와 맞지 않아요."
+      },
+      {
+       "t": "~을 살 (돈의) 여유가 있다",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "~을 직접 만들다",
+       "ko": "",
+       "why": "본문은 임플란트를 만드는 이야기가 아니라 비용을 감당할 수 있느냐를 말해요."
+      }
+     ],
+     "a": 1,
+     "e": "==afford는 '살 형편이 되다'==라는 뜻을 몰라 틀리기 쉬워서 뜻을 묻기 좋은 어휘예요. 바로 앞 29번 문장에서 높은 비용(its high cost) 때문에 모두가 쓸 수 없을 수도 있다고 했으니, ==those who can afford the implants(임플란트를 살 여유가 있는 사람들)==와 those who cannot(그렇지 못한 사람들) 사이가 더 벌어진다(intensify the division: 분열을 심화시키다)는 뜻이에요.",
+     "k": "기술에 대한 이러한 불평등한 접근성은 ==임플란트 비용을 감당할 수 있는 사람==과 그렇지 않은 사람 사이의 분열을 심화시킬 수 있다.",
+     "m": "==살 수 있는 사람 ↔ 못 사는 사람==, 그 틈이 커져요."
+    },
+    {
+     "t": "g",
+     "w": "33번째 문장 · 노트: 수행되다",
+     "s": "I think it is important to establish a prior review process and thoroughly assess the ethical aspects before any kind of brain research ___.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "conducts",
+       "ko": "단수 동사 능동 conducts(수행한다, 원형 conduct: 수행하다)",
+       "why": "연구가 무언가를 수행하는 게 아니라 사람들에 의해 수행되는 쪽이에요. 뒤에 목적어도 없어요."
+      },
+      {
+       "t": "is conducted",
+       "ko": "수동태 is conducted(수행된다, 원형 conduct: 수행하다)",
+       "why": ""
+      },
+      {
+       "t": "conducting",
+       "ko": "-ing형 conducting(수행하는, 원형 conduct: 수행하다)",
+       "why": "before 뒤에 주어 any kind of brain research(어떤 종류의 뇌 연구)가 있으니 동사가 와야 해요. -ing형 혼자서는 동사가 될 수 없어요."
+      }
+     ],
+     "a": 1,
+     "e": "before 뒤 절에서 주어 any kind of brain research(어떤 종류의 뇌 연구)와 동사의 능동·수동 관계를 묻기 좋은 자리예요. 연구는 사람들에 의해 '수행되는' 쪽이라 ==is conducted(원형 conduct: 수행하다)==가 맞아요. 앞의 it은 ==가주어==이고, 진짜 주어는 to establish ~(확립하는 것) and (to) assess ~(평가하는 것)예요.",
+     "k": "나는 ==어떤 종류의 뇌 연구를 수행하기 전에== 사전 검토 프로세스를 확립하고 윤리적 측면을 철저히 평가하는 것이 중요하다고 생각한다.",
+     "m": "해결책: 연구 전에 미리 검토(==prior review: 사전 검토==)하고 윤리를 꼼꼼히 평가."
+    },
+    {
+     "t": "g",
+     "w": "34번째 문장 · 노트: 발전하다V",
+     "s": "This will ensure that {science and technology} ___ in accordance with ethical principles.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "progresses",
+       "ko": "단수 동사 progresses(원형 progress: 발전하다)",
+       "why": "주어가 science and technology(과학과 기술), 둘이라 -s를 붙이면 안 돼요."
+      },
+      {
+       "t": "progress",
+       "ko": "복수 동사 progress(발전하다)",
+       "why": ""
+      },
+      {
+       "t": "progressing",
+       "ko": "-ing형 progressing(발전하는, 원형 progress: 발전하다)",
+       "why": "that 뒤에 주어가 있으니 동사가 와야 해요. -ing형은 혼자서 동사가 될 수 없어요."
+      }
+     ],
+     "a": 1,
+     "e": "progress를 명사(발전)로만 알면 동사 자리인 걸 놓치기 쉽고, A and B 주어의 수 일치까지 묻기 좋은 자리예요. 노트에도 '발전하다V'라고 동사 표시가 되어 있었어요. 주어가 science and technology(과학과 기술) 둘이라 ==-s 없는 progress(발전하다)==가 맞고, ==in accordance with(~에 따라)==도 같이 챙겨요.",
+     "k": "이는 ==과학과 기술이== 윤리적 원칙에 따라 발전하도록 보장할 것이다.",
+     "m": "목표: 과학과 기술이 ==윤리 원칙에 맞게 발전하도록==."
+    },
+    {
+     "t": "g",
+     "w": "댓글 Eric Davis · 노트: 장애인(빨간 글씨)",
+     "s": "I can't believe that AI can {help the disabled} ___ again and use artificial arms that move according to their thoughts!",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "walks",
+       "ko": "단수 동사 walks(원형 walk: 걷다)",
+       "why": "help + 목적어 뒤에는 동사원형이나 to 동사원형이 와요. -s가 붙은 동사는 못 와요."
+      },
+      {
+       "t": "walk",
+       "ko": "동사원형 walk(걷다)",
+       "why": ""
+      },
+      {
+       "t": "walked",
+       "ko": "과거형·과거분사 walked(원형 walk: 걷다)",
+       "why": "help + 목적어 뒤에는 동사원형이 와야 해서 walked는 안 돼요."
+      }
+     ],
+     "a": 1,
+     "e": "==help + 목적어 + 동사원형==은 목적격 보어 자리에 -s형이나 과거형을 넣어 틀리게 내기 좋은 구조예요. AI가 장애인(the disabled)을 다시 '걷게' 돕는다는 뜻이니 ==동사원형 walk(걷다)==가 맞아요. the disabled는 '장애가 있는 사람들'이라는 복수 뜻이고, arms that move(움직이는 의수)도 arms가 복수라 move(움직이다)예요.",
+     "k": "AI가 장애인을 ==다시 걸을 수 있게== 돕고 생각에 따라 움직이는 의수를 사용하도록 도와줄 수 있다는 것이 믿기지 않는다!",
+     "m": "Eric: 찬성! 다시 걷고, ==생각대로 움직이는 의수==."
+    },
+    {
+     "t": "g",
+     "w": "댓글 Yumi Lee · 노트: sounds 동그라미",
+     "s": "Well, {the technology} ___, but I'm really worried about the privacy issues it might cause.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "sound amazing",
+       "ko": "동사원형 sound(~하게 들리다) + 형용사 amazing(놀라운)",
+       "why": "주어 the technology(그 기술)가 하나라 sounds처럼 -s가 붙어야 해요."
+      },
+      {
+       "t": "sounds amazingly",
+       "ko": "단수 동사 sounds(원형 sound: ~하게 들리다) + 부사 amazingly(놀랍게)",
+       "why": "sound(~하게 들리다) 뒤에는 부사가 아니라 형용사가 와야 해요."
+      },
+      {
+       "t": "sounds amazing",
+       "ko": "단수 동사 sounds(원형 sound: ~하게 들리다) + 형용사 amazing(놀라운)",
+       "why": ""
+      }
+     ],
+     "a": 2,
+     "e": "==감각동사 sound 뒤에 형용사==냐 부사냐, 그리고 주어 수 일치까지 한 번에 묻기 좋은 자리예요. 노트에도 sounds에 동그라미가 쳐 있었어요. 주어 the technology(그 기술)가 하나라 ==sounds(원형 sound: ~하게 들리다)==이고, 뒤에는 ==형용사 amazing(놀라운)==이 와야 해요.",
+     "k": "음, ==이 기술은 대단해 보이지만==, 나는 이로 인해 발생할 수 있는 프라이버시 문제가 정말 걱정된다.",
+     "m": "Yumi: 걱정! ==프라이버시== → 개인 정보 보호법을 엄격히 시행하자."
+    },
+    {
+     "t": "c",
+     "w": "윤리적 문제 정리",
+     "s": "ethical issues",
+     "q": "글쓴이가 걱정한 문제로 바르게 짝지은 것은?",
+     "o": [
+      {
+       "t": "정체성 혼란 · 프라이버시 · 사회적 불평등",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "전기 요금 · 환경 오염 · 일자리",
+       "ko": "",
+       "why": "전기 요금, 환경 오염, 일자리 이야기는 본문에 나오지 않아요."
+      },
+      {
+       "t": "의사 부족 · 약값 · 교통",
+       "ko": "",
+       "why": "의사 부족, 약값, 교통 이야기는 본문에 나오지 않아요."
+      }
+     ],
+     "a": 0,
+     "e": "윤리적 문제 단락이 정체성, 프라이버시, 불평등 순서로 정리되어 있어서 내용 일치나 순서 문제로 내기 좋은 자리예요. 인간이란 무엇인가(정체성), 해커가 개인 정보에 접근하는 위험(프라이버시), 비싼 비용으로 생기는 사회적 불평등이 차례로 나오니 =='정체성 혼란 · 프라이버시 · 사회적 불평등'==이 맞아요.",
+     "k": "또 다른 중요한 문제는 ==프라이버시==이다.",
+     "m": "==정체성 → 프라이버시 → 불평등==, 그리고 해결책은 신경 윤리."
+    }
+   ],
+   "wrap": [
+    "AI 임플란트 시대를 받아들이기(embrace) 전에 윤리 문제를 다뤄야 해요(address).",
+    "문제 1: 뇌는 정체성의 중심. 너무 기대면 '인간? AI?' 혼란.",
+    "문제 2: 프라이버시. 해커가 정보와 생각까지 조종할 수 있어요.",
+    "문제 3: 비싸서 불평등이 커져요. 살 수 있는 사람 ↔ 못 사는 사람.",
+    "해결: 신경 윤리, 사전 검토. 댓글은 찬성(Eric) · 걱정(Yumi) · 다음 글 예고(Andy)."
+   ]
+  },
+  {
+   "id": "m-21",
+   "sec": "mogo",
+   "group": "26년 10월",
+   "name": "21번",
+   "sub": "타이타닉호 갑판 의자 (함축 의미)",
+   "items": [
+    {
+     "t": "g",
+     "w": "1번째 문장 · 노트: belief 뒤 괄호",
+     "s": "there's a repeating theme — {the belief} ___ someday (a mysterious day in the future) things will miraculously change and they'll stumble into the perfect job or career.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "which",
+       "ko": "관계대명사 which(그것은, 그런데 그것은)",
+       "why": "which 뒤에는 무언가 빠진 문장이 와야 하는데, 뒤의 things will change ~(상황이 바뀔 것이다)는 빠진 것 없는 완전한 문장이라 안 돼요."
+      },
+      {
+       "t": "that",
+       "ko": "접속사 that(~라는)",
+       "why": ""
+      },
+      {
+       "t": "what",
+       "ko": "관계대명사 what(~하는 것)",
+       "why": "what은 앞에 꾸밀 명사가 없을 때 써요. 앞에 the belief(믿음)가 있고 뒤도 완전한 문장이라 안 돼요."
+      }
+     ],
+     "a": 1,
+     "e": "the belief(믿음) 바로 뒤에 괄호가 쳐져 있죠. '무슨 믿음인지' 뒤에서 풀어 주는 ==동격 that== 자리라서, which나 what으로 바꿔 내는 어법 문제로 나오기 딱 좋아요. 뒤의 things will change(상황이 바뀔 것이다)가 빠진 것 없는 완전한 문장이니 ==정답은 that==이에요.",
+     "k": "만족하지 못하는 직업인들 사이에는 되풀이해서 나타나는 주제가 있다. 그것은 언젠가 상황이 기적적으로 바뀌어 ==자신들이 우연히 완벽한 일자리나 경력을 마주칠 것이라는== 믿음이다.",
+     "m": "직장에 불만인 사람들의 믿음: ==언젠가 기적처럼 완벽한 직업이 나타날 거야==."
+    },
+    {
+     "t": "v",
+     "w": "1번째 문장 · 노트: 우연히 만나다",
+     "s": "they'll {stumble into} the perfect job or career.",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "search for",
+       "ko": "찾아다니다",
+       "why": "search for는 일부러 '찾아다니는' 거예요. 본문은 노력 없이 '어쩌다' 만나길 바라는 거라 반대 느낌이에요."
+      },
+      {
+       "t": "come across",
+       "ko": "우연히 마주치다",
+       "why": ""
+      },
+      {
+       "t": "give up",
+       "ko": "포기하다",
+       "why": "포기한다는 뜻이라 '완벽한 직업을 포기할 것'이 되어 본문 내용과 맞지 않아요."
+      },
+      {
+       "t": "apply for",
+       "ko": "지원하다",
+       "why": "지원한다는 건 직접 행동하는 거예요. 본문은 아무것도 안 하고 우연히 만나길 바라는 상황이에요."
+      }
+     ],
+     "a": 1,
+     "e": "==stumble into(우연히 마주치다)==는 ==come across(우연히 마주치다)==로 바꿔 묻는 유의어 문제로 나오기 좋은 표현이에요. '노력 없이 어쩌다'라는 글의 핵심 느낌이 이 말에 담겨 있어서 짚으셨어요. 걸려 넘어지듯 우연히 만나는 거라 come across가 정답이에요.",
+     "k": "자신들이 ==우연히== 완벽한 일자리나 경력을 마주칠 것이다",
+     "m": "노력 없이 =='어쩌다'== 완벽한 직업을 만나길 바라요."
+    },
+    {
+     "t": "v",
+     "w": "2번째 문장 · 노트: 거의 하지 않는다",
+     "s": "At the same time, they (typically) {do little} to meaningfully alter their current situation.",
+     "q": "밑줄 친 do little의 뜻은?",
+     "o": [
+      {
+       "t": "조금 한다",
+       "ko": "",
+       "why": "'조금 한다'는 a little일 때 뜻이에요. 여기는 a 없는 little이라 '거의 안 한다'예요."
+      },
+      {
+       "t": "거의 하지 않는다",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "많이 한다",
+       "ko": "",
+       "why": "little은 '적다'는 말이라 '많이 한다'는 정반대예요. 본문도 노력은 거의 안 한다고 말해요."
+      }
+     ],
+     "a": 1,
+     "e": "==do little to(~하려고 거의 하지 않는다)==는 a little(조금)과 헷갈리게 만들어 뜻을 묻기 좋은 자리예요. '기적은 바라면서 노력은 안 한다'는 글의 핵심도 이 말에 담겨 있어요. ==a가 없는 little은 '거의 없는'==이라서 '거의 하지 않는다'가 정답이에요. alter(바꾸다)도 같이 챙겨요.",
+     "k": "그러면서도 그들은 (대체로) 자신의 현재 상황을 의미 있게 바꾸기 위해 ==하는 일이 거의 없다==.",
+     "m": "기적은 바라면서 정작 바꾸려는 ==노력은 거의 안 해요==."
+    },
+    {
+     "t": "c",
+     "w": "Note 예문 · did little to",
+     "s": "The new policy {did little to reduce} traffic congestion in the city.",
+     "q": "이 문장과 같은 뜻은?",
+     "o": [
+      {
+       "t": "The new policy hardly reduced traffic congestion in the city.",
+       "ko": "새 정책은 도시의 교통 혼잡을 거의 줄이지 못했다.",
+       "why": ""
+      },
+      {
+       "t": "The new policy greatly reduced traffic congestion in the city.",
+       "ko": "새 정책은 도시의 교통 혼잡을 크게 줄였다.",
+       "why": "greatly(크게) 줄였다는 건 정반대예요. did little to는 거의 효과가 없었다는 뜻이에요."
+      },
+      {
+       "t": "The new policy reduced traffic congestion a little.",
+       "ko": "새 정책은 교통 혼잡을 조금 줄였다.",
+       "why": "a little(조금) 줄였다는 건 '조금은 효과가 있었다'는 뜻이라 달라요. did little은 '거의 못 했다' 쪽이에요."
+      }
+     ],
+     "a": 0,
+     "e": "선생님이 Note에 did little to(~하는 데 거의 도움이 안 됐다) 문장을 두 개나 넣으신 건, 본문 do little to alter(바꾸려고 거의 하지 않다)를 다른 문장으로 바꿔 묻기 좋기 때문이에요. did little to reduce는 ==hardly reduced(거의 줄이지 못했다)==와 같은 뜻이라 hardly reduced 문장이 정답이에요. did(원형 do: 하다), reduced(원형 reduce: 줄이다).",
+     "k": "새 정책은 도시의 교통 혼잡을 ==줄이는 데 거의 도움이 되지 않았다==.",
+     "m": "본문 ==do little to alter(바꾸려고 거의 하지 않다)==와 같은 꼴, 시험에 나오기 좋은 표현이에요."
+    },
+    {
+     "t": "g",
+     "w": "Note 예문 · 과거완료 수동",
+     "s": "The government's belated reforms did little to restore {public trust}, which ___ eroded by years of corruption scandals.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "has",
+       "ko": "현재완료 has(원형 have: ~해 왔다)",
+       "why": "has eroded(원형 erode: 약해지다)는 현재완료라서, 개혁이 별 도움이 안 된 과거(did little)보다 먼저 일어난 일을 나타내지 못해요. 뒤에 by years of corruption scandals(수년간의 부패 스캔들에 의해)도 있어서 '깎여 나간' 과거완료 수동 had been eroded가 맞아요."
+      },
+      {
+       "t": "had been",
+       "ko": "과거완료 수동 had been(원형 be: ~되다) + eroded(침식된)",
+       "why": ""
+      },
+      {
+       "t": "was being",
+       "ko": "과거진행 수동 was being(원형 be) + eroded(깎여 나가고 있었다)",
+       "why": "was being eroded는 그때 '깎여 나가는 중이었다'는 뜻이에요. 여기는 수년간의 스캔들로 이미 무너져 있던 상태라 개혁보다 앞선 과거완료 had been이 맞아요."
+      }
+     ],
+     "a": 1,
+     "e": "선생님 Note에 =='과거완료 수동'==이라고 적혀 있죠. 관계사 which 뒤 동사 자리에서 시제와 수동을 함께 묻기 좋은 문장이에요. 신뢰(public trust)는 부패 스캔들에 '깎여 나간' 쪽이라 수동이고, 뒤늦은 개혁이 신뢰를 거의 회복하지 못한 것(did little, did 원형 do: 하다)보다 먼저 일어난 일이라 ==had been eroded==가 정답이에요. eroded(원형 erode: 침식시키다, 서서히 약화시키다).",
+     "k": "정부의 뒤늦은 개혁은 ==수년간의 부패 스캔들로 무너진== 대중의 신뢰를 회복하는 데 거의 도움이 되지 않았다.",
+     "m": "Note 단어 세트: ==belated 뒤늦은== · reform 개혁 · ==erode 침식시키다==."
+    },
+    {
+     "t": "v",
+     "w": "Note 예문 · 노트: 뒤늦은",
+     "s": "The government's {belated} reforms",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "timely",
+       "ko": "때맞춘",
+       "why": "timely는 '때맞춘'이라 belated(뒤늦은)와 정반대예요."
+      },
+      {
+       "t": "late",
+       "ko": "늦은",
+       "why": ""
+      },
+      {
+       "t": "careful",
+       "ko": "신중한",
+       "why": "신중한 개혁이라는 뜻이 되는데, belated는 '시기가 늦은' 거라 뜻이 달라요."
+      },
+      {
+       "t": "generous",
+       "ko": "너그러운",
+       "why": "너그러운 개혁은 belated(뒤늦은)와 상관없는 뜻이에요."
+      }
+     ],
+     "a": 1,
+     "e": "belated(뒤늦은)는 고1에게 낯선 단어라 ==late(늦은)==로 바꿔 묻는 유의어 문제로 나오기 좋아요. 개혁이 너무 늦게 나와서 신뢰 회복에 거의 도움이 안 됐다는 흐름이니 late가 정답이에요. 반대말 ==timely(때맞춘)==와 짝지어 기억해요.",
+     "k": "정부의 ==뒤늦은== 개혁",
+     "m": "==뒤늦은(belated)== 개혁이라 신뢰 회복엔 거의 소용없음. did(원형 do: 하다) little = 거의 도움이 안 됐다."
+    },
+    {
+     "t": "g",
+     "w": "5번째 문장 · 노트: make 동그라미",
+     "s": "{Efforts like this make professionals} ___ like they are doing something …",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "to feel",
+       "ko": "to부정사(느끼는 것, 느끼려고)",
+       "why": "make는 사역동사라 목적어 뒤에 to 없이 동사원형이 와요. to feel은 안 돼요."
+      },
+      {
+       "t": "feel",
+       "ko": "동사원형 feel(느끼다)",
+       "why": ""
+      },
+      {
+       "t": "feeling",
+       "ko": "-ing형 feeling(느끼는)",
+       "why": "make + 목적어 뒤에는 -ing형이 아니라 동사원형이 와야 해요."
+      }
+     ],
+     "a": 1,
+     "e": "노트에 make에 동그라미가 있죠. ==사역동사 make== 뒤 목적격 보어를 to feel이나 feeling으로 바꿔 내기 딱 좋은 자리예요. ==make + 목적어 + 동사원형(~가 …하게 만들다)==이라 feel이 정답이에요. 주어 Efforts(노력들)가 복수라 동사도 make예요.",
+     "k": "이와 같은 노력은 직업인들로 하여금 자신들이 무언가를 하고 있는 것처럼 ==느끼게 한다==.",
+     "m": "비슷한 직함의 일자리만 찾는 건, 뭔가 하는 =='기분'만== 줘요."
+    },
+    {
+     "t": "v",
+     "w": "5번째 문장 · 환상이 깨진",
+     "s": "they're just setting themselves up to take a new role and quickly become just as {disenchanted} as they were before.",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "delighted",
+       "ko": "기뻐하는",
+       "why": "기뻐한다는 뜻이라 반대예요. 본문은 새 직장에서도 금세 다시 실망한다는 내용이에요."
+      },
+      {
+       "t": "disappointed",
+       "ko": "실망한",
+       "why": ""
+      },
+      {
+       "t": "excited",
+       "ko": "신이 난",
+       "why": "신이 난다는 뜻이라 반대예요. as they were before(전처럼) 다시 실망하는 반복을 말하고 있어요."
+      },
+      {
+       "t": "informed",
+       "ko": "잘 아는",
+       "why": "잘 안다는 뜻은 '환상이 깨진'과 상관없어요."
+      }
+     ],
+     "a": 1,
+     "e": "==disenchanted(환상이 깨진)==는 어려운 단어라 ==disappointed(실망한)==로 바꿔 묻거나, 반대말 delighted(기뻐하는)를 넣어 어휘 문제로 내기 좋아요. as they were before(전처럼)와 함께, 새 직장에서도 같은 실망이 반복된다는 게 이 글의 흐름이에요. 그래서 disappointed가 정답이에요.",
+     "k": "실제로 그들은 단지 새로운 일자리를 구한 뒤 이전에 그랬던 것처럼 빠르게 ==환상이 깨질== 상황에 스스로를 처하게 할 뿐이다.",
+     "m": "새 직장 → ==금세 또 실망==. 같은 일이 반복돼요."
+    },
+    {
+     "t": "c",
+     "w": "6번째 문장 · 노트: 쓸데없는 일",
+     "s": "It's like {rearranging deck chairs on the Titanic}.",
+     "q": "밑줄 친 부분이 뜻하는 것은?",
+     "o": [
+      {
+       "t": "making useless actions that fail to improve an unsatisfactory career",
+       "ko": "불만족스러운 경력을 개선하지 못하는 쓸모없는 행동을 하기",
+       "why": ""
+      },
+      {
+       "t": "pushing oneself to stay competent in a changing job market",
+       "ko": "변화하는 취업 시장에서 경쟁력을 유지하려고 스스로를 다그치기",
+       "why": "경쟁력을 위해 스스로를 다그친다는 내용은 본문에 없어요. 본문은 비슷한 직장으로 옮기기만 하는 헛수고를 말해요."
+      },
+      {
+       "t": "following others instead of pursuing the career they want",
+       "ko": "원하는 경력을 추구하는 대신 남을 따라가기",
+       "why": "남을 따라간다는 내용은 본문에 없어요. 문제는 방식은 그대로 둔 채 자리만 바꾸는 거예요."
+      }
+     ],
+     "a": 0,
+     "e": "가라앉는 배에서 의자만 옮겨 봐야 소용없죠. 이 비유가 무슨 뜻인지 묻는 게 바로 21번 함축 의미 문제라 선생님이 '쓸데없는 일'이라고 적어 두셨어요. 비슷한 직장으로 자리만 옮기는 건 겉만 바꾸는 헛수고라서, 실제 시험 정답도 이 =='불만족스러운 경력을 개선하지 못하는 쓸모없는 행동'== 보기였어요.",
+     "k": "이는 ==타이타닉호의 갑판 의자들을 재배치하는 것==과 같다.",
+     "m": "타이타닉 의자 재배치 = ==겉만 바꾸는 헛수고==."
+    },
+    {
+     "t": "g",
+     "w": "7번째 문장 · 노트: 해야 한다",
+     "s": "{You've got to} completely switch up your approach.",
+     "q": "You've got to와 같은 뜻은?",
+     "o": [
+      {
+       "t": "You have to",
+       "ko": "~해야 한다",
+       "why": ""
+      },
+      {
+       "t": "You used to",
+       "ko": "~하곤 했다",
+       "why": "used to는 '(예전에) ~하곤 했다'라서 지금 해야 할 일을 말하는 이 문장과 맞지 않아요."
+      },
+      {
+       "t": "You are going to",
+       "ko": "~할 것이다",
+       "why": "are going to는 '~할 것이다'라는 예정이에요. have got to에는 '꼭 해야 한다'는 의무의 뜻이 있어요."
+      }
+     ],
+     "a": 0,
+     "e": "==have got to(~해야 한다)==는 ==have to와 같은 뜻==인데, got(원형 get: 얻다) 때문에 '얻었다'로 잘못 읽기 쉬워서 짚으신 자리예요. 글쓴이의 결론(접근 방식을 완전히 바꿔라)이 담긴 문장이라 내용 문제에도 중요해요. 그래서 You have to가 정답이에요. switch up(바꾸다), approach(접근 방식).",
+     "k": "여러분은 자신의 접근 방식을 완전히 ==바꾸어야 한다==.",
+     "m": "결론: ==접근 방식 자체를 완전히 바꿔야== 해요."
+    },
+    {
+     "t": "g",
+     "w": "8번째 문장 · 노트: keep 동그라미",
+     "s": "If you {keep} ___ the same game, you'll win the same prizes.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "to play",
+       "ko": "to부정사(하는 것, 하려고)",
+       "why": "keep은 뒤에 -ing형만 와요. to부정사는 쓸 수 없어요."
+      },
+      {
+       "t": "playing",
+       "ko": "-ing형 playing(하는 것, 하면서)",
+       "why": ""
+      },
+      {
+       "t": "play",
+       "ko": "동사원형 play(하다)",
+       "why": "keep 뒤에 동사원형은 올 수 없어요. keep -ing(계속 ~하다)예요."
+      }
+     ],
+     "a": 1,
+     "e": "노트에 keep에 동그라미가 있죠. keep 뒤에 to play를 넣어 틀리게 만드는 어법 문제로 나오기 좋은 자리예요. ==keep -ing(계속 ~하다)==라서 playing이 정답이고, 같은 게임을 계속하면 같은 결과만 얻는다는 글의 마무리 문장이에요.",
+     "k": "여러분이 ==계속해서 같은 게임을 한다면==, 똑같은 보상을 얻게 될 것이다.",
+     "m": "==같은 게임 → 같은 결과==. 그러니 방식을 바꿔야죠."
+    }
+   ],
+   "wrap": [
+    "불만인 사람들의 믿음: 언젠가 기적처럼 좋은 직업이 생길 거예요.",
+    "실제 행동: 비슷한 직함의 일자리만 찾아서 옮겨요.",
+    "결과: 곧 전처럼 다시 실망해요.",
+    "결론: 접근 방식을 완전히 바꿔야 해요."
+   ]
+  },
+  {
+   "id": "m-24",
+   "sec": "mogo",
+   "group": "26년 10월",
+   "name": "24번",
+   "sub": "환상은 행동을 막는다 (제목)",
+   "items": [
+    {
+     "t": "g",
+     "w": "1번째 문장 · 노트: 주어 대괄호, is 동그라미",
+     "s": "Unfortunately, sometimes {the idea} of a goal ___ disconnected from the daily reality of what it will take to achieve it.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "are",
+       "ko": "복수 동사 are(원형 be: ~이다)",
+       "why": "of a goal(목표에 대한)의 goal은 꾸며 주는 말 속에 있어요. 진짜 주어는 the idea(생각) 하나라 복수 동사 are는 안 돼요."
+      },
+      {
+       "t": "is",
+       "ko": "단수 동사 is(원형 be: ~이다)",
+       "why": ""
+      }
+     ],
+     "a": 1,
+     "e": "주어 the idea of a goal(목표에 대한 생각)이 길어서, 동사 바로 앞 goal에 속게 만들어 is/are를 바꿔 내기 좋은 자리예요. 노트에도 주어에 대괄호, is에 동그라미가 있어요. ==진짜 주어는 the idea 하나라 is==가 정답이에요.",
+     "k": "안타깝게도 ==목표에 대한 상상은== 때때로 그것을 달성하기 위해 요구되는 것의 일상적인 현실로부터 동떨어져 있다.",
+     "m": "목표라는 생각과 매일의 현실이 ==따로 놀아요==."
+    },
+    {
+     "t": "v",
+     "w": "1번째 문장 · 노트: take 동그라미",
+     "s": "the daily reality of what it will {take} to achieve it",
+     "q": "여기서 take의 뜻은?",
+     "o": [
+      {
+       "t": "가져가다",
+       "ko": "",
+       "why": "'가져가다'로 읽으면 '목표를 이루기 위해 가져갈 것'이 되어 어색해요. it takes ~ to(…하는 데 ~가 필요하다)의 take예요."
+      },
+      {
+       "t": "(노력·시간이) 필요하다, 들다",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "받아들이다",
+       "ko": "",
+       "why": "'받아들이다'로 읽으면 뜻이 통하지 않아요. 목표를 이루는 데 '필요한 것'이라는 뜻이에요."
+      }
+     ],
+     "a": 1,
+     "e": "take는 뜻이 많아서 '여기서 take의 뜻은?'처럼 다의어 문제로 내기 좋아요. what it will take to achieve it은 ==it takes ~ to 동사원형(…하는 데 ~가 필요하다)== 모양이라 '그것(목표)을 이루는 데 필요한 것'이에요. 그래서 '필요하다, 들다'가 정답이에요. takes(원형 take: 필요하다).",
+     "k": "그것을 ==달성하기 위해 요구되는 것==의 일상적인 현실",
+     "m": "목표를 이루려면 매일 =='무엇이 필요한지'==를 놓쳐요."
+    },
+    {
+     "t": "g",
+     "w": "2번째 문장 · 노트: out of mind 괄호",
+     "s": "We fall in love with the idea of a goal, {pushing out of mind} how different our day-to-day will need to be for us to make it happen.",
+     "q": "push(밀어내다)의 목적어는?",
+     "o": [
+      {
+       "t": "mind",
+       "ko": "mind(마음, 생각)",
+       "why": "mind는 out of mind(생각에서) 안에 들어 있는 말이라 push의 목적어가 아니에요."
+      },
+      {
+       "t": "how different our day-to-day will need to be",
+       "ko": "how different our day-to-day will need to be(우리의 하루하루가 얼마나 달라져야 할지)",
+       "why": ""
+      },
+      {
+       "t": "us",
+       "ko": "us(우리)",
+       "why": "us는 for us to make it happen(우리가 그것을 실현하기 위해)에 속한 말이라 push의 목적어가 아니에요."
+      }
+     ],
+     "a": 1,
+     "e": "==push A out of mind(A를 생각에서 밀어내다)==에서 목적어 A가 길어 out of mind가 앞으로 나온 문장이라, 목적어를 찾게 하거나 순서를 바꿔 쓰게 하는 서술형으로 나오기 좋아요. 무엇을 밀어내는지 보면 ==how different our day-to-day will need to be(하루하루가 얼마나 달라져야 할지)==예요. 4과 install in our brains software(우리 뇌에 소프트웨어를 설치하다)와 같은 모양이에요. pushing(원형 push: 밀어내다).",
+     "k": "우리는 목표에 대한 상상과 사랑에 빠져, 그것을 실현하기 위해서 ==우리의 하루하루가 얼마나 달라져야 할지를== 생각에서 밀어낸다.",
+     "m": "목표에 반해서, 하루하루가 얼마나 달라져야 하는지는 ==생각에서 밀어내요==."
+    },
+    {
+     "t": "c",
+     "w": "Note 예문 · push out of mind",
+     "s": "She tried to {push the painful memories out of her mind} and focus on the exam ahead.",
+     "q": "밑줄 친 부분과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "고통스러운 기억을 떨쳐 내려 하다",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "고통스러운 기억을 마음에 새기다",
+       "ko": "",
+       "why": "마음에 새기는 건 정반대예요. push out은 '밀어낸다'예요."
+      },
+      {
+       "t": "고통스러운 기억을 글로 쓰다",
+       "ko": "",
+       "why": "글로 쓴다는 뜻은 없어요. push A out of one's mind는 A를 잊으려 하는 거예요."
+      }
+     ],
+     "a": 0,
+     "e": "선생님이 이 Note 문장을 넣으신 건 ==push A out of one's mind(A를 마음에서 밀어내다)==의 기본 순서를 보여 주려는 거예요. 본문은 목적어가 길어 순서가 바뀐 모양이라, 둘을 비교해 어순 문제로 내기 좋아요. 기억을 마음에서 밀어내는 거니 '떨쳐 내려 하다'가 정답이에요. tried(원형 try: 애쓰다).",
+     "k": "그녀는 ==고통스러운 기억을 마음에서 밀어내고== 앞에 놓인 시험에 집중하려고 애썼다.",
+     "m": "Note는 기본 순서, 본문은 ==목적어가 길어 바뀐 순서==. 둘을 짝지어 기억해요."
+    },
+    {
+     "t": "g",
+     "w": "3번째 문장 · 노트: lead 동그라미",
+     "s": "positive fantasies about our future can {lead us} ___ put less effort into our goals.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "(아무것도 안 넣음)",
+       "ko": "아무것도 넣지 않음(바로 동사원형)",
+       "why": "lead는 사역동사가 아니라서 목적어 뒤에 바로 동사원형이 올 수 없어요. lead + 목적어 + to 동사원형이에요."
+      },
+      {
+       "t": "to",
+       "ko": "to부정사의 to(~하게)",
+       "why": ""
+      },
+      {
+       "t": "for",
+       "ko": "전치사 for(~을 위해)",
+       "why": "for 뒤에는 명사가 와요. 뒤에 put(두다, 동사원형)이 있으니 to가 맞아요."
+      }
+     ],
+     "a": 1,
+     "e": "lead us 뒤를 비워 두거나 사역동사처럼 동사원형을 바로 쓰게 해서 틀리게 내기 좋은 자리예요. ==lead + 목적어 + to 동사원형(~가 …하게 이끌다)==이라 to가 정답이에요. 내용으로는 긍정적 환상이 노력을 '덜(less)' 들이게 만든다는 게 글의 핵심이라 노트에 less 화살표가 있어요.",
+     "k": "실제로, 연구는 심지어 우리의 환상이 우리에게 거짓되고 때 이른 성취감을 주기 때문에 우리의 미래에 대한 긍정적 환상이 ==우리가 우리의 목표에 노력을 '덜' 기울이게== 할 수 있다는 것을 시사한다.",
+     "m": "긍정적 환상 → 오히려 ==노력이 줄어요(less)==."
+    },
+    {
+     "t": "v",
+     "w": "3번째 문장 · 노트: 잘못된, 미성숙한",
+     "s": "our fantasies provide us with a false and {premature} sense of accomplishment.",
+     "q": "밑줄 친 premature의 뜻은?",
+     "o": [
+      {
+       "t": "성숙한",
+       "ko": "",
+       "why": "mature가 '성숙한'이고, 앞에 pre(미리)가 붙어 '너무 이른'이 됐어요. 아직 이루지 않았는데 이룬 기분이라는 문맥이에요."
+      },
+      {
+       "t": "너무 이른, 섣부른",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "늦은",
+       "ko": "",
+       "why": "'늦은'은 반대예요. 목표를 이루기 전에 '미리' 느끼는 성취감이에요."
+      }
+     ],
+     "a": 1,
+     "e": "==premature(너무 이른)==를 ==mature(성숙한)==와 헷갈리게 만드는 어휘 문제로 나오기 좋아요. 노트엔 '잘못된, 미성숙한'이라 적혀 있지만, 이 문장에선 아직 이루지도 않았는데 '벌써' 이룬 것 같은 섣부른 성취감이라는 뜻이에요. 그래서 '너무 이른, 섣부른'이 정답이에요. provide A with B(A에게 B를 주다)도 같이 챙겨요.",
+     "k": "우리의 환상이 우리에게 거짓되고 ==때 이른== 성취감을 주기 때문에",
+     "m": "상상만으로 '벌써 이룬 듯한' ==가짜 성취감==이 생겨요."
+    },
+    {
+     "t": "v",
+     "w": "5번째 문장 · 노트: 얼버무리다",
+     "s": "In the process, we {gloss over} the intricacies and challenges of integrating a complex new behavior into our life.",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "examine",
+       "ko": "자세히 살피다",
+       "why": "자세히 살핀다는 건 정반대예요. 우리는 어려움을 대충 넘긴다고 했어요."
+      },
+      {
+       "t": "overlook",
+       "ko": "간과하다",
+       "why": ""
+      },
+      {
+       "t": "solve",
+       "ko": "해결하다",
+       "why": "해결한다면 문제가 없겠죠. 본문은 어려움을 외면하고 넘어간다는 내용이에요."
+      },
+      {
+       "t": "exaggerate",
+       "ko": "과장하다",
+       "why": "과장하다는 어려움을 부풀리는 거라 반대 방향이에요. 본문은 어려움을 작게 보고 넘겨요."
+      }
+     ],
+     "a": 1,
+     "e": "==gloss over(얼버무리고 넘어가다)==는 낯선 숙어라 ==overlook(간과하다)==으로 바꿔 묻기 좋아요. 목표를 낭만화하면서 intricacies(복잡함)와 challenges(어려움)를 대충 넘긴다는 흐름이니 overlook이 정답이에요.",
+     "k": "그 과정에서 우리는 복잡한 새로운 행동을 우리의 삶에 통합하는 것의 복잡함과 어려움에 대해 ==얼버무리고 넘어간다==.",
+     "m": "목표를 낭만화하면서 어려운 부분은 ==대충 넘겨요==."
+    },
+    {
+     "t": "g",
+     "w": "6번째 문장 · 노트: 괄호 = 주어",
+     "s": "As one study nicely summed it up, {fantasizing about a positive future} \"___ a person to mentally enjoy the desired future in the here and now.\"",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "seduce",
+       "ko": "동사원형 seduce(현혹하다)",
+       "why": "주어 fantasizing ~ future는 동명사 덩어리라 하나로 봐요. 단수 주어라 seduce가 아니라 seduces예요."
+      },
+      {
+       "t": "seduces",
+       "ko": "단수 동사 seduces(원형 seduce: 현혹하다)",
+       "why": ""
+      },
+      {
+       "t": "seducing",
+       "ko": "-ing형 seducing(현혹하는)",
+       "why": "문장에 진짜 동사가 있어야 하는데 -ing형 seducing은 동사 자리에 올 수 없어요."
+      }
+     ],
+     "a": 1,
+     "e": "노트에 '괄호 = 주어'라고 적혀 있죠. fantasizing about a positive future(긍정적인 미래에 대해 환상을 품는 것)라는 동명사 주어 뒤 동사 자리라, 수 일치를 묻거나 seducing으로 바꿔 내기 좋아요. ==동명사 덩어리 주어는 단수==라 ==seduces(원형 seduce: 현혹하다)==가 정답이에요.",
+     "k": "한 연구가 이를 잘 요약했듯이, ==긍정적인 미래에 대하여 환상을 품는 것은== \"사람을 현혹시켜 원하는 미래를 지금 여기에서 머릿속으로 즐기게 한다.\"",
+     "m": "환상은 미래를 =='지금 머릿속에서'== 미리 즐기게 해요."
+    },
+    {
+     "t": "c",
+     "w": "6번째 문장 · 노트: 행동의 필요성",
+     "s": "because we don't reflect on why our fantasy is not yet our future, \"{a necessity to act is not induced}.\"",
+     "q": "밑줄 친 부분의 뜻은?",
+     "o": [
+      {
+       "t": "행동할 필요를 느끼지 못한다",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "행동할 필요를 강하게 느낀다",
+       "ko": "",
+       "why": "끝의 is not induced(유발되지 않는다)의 not을 놓치면 이렇게 반대로 읽어요."
+      },
+      {
+       "t": "행동하는 것이 금지된다",
+       "ko": "",
+       "why": "금지된다는 뜻은 없어요. 필요가 '생기지 않는다'는 거예요."
+      }
+     ],
+     "a": 0,
+     "e": "==a necessity to act is not induced(행동해야 할 필요가 유발되지 않는다)==는 ==끝의 not 하나로 뜻이 뒤집혀서==, 내용 일치나 해석 문제로 나오기 좋아요. '환상이 행동을 막는다'는 24번의 결론도 이 문장이에요. 그래서 '행동할 필요를 느끼지 못한다'가 정답이에요. induced(원형 induce: 유발하다), reflect on(곰곰이 돌아보다)도 같이 챙겨요.",
+     "k": "우리가 우리의 환상이 아직 우리의 미래가 아닌 '이유'에 대해 돌아보지 않기 때문에 \"==행동해야 할 필요가 유발되지 않는다==.\"",
+     "m": "결과: 행동해야 한다는 ==필요를 못 느껴요==."
+    },
+    {
+     "t": "g",
+     "w": "Note 예문 · 동격 that, 진짜 동사",
+     "s": "Even as he celebrated his promotion with friends, {the fear} ___ he might not live up to everyone's expectations stayed at the back of his mind throughout the night.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "which",
+       "ko": "관계대명사 which(그것은, 그런데 그것은)",
+       "why": "which 뒤에는 빠진 것이 있어야 하는데, he might not live up to ~(그가 ~에 부응하지 못할지도 모른다)는 완전한 문장이에요."
+      },
+      {
+       "t": "that",
+       "ko": "접속사 that(~라는)",
+       "why": ""
+      },
+      {
+       "t": "what",
+       "ko": "관계대명사 what(~하는 것)",
+       "why": "what은 앞에 명사가 없을 때 써요. 앞에 the fear(두려움)가 있어서 안 돼요."
+      }
+     ],
+     "a": 1,
+     "e": "21번 the belief that(~라는 믿음)처럼 '무슨 두려움인지' 풀어 주는 ==동격 that== 자리예요. 주어가 길어서 진짜 동사 ==stayed(원형 stay: 머무르다)==를 찾게 하는 문제로도 내기 좋아요. 뒤가 완전한 문장이라 that이 정답이에요.",
+     "k": "친구들과 승진을 축하하는 동안에도, ==모든 사람의 기대에 부응하지 못할지도 모른다는== 두려움이 밤새 그의 마음 한구석에 남아 있었다.",
+     "m": "the belief that(~라는 믿음, 21번), the fear that(~라는 두려움, 24번), a risk that(~라는 위험, 4과). ==동격 that 시리즈==!"
+    },
+    {
+     "t": "v",
+     "w": "Note 예문 · 노트: 기대에 부응하다",
+     "s": "the fear that he might not {live up to} everyone's expectations",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "meet",
+       "ko": "(기대를) 충족하다",
+       "why": ""
+      },
+      {
+       "t": "ignore",
+       "ko": "무시하다",
+       "why": "기대를 무시한다는 건 live up to(부응하다)와 정반대예요."
+      },
+      {
+       "t": "lower",
+       "ko": "낮추다",
+       "why": "기대를 낮춘다는 뜻은 '부응하다'와 달라요."
+      },
+      {
+       "t": "forget",
+       "ko": "잊다",
+       "why": "잊는다는 뜻은 '기대에 맞춘다'와 상관없어요."
+      }
+     ],
+     "a": 0,
+     "e": "==live up to(~에 부응하다)==는 ==meet expectations(기대를 충족하다)==로 바꿔 묻는 유의어 문제로 나오기 좋은 표현이에요. 승진했지만 모두의 기대에 맞추지 못할까 두려워하는 문장이라 meet가 정답이에요. at the back of his mind(마음 한구석에)도 같이 챙겨요.",
+     "k": "모든 사람의 ==기대에 부응하지 못할지도== 모른다는 두려움",
+     "m": "Note 표현: ==live up to(~에 부응하다)== · at the back of one's mind(마음 한구석에) · Even as(~하는 동안에도)."
+    },
+    {
+     "t": "c",
+     "w": "제목 고르기",
+     "s": "다음 글의 제목으로 가장 적절한 것은?",
+     "q": "24번 제목은?",
+     "o": [
+      {
+       "t": "Fantasizing About the Future: A Barrier to Action",
+       "ko": "미래에 대한 환상: 행동의 걸림돌",
+       "why": ""
+      },
+      {
+       "t": "Love Yourself to Better Your Future!",
+       "ko": "더 나은 미래를 위해 자신을 사랑하라!",
+       "why": "자신을 사랑하라는 내용은 본문에 없어요. fall in love(사랑에 빠지다)라는 말만 흉내 낸 함정이에요."
+      },
+      {
+       "t": "How Can We Plan Good Daily Routines?",
+       "ko": "어떻게 좋은 일과를 계획할 수 있을까?",
+       "why": "daily(매일의)라는 본문 단어를 흉내 낸 함정이에요. 일과를 짜는 방법은 다루지 않아요."
+      }
+     ],
+     "a": 0,
+     "e": "24번은 제목 문제였고 실제 시험 정답은 ④번 ==Fantasizing About the Future: A Barrier to Action(미래에 대한 환상: 행동의 걸림돌)==이었어요. 긍정적 환상이 가짜 성취감을 줘서 행동할 필요를 못 느끼게 한다는 게 글 전체 내용이라 이 제목이 딱 맞아요. 본문 단어를 흉내 낸 보기에 속지 않는 게 중요해요.",
+     "k": "미래에 대한 환상: ==행동의 걸림돌==",
+     "m": "한 줄 요약: 목표를 낭만화하는 긍정적 상상은 ==오히려 노력을 줄인다==."
+    }
+   ],
+   "wrap": [
+    "문제 제기: 목표의 생각이 일상의 현실과 동떨어져 있어요.",
+    "원인: 목표라는 생각에 빠져 어려움을 외면해요.",
+    "연구 결과: 긍정적 환상이 가짜 성취감을 줘요.",
+    "결과: 행동해야 한다는 필요를 못 느끼고 노력이 줄어요."
+   ]
+  },
+  {
+   "id": "m-29",
+   "sec": "mogo",
+   "group": "26년 10월",
+   "name": "29번",
+   "sub": "히드라와 해파리 (어법)",
+   "items": [
+    {
+     "t": "v",
+     "w": "1번째 문장 · 노트: 불멸의",
+     "s": "they are often called biologically {immortal}.",
+     "q": "밑줄 친 말과 뜻이 반대인 것은?",
+     "o": [
+      {
+       "t": "eternal",
+       "ko": "영원한",
+       "why": "eternal(영원한)은 immortal과 비슷한 말이에요. 반대말을 묻고 있어요."
+      },
+      {
+       "t": "mortal",
+       "ko": "언젠가 죽는",
+       "why": ""
+      },
+      {
+       "t": "immune",
+       "ko": "면역이 있는",
+       "why": "immune(면역이 있는)은 im-으로 시작해서 헷갈리지만, '죽지 않는'의 반대말이 아니에요."
+      }
+     ],
+     "a": 1,
+     "e": "==immortal(죽지 않는)==은 앞에 im-이 붙어 반대가 된 말이라, 반대말 ==mortal(언젠가 죽는)==을 묻는 어휘 문제로 내기 좋아요. 히드라와 해파리가 '불멸'이라 불린다는 게 글의 출발점이라 짚으셨어요. 정답은 mortal이고, 노트의 mortality rate(사망률)도 같은 집안 말이에요.",
+     "k": "히드라와 불멸의 해파리는 명백한 노화의 징후들을 보이지 않기 때문에, 그것들은 흔히 생물학적으로 ==죽지 않는다고== 여겨진다.",
+     "m": "이 글의 주인공 둘, 히드라와 해파리 = ==immortal(불멸의)==이라 불리는 동물."
+    },
+    {
+     "t": "g",
+     "w": "3번째 문장 · 노트: 부정어구 도치",
+     "s": "{Nor} ___ even mean that they cannot die of biological causes.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "it does",
+       "ko": "평서문 순서 it does(그것은 ~한다)",
+       "why": "Nor가 맨 앞에 오면 순서가 뒤집혀야 해요. it does는 뒤집히지 않은 순서라 안 돼요."
+      },
+      {
+       "t": "does it",
+       "ko": "도치된 순서 does it(그것이 ~하다)",
+       "why": ""
+      },
+      {
+       "t": "it is",
+       "ko": "it is(그것은 ~이다)",
+       "why": "뒤에 mean(의미하다)이라는 일반동사 원형이 있으니 be동사 is가 아니라 does가 필요해요. 순서도 뒤집혀야 해요."
+      }
+     ],
+     "a": 1,
+     "e": "노트에 =='부정어구 도치'==라고 적혀 있죠. Nor(~도 아니다)가 맨 앞에 나와 주어·동사 순서가 뒤집힌 문장이라, 어법 문제나 도치 서술형으로 나오기 딱 좋아요. ==Nor + 조동사 does(원형 do) + 주어 it + 동사원형 mean== 순서라 does it이 정답이에요.",
+     "k": "심지어 그것들이 생물학적 원인으로 ==죽을 '수 없다'는 것을 의미하는 것도 아니다==.",
+     "m": "불멸이라 불려도 ==안 죽는다는 뜻은 아니에요==. 나이 들어도 죽을 확률이 안 늘 뿐."
+    },
+    {
+     "t": "g",
+     "w": "6번째 문장 · 실제 시험 정답 ②, 노트: makes",
+     "s": "But {their property} of being able to regenerate entire body parts, or even a whole organism, ___ them more similar to trees than to us.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "making",
+       "ko": "-ing형 making(만드는)",
+       "why": "문장에 진짜 동사가 없으니 -ing형 making으로는 문장이 완성되지 않아요. 실제 시험에서 틀린 곳이 바로 이 making이었어요."
+      },
+      {
+       "t": "makes",
+       "ko": "단수 동사 makes(원형 make: 만들다)",
+       "why": ""
+      },
+      {
+       "t": "make",
+       "ko": "복수 동사 make(만들다)",
+       "why": "주어는 their property(특성) 하나라 복수 동사 make는 안 돼요. body parts(신체 부위)나 organism(생물체)에 속지 마세요."
+      }
+     ],
+     "a": 1,
+     "e": "29번 어법 문제의 실제 정답 ②번 자리예요. 시험지엔 making으로 되어 있었고 makes로 고쳐야 했어요. 주어 their property(특성)가 길게 꾸밈을 받아 문장에 ==진짜 동사가 없다==는 걸 놓치기 쉬워서 짚으셨어요. 주어가 단수라 ==makes(원형 make: 만들다)==가 정답이에요.",
+     "k": "하지만 전체 신체 부위나 심지어는 한 생물체 전체를 재생할 수 있는 ==그것들의 특성은== 그것들을 우리보다는 나무들과 더 유사하게 만든다.",
+     "m": "몸 전체를 다시 만들어 내니, 우리보다 ==나무에 가까워요==."
+    },
+    {
+     "t": "g",
+     "w": "7번째 문장 · ③번 자리",
+     "s": "it is not at all clear how ___ those findings will be to human aging.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "relevantly",
+       "ko": "부사 relevantly(관련 있게)",
+       "why": "will be(~일 것이다) 뒤에는 상태를 말하는 형용사가 와야 해요. 부사 relevantly는 be 뒤 보어 자리에 올 수 없어요."
+      },
+      {
+       "t": "relevant",
+       "ko": "형용사 relevant(관련 있는)",
+       "why": ""
+      }
+     ],
+     "a": 1,
+     "e": "29번 시험지 ③번 밑줄 자리로, how 뒤를 부사로 바꿔 틀리게 내기 좋은 곳이에요(실제 시험에서 이 자리는 맞는 표현이었어요). 원래 순서로 돌리면 those findings will be relevant to human aging(그 발견들이 인간 노화와 관련 있을 것이다)이라, be 뒤 ==보어인 형용사 relevant==가 정답이에요.",
+     "k": "그러한 발견들이 인간의 노화에 ==얼마나 관련이 있을지는== 전혀 명확하지 않다.",
+     "m": "신기한 걸 배워도, ==사람 노화와 관련 있을지는== 아직 몰라요."
+    },
+    {
+     "t": "g",
+     "w": "9번째 문장 · ④번 자리, 주어 찾기",
+     "s": "{even discoveries} in rats or mice, which are mammals and biologically much closer to us, ___ difficult to translate into humans.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "is",
+       "ko": "단수 동사 is(원형 be: ~이다)",
+       "why": "콤마 사이를 가리면 주어는 discoveries(발견들), 여러 개라 is는 안 돼요. mice(생쥐들)나 us(우리)에 속지 마세요."
+      },
+      {
+       "t": "are",
+       "ko": "복수 동사 are(원형 be: ~이다)",
+       "why": ""
+      },
+      {
+       "t": "being",
+       "ko": "-ing형 being(~인 것)",
+       "why": "문장에 진짜 동사가 필요해서 being은 들어갈 수 없어요."
+      }
+     ],
+     "a": 1,
+     "e": "29번 시험지 ④번 자리예요. 주어 discoveries(발견들)와 동사 사이에 which ~ us(포유류이며 우리에게 훨씬 가까운) ==삽입절==이 끼어 있어 수 일치를 헷갈리게 내기 좋아요. 콤마 사이를 가리면 discoveries ___ difficult만 남으니 ==복수 동사 are==가 정답이에요.",
+     "k": "하지만 다른 경우들에서는, 포유류이며 생물학적으로 우리에게 훨씬 더 가까운, ==쥐나 생쥐에서의 발견들조차도== 인간에게 적용하기가 어렵다.",
+     "m": "사람과 가까운 쥐 결과도 ==사람에게 옮기기 어려워요==. 하물며 해파리는?"
+    },
+    {
+     "t": "v",
+     "w": "9번째 문장 · 노트: 번역하다(적용되다)",
+     "s": "even discoveries in rats or mice ... are difficult to {translate into} humans.",
+     "q": "여기서 translate into의 뜻은?",
+     "o": [
+      {
+       "t": "사람의 말로 번역되다",
+       "ko": "",
+       "why": "말을 번역하는 게 아니라 동물 실험 결과를 옮겨 쓰는 거예요. 문맥에 맞지 않아요."
+      },
+      {
+       "t": "사람에게 적용되다",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "사람으로 바뀌다",
+       "ko": "",
+       "why": "'사람으로 바뀌다'는 쥐가 사람이 된다는 엉뚱한 뜻이 돼요."
+      }
+     ],
+     "a": 1,
+     "e": "translate(번역하다)를 익숙한 뜻으로만 읽으면 틀리게 만드는 다의어 문제로 나오기 좋아요. 쥐 실험에서 얻은 발견을 사람에게 옮겨 쓰기 어렵다는 문맥이라 =='사람에게 적용되다'==가 정답이에요. 동물 결과를 사람에게 옮기기 어렵다는 게 이 글의 핵심이기도 해요.",
+     "k": "쥐나 생쥐에서의 발견들조차도 ==인간에게 적용하기가== 어렵다.",
+     "m": "==동물 실험에서 사람 적용까지==, 이 다리가 멀다는 게 글의 핵심."
+    },
+    {
+     "t": "g",
+     "w": "10번째 문장 · ⑤번 자리, 노트: 단수/복수",
+     "s": "It may be a very long time before {any findings} gained from hydra or jellyfish ___ useful to us.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "is",
+       "ko": "단수 동사 is(원형 be: ~이다)",
+       "why": "주어는 findings(발견들), 여러 개라 is는 안 돼요. gained(원형 gain: 얻다) from hydra or jellyfish(히드라나 해파리에서 얻은)는 꾸며 주는 말이에요."
+      },
+      {
+       "t": "are",
+       "ko": "복수 동사 are(원형 be: ~이다)",
+       "why": ""
+      }
+     ],
+     "a": 1,
+     "e": "29번 시험지 ⑤번 자리예요. any findings 뒤에 gained from ~(~에서 얻은)이 붙어 주어가 길어지고, 바로 앞 jellyfish(해파리)에 속기 쉬워 ==수 일치==로 내기 좋아요. ==주어 findings(발견들)가 복수라 are==가 정답이에요. gained(원형 gain: 얻다).",
+     "k": "==히드라나 해파리로부터 얻은 어떠한 발견들도== 우리에게 유용해지기까지는 매우 오랜 시간이 걸릴지도 모른다.",
+     "m": "그래서 결론: 쓸모 있어지려면 ==아주 오래 걸려요==."
+    },
+    {
+     "t": "c",
+     "w": "마지막 문장 · 선생님 강조, 동의표현",
+     "s": "{It may be a very long time before} any findings gained from hydra or jellyfish are useful to us.",
+     "q": "이 문장과 같은 뜻은?",
+     "o": [
+      {
+       "t": "Not until a very long time passes will any findings from hydra or jellyfish be useful to us.",
+       "ko": "아주 오랜 시간이 지나서야 비로소 히드라나 해파리에서 얻은 발견이 우리에게 쓸모 있을 것이다.",
+       "why": ""
+      },
+      {
+       "t": "Any findings from hydra or jellyfish will be useful to us before long.",
+       "ko": "히드라나 해파리에서 얻은 발견은 곧 우리에게 쓸모 있을 것이다.",
+       "why": "before long은 '곧'이라 '아주 오래 걸린다'와 정반대예요."
+      },
+      {
+       "t": "It won't be long before any findings from hydra or jellyfish are useful to us.",
+       "ko": "머지않아 히드라나 해파리에서 얻은 발견이 우리에게 쓸모 있을 것이다.",
+       "why": "It won't be long before(머지않아 ~할 것이다)는 '오래 걸리지 않는다'는 뜻이라 정반대예요."
+      }
+     ],
+     "a": 0,
+     "e": "선생님이 강조하신 글의 결론 문장이에요. ==It may be a very long time before A(A하기까지 아주 오래 걸릴지도 모른다)==는 ==Not until(~해서야 비로소)== 도치 문장으로 바꿔 쓰게 하는 서술형에 딱 좋아요. 반대 표현 before long(곧), It won't be long before(머지않아)와 구별하면 Not until 문장이 정답이에요. 3과 It wasn't until ~ that(~해서야 비로소)과 같은 뜻이에요.",
+     "k": "히드라나 해파리로부터 얻은 어떠한 발견들도 우리에게 ==유용해지기까지는 매우 오랜 시간이 걸릴지도 모른다==.",
+     "m": "마지막 문장 = 글의 결론. =='오래 걸린다 = ~해서야 비로소'==로 기억하기."
+    },
+    {
+     "t": "g",
+     "w": "Note 예문 · how + 형용사 + 주어 + 동사",
+     "s": "Researchers are still unsure ___ against future variants.",
+     "q": "빈칸에 들어갈 말의 순서로 바른 것은? (how / the new vaccine / effective / will be)",
+     "o": [
+      {
+       "t": "how will the new vaccine be effective",
+       "ko": "의문문 순서 how will the new vaccine be effective(새 백신이 얼마나 효과적일까?)",
+       "why": "문장 안에 들어간 how 절은 질문 순서(will + 주어)가 아니라 주어 + 동사 순서로 써야 해요."
+      },
+      {
+       "t": "how effective the new vaccine will be",
+       "ko": "how effective the new vaccine will be(새 백신이 얼마나 효과적일지)",
+       "why": ""
+      },
+      {
+       "t": "how the new vaccine effective will be",
+       "ko": "how the new vaccine effective will be(어순이 틀린 말: 새 백신이 얼마나 효과적일지)",
+       "why": "how와 effective(효과적인)는 붙어 다녀야 해요. how 뒤에서 형용사를 떼어 놓으면 안 돼요."
+      }
+     ],
+     "a": 1,
+     "e": "선생님이 이 Note 문장을 넣으신 건 본문 ③번 how relevant those findings will be(그 발견들이 얼마나 관련 있을지)를 그대로 연습시키려는 거예요. how 절 어순은 배열 서술형으로 내기 딱 좋아요. ==how + 형용사 + 주어 + 동사== 순서라 ==how effective the new vaccine will be(새 백신이 얼마나 효과적일지)==가 정답이에요.",
+     "k": "연구자들은 ==새 백신이 앞으로의 변이에 얼마나 효과적일지== 아직 확신하지 못한다.",
+     "m": "Note가 ==본문 ③번 자리==를 그대로 연습시키고 있어요."
+    },
+    {
+     "t": "g",
+     "w": "Note 예문 · What 덩어리 주어",
+     "s": "{What surprised the teachers} ___ how quickly the students adapted to online learning.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "were",
+       "ko": "복수 동사 were(원형 be: ~이었다)",
+       "why": "teachers(선생님들)에 속으면 were를 골라요. 진짜 주어는 What 덩어리 하나라 단수예요."
+      },
+      {
+       "t": "was",
+       "ko": "단수 동사 was(원형 be: ~이었다)",
+       "why": ""
+      },
+      {
+       "t": "being",
+       "ko": "-ing형 being(~인 것)",
+       "why": "진짜 동사 자리라 being은 들어갈 수 없어요."
+      }
+     ],
+     "a": 1,
+     "e": "What surprised the teachers(선생님들을 놀라게 한 것)처럼 긴 덩어리 주어 뒤 동사 자리는, 바로 앞 teachers에 속게 만드는 수 일치 문제로 내기 좋아요. 29번 정답 makes처럼 주어를 덩어리로 묶고 진짜 동사를 찾는 연습이에요. ==덩어리 주어는 단수라 was==가 정답이에요. surprised(원형 surprise: 놀라게 하다), adapted(원형 adapt: 적응하다).",
+     "k": "==선생님들을 놀라게 한 것은== 학생들이 온라인 수업에 얼마나 빨리 적응했는가였다.",
+     "m": "주어가 길면 덩어리로 묶고, ==진짜 동사를 찾아요==. 29번 정답 makes(원형 make: 만들다)도 이 원리예요."
+    }
+   ],
+   "wrap": [
+    "소개: 히드라와 해파리는 늙어도 죽을 확률이 늘지 않아 불멸이라고 불려요.",
+    "관심: 학자들은 노화를 이길 힌트를 기대해요.",
+    "한계: 몸을 통째로 재생하는 능력 때문에 사람과는 많이 달라요.",
+    "결론: 사람에게 쓸모 있기까지는 아주 오래 걸릴 수 있어요. (= 오랜 시간이 지나서야 비로소)"
+   ]
+  },
+  {
+   "id": "m-30",
+   "sec": "mogo",
+   "group": "26년 10월",
+   "name": "30번",
+   "sub": "발전소 보조금 (어휘)",
+   "items": [
+    {
+     "t": "g",
+     "w": "1번째 문장 · 노트: that 괄호",
+     "s": "Subsidies, taxes, and regulations can all lead to {power plants} that ___ less by switching away from coal.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "pollutes",
+       "ko": "단수 동사 pollutes(원형 pollute: 오염시키다)",
+       "why": "that이 받는 말은 power plants(발전소들), 여러 개라 단수 동사 pollutes는 안 돼요."
+      },
+      {
+       "t": "pollute",
+       "ko": "복수 동사 pollute(오염시키다)",
+       "why": ""
+      }
+     ],
+     "a": 1,
+     "e": "노트에 that 괄호가 있죠. ==관계대명사 that== 뒤 동사는 앞의 명사에 수를 맞춰야 해서, 수 일치 어법 문제로 내기 좋은 자리예요. that이 받는 말이 ==power plants(발전소들, 복수)라 pollute==가 정답이에요.",
+     "k": "보조금, 세금, 그리고 규제는 모두 석탄에서 (다른 에너지원으로) 전환함으로써 ==오염을 덜 일으키는 발전소==로 이어질 수 있다.",
+     "m": "보조금·세금·규제, 셋 다 ==발전소 오염을 줄일 수== 있어요."
+    },
+    {
+     "t": "v",
+     "w": "2번째 문장 · 노트: ~을 고려한다(빨간 글씨)",
+     "s": "profits can be higher from making the transition, even {taking the related costs into account}.",
+     "q": "take A into account의 뜻은?",
+     "o": [
+      {
+       "t": "A를 계좌에 넣다",
+       "ko": "",
+       "why": "account를 '계좌'로만 알면 이렇게 틀려요. take A into account는 'A를 고려하다'라는 한 덩어리예요."
+      },
+      {
+       "t": "A를 고려하다",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "A를 무시하다",
+       "ko": "",
+       "why": "무시한다는 건 정반대예요. 비용까지 따져 봐도 이익이라는 뜻이에요."
+      }
+     ],
+     "a": 1,
+     "e": "==take A into account(A를 고려하다)==는 account를 '계좌'로 착각하게 만드는 숙어 문제로 나오기 좋아서 노트에 빨간 글씨로 크게 적으셨어요. related costs(관련 비용)까지 따져 봐도 전환이 이익이라는 문장이라 'A를 고려하다'가 정답이에요. taking(원형 take: 취하다).",
+     "k": "모든 경우에, ==관련된 비용까지 고려하더라도==, 그러한 전환을 하는 것으로부터 얻는 이익은 더 높을 수 있다.",
+     "m": "비용까지 따져 봐도(==take into account==) 전환이 이익이에요."
+    },
+    {
+     "t": "g",
+     "w": "5번째 문장 · 노트: 괄호 묶기",
+     "s": "They {prefer} ___ money from the government rather than pay the costs themselves.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "receive",
+       "ko": "동사원형 receive(받다)",
+       "why": "prefer(더 좋아하다) 뒤에 동사원형 receive를 바로 쓸 수 없어요. to receive(받는 것)처럼 to부정사로 써야 해요(동명사 receiving도 가능)."
+      },
+      {
+       "t": "to receive",
+       "ko": "to부정사(받는 것)",
+       "why": ""
+      },
+      {
+       "t": "received",
+       "ko": "과거분사 received(받은)",
+       "why": "과거분사 received는 prefer의 목적어가 될 수 없어요."
+      }
+     ],
+     "a": 1,
+     "e": "==prefer to 동사원형 rather than (to) 동사원형(…하기보다 ~하기를 더 좋아하다)==은 to를 빼거나 형태를 바꿔 내기 좋은 구문이라 노트에 괄호로 묶으셨어요. 그래서 to receive가 정답이에요. 3번 문장 prefer A over B(B보다 A를 선호하다)도 같이 기억해요.",
+     "k": "그들은 그 비용을 자신들이 직접 지불하기보다는 ==정부로부터 돈을 받는 것을 선호한다==.",
+     "m": "발전소는 돈을 내는 것보다 ==받는 보조금==이 제일 좋아요."
+    },
+    {
+     "t": "g",
+     "w": "6번째 문장 · 노트: has 동그라미",
+     "s": "But {the \"expansion\"} of their opportunity set through subsidies ___ to be matched by the contraction of the opportunity set of others.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "have",
+       "ko": "복수 동사 have(have to: ~해야 한다)",
+       "why": "of their opportunity set through subsidies(보조금을 통한 그들의 기회 집합의)는 꾸며 주는 말이에요. 주어는 the expansion(확대) 하나라 have는 안 돼요."
+      },
+      {
+       "t": "has",
+       "ko": "단수 동사 has(원형 have: has to = ~해야 한다)",
+       "why": ""
+      }
+     ],
+     "a": 1,
+     "e": "주어 the expansion(확대)과 동사 사이에 of ~ subsidies(보조금을 통한 ~의)가 길게 끼어 있어 ==수 일치==를 묻기 딱 좋은 자리라 노트에 has 동그라미가 있어요. ==주어가 단수라 has==가 정답이고, has to be matched(맞추어져야 한다)로 이어져요. matched(원형 match: 맞추다).",
+     "k": "그러나 보조금을 통한 ==그들의 기회 집합의 '확대'는== 다른 사람들의 기회 집합의 축소에 의해 맞추어져야 한다.",
+     "m": "누군가 늘면(==expansion==) 누군가는 줄어요(==contraction==)."
+    },
+    {
+     "t": "v",
+     "w": "6번째 문장 · 노트: 확장(+) ↔ 축소(−)",
+     "s": "the {contraction} of the opportunity set of others",
+     "q": "밑줄 친 말과 뜻이 반대인 것은?",
+     "o": [
+      {
+       "t": "reduction",
+       "ko": "감소",
+       "why": "reduction(감소)은 contraction(축소)과 비슷한 말이에요. 반대말을 찾아야 해요."
+      },
+      {
+       "t": "decline",
+       "ko": "하락",
+       "why": "decline(하락)도 contraction(축소)과 비슷한 말이에요."
+      },
+      {
+       "t": "expansion",
+       "ko": "확대",
+       "why": ""
+      },
+      {
+       "t": "agreement",
+       "ko": "합의",
+       "why": "agreement(합의)는 contraction(축소)과 상관없는 말이에요."
+      }
+     ],
+     "a": 2,
+     "e": "==contraction(축소)==과 ==expansion(확대)==이 한 문장 안에서 짝을 이루어서, 반대말을 묻거나 30번처럼 어휘를 뒤바꿔 내기 좋은 자리예요. 노트의 +, − 표시처럼 회사의 기회가 늘면 남의 기회는 줄어든다는 흐름이라 반대말은 expansion이에요.",
+     "k": "다른 사람들의 기회 집합의 ==축소==",
+     "m": "회사의 기회 확대(+) = 보통 사람의 ==기회 축소(−)==."
+    },
+    {
+     "t": "c",
+     "w": "7번째 문장 · 실제 시험 정답 ③",
+     "s": "The electricity companies' \"freedom\" is ___ at the expense of the ordinary individual, who must suffer from increased taxation to pay for the subsidy.",
+     "q": "문맥상 빈칸에 알맞은 말은?",
+     "o": [
+      {
+       "t": "decreased",
+       "ko": "decreased(원형 decrease: 줄다): 줄어든다",
+       "why": "실제 시험지에 이렇게 decreased로 바뀌어 있었어요. 회사의 기회가 '확대'된다고 했으니 자유가 줄면 안 돼요."
+      },
+      {
+       "t": "increased",
+       "ko": "increased(원형 increase: 늘다): 늘어난다",
+       "why": ""
+      },
+      {
+       "t": "limited",
+       "ko": "limited(원형 limit: 제한하다): 제한된다",
+       "why": "제한된다면 회사가 손해를 보는 거예요. 본문은 회사가 이득을 보고 보통 사람이 희생한다는 내용이에요."
+      }
+     ],
+     "a": 1,
+     "e": "30번 어휘 문제의 실제 정답 ③번 자리예요. 시험지엔 decreased(원형 decrease: 줄다)로 바뀌어 있었고 increased로 고쳐야 했어요. 앞 문장에서 보조금으로 회사의 기회가 '확대'된다고 했고 그 대가를 보통 사람이 늘어난 세금으로 치르니, 회사의 자유는 ==increased(원형 increase: 늘다)==가 맞아요.",
+     "k": "전력 회사들의 =='자유'는 일반 개인을 희생시켜 증가하는데==, 이들은 보조금을 지급하기 위해 늘어난 세금으로 인해 고통을 겪어야 한다.",
+     "m": "==회사의 자유 ↑==, 보통 사람의 세금 부담 ↑."
+    },
+    {
+     "t": "v",
+     "w": "7번째 문장 · 노트: ~을 희생하여",
+     "s": "\"freedom\" is increased {at the expense of} the ordinary individual",
+     "q": "밑줄 친 말의 뜻은?",
+     "o": [
+      {
+       "t": "~ 덕분에",
+       "ko": "",
+       "why": "'덕분에'라면 보통 사람이 도와준 좋은 일처럼 들려요. 뒤에 보통 사람이 세금으로 고통받는다고 하니 '희생하여'예요."
+      },
+      {
+       "t": "~을 희생하여",
+       "ko": "",
+       "why": ""
+      },
+      {
+       "t": "~의 돈으로 사서",
+       "ko": "",
+       "why": "expense를 '비용'으로만 보면 이렇게 읽기 쉬워요. at the expense of는 '~을 희생하여'라는 한 덩어리예요."
+      }
+     ],
+     "a": 1,
+     "e": "==at the expense of(~을 희생하여)==는 expense(비용)만 보고 '~의 돈으로'로 잘못 읽게 만드는 숙어 문제로 나오기 좋아요. 뒤에 who must suffer(그런데 그 개인은 고통받아야 한다)가 이어지니, 회사가 얻는 만큼 보통 사람이 잃는다는 뜻이라 '~을 희생하여'가 정답이에요.",
+     "k": "==일반 개인을 희생시켜==",
+     "m": "==보통 사람의 희생==으로 회사의 자유가 늘어요."
+    },
+    {
+     "t": "v",
+     "w": "8번째 문장 · 노트: 왜곡한다",
+     "s": "the subsidy {distorts} the economy because the electricity company is not facing the full costs of what it does …",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "improves",
+       "ko": "improves(원형 improve: 개선하다)",
+       "why": "개선한다는 건 정반대예요. 보조금이 경제를 비뚤어지게 한다는 문맥이에요."
+      },
+      {
+       "t": "twists",
+       "ko": "twists(원형 twist: 비틀다)",
+       "why": ""
+      },
+      {
+       "t": "supports",
+       "ko": "supports(원형 support: 지원하다)",
+       "why": "지원한다는 건 좋은 뜻이라 맞지 않아요. 회사가 비용을 다 안 내서 경제가 왜곡된다는 내용이에요."
+      },
+      {
+       "t": "measures",
+       "ko": "measures(원형 measure: 측정하다)",
+       "why": "측정한다는 뜻은 문맥과 상관없어요."
+      }
+     ],
+     "a": 1,
+     "e": "==distort(왜곡하다)==는 어려운 단어라 ==twist(비틀다)==로 바꿔 묻거나, improve(개선하다)처럼 반대로 바꿔 어휘 문제로 내기 좋아요. 회사가 자기가 하는 일의 전체 비용을 다 내지 않아 경제가 비뚤어진다는 문맥이라 twists(원형 twist: 비틀다)가 정답이에요. distorts(원형 distort: 왜곡하다).",
+     "k": "더욱이 순수한 효율성의 관점에서, 보조금은 전력 회사가 그것이 하는 것의 전체 비용을 직면하지 않기 때문에 ==경제를 왜곡한다==.",
+     "m": "비용을 다 안 내니 경제가 비뚤어져요(==distort==)."
+    },
+    {
+     "t": "g",
+     "w": "9번째 문장 · 노트: 반대로 결론을 내리게 된다",
+     "s": "Indeed, electricity prices {may end up} lower than they should be and electricity consumption higher",
+     "q": "electricity consumption 뒤에 생략된 말은?",
+     "o": [
+      {
+       "t": "is",
+       "ko": "be동사 is(원형 be: ~이다)",
+       "why": "앞의 may end up이 반복돼서 빠진 자리예요. is를 넣으면 '이미 많다'는 뜻이 되어 앞부분과 모양이 맞지 않아요."
+      },
+      {
+       "t": "may end up",
+       "ko": "may end up(결국 ~하게 될 수 있다)",
+       "why": ""
+      },
+      {
+       "t": "should be",
+       "ko": "should be(~이어야 한다)",
+       "why": "should be는 앞의 than they should be(그래야 하는 것보다) 안에 있는 말이에요. 넣으면 '소비가 더 많아야 한다'는 엉뚱한 뜻이 돼요."
+      }
+     ],
+     "a": 1,
+     "e": "electricity prices may end up lower(전기 가격은 결국 더 낮아질 수 있다)와 짝을 이루는 뒷부분에서 ==반복되는 may end up이 빠졌어요==. 생략된 말을 찾게 하거나 서술형으로 복원시키기 좋은 자리예요. 그래서 may end up이 정답이고, electricity consumption (may end up) higher = 전기 소비는 결국 더 많아질 수 있다는 뜻이에요. ==end up(결국 ~하게 되다)==.",
+     "k": "실제로 전기 가격은 그래야 하는 것보다 결국 더 낮아질 수 있고 ==전기 소비는 더 높아질 수 있다==.",
+     "m": "전기값 ↓ → ==전기 사용 ↑==."
+    },
+    {
+     "t": "g",
+     "w": "9번째 문장 · 노트: have 동그라미",
+     "s": "even though {the emissions} per unit of electricity ___ been reduced.",
+     "q": "빈칸에 알맞은 것은?",
+     "o": [
+      {
+       "t": "has",
+       "ko": "단수 동사 has(원형 have: ~해 왔다)",
+       "why": "per unit of electricity(전기 단위당)는 꾸며 주는 말이에요. 주어는 the emissions(배출량들), 복수라 has는 안 돼요. unit(단위)에 속지 마세요."
+      },
+      {
+       "t": "have",
+       "ko": "복수 동사 have(~해 왔다)",
+       "why": ""
+      }
+     ],
+     "a": 1,
+     "e": "주어 the emissions(배출량들) 뒤에 per unit of electricity(전기 단위당)가 붙어 바로 앞 단수 명사에 속기 쉬워서 수 일치로 내기 좋은 자리예요. ==주어가 복수라 have==가 정답이고, 배출량이 '줄어든' 거라 ==have been reduced(줄어들었다, 수동)==예요. reduced(원형 reduce: 줄이다).",
+     "k": "이는 비록 ==전기 단위당 배출량은== 감소했을지라도 지구 온난화를 더욱 악화시킬 것이다.",
+     "m": "단위당 배출은 줄어도, 많이 쓰니 ==지구 온난화는 더 심해져요==."
+    },
+    {
+     "t": "c",
+     "w": "Note 예문 · cannot ~ without",
+     "s": "Even with the best equipment, a team {cannot win without} trust among its members.",
+     "q": "이 문장과 같은 뜻은?",
+     "o": [
+      {
+       "t": "A team can win only with trust among its members.",
+       "ko": "팀은 구성원 간의 신뢰가 있어야만 이길 수 있다.",
+       "why": ""
+      },
+      {
+       "t": "A team can win without trust if it has the best equipment.",
+       "ko": "최고의 장비가 있으면 신뢰 없이도 이길 수 있다.",
+       "why": "최고의 장비가 있어도(Even with) 신뢰 없이는 못 이긴다고 했으니 정반대예요."
+      },
+      {
+       "t": "Trust is less important than equipment.",
+       "ko": "신뢰는 장비보다 덜 중요하다.",
+       "why": "장비와 신뢰 중 무엇이 더 중요한지 비교하는 문장이 아니에요. 신뢰가 꼭 있어야 한다는 뜻이에요."
+      }
+     ],
+     "a": 0,
+     "e": "==cannot ~ without …(…없이는 ~할 수 없다)==은 이중부정이라 '반드시 …가 있어야 ~한다'로 바꿔 쓰게 하는 문제로 내기 좋아요. 그래서 ==A team can win only with trust(팀은 신뢰가 있어야만 이길 수 있다)==가 정답이에요. Even with(~이 있어도)도 같이 챙겨요.",
+     "k": "최고의 장비를 갖추고 있어도 팀은 ==구성원 간의 신뢰 없이는 이길 수 없다==.",
+     "m": "Note 구조: Even with(~이 있어도) ~, ==cannot ~ without …(…없이는 ~할 수 없다)==."
+    },
+    {
+     "t": "v",
+     "w": "Note 예문 · 지속하다",
+     "s": "Old habits tend to {persist} even after people fully understand why they are harmful.",
+     "q": "밑줄 친 말과 뜻이 가장 가까운 것은?",
+     "o": [
+      {
+       "t": "disappear",
+       "ko": "사라지다",
+       "why": "사라진다는 건 정반대예요. 해로운 걸 알아도 습관이 '계속된다'는 문장이에요."
+      },
+      {
+       "t": "change",
+       "ko": "바뀌다",
+       "why": "바뀐다면 습관이 고쳐진 거예요. 본문은 그대로 남는다는 뜻이에요."
+      },
+      {
+       "t": "continue",
+       "ko": "계속되다",
+       "why": ""
+      },
+      {
+       "t": "improve",
+       "ko": "나아지다",
+       "why": "나아진다는 뜻은 persist(계속되다)와 상관없어요."
+      }
+     ],
+     "a": 2,
+     "e": "==persist(지속되다)==는 3과 Ancher persisted in painting(앙케르는 그림 그리기를 계속했다)에도 나온 단어라, 겹치는 단어로 ==continue(계속되다)==와 바꿔 묻기 좋아요. 해로운 걸 알아도 오래된 습관이 '계속된다'는 뜻이라 continue가 정답이에요. persisted(원형 persist: 계속하다), tend to(~하는 경향이 있다).",
+     "k": "오래된 습관은 사람들이 그것이 왜 해로운지 완전히 이해한 후에도 ==지속되는 경향이 있다==.",
+     "m": "==persist(계속되다)==. 3과에도 나온 단어, 겹치는 단어는 꼭 챙기기."
+    }
+   ],
+   "wrap": [
+    "상황: 보조금, 세금, 규제 모두 발전소의 오염을 줄일 수 있어요.",
+    "선호: 발전소는 돈을 받는 보조금을 가장 좋아해요.",
+    "문제 1: 보조금 비용은 세금으로 보통 사람들이 부담해요. (회사의 자유 ↑ = 보통 사람의 희생)",
+    "문제 2: 비용을 다 내지 않아 전기 값이 낮아지고 사용이 늘어 온난화가 심해질 수 있어요."
+   ]
+  }
+ ]
+};
+var SK = 'gc1-ssam-note-v1';
+var store = {};
+try { store = JSON.parse(localStorage.getItem(SK) || '{}') || {}; } catch (e) { store = {}; }
+function save() { try { localStorage.setItem(SK, JSON.stringify(store)); } catch (e) {} }
+function st(id) { if (!store[id]) store[id] = { pick: {}, pos: 0, filt: 'all', seed: 1, done: false }; return store[id]; }
+var TYPE = { g: '어법', v: '어휘', c: '내용' };
+var CIRC = ['①', '②', '③', '④', '⑤'];
+var app = document.getElementById('app');
+var view = { unit: null };
+var openSec = store.__open || null;
+
+function hl(s) { return esc(s).replace(/==([^=]+?)==/g, '<mark class="fx">$1</mark>'); }
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+function unitById(id) { for (var i = 0; i < DATA.units.length; i++) if (DATA.units[i].id === id) return DATA.units[i]; return null; }
+function counts(u) { var c = { g: 0, v: 0, c: 0 }; u.items.forEach(function (it) { c[it.t]++; }); return c; }
+function solved(u) { var s = st(u.id), n = 0; for (var k in s.pick) n++; return n; }
+
+function hash(str) { var h = 2166136261; for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+function order(u, idx) {
+  var it = u.items[idx], n = it.o.length, arr = [];
+  for (var i = 0; i < n; i++) arr.push(i);
+  var h = hash(u.id + ':' + idx + ':' + st(u.id).seed);
+  for (var j = n - 1; j > 0; j--) { h = Math.imul(h ^ (h >>> 15), 2246822519) >>> 0; var r = h % (j + 1); var t = arr[j]; arr[j] = arr[r]; arr[r] = t; }
+  return arr;
+}
+function optText(o) { return typeof o === 'string' ? o : (o.t !== undefined ? o.t : o[0]); }
+function optKo(o) { return typeof o === 'string' ? '' : (o.t !== undefined ? o.ko : o[1]) || ''; }
+function optWhy(o) { return (o && o.why) || ''; }
+
+function stem(it, picked) {
+  var ans = optText(it.o[it.a]);
+  var fillable = picked && !it.nofill && ans.charAt(0) !== '(';
+  var out = esc(it.s).replace(/\{([^}]*)\}/g, function (m, x) { return '<span class="hl ' + it.t + '">' + x + '</span>'; });
+  out = out.replace(/___/g, function () {
+    return fillable ? '<span class="blank fill">' + esc(ans) + '</span>' : '<span class="blank">&nbsp;</span>';
+  });
+  return out;
+}
+
+function list(u, filt) {
+  var s = st(u.id), idx = [];
+  u.items.forEach(function (it, i) {
+    if (filt === 'all') idx.push(i);
+    else if (filt === 'wrong') { if (s.pick[i] !== undefined && s.pick[i] !== it.a) idx.push(i); }
+    else if (it.t === filt) idx.push(i);
+  });
+  return idx;
+}
+
+function renderHome() {
+  view.unit = null;
+  var h = (window.APP_HOME ? '<div class="top"><a class="back" id="apphome" href="' + window.APP_HOME + '">금천고 앱</a></div>' : '') + '<h1>' + esc(DATA.title) + '</h1><p class="lede">금천고 영어 선생님이 수업에서 짚어 준 곳만 모았어요.</p>';
+  DATA.sections.forEach(function (sec) {
+    var us = DATA.units.filter(function (u) { return u.sec === sec.id; });
+    var isOpen = openSec === sec.id;
+    h += '<div class="acc"><button data-sec="' + sec.id + '" aria-expanded="' + isOpen + '"><span><span class="al">' + esc(sec.label) + '</span><span class="am">' + esc(sec.meta) + '</span></span><span class="sign">' + (isOpen ? '−' : '+') + '</span></button>';
+    if (isOpen) {
+      h += '<div class="rows">';
+      var lastG = null;
+      us.forEach(function (u) {
+        if (u.group && u.group !== lastG) { h += '<div class="grp">' + esc(u.group) + '</div>'; lastG = u.group; }
+        var c = counts(u), n = solved(u), tot = u.items.length, fin = st(u.id).done;
+        h += '<button class="row' + (fin ? ' fin' : '') + '" data-unit="' + u.id + '"><span><span class="rn">' + esc(u.name) + '</span><span class="rs">' + esc(u.sub) + '</span>' +
+          '<span class="prog"><i style="width:' + Math.round(n / tot * 100) + '%"></i></span></span>' +
+          '<span class="chips"><span class="ch g">어법 ' + c.g + '</span><span class="ch v">어휘 ' + c.v + '</span><span class="ch c">내용 ' + c.c + '</span></span></button>';
+      });
+      h += '</div>';
+    }
+    h += '</div>';
+  });
+  app.innerHTML = h;
+  window.scrollTo(0, 0);
+}
+
+function renderUnit(id, force) {
+  var u = unitById(id); if (!u) return renderHome();
+  view.unit = id;
+  var s = st(id);
+  if (s.done && !force) return renderWrap(u);
+  var idx = list(u, s.filt);
+  var c = counts(u), wrongN = list(u, 'wrong').length;
+  var h = '<div class="top"><button class="back" data-home="1">목록</button><div><div class="ut">' + esc(u.name) + '</div><div class="us">' + esc(u.sub) + '</div></div></div>';
+  h += '<div class="filt">' + [['all', '전체 ' + u.items.length], ['g', '어법 ' + c.g], ['v', '어휘 ' + c.v], ['c', '내용 ' + c.c]].concat(wrongN ? [['wrong', '틀린 문제 ' + wrongN]] : []).map(function (f) {
+    return '<button class="fb' + (s.filt === f[0] ? ' on' : '') + '" data-filt="' + f[0] + '">' + f[1] + '</button>';
+  }).join('') + '</div>';
+  if (!idx.length) { app.innerHTML = h + '<div class="empty">이 묶음에는 문제가 없어요.</div>'; return; }
+  if (s.pos >= idx.length) s.pos = idx.length - 1;
+  var i = idx[s.pos], it = u.items[i], picked = s.pick[i];
+  var shown = s.filt === 'wrong' ? (s.retry || {})[i] : picked;
+  var isDone = shown !== undefined;
+  var ord = order(u, i);
+  h += '<div class="meta"><span class="tp ' + it.t + '">' + TYPE[it.t] + '</span><span class="pos">' + (s.pos + 1) + ' / ' + idx.length + '</span></div>';
+  var wp = it.w.split(' · '), loc = wp[0], clue = wp.slice(1).join(' · ').replace(/^노트:\s*/, '');
+  h += '<div class="card' + (isDone ? ' done' : '') + '"><div class="where">' + esc(loc) + '</div><div class="stem">' + stem(it, isDone) + '</div><div class="ask">' + esc(it.q) + '</div>';
+  if (isDone) h += '<div class="pf">보기 풀이</div>';
+  ord.forEach(function (oi, k) {
+    var o = it.o[oi], cls = '';
+    if (isDone) { if (oi === it.a) cls = ' ok'; else if (oi === shown) cls = ' ng'; }
+    h += '<button class="ob' + cls + '" data-opt="' + oi + '"><span class="ot"><span class="on">' + CIRC[k] + '</span><span class="ow">' + esc(optText(o)) + '</span></span><span class="bd b1">정답</span><span class="bd b2">내가 고름</span>' + (optKo(o) ? '<span class="k">' + esc(optKo(o)) + '</span>' : '') + (oi !== it.a && optWhy(o) ? '<span class="wy">' + esc(optWhy(o)) + '</span>' : '') + '</button>';
+  });
+  if (isDone) {
+    var right = shown === it.a;
+    h += '<div class="ex"><div class="res ' + (right ? 'o' : 'x') + '">' + (right ? '정답이에요.' : '정답은 ' + CIRC[ord.indexOf(it.a)] + '번이에요.') + '</div><div class="wl">우리쌤이 왜 짚으셨을까?</div><div class="why">' + hl(it.e) + '</div>' + (clue ? '<div class="clue"><b>수업 노트</b> · ' + esc(clue) + '</div>' : '') + '<div class="kk"><span class="kl">본문 해석</span>' + hl(it.k) + '</div>' +
+      '<div class="pit"><span class="pt">본문 떠올리기</span><p>' + hl(it.m) + '</p></div></div>';
+  }
+  h += '</div>';
+  var last = s.pos >= idx.length - 1;
+  h += '<button class="next"' + (isDone ? '' : ' hidden') + ' data-next="1">' + (last ? (s.filt === 'wrong' || solved(u) === u.items.length ? '마무리 포스트잇 보기' : '남은 문제 이어서 풀기') : '다음') + '</button>';
+  app.innerHTML = h;
+}
+
+function renderWrap(u) {
+  var s = st(u.id), right = 0;
+  u.items.forEach(function (it, i) { if (s.pick[i] === it.a) right++; });
+  var wrongN = list(u, 'wrong').length;
+  var h = '<div class="top"><button class="back" data-home="1">목록</button><div><div class="ut">' + esc(u.name) + '</div><div class="us">' + esc(u.sub) + '</div></div></div>';
+  h += '<div class="wrapup"><div class="pit"><span class="pt">' + esc(u.name) + ' 마무리 포스트잇</span><ol>' + u.wrap.map(function (l) { return '<li>' + esc(l) + '</li>'; }).join('') + '</ol></div></div>';
+  h += '<p class="score">' + u.items.length + '문제 중 ' + right + '문제 맞혔어요.</p>';
+  if (wrongN) h += '<button class="btn2" data-wrong="1">틀린 문제만 다시 풀기 (' + wrongN + ')</button>';
+  h += '<button class="btn2" data-restart="1">처음부터 다시 (보기 순서가 바뀌어요)</button>';
+  h += '<button class="btn2" data-home="1">목록으로</button>';
+  app.innerHTML = h;
+  window.scrollTo(0, 0);
+}
+
+app.addEventListener('click', function (e) {
+  var ah = e.target.closest('#apphome');
+  if (ah) { try { if (document.referrer && document.referrer.indexOf('geumcheon-go1') >= 0 && history.length > 1) { e.preventDefault(); history.back(); } } catch (x) {} return; }
+  var b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.sec) { openSec = openSec === b.dataset.sec ? null : b.dataset.sec; store.__open = openSec; save(); renderHome(); return; }
+  if (b.dataset.unit) { var s0 = st(b.dataset.unit); if (s0.filt === 'wrong') { s0.filt = 'all'; s0.pos = 0; } save(); renderUnit(b.dataset.unit); window.scrollTo(0, 0); return; }
+  if (b.dataset.home) { renderHome(); return; }
+  var u = unitById(view.unit); if (!u) return;
+  var s = st(u.id);
+  if (b.dataset.filt) { s.filt = b.dataset.filt; s.pos = 0; s.retry = {}; save(); renderUnit(u.id, true); return; }
+  if (b.dataset.opt !== undefined) {
+    var idx = list(u, s.filt), i = idx[s.pos], oi = +b.dataset.opt;
+    if (s.filt === 'wrong') { s.retry = s.retry || {}; if (s.retry[i] === undefined) s.retry[i] = oi; }
+    else if (s.pick[i] === undefined) s.pick[i] = oi;
+    save(); renderUnit(u.id, true); return;
+  }
+  if (b.dataset.next) {
+    var idx2 = list(u, s.filt), last = s.pos >= idx2.length - 1;
+    if (!last) { s.pos++; save(); renderUnit(u.id, true); window.scrollTo(0, 0); return; }
+    if (s.filt === 'wrong') {
+      for (var k in s.retry) { if (s.retry[k] === u.items[k].a) s.pick[k] = s.retry[k]; }
+      s.retry = {};
+    }
+    var allDone = solved(u) === u.items.length;
+    s.filt = 'all'; s.pos = 0;
+    if (allDone) { s.done = true; save(); renderWrap(u); return; }
+    var first = 0; while (first < u.items.length && s.pick[first] !== undefined) first++;
+    s.pos = first < u.items.length ? first : 0; save(); renderUnit(u.id, true); window.scrollTo(0, 0); return;
+  }
+  if (b.dataset.wrong) { s.filt = 'wrong'; s.pos = 0; s.retry = {}; save(); renderUnit(u.id, true); window.scrollTo(0, 0); return; }
+  if (b.dataset.restart) { s.pick = {}; s.pos = 0; s.filt = 'all'; s.done = false; s.retry = {}; s.seed = (s.seed || 1) + 1; save(); renderUnit(u.id, true); window.scrollTo(0, 0); return; }
+});
+
+renderHome();
+</script>
+</body>
+</html>
