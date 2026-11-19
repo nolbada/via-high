@@ -47,11 +47,12 @@ mark.sm{background:var(--bg);border:1px dashed var(--line)}
 .ch .pb{height:8px;border-radius:99px;background:var(--line);margin-top:9px;overflow:hidden}.ch .pb i{display:block;height:100%;background:var(--pri)}
 .ch.dn{border-color:var(--ok)}
 </style></head><body data-page="bf"><div class="wrap" id="app"></div>
-<script src="bf3.js?v=2611182001"></script><script src="bf4.js?v=2611182001"></script>
+<script src="bf3.js?v=2611182001"></script><script src="bf4.js?v=2611182001"></script><script src="../common/bfm-2610.js?v=2611182001"></script>
 <script>(function(){
 var SCHOOL='금천고1',SEG=20;
 var seg=location.pathname.split('/'),si=seg.indexOf('h'),SCH=(si>=0&&seg[si+1])||'x';
-var UN=['3','4'],U=(/[?&]u=(\d+)/.exec(location.search)||[0,''])[1];
+var UN=['3','4','m'],U=(/[?&]u=(\w+)/.exec(location.search)||[0,''])[1];
+function uname(u){return u==='m'?'모의고사 26년 10월':'교과서 '+u+'과'}
 if(UN.indexOf(U)<0)U='';
 var BFD=window.BF||{},ALL=U?(BFD[U]||[]):[];
 var app=document.getElementById('app');
@@ -77,7 +78,7 @@ function chooser(){
  app.innerHTML='<div class="top"><a class="back" href="index.html">← 목록</a></div><h1>바꿔치기 감별</h1>';
  UN.forEach(function(u){var t=total(u);if(!t)return;var s=jg(stKey(u),null),a=s&&s.a?cnt(s.a):0,nw=s&&s.w?cnt(s.w):0;
   var b=document.createElement('a');b.className='ch'+(a>=t?' dn':'');b.href='bf.html?u='+u;
-  b.innerHTML='<b>교과서 '+u+'과</b><small>'+t+'문항'+(a?' · '+a+'문항 푸는 중'+(a>=t?' (끝까지 풀었어요)':''):'')+(nw?' · 틀린 문제 '+nw:'')+'</small><div class="pb"><i style="width:'+Math.round(a/t*100)+'%"></i></div>';
+  b.innerHTML='<b>'+uname(u)+'</b><small>'+t+'문항'+(a?' · '+a+'문항 푸는 중'+(a>=t?' (끝까지 풀었어요)':''):'')+(nw?' · 틀린 문제 '+nw:'')+'</small><div class="pb"><i style="width:'+Math.round(a/t*100)+'%"></i></div>';
   app.appendChild(b)});
  foot('index.html')}
 
@@ -87,7 +88,7 @@ if(!U){chooser();return}
 function rng(s){return function(){s|=0;s=s+0x6D2B79F5|0;var t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 function build(){
  var it=[];ALL.forEach(function(b){b.v.forEach(function(v,i){it.push({id:b.id,vi:i,s:!!v.same,k:b.id+'.'+i})})});
- var r=rng(+U*7919+13);
+ var r=rng((U==='m'?5:+U)*7919+13);
  for(var i=it.length-1;i>0;i--){var j=Math.floor(r()*(i+1)),t=it[i];it[i]=it[j];it[j]=t}
  function bad(x,p){if(p>0&&it[p-1].id===x.id)return true;if(p>=3&&it[p-1].s===x.s&&it[p-2].s===x.s&&it[p-3].s===x.s)return true;return false}
  for(var p=1;p<it.length;p++){if(bad(it[p],p)){for(var q=p+1;q<it.length;q++){if(!bad(it[q],p)){var t2=it[p];it[p]=it[q];it[q]=t2;break}}}}
@@ -113,7 +114,7 @@ function head(){
  bar.innerHTML='<a class="back" href="bf.html">← 과 고르기</a>'+(view.mode==='main'?(nw?'<button type="button" class="pill" id="wr">틀린 문제 '+nw+'</button>':''):'<button type="button" class="pill" id="wr">처음 문제로</button>');
  app.appendChild(bar);
  var tot=ORD.length,h=document.createElement('div');h.className='bfh';
- h.innerHTML='<b>'+U+'과 바꿔치기 감별'+(view.mode==='rv'?' · 틀린 문제':'')+'</b><small>'+(view.mode==='main'?Math.min(nAns()+(view.res!=null?0:1),tot)+' / '+tot:(view.ri+1>view.rv.length?view.rv.length:view.ri+1)+' / '+view.rv.length)+'</small>';
+ h.innerHTML='<b>'+(U==='m'?'모의고사 26년 10월':U+'과')+' 바꿔치기 감별'+(view.mode==='rv'?' · 틀린 문제':'')+'</b><small>'+(view.mode==='main'?Math.min(nAns()+(view.res!=null?0:1),tot)+' / '+tot:(view.ri+1>view.rv.length?view.rv.length:view.ri+1)+' / '+view.rv.length)+'</small>';
  app.appendChild(h);
  if(view.mode==='main'){var ns=Math.ceil(tot/SEG),dn=Math.floor(nAns()/SEG),s='<div class="stp">';for(var i=0;i<ns;i++)s+='<i'+(i<dn?' class="on"':'')+'></i>';s+='</div>';var d=document.createElement('div');d.innerHTML=s;app.appendChild(d.firstChild)}
  var w=document.getElementById('wr');
