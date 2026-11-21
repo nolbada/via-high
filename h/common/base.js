@@ -86,3 +86,6 @@
     }catch(e){}
   });
 }catch(e){}})();
+
+/* 단어장 목록의 "빼기" 버튼: 단어 뜻으로 착각하지 않도록 작고 흐리게 (모의고사·수업 화면 공통) */
+(function(){try{var s=document.createElement('style');s.setAttribute('data-wl-rmw','1');s.textContent='.wl button.rmw{border:1px solid var(--line);background:none;color:var(--sub);opacity:.55;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:400;flex:none}';(document.head||document.documentElement).appendChild(s)}catch(e){}})();
