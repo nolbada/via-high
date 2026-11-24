@@ -9,6 +9,35 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').repl
 function ls(k){try{return localStorage.getItem(k)}catch(e){return null}}
 function ss(k,v){try{localStorage.setItem(k,v)}catch(e){}}
 var man={};try{man=JSON.parse(ls('qc:'+D.tok)||'{}')||{}}catch(e){man={}}
+/* 261125 기기 간 이어하기: 도장 기록을 Firebase(stamp/학생코드)에도 저장해 폰·태블릿이 같은 기록을 본다.
+   도장마다 누른 시각을 같이 저장하고, 두 기기의 기록은 시각이 늦은 쪽이 이긴다(해제도 포함). 서버가 안 되면 예전처럼 이 기기에만 저장. */
+var TS={};try{TS=JSON.parse(ls('qt:'+D.tok)||'{}')||{}}catch(e){TS={}}
+(function(){for(var k in man){if(man[k]&&!TS[k])TS[k]=1}})();
+var FSU='https://firestore.googleapis.com/v1/projects/h-roadmap/databases/(default)/documents/stamp/'+D.tok,SYN=0,SYT=0,SYR=0;
+function saveLocal(){ss('qc:'+D.tok,JSON.stringify(man));ss('qt:'+D.tok,JSON.stringify(TS))}
+function applyTS(){var o={},k;for(k in TS){if(TS[k]>0)o[k]=1}man=o}
+function sync(){
+  if(SYN)return;SYN=1;
+  var done=function(retry){SYN=0;if(retry&&SYR<5){SYR++;setTimeout(sync,400+Math.random()*900)}else if(!retry){SYR=0}};
+  fetch(FSU).then(function(r){return r.status===404?{doc:null}:(r.ok?r.json().then(function(d){return {doc:d}}):null)}).then(function(x){
+    if(!x){done(false);return}
+    var rm={},ut=null;
+    if(x.doc){try{rm=JSON.parse(x.doc.fields.m.stringValue)||{}}catch(e){rm={}};ut=x.doc.updateTime}
+    var ch=false,k;
+    for(k in rm){if(Math.abs(rm[k])>Math.abs(TS[k]||0)){TS[k]=rm[k];ch=true}}
+    if(ch){applyTS();saveLocal();draw()}
+    var need=false;for(k in TS){if(Math.abs(rm[k]||0)<Math.abs(TS[k])){need=true;break}}
+    if(!need){done(false);return}
+    var body={fields:{m:{stringValue:JSON.stringify(TS)},t:{integerValue:String(Date.now())}}};
+    return fetch(FSU+(ut?'?currentDocument.updateTime='+encodeURIComponent(ut):'?currentDocument.exists=false'),{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){done(!r.ok&&r.status!==403)});
+  }).catch(function(){done(false)});
+}
+function syncSoon(){clearTimeout(SYT);SYT=setTimeout(sync,500)}
+function startSync(){
+  sync();
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')sync()});
+  setInterval(function(){if(document.visibilityState==='visible')sync()},45000);
+}
 function rowDone(r){return !!man[r.k]}
 function tileDone(t){return t.rows.every(rowDone)}
 function cntDone(t){return t.rows.filter(rowDone).length}
@@ -39,12 +68,14 @@ function draw(){
   Array.prototype.forEach.call(app.querySelectorAll('[data-g]'),function(b){b.onclick=function(){go(+b.getAttribute('data-g'))}});
   Array.prototype.forEach.call(app.querySelectorAll('.ck'),function(b){b.onclick=function(){
     var r=tl[cur].rows[+b.getAttribute('data-r')];
-    if(man[r.k])delete man[r.k];else man[r.k]=1;
-    ss('qc:'+D.tok,JSON.stringify(man));draw();
+    var nw=Date.now();if(nw<=Math.abs(TS[r.k]||0))nw=Math.abs(TS[r.k])+1;
+    if(man[r.k]){delete man[r.k];TS[r.k]=-nw}else{man[r.k]=1;TS[r.k]=nw}
+    saveLocal();draw();syncSoon();
   }});
   var el=document.getElementById('tl'),x0=0,y0=0;
   el.ontouchstart=function(e){x0=e.touches[0].clientX;y0=e.touches[0].clientY};
   el.ontouchend=function(e){var dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.5){go(cur+(dx<0?1:-1))}};
 }
 draw();
+startSync();
 })();
